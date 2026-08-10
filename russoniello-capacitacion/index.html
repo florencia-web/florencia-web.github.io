@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A. Russoniello × Popcorn · Capacitación en gestión de pauta digital</title>
+<meta name="description" content="Propuesta comercial de Popcorn para A. Russoniello (Jeep &amp; RAM) — plan de capacitación de 36 horas en gestión de pauta digital para el área de marketing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM · Propuesta 2 · Capacitación
+   ============================================================ */
+:root{
+  --violet-900:#250a4f; --violet-800:#34107a; --violet-700:#4a16a8;
+  --violet-600:#5a18cc; --violet-500:#6e28e8; --violet-glow:#7b34f0;
+  --cyan:#1fe8d8; --cyan-bright:#5cf4e8; --cyan-deep:#12b9ad;
+  --amber:#ffb648; --rose:#ff6f7d;
+  --ink:#0e0524; --white:#ffffff;
+  --w-80:rgba(255,255,255,.80); --w-65:rgba(255,255,255,.65); --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045); --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --maxw:1180px; --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violet-600);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+             radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+             linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+section{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:780px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+b,strong{color:#fff;font-weight:600}
+
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+#hero{justify-content:center}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-title{font-weight:700;font-size:clamp(2.7rem,7.4vw,6rem);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:680px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.pill-doc{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan-line);background:rgba(31,232,216,.08);padding:8px 16px;border-radius:100px;margin-bottom:26px}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+.metaband{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;margin-top:44px}
+.metaband>div{background:rgba(13,4,40,.42);padding:22px 24px}
+.metaband .k{font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.metaband .v{font-family:'Poppins';font-weight:600;font-size:.98rem;line-height:1.35}
+.metaband .v small{display:block;font-family:'Inter';font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px}
+
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card .metric{font-family:'Poppins';font-weight:700;font-size:2.1rem;line-height:1;color:var(--cyan);margin:4px 0 12px}
+
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.stats.sm .v{font-size:clamp(1.45rem,2.5vw,2rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.14em;margin-top:6px}
+
+/* módulos del temario */
+.mods{display:flex;flex-direction:column;gap:14px;margin-top:44px}
+.mod{display:grid;grid-template-columns:66px 1fr 96px;gap:24px;align-items:start;background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:26px 28px;transition:all .4s var(--ease)}
+.mod:hover{border-color:var(--cyan-line);background:rgba(255,255,255,.07);transform:translateX(5px)}
+.mod.hi{background:linear-gradient(140deg,rgba(31,232,216,.13),rgba(13,4,40,.38));border-color:var(--cyan-line)}
+.mod .mn{font-family:'Poppins';font-weight:700;font-size:1.6rem;color:rgba(31,232,216,.55);line-height:1}
+.mod.hi .mn{color:var(--cyan)}
+.mod h3{font-family:'Poppins';font-weight:600;font-size:1.12rem;margin-bottom:8px}
+.mod p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:74ch}
+.mod .hrs{font-family:'Poppins';font-weight:700;font-size:1.15rem;color:var(--cyan);text-align:right;white-space:nowrap;line-height:1}
+.mod .hrs small{display:block;font-weight:600;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);margin-top:6px}
+.mod .tagsline{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.mod .tagsline span{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--w-65);border:1px solid var(--line-soft);background:rgba(255,255,255,.04);border-radius:100px;padding:5px 11px}
+.hrs-total{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:14px;padding:22px 28px;border:1.5px solid var(--cyan-line);border-radius:18px;background:linear-gradient(120deg,rgba(31,232,216,.13),rgba(13,4,40,.4))}
+.hrs-total .l{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
+.hrs-total .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1}
+
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.scope-col .sub{font-size:.86rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 18px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Poppins';font-weight:700;font-size:12px;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:'Poppins';font-weight:600;font-size:1.02rem}
+.pipe .node p{font-size:.8rem;color:var(--w-45);margin-top:6px;line-height:1.4}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.6}
+
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,60px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.5) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.93),rgba(40,12,100,.6))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.35;letter-spacing:-.01em;max-width:28ch}
+
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.16rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.95rem;line-height:1.6;max-width:66ch}
+
+/* inversión */
+.paybox{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.pay{position:relative;cursor:pointer;user-select:none;background:var(--card);border:1.5px solid var(--line-soft);border-radius:20px;padding:30px 28px;transition:all .35s var(--ease)}
+.pay:hover{border-color:var(--cyan-line);transform:translateY(-4px)}
+.pay.sel{border-color:var(--cyan);background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.4));box-shadow:0 14px 40px rgba(31,232,216,.18)}
+.pay .badge-best{position:absolute;top:-11px;right:22px;font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));padding:6px 13px;border-radius:100px}
+.pay .pk{font-family:'Poppins';font-weight:600;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.pay .pnum{font-family:'Poppins';font-weight:700;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1;letter-spacing:-.02em}
+.pay .pnum .iva{font-size:.85rem;color:var(--w-45);font-weight:500;letter-spacing:0}
+.pay .pusd{font-family:'Poppins';font-weight:600;font-size:.84rem;color:var(--cyan);margin-top:9px}
+.pay .pdesc{font-size:.88rem;color:var(--w-65);line-height:1.55;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.pay .radio{position:absolute;top:26px;right:26px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.pay .radio::after{content:'';width:9px;height:9px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.pay.sel .radio{border-color:var(--cyan)}
+.pay.sel .radio::after{transform:scale(1)}
+.totalbar{margin-top:26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;background:linear-gradient(120deg,rgba(31,232,216,.14),rgba(13,4,40,.4));border:1.5px solid var(--cyan-line);border-radius:20px;padding:26px 30px}
+.totalbar .tk{font-family:'Poppins';font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.totalbar .tv{font-family:'Poppins';font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15;letter-spacing:-.02em}
+.totalbar .tv small{font-size:.8rem;color:var(--w-45);font-weight:500}
+.totalbar .tsub{font-size:.85rem;color:var(--w-65);margin-top:8px;max-width:46ch;line-height:1.5}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.86rem;color:var(--w-65);line-height:1.4}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+.callout{padding:22px 26px;border-left:3px solid var(--cyan);background:rgba(31,232,216,.06);border-radius:0 14px 14px 0}
+.callout p{color:var(--w-80);font-size:.98rem;line-height:1.65}
+.callout.warn{border-left-color:var(--amber);background:rgba(255,182,72,.07)}
+
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.06) brightness(.93)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.45),rgba(18,5,40,.22) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.55) contrast(1.05)}
+.bg-photo.hero img{object-position:58% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.96) 26%,rgba(74,18,168,.6) 62%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.74),rgba(18,5,40,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+.logowall{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:104px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:18px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:48px;max-width:84%;width:auto;object-fit:contain;display:block}
+.logocell .brandlogo.lg{max-height:60px;max-width:94%}
+.logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:.95rem;line-height:1.18;color:var(--violet-700)}
+.logocell.noimg .ln{display:block}
+
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,5vw,3.7rem);line-height:1.08;letter-spacing:-.02em;max-width:22ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:18px 44px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.05rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease;border:0;cursor:pointer}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:4px;min-height:1.3em;line-height:1.5}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px;width:100%}
+.step-c{background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:26px 22px;text-align:left;transition:all .4s var(--ease)}
+.step-c:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.step-c .sn{font-family:'Poppins';font-weight:700;font-size:2rem;color:rgba(31,232,216,.5);line-height:1;margin-bottom:12px}
+.step-c h4{font-family:'Poppins';font-weight:600;font-size:1.02rem;margin-bottom:7px}
+.step-c p{font-size:.88rem;color:var(--w-65);line-height:1.55}
+
+@media(max-width:980px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px;font-size:9px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .metaband{grid-template-columns:1fr 1fr}
+  .paybox{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .pipe{flex-direction:column}
+  .pipe .arrow{justify-content:center;transform:none}
+  .pipe .arrow svg{transform:rotate(90deg)}
+  .mod{grid-template-columns:1fr;gap:10px}
+  .mod .hrs{text-align:left}
+  .mod .hrs small{margin-top:2px}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+}
+@media(max-width:560px){
+  .metaband{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .stats{gap:20px 32px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta 2 de 3 · Capacitación</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Capacitación profesional en sala" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="pill-doc r">Propuesta 2 de 3 · Documento independiente</div>
+    <h1 class="hero-title r d1">Que el criterio quede <span class="cy">adentro.</span></h1>
+    <p class="hero-sub r d3">Plan de capacitación de 36 horas en gestión de pauta digital para el área de marketing de A. Russoniello. Ocho módulos, con práctica sobre la cuenta real de Jeep &amp; RAM.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">36 horas</span>
+      <span class="tag">8 módulos</span>
+      <span class="tag">Virtual o presencial</span>
+      <span class="tag">2 a 3 hs por semana</span>
+      <span class="tag">Manual de consulta incluido</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Deslizá para comenzar</div>
+</section>
+
+<!-- ============ 2 · EL DOCUMENTO ============ -->
+<section id="documento" data-label="La propuesta">
+  <div class="wrap">
+    <div class="eyebrow r">La propuesta</div>
+    <h2 class="h-lg r d1">Una cotización <span class="cy">independiente.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Esta capacitación se cotiza por separado y es <b>exclusiva para el área de marketing de A. Russoniello</b>. No está atada a la contratación de ningún otro servicio: se puede aprobar sola, sin auditoría y sin gestión de pauta.</p>
+
+    <div class="metaband r d3">
+      <div><div class="k">Preparada para</div><div class="v">Trinidad<small>Responsable de Marketing · A. Russoniello</small></div></div>
+      <div><div class="k">Preparada por</div><div class="v">Sol Ferrari<small>Gerente General · Popcorn</small></div></div>
+      <div><div class="k">Fecha</div><div class="v">Agosto 2026<small>Buenos Aires, Argentina</small></div></div>
+      <div><div class="k">Validez</div><div class="v">21/08/2026<small>Vigencia de los valores</small></div></div>
+      <div><div class="k">Contacto</div><div class="v">sol@somospopcorn.com</div></div>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:22px">
+      <div class="card">
+        <span class="num-tag">Propuesta 1 · documento aparte</span>
+        <h3>Auditoría + Pauta</h3>
+        <p>Diagnóstico técnico de las cuentas y del ecosistema digital, y gestión mensual de la inversión publicitaria.</p>
+      </div>
+      <div class="card" style="border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.10),rgba(13,4,40,.35))">
+        <span class="num-tag">Propuesta 2 · este documento</span>
+        <h3>Capacitación</h3>
+        <p>36 horas de formación en gestión de pauta digital, con casos prácticos sobre la cuenta real de Jeep &amp; RAM.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Propuesta 3 · documento aparte</span>
+        <h3>Producción audiovisual</h3>
+        <p>Jornada de microcápsulas de contenido: 40-50 fotos y 8-10 videos en una jornada de 4 horas.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cotización independiente · exclusiva para el área de marketing</span><span class="num">01 — La propuesta</span></div>
+</section>
+
+<!-- ============ 3 · POR QUÉ ============ -->
+<section id="porque" data-label="Por qué">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:44px">
+      <div class="col-img r d2"><div class="media"><img src="img/modalidad.jpg" alt="Equipo trabajando en una capacitación"></div></div>
+      <div>
+        <div class="eyebrow r">Por qué esta capacitación</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Detectar el problema ya es media <span class="cy">solución.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">En cinco meses en el puesto, el área de marketing identificó campañas mal configuradas, piezas sin adaptar a los formatos, un píxel que no estaba instalado y una segmentación geográfica que llegaba hasta Uruguay. Ese diagnóstico no es menor: es exactamente lo que hace un buen gestor de pauta.</p>
+      </div>
+    </div>
+
+    <p class="lead r d3" style="max-width:none;margin-bottom:36px">Lo que falta no es criterio. Es el <b>método y el vocabulario técnico</b> para pasar de detectar el problema a corregirlo, defenderlo con datos frente a la gerencia y sostenerlo mes a mes sin depender de nadie más.</p>
+
+    <div class="grid g3 r d4">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/></svg></div>
+        <h3>Autonomía real</h3>
+        <p>Que el área pueda configurar, corregir y optimizar campañas sin depender de una agencia externa para cada cambio.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Capacidad de auditar</h3>
+        <p>Poder revisar el trabajo de cualquier proveedor —hoy o en el futuro— y saber si lo que se está haciendo está bien hecho.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Defender los números</h3>
+        <p>Llevar a la gerencia un reporte que explique en qué se invirtió, qué se obtuvo y qué decisión se recomienda, con el lenguaje correcto.</p>
+      </div>
+    </div>
+
+    <div class="evo r d5" style="margin-top:48px">
+      <div class="evo-bg"><img src="img/aula.jpg" alt="Sala de capacitación preparada"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>El resultado que buscamos</div>
+      <blockquote>Que dentro de seis meses el área de marketing no necesite esta capacitación de nuevo.</blockquote>
+      <p class="muted" style="margin-top:22px;max-width:68ch;font-size:1rem;line-height:1.7">No enseñamos a seguir instrucciones: enseñamos a decidir. Cada módulo termina con una decisión concreta que el equipo tiene que poder tomar solo sobre la cuenta real de A. Russoniello.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Del diagnóstico correcto a la corrección autónoma</span><span class="num">02 — Por qué</span></div>
+</section>
+
+<!-- ============ 4 · OBJETIVOS ============ -->
+<section id="objetivos" data-label="Objetivos">
+  <div class="wrap">
+    <div class="eyebrow r">Objetivos de la capacitación</div>
+    <h2 class="h-lg r d1">Qué va a poder hacer el equipo al <span class="cy">terminar.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Los objetivos están escritos como capacidades verificables, no como temas vistos. Al cierre de las 36 horas, el área de marketing debería poder resolver cada uno de estos puntos por su cuenta.</p>
+
+    <div class="grid g2 r d3" style="margin-top:46px">
+      <div class="card"><span class="num-tag">Objetivo 01</span><h3>Estructurar una cuenta desde cero</h3><p>Definir campañas, conjuntos y anuncios con una lógica clara por línea de negocio: 0km por modelo, plan de ahorro, usados y posventa.</p></div>
+      <div class="card"><span class="num-tag">Objetivo 02</span><h3>Elegir el objetivo de campaña correcto</h3><p>Entender qué optimiza cada objetivo de Meta y de Google, y por qué elegir mal el objetivo arruina la campaña antes de empezar.</p></div>
+      <div class="card"><span class="num-tag">Objetivo 03</span><h3>Instalar y verificar la medición</h3><p>Píxel, eventos de conversión, etiquetas y verificación de que efectivamente están registrando lo que dicen registrar.</p></div>
+      <div class="card"><span class="num-tag">Objetivo 04</span><h3>Segmentar por área de influencia real</h3><p>Definir geografías, radios, exclusiones y públicos que correspondan a quien realmente puede comprar en el salón.</p></div>
+      <div class="card"><span class="num-tag">Objetivo 05</span><h3>Auditar y adaptar las piezas</h3><p>Revisar el material de fábrica, adaptarlo a cada formato y ubicación sin deformarlo, y saber qué mensaje funciona en cada etapa.</p></div>
+      <div class="card"><span class="num-tag">Objetivo 06</span><h3>Leer un reporte y decidir</h3><p>Interpretar las métricas que importan, distinguir señal de ruido y traducir el dato en una decisión: pausar, ajustar o escalar.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Capacidades verificables, no temas vistos</span><span class="num">03 — Objetivos</span></div>
+</section>
+
+<!-- ============ 5 · MODALIDAD ============ -->
+<section id="modalidad" data-label="Modalidad">
+  <div class="wrap">
+    <div class="eyebrow r">Modalidad y cadencia</div>
+    <h2 class="h-lg r d1">Se adapta al ritmo del <span class="cy">salón.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La capacitación se dicta en encuentros de 2 a 3 horas semanales, para que el equipo pueda cursar sin frenar su operación diaria. La elección entre virtual y presencial la define A. Russoniello.</p>
+
+    <div class="grid g2 r d3" style="margin-top:46px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Modalidad virtual</h3>
+        <p>Encuentros en vivo por videollamada, con pantalla compartida sobre las plataformas reales. Permite sumar participantes de la sucursal de Junín sin costo de traslado y facilita reprogramar si se cruza con una acción comercial.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Modalidad presencial</h3>
+        <p>Encuentros en las oficinas de A. Russoniello. Mayor foco y mejor dinámica para los módulos de trabajo práctico. Requiere sala con proyector o pantalla y una computadora por participante.</p>
+      </div>
+    </div>
+
+    <div class="grid g4 r d4" style="margin-top:20px">
+      <div class="card"><span class="num-tag">Carga</span><div class="metric">36 hs</div><h3>Totales</h3><p>Distribuidas en 8 módulos temáticos.</p></div>
+      <div class="card"><span class="num-tag">Cadencia</span><div class="metric">2-3 hs</div><h3>Por semana</h3><p>Un encuentro semanal, en día y horario fijo.</p></div>
+      <div class="card"><span class="num-tag">Duración</span><div class="metric">12-18</div><h3>Semanas</h3><p>12 semanas a 3 hs; 18 semanas a 2 hs.</p></div>
+      <div class="card"><span class="num-tag">Alcance</span><div class="metric">Marketing</div><h3>Área destinataria</h3><p>Exclusiva para el área de marketing de A. Russoniello.</p></div>
+    </div>
+
+    <div class="callout r d5" style="margin-top:30px">
+      <p><b>Cómo trabaja cada encuentro.</b> No son clases teóricas. Cada módulo abre con el concepto, sigue con demostración en vivo sobre las plataformas y cierra con un ejercicio práctico que el equipo resuelve sobre la cuenta real de A. Russoniello. Lo que se ve el martes se aplica el miércoles.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Virtual o presencial · 2 a 3 hs semanales · 12 a 18 semanas</span><span class="num">04 — Modalidad</span></div>
+</section>
+
+<!-- ============ 6 · TEMARIO ============ -->
+<section id="temario" data-label="Temario">
+  <div class="wrap">
+    <div class="eyebrow r">Temario</div>
+    <h2 class="h-lg r d1">Ocho módulos, <span class="cy">36 horas.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">El temario avanza de lo conceptual a lo operativo y termina aplicándolo todo sobre la cuenta real. La carga horaria por módulo es orientativa y puede reajustarse según el ritmo del grupo, manteniendo el total de 36 horas.</p>
+
+    <div class="mods r d3">
+      <div class="mod">
+        <div class="mn">01</div>
+        <div>
+          <h3>Fundamentos de marketing digital</h3>
+          <p>Cómo funciona el ecosistema digital y dónde se para la pauta dentro de él. Embudo de conversión aplicado a la venta de un 0km: de la primera búsqueda a la visita al salón. Diferencia entre captar demanda existente y generar demanda nueva. Qué se puede y qué no se puede pedirle a una campaña.</p>
+          <div class="tagsline"><span>Ecosistema digital</span><span>Embudo</span><span>Demanda vs. generación</span><span>Expectativas realistas</span></div>
+        </div>
+        <div class="hrs">4,5<small>Horas</small></div>
+      </div>
+      <div class="mod">
+        <div class="mn">02</div>
+        <div>
+          <h3>Meta Ads Manager</h3>
+          <p>Estructura de cuenta: campañas, conjuntos y anuncios. Objetivos disponibles y qué optimiza cada uno. Presupuestos, pujas y fase de aprendizaje. Ubicaciones y formatos. Configuración de campañas de mensajes, formularios y tráfico. Errores frecuentes que encarecen la cuenta.</p>
+          <div class="tagsline"><span>Estructura</span><span>Objetivos</span><span>Presupuestos y pujas</span><span>Ubicaciones</span><span>Formularios</span></div>
+        </div>
+        <div class="hrs">5,5<small>Horas</small></div>
+      </div>
+      <div class="mod">
+        <div class="mn">03</div>
+        <div>
+          <h3>Google Ads</h3>
+          <p>Search y la lógica de la intención de compra. Investigación y selección de palabras clave para el rubro automotor. Concordancias y palabras clave negativas. Nivel de calidad y su impacto directo en el costo por clic. Campañas de Performance Max y Demand Gen. Extensiones y anuncios adaptables.</p>
+          <div class="tagsline"><span>Search</span><span>Palabras clave</span><span>Concordancias</span><span>Nivel de calidad</span><span>PMax</span></div>
+        </div>
+        <div class="hrs">5,5<small>Horas</small></div>
+      </div>
+      <div class="mod">
+        <div class="mn">04</div>
+        <div>
+          <h3>Tracking y medición</h3>
+          <p>Qué es el píxel de Meta y por qué sin él la campaña vuela a ciegas. Instalación, eventos estándar y personalizados, API de Conversiones. Etiquetas de Google Ads y GA4. Gestor de etiquetas. Verificación de que los eventos disparan de verdad. Atribución: por qué las plataformas nunca coinciden entre sí.</p>
+          <div class="tagsline"><span>Píxel de Meta</span><span>Eventos</span><span>API de Conversiones</span><span>GA4</span><span>Atribución</span></div>
+        </div>
+        <div class="hrs">4,5<small>Horas</small></div>
+      </div>
+      <div class="mod">
+        <div class="mn">05</div>
+        <div>
+          <h3>Segmentación</h3>
+          <p>Segmentación geográfica y área de influencia real de cada salón: radios, inclusiones y exclusiones. Demografía e intereses: cuándo suman y cuándo estorban. Públicos personalizados a partir de tráfico web, base de clientes e interacción. Públicos similares. Estrategia de remarketing por etapa del embudo.</p>
+          <div class="tagsline"><span>Geografía</span><span>Exclusiones</span><span>Públicos personalizados</span><span>Similares</span><span>Remarketing</span></div>
+        </div>
+        <div class="hrs">4<small>Horas</small></div>
+      </div>
+      <div class="mod">
+        <div class="mn">06</div>
+        <div>
+          <h3>Curaduría de piezas</h3>
+          <p>Cómo tomar el material de fábrica y adaptarlo a cada formato sin deformarlo: relaciones de aspecto, zonas seguras, recortes y legibilidad en móvil. Jerarquía del mensaje según etapa del embudo. Qué diferencia a una pieza de marca de una pieza de performance. Cumplimiento de los lineamientos de la marca.</p>
+          <div class="tagsline"><span>Formatos y relaciones de aspecto</span><span>Zonas seguras</span><span>Mensaje</span><span>Lineamientos de marca</span></div>
+        </div>
+        <div class="hrs">4<small>Horas</small></div>
+      </div>
+      <div class="mod">
+        <div class="mn">07</div>
+        <div>
+          <h3>Lectura de reportes y KPIs</h3>
+          <p>Qué métrica mirar y cuál ignorar. Alcance, frecuencia, CTR, CPC, costo por lead, tasa de conversión y costo por venta. Cómo detectar fatiga creativa y saturación de público. Cómo armar un reporte mensual con lectura de negocio para presentar a la gerencia. Cuándo un dato alcanza para tomar una decisión y cuándo no.</p>
+          <div class="tagsline"><span>KPIs</span><span>Costo por venta</span><span>Fatiga creativa</span><span>Reporte gerencial</span><span>Significancia</span></div>
+        </div>
+        <div class="hrs">4<small>Horas</small></div>
+      </div>
+      <div class="mod hi">
+        <div class="mn">08</div>
+        <div>
+          <h3>Casos prácticos sobre la cuenta real de Jeep &amp; RAM</h3>
+          <p>El módulo donde se junta todo. Trabajamos sobre la cuenta real de A. Russoniello: revisión de las campañas activas, corrección de la segmentación geográfica, verificación del estado del píxel, rearmado de una campaña de punta a punta y lectura conjunta del reporte del período. <b>Se sale del módulo con cambios efectivamente aplicados en la cuenta</b>, no con un ejercicio de práctica.</p>
+          <div class="tagsline"><span>Cuenta real</span><span>Campaña armada de cero</span><span>Correcciones aplicadas</span><span>Lectura conjunta</span></div>
+        </div>
+        <div class="hrs">4<small>Horas</small></div>
+      </div>
+    </div>
+
+    <div class="hrs-total r d4">
+      <div class="l">Carga horaria total</div>
+      <div class="v">36 horas <span style="font-size:.9rem;color:var(--w-45);font-weight:500">· 8 módulos</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>De los fundamentos a la cuenta real</span><span class="num">05 — Temario</span></div>
+</section>
+
+<!-- ============ 7 · ENTREGABLE ============ -->
+<section id="entregable" data-label="Entregable">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">El entregable</div>
+        <h2 class="h-lg r d1">Un manual que <span class="cy">queda.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Al finalizar cada módulo, el equipo recibe la documentación de lo trabajado. Al cierre de la capacitación queda un <b>manual de consulta completo</b>, propio de A. Russoniello, que sirve para repasar, para consultar ante una duda puntual y para incorporar a alguien nuevo al área sin volver a empezar de cero.</p>
+        <ul class="bullets" style="margin-top:30px">
+          <li><span class="bi">1</span><p><b>Un capítulo por módulo</b> con los conceptos, las definiciones y el vocabulario técnico correspondiente.</p></li>
+          <li><span class="bi">2</span><p><b>Procedimientos paso a paso</b> con capturas de las plataformas: cómo instalar el píxel, cómo crear un público, cómo armar una campaña.</p></li>
+          <li><span class="bi">3</span><p><b>Checklists operativos</b> para el día a día: qué revisar antes de publicar, qué revisar cada semana, qué revisar cada mes.</p></li>
+          <li><span class="bi">4</span><p><b>Los ejercicios resueltos</b> sobre la cuenta real, con las decisiones tomadas y su fundamento.</p></li>
+        </ul>
+        <p style="margin-top:26px"><span class="note-pill">Formato digital · <b>propiedad de A. Russoniello</b> · reutilizable para futuras incorporaciones</span></p>
+      </div>
+      <div class="col-img r d3"><div class="media tall"><img src="img/manual.jpg" alt="Documentación de trabajo" style="object-position:center 40%"><div class="cap"><div class="quote" style="font-size:1.02rem">El conocimiento que se va con la persona no es una capacitación: es un gasto. Por eso todo queda documentado.</div></div></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Documentación por módulo + manual de consulta final</span><span class="num">06 — Entregable</span></div>
+</section>
+
+<!-- ============ 8 · CRONOGRAMA ============ -->
+<section id="cronograma" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma estimado</div>
+    <h2 class="h-lg r d1">Cómo se distribuyen las <span class="cy">36 horas.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Cronograma de referencia con cadencia de 3 horas semanales, que completa el programa en 12 semanas. Con 2 horas semanales, el mismo recorrido se extiende a 18 semanas.</p>
+
+    <div class="pipe r d3" style="margin-top:44px">
+      <div class="node"><span class="k">Bloque 1</span><span class="t">Fundamentos</span><p>Módulo 1 · 4,5 hs</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Bloque 2</span><span class="t">Plataformas</span><p>Módulos 2 y 3 · 11 hs</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Bloque 3</span><span class="t">Medición y públicos</span><p>Módulos 4 y 5 · 8,5 hs</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Bloque 4</span><span class="t">Creatividad y lectura</span><p>Módulos 6 y 7 · 8 hs</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Bloque 5</span><span class="t">Cuenta real</span><p>Módulo 8 · 4 hs</p></div>
+    </div>
+
+    <div class="tl r d4">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semana 0 · Antes de empezar</div>
+        <h3>Reunión de encuadre</h3>
+        <p>Definición de modalidad, día y horario fijo, cantidad de participantes y nivel de partida de cada uno. Ajuste fino del temario según lo que el equipo ya maneja, para no perder horas en lo conocido.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 1 y 2</div>
+        <h3>Fundamentos de marketing digital</h3>
+        <p>Módulo 1. Marco conceptual, embudo aplicado a la venta de un 0km y expectativas realistas sobre lo que puede lograr la pauta.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 3 a 6</div>
+        <h3>Meta Ads Manager y Google Ads</h3>
+        <p>Módulos 2 y 3. Las dos plataformas donde hoy está la inversión, en profundidad y con manos sobre la herramienta.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 7 a 9</div>
+        <h3>Tracking, medición y segmentación</h3>
+        <p>Módulos 4 y 5. El bloque más técnico y el que resuelve el problema de fondo detectado en la cuenta actual.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 10 y 11</div>
+        <h3>Curaduría de piezas y lectura de reportes</h3>
+        <p>Módulos 6 y 7. Cómo se adapta el material de fábrica y cómo se arma el reporte mensual para la gerencia.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semana 12 · Cierre</div>
+        <h3>Casos prácticos y entrega del manual</h3>
+        <p>Módulo 8 sobre la cuenta real de Jeep &amp; RAM, con cambios aplicados en vivo. Entrega del manual de consulta completo y cierre del programa.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>12 semanas a 3 hs · 18 semanas a 2 hs</span><span class="num">07 — Cronograma</span></div>
+</section>
+
+<!-- ============ 9 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1">Qué incluye y qué <span class="cy">no.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Para que no queden zonas grises al momento de la aprobación.</p>
+
+    <div class="scope r d3" style="margin-top:46px">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <p class="sub">Dentro del valor cotizado</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>36 horas de capacitación en vivo, distribuidas en 8 módulos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Modalidad a elección: virtual o presencial en oficinas de A. Russoniello</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Reunión de encuadre previa para ajustar el temario al nivel del grupo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Documentación de cada módulo y manual de consulta final</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Ejercicios prácticos sobre la cuenta real de Jeep &amp; RAM</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Consultas por escrito entre encuentros, durante todo el programa</li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <p class="sub">Se cotiza aparte o lo aporta A. Russoniello</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Gestión de las campañas por parte de Popcorn <span style="color:var(--cyan)">(ver Propuesta 1)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Auditoría formal de las cuentas con informe técnico <span style="color:var(--cyan)">(ver Propuesta 1)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Producción de piezas gráficas o audiovisuales <span style="color:var(--cyan)">(ver Propuesta 3)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Inversión publicitaria en medios y licencias de herramientas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Equipamiento: computadoras, sala, proyector y conectividad</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Certificaciones oficiales de Meta o de Google</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:30px">
+      <p><b>Sobre el acceso a la cuenta real.</b> El módulo 8 y varios ejercicios trabajan sobre las campañas activas de A. Russoniello. Para eso se necesita acceso a Meta Business y Google Ads durante los encuentros. El acceso lo conserva y lo administra el equipo interno: Popcorn trabaja acompañando en pantalla, no ejecutando por su cuenta.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Capacitación, no gestión: el equipo ejecuta, nosotros formamos</span><span class="num">08 — Alcance</span></div>
+</section>
+
+<!-- ============ 10 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Un solo pago, dos formas de <span class="cy">hacerlo.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La capacitación es un <b>proyecto de única vez</b>. Valores en pesos argentinos, <b>sin IVA</b>.</p>
+
+    <div class="r d3" style="margin-top:48px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--cyan-line);padding-bottom:10px">
+        <span style="font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)">Proyecto único · elegí la forma de pago</span>
+        <span style="font-family:'Poppins';font-weight:700;font-size:1rem">Plan de capacitación en gestión de pauta digital · 36 horas</span>
+      </div>
+      <div class="paybox">
+        <div class="pay sel" data-pay="A" data-label="100% anticipado" data-amount="1890000">
+          <span class="badge-best">Valor preferencial</span>
+          <span class="radio"></span>
+          <div class="pk">Opción A · 100% anticipado</div>
+          <div class="pnum">$1.890.000<span class="iva"> + IVA</span></div>
+          <div class="pdesc">Un único pago al momento de aprobar la propuesta, antes del primer encuentro. Es la opción <b>más económica</b>: el pago anticipado tiene un valor preferencial.</div>
+        </div>
+        <div class="pay" data-pay="B" data-label="50% / 50%" data-amount="1950000">
+          <span class="radio"></span>
+          <div class="pk">Opción B · 50% + 50%</div>
+          <div class="pnum">$1.950.000<span class="iva"> + IVA</span></div>
+          <div class="pdesc"><b>2 pagos de $975.000 + IVA.</b> El primero al inicio del programa y el segundo al finalizar o a los 30 días de iniciado, lo que ocurra primero.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="totalbar r d4">
+      <div>
+        <div class="tk">Selección actual</div>
+        <div class="tv" id="totLine">—</div>
+        <div class="tsub" id="totSub">Elegí la forma de pago para incluirla en el correo de aprobación.</div>
+      </div>
+      <div style="text-align:right">
+        <div class="tk">Costo por hora de formación</div>
+        <div class="tv" id="hourLine" style="font-size:1.4rem">—<small style="display:block;margin-top:6px">Sobre 36 horas de capacitación en vivo</small></div>
+      </div>
+    </div>
+
+    <div class="grid g2 r d5" style="margin-top:26px">
+      <div class="callout">
+        <p><b>Por qué conviene mirarlo por hora.</b> La cotización cubre 36 horas de trabajo en vivo con un especialista, más la preparación de cada módulo, los ejercicios sobre la cuenta real y el manual final. Visto por hora, el valor es comparable al de una consultoría puntual, con la diferencia de que acá <b>el conocimiento queda dentro de la empresa</b> y no se va cuando termina el proyecto.</p>
+      </div>
+      <div class="callout">
+        <p><b>Es una cotización independiente.</b> Este valor no está condicionado a la contratación de la auditoría ni de la gestión mensual de pauta, y tampoco las reemplaza. Si A. Russoniello decide avanzar con más de una propuesta, se coordinan los cronogramas para que la capacitación y la gestión no se superpongan sobre la misma cuenta.</p>
+      </div>
+    </div>
+
+    <p class="r d6" style="margin-top:24px"><span class="note-pill">Todos los valores se expresan <b>sin IVA</b> · la facturación se realiza en <b>pesos argentinos</b></span></p>
+  </div>
+  <div class="sfoot"><span>Proyecto de única vez · dos formas de pago</span><span class="num">09 — Inversión</span></div>
+</section>
+
+<!-- ============ 11 · CONDICIONES ============ -->
+<section id="condiciones" data-label="Condiciones">
+  <div class="wrap">
+    <div class="eyebrow r">Condiciones comerciales</div>
+    <h2 class="h-lg r d1">Todo por <span class="cy">escrito.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Sin letra chica ni sorpresas al momento de facturar.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card"><span class="num-tag">01 · Validez</span><h3>Hasta el 21 de agosto</h3><p>Los valores rigen hasta el <b>21 de agosto de 2026</b>. Pasada esa fecha se revisan por variación de costos.</p></div>
+      <div class="card"><span class="num-tag">02 · Formas de pago</span><h3>Dos opciones</h3><p>100% anticipado con valor preferencial, o 50% al inicio y 50% al finalizar el programa o a los 30 días de iniciado, lo que ocurra primero.</p></div>
+      <div class="card"><span class="num-tag">03 · Impuestos</span><h3>Valores sin IVA</h3><p>Todos los montos se expresan <b>sin IVA</b>. El impuesto se adiciona en la factura según la condición fiscal vigente.</p></div>
+      <div class="card"><span class="num-tag">04 · Destinatario</span><h3>Área de marketing</h3><p>La capacitación es exclusiva para el área de marketing de A. Russoniello. La incorporación de participantes de otras áreas se acuerda previamente.</p></div>
+      <div class="card"><span class="num-tag">05 · Reprogramaciones</span><h3>Con 48 horas de aviso</h3><p>Los encuentros pueden reprogramarse avisando con al menos 48 horas de anticipación, sin costo adicional y dentro del cronograma pactado.</p></div>
+      <div class="card"><span class="num-tag">06 · Materiales</span><h3>Propiedad del cliente</h3><p>La documentación y el manual final quedan en propiedad de A. Russoniello para uso interno. No se autoriza su comercialización ni su distribución a terceros.</p></div>
+      <div class="card"><span class="num-tag">07 · Modalidad</span><h3>Se define al aprobar</h3><p>Virtual o presencial, a elección de A. Russoniello. En caso de modalidad presencial, el traslado dentro del AMBA está incluido.</p></div>
+      <div class="card"><span class="num-tag">08 · Confidencialidad</span><h3>Documento reservado</h3><p>Esta propuesta es de uso exclusivo de A. Russoniello. Los datos de la cuenta que se trabajen durante la capacitación no se comparten con terceros.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Validez hasta el 21/08/2026 · valores sin IVA · modalidad a elección</span><span class="num">10 — Condiciones</span></div>
+</section>
+
+<!-- ============ 12 · CIERRE ============ -->
+<section id="cierre" data-label="Próximos pasos">
+  <div class="bg-photo center"><img src="img/cierre.jpg" alt="Capacitación en curso"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Próximos pasos</div>
+    <h2 class="close-title r d1">La mejor inversión en pauta<br>es un equipo que <span class="cy">sepa leerla.</span></h2>
+    <p class="lead r d2" style="margin:26px auto 0;text-align:center">36 horas, 8 módulos y un manual que queda. Al terminar, el área de marketing va a poder configurar, corregir, auditar y defender cada peso invertido.</p>
+
+    <div class="steps r d3">
+      <div class="step-c"><div class="sn">01</div><h4>Aprobación</h4><p>Confirmás la propuesta y la forma de pago desde el botón de abajo.</p></div>
+      <div class="step-c"><div class="sn">02</div><h4>Encuadre</h4><p>Reunión para definir modalidad, día fijo, participantes y nivel de partida.</p></div>
+      <div class="step-c"><div class="sn">03</div><h4>Cursada</h4><p>12 a 18 semanas de encuentros, según la cadencia elegida.</p></div>
+      <div class="step-c"><div class="sn">04</div><h4>Cierre</h4><p>Módulo sobre la cuenta real y entrega del manual de consulta.</p></div>
+    </div>
+
+    <div class="r d4" style="text-align:center;margin-top:12px">
+      <p id="ctaPick"></p>
+      <button class="cta-go" id="ctaGo" type="button">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <div class="close-sign r d5">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">Agencia integral de marketing y publicidad digital</span>
+      <span style="font-size:.86rem;color:var(--w-45);margin-top:8px;text-align:center;line-height:1.6">Sol Ferrari · Gerente General · sol@somospopcorn.com<br>Propuesta 2 de 3 · Agosto 2026 · válida hasta el 21/08/2026</span>
+      <span style="font-size:.74rem;color:var(--w-45);margin-top:14px;text-align:center;max-width:60ch;line-height:1.6">Las fotografías de este documento son ilustrativas, de banco de imágenes de uso libre, y no corresponden a instalaciones ni a personal de A. Russoniello.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · somospopcorn.com</span><span class="num">11 — Cierre</span></div>
+</section>
+
+<script>
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?scrollY/h*100:0)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.scale-in').forEach(el=>io.observe(el));
+
+const active=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));}});
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== selector de forma de pago + mailto ===== */
+(function(){
+  const pays=[...document.querySelectorAll('.pay')];
+  const totLine=document.getElementById('totLine');
+  const totSub=document.getElementById('totSub');
+  const hourLine=document.getElementById('hourLine');
+  const ctaPick=document.getElementById('ctaPick');
+  const ctaGo=document.getElementById('ctaGo');
+  const ars=n=>'$'+Number(n).toLocaleString('es-AR');
+  const arsD=n=>'$'+Number(n).toLocaleString('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2});
+  function selPay(){return pays.find(p=>p.classList.contains('sel'));}
+
+  function render(){
+    const p=selPay();
+    if(!p){totLine.textContent='—';hourLine.innerHTML='—';ctaPick.innerHTML='<span class="none">Elegí la forma de pago para incluirla en el correo.</span>';return;}
+    const amt=Number(p.dataset.amount);
+    totLine.innerHTML = ars(amt)+' + IVA <small>('+p.dataset.label+')</small>';
+    totSub.textContent = p.dataset.pay==='A'
+      ? 'Un único pago al aprobar la propuesta, antes del primer encuentro.'
+      : 'Dos pagos de '+ars(amt/2)+' + IVA: al inicio y al finalizar o a los 30 días de iniciado, lo que ocurra primero.';
+    hourLine.innerHTML = arsD(amt/36)+' + IVA<small style="display:block;margin-top:6px">Sobre 36 horas de capacitación en vivo</small>';
+    ctaPick.innerHTML = 'Avanzás con: <b>Capacitación 36 hs · '+p.dataset.label+' · '+ars(amt)+' + IVA</b>';
+  }
+
+  function mail(){
+    const p=selPay();
+    let subject='A. Russoniello · Aprobamos la propuesta de capacitación';
+    let body='Hola Sol,\n\nVimos la propuesta de capacitación en gestión de pauta digital para el área de marketing de A. Russoniello (Jeep & RAM) y queremos avanzar.\n';
+    if(p){
+      const amt=Number(p.dataset.amount);
+      body+='\nPLAN DE CAPACITACIÓN · 36 HORAS · 8 MÓDULOS\n';
+      body+='• Forma de pago elegida: '+p.dataset.label+'\n';
+      body+='• Inversión: '+ars(amt)+' + IVA\n';
+      if(p.dataset.pay==='B'){body+='• 2 pagos de '+ars(amt/2)+' + IVA (al inicio y al finalizar o a los 30 días de iniciado, lo que ocurra primero)\n';}
+      body+='\nModalidad preferida (completar): virtual / presencial\nCantidad de participantes (completar):\nDía y horario preferido (completar):\n';
+    }
+    body+='\nQuedamos a la espera para coordinar la reunión de encuadre.\n\nSaludos,\nTrinidad — Marketing, A. Russoniello';
+    location.href='mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  }
+
+  pays.forEach(p=>p.addEventListener('click',()=>{pays.forEach(x=>x.classList.remove('sel'));p.classList.add('sel');render();}));
+  ctaGo.addEventListener('click',mail);
+  render();
+})();
+</script>
+</body>
+</html>
