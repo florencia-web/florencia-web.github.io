@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A. Russoniello × Popcorn · Auditoría publicitaria y gestión de pauta</title>
+<meta name="description" content="Propuesta comercial de Popcorn para A. Russoniello (Jeep &amp; RAM) — auditoría de cuentas publicitarias y ecosistema digital + gestión mensual de pauta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM · Propuesta 1 · Auditoría + Pauta
+   Violeta eléctrico + cian · Poppins / Inter
+   ============================================================ */
+:root{
+  --violet-900:#250a4f; --violet-800:#34107a; --violet-700:#4a16a8;
+  --violet-600:#5a18cc; --violet-500:#6e28e8; --violet-glow:#7b34f0;
+  --cyan:#1fe8d8; --cyan-bright:#5cf4e8; --cyan-deep:#12b9ad;
+  --amber:#ffb648; --rose:#ff6f7d;
+  --ink:#0e0524; --white:#ffffff;
+  --w-80:rgba(255,255,255,.80); --w-65:rgba(255,255,255,.65); --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045); --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --maxw:1180px; --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violet-600);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+             radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+             linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ---------- topbar ---------- */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* ---------- progreso + dots ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ---------- secciones ---------- */
+section{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:780px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+b,strong{color:#fff;font-weight:600}
+
+/* ---------- reveal ---------- */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+/* ---------- hero ---------- */
+#hero{justify-content:center}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-title{font-weight:700;font-size:clamp(2.7rem,7.4vw,6rem);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:680px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.pill-doc{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan-line);background:rgba(31,232,216,.08);padding:8px 16px;border-radius:100px;margin-bottom:26px}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ---------- meta band ---------- */
+.metaband{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;margin-top:44px}
+.metaband>div{background:rgba(13,4,40,.42);padding:22px 24px}
+.metaband .k{font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.metaband .v{font-family:'Poppins';font-weight:600;font-size:.98rem;line-height:1.35}
+.metaband .v small{display:block;font-family:'Inter';font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card.warn{border-color:rgba(255,111,125,.3);background:linear-gradient(160deg,rgba(255,111,125,.09),rgba(13,4,40,.35))}
+.card.warn .num-tag{color:var(--rose)}
+.card .metric{font-family:'Poppins';font-weight:700;font-size:2.1rem;line-height:1;color:var(--cyan);margin:4px 0 12px}
+.card.warn .metric{color:var(--rose)}
+
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.stats.sm{gap:14px 44px}
+.stats.sm .v{font-size:clamp(1.45rem,2.5vw,2rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.14em;margin-top:6px}
+
+/* ---------- barras de score ---------- */
+.score-wrap{display:grid;grid-template-columns:260px 1fr;gap:44px;align-items:center;margin-top:46px}
+.score-card{background:linear-gradient(160deg,rgba(255,111,125,.16),rgba(13,4,40,.45));border:1.5px solid rgba(255,111,125,.35);border-radius:24px;padding:34px 28px;text-align:center}
+.score-card .sv{font-family:'Poppins';font-weight:700;font-size:4.6rem;line-height:1;color:var(--rose)}
+.score-card .sv small{font-size:1.3rem;color:var(--w-45);font-weight:500}
+.score-card .sl{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:12px}
+.score-card .sd{font-size:.85rem;color:var(--w-45);margin-top:14px;line-height:1.5}
+.dims{display:flex;flex-direction:column;gap:20px}
+.dim .dh{display:flex;justify-content:space-between;align-items:baseline;font-family:'Poppins';font-weight:600;font-size:.95rem;margin-bottom:8px}
+.dim .dh span:last-child{color:var(--cyan);font-variant-numeric:tabular-nums}
+.dim .dh span.bad{color:var(--rose)}
+.dim .bar{height:8px;border-radius:8px;background:rgba(255,255,255,.09);overflow:hidden}
+.dim .fill{height:100%;border-radius:8px;width:0;transition:width 1.2s var(--ease) .2s;background:linear-gradient(90deg,var(--cyan-deep),var(--cyan))}
+.dim .fill.bad{background:linear-gradient(90deg,#c9455a,var(--rose))}
+.dim .fill.mid{background:linear-gradient(90deg,#c98b2a,var(--amber))}
+.dim p{font-size:.85rem;color:var(--w-45);margin-top:8px;line-height:1.5}
+
+/* ---------- pipe ---------- */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 18px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Poppins';font-weight:700;font-size:12px;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:'Poppins';font-weight:600;font-size:1.02rem}
+.pipe .node p{font-size:.8rem;color:var(--w-45);margin-top:6px;line-height:1.4}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.6}
+
+/* ---------- listas / alcance ---------- */
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.scope-col .sub{font-size:.86rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:block;position:relative;padding-left:31px;font-size:.97rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{position:absolute;left:0;top:3px;width:19px;height:19px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* ---------- módulos de alcance ---------- */
+.mods{display:flex;flex-direction:column;gap:14px;margin-top:44px}
+.mod{display:grid;grid-template-columns:66px 1fr;gap:24px;background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:26px 28px;transition:all .4s var(--ease)}
+.mod:hover{border-color:var(--cyan-line);background:rgba(255,255,255,.07);transform:translateX(5px)}
+.mod .mn{font-family:'Poppins';font-weight:700;font-size:1.6rem;color:rgba(31,232,216,.55);line-height:1}
+.mod h3{font-family:'Poppins';font-weight:600;font-size:1.12rem;margin-bottom:8px}
+.mod p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:76ch}
+.mod .tagsline{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.mod .tagsline span{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--w-65);border:1px solid var(--line-soft);background:rgba(255,255,255,.04);border-radius:100px;padding:5px 11px}
+
+/* ---------- evo band ---------- */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,60px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.5) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.93),rgba(40,12,100,.6))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.35;letter-spacing:-.01em;max-width:28ch}
+.evo .evo-stats{display:flex;flex-wrap:wrap;gap:14px 50px;margin-top:34px}
+.evo .evo-stats .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--cyan);line-height:1}
+.evo .evo-stats .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65);margin-top:6px;max-width:22ch}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.16rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.95rem;line-height:1.6;max-width:66ch}
+
+/* ---------- tablas ---------- */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line-soft);border-radius:18px;background:var(--card)}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px}
+.tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:15px 18px;font-size:.92rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Poppins';font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:'Poppins';font-weight:600;color:#fff;white-space:nowrap}
+.tbl .obj{color:var(--w-45);font-size:.84rem;line-height:1.45;min-width:200px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.hi td{background:rgba(31,232,216,.07)}
+.tbl tr.hi td.num{color:var(--cyan);font-weight:600}
+.tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(31,232,216,.09);font-family:'Poppins';font-weight:700;color:#fff}
+.tbl tr.total td.num{color:var(--cyan)}
+.tbl tr.total td:first-child{letter-spacing:.03em}
+
+/* ---------- inversión ---------- */
+.paybox{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.pay{position:relative;cursor:pointer;user-select:none;background:var(--card);border:1.5px solid var(--line-soft);border-radius:20px;padding:30px 28px;transition:all .35s var(--ease)}
+.pay:hover{border-color:var(--cyan-line);transform:translateY(-4px)}
+.pay.sel{border-color:var(--cyan);background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.4));box-shadow:0 14px 40px rgba(31,232,216,.18)}
+.pay .badge-best{position:absolute;top:-11px;right:22px;font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));padding:6px 13px;border-radius:100px}
+.pay .pk{font-family:'Poppins';font-weight:600;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.pay .pnum{font-family:'Poppins';font-weight:700;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1;letter-spacing:-.02em}
+.pay .pnum .iva{font-size:.85rem;color:var(--w-45);font-weight:500;letter-spacing:0}
+.pay .pusd{font-family:'Poppins';font-weight:600;font-size:.84rem;color:var(--cyan);margin-top:9px}
+.pay .pdesc{font-size:.88rem;color:var(--w-65);line-height:1.55;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.pay .radio{position:absolute;top:26px;right:26px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.pay .radio::after{content:'';width:9px;height:9px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.pay.sel .radio{border-color:var(--cyan)}
+.pay.sel .radio::after{transform:scale(1)}
+.svcbox{margin-top:34px;background:var(--card);border:1px solid var(--line-soft);border-radius:20px;overflow:hidden}
+.svc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:22px 28px;border-bottom:1px solid var(--line-soft)}
+.svc-head .t{font-family:'Poppins';font-weight:700;font-size:1.12rem}
+.svc-head .t small{display:block;font-family:'Inter';font-weight:400;font-size:.83rem;color:var(--w-45);margin-top:4px;max-width:60ch}
+.svc-head .v{font-family:'Poppins';font-weight:700;font-size:1.5rem;color:var(--cyan);white-space:nowrap}
+.svc-head .v .iva{font-size:.72rem;color:var(--w-45);font-weight:500}
+.svc-head .v small{display:block;font-family:'Poppins';font-weight:600;font-size:.76rem;color:var(--w-45);text-align:right;margin-top:5px}
+.svc-head .v small.varfee{color:var(--cyan);font-size:.74rem;letter-spacing:.01em;margin-top:7px;max-width:28ch;margin-left:auto;line-height:1.35;white-space:normal}
+.svc-toggle{display:flex;align-items:center;gap:12px;padding:18px 28px;cursor:pointer;user-select:none;font-family:'Poppins';font-weight:600;font-size:.9rem;color:var(--w-45);transition:color .3s}
+.svc-toggle .chk{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease);flex:none}
+.svc-toggle .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.svcbox.on .svc-toggle{color:var(--cyan)}
+.svcbox.on .svc-toggle .chk{background:var(--cyan);border-color:var(--cyan)}
+.svcbox.on .svc-toggle .chk svg{opacity:1;transform:scale(1)}
+.svcbox.on{border-color:var(--cyan-line)}
+.svc-toggle .lbl-on{display:none}
+.svcbox.on .svc-toggle .lbl-off{display:none}
+.svcbox.on .svc-toggle .lbl-on{display:inline}
+.totalbar{margin-top:26px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;background:linear-gradient(120deg,rgba(31,232,216,.14),rgba(13,4,40,.4));border:1.5px solid var(--cyan-line);border-radius:20px;padding:26px 30px}
+.totalbar .tk{font-family:'Poppins';font-weight:600;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.totalbar .tv{font-family:'Poppins';font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.15;letter-spacing:-.02em}
+.totalbar .tv small{font-size:.8rem;color:var(--w-45);font-weight:500}
+.totalbar .tsub{font-size:.85rem;color:var(--w-65);margin-top:8px;max-width:44ch;line-height:1.5}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.86rem;color:var(--w-65);line-height:1.4}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+.callout{padding:22px 26px;border-left:3px solid var(--cyan);background:rgba(31,232,216,.06);border-radius:0 14px 14px 0}
+.callout p{color:var(--w-80);font-size:.98rem;line-height:1.65}
+.callout.warn{border-left-color:var(--amber);background:rgba(255,182,72,.07)}
+
+/* ---------- escenarios ---------- */
+.scen{margin-top:24px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow:hidden}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:24px 28px;border-bottom:1px solid var(--line-soft)}
+.scen-head .st{font-family:'Poppins';font-weight:700;font-size:1.2rem;line-height:1.25}
+.scen-head .st small{display:block;font-family:'Inter';font-weight:400;font-size:.83rem;color:var(--w-45);margin-top:5px;max-width:62ch}
+.scen-head .si{font-family:'Poppins';font-weight:700;color:var(--cyan);font-size:1.2rem;white-space:nowrap}
+.scen .tbl-wrap{border:0;border-radius:0;background:transparent}
+.scen-mini{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap}
+.scen-mini>div{display:flex;flex-direction:column}
+.scen-mini b{font-family:'Poppins';font-weight:700;color:var(--cyan);font-size:1.12rem;line-height:1}
+.scen-mini span{font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--w-45);margin-top:5px}
+.scen-pick{cursor:pointer;user-select:none}
+.scen-pick .pick{display:flex;align-items:center;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:'Poppins';font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
+.scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.scen-pick .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.scen-pick.selected{border-color:var(--cyan);background:rgba(31,232,216,.08);box-shadow:0 0 0 1px var(--cyan) inset,0 14px 40px rgba(31,232,216,.18)}
+.scen-pick.selected .pick{color:var(--cyan)}
+.scen-pick.selected .pick .radio{border-color:var(--cyan)}
+.scen-pick.selected .pick .radio::after{transform:scale(1)}
+.scen-pick .pick .lbl-on{display:none}
+.scen-pick.selected .pick .lbl-off{display:none}
+.scen-pick.selected .pick .lbl-on{display:inline}
+.card.scen-pick{overflow:visible}
+.rec-tag{position:absolute;top:-11px;left:24px;z-index:3;font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));padding:6px 13px;border-radius:100px}
+
+/* ---------- reporting mock ---------- */
+.landing{display:grid;grid-template-columns:.92fr 1.08fr;gap:46px;align-items:center}
+.wf{background:rgba(13,4,40,.5);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:11px}
+.wf-bar{display:flex;gap:6px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);margin-bottom:4px;align-items:center}
+.wf-bar span:not(.wf-ttl){flex:none;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18)}
+.wf-bar .wf-ttl{margin-left:10px;min-width:0;flex:1;font-family:'Poppins';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.wf-kpi{background:rgba(255,255,255,.05);border:1px solid var(--line-soft);border-radius:9px;padding:13px 8px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.wf-kpi .kk{font-family:'Poppins';font-size:8px;line-height:1.1;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45)}
+.wf-kpi .kv{font-family:'Poppins';font-weight:700;font-size:.9rem;line-height:1;color:var(--cyan);white-space:nowrap}
+.wf-chart{height:120px;background:linear-gradient(180deg,rgba(31,232,216,.08),rgba(255,255,255,.02));border:1px solid var(--line-soft);border-radius:10px;display:flex;align-items:flex-end;gap:8px;padding:14px}
+.wf-chart i{flex:1;background:linear-gradient(180deg,var(--cyan),rgba(31,232,216,.25));border-radius:4px 4px 0 0;display:block}
+.wf-row{background:rgba(255,255,255,.05);border-radius:9px}
+.lp-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin:10px 0 24px}
+.lp-list li{display:block;position:relative;padding-left:32px;color:var(--w-80)}
+.lp-list li svg{position:absolute;left:0;top:3px;width:20px;height:20px;color:var(--cyan)}
+
+/* ---------- fotos ---------- */
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.06) brightness(.93)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.45),rgba(18,5,40,.22) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.55) contrast(1.05)}
+.bg-photo.hero img{object-position:60% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.96) 26%,rgba(74,18,168,.6) 62%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.74),rgba(18,5,40,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* ---------- logowall ---------- */
+.logowall{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:104px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:18px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:48px;max-width:84%;width:auto;object-fit:contain;display:block}
+.logocell .brandlogo.lg{max-height:60px;max-width:94%}
+.logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:.95rem;line-height:1.18;color:var(--violet-700)}
+.logocell.noimg .ln{display:block}
+
+/* ---------- cierre ---------- */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,5vw,3.7rem);line-height:1.08;letter-spacing:-.02em;max-width:22ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:18px 44px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.05rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease;border:0;cursor:pointer}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:4px;min-height:1.3em;line-height:1.5}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px;width:100%}
+.step-c{background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:26px 22px;text-align:left;transition:all .4s var(--ease)}
+.step-c:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.step-c .sn{font-family:'Poppins';font-weight:700;font-size:2rem;color:rgba(31,232,216,.5);line-height:1;margin-bottom:12px}
+.step-c h4{font-family:'Poppins';font-weight:600;font-size:1.02rem;margin-bottom:7px}
+.step-c p{font-size:.88rem;color:var(--w-65);line-height:1.55}
+
+/* ---------- responsive ---------- */
+@media(max-width:980px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px;font-size:9px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .metaband{grid-template-columns:1fr 1fr}
+  .score-wrap{grid-template-columns:1fr;gap:28px}
+  .paybox{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .landing{grid-template-columns:1fr;gap:30px}
+  .logowall{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .pipe{flex-direction:column}
+  .pipe .arrow{justify-content:center;transform:none}
+  .pipe .arrow svg{transform:rotate(90deg)}
+  .mod{grid-template-columns:1fr;gap:10px}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+}
+@media(max-width:560px){
+  .metaband{grid-template-columns:1fr}
+  .wf-kpis{grid-template-columns:repeat(2,1fr)}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .stats{gap:20px 32px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta 1 de 3 · Auditoría + Gestión de pauta</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Vehículo 4x4 en ruta" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="pill-doc r">Propuesta 1 de 3 · Documento independiente</div>
+    <h1 class="hero-title r d1">Dejar de comprar clics.<br>Empezar a comprar <span class="cy">ventas.</span></h1>
+    <p class="hero-sub r d3">Auditoría de las cuentas publicitarias y del ecosistema digital de A. Russoniello, y gestión mensual de la pauta con foco en leads que el equipo comercial pueda cerrar.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Auditoría Meta &amp; Google Ads</span>
+      <span class="tag">Tracking y medición</span>
+      <span class="tag">Calidad de leads</span>
+      <span class="tag">Gestión mensual de pauta</span>
+      <span class="tag">Reporting de negocio</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Deslizá para comenzar</div>
+</section>
+
+<!-- ============ 2 · CREDENCIALES DEL DOCUMENTO ============ -->
+<section id="documento" data-label="La propuesta">
+  <div class="wrap">
+    <div class="eyebrow r">La propuesta</div>
+    <h2 class="h-lg r d1">Una de tres propuestas <span class="cy">independientes.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">A. Russoniello nos planteó tres necesidades distintas, con responsables y decisiones distintas. Por eso las presentamos por separado: cada una se puede aprobar, postergar o descartar sin afectar a las otras. Este documento cubre <b>auditoría publicitaria y gestión de pauta</b>.</p>
+
+    <div class="metaband r d3">
+      <div><div class="k">Preparada para</div><div class="v">Trinidad<small>Responsable de Marketing · A. Russoniello</small></div></div>
+      <div><div class="k">Preparada por</div><div class="v">Sol Ferrari<small>Gerente General · Popcorn</small></div></div>
+      <div><div class="k">Fecha</div><div class="v">Agosto 2026<small>Buenos Aires, Argentina</small></div></div>
+      <div><div class="k">Validez</div><div class="v">21/08/2026<small>Vigencia de los valores</small></div></div>
+      <div><div class="k">Contacto</div><div class="v">sol@somospopcorn.com</div></div>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:22px">
+      <div class="card">
+        <span class="num-tag">Propuesta 1 · este documento</span>
+        <h3>Auditoría + Pauta</h3>
+        <p>Diagnóstico técnico de las cuentas y del ecosistema digital, y gestión mensual de la inversión publicitaria.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Propuesta 2 · documento aparte</span>
+        <h3>Capacitación</h3>
+        <p>Plan de formación de 36 horas en gestión de pauta digital para el área de marketing de A. Russoniello.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Propuesta 3 · documento aparte</span>
+        <h3>Producción audiovisual</h3>
+        <p>Jornada de microcápsulas de contenido: 40-50 fotos y 8-10 videos en una jornada de 4 horas.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Tres decisiones separadas, tres documentos separados</span><span class="num">01 — La propuesta</span></div>
+</section>
+
+<!-- ============ 3 · QUIÉNES SOMOS ============ -->
+<section id="popcorn" data-label="Quiénes somos">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Quiénes somos</div>
+        <h2 class="h-lg r d1">No vendemos pauta.<br>Vendemos <span class="cy">crecimiento.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Popcorn es una agencia integral de marketing, comunicación y publicidad digital que trabaja desde una mirada de negocio. En una concesionaria eso significa una sola cosa: el número que importa no es el costo por lead, es el costo por unidad patentada.</p>
+        <div class="stats sm r d3">
+          <div class="stat"><div class="v">+15</div><div class="l">Años acompañando marcas</div></div>
+          <div class="stat"><div class="v">360°</div><div class="l">Estrategia, pauta, contenido y audiovisual</div></div>
+          <div class="stat"><div class="v">B2B + B2C</div><div class="l">Decisiones de ticket alto y ciclo largo</div></div>
+        </div>
+      </div>
+      <div class="col-img r d2"><div class="media tall"><img src="img/showroom.jpg" alt="Salón de ventas de una concesionaria" style="object-position:center 45%"><div class="cap"><div class="quote" style="font-size:1.05rem">Un 0km se decide como se deciden los productos caros: con tiempo, comparando y desconfiando. La pauta tiene que acompañar ese proceso, no interrumpirlo.</div></div></div></div>
+    </div>
+
+    <div class="grid g4 r d4" style="margin-top:48px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Mirada de negocio</h3>
+        <p>Empezamos por el objetivo comercial —unidades vendidas, costo por venta— y desde ahí definimos las acciones.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Diagnóstico antes que acción</h3>
+        <p>Nunca proponemos campañas antes de entender qué está roto. Primero se mide, después se invierte.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Industria y ticket alto</h3>
+        <p>Trabajamos con marcas industriales, automotrices y de salud: productos técnicos, caros y de decisión lenta.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M8 16h5M8 8h8"/></svg></div>
+        <h3>Todo bajo un techo</h3>
+        <p>Pauta, contenido, audiovisual, web y capacitación. Sin coordinar cuatro proveedores distintos.</p>
+      </div>
+    </div>
+
+    <div class="logowall r d5">
+      <div class="logocell"><img class="brandlogo" src="img/logos/bosch.webp" alt="Bosch" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Bosch</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/cromosol.png" alt="Cromosol" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Cromosol</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/galicia.png" alt="Banco Galicia" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Banco Galicia</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/esab.png" alt="ESAB" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">ESAB</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/libus.png" alt="Libus" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Libus</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Hospital Austral</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Swiss Medical</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/logos/manlab.png" alt="ManLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">ManLab</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/losarc.svg" alt="Losarc" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Losarc</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/bolsaflex.svg" alt="Bolsaflex" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Bolsaflex</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Agencia integral de marketing y publicidad digital</span><span class="num">02 — Popcorn</span></div>
+</section>
+
+<!-- ============ 4 · CONTEXTO DE MERCADO ============ -->
+<section id="mercado" data-label="Contexto de mercado">
+  <div class="wrap">
+    <div class="eyebrow r">Contexto de mercado · información pública</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">El mercado se achica.<br>La competencia <span class="cy">no.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Antes de la reunión revisamos cómo viene el año en patentamientos. No es un dato de color: define cuánto vale cada lead que hoy se pierde por una campaña mal configurada.</p>
+
+    <div class="grid g4 r d3" style="margin-top:46px">
+      <div class="card warn">
+        <span class="num-tag">Julio 2026</span>
+        <div class="metric">-30,3%</div>
+        <h3>Patentamientos vs. julio 2025</h3>
+        <p>43.758 unidades en el mes, contra 62.818 el año anterior. Y 7,7% por debajo de junio.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Acumulado 2026</span>
+        <div class="metric">-12,8%</div>
+        <h3>Siete meses del año</h3>
+        <p>339.359 unidades acumuladas contra 389.367 en el mismo período de 2025.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Marcas chinas</span>
+        <div class="metric">+10%</div>
+        <h3>De participación de mercado</h3>
+        <p>BYD ya es la 11ª marca del país (2,4% de share), BAIC 1,6% y Chery 1%, con política comercial agresiva.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Dato del cliente</span>
+        <div class="metric">45</div>
+        <h3>Concesionarios de la misma marca</h3>
+        <p>Compitiendo por las mismas búsquedas, con el mismo producto y las mismas piezas de fábrica.</p>
+      </div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:34px">
+      <p><b>Por qué esto importa para la propuesta.</b> Cuando el mercado crece, la pauta mal configurada se disimula: hay demanda de sobra. Cuando el mercado cae más del 30% interanual y hay 45 bocas de la misma marca peleando por la misma búsqueda, cada peso mal invertido y cada lead sin seguimiento se pagan caro. <b>La eficiencia deja de ser una mejora y pasa a ser la variable competitiva.</b></p>
+    </div>
+    <p class="r d5" style="margin-top:20px"><span class="note-pill"><b>Fuentes</b> · ACARA / DNRPA · reportes públicos de patentamientos, julio 2026. No se utilizan datos internos de otras cuentas.</span></p>
+  </div>
+  <div class="sfoot"><span>Investigamos el contexto antes de proponer</span><span class="num">03 — Mercado</span></div>
+</section>
+
+<!-- ============ 5 · PUNTO DE PARTIDA ============ -->
+<section id="diagnostico" data-label="Punto de partida">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:44px">
+      <div class="col-img r d2"><div class="media"><img src="img/diagnostico.jpg" alt="Panel de métricas publicitarias"></div></div>
+      <div>
+        <div class="eyebrow r">El punto de partida</div>
+        <h2 class="h-lg r d1" style="max-width:17ch">El problema no es la <span class="cy">inversión.</span> Es todo lo que hay antes.</h2>
+        <p class="lead r d2" style="margin-top:22px">Trinidad ingresó al área hace cinco meses y ya detectó lo esencial. Este diagnóstico no lo trajimos nosotros: lo trajo ella. Nuestro trabajo es cuantificarlo, ordenarlo por prioridad y resolverlo.</p>
+      </div>
+    </div>
+
+    <div class="grid g3 r d3">
+      <div class="card warn">
+        <span class="num-tag">Hallazgo 01 · Medición</span>
+        <h3>El píxel de Meta no está instalado en el sitio</h3>
+        <p>Sin píxel, Meta no puede optimizar hacia conversiones: optimiza a clics o interacciones. Además se pierde el remarketing, los públicos similares y toda trazabilidad entre el anuncio y lo que pasa después. <b>Es el hallazgo más caro de todos, porque invalida la lectura de todo lo demás.</b></p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Hallazgo 02 · Eficiencia</span>
+        <div class="metric">$10.714</div>
+        <h3>Costo por lead en Meta (estimado)</h3>
+        <p>En 22 días se invirtieron entre $400.000 y $500.000 y se generaron 42 leads: entre $9.524 y $11.905 por lead, 1,9 leads por día. Pocos calificados. <b>Sin píxel no hay forma de saber cuántos de esos 42 valían algo.</b></p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Hallazgo 03 · Segmentación</span>
+        <h3>La geografía incluye Uruguay</h3>
+        <p>Parte del presupuesto se está entregando a usuarios que no pueden comprar en el salón de Nordelta. El área de influencia real de la boca es Tigre, San Fernando, San Isidro, Escobar y Pilar. <b>Cada impresión fuera de esa zona es presupuesto que no vuelve.</b></p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Hallazgo 04 · Creatividad</span>
+        <h3>Piezas distorsionadas y sin adaptar a cada formato</h3>
+        <p>Los materiales de fábrica se están publicando sin adaptación a los formatos de cada ubicación. Resultado: piezas deformadas, textos cortados y menor relevancia. En subasta, <b>menor relevancia significa literalmente pagar más por el mismo clic.</b></p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Hallazgo 05 · Calidad de lead</span>
+        <h3>Volumen sin calificación</h3>
+        <p>El objetivo de campaña está puesto en generar formularios, no en generar compradores. Sin criterios de calificación ni devolución del equipo comercial hacia la campaña, el algoritmo aprende a traer más de lo mismo.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Hallazgo 06 · Escala</span>
+        <h3>Inversión baja para el ticket del producto</h3>
+        <p>Al ritmo actual, la inversión mensual en Meta ronda los $620.000. Para un producto de ticket alto, en un mercado en caída y con 45 competidores de la misma marca, es una inversión de prueba, no de competencia.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Seis hallazgos, uno de ellos invalida la lectura del resto</span><span class="num">04 — Punto de partida</span></div>
+</section>
+
+<!-- ============ 6 · DIAGNÓSTICO TÉCNICO WEB ============ -->
+<section id="web" data-label="Diagnóstico web">
+  <div class="wrap">
+    <div class="eyebrow r">Respaldo técnico · PageSpeed Insights</div>
+    <h2 class="h-lg r d1">El anuncio funciona. <span class="cy">La llegada, no.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Medimos el sitio con PageSpeed Insights de Google el 7 de agosto de 2026, en su versión móvil —que es por donde llega la enorme mayoría del tráfico pago—. Este es el resultado.</p>
+
+    <div class="score-wrap r d3">
+      <div class="score-card scale-in">
+        <div class="sv">46<small>/100</small></div>
+        <div class="sl">Rendimiento · móvil</div>
+        <div class="sd">Google clasifica como “bajo” todo puntaje inferior a 50. Medición del 07/08/2026.</div>
+      </div>
+      <div class="dims">
+        <div class="dim">
+          <div class="dh"><span>Speed Index (velocidad de carga percibida)</span><span class="bad">10,7 s</span></div>
+          <div class="bar"><div class="fill bad" data-w="88%"></div></div>
+          <p>Google considera “bueno” hasta 3,4 s. El sitio está <b>3,1 veces por encima de ese umbral</b>: el usuario que hace clic en el anuncio espera más de diez segundos para ver la página completa.</p>
+        </div>
+        <div class="dim">
+          <div class="dh"><span>Solicitudes que bloquean el renderizado</span><span class="bad">Crítico</span></div>
+          <div class="bar"><div class="fill bad" data-w="80%"></div></div>
+          <p>Scripts y hojas de estilo que frenan el dibujado de la página antes de que se vea el primer contenido.</p>
+        </div>
+        <div class="dim">
+          <div class="dh"><span>Imágenes sin optimizar y sin dimensiones declaradas</span><span class="bad">Crítico</span></div>
+          <div class="bar"><div class="fill bad" data-w="76%"></div></div>
+          <p>Pesan más de lo necesario y, al no declarar su tamaño, mueven el contenido mientras carga. El usuario toca donde no quería tocar.</p>
+        </div>
+        <div class="dim">
+          <div class="dh"><span>JS y CSS sin usar o sin minificar</span><span class="mid">Mejorable</span></div>
+          <div class="bar"><div class="fill mid" data-w="62%"></div></div>
+          <p>Código que se descarga y se procesa sin cumplir ninguna función en la vista actual.</p>
+        </div>
+        <div class="dim">
+          <div class="dh"><span>Política de caché ineficiente</span><span class="mid">Mejorable</span></div>
+          <div class="bar"><div class="fill mid" data-w="55%"></div></div>
+          <p>El visitante que vuelve al sitio vuelve a descargar todo de cero.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:56px">
+      <div class="r d4">
+        <h3 class="h-md" style="margin-bottom:16px">Por qué esto encarece la pauta</h3>
+        <p class="muted" style="font-size:1.03rem;line-height:1.7">Una landing lenta no solo pierde visitas: <b>encarece cada clic</b>. Google evalúa la experiencia de la página de destino dentro de la calidad del anuncio, y esa calidad define la posición y el costo en la subasta. En Meta, el usuario que abandona antes de que cargue nunca dispara el evento de conversión, y el algoritmo lo interpreta como que el anuncio no funcionó. <b>Se paga dos veces: en tráfico perdido y en costo por clic más alto.</b></p>
+        <div class="callout warn" style="margin-top:26px">
+          <p><b>Aclaración importante.</b> Todas las mejoras que proponemos son de <b>experiencia de usuario y performance técnica</b>: velocidad, peso de imágenes, caché y código. <b>No implican modificar la identidad visual ni la estética definida por fábrica y por la marca.</b> El sitio se ve igual; carga distinto.</p>
+        </div>
+      </div>
+      <div class="col-img r d3"><div class="media tall"><img src="img/web.jpg" alt="Navegación de un sitio desde el celular" style="object-position:center 40%"></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Rendimiento 46/100 · Speed Index 10,7 s · móvil · 07/08/2026</span><span class="num">05 — Diagnóstico web</span></div>
+</section>
+
+<!-- ============ 7 · TESIS ============ -->
+<section id="tesis" data-label="Nuestro enfoque">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestro enfoque</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Primero medir bien.<br>Después invertir <span class="cy">más.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Sería fácil venir a proponer que se triplique el presupuesto. Sería un error. Escalar una cuenta sin píxel, con segmentación equivocada y con una landing de diez segundos es multiplicar el desperdicio, no los resultados. El orden correcto es este:</p>
+
+    <div class="pipe r d3" style="margin-top:46px">
+      <div class="node"><span class="k">Paso 1</span><span class="t">Auditar</span><p>Entender qué está roto y cuánto cuesta cada cosa rota</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Paso 2</span><span class="t">Corregir</span><p>Píxel, eventos, segmentación, formatos y formularios</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Paso 3</span><span class="t">Optimizar</span><p>Leer datos reales y ajustar hacia el lead que cierra</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Paso 4</span><span class="t">Escalar</span><p>Subir inversión solo sobre lo que ya demostró rentabilidad</p></div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:52px">
+      <div class="evo-bg"><img src="img/competencia.jpg" alt="Playón de una concesionaria vista desde el aire"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>La métrica que gobierna todo</div>
+      <blockquote>El objetivo no es bajar el costo por lead. Es bajar el costo por unidad vendida.</blockquote>
+      <p class="muted" style="margin-top:22px;max-width:70ch;font-size:1rem;line-height:1.7">Un lead más barato que nunca compra es un lead caro. Un lead más caro que cierra en el salón es el más barato de todos. Toda la propuesta está construida sobre esa diferencia, y por eso el primer entregable no es una campaña: es un sistema de medición que permita distinguir uno del otro.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Auditar → Corregir → Optimizar → Escalar</span><span class="num">06 — Enfoque</span></div>
+</section>
+
+<!-- ============ 8 · ALCANCE AUDITORÍA CUENTAS ============ -->
+<section id="alcance-cuentas" data-label="Auditoría de cuentas">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance · Parte 1</div>
+    <h2 class="h-lg r d1">Auditoría de las <span class="cy">cuentas publicitarias.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Revisión completa de las cuentas de Meta Ads y Google Ads, con acceso de solo lectura. Cinco dimensiones, cada una con hallazgos concretos y una recomendación accionable.</p>
+
+    <div class="mods r d3">
+      <div class="mod">
+        <div class="mn">01</div>
+        <div>
+          <h3>Estructura de cuenta y campañas</h3>
+          <p>Arquitectura de campañas, conjuntos y anuncios; objetivos elegidos por campaña; solapamiento de públicos y canibalización entre campañas; distribución del presupuesto entre marca, modelo, plan de ahorro, usados y posventa; uso de pujas y presupuestos.</p>
+          <div class="tagsline"><span>Meta Ads</span><span>Google Ads</span><span>Objetivos</span><span>Distribución de presupuesto</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mn">02</div>
+        <div>
+          <h3>Segmentación y audiencias</h3>
+          <p>Revisión de la segmentación geográfica —incluida la corrección de las zonas ajenas al área de influencia, como el caso de Uruguay—, radios de cobertura por salón, edades e intereses, exclusiones, públicos personalizados y similares, y estrategia de remarketing por etapa del embudo.</p>
+          <div class="tagsline"><span>Geo por salón</span><span>Exclusiones</span><span>Públicos similares</span><span>Remarketing</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mn">03</div>
+        <div>
+          <h3>Tracking y medición</h3>
+          <p>Estado del píxel de Meta y de la API de Conversiones, etiquetas de Google Ads y GA4, gestor de etiquetas, eventos de conversión definidos y disparados, valores de conversión, deduplicación y trazabilidad del lead desde el anuncio hasta el CRM o la planilla comercial.</p>
+          <div class="tagsline"><span>Píxel de Meta</span><span>API de Conversiones</span><span>GA4</span><span>Eventos</span><span>Trazabilidad</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mn">04</div>
+        <div>
+          <h3>Curaduría creativa</h3>
+          <p>Auditoría de las piezas en circulación: adaptación a cada formato y ubicación, relación de aspecto y zonas seguras, legibilidad en móvil, jerarquía del mensaje, presencia de oferta y llamado a la acción, y cumplimiento de los lineamientos de marca de fábrica.</p>
+          <div class="tagsline"><span>Formatos</span><span>Zonas seguras</span><span>Mensaje</span><span>Lineamientos de marca</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mn">05</div>
+        <div>
+          <h3>Calidad de leads</h3>
+          <p>Análisis del formulario y sus campos, fricción y filtros de calificación, integración y velocidad de llegada del lead al equipo comercial, tiempos de primera respuesta, y definición conjunta de qué es un lead calificado para A. Russoniello.</p>
+          <div class="tagsline"><span>Formularios</span><span>Filtros</span><span>Integraciones</span><span>Tiempo de respuesta</span><span>Definición de lead calificado</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cinco dimensiones · Meta Ads y Google Ads</span><span class="num">07 — Auditoría de cuentas</span></div>
+</section>
+
+<!-- ============ 9 · ALCANCE ECOSISTEMA ============ -->
+<section id="alcance-ecosistema" data-label="Auditoría del ecosistema">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance · Parte 2</div>
+    <h2 class="h-lg r d1">Auditoría del <span class="cy">ecosistema digital.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La pauta no vive sola. Un anuncio impecable que aterriza en un sitio lento, o un lead que llega a un canal que nadie responde, no genera ventas. Auditamos todo el recorrido, no solo la campaña.</p>
+
+    <div class="mods r d3">
+      <div class="mod">
+        <div class="mn">06</div>
+        <div>
+          <h3>Sitio web</h3>
+          <p>Rendimiento y velocidad —con el respaldo de PageSpeed Insights ya relevado—, experiencia móvil, claridad de la propuesta comercial, ubicación y funcionamiento de los formularios y del WhatsApp, recorrido hacia cotizador, plan de ahorro y test drive, y correcta instalación de las etiquetas de medición.</p>
+          <div class="tagsline"><span>Performance</span><span>UX móvil</span><span>Formularios</span><span>WhatsApp</span><span>Conversión</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mn">07</div>
+        <div>
+          <h3>Redes orgánicas</h3>
+          <p>Coherencia entre lo que promete la pauta y lo que muestra el perfil, frecuencia y formatos, calidad del contenido propio frente al material de fábrica, gestión de mensajes y comentarios, y tiempos de respuesta ante una consulta comercial entrante.</p>
+          <div class="tagsline"><span>Instagram</span><span>Facebook</span><span>Coherencia</span><span>Gestión de mensajes</span></div>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="mn">08</div>
+        <div>
+          <h3>Mystery shopper <span style="color:var(--cyan);font-size:.8rem;font-weight:600;letter-spacing:.08em">· OPCIONAL</span></h3>
+          <p>Recorrido real del proceso como si fuéramos un interesado: consulta desde un anuncio, formulario, WhatsApp y llamada. Medimos cuánto tarda la primera respuesta, qué se responde, cómo se califica y cómo se hace el seguimiento. Es la forma más directa de saber qué pasa con el lead <b>después</b> de que la campaña hizo su trabajo.</p>
+          <div class="tagsline"><span>Opcional · a confirmar</span><span>Tiempo de primera respuesta</span><span>Calidad de atención</span><span>Seguimiento</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:56px">
+      <div class="r d4">
+        <div class="eyebrow">El entregable</div>
+        <h3 class="h-md" style="margin-bottom:18px">Un informe técnico con diagnóstico priorizado</h3>
+        <p class="muted" style="font-size:1.02rem;line-height:1.7">No es un listado de observaciones. Es un documento ordenado por <b>impacto sobre el negocio y esfuerzo de implementación</b>, para que se sepa exactamente qué hacer primero, qué puede esperar y qué conviene descartar.</p>
+        <ul class="bullets" style="margin-top:26px">
+          <li><span class="bi">1</span><p><b>Hallazgos por dimensión</b> con evidencia: captura, dato y consecuencia concreta.</p></li>
+          <li><span class="bi">2</span><p><b>Priorización por impacto y esfuerzo</b>: qué mueve la aguja ya y qué es de fondo.</p></li>
+          <li><span class="bi">3</span><p><b>Recomendaciones accionables</b>, con responsable sugerido (Popcorn, equipo interno o proveedor web).</p></li>
+          <li><span class="bi">4</span><p><b>Reunión de presentación</b> del informe con el equipo de marketing y comercial.</p></li>
+        </ul>
+      </div>
+      <div class="col-img r d3"><div class="media"><img src="img/reporting.jpg" alt="Revisión de un tablero de métricas"></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Del anuncio al salón: auditamos el recorrido completo</span><span class="num">08 — Ecosistema digital</span></div>
+</section>
+
+<!-- ============ 10 · GESTIÓN MENSUAL ============ -->
+<section id="gestion" data-label="Gestión de pauta">
+  <div class="wrap">
+    <div class="eyebrow r">Servicio recurrente</div>
+    <h2 class="h-lg r d1">Gestión mensual de <span class="cy">pauta.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La auditoría dice qué hay que hacer. La gestión mensual lo hace, todos los meses, y lo sostiene en el tiempo. Es el servicio que convierte el diagnóstico en resultados.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Estrategia y planificación mensual</h3>
+        <p>Objetivos del mes por línea de negocio —0km por modelo, plan de ahorro, usados y posventa—, distribución del presupuesto y calendario de campañas.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Estructuración de campañas</h3>
+        <p>Armado y reestructuración de campañas en Meta Ads y Google Ads: objetivos, presupuestos, pujas, jerarquía y nomenclatura ordenada.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Segmentación y audiencias</h3>
+        <p>Geografía corregida por área de influencia real, públicos personalizados y similares, exclusiones y estrategia de remarketing por etapa.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M9 18v3M15 18v3"/></svg></div>
+        <h3>Curaduría y adaptación de piezas</h3>
+        <p>Adaptación del material de fábrica a cada formato y ubicación, respetando los lineamientos de marca. Se terminan las piezas deformadas.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v5H4zM4 13h16v7H4z"/><path d="M8 6.5h.01M8 16.5h.01"/></svg></div>
+        <h3>Tracking y medición</h3>
+        <p>Instalación y control del píxel de Meta, eventos de conversión, API de Conversiones y etiquetas de Google. La base sobre la que se optimiza todo lo demás.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+        <h3>Optimización continua</h3>
+        <p>Revisión semanal de rendimiento, ajuste de presupuestos, pausado de lo que no rinde y escalado de lo que sí. Testeo de mensajes y creatividades.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Reporte mensual y reunión</h3>
+        <p>Informe con lectura de negocio —no capturas de plataforma— más una reunión mensual de resultados, aprendizajes y plan del mes siguiente.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Puente con el equipo comercial</h3>
+        <p>Definición de lead calificado, circuito de derivación y devolución de resultados desde el salón hacia la campaña, para que el algoritmo aprenda del cierre real.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Disponibilidad y acompañamiento</h3>
+        <p>Canal directo con el equipo de Popcorn para consultas, urgencias comerciales, lanzamientos y acciones de temporada.</p>
+      </div>
+    </div>
+
+    <div class="scope r d4" style="margin-top:48px">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <p class="sub">Dentro del honorario mensual</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Gestión de campañas en Meta Ads y Google Ads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Segmentación, públicos y remarketing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Adaptación de piezas de fábrica a formatos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Configuración y control de píxel, eventos y etiquetas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Optimización semanal y testeo continuo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Reporte mensual + reunión de resultados</li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <p class="sub">Se cotiza aparte o lo aporta A. Russoniello</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg><b>Inversión en medios (pauta)</b>: la define y abona A. Russoniello directamente</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Desarrollo web y ejecución de las mejoras técnicas del sitio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Producción audiovisual y fotográfica <span style="color:var(--cyan)">(ver Propuesta 3)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Capacitación del equipo interno <span style="color:var(--cyan)">(ver Propuesta 2)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Community management y gestión de redes orgánicas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Licencias, herramientas de terceros y CRM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un servicio mensual, no una campaña suelta</span><span class="num">09 — Gestión de pauta</span></div>
+</section>
+
+<!-- ============ 11 · CRONOGRAMA ============ -->
+<section id="cronograma" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma estimado</div>
+    <h2 class="h-lg r d1">De la firma a los primeros <span class="cy">datos limpios.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La auditoría se entrega en <b>15 días hábiles</b> desde la recepción de los accesos. La gestión mensual puede arrancar en paralelo o al cierre del informe, como prefiera el equipo.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Día 0 · Arranque</div>
+        <h3>Accesos y reunión de inicio (kick-off)</h3>
+        <p>Accesos de solo lectura a Meta Business, Google Ads, GA4 y gestor de etiquetas. Reunión de una hora con Trinidad para entender objetivos comerciales, estacionalidad, modelos prioritarios y circuito actual del lead.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Días 1 a 5 · Relevamiento</div>
+        <h3>Análisis de cuentas y ecosistema</h3>
+        <p>Auditoría de estructura, segmentación, tracking, creatividades y calidad de leads en ambas plataformas. Revisión del sitio, de las redes orgánicas y —si se contrata— arranque del mystery shopper.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Días 6 a 10 · Análisis</div>
+        <h3>Cuantificación y priorización</h3>
+        <p>Cruce de hallazgos, dimensionamiento del impacto de cada uno sobre el costo por venta y ordenamiento por impacto y esfuerzo.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Días 11 a 15 · Entrega</div>
+        <h3>Informe técnico y presentación</h3>
+        <p>Entrega del informe con diagnóstico priorizado y reunión de presentación con el equipo de marketing y comercial, con el plan de corrección acordado.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Mes 1 de gestión · Corrección</div>
+        <h3>Se arregla la base</h3>
+        <p>Instalación del píxel y de los eventos de conversión, corrección de la segmentación geográfica, reestructuración de campañas y adaptación de piezas a cada formato. Es el mes en que los datos empiezan a servir.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Meses 2 y 3 de gestión · Optimización</div>
+        <h3>Primeras lecturas confiables</h3>
+        <p>Con medición limpia se empieza a optimizar hacia lead calificado. Se depuran públicos, se testean mensajes y se define el costo por venta real de cada canal.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Mes 4 en adelante · Escala</div>
+        <h3>Se sube la inversión sobre lo que funciona</h3>
+        <p>Con el modelo validado, se incrementa el presupuesto de medios solo en los canales, modelos y públicos que ya demostraron rentabilidad. Recién acá tiene sentido escalar.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Auditoría: 15 días hábiles · Gestión: servicio mensual continuo</span><span class="num">10 — Cronograma</span></div>
+</section>
+
+<!-- ============ 12 · KPIs ============ -->
+<section id="kpis" data-label="KPIs">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo medimos el éxito</div>
+    <h2 class="h-lg r d1">Los indicadores que le <span class="cy">importan al salón.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Ningún reporte de Popcorn empieza por alcance ni por impresiones. Empieza por cuántas unidades se vendieron y cuánto costó cada una.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card">
+        <span class="num-tag">Principal</span>
+        <h3>Costo por unidad vendida</h3>
+        <p>Inversión total dividida por las unidades atribuibles al canal digital. Es el número que decide si conviene invertir más o menos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Calidad</span>
+        <h3>Tasa de leads calificados</h3>
+        <p>Qué porcentaje de los leads cumple los criterios acordados con el equipo comercial. Hoy no se puede medir; el mes 1 sí.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Cierre</span>
+        <h3>Tasa de conversión a venta</h3>
+        <p>De lead calificado a operación cerrada. Conecta el trabajo de marketing con el desempeño del salón.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Eficiencia</span>
+        <h3>Costo por lead calificado</h3>
+        <p>No el costo por formulario: el costo por contacto que realmente puede comprar. La métrica que reemplaza al CPL actual.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Velocidad</span>
+        <h3>Tiempo de primera respuesta</h3>
+        <p>Minutos entre que entra el lead y que alguien lo contacta. En automotor, es uno de los factores que más mueve la tasa de cierre.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Base técnica</span>
+        <h3>Cobertura de medición</h3>
+        <p>Porcentaje de conversiones correctamente registradas y atribuidas. Arranca cerca de cero y debe llegar a la totalidad.</p>
+      </div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:36px">
+      <p><b>Una aclaración honesta sobre los números.</b> Durante el primer mes de gestión, algunos indicadores van a <b>empeorar en apariencia</b>: al dejar de contar formularios y empezar a contar leads calificados, el volumen baja y el costo por lead sube. No es un retroceso, es el momento en que los datos empiezan a decir la verdad. Lo avisamos ahora para que nadie lo lea como un mal resultado.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Del costo por clic al costo por unidad patentada</span><span class="num">11 — KPIs</span></div>
+</section>
+
+<!-- ============ 13 · REPORTING ============ -->
+<section id="reporting" data-label="Reporting">
+  <div class="wrap">
+    <div class="eyebrow r">Modelo de reporting</div>
+    <h2 class="h-lg r d1">Un informe que se puede llevar a la <span class="cy">reunión de gerencia.</span></h2>
+    <div class="landing r d2" style="margin-top:44px">
+      <div class="wf scale-in">
+        <div class="wf-bar"><span></span><span></span><span></span><span class="wf-ttl">Reporte mensual · A. Russoniello Nordelta</span></div>
+        <div class="wf-kpis">
+          <div class="wf-kpi"><div class="kk">Leads calif.</div><div class="kv">000</div></div>
+          <div class="wf-kpi"><div class="kk">Costo / lead</div><div class="kv">$ 0</div></div>
+          <div class="wf-kpi"><div class="kk">Unidades</div><div class="kv">0</div></div>
+          <div class="wf-kpi"><div class="kk">Costo / venta</div><div class="kv">USD 0</div></div>
+        </div>
+        <div class="wf-chart"><i style="height:34%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:80%"></i><i style="height:72%"></i><i style="height:94%"></i></div>
+        <div class="wf-row" style="height:14px;width:70%"></div>
+        <div class="wf-row" style="height:14px;width:52%"></div>
+      </div>
+      <div>
+        <p class="lead" style="margin-bottom:22px">Nada de capturas de pantalla de la plataforma. Un documento que explica qué pasó, por qué pasó y qué se hace el mes que viene.</p>
+        <ul class="lp-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Resultados del mes</b> · leads calificados, unidades y costo por venta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Qué se probó y qué rindió</b> · mensajes, públicos, modelos y formatos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Aprendizajes</b> · qué nos dijeron los datos sobre el mercado de la zona</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Plan del mes siguiente</b> · decisiones concretas, no recomendaciones vagas</li>
+        </ul>
+        <span class="note-pill"><b>Reunión mensual incluida</b> · el informe se presenta, no se envía y listo</span>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Lectura de negocio, no métricas de plataforma</span><span class="num">12 — Reporting</span></div>
+</section>
+
+<!-- ============ 14 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Honorarios de <span class="cy">Popcorn.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Valores expresados en pesos argentinos, <b>sin IVA</b>. El impuesto se adiciona en la factura según la condición fiscal vigente.</p>
+
+    <!-- proyecto único -->
+    <div class="r d3" style="margin-top:48px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--cyan-line);padding-bottom:10px">
+        <span style="font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)">Proyecto único · elegí la forma de pago</span>
+        <span style="font-family:'Poppins';font-weight:700;font-size:1rem">Auditoría de cuentas publicitarias y ecosistema digital</span>
+      </div>
+      <div class="paybox">
+        <div class="pay sel" data-pay="A" data-label="100% anticipado" data-amount="1735000">
+          <span class="badge-best">Valor preferencial</span>
+          <span class="radio"></span>
+          <div class="pk">Opción A · 100% anticipado</div>
+          <div class="pnum">$1.735.000<span class="iva"> + IVA</span></div>
+          <div class="pdesc">Un único pago al momento de aprobar la propuesta. Es la opción <b>más económica</b>: el pago anticipado tiene un valor preferencial.</div>
+        </div>
+        <div class="pay" data-pay="B" data-label="50% / 50%" data-amount="1785000">
+          <span class="radio"></span>
+          <div class="pk">Opción B · 50% + 50%</div>
+          <div class="pnum">$1.785.000<span class="iva"> + IVA</span></div>
+          <div class="pdesc"><b>2 pagos de $892.500 + IVA.</b> El primero al inicio del proyecto y el segundo al finalizar o a los 30 días de iniciado, lo que ocurra primero.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- servicio recurrente -->
+    <div class="svcbox on r d4" id="svcMes">
+      <div class="svc-head">
+        <div class="t">Gestión mensual de pauta <small>Servicio recurrente · Meta Ads y Google Ads · incluye reporte y reunión mensual</small></div>
+        <div class="v">$1.190.090<span class="iva"> + IVA</span><small>por mes</small><small class="varfee">+ 15% variable</small></div>
+      </div>
+      <div class="svc-toggle" id="tglMes">
+        <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span>
+        <span class="lbl-on">Incluido en el correo de aprobación</span>
+        <span class="lbl-off">Sumar la gestión mensual a la aprobación</span>
+      </div>
+    </div>
+
+    <div class="totalbar r d5">
+      <div>
+        <div class="tk">Selección actual</div>
+        <div class="tv" id="totLine">—</div>
+        <div class="tsub" id="totSub">Elegí la forma de pago de la auditoría y decidí si sumás la gestión mensual.</div>
+      </div>
+      <div style="text-align:right">
+        <div class="tk">Inversión en medios</div>
+        <div class="tv" style="font-size:1.15rem">Se factura aparte<small style="display:block;margin-top:6px">La define y abona A. Russoniello · ver plan de medios</small></div>
+      </div>
+    </div>
+
+    <p class="r d6" style="margin-top:24px"><span class="note-pill">Todos los valores se expresan <b>sin IVA</b> · la facturación se realiza en <b>pesos argentinos</b></span></p>
+  </div>
+  <div class="sfoot"><span>Honorarios de agencia · la pauta se factura por separado</span><span class="num">13 — Inversión</span></div>
+</section>
+
+<!-- ============ 15 · PLAN DE MEDIOS · SUPUESTOS ============ -->
+<section id="supuestos" data-label="Plan de medios · Supuestos">
+  <div class="wrap">
+    <div class="eyebrow r">Plan de medios · Parte 1</div>
+    <h2 class="h-lg r d1">Sobre qué números está <span class="cy">construido</span> el plan.</h2>
+    <div class="callout warn r d2" style="margin-top:24px">
+      <p><b>Todo lo que sigue es presupuesto de medios, no honorario de Popcorn.</b> Es la pauta que se paga directamente a Meta y a Google. A. Russoniello la define y la abona en forma directa; Popcorn la planifica, la ejecuta y la reporta. Lo incluimos completo, con supuestos y fuentes a la vista, para que se pueda auditar cada número.</p>
+    </div>
+
+    <h3 class="h-md r d3" style="margin-top:44px;margin-bottom:16px">Parámetros generales</h3>
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Parámetro</th><th class="num">Valor</th><th>Unidad</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Tipo de cambio</td><td class="num">1.500</td><td>ARS / USD</td><td class="obj">Dólar oficial BNA, 10-ago-2026 (compra $1.470 / venta $1.520)</td></tr>
+          <tr><td class="plat">Objetivo de ventas mensuales</td><td class="num">45</td><td>unidades</td><td class="obj">Definido por el cliente en reunión exploratoria</td></tr>
+          <tr><td class="plat">Patentamientos Jeep — promedio mensual nacional</td><td class="num">1.500</td><td>unidades</td><td class="obj">ACARA, informes mensuales 2026</td></tr>
+          <tr><td class="plat">Concesionarios oficiales de la red</td><td class="num">45</td><td>bocas</td><td class="obj">Estimación propia — a confirmar</td></tr>
+          <tr><td class="plat">Promedio estimado por concesionario</td><td class="num">33,3</td><td>unidades</td><td class="obj">Cálculo: patentamientos ÷ bocas de la red</td></tr>
+          <tr class="hi"><td class="plat">Objetivo vs. promedio de red</td><td class="num">+35%</td><td>—</td><td class="obj">Sanity check del objetivo comercial</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r d4" style="margin-top:16px"><span class="note-pill">El objetivo de 45 unidades está <b>35% por encima</b> del promedio de una boca de la red. Es alcanzable, pero exige un plan, no una campaña.</span></p>
+
+    <h3 class="h-md r d4" style="margin-top:50px;margin-bottom:8px">Tasas de cierre de lead a venta</h3>
+    <p class="muted r d4" style="margin-bottom:18px;max-width:80ch">Es la variable que define todo el modelo. Trabajamos con tres tasas, cada una con su origen declarado.</p>
+    <div class="tbl-wrap r d4">
+      <table class="tbl">
+        <thead><tr><th>Escenario de cierre</th><th class="num">Tasa</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Conservador</td><td class="num">2,2%</td><td class="obj">Concesionaria multimarca de marcas europeas, 2026 — base histórica Popcorn (anonimizada)</td></tr>
+          <tr class="hi"><td class="plat">Base</td><td class="num">3,8%</td><td class="obj">Marca importada en etapa de instalación, 2026 — base histórica Popcorn (anonimizada)</td></tr>
+          <tr><td class="plat">Optimista</td><td class="num">6,0%</td><td class="obj"><b>Proyección propia sin respaldo empírico directo</b> — asume demanda de marca preexistente y proceso comercial optimizado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout r d5" style="margin-top:22px">
+      <p><b>Una advertencia que preferimos hacer nosotros.</b> El 8%-10% de cierre que se maneja habitualmente en el sector <b>no está respaldado por ninguna referencia 2026 disponible</b>. Puede ser válido medido sobre <b>leads calificados</b>, no sobre el volumen total de leads digitales. Planificar sobre esa cifra es la forma más rápida de que un plan de medios no cierre. Por eso este modelo se apoya en tasas medidas, no en el número que suena mejor.</p>
+    </div>
+
+    <h3 class="h-md r d5" style="margin-top:50px;margin-bottom:8px">Costo por lead de planificación</h3>
+    <p class="muted r d5" style="margin-bottom:18px;max-width:80ch">Cada plataforma cumple un rol distinto y cuesta distinto. Estos son los valores con los que dimensionamos.</p>
+    <div class="tbl-wrap r d5">
+      <table class="tbl">
+        <thead><tr><th>Plataforma / objetivo</th><th class="num">CPL (USD)</th><th class="num">CPL (ARS)</th><th>Criterio</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Meta — Prospecting</td><td class="num">USD 7</td><td class="num">$10.500</td><td class="obj">Referencia 2026 del sector (~USD 5,7) + premium de marca Jeep</td></tr>
+          <tr class="hi"><td class="plat">Meta — Remarketing</td><td class="num">USD 4</td><td class="num">$6.000</td><td class="obj">Menor CPL del mix; audiencia ya impactada</td></tr>
+          <tr><td class="plat">Google — Performance Max</td><td class="num">USD 14</td><td class="num">$21.000</td><td class="obj">Referencia 2026 del sector (~USD 12,8) + premium de marca Jeep</td></tr>
+          <tr><td class="plat">Google — Search</td><td class="num">USD 20</td><td class="num">$30.000</td><td class="obj">Referencia 2026 (~USD 31,5) ajustada a la baja: Jeep tiene demanda de búsqueda de marca propia</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r d6" style="margin-top:18px"><span class="note-pill">El <b>premium de marca Jeep</b> se estimó en <b>1,3x</b> el promedio de cartera a nivel total y <b>1,8x-1,9x</b> en búsqueda pagada. Fuente: base histórica Popcorn sobre cuentas multimarca del sector automotriz argentino (anonimizada).</span></p>
+  </div>
+  <div class="sfoot"><span>Cada supuesto, con su fuente declarada</span><span class="num">14 — Supuestos</span></div>
+</section>
+
+<!-- ============ 16 · PLAN DE MEDIOS · ESCENARIOS ============ -->
+<section id="escenarios" data-label="Plan de medios · Escenarios">
+  <div class="wrap">
+    <div class="eyebrow r">Plan de medios · Parte 2</div>
+    <h2 class="h-lg r d1">Tres escenarios, plataforma por <span class="cy">plataforma.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">No son tres presupuestos sueltos: son tres momentos del mismo plan. Cada escenario corresponde a una fase, y se pasa a la siguiente cuando la anterior demostró lo que tenía que demostrar.</p>
+
+    <p class="r d3" style="margin-top:38px;margin-bottom:18px"><span class="note-pill"><b>Elegí un escenario</b> · queda incluido en el correo de aprobación como intención de inversión</span></p>
+
+    <div class="grid g3 r d3">
+      <div class="card scen-pick" data-scen="A">
+        <span class="num-tag">Escenario A · Validación</span>
+        <div style="font-family:'Poppins';font-weight:700;font-size:1.7rem;line-height:1">USD 3.600<span style="font-size:.9rem;color:var(--w-45);font-weight:500"> / mes</span></div>
+        <div class="scen-mini">
+          <div><b>410</b><span>Leads / mes</span></div>
+          <div><b>USD 8,78</b><span>CPL blended</span></div>
+          <div><b>Meses 1-2</b><span>Período</span></div>
+        </div>
+        <p style="margin-top:16px;font-size:.86rem;color:var(--w-65)">Validar tracking, calidad de lead y ángulos creativos. Es la fase que mide la tasa de cierre real.</p>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+      </div>
+      <div class="card scen-pick" data-scen="B" style="border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.10),rgba(13,4,40,.35))">
+        <span class="rec-tag">Recomendado</span>
+        <span class="num-tag">Escenario B · Crecimiento</span>
+        <div style="font-family:'Poppins';font-weight:700;font-size:1.7rem;line-height:1">USD 6.700<span style="font-size:.9rem;color:var(--w-45);font-weight:500"> / mes</span></div>
+        <div class="scen-mini">
+          <div><b>756</b><span>Leads / mes</span></div>
+          <div><b>USD 8,86</b><span>CPL blended</span></div>
+          <div><b>Meses 3-4</b><span>Período</span></div>
+        </div>
+        <p style="margin-top:16px;font-size:.86rem;color:var(--w-65)">Escalar lo validado e incorporar Performance Max con señales de conversión ya cargadas.</p>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+      </div>
+      <div class="card scen-pick" data-scen="C">
+        <span class="num-tag">Escenario C · Escala</span>
+        <div style="font-family:'Poppins';font-weight:700;font-size:1.7rem;line-height:1">USD 10.700<span style="font-size:.9rem;color:var(--w-45);font-weight:500"> / mes</span></div>
+        <div class="scen-mini">
+          <div><b>1.202</b><span>Leads / mes</span></div>
+          <div><b>USD 8,90</b><span>CPL blended</span></div>
+          <div><b>Mes 5 +</b><span>Período</span></div>
+        </div>
+        <p style="margin-top:16px;font-size:.86rem;color:var(--w-65)">Dimensionado para sostener el objetivo de 45 unidades bajo la tasa de cierre base.</p>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+      </div>
+    </div>
+
+    <!-- ESCENARIO A -->
+    <div class="scen r d4">
+      <div class="scen-head">
+        <div class="st">Escenario A · Validación<small>Meses 1-2 · validar tracking, calidad de lead y ángulos creativos</small></div>
+        <div class="si">USD 3.600 / mes</div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Plataforma</th><th class="num">Inversión (USD)</th><th class="num">CPL (USD)</th><th class="num">Leads estimados</th><th class="num">Inversión (ARS)</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Meta — Prospecting</td><td class="num">USD 1.500</td><td class="num">USD 7</td><td class="num">214,3</td><td class="num">$2.250.000</td></tr>
+            <tr><td class="plat">Meta — Remarketing</td><td class="num">USD 400</td><td class="num">USD 4</td><td class="num">100,0</td><td class="num">$600.000</td></tr>
+            <tr><td class="plat">Google — Search</td><td class="num">USD 1.200</td><td class="num">USD 20</td><td class="num">60,0</td><td class="num">$1.800.000</td></tr>
+            <tr><td class="plat">Google — Performance Max</td><td class="num">USD 500</td><td class="num">USD 14</td><td class="num">35,7</td><td class="num">$750.000</td></tr>
+            <tr class="total"><td>Total / CPL blended</td><td class="num">USD 3.600</td><td class="num">USD 8,78</td><td class="num">410,0</td><td class="num">$5.400.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ESCENARIO B -->
+    <div class="scen r d5">
+      <div class="scen-head">
+        <div class="st">Escenario B · Crecimiento <span style="color:var(--cyan)">· recomendado</span><small>Meses 3-4 · escalar lo que funcionó e incorporar Performance Max</small></div>
+        <div class="si">USD 6.700 / mes</div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Plataforma</th><th class="num">Inversión (USD)</th><th class="num">CPL (USD)</th><th class="num">Leads estimados</th><th class="num">Inversión (ARS)</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Meta — Prospecting</td><td class="num">USD 2.800</td><td class="num">USD 7</td><td class="num">400,0</td><td class="num">$4.200.000</td></tr>
+            <tr><td class="plat">Meta — Remarketing</td><td class="num">USD 700</td><td class="num">USD 4</td><td class="num">175,0</td><td class="num">$1.050.000</td></tr>
+            <tr><td class="plat">Google — Search</td><td class="num">USD 2.200</td><td class="num">USD 20</td><td class="num">110,0</td><td class="num">$3.300.000</td></tr>
+            <tr><td class="plat">Google — Performance Max</td><td class="num">USD 1.000</td><td class="num">USD 14</td><td class="num">71,4</td><td class="num">$1.500.000</td></tr>
+            <tr class="total"><td>Total / CPL blended</td><td class="num">USD 6.700</td><td class="num">USD 8,86</td><td class="num">756,4</td><td class="num">$10.050.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ESCENARIO C -->
+    <div class="scen r d6">
+      <div class="scen-head">
+        <div class="st">Escenario C · Escala<small>Mes 5 en adelante · dimensionado para el objetivo bajo tasa de cierre base</small></div>
+        <div class="si">USD 10.700 / mes</div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Plataforma</th><th class="num">Inversión (USD)</th><th class="num">CPL (USD)</th><th class="num">Leads estimados</th><th class="num">Inversión (ARS)</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Meta — Prospecting</td><td class="num">USD 4.400</td><td class="num">USD 7</td><td class="num">628,6</td><td class="num">$6.600.000</td></tr>
+            <tr><td class="plat">Meta — Remarketing</td><td class="num">USD 1.100</td><td class="num">USD 4</td><td class="num">275,0</td><td class="num">$1.650.000</td></tr>
+            <tr><td class="plat">Google — Search</td><td class="num">USD 3.400</td><td class="num">USD 20</td><td class="num">170,0</td><td class="num">$5.100.000</td></tr>
+            <tr><td class="plat">Google — Performance Max</td><td class="num">USD 1.800</td><td class="num">USD 14</td><td class="num">128,6</td><td class="num">$2.700.000</td></tr>
+            <tr class="total"><td>Total / CPL blended</td><td class="num">USD 10.700</td><td class="num">USD 8,90</td><td class="num">1.202,1</td><td class="num">$16.050.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout r d7" style="margin-top:28px">
+      <p><b>Por qué el CPL blended casi no se mueve al escalar.</b> Entre el Escenario A y el C la inversión se multiplica por tres, y el costo por lead promedio pasa de USD 8,78 a USD 8,90: apenas un 1,4% más. Eso pasa porque el mix entre plataformas se mantiene equilibrado y el remarketing —el canal más barato— crece en la misma proporción. <b>Escalar no encarece el lead si la estructura está bien armada.</b></p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Tres fases del mismo plan · no tres presupuestos sueltos</span><span class="num">15 — Escenarios</span></div>
+</section>
+
+<!-- ============ 17 · PLAN DE MEDIOS · SENSIBILIDAD ============ -->
+<section id="sensibilidad" data-label="Plan de medios · Sensibilidad">
+  <div class="wrap">
+    <div class="eyebrow r">Plan de medios · Parte 3</div>
+    <h2 class="h-lg r d1">La hoja de <span class="cy">decisión.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Cruzamos cada escenario de inversión con cada tasa de cierre posible. Esta matriz es la que responde la única pregunta que importa: <b>cuánto hay que invertir para llegar a 45 unidades por mes.</b></p>
+
+    <h3 class="h-md r d3" style="margin-top:44px;margin-bottom:16px">Ventas mensuales estimadas</h3>
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th class="num">Inversión (USD)</th><th class="num">Leads / mes</th><th class="num">Cierre conservador · 2,2%</th><th class="num">Cierre base · 3,8%</th><th class="num">Cierre optimista · 6,0%</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">A — Validación</td><td class="num">USD 3.600</td><td class="num">410,0</td><td class="num">9,02</td><td class="num">15,58</td><td class="num">24,60</td></tr>
+          <tr><td class="plat">B — Crecimiento</td><td class="num">USD 6.700</td><td class="num">756,4</td><td class="num">16,64</td><td class="num">28,74</td><td class="num" style="color:var(--cyan);font-weight:700">45,39</td></tr>
+          <tr><td class="plat">C — Escala</td><td class="num">USD 10.700</td><td class="num">1.202,1</td><td class="num">26,45</td><td class="num" style="color:var(--cyan);font-weight:700">45,68</td><td class="num">72,13</td></tr>
+          <tr class="total"><td>Objetivo comercial</td><td class="num">—</td><td class="num">45 ventas / mes</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r d4" style="margin-top:16px"><span class="note-pill">Resaltadas, las <b>dos únicas combinaciones</b> que alcanzan el objetivo de 45 unidades mensuales</span></p>
+
+    <h3 class="h-md r d4" style="margin-top:48px;margin-bottom:16px">Costo por venta</h3>
+    <div class="tbl-wrap r d4">
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th class="num">Inversión (USD)</th><th class="num">Cierre conservador · 2,2%</th><th class="num">Cierre base · 3,8%</th><th class="num">Cierre optimista · 6,0%</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">A — Validación</td><td class="num">USD 3.600</td><td class="num">USD 399,11</td><td class="num">USD 231,07</td><td class="num">USD 146,34</td></tr>
+          <tr><td class="plat">B — Crecimiento</td><td class="num">USD 6.700</td><td class="num">USD 402,61</td><td class="num">USD 233,09</td><td class="num">USD 147,62</td></tr>
+          <tr><td class="plat">C — Escala</td><td class="num">USD 10.700</td><td class="num">USD 404,58</td><td class="num">USD 234,23</td><td class="num">USD 148,35</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h-md r d5" style="margin-top:48px;margin-bottom:8px">Costo por venta como porcentaje del ticket</h3>
+    <p class="muted r d5" style="margin-bottom:18px;max-width:80ch">El número que pone todo en perspectiva. Ticket de referencia: <b>Jeep Compass, USD 40.000</b> — precio de lista desde $60.060.000 ARS, según lista oficial de la marca, jul-ago 2026.</p>
+    <div class="tbl-wrap r d5">
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th class="num">Cierre conservador · 2,2%</th><th class="num">Cierre base · 3,8%</th><th class="num">Cierre optimista · 6,0%</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">A — Validación</td><td class="num">1,00%</td><td class="num">0,58%</td><td class="num">0,37%</td></tr>
+          <tr><td class="plat">B — Crecimiento</td><td class="num">1,01%</td><td class="num">0,58%</td><td class="num">0,37%</td></tr>
+          <tr><td class="plat">C — Escala</td><td class="num">1,01%</td><td class="num">0,59%</td><td class="num">0,37%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r d6" style="margin-top:16px"><span class="note-pill">Incluso en el peor escenario de cierre, adquirir un cliente cuesta <b>alrededor del 1% del valor de la unidad</b></span></p>
+
+    <div class="evo r d6" style="margin-top:46px">
+      <div class="evo-bg"><img src="img/competencia.jpg" alt="Playón de una concesionaria vista desde el aire"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>Lectura de la matriz</div>
+      <blockquote>Hay dos caminos al objetivo. Cuál corresponde no se decide: se mide.</blockquote>
+      <p class="muted" style="margin-top:22px;max-width:74ch;font-size:1rem;line-height:1.7">Los dos caminos a las 45 unidades son el <b>Escenario B con cierre optimista</b> y el <b>Escenario C con cierre base</b>. Cuál aplica depende de la tasa de cierre real, que solo se conoce midiendo durante la fase de validación. <b>La diferencia entre ambos supera los USD 4.000 mensuales.</b> Ese es, literalmente, el valor de medir antes de escalar.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Dos caminos al objetivo · USD 4.000 mensuales de diferencia</span><span class="num">16 — Sensibilidad</span></div>
+</section>
+
+<!-- ============ 18 · PLAN DE MEDIOS · REFERENCIAS ============ -->
+<section id="referencias" data-label="Plan de medios · Referencias">
+  <div class="wrap">
+    <div class="eyebrow r">Plan de medios · Parte 4</div>
+    <h2 class="h-lg r d1">De dónde salen los <span class="cy">números.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Ningún supuesto de este plan es una opinión. Estas son las referencias de mercado que lo sostienen, con su fuente declarada.</p>
+
+    <h3 class="h-md r d3" style="margin-top:44px;margin-bottom:16px">Evolución del costo por lead en el sector automotriz argentino</h3>
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Período</th><th>Perfil del anunciante</th><th class="num">CPL Meta (ARS)</th><th class="num">CPL Google (ARS)</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Julio 2022</td><td class="obj">Grupo multimarca, 6 marcas + usados</td><td class="num">~$1.100</td><td class="num">~$630</td><td class="obj">Base histórica Popcorn (anonimizada)</td></tr>
+          <tr><td class="plat">Agosto 2023</td><td class="obj">Concesionaria oficial, marca tradicional</td><td class="num">s/d</td><td class="num">~$3.300 - $3.600</td><td class="obj">Base histórica Popcorn (anonimizada)</td></tr>
+          <tr class="hi"><td class="plat">Julio 2026</td><td class="obj">Marca en instalación, segmento SUV C</td><td class="num">~$8.500</td><td class="num">~$19.000 - $27.800</td><td class="obj">Base histórica Popcorn (anonimizada)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout r d4" style="margin-top:20px">
+      <p><b>La eficiencia se corrió de Google hacia Meta.</b> Expresado en dólares al tipo de cambio oficial de cada período, el CPL de búsqueda pagada <b>se multiplicó por 3 a 4 veces entre 2022 y 2026</b>. El CPL de Meta, en cambio, se mantuvo estable e incluso mejoró. Es la razón por la que este plan carga el grueso de la inversión en Meta y usa Google para capturar intención, no para generar volumen.</p>
+    </div>
+
+    <div class="grid g2 r d5" style="margin-top:44px">
+      <div class="card">
+        <span class="num-tag">Dentro de un mismo año</span>
+        <h3>El CPL sube mes a mes</h3>
+        <p style="margin-bottom:16px">Variación de enero a julio, sobre una cuenta multimarca del sector con serie mensual completa:</p>
+        <div class="stats sm" style="margin-top:0;padding-top:20px">
+          <div class="stat"><div class="v">+145%</div><div class="l">Facebook / Meta</div></div>
+          <div class="stat"><div class="v">+33%</div><div class="l">Google Ads</div></div>
+        </div>
+        <p style="margin-top:20px"><b>Implicancia:</b> un presupuesto fijo compra progresivamente menos leads a lo largo del año. Todo objetivo anual requiere incrementos escalonados.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Premium de la marca</span>
+        <h3>Jeep cuesta más que el promedio</h3>
+        <p style="margin-bottom:16px">Índice de CPA de Jeep contra el promedio de cartera, en cuentas multimarca que gestionaban Jeep junto a otras marcas:</p>
+        <div class="stats sm" style="margin-top:0;padding-top:20px">
+          <div class="stat"><div class="v">1,3x</div><div class="l">Total de plataformas</div></div>
+          <div class="stat"><div class="v">1,8-1,9x</div><div class="l">Sólo búsqueda pagada</div></div>
+        </div>
+        <p style="margin-top:20px"><b>Implicancia:</b> un concesionario Jeep/RAM puro no debe planificar sobre el CPL promedio del mercado automotriz. Este plan ya lo contempla.</p>
+      </div>
+    </div>
+
+    <h3 class="h-md r d6" style="margin-top:50px;margin-bottom:16px">Contexto de mercado 2026</h3>
+    <div class="tbl-wrap r d6">
+      <table class="tbl">
+        <thead><tr><th>Período</th><th class="num">Unidades patentadas</th><th class="num">Variación interanual</th><th>Fuente</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Marzo 2026</td><td class="num">48.972</td><td class="num">+1,2%</td><td class="obj">ACARA, informes mensuales 2026</td></tr>
+          <tr><td class="plat">Junio 2026</td><td class="num">45.995</td><td class="num">-12,8%</td><td class="obj">ACARA, informes mensuales 2026</td></tr>
+          <tr><td class="plat">Julio 2026</td><td class="num">43.758</td><td class="num">-30,3%</td><td class="obj">ACARA, informes mensuales 2026</td></tr>
+          <tr class="hi"><td class="plat">Acumulado 7 meses</td><td class="num">339.359</td><td class="num">-12,8%</td><td class="obj">ACARA, informes mensuales 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sfoot"><span>Referencias del sector automotriz argentino, con fuente declarada</span><span class="num">17 — Referencias</span></div>
+</section>
+
+<!-- ============ 19 · APRENDIZAJES OPERATIVOS ============ -->
+<section id="aprendizajes" data-label="Aprendizajes del sector">
+  <div class="wrap">
+    <div class="eyebrow r">Plan de medios · Parte 5</div>
+    <h2 class="h-lg r d1">Cinco cosas que ya aprendimos <span class="cy">gastando plata.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Aprendizajes operativos de campañas reales del sector automotriz argentino. Son la diferencia entre arrancar de cero y arrancar sabiendo dónde están los pozos.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card">
+        <span class="num-tag">01 · Creatividad</span>
+        <div class="metric">-50%</div>
+        <h3>El valor tiene que verse</h3>
+        <p>Las piezas que comunican <b>precio o cuota desde el primer segundo</b> generan leads a menos del 50% del costo. No es una cuestión estética: es la variable creativa que más mueve el CPL.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">02 · Formato</span>
+        <div class="metric">1/3</div>
+        <h3>Lo nativo rinde más que lo producido</h3>
+        <p>Las piezas de <b>producción mínima</b> generan leads a aproximadamente un tercio del costo del material producido de fábrica. Es el argumento más fuerte para tener contenido propio filmado en el salón.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">03 · Segmentación</span>
+        <div class="metric">×2</div>
+        <h3>Sobre-segmentar geográficamente</h3>
+        <p>Restringir la pauta de Meta a un recorte provincial <b>casi duplicó el CPL</b>. Conclusión operativa concreta para esta cuenta: <b>no restringir a Zona Norte</b>. El algoritmo necesita aire para encontrar al comprador.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">04 · Riesgo técnico</span>
+        <div class="metric">54%</div>
+        <h3>Una falla de sitio frena todo</h3>
+        <p>Una falla de configuración del sitio dejó campañas de búsqueda <b>sin entregar durante casi un mes</b>, con el 54% del presupuesto ya ejecutado. Es exactamente el riesgo que la Fase 0 de auditoría existe para evitar.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">05 · Curva de aprendizaje</span>
+        <div class="metric">-30%</div>
+        <h3>El segundo mes siempre es mejor</h3>
+        <p>El CPL mejora alrededor de un <b>30% entre el primer y el segundo mes</b> de operación, y hasta un 60% en las piezas de mejor rendimiento. Hay que aguantar el primer mes sin cambiar el rumbo.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.4));border-color:var(--cyan-line)">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Sobre estas referencias</h3>
+        <p>Todas las referencias de costo publicitario provienen de campañas del sector automotriz argentino y se presentan de forma <b>agregada y anonimizada</b>, en cumplimiento de los acuerdos de confidencialidad correspondientes. Son referencias orientativas y <b>no constituyen garantía de resultados</b>.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Aprendizajes de campañas reales del sector</span><span class="num">18 — Aprendizajes</span></div>
+</section>
+
+<!-- ============ 20 · PLAN POR FASES ============ -->
+<section id="fases" data-label="Plan por fases">
+  <div class="wrap">
+    <div class="eyebrow r">Plan de medios · Parte 6</div>
+    <h2 class="h-lg r d1">Cómo se ejecuta, fase por <span class="cy">fase.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La inversión en medios no arranca el día uno. Arranca cuando la base técnica está sana.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:40px">
+      <table class="tbl">
+        <thead><tr><th>Fase</th><th>Período</th><th class="num">Inversión mensual (USD)</th><th class="num">Inversión mensual (ARS)</th><th>Foco</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td class="plat">Fase 0 — Auditoría</td><td>Semanas 1-3</td><td class="num">Sin inversión en medios</td><td class="num">—</td><td class="obj">Tracking, formularios y validación de campos, verificación del anunciante, estructura de cuentas, unificación de marca en redes.</td></tr>
+          <tr><td class="plat">Fase 1 — Validación</td><td>Meses 1-2</td><td class="num">USD 3.600</td><td class="num">$5.400.000</td><td class="obj">Medir tasa de cierre real, validar ángulos creativos, establecer línea de base de CPL.</td></tr>
+          <tr><td class="plat">Fase 2 — Crecimiento</td><td>Meses 3-4</td><td class="num">USD 6.700</td><td class="num">$10.050.000</td><td class="obj">Escalar lo que funcionó, incorporar Performance Max.</td></tr>
+          <tr><td class="plat">Fase 3 — Escala</td><td>Mes 5 en adelante</td><td class="num">USD 10.700</td><td class="num">$16.050.000</td><td class="obj">Sostener el objetivo comercial. El nivel definitivo depende de la tasa de cierre medida en la Fase 1.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h-md r d4" style="margin-top:50px;margin-bottom:16px">Qué medimos y con qué frecuencia</h3>
+    <div class="tbl-wrap r d4">
+      <table class="tbl">
+        <thead><tr><th>Métrica</th><th>Frecuencia</th><th>Por qué importa</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Costo por lead, por plataforma y campaña</td><td>Semanal</td><td class="obj">Detección temprana de desvíos</td></tr>
+          <tr class="hi"><td class="plat">Tasa de cierre lead → venta</td><td>Mensual</td><td class="obj">Es la variable que define todo el modelo</td></tr>
+          <tr><td class="plat">Costo por venta</td><td>Mensual</td><td class="obj">Métrica de negocio, no de plataforma</td></tr>
+          <tr><td class="plat">Calidad de lead (contactabilidad, agendamiento)</td><td>Semanal</td><td class="obj">Distingue volumen de valor</td></tr>
+          <tr><td class="plat">Impression share en búsquedas de marca</td><td>Mensual</td><td class="obj">Mide la pérdida frente a otros concesionarios de la red</td></tr>
+          <tr><td class="plat">Participación por sucursal</td><td>Mensual</td><td class="obj">Valida la asignación entre Junín y Nordelta</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn r d5" style="margin-top:28px">
+      <p><b>Requisito indispensable.</b> El seguimiento de la tasa de cierre exige que A. Russoniello <b>informe las ventas atribuibles a leads digitales</b>. Sin ese retorno de información, el plan sólo puede optimizar hacia volumen de leads, que es una métrica inferior a la venta. No es un pedido administrativo: es la condición para que todo el modelo funcione.</p>
+    </div>
+
+    <h3 class="h-md r d6" style="margin-top:50px;margin-bottom:16px">Riesgos y mitigaciones</h3>
+    <div class="grid g2 r d6">
+      <div class="card">
+        <span class="num-tag">Riesgo · Técnico</span>
+        <h3>Fallas de sitio o de tracking dejan campañas sin entregar</h3>
+        <p><b>Mitigación:</b> Fase 0 de auditoría antes de cualquier inversión en medios.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo · Calidad de lead</span>
+        <h3>Formularios sin validación inflan el volumen</h3>
+        <p><b>Mitigación:</b> validación de campos y verificación en la Fase 0.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo · Posventa</span>
+        <h3>Escalar leads sin resolver la fricción amplifica la exposición</h3>
+        <p><b>Mitigación:</b> trabajo conjunto con el cliente en paralelo a la Fase 1.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo · Mercado</span>
+        <h3>El sector cae 12,8% interanual</h3>
+        <p><b>Mitigación:</b> revisión trimestral de escenarios.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo · Cambiario</span>
+        <h3>El presupuesto está expresado en dólares</h3>
+        <p><b>Mitigación:</b> ajuste mensual del presupuesto en pesos.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.4));border-color:var(--cyan-line)">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></div>
+        <h3>El modelo es un archivo vivo</h3>
+        <p>Este plan está construido sobre una planilla de cálculo vinculada: al cambiar un supuesto, se recalculan escenarios y sensibilidad. Se entrega junto a la propuesta para que A. Russoniello pueda auditarlo y correr sus propios escenarios.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fase 0 sin inversión · la pauta arranca con la base sana</span><span class="num">19 — Plan por fases</span></div>
+</section>
+
+<!-- ============ 16 · CONDICIONES ============ -->
+<section id="condiciones" data-label="Condiciones">
+  <div class="wrap">
+    <div class="eyebrow r">Condiciones comerciales</div>
+    <h2 class="h-lg r d1">Todo por <span class="cy">escrito.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Sin letra chica ni sorpresas al momento de facturar.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card">
+        <span class="num-tag">01 · Validez</span>
+        <h3>Hasta el 21 de agosto</h3>
+        <p>Los valores de esta propuesta rigen hasta el <b>21 de agosto de 2026</b>. Pasada esa fecha se revisan por variación de costos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">02 · Formas de pago</span>
+        <h3>Proyectos de única vez</h3>
+        <p>Dos opciones: 100% anticipado, con valor preferencial; o 50% al inicio y 50% al finalizar el proyecto o a los 30 días de iniciado, lo que ocurra primero.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">03 · Servicio recurrente</span>
+        <h3>100% por adelantado</h3>
+        <p>La gestión mensual se factura íntegramente por adelantado, al inicio de cada período mensual. No aplica el valor preferencial por anticipado. Al honorario fijo se adiciona un <b>15% variable sobre la inversión ejecutada en plataformas</b>, que se liquida junto con el cierre de cada mes.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">04 · Impuestos</span>
+        <h3>Valores sin IVA</h3>
+        <p>Todos los montos de esta propuesta se expresan <b>sin IVA</b>. El impuesto se adiciona en la factura según la condición fiscal vigente.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">05 · Medios</span>
+        <h3>La pauta va aparte</h3>
+        <p>La inversión publicitaria en Meta y Google la define y la abona A. Russoniello directamente a las plataformas. Popcorn no la factura ni la intermedia.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">06 · Duración y ajuste</span>
+        <h3>Contrato mensual</h3>
+        <p>Sugerimos un compromiso inicial de tres meses para poder mostrar resultados con medición limpia. Los honorarios se revisan trimestralmente por variación de costos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">07 · Accesos</span>
+        <h3>Responsabilidad del cliente</h3>
+        <p>A. Russoniello provee accesos a Meta Business, Google Ads, GA4, gestor de etiquetas y sitio web. Los plazos empiezan a correr desde la recepción de los accesos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">08 · Confidencialidad</span>
+        <h3>Documento reservado</h3>
+        <p>Esta propuesta es de uso exclusivo de A. Russoniello. No se comparten con terceros los datos de la cuenta ni los hallazgos de la auditoría.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Validez hasta el 21/08/2026 · valores sin IVA · pauta aparte</span><span class="num">20 — Condiciones</span></div>
+</section>
+
+<!-- ============ 17 · CIERRE ============ -->
+<section id="cierre" data-label="Próximos pasos">
+  <div class="bg-photo center"><img src="img/cierre.jpg" alt="Vehículo 4x4 en camino de tierra"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Próximos pasos</div>
+    <h2 class="close-title r d1">Hoy la inversión no se puede leer.<br>En 15 días hábiles, <span class="cy">sí.</span></h2>
+    <p class="lead r d2" style="margin:26px auto 0;text-align:center">Empezamos por entender exactamente qué está fallando y cuánto cuesta. Desde ahí, cada peso que se invierta va a poder defenderse con un número.</p>
+
+    <div class="steps r d3">
+      <div class="step-c"><div class="sn">01</div><h4>Aprobación</h4><p>Confirmás la propuesta y la forma de pago desde el botón de abajo.</p></div>
+      <div class="step-c"><div class="sn">02</div><h4>Accesos</h4><p>Nos das acceso de solo lectura a las cuentas y coordinamos el kick-off.</p></div>
+      <div class="step-c"><div class="sn">03</div><h4>Auditoría</h4><p>15 días hábiles de trabajo y entrega del informe priorizado.</p></div>
+      <div class="step-c"><div class="sn">04</div><h4>Puesta en marcha</h4><p>Arranca la gestión mensual y se corrige la base de medición.</p></div>
+    </div>
+
+    <div class="r d4" style="text-align:center;margin-top:12px">
+      <p id="ctaPick"></p>
+      <button class="cta-go" id="ctaGo" type="button">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <div class="close-sign r d5">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">Agencia integral de marketing y publicidad digital</span>
+      <span style="font-size:.86rem;color:var(--w-45);margin-top:8px;text-align:center;line-height:1.6">Sol Ferrari · Gerente General · sol@somospopcorn.com<br>Propuesta 1 de 3 · Agosto 2026 · válida hasta el 21/08/2026</span>
+      <span style="font-size:.74rem;color:var(--w-45);margin-top:14px;text-align:center;max-width:60ch;line-height:1.6">Las fotografías de este documento son ilustrativas, de banco de imágenes de uso libre, y no corresponden a instalaciones ni a vehículos de A. Russoniello.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · somospopcorn.com</span><span class="num">21 — Cierre</span></div>
+</section>
+
+<script>
+/* ===== progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?scrollY/h*100:0)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== dots ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== scroll reveal ===== */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.scale-in').forEach(el=>io.observe(el));
+
+/* ===== barras de score ===== */
+const bio=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w;bio.unobserve(e.target);}});},{threshold:.3});
+document.querySelectorAll('.dim .fill').forEach(el=>bio.observe(el));
+
+/* ===== sección activa ===== */
+const active=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));}});
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== selector de inversión + mailto ===== */
+(function(){
+  const pays=[...document.querySelectorAll('.pay')];
+  const svcMes=document.getElementById('svcMes');
+  const tglMes=document.getElementById('tglMes');
+  const totLine=document.getElementById('totLine');
+  const totSub=document.getElementById('totSub');
+  const ctaPick=document.getElementById('ctaPick');
+  const ctaGo=document.getElementById('ctaGo');
+  const MES=1190090;
+  const scens={
+    'A':{l:'Escenario A · Validación (meses 1-2)',inv:'USD 3.600 / mes ($5.400.000)',leads:'410',cpl:'USD 8,78',ventas:'9,02 / 15,58 / 24,60 según tasa de cierre'},
+    'B':{l:'Escenario B · Crecimiento (meses 3-4, recomendado)',inv:'USD 6.700 / mes ($10.050.000)',leads:'756,4',cpl:'USD 8,86',ventas:'16,64 / 28,74 / 45,39 según tasa de cierre'},
+    'C':{l:'Escenario C · Escala (mes 5 en adelante)',inv:'USD 10.700 / mes ($16.050.000)',leads:'1.202,1',cpl:'USD 8,90',ventas:'26,45 / 45,68 / 72,13 según tasa de cierre'}
+  };
+  let selScen=null;
+  const ars=n=>'$'+Number(n).toLocaleString('es-AR');
+
+  function selPay(){return pays.find(p=>p.classList.contains('sel'));}
+
+  function render(){
+    const p=selPay();
+    const conMes=svcMes.classList.contains('on');
+    const parts=[];
+    if(p){
+      parts.push('Auditoría · '+p.dataset.label+' · '+ars(p.dataset.amount)+' + IVA');
+    }
+    if(conMes){parts.push('Gestión mensual · '+ars(MES)+' + IVA por mes + 15% variable');}
+    totLine.innerHTML = p
+      ? ars(p.dataset.amount)+' + IVA <small>(auditoría, '+p.dataset.label+')</small>'+(conMes?'<br>'+ars(MES)+' + IVA <small>por mes + 15% variable</small>':'')
+      : '—';
+    totSub.textContent = p
+      ? (conMes ? 'Auditoría de pago único más servicio mensual recurrente, facturado 100% por adelantado.'
+                : 'Solo la auditoría. Podés sumar la gestión mensual con un clic.')
+      : 'Elegí la forma de pago de la auditoría y decidí si sumás la gestión mensual.';
+
+    const bits=[];
+    if(p){bits.push('Auditoría ('+p.dataset.label+')');}
+    if(conMes){bits.push('Gestión mensual de pauta');}
+    if(selScen){bits.push(scens[selScen].l);}
+    ctaPick.innerHTML = bits.length ? 'Avanzás con: <b>'+bits.join('</b> + <b>')+'</b>' : '<span class="none">Elegí más arriba la forma de pago para incluirla en el correo.</span>';
+  }
+
+  function mail(){
+    const p=selPay();
+    const conMes=svcMes.classList.contains('on');
+    let subject='A. Russoniello · Aprobamos la propuesta de auditoría y pauta';
+    let body='Hola Sol,\n\nVimos la propuesta de auditoría publicitaria y gestión de pauta para A. Russoniello (Jeep & RAM · Nordelta) y queremos avanzar.\n';
+    if(p){
+      body+='\nAUDITORÍA DE CUENTAS Y ECOSISTEMA DIGITAL\n';
+      body+='• Forma de pago elegida: '+p.dataset.label+'\n';
+      body+='• Inversión: '+ars(p.dataset.amount)+' + IVA\n';
+      if(p.dataset.pay==='B'){body+='• 2 pagos de $892.500 + IVA (inicio y al finalizar o a los 30 días de iniciado, lo que ocurra primero)\n';}
+    }
+    if(conMes){
+      body+='\nGESTIÓN MENSUAL DE PAUTA\n';
+      body+='• '+ars(MES)+' + IVA por mes\n';
+      body+='• + 15% variable\n';
+      body+='• Facturación 100% por adelantado, al inicio de cada período\n';
+    }
+    if(selScen){
+      const s=scens[selScen];
+      subject+=' — '+s.l;
+      body+='\nINVERSIÓN EN MEDIOS (presupuesto de pauta, se abona directo a las plataformas)\n';
+      body+='• '+s.l+'\n• Inversión: '+s.inv+'\n• Leads estimados: '+s.leads+' / mes\n• CPL blended: '+s.cpl+'\n• Ventas estimadas: '+s.ventas+'\n';
+    }
+    body+='\nQuedamos a la espera para coordinar los accesos y la reunión de inicio.\n\nSaludos,\nTrinidad — Marketing, A. Russoniello';
+    location.href='mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  }
+
+  pays.forEach(p=>p.addEventListener('click',()=>{pays.forEach(x=>x.classList.remove('sel'));p.classList.add('sel');render();}));
+  tglMes.addEventListener('click',()=>{svcMes.classList.toggle('on');render();});
+  document.querySelectorAll('.scen-pick').forEach(sp=>{
+    sp.addEventListener('click',()=>{
+      const was=sp.classList.contains('selected');
+      document.querySelectorAll('.scen-pick').forEach(x=>x.classList.remove('selected'));
+      selScen = was ? null : sp.dataset.scen;
+      if(!was)sp.classList.add('selected');
+      render();
+    });
+  });
+  ctaGo.addEventListener('click',mail);
+  render();
+})();
+</script>
+</body>
+</html>
