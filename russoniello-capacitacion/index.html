@@ -141,8 +141,8 @@ b,strong{color:#fff;font-weight:600}
 .scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:6px}
 .scope-col .sub{font-size:.86rem;color:var(--w-45);margin-bottom:22px}
 .scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
-.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--w-80);line-height:1.5}
-.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col li{display:block;position:relative;padding-left:31px;font-size:.97rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{position:absolute;left:0;top:3px;width:19px;height:19px}
 .scope-col.yes li svg{color:var(--cyan)}
 .scope-col.no li svg{color:var(--w-45)}
 .scope-col.no li{color:var(--w-65)}
@@ -551,7 +551,7 @@ b,strong{color:#fff;font-weight:600}
   <div class="wrap">
     <div class="eyebrow r">Cronograma estimado</div>
     <h2 class="h-lg r d1">Cómo se distribuyen las <span class="cy">36 horas.</span></h2>
-    <p class="lead r d2" style="margin-top:20px">Cronograma de referencia con cadencia de 3 horas semanales, que completa el programa en 12 semanas. Con 2 horas semanales, el mismo recorrido se extiende a 18 semanas.</p>
+    <p class="lead r d2" style="margin-top:20px">Cronograma de referencia con cadencia de 3 horas semanales, que completa el programa en 12 semanas. Con 2 horas semanales, el mismo recorrido se extiende a 18 semanas.<span class="cy" style="font-weight:600">&nbsp;*</span></p>
 
     <div class="pipe r d3" style="margin-top:44px">
       <div class="node"><span class="k">Bloque 1</span><span class="t">Fundamentos</span><p>Módulo 1 · 4,5 hs</p></div>
@@ -563,6 +563,10 @@ b,strong{color:#fff;font-weight:600}
       <div class="node"><span class="k">Bloque 4</span><span class="t">Creatividad y lectura</span><p>Módulos 6 y 7 · 8 hs</p></div>
       <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="node"><span class="k">Bloque 5</span><span class="t">Cuenta real</span><p>Módulo 8 · 4 hs</p></div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:26px">
+      <p><b><span class="cy">*</span> La carga horaria por módulo es un promedio.</b> El ritmo real de cada grupo la puede mover para un lado o para el otro, y lo resolvemos así: si el programa se completa <b>antes de las 36 horas</b>, las horas remanentes quedan disponibles para usarlas como <b>consultoría o seguimiento</b> sobre la cuenta; si el grupo necesita más tiempo del previsto, las <b>horas adicionales de capacitación se cotizan aparte</b>. En cualquiera de los dos casos se acuerda con el área de marketing antes de avanzar: nunca se factura una hora extra sin aviso.</p>
     </div>
 
     <div class="tl r d4">
@@ -715,10 +719,11 @@ b,strong{color:#fff;font-weight:600}
       <div class="card"><span class="num-tag">02 · Formas de pago</span><h3>Dos opciones</h3><p>100% anticipado con valor preferencial, o 50% al inicio y 50% al finalizar el programa o a los 30 días de iniciado, lo que ocurra primero.</p></div>
       <div class="card"><span class="num-tag">03 · Impuestos</span><h3>Valores sin IVA</h3><p>Todos los montos se expresan <b>sin IVA</b>. El impuesto se adiciona en la factura según la condición fiscal vigente.</p></div>
       <div class="card"><span class="num-tag">04 · Destinatario</span><h3>Área de marketing</h3><p>La capacitación es exclusiva para el área de marketing de A. Russoniello. La incorporación de participantes de otras áreas se acuerda previamente.</p></div>
-      <div class="card"><span class="num-tag">05 · Reprogramaciones</span><h3>Con 48 horas de aviso</h3><p>Los encuentros pueden reprogramarse avisando con al menos 48 horas de anticipación, sin costo adicional y dentro del cronograma pactado.</p></div>
-      <div class="card"><span class="num-tag">06 · Materiales</span><h3>Propiedad del cliente</h3><p>La documentación y el manual final quedan en propiedad de A. Russoniello para uso interno. No se autoriza su comercialización ni su distribución a terceros.</p></div>
-      <div class="card"><span class="num-tag">07 · Modalidad</span><h3>100% virtual</h3><p>La totalidad de los encuentros se dictan en vivo por videollamada. No contempla instancias presenciales en las oficinas de A. Russoniello.</p></div>
-      <div class="card"><span class="num-tag">08 · Confidencialidad</span><h3>Documento reservado</h3><p>Esta propuesta es de uso exclusivo de A. Russoniello. Los datos de la cuenta que se trabajen durante la capacitación no se comparten con terceros.</p></div>
+      <div class="card"><span class="num-tag">05 · Horas</span><h3>36 horas promedio</h3><p>La distribución por módulo es estimada. Las horas no utilizadas quedan disponibles como consultoría o seguimiento; las horas adicionales de capacitación se cotizan aparte y se acuerdan previamente.</p></div>
+      <div class="card"><span class="num-tag">06 · Reprogramaciones</span><h3>Con 48 horas de aviso</h3><p>Los encuentros pueden reprogramarse avisando con al menos 48 horas de anticipación, sin costo adicional y dentro del cronograma pactado.</p></div>
+      <div class="card"><span class="num-tag">07 · Materiales</span><h3>Propiedad del cliente</h3><p>La documentación y el manual final quedan en propiedad de A. Russoniello para uso interno. No se autoriza su comercialización ni su distribución a terceros.</p></div>
+      <div class="card"><span class="num-tag">08 · Modalidad</span><h3>100% virtual</h3><p>La totalidad de los encuentros se dictan en vivo por videollamada. No contempla instancias presenciales en las oficinas de A. Russoniello.</p></div>
+      <div class="card"><span class="num-tag">09 · Confidencialidad</span><h3>Documento reservado</h3><p>Esta propuesta es de uso exclusivo de A. Russoniello. Los datos de la cuenta que se trabajen durante la capacitación no se comparten con terceros.</p></div>
     </div>
   </div>
   <div class="sfoot"><span>Validez hasta el 21/08/2026 · valores sin IVA · 100% virtual</span><span class="num">10 — Condiciones</span></div>
