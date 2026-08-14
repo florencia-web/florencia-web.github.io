@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TransAdvanced × Popcorn · Las oportunidades no aparecen. Se construyen.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM
+   Violeta eléctrico + cian · tipografía geométrica redondeada
+   ============================================================ */
+:root{
+  --violet-900:#250a4f;
+  --violet-800:#34107a;
+  --violet-700:#4a16a8;
+  --violet-600:#5a18cc;
+  --violet-500:#6e28e8;
+  --cyan:#1fe8d8;
+  --cyan-bright:#5cf4e8;
+  --cyan-deep:#12b9ad;
+  --ink:#0e0524;
+  --white:#ffffff;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --amber:#ffb547;
+  --amber-line:rgba(255,181,71,.38);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  background:var(--violet-600);color:var(--white);
+  font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+  overflow-x:clip;line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+    linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ============ HEADER ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* ============ PROGRESO + NAV ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+.kicker{font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--cyan)}
+b,strong{color:#fff;font-weight:600}
+
+/* ============ ANIMACIONES ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}.r.d4{transition-delay:.36s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-title{font-weight:700;font-size:clamp(2.7rem,7.4vw,6rem);line-height:.98;letter-spacing:-.03em;max-width:16ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:660px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block}
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:22ch}
+.stats.sm .v{font-size:clamp(1.45rem,2.5vw,2rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.14em;margin-top:6px}
+
+/* ============ FOTOGRAFÍA ============ */
+.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft);aspect-ratio:4/3}
+.media.tall{aspect-ratio:3/4}
+.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.06) brightness(.93)}
+.media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.48),rgba(18,5,40,.26) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:32px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.6) contrast(1.05)}
+.bg-photo.hero img{object-position:62% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.97) 26%,rgba(74,18,168,.62) 60%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.74),rgba(18,5,40,.95))}
+.bg-photo.soft::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(63,15,149,.94) 34%,rgba(45,12,110,.82))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* ============ EVO ============ */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,56px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.5) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.92),rgba(40,12,100,.55))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:22px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.35;letter-spacing:-.01em;max-width:26ch}
+.evo .sign{margin-top:24px;color:var(--w-65);font-size:.98rem;max-width:660px}
+.evo .evo-stats{display:flex;flex-wrap:wrap;gap:14px 50px;margin-top:32px}
+.evo .evo-stats .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--cyan);line-height:1}
+.evo .evo-stats .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65);margin-top:6px}
+
+/* ============ TABLA ============ */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line-soft);border-radius:20px;background:var(--card)}
+table.tbl{width:100%;border-collapse:collapse;min-width:680px}
+.tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:16px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:15px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Poppins';font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--cyan);font-weight:600}
+.tbl .plat{font-family:'Poppins';font-weight:600;color:#fff;white-space:nowrap}
+.tbl .obj{color:var(--w-45);font-size:.82rem;line-height:1.45}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(31,232,216,.07);font-family:'Poppins';font-weight:700;color:#fff}
+.tbl tr.total td.num{color:var(--cyan)}
+.tbl td.num.dim{color:var(--w-65);font-weight:500}
+
+/* escenarios de inversión en pauta */
+.cpc{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.cpc-card{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:20px 22px}
+.cpc-card .cp{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45);margin-bottom:8px}
+.cpc-card .cv{font-family:'Poppins';font-weight:700;font-size:1.4rem;color:var(--cyan)}
+.cpc-card .cv small{font-family:'Poppins';font-weight:600;font-size:.7rem;color:var(--w-45)}
+.scen{border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow:hidden;margin-top:20px}
+.scen.hi{border-color:var(--cyan-line);box-shadow:0 0 0 1px var(--cyan-line),0 20px 50px rgba(9,2,28,.4)}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:22px 26px}
+.scen-head .sn{font-family:'Poppins';font-weight:700;font-size:1.2rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.scen-head .sn small{display:block;width:100%;font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);margin-top:5px}
+.scen-head .sr{font-family:'Poppins';font-weight:700;font-size:1.15rem;color:var(--cyan);white-space:nowrap}
+.scen-badge{font-family:'Poppins';font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:6px;background:var(--cyan);color:var(--ink)}
+.scen .tbl-wrap{border:none;border-radius:0;background:transparent;border-top:1px solid var(--line-soft)}
+.scen-note{padding:18px 26px;font-size:.9rem;color:var(--w-65);line-height:1.6;border-top:1px solid var(--line-soft)}
+.scen-note b{color:var(--cyan)}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.86rem;color:var(--w-65)}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:16px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+
+/* ============ SCOPE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.15rem;margin-bottom:18px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:18px;height:18px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* ============ CADENA (situación actual) ============ */
+.chain{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.chain-node{position:relative;background:var(--card-2);border:1px solid var(--line-soft);border-radius:14px;padding:16px 22px;display:flex;align-items:center;gap:16px;transition:all .4s var(--ease)}
+.chain-node:hover{border-color:var(--amber-line)}
+.chain-node .cn{font-family:'Poppins';font-weight:700;font-size:11px;color:var(--amber);letter-spacing:.14em;flex:none;width:24px}
+.chain-node .ct{font-family:'Poppins';font-weight:600;font-size:1rem}
+.chain-node .cd{font-size:.82rem;color:var(--w-45);margin-top:2px}
+.chain-arrow{height:22px;display:flex;align-items:center;justify-content:center;color:var(--amber);opacity:.55}
+.chain-arrow svg{width:15px;height:15px}
+.chain-node.end{background:linear-gradient(120deg,rgba(255,181,71,.14),rgba(13,4,40,.4));border-color:var(--amber-line)}
+.chain-node.end .ct{color:var(--amber)}
+
+/* ============ HALLAZGOS ============ */
+.finding{display:flex;gap:16px;align-items:flex-start;padding:22px 24px;border-radius:16px;background:var(--card);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
+.finding:hover{border-color:var(--cyan-line);transform:translateY(-3px)}
+.finding .sev{flex:none;font-family:'Poppins';font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:6px;margin-top:2px;white-space:nowrap;background:rgba(255,181,71,.16);border:1px solid var(--amber-line);color:var(--amber)}
+.finding h4{font-family:'Poppins';font-weight:600;font-size:1rem;margin-bottom:6px;line-height:1.3}
+.finding p{font-size:.87rem;color:var(--w-65);line-height:1.55}
+.finding p code{font-family:'Poppins';font-size:.8rem;color:var(--cyan);background:rgba(31,232,216,.1);padding:2px 7px;border-radius:5px}
+
+/* ============ ARQUITECTURA ============ */
+.arch{margin-top:20px;border:1px solid var(--line-soft);border-radius:24px;background:rgba(13,4,40,.42);overflow:hidden}
+.arch-legend{display:flex;flex-wrap:wrap;gap:12px 28px;padding:20px 26px;border-bottom:1px solid var(--line-soft)}
+.arch-legend div{display:flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--w-65)}
+.arch-legend .sw{width:14px;height:14px;border-radius:4px;flex:none}
+.arch-legend .sw.pop{background:var(--cyan);box-shadow:0 0 10px rgba(31,232,216,.6)}
+.arch-legend .sw.ta{background:var(--amber);box-shadow:0 0 10px rgba(255,181,71,.5)}
+.arch-legend .sw.mix{background:linear-gradient(90deg,var(--cyan),var(--amber))}
+.arch-body{padding:26px}
+.arch-step{display:grid;grid-template-columns:112px 1fr 128px;gap:20px;align-items:center;padding:18px;border-radius:16px;border:1px solid var(--line-soft);background:var(--card);transition:all .4s var(--ease);position:relative}
+.arch-step:hover{transform:translateX(5px)}
+.arch-step .astage{font-family:'Poppins';font-weight:700;font-size:.98rem;line-height:1.2}
+.arch-step .astage small{display:block;font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;color:var(--w-45);margin-bottom:5px}
+.arch-step .adesc{font-size:.87rem;color:var(--w-65);line-height:1.55}
+.arch-step .adesc b{color:#fff}
+.arch-step .aown{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:9px 8px;border-radius:8px;line-height:1.3}
+.arch-step.pop{border-left:3px solid var(--cyan)}
+.arch-step.pop .aown{background:rgba(31,232,216,.14);border:1px solid var(--cyan-line);color:var(--cyan)}
+.arch-step.pop .astage small{color:var(--cyan)}
+.arch-step.ta{border-left:3px solid var(--amber)}
+.arch-step.ta .aown{background:rgba(255,181,71,.14);border:1px solid var(--amber-line);color:var(--amber)}
+.arch-step.ta .astage small{color:var(--amber)}
+.arch-step.mix{border-left:3px solid transparent}
+.arch-step.mix::before{content:'';position:absolute;left:-3px;top:-1px;bottom:-1px;width:3px;border-radius:16px 0 0 16px;background:linear-gradient(180deg,var(--cyan),var(--amber))}
+.arch-step.mix .aown{background:linear-gradient(100deg,rgba(31,232,216,.14),rgba(255,181,71,.14));border:1px solid var(--line);color:#fff}
+.arch-step.mix .astage small{color:#fff}
+.arch-sep{display:flex;align-items:center;justify-content:center;height:20px;color:var(--w-45)}
+.arch-sep svg{width:15px;height:15px}
+.arch-hand{margin:0 26px 26px;padding:20px 24px;border-radius:14px;background:linear-gradient(100deg,rgba(31,232,216,.09),rgba(255,181,71,.07));border:1px dashed var(--line)}
+.arch-hand .ah-t{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.arch-hand p{font-size:.92rem;color:var(--w-80);line-height:1.6}
+
+/* ============ VERTICALES ============ */
+.verts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.vert{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;border:1px solid var(--line-soft);transition:all .45s var(--ease)}
+.vert img{width:100%;height:100%;object-fit:cover;filter:saturate(.5) brightness(.5) contrast(1.1);transition:all .55s var(--ease)}
+.vert::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(45,12,110,.25) 20%,rgba(18,5,40,.92));pointer-events:none}
+.vert:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.vert:hover img{filter:saturate(.85) brightness(.62) contrast(1.05);transform:scale(1.06)}
+.vert .vt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 14px}
+.vert .vt h4{font-family:'Poppins';font-weight:600;font-size:.95rem;line-height:1.2}
+.vert .vpri{position:absolute;top:12px;right:12px;z-index:2;font-family:'Poppins';font-weight:700;font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:5px;background:rgba(31,232,216,.18);border:1px solid var(--cyan-line);color:var(--cyan);backdrop-filter:blur(6px)}
+.vert .vpri.p2{background:rgba(255,255,255,.1);border-color:var(--line);color:var(--w-65)}
+
+/* ============ MÓDULOS ============ */
+.mods{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+.mod{display:grid;grid-template-columns:58px 1fr 1.1fr;gap:26px;align-items:start;padding:28px 30px;border-radius:20px;background:var(--card);border:1px solid var(--line-soft);transition:all .4s var(--ease)}
+.mod:hover{border-color:var(--cyan-line);transform:translateY(-4px);background:rgba(255,255,255,.07)}
+.mod.hi{background:linear-gradient(120deg,rgba(31,232,216,.13),rgba(13,4,40,.4));border-color:var(--cyan-line)}
+.mod .mi{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan)}
+.mod .mi svg{width:26px;height:26px}
+.mod h3{font-family:'Poppins';font-weight:600;font-size:1.3rem;line-height:1.2;margin-bottom:8px}
+.mod .mh{font-family:'Poppins';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;display:block}
+.mod .mw{font-size:.92rem;color:var(--w-65);line-height:1.6}
+.mod .ml{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.mod .ml li{font-family:'Poppins';font-weight:500;font-size:.8rem;color:var(--w-80);background:rgba(255,255,255,.06);border:1px solid var(--line-soft);padding:7px 13px;border-radius:100px}
+
+/* ============ FASES ============ */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.phase-card{position:relative;border:1px solid var(--line-soft);border-radius:20px;padding:28px 24px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.phase-card:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.phase-card .pn{font-family:'Poppins';font-weight:700;font-size:2.4rem;color:rgba(31,232,216,.4);line-height:1;position:absolute;top:14px;right:20px}
+.phase-card h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:10px;max-width:12ch}
+.phase-card .gp{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;display:block}
+.phase-card p{color:var(--w-65);font-size:.88rem;line-height:1.55}
+.phase-card.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* ============ INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.45));border:1.5px solid var(--cyan-line);border-radius:24px;padding:34px}
+.invest-card .per{color:var(--w-65);font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-bottom:6px;display:block}
+.invest-card .perx{color:var(--w-45);font-size:.84rem;margin-bottom:20px;display:block}
+.inv-ghead{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Poppins';font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);padding-bottom:10px;border-bottom:1px solid var(--cyan-line);margin-bottom:2px}
+.inv-ghead .inv-sub{font-family:'Poppins';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.inv-ghead .inv-tag{font-family:'Poppins';font-weight:700;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.08);color:var(--w-65);border:1px solid var(--line-soft);white-space:nowrap}
+.inv-ghead .inv-tag.hi{background:var(--cyan);color:var(--ink);border-color:var(--cyan)}
+.inv-desc{font-size:.84rem;color:var(--w-45);line-height:1.55;margin:12px 0 4px}
+.inv-block+.inv-block{margin-top:30px}
+.ramp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.ramp .rstep{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:20px 18px;text-align:center}
+.ramp .rstep.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+.ramp .rstep .rm{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);margin-bottom:8px}
+.ramp .rstep .rv{font-family:'Poppins';font-weight:700;font-size:2.2rem;color:var(--cyan);line-height:1}
+.ramp .rstep .rl{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--w-65);margin-top:6px}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Poppins';font-weight:600;font-size:1rem}
+.price-row .pl small{display:block;font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:5px;font-family:'Inter';max-width:44ch;line-height:1.5}
+.price-row .pl small.varfee{font-family:'Poppins';font-weight:600;font-size:.8rem;color:var(--cyan);margin-top:7px}
+.price-row .pv{font-family:'Poppins';font-weight:700;font-size:1.15rem;color:var(--cyan);white-space:nowrap}
+.price-row .chk,.price-row .chk-spacer{flex:none;width:20px;height:20px;margin-top:2px}
+.price-row .chk{border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.price-row.svc-pick.on .pl-t{color:#fff}
+.totbox{padding:26px;border-radius:18px;background:linear-gradient(160deg,#1b0748,#12042f);border:1px solid var(--cyan-line);box-shadow:0 18px 50px rgba(9,2,28,.5)}
+.totbox .tt{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.tot-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.tot-row .tl{font-family:'Poppins';font-weight:600;font-size:.94rem;color:var(--w-80)}
+.tot-row .tl small{display:block;font-family:'Inter';font-weight:400;font-size:.74rem;color:var(--w-45);margin-top:3px}
+.tot-row .tv{font-family:'Poppins';font-weight:700;font-size:1.18rem;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tot-row.grand{border-bottom:none;border-top:1.5px solid var(--cyan-line);margin-top:8px;padding-top:20px}
+.tot-row.grand .tl{font-size:1.05rem;color:#fff}
+.tot-row.grand .tv{font-size:1.9rem;color:var(--cyan)}
+.tot-count{margin-top:16px;font-family:'Poppins';font-weight:600;font-size:.82rem;color:var(--w-45)}
+.tot-count b{color:var(--cyan)}
+.totbox .tnote{margin-top:16px;font-size:.76rem;color:var(--w-45);line-height:1.5}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:22px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,5vw,4rem);line-height:1.08;letter-spacing:-.02em;max-width:22ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);font-size:1.05rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:18px 44px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.05rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1000px){
+  .verts{grid-template-columns:repeat(3,1fr)}
+  .phases{grid-template-columns:repeat(2,1fr)}
+  .mod{grid-template-columns:52px 1fr;gap:20px}
+  .mod .ml{grid-column:1/-1}
+}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px;font-size:9px}
+  .g2,.g3{grid-template-columns:1fr}
+  .invest{grid-template-columns:1fr;gap:30px}
+  .scope{grid-template-columns:1fr}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .arch-step{grid-template-columns:1fr;gap:12px}
+  .arch-step .aown{text-align:left;justify-self:start;padding:8px 14px}
+}
+@media(max-width:620px){
+  .verts{grid-template-columns:repeat(2,1fr)}
+  .phases{grid-template-columns:1fr}
+  .stats{gap:20px 32px}
+  .mod{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta estratégica · TransAdvanced · Enterprise 2026</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Centro de operaciones de red" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r">TransAdvanced × Popcorn · Generación de demanda Enterprise</div>
+    <h1 class="hero-title r d1">Las oportunidades<br>no aparecen.<br><span class="cy">Se construyen.</span></h1>
+    <p class="hero-sub r d3">Cuarenta años de ingeniería, un ecosistema Cisco consolidado y casos Enterprise que lo demuestran. Todo eso ya existe. Lo que falta es un sistema que lo ponga delante de las empresas correctas, antes que la competencia.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Acompañamiento estratégico</span>
+      <span class="tag">Publicidad digital</span>
+      <span class="tag">Email marketing</span>
+      <span class="tag">Landing pages</span>
+      <span class="tag">Piezas y casos</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para comenzar</div>
+</section>
+
+<!-- ============ 2 · EL DESAFÍO ============ -->
+<section id="desafio" data-label="El desafío">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">El desafío</div>
+        <h2 class="h-lg r d1">El modelo que los trajo hasta acá<br>no es el que los <span class="cy">lleva al próximo nivel.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Durante cuarenta años TransAdvanced creció por reputación. Es el mejor activo posible —y el más difícil de escalar: <b>el boca a boca solo llega hasta donde llega la red de contactos actual.</b></p>
+        <div class="stats sm r d4" style="margin-top:34px;padding-top:28px">
+          <div class="stat"><div class="v">40 años</div><div class="l">De ingeniería y reputación</div></div>
+          <div class="stat"><div class="v">+100</div><div class="l">Colaboradores</div></div>
+          <div class="stat"><div class="v">0</div><div class="l">Sistema de generación de demanda</div></div>
+        </div>
+      </div>
+      <div class="r d2">
+        <div class="chain">
+          <div class="chain-node"><span class="cn">01</span><div><div class="ct">Todo entra por recomendación</div><div class="cd">El origen del negocio no se elige: se recibe</div></div></div>
+          <div class="chain-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+          <div class="chain-node"><span class="cn">02</span><div><div class="ct">Siempre las mismas industrias</div><div class="cd">La red recomienda dentro de su círculo</div></div></div>
+          <div class="chain-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+          <div class="chain-node"><span class="cn">03</span><div><div class="ct">Pocas conversaciones nuevas</div><div class="cd">Sin prospección, el pipeline depende del azar</div></div></div>
+          <div class="chain-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+          <div class="chain-node"><span class="cn">04</span><div><div class="ct">El comercial no tiene tiempo</div><div class="cd">Atiende cuentas activas; prospectar queda para después</div></div></div>
+          <div class="chain-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+          <div class="chain-node end"><span class="cn">05</span><div><div class="ct">Crecimiento limitado por diseño</div><div class="cd">No por capacidad: por arquitectura comercial</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="r d4" style="margin-top:40px">
+      <div class="quote" style="max-width:44ch">El crecimiento no está limitado por lo que TransAdvanced puede hacer, sino por a quién llega.</div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un problema de arquitectura, no de esfuerzo</span><span class="num">01 — Desafío</span></div>
+</section>
+
+<!-- ============ 3 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico">
+  <div class="bg-photo soft"><img src="img/diagnostico.jpg" alt="Auditoría digital"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico · Auditoría de transadvanced.tech</div>
+    <h2 class="h-lg r d1">Antes de proponer, <span class="cy">auditamos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Revisamos las 29 páginas del sitio, el código, el sitemap y las etiquetas de medición. No es una opinión sobre el diseño: son hallazgos verificables con impacto comercial directo.</p>
+
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <div class="finding">
+        <span class="sev">01</span>
+        <div>
+          <h4>El sitio rinde 48 sobre 100 en celular</h4>
+          <p>Medición de PageSpeed: <b>48 en mobile y 47 en desktop</b>. El contenido principal tarda <b>9,3 segundos</b> en aparecer en un celular. Un gerente de IT que llega desde un anuncio no espera diez segundos: se va antes de leer la primera línea. Y esa demora se paga dos veces —en leads perdidos y en un clic más caro.</p>
+        </div>
+      </div>
+      <div class="finding">
+        <span class="sev">02</span>
+        <div>
+          <h4>Cero clientes nombrados</h4>
+          <p>Los únicos logos del sitio son de <b>proveedores</b> (Cisco, Nokia), no de clientes. Sin testimonios. Para una empresa de 40 años, es el activo más caro que está sin usar.</p>
+        </div>
+      </div>
+      <div class="finding">
+        <span class="sev">03</span>
+        <div>
+          <h4>No se puede hacer remarketing en LinkedIn</h4>
+          <p>Solo hay Google Tag Manager. <b>No existe LinkedIn Insight Tag.</b> El canal donde vive el comprador —CIOs, gerentes de IT— no se puede trabajar. Cada visita se pierde.</p>
+        </div>
+      </div>
+      <div class="finding">
+        <span class="sev">04</span>
+        <div>
+          <h4>Un borrador publicado compite contra el home</h4>
+          <p><code>/ingenieria-que-conecta-copy</code> responde <b>200</b>, está en el sitemap y se apunta a sí misma como canónica. Una página de prueba canibalizando la home.</p>
+        </div>
+      </div>
+      <div class="finding">
+        <span class="sev">05</span>
+        <div>
+          <h4>Falta un formulario que califique</h4>
+          <p>Todas las consultas entran por el mismo punto de contacto —incluso <b>"Agendar demo" termina ahí</b>. Un formulario con campos definidos permite saber si hay un proyecto Enterprise detrás <b>antes</b> de que el equipo comercial invierta tiempo, y evita que entre cualquier cosa por el mismo embudo.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="sfoot"><span>Hallazgos verificados sobre transadvanced.tech</span><span class="num">02 — Diagnóstico</span></div>
+</section>
+
+<!-- ============ 4 · LA OPORTUNIDAD ============ -->
+<section id="oportunidad" data-label="La oportunidad">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="col-img r d1"><div class="media tall"><img src="img/oportunidad.jpg" alt="Infraestructura de data center"><div class="cap"><div class="quote" style="font-size:1.05rem">Todo lo difícil ya está hecho. Falta la parte fácil: que se sepa.</div></div></div></div>
+      <div>
+        <div class="eyebrow r">La oportunidad</div>
+        <h2 class="h-lg r d1">Nada de esto hay que <span class="cy">construirlo.</span><br>Solo hay que hacerlo visible.</h2>
+        <p class="lead r d2" style="margin-top:22px">La mayoría de las empresas que quieren crecer necesitan primero <b>tener</b> algo que contar. TransAdvanced ya lo tiene.</p>
+        <ul class="bullets r d3" style="margin-top:28px">
+          <li><span class="bi">1</span><p><b>Casos Enterprise recientes.</b> Proyectos de transformación a escala, ya ejecutados y funcionando, en industrias que son exactamente el objetivo. Es la prueba que un CIO necesita antes de firmar: alguien que ya hizo esto, en su sector, y salió bien.</p></li>
+          <li><span class="bi">2</span><p><b>El respaldo Cisco.</b> En una compra donde el fabricante pesa tanto como el integrador, estar dentro del ecosistema es un multiplicador de credibilidad.</p></li>
+          <li><span class="bi">3</span><p><b>Cuarenta años sin un proyecto fallido conocido.</b> Donde el miedo principal es que la implementación salga mal, la trayectoria no es un dato de color: es el argumento.</p></li>
+          <li><span class="bi">4</span><p><b>Ingeniería propia.</b> La suite T-* es un diferencial que ningún reseller puede replicar. Hoy está enterrada en una subpágina.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:48px">
+      <div class="evo-bg"><img src="img/sistema.jpg" alt="Red de conexiones"></div>
+      <div class="badge">Por qué ahora</div>
+      <blockquote>Un caso Enterprise reciente tiene fecha de vencimiento comercial.</blockquote>
+      <p class="sign">Contado hoy, con el cliente entusiasmado y las métricas frescas, vale por diez reuniones. Contado dentro de dos años, es una línea en una lista de referencias. La oportunidad no es que los casos existan: es que <b>todavía son noticia</b>.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>El mejor punto de partida posible</span><span class="num">03 — Oportunidad</span></div>
+</section>
+
+<!-- ============ 5 · LA TESIS ============ -->
+<section id="tesis" data-label="Nuestra tesis">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">No proponemos hacer marketing.<br>Proponemos instalar un <span class="cy">sistema.</span></h2>
+    <p class="lead r d2" style="margin-top:24px">Una campaña se enciende y se apaga. Un sistema queda funcionando: capta, califica, entrega y aprende. La diferencia entre las dos cosas es la diferencia entre gastar y construir un activo.</p>
+
+    <div class="grid g3 r d3" style="margin-top:48px">
+      <div class="card">
+        <span class="num-tag">LO QUE DEPENDE DE NOSOTROS</span>
+        <h3>Que las empresas correctas los conozcan</h3>
+        <p>Que TransAdvanced aparezca, de forma sostenida, delante de las empresas que ustedes elijan. Que entren al sitio, que encuentren un caso de su industria y que dejen sus datos. De eso respondemos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">LO QUE NO VAMOS A PROMETER</span>
+        <h3>Una cantidad de ventas</h3>
+        <p>Ni un plazo para el primer contrato, ni un retorno garantizado. Eso depende de la negociación, del precio, del competidor y del momento de cada empresa. Quien lo prometa, está adivinando.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">CÓMO SE SABE SI FUNCIONA</span>
+        <h3>Con números auditables</h3>
+        <p>Cuántas conversaciones nuevas aparecieron, con qué empresas, en qué industrias y a qué costo. Todo trazable hasta la campaña que lo originó. Si a los doce meses eso no creció, no funcionó.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un activo, no una campaña</span><span class="num">04 — Tesis</span></div>
+</section>
+
+<!-- ============ 6 · ARQUITECTURA DE DEMANDA ============ -->
+<section id="arquitectura" data-label="Arquitectura de demanda">
+  <div class="wrap">
+    <div class="eyebrow r">Arquitectura de generación de demanda</div>
+    <h2 class="h-lg r d1">El sistema completo,<br>y <span class="cy">quién hace cada cosa.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:760px">Esta es la parte más importante de la propuesta: muestra <b>dónde termina Popcorn y dónde empieza TransAdvanced.</b> Si esto no queda claro ahora, falla después.</p>
+
+    <div class="arch r d3">
+      <div class="arch-legend">
+        <div><span class="sw pop"></span>Responsabilidad Popcorn</div>
+        <div><span class="sw ta"></span>Responsabilidad TransAdvanced</div>
+        <div><span class="sw mix"></span>Trabajo conjunto</div>
+      </div>
+
+      <div class="arch-body">
+        <div class="arch-step pop">
+          <div class="astage"><small>ETAPA 01</small>Atracción</div>
+          <div class="adesc">Poner a TransAdvanced delante de las cuentas objetivo antes de que exista una licitación. <b>Google Ads</b> sobre búsquedas de intención comercial y <b>LinkedIn Ads</b> segmentado por cargo y empresa. Nadie compra a quien no conoce.</div>
+          <div class="aown">Popcorn</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step pop">
+          <div class="astage"><small>ETAPA 02</small>Captación</div>
+          <div class="adesc">Convertir interés anónimo en un contacto identificado. <b>Landing pages por industria</b>, lead magnets y formularios con campos que permitan calificar. Acá es donde el sitio hoy pierde todo.</div>
+          <div class="aown">Popcorn</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step mix">
+          <div class="astage"><small>ETAPA 03</small>Calificación</div>
+          <div class="adesc">Separar al que mira del que compra, por tamaño de empresa, industria y cargo. <b>Popcorn opera el filtro; TransAdvanced define los criterios</b> —ustedes saben qué proyecto vale la pena y cuál no.</div>
+          <div class="aown">Conjunto</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step mix">
+          <div class="astage"><small>ETAPA 04</small>Entrega del lead</div>
+          <div class="adesc">El punto exacto donde el sistema cambia de manos. El lead llega con contexto completo: qué leyó, de qué campaña vino, qué necesita. <b>Popcorn entrega; TransAdvanced recibe</b>, con un SLA de contacto acordado.</div>
+          <div class="aown">Handoff</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step ta">
+          <div class="astage"><small>ETAPA 05</small>Conversación comercial</div>
+          <div class="adesc">La reunión, el relevamiento, la propuesta. <b>Esto lo hace el equipo de TransAdvanced y no hay forma de tercerizarlo</b>: nadie explica una arquitectura Cisco mejor que sus ingenieros. Popcorn aporta los materiales, pero no se sienta en la reunión.</div>
+          <div class="aown">TransAdvanced</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step mix">
+          <div class="astage"><small>ETAPA 06</small>Seguimiento</div>
+          <div class="adesc">El 90% de las oportunidades Enterprise no se cierran en la primera reunión: se enfrían. <b>Popcorn sostiene el nurturing</b> —email por industria y etapa, remarketing sobre cuentas abiertas— para que el prospecto siga presente. <b>TransAdvanced mantiene la relación.</b></div>
+          <div class="aown">Conjunto</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step ta">
+          <div class="astage"><small>ETAPA 07</small>Oportunidad</div>
+          <div class="adesc">La propuesta, la negociación, el cierre. <b>Territorio exclusivo de TransAdvanced.</b> Nuestro compromiso termina en que esa conversación exista y llegue bien preparada.</div>
+          <div class="aown">TransAdvanced</div>
+        </div>
+        <div class="arch-sep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14"/><path d="M6 13l6 6 6-6"/></svg></div>
+
+        <div class="arch-step mix">
+          <div class="astage"><small>ETAPA 08</small>Aprendizaje</div>
+          <div class="adesc">Cada oportunidad ganada y <b>especialmente cada una perdida</b> vuelve al sistema: qué industria convierte, qué mensaje resonó, qué objeción se repite. <b>TransAdvanced aporta el feedback; Popcorn lo convierte en ajustes.</b> Por eso el mes seis rinde mejor que el primero.</div>
+          <div class="aown">Conjunto</div>
+        </div>
+      </div>
+
+      <div class="arch-hand">
+        <div class="ah-t">El punto de quiebre</div>
+        <p>Si miran el diagrama con atención, van a ver que <b>Popcorn no aparece en las etapas 5 y 7</b> —justamente las dos donde se factura. No es un descuido: es la definición honesta del acuerdo. Podemos llenar la agenda de reuniones con las empresas correctas. Lo que pase dentro de esa reunión depende del equipo de TransAdvanced. Cualquier agencia que les prometa lo contrario les está vendiendo humo.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn genera · TransAdvanced convierte</span><span class="num">05 — Arquitectura</span></div>
+</section>
+
+<!-- ============ 7 · CORRESPONSABILIDAD ============ -->
+<section id="corresponsabilidad" data-label="Trabajo conjunto">
+  <div class="bg-photo soft"><img src="img/posicionamiento.jpg" alt="Trabajo conjunto"></div>
+  <div class="wrap">
+    <div class="eyebrow r">El punto más importante</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Esto funciona si lo hacemos<br><span class="cy">los dos.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Preferimos decirlo ahora y perder el negocio, antes que decirlo en el mes cinco cuando alguien pregunte por qué no se vendió nada.</p>
+
+    <div class="grid g2 r d3" style="margin-top:42px">
+      <div class="card" style="background:linear-gradient(160deg,rgba(31,232,216,.13),rgba(13,4,40,.4));border-color:var(--cyan-line)">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h3 style="font-size:1.35rem;margin-bottom:14px">Popcorn se compromete a</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--cyan);font-weight:700">→</span> Poner a TransAdvanced delante de las empresas objetivo.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--cyan);font-weight:700">→</span> Construir los activos que convierten interés en contacto.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--cyan);font-weight:700">→</span> Calificar y entregar leads con contexto completo.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--cyan);font-weight:700">→</span> Sostener el seguimiento durante el silencio comercial.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--cyan);font-weight:700">→</span> Reportar con trazabilidad total, incluido lo que falla.</li>
+        </ul>
+      </div>
+      <div class="card" style="background:linear-gradient(160deg,rgba(255,181,71,.11),rgba(13,4,40,.4));border-color:var(--amber-line)">
+        <div class="ico" style="background:rgba(255,181,71,.12);border-color:var(--amber-line);color:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+        <h3 style="font-size:1.35rem;margin-bottom:14px">Necesitamos de TransAdvanced</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--amber);font-weight:700">→</span> <b>Contactar cada lead en menos de 24 horas.</b></li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--amber);font-weight:700">→</span> <b>Registrar en el CRM o en el sistema que armemos en conjunto.</b> Sin trazabilidad no hay optimización.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--amber);font-weight:700">→</span> <b>Abrir la puerta con los clientes</b> para autorizar casos y testimonios.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--amber);font-weight:700">→</span> <b>Unas horas de los ingenieros</b> al mes. Su firma es el activo.</li>
+          <li style="color:var(--w-80);font-size:.94rem;padding-left:18px;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--amber);font-weight:700">→</span> <b>Feedback de calidad de leads.</b> Sin eso, optimizamos a ciegas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="r d4" style="margin-top:40px">
+      <div class="quote" style="font-size:clamp(1.2rem,2.2vw,1.8rem);max-width:40ch">Popcorn construye las oportunidades. TransAdvanced las convierte. Si una de las dos partes falla, no hay presupuesto que lo salve.</div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Sin esto, nada de lo demás importa</span><span class="num">06 — Corresponsabilidad</span></div>
+</section>
+
+<!-- ============ 8 · VERTICALES ============ -->
+<section id="verticales" data-label="Industrias objetivo">
+  <div class="wrap">
+    <div class="eyebrow r">Industrias objetivo</div>
+    <h2 class="h-lg r d1">No le hablamos a "empresas".<br>Le hablamos a <span class="cy">nueve industrias.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:780px">Un director de IT de una minera y uno de un banco tienen problemas, presupuestos y miedos distintos. Cada vertical necesita su propio argumento, su landing y su caso. <b>Se activan de a tres por vez, no diez a la vez.</b></p>
+
+    <div class="verts r d3">
+      <div class="vert"><span class="vpri">Prioridad 1</span><img src="img/ind-salud.jpg" alt="Salud"><div class="vt"><h4>Salud</h4></div></div>
+      <div class="vert"><span class="vpri">Prioridad 1</span><img src="img/ind-oil.jpg" alt="Oil &amp; Gas"><div class="vt"><h4>Oil &amp; Gas</h4></div></div>
+      <div class="vert"><span class="vpri">Prioridad 1</span><img src="img/ind-mineria.jpg" alt="Minería"><div class="vt"><h4>Minería</h4></div></div>
+      <div class="vert"><span class="vpri p2">Prioridad 2</span><img src="img/ind-automotriz.jpg" alt="Automotriz"><div class="vt"><h4>Automotriz</h4></div></div>
+      <div class="vert"><span class="vpri p2">Prioridad 2</span><img src="img/ind-utilities.jpg" alt="Energía y servicios públicos"><div class="vt"><h4>Energía &amp; Servicios Públicos</h4></div></div>
+      <div class="vert"><span class="vpri p2">Prioridad 3</span><img src="img/ind-logistica.jpg" alt="Logística"><div class="vt"><h4>Logística</h4></div></div>
+      <div class="vert"><span class="vpri p2">Prioridad 3</span><img src="img/ind-seguros.jpg" alt="Seguros"><div class="vt"><h4>Seguros</h4></div></div>
+      <div class="vert"><span class="vpri p2">Prioridad 3</span><img src="img/ind-banca.jpg" alt="Banca y finanzas"><div class="vt"><h4>Banca &amp; Finanzas</h4></div></div>
+      <div class="vert"><span class="vpri p2">Base</span><img src="img/ind-gobierno.jpg" alt="Sector Público"><div class="vt"><h4>Sector Público</h4></div></div>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:40px">
+      <div class="card">
+        <span class="num-tag">POR QUÉ ESTE ORDEN</span>
+        <h3>Se arranca donde hay ventaja, no donde hay volumen</h3>
+        <p>Las prioridad 1 no son las industrias más grandes: son donde TransAdvanced tiene algo que el resto no. <b>Oil &amp; Gas y Minería por Starlink:</b> conectividad donde no llega la fibra, con presupuesto real y poca competencia especializada.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">EL APORTE DE POPCORN</span>
+        <h3>Salud no es una vertical más</h3>
+        <p>Trabajamos con hospitales, laboratorios y centros médicos. Sabemos cómo decide un director médico y cómo compra un hospital. Ahí no aportamos solo pauta: aportamos criterio.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">POR QUÉ SEGUROS Y BANCA AL FINAL</span>
+        <h3>No son una puerta de entrada</h3>
+        <p>Son las industrias donde los grandes integradores están más atrincherados y donde el proceso de compra es más pesado y más largo. No es imposible: es el peor lugar para abrir una puerta fría. <b>Se dejan para cuando el sistema ya tenga rodaje.</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Prioridad 1: Salud · Oil &amp; Gas · Minería</span><span class="num">07 — Verticales</span></div>
+</section>
+
+<!-- ============ 9 · MÓDULOS ============ -->
+<section id="modulos" data-label="Qué hacemos">
+  <div class="wrap">
+    <div class="eyebrow r">Qué hacemos</div>
+    <h2 class="h-lg r d1">Cinco módulos.<br>Se activan por <span class="cy">separado.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:760px">No hay paquete cerrado. Se puede arrancar por lo estratégico y sumar el resto cuando el sistema esté listo para recibir demanda.</p>
+
+    <div class="mods r d3">
+      <div class="mod hi">
+        <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <div>
+          <span class="mh">El núcleo · 20 hs mensuales</span>
+          <h3>Acompañamiento estratégico</h3>
+          <p class="mw">La dirección del sistema. Es el módulo que hace que todo lo demás tenga sentido: define a quién le hablamos, con qué argumento, cómo se mide y qué se ajusta cada mes. <b>Sin esto, los otros módulos son ejecución sin rumbo.</b></p>
+        </div>
+        <ul class="ml">
+          <li>Investigación estratégica</li>
+          <li>Buyer personas</li>
+          <li>Benchmark competitivo</li>
+          <li>Verticales y mensajes</li>
+          <li>Cuentas objetivo</li>
+          <li>Medición y CRM</li>
+          <li>Calificación de leads</li>
+          <li>Estrategia de casos de éxito</li>
+          <li>Consultoría comercial</li>
+          <li>Reporting mensual</li>
+          <li>Reunión estratégica</li>
+          <li>Optimización continua</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <div>
+          <span class="mh">Generación de demanda</span>
+          <h3>Gestión de publicidad digital</h3>
+          <p class="mw">El motor que pone a TransAdvanced delante de las cuentas objetivo. Cada canal con un trabajo distinto: <b>LinkedIn crea demanda donde no existe, Google captura la que ya se activó, el remarketing recupera al que se fue.</b></p>
+        </div>
+        <ul class="ml">
+          <li>Google Ads · Search</li>
+          <li>LinkedIn Ads · ABM</li>
+          <li>Meta Ads</li>
+          <li>Remarketing</li>
+          <li>Estructura de campañas</li>
+          <li>Segmentación por industria</li>
+          <li>Optimización semanal</li>
+          <li>Gestión de la inversión</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg></div>
+        <div>
+          <span class="mh">Seguimiento</span>
+          <h3>Email marketing</h3>
+          <p class="mw">El canal que sostiene la relación durante el silencio comercial. En ciclos de 6 a 18 meses, <b>el prospecto que no compra hoy compra en catorce meses —si sigue ahí.</b></p>
+        </div>
+        <ul class="ml">
+          <li>Secuencias por industria</li>
+          <li>Nurturing por etapa</li>
+          <li>Reactivación de contactos fríos</li>
+          <li>Difusión de casos</li>
+          <li>Medición de aperturas y clics</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        <div>
+          <span class="mh">Captación</span>
+          <h3>Landing pages</h3>
+          <p class="mw">El lugar donde aterriza la demanda. El sitio explica; una landing convierte. Una por vertical, con el caso de esa industria, el dolor específico y <b>dos conversiones: agendar para el que está listo, descargar para el que investiga.</b></p>
+        </div>
+        <ul class="ml">
+          <li>Arquitectura y copy</li>
+          <li>CRO</li>
+          <li>Lead magnets</li>
+          <li>Agenda real, no formulario</li>
+          <li>Optimización web</li>
+          <li>Medición y eventos</li>
+        </ul>
+      </div>
+
+      <div class="mod">
+        <div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5"/><path d="M12 12v10"/></svg></div>
+        <div>
+          <span class="mh">Piezas &amp; casos</span>
+          <h3>Diseño de piezas y edición</h3>
+          <p class="mw">Las piezas que la pauta necesita para salir, diseñadas y editadas para cada canal. <b>Cada creatividad se produce una vez y se adapta a los formatos de Google, LinkedIn y Meta:</b> la campaña nunca sale con material genérico.</p>
+        </div>
+        <ul class="ml">
+          <li>Creatividades para pauta</li>
+          <li>Adaptación por canal y formato</li>
+          <li>Carruseles</li>
+          <li>Edición de piezas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Modular · se activa lo que se necesita</span><span class="num">08 — Módulos</span></div>
+</section>
+
+<!-- ============ 10 · ROADMAP ============ -->
+<section id="roadmap" data-label="Roadmap">
+  <div class="wrap">
+    <div class="eyebrow r">Roadmap de implementación</div>
+    <h2 class="h-lg r d1">Cuatro etapas.<br>Ninguna se <span class="cy">saltea.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:780px">La tentación siempre es arrancar por la etapa 3 —encender campañas y ver qué pasa. Es exactamente lo que falla: encender pauta contra un sitio que no captura es tirar plata con método.</p>
+
+    <div class="phases r d3">
+      <div class="phase-card">
+        <span class="pn">01</span>
+        <span class="gp">Mes 1</span>
+        <h3>Investigación</h3>
+        <p>Inmersión con el equipo comercial y técnico, buyer personas, benchmark, verticales, cuentas objetivo y mensajes. La etapa que las agencias anteriores probablemente saltearon.</p>
+      </div>
+      <div class="phase-card">
+        <span class="pn">02</span>
+        <span class="gp">Mes 2-3</span>
+        <h3>Activos</h3>
+        <p>Los quick wins técnicos primero (Insight Tag, página duplicada, velocidad). Después landings, primeros casos desarrollados y materiales comerciales.</p>
+      </div>
+      <div class="phase-card hi">
+        <span class="pn">03</span>
+        <span class="gp">Mes 3-6</span>
+        <h3>Demanda</h3>
+        <p>Recién acá se enciende el motor. Con investigación hecha y activos listos, la pauta trabaja sobre terreno preparado: Google, LinkedIn, remarketing y email.</p>
+      </div>
+      <div class="phase-card">
+        <span class="pn">04</span>
+        <span class="gp">Mes 6+</span>
+        <h3>Optimización</h3>
+        <p>Donde el sistema rinde de verdad. Análisis de ganadas y perdidas, rotación de verticales, testing, escalar lo que funciona y apagar lo que no.</p>
+      </div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:44px">
+      <div class="badge">Por qué el orden importa</div>
+      <blockquote>Si encendemos campañas en el mes 1, gastamos el presupuesto aprendiendo lo que la investigación nos hubiera dicho gratis.</blockquote>
+      <p class="sign">Entendemos la ansiedad: hay un caso caliente y ganas de capitalizarlo ya. Por eso los quick wins se resuelven en días y <b>empiezan a acumular audiencia de remarketing desde la primera semana</b>, mientras se construye lo demás. Pero la pauta seria arranca cuando hay dónde convertir.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Investigación → Activos → Demanda → Optimización</span><span class="num">09 — Roadmap</span></div>
+</section>
+
+<!-- ============ 11 · KPIs ============ -->
+<section id="kpis" data-label="KPIs">
+  <div class="wrap">
+    <div class="eyebrow r">Indicadores</div>
+    <h2 class="h-lg r d1">Qué medimos, y qué<br>es <span class="cy">justo exigirnos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:780px">Un sistema de demanda no se juzga igual en el mes uno que en el doce. Definirlo ahora evita la conversación incómoda del mes cuatro.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:42px">
+      <table class="tbl">
+        <thead>
+          <tr><th>Indicador</th><th>Qué mide</th><th>Responsable</th><th class="num">Exigible desde</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="plat" style="color:var(--cyan)">Reuniones agendadas</td>
+            <td class="obj">El KPI principal. La única métrica que el equipo comercial reconoce como real.</td>
+            <td class="obj">Popcorn genera · TA acepta</td>
+            <td class="num">Mes 3</td>
+          </tr>
+          <tr>
+            <td class="plat">Leads calificados</td>
+            <td class="obj">Contactos que cumplen el perfil Enterprise acordado. Filtra el ruido.</td>
+            <td class="obj">Popcorn</td>
+            <td class="num">Mes 2</td>
+          </tr>
+          <tr>
+            <td class="plat">Costo por reunión</td>
+            <td class="obj">Cuánto cuesta poner al equipo frente a una empresa objetivo. Más honesto que el CPL.</td>
+            <td class="obj">Popcorn</td>
+            <td class="num">Mes 4</td>
+          </tr>
+          <tr>
+            <td class="plat">Cobertura de cuentas objetivo</td>
+            <td class="obj">Qué porcentaje de la lista nominal ya conoce a TransAdvanced.</td>
+            <td class="obj">Popcorn</td>
+            <td class="num">Mes 3</td>
+          </tr>
+          <tr>
+            <td class="plat">Nuevas industrias con pipeline</td>
+            <td class="obj">El objetivo de fondo: dejar de depender de una sola vertical.</td>
+            <td class="obj">Conjunto</td>
+            <td class="num">Mes 6</td>
+          </tr>
+          <tr>
+            <td class="plat">Pipeline generado</td>
+            <td class="obj">Valor de las oportunidades originadas por el sistema. El número de la dirección.</td>
+            <td class="obj">TransAdvanced</td>
+            <td class="num">Mes 6</td>
+          </tr>
+          <tr>
+            <td class="plat" style="color:var(--amber)">Ventas cerradas</td>
+            <td class="obj">Se reporta y se analiza, pero <b>no es un KPI de Popcorn</b>: depende de la negociación, el precio y el timing.</td>
+            <td class="obj">TransAdvanced</td>
+            <td class="num" style="color:var(--amber)">Se informa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:34px">
+      <div class="card">
+        <span class="num-tag">MES 1-2</span>
+        <h3>No pidan leads todavía</h3>
+        <p>Se está construyendo. Pedir resultados comerciales acá es como pedirle facturación a una obra en cimientos. Lo que sí se exige es <b>ritmo de entrega</b>.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">MES 3-5</span>
+        <h3>Primeras señales reales</h3>
+        <p>Aparecen los primeros leads calificados y reuniones. Los números van a ser volátiles: es normal. Acá se aprende qué industria responde.</p>
+      </div>
+      <div class="card hi" style="background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)">
+        <span class="num-tag">MES 6-12</span>
+        <h3>Acá se juzga el sistema</h3>
+        <p>Pipeline consistente, costo por reunión estable, industrias nuevas activas. <b>Si a los doce meses no genera oportunidades de forma predecible, no funcionó.</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cada KPI con su fecha de exigibilidad</span><span class="num">10 — KPIs</span></div>
+</section>
+
+<!-- ============ 12 · INVERSIÓN ============ -->
+<!-- ────────────────────────────────────────────────────────────
+     Valores cargados. El totbox separa Pago único (landing) de
+     Inversión mensual (recurrente). Para cambiar un precio: editar
+     data-amount y data-price del .svc-pick y el texto de su .pv.
+     ──────────────────────────────────────────────────────────── -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Dos partes que <span class="cy">no se pisan.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:820px">La propuesta se separa en dos. Una <b>base</b> que TransAdvanced necesita sí o sí —trabaje con quien trabaje la generación de demanda— y el <b>motor de generación de demanda</b>, que se puede activar y testear por separado. Seleccioná lo que quieras y el presupuesto se actualiza solo.</p>
+
+    <div class="invest r d3" style="margin-top:42px">
+      <div class="invest-card scale-in">
+        <span class="per">Módulos</span>
+        <span class="perx">Tocá cada uno para activarlo o desactivarlo</span>
+
+        <div class="inv-block">
+          <div class="inv-ghead">Bloque 1 · La base <span class="inv-tag">La necesitás igual</span></div>
+          <p class="inv-desc">La estrategia, el contenido y los activos que hacen falta para crecer, trabajen con quien trabajen la generación de demanda. Si mañana esa parte la hiciera otra agencia, esto sigue siendo necesario —y nosotros les damos las piezas que esa agencia necesite.</p>
+
+          <div class="price-row svc-pick on" data-svc="Acompañamiento estratégico · 20 hs mensuales" data-price="$1.300.000 + IVA / mes" data-amount="1300000" data-type="month">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Acompañamiento estratégico<small><b>20 hs mensuales.</b> Investigación, buyer personas, benchmark, verticales y mensajes, cuentas objetivo, medición y CRM, calificación de leads, estrategia de casos, consultoría comercial, reporting y reunión estratégica mensual.</small></span></div>
+            <div class="pv">$1.300.000<span class="ivatag"> + IVA / mes</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-svc="Email marketing · 3 envíos por mes" data-price="$610.000 + IVA / mes" data-amount="610000" data-type="month">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Email marketing<small><b>3 envíos por mes.</b> Secuencias de nurturing por industria y etapa del funnel, reactivación de contactos fríos y difusión de casos.</small></span></div>
+            <div class="pv">$610.000<span class="ivatag"> + IVA / mes</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-svc="Diseño de piezas y edición · 8 piezas + 3 videos" data-price="$820.000 + IVA / mes" data-amount="820000" data-type="month">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Diseño de piezas y edición<small><b>8 piezas fijas o carrusel + 3 videos.</b> Incluye las horas de diseño y edición de todas las piezas para pauta y su adaptación por canal y formato. No incluye producción audiovisual.</small></span></div>
+            <div class="pv">$820.000<span class="ivatag"> + IVA / mes</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-svc="Landing page · 1 landing" data-price="$970.000 + IVA · pago único" data-amount="970000" data-type="once">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Landing page<small><b>1 landing · pago único.</b> Arquitectura, copywriting estratégico, CRO, lead magnets y agenda real. Por vertical prioritaria.</small></span></div>
+            <div class="pv">$970.000<span class="ivatag"> + IVA</span></div>
+          </div>
+        </div>
+
+        <div class="inv-block">
+          <div class="inv-ghead">Bloque 2 · Generación de demanda <span class="inv-tag hi">Testeable a 3 meses</span></div>
+          <p class="inv-desc">El motor que captura demanda existente y llena el CRM de leads calificados. Es la parte que se puede probar: si a los 3 meses no llega al promedio comprometido, se da de baja sin penalidad (ver escenarios de inversión).</p>
+
+          <div class="price-row svc-pick on" data-svc="Gestión de publicidad digital · Generación de demanda" data-price="$1.350.000 + IVA / mes + 15% variable sobre la inversión en pauta" data-amount="1350000" data-type="month">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Gestión de publicidad digital<small><b>Generación de demanda.</b> Google Ads, LinkedIn Ads, Meta Ads y remarketing. Estructura de campañas, segmentación por industria y optimización semanal. No incluye horas de diseño ni edición: van en Diseño de piezas y edición.</small><small class="varfee">+ 15% variable sobre la inversión en pauta</small></span></div>
+            <div class="pv">$1.350.000<span class="ivatag"> + IVA / mes</span></div>
+          </div>
+
+          <div class="price-row">
+            <div class="pl"><span class="chk-spacer"></span><span class="pl-t">Inversión en medios (pauta)<small>La abona TransAdvanced directamente a las plataformas. Popcorn recomienda y gestiona la estrategia de inversión, pero no factura medios. Ver escenarios A / B / C.</small></span></div>
+            <div class="pv">A definir</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="totbox">
+          <div class="tt">Tu presupuesto</div>
+          <div class="tot-row">
+            <div class="tl">Pago único<small>Se factura al inicio del proyecto</small></div>
+            <div class="tv" id="tOnce">—</div>
+          </div>
+          <div class="tot-row grand">
+            <div class="tl">Inversión mensual<small>Recurrente · se factura por mes</small></div>
+            <div class="tv" id="tMonth">—</div>
+          </div>
+          <div class="tot-count" id="tCount">—</div>
+          <p class="tnote">Valores en pesos, no incluyen IVA. La inversión en medios (pauta) se abona aparte, directamente a las plataformas.</p>
+        </div>
+
+        <div class="scope" style="grid-template-columns:1fr;margin-top:24px">
+          <div class="scope-col no">
+            <h3>No incluye</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>La inversión en medios, licencias de software, hosting y dominios.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>El proceso de venta: reuniones, relevamiento, propuestas y cierre.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Rediseño integral del sitio ni community management diario.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg><b>Producción audiovisual.</b> Se cotiza aparte si se necesita rodaje o testimoniales en video.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="scope" style="grid-template-columns:1fr;margin-top:20px">
+          <div class="scope-col yes">
+            <h3>Formas de pago</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg><b>Módulos mensuales:</b> se facturan 100% por adelantado.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg><b>Landing page (pago único):</b> 50% al aprobar la propuesta y 50% contra entrega o al mes, lo que suceda primero.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg><b>Inversión en medios:</b> la abona TransAdvanced directamente a las plataformas, con su propia tarjeta o cuenta.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg><b>Actualización de valores:</b> los honorarios se actualizan por IPC.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="r" style="margin-top:22px"><span class="note-pill">Plazo recomendado: <b>12 meses</b> · Cuentas, datos y activos quedan a nombre de <b>TransAdvanced</b></span></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un sistema que se arma por módulos</span><span class="num">11 — Inversión</span></div>
+</section>
+
+<!-- ============ 12 · INVERSIÓN EN MEDIOS ============ -->
+<section id="escenarios" data-label="Inversión en medios">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en medios · Escenarios</div>
+    <h2 class="h-lg r d1">Cuánto invertir en pauta,<br>y qué es <span class="cy">razonable esperar.</span></h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:820px">Estos números <b>no son una promesa</b>. Al no haber histórico de campañas, son proyecciones construidas sobre los benchmarks de las propias plataformas. Sirven para dimensionar el esfuerzo y decidir por dónde empezar —los valores reales de TransAdvanced los vamos a conocer recién con las primeras semanas de datos.</p>
+
+    <div class="grid g3 r d3" style="margin-top:40px">
+      <div class="card sm" style="padding:24px">
+        <span class="num-tag">CÓMO LEER LA PAUTA</span>
+        <h3 style="font-size:1.05rem">Es inversión, no gasto de agencia</h3>
+        <p style="font-size:.9rem">Los montos de abajo son la inversión en las plataformas, que TransAdvanced abona directamente. <b>No incluyen impuestos</b> ni el fee de Popcorn.</p>
+      </div>
+      <div class="card sm" style="padding:24px">
+        <span class="num-tag">FLEXIBILIDAD</span>
+        <h3 style="font-size:1.05rem">El presupuesto se mueve solo</h3>
+        <p style="font-size:.9rem">La distribución entre plataformas no es fija: migramos inversión de un canal a otro según performance y resultados. Lo que rinde, escala; lo que no, se corta.</p>
+      </div>
+      <div class="card sm" style="padding:24px">
+        <span class="num-tag">CPC DE REFERENCIA</span>
+        <div class="cpc" style="grid-template-columns:1fr;gap:8px;margin-top:6px">
+          <div style="display:flex;justify-content:space-between;font-size:.86rem"><span class="muted">Google Search</span><b style="color:var(--cyan);font-family:'Poppins'">USD 2,5 – 5</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:.86rem"><span class="muted">LinkedIn</span><b style="color:var(--cyan);font-family:'Poppins'">USD 5 – 12</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:.86rem"><span class="muted">Meta</span><b style="color:var(--cyan);font-family:'Poppins'">USD 0,8 – 2</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESCENARIO A -->
+    <div class="scen r d3">
+      <div class="scen-head">
+        <div class="sn">Escenario A<small>Entrada / Validación</small></div>
+        <div class="sr">USD 2.000 – 2.800 / mes</div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Plataforma</th><th>Objetivo de campaña</th><th class="num">Clics</th><th class="num">CPC</th><th class="num">Conv.</th><th class="num">Costo/conv.</th><th class="num">Leads</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="plat">Google Ads</td><td class="obj">Captación de demanda Search</td><td class="num dim">900</td><td class="num dim">USD 3,20</td><td class="num dim">6%</td><td class="num dim">USD 53</td><td class="num">54</td></tr>
+            <tr><td class="plat">LinkedIn</td><td class="obj">Demanda sobre cuentas objetivo</td><td class="num dim">260</td><td class="num dim">USD 8,50</td><td class="num dim">3%</td><td class="num dim">USD 283</td><td class="num">8</td></tr>
+            <tr><td class="plat">Meta</td><td class="obj">Remarketing + reconocimiento</td><td class="num dim">650</td><td class="num dim">USD 1,10</td><td class="num dim">4%</td><td class="num dim">USD 27</td><td class="num">26</td></tr>
+            <tr class="total"><td>Total</td><td class="obj" style="color:var(--w-65)">Mix de canales</td><td class="num">1.810</td><td class="num">USD 4,27</td><td class="num">4%</td><td class="num">USD 121</td><td class="num">88</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scen-note">Con una tasa de efectividad de reunión del 6–7% sobre esos leads: <b>~5–6 reuniones calificadas por mes</b>. Las de perfil Enterprise pasan a oportunidades para trabajar comercialmente.</div>
+    </div>
+
+    <!-- ESCENARIO B -->
+    <div class="scen hi r d3">
+      <div class="scen-head">
+        <div class="sn">Escenario B <span class="scen-badge">Recomendado</span><small>Crecimiento</small></div>
+        <div class="sr">USD 5.000 – 6.500 / mes</div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Plataforma</th><th>Objetivo de campaña</th><th class="num">Clics</th><th class="num">CPC</th><th class="num">Conv.</th><th class="num">Costo/conv.</th><th class="num">Leads</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="plat">Google Ads</td><td class="obj">Search alta intención</td><td class="num dim">2.150</td><td class="num dim">USD 3,30</td><td class="num dim">6,5%</td><td class="num dim">USD 51</td><td class="num">140</td></tr>
+            <tr><td class="plat">LinkedIn</td><td class="obj">ABM + awareness de decisores</td><td class="num dim">780</td><td class="num dim">USD 8,80</td><td class="num dim">3%</td><td class="num dim">USD 293</td><td class="num">23</td></tr>
+            <tr><td class="plat">Meta</td><td class="obj">Remarketing multicanal</td><td class="num dim">1.850</td><td class="num dim">USD 1,20</td><td class="num dim">4,5%</td><td class="num dim">USD 27</td><td class="num">83</td></tr>
+            <tr class="total"><td>Total</td><td class="obj" style="color:var(--w-65)">Mix de canales</td><td class="num">4.780</td><td class="num">USD 4,43</td><td class="num">4,67%</td><td class="num">USD 124</td><td class="num">246</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scen-note">Con la misma efectividad del 6–7%: <b>~15–17 reuniones calificadas por mes</b>. Es el escenario que consideramos más realista para empezar a generar pipeline sin sobreexponer la inversión antes de tener datos.</div>
+    </div>
+
+    <!-- ESCENARIO C -->
+    <div class="scen r d3">
+      <div class="scen-head">
+        <div class="sn">Escenario C<small>Escala</small></div>
+        <div class="sr">USD 10.000 – 14.000 / mes</div>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>Plataforma</th><th>Objetivo de campaña</th><th class="num">Clics</th><th class="num">CPC</th><th class="num">Conv.</th><th class="num">Costo/conv.</th><th class="num">Leads</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="plat">Google Ads</td><td class="obj">Search + Demand Gen</td><td class="num dim">4.850</td><td class="num dim">USD 3,40</td><td class="num dim">6,5%</td><td class="num dim">USD 52</td><td class="num">315</td></tr>
+            <tr><td class="plat">LinkedIn</td><td class="obj">ABM masivo sobre cuentas objetivo</td><td class="num dim">1.650</td><td class="num dim">USD 9,00</td><td class="num dim">3%</td><td class="num dim">USD 281</td><td class="num">53</td></tr>
+            <tr><td class="plat">Meta</td><td class="obj">Remarketing + nutrición</td><td class="num dim">3.900</td><td class="num dim">USD 1,20</td><td class="num dim">4,8%</td><td class="num dim">USD 25</td><td class="num">187</td></tr>
+            <tr class="total"><td>Total</td><td class="obj" style="color:var(--w-65)">Mix de canales</td><td class="num">10.400</td><td class="num">USD 4,53</td><td class="num">4,83%</td><td class="num">USD 119</td><td class="num">555</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scen-note">Con la misma efectividad: <b>~30–40 reuniones calificadas por mes</b> y entre <b>5 y 10 oportunidades fuertes</b>, según el ritmo del proceso comercial interno.</div>
+    </div>
+
+    <!-- COMPROMISO -->
+    <div class="r d3" style="margin-top:48px">
+      <div class="kicker" style="margin-bottom:8px">Nuestro compromiso, sin letra chica</div>
+      <h3 class="h-md" style="max-width:24ch">El promedio de reuniones se construye. No aparece el primer mes.</h3>
+      <p class="lead" style="margin-top:16px;font-size:1.08rem;max-width:820px">A diferencia de un paquete cerrado de reuniones, este sistema aprende: cada mes sabe más y rinde más. Por eso el compromiso es un <b>promedio hacia el mes 3</b>, no un número fijo desde el día uno.</p>
+
+      <div class="ramp">
+        <div class="rstep"><div class="rm">Mes 1</div><div class="rv">~4</div><div class="rl">Reuniones · arranque</div></div>
+        <div class="rstep"><div class="rm">Mes 2</div><div class="rv">~6</div><div class="rl">Reuniones · aprendizaje</div></div>
+        <div class="rstep hi"><div class="rm">Mes 3</div><div class="rv">~9</div><div class="rl">Reuniones · en régimen</div></div>
+      </div>
+      <p class="muted" style="font-size:.84rem;margin-top:12px;max-width:820px">Ejemplo sobre el Escenario A (~6 reuniones promedio). Se evalúa el <b style="color:#fff">acumulado al mes 3</b>, no el resultado del primer mes.</p>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:32px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Prueba a 3 meses</h3>
+        <p>Si a los tres meses no alcanzamos el promedio de reuniones comprometido, das de baja el servicio de generación de demanda <b>sin penalidad</b>. Testeanos sin ataduras.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7v10a2 2 0 002 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-7L9 5H6a2 2 0 00-2 2z"/></svg></div>
+        <h3>La base queda tuya</h3>
+        <p>No entregamos solo la reunión: todos los leads del mes entran a tu CRM. Un contacto no calificado hoy puede cerrar en 3 a 12 meses, y esa base de datos <b>queda para TransAdvanced</b>.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <h3>Escala con el tiempo</h3>
+        <p>Cuanto más aprende el sistema, más reuniones calificadas genera. El rendimiento no es un techo fijo: crece mes a mes con el aprendizaje acumulado.</p>
+      </div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:40px">
+      <div class="badge">Cómo leer estas proyecciones</div>
+      <p class="sign" style="max-width:820px;font-size:1.02rem;color:var(--w-80)">Las proyecciones corresponden al volumen esperado de <b>conversiones de marketing</b> —formularios, solicitudes de contacto y demos. Popcorn genera y entrega los leads calificados al CRM; <b>la precalificación final y la reunión las ejecuta el equipo de TransAdvanced</b>. Por eso el trabajo conjunto entre Marketing y Comercial es determinante para convertir esos contactos en reuniones y proyectos de alto valor.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Promedio hacia el mes 3 · prueba sin penalidad</span><span class="num">12 — Inversión en medios</span></div>
+</section>
+
+<!-- ============ 13 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/cierre.jpg" alt="Próximos pasos"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Próximos pasos</div>
+    <h2 class="close-title r d1">Cuarenta años construyendo<br>lo difícil.<br>Falta construir <span class="cy">las oportunidades.</span></h2>
+    <p class="lead r d2" style="margin:26px auto 0;text-align:center">La capacidad técnica está. La reputación está. El caso está. Falta el sistema que lo ponga delante de las empresas correctas —antes que la competencia.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject=TransAdvanced%20%C2%B7%20Avancemos%20con%20la%20propuesta&body=Hola%20Sol%2C%20vimos%20la%20propuesta%20de%20generaci%C3%B3n%20de%20demanda%20para%20TransAdvanced%20y%20queremos%20avanzar.">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">TransAdvanced × Popcorn · Las oportunidades no aparecen. Se construyen.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Performance</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.scale-in').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ============================================================
+   SELECTOR DE MÓDULOS · PRESUPUESTO AUTOMÁTICO
+   Para activar los cálculos: poner data-amount="<monto>" en cada
+   .svc-pick y definir FEE_RATE (ej. 0.15). Con montos en 0,
+   todo muestra XXX solo.
+   ============================================================ */
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const money=n=>(n>0)?('$'+Number(n).toLocaleString('es-AR')):'—';
+const ivaTag='<span class="ivatag" style="font-size:.6em;color:var(--w-45);font-weight:500"> + IVA</span>';
+
+function update(){
+  const on=svcPicks.filter(s=>s.classList.contains('on'));
+  const onceT =on.filter(s=>s.dataset.type==='once' ).reduce((a,s)=>a+(Number(s.dataset.amount)||0),0);
+  const monthT=on.filter(s=>s.dataset.type==='month').reduce((a,s)=>a+(Number(s.dataset.amount)||0),0);
+
+  document.getElementById('tOnce') .innerHTML = onceT  ? money(onceT) +ivaTag : '—';
+  document.getElementById('tMonth').innerHTML = monthT ? money(monthT)+ivaTag : '—';
+
+  const sO=document.getElementById('subOnce'), sM=document.getElementById('subMonth');
+  if(sO) sO.textContent = onceT  ? money(onceT) +' + IVA'       : '—';
+  if(sM) sM.textContent = monthT ? money(monthT)+' + IVA / mes' : '—';
+
+  const c=document.getElementById('tCount');
+  c.innerHTML = on.length ? ('<b>'+on.length+'</b> de '+svcPicks.length+' módulos seleccionados')
+                          : 'Ningún módulo seleccionado';
+
+  let body='Hola Sol, vimos la propuesta de generación de demanda para TransAdvanced y queremos avanzar.';
+  if(on.length){
+    body+='\n\nMódulos con los que queremos avanzar:';
+    on.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nResumen:';
+    if(onceT) body+='\n• Pago único: '+money(onceT)+' + IVA';
+    if(monthT)body+='\n• Inversión mensual: '+money(monthT)+' + IVA / mes';
+  }
+  ctaPick.innerHTML = on.length ? ('Avanzás con <b>'+on.length+' módulo'+(on.length>1?'s':'')+'</b>')
+                                : '<span class="none">Seleccioná los módulos más arriba para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject='
+    +encodeURIComponent('TransAdvanced · Avancemos con la propuesta')+'&body='+encodeURIComponent(body);
+}
+
+svcPicks.forEach(s=>s.addEventListener('click',()=>{s.classList.toggle('on');update();}));
+update();
+</script>
+</body>
+</html>
