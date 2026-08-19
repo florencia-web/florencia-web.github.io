@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Toque × Popcorn · Growth Marketing para el lanzamiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM — propuesta comercial
+   Violeta eléctrico + cian · Space Grotesk + Inter
+   ============================================================ */
+:root{
+  --violet-900:#250a4f;
+  --violet-800:#34107a;
+  --violet-700:#4a16a8;
+  --violet-600:#5a18cc;
+  --violet-500:#6e28e8;
+  --violet-glow:#7b34f0;
+  --cyan:#1fe8d8;
+  --cyan-bright:#5cf4e8;
+  --ink:#0e0524;
+  --white:#ffffff;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  background:var(--violet-600);color:var(--white);
+  font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+    linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Space Grotesk',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ============ HEADER ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* ============ PROGRESO + DOTS ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;
+  font-family:'Space Grotesk';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft);
+}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:'Space Grotesk';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan);white-space:nowrap}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Space Grotesk';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:780px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+b,strong{color:#fff;font-weight:600}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* ============ HERO ============ */
+#hero{justify-content:center;overflow:hidden}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.45;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-title{font-weight:700;font-size:clamp(2.7rem,7.4vw,6rem);line-height:.98;letter-spacing:-.03em;max-width:15ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:680px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Space Grotesk';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Space Grotesk';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* meta band */
+.metaband{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px;border-top:1px solid var(--line-soft);padding-top:26px}
+.metaband div .k{font-family:'Space Grotesk';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);display:block;margin-bottom:6px}
+.metaband div .v{font-family:'Space Grotesk';font-weight:600;font-size:.98rem;color:#fff}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease)}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card .num-tag{font-family:'Space Grotesk';font-weight:700;font-size:12px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block;text-transform:uppercase}
+.card .datum{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--cyan);line-height:1;margin-bottom:12px}
+.card p+p{margin-top:12px}
+.card .fix{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:.9rem;color:var(--w-80)}
+.card .fix b{color:var(--cyan);font-family:'Space Grotesk';font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:5px}
+
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Space Grotesk';font-weight:500;font-size:clamp(1.05rem,1.7vw,1.4rem);line-height:1.42}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Space Grotesk';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Space Grotesk';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:22ch}
+.stats.sm{gap:14px 44px}
+.stats.sm .v{font-size:clamp(1.45rem,2.5vw,2rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.14em;margin-top:6px}
+
+/* ============ PIPE / FLUJO ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:104px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 16px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node.hot{border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.3))}
+.pipe .node .k{font-family:'Space Grotesk';font-weight:700;font-size:11px;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:9px;text-transform:uppercase}
+.pipe .node .t{font-family:'Space Grotesk';font-weight:600;font-size:1rem}
+.pipe .node p{font-size:.78rem;color:var(--w-45);margin-top:6px;line-height:1.4}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.6}
+
+/* ============ FASES ============ */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.phase-card{position:relative;border:1px solid var(--line-soft);border-radius:20px;padding:32px 28px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.phase-card:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.phase-card .pn{font-family:'Space Grotesk';font-weight:700;font-size:3rem;color:rgba(31,232,216,.38);line-height:1;position:absolute;top:18px;right:24px}
+.phase-card h3{font-family:'Space Grotesk';font-weight:600;font-size:1.4rem;margin-bottom:12px}
+.phase-card .gp{font-family:'Space Grotesk';font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;display:block}
+.phase-card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.phase-card.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* ============ TABLAS ============ */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);margin-top:28px}
+table.tbl{width:100%;border-collapse:collapse;min-width:740px}
+.tbl th{font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:16px 20px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl td{padding:15px 20px;font-size:.92rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.5}
+.tbl td.k{font-family:'Space Grotesk';font-weight:600;color:#fff;white-space:nowrap}
+.tbl td.c{color:var(--cyan);font-family:'Space Grotesk';font-weight:600;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.hot td{background:rgba(31,232,216,.07)}
+
+/* ============ RIESGOS ============ */
+.risk{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;background:var(--card);transition:all .4s var(--ease)}
+.risk:hover{border-color:var(--cyan-line);transform:translateY(-4px)}
+.risk .rt{padding:24px 26px 18px}
+.risk .rt .lb{font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);display:block;margin-bottom:9px}
+.risk .rt h3{font-family:'Space Grotesk';font-weight:600;font-size:1.08rem;line-height:1.3}
+.risk .rb{padding:20px 26px 24px;background:rgba(31,232,216,.06);border-top:1px solid var(--cyan-line)}
+.risk .rb .lb{font-family:'Space Grotesk';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:9px}
+.risk .rb p{font-size:.93rem;color:var(--w-80);line-height:1.6}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Space Grotesk';font-weight:600;font-size:1.15rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:64ch}
+.tl-item .out{margin-top:10px;font-size:.86rem;color:var(--w-80);border-left:2px solid var(--cyan-line);padding-left:12px}
+.tl-item .out b{color:var(--cyan);font-family:'Space Grotesk';font-weight:600}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Space Grotesk';font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.scope-col .sub{font-size:.86rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col li>span{min-width:0}
+.scope-col.no li b{display:block;margin-bottom:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* ============ MÓDULOS / INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(31,232,216,.13),rgba(13,4,40,.4));border:1.5px solid var(--cyan-line);border-radius:24px;padding:36px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);padding-bottom:9px;border-bottom:1px solid var(--cyan-line);margin-bottom:4px}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Space Grotesk';font-weight:600;font-size:1.02rem}
+.price-row .pl .pl-t{display:block}
+.price-row .pl small{display:block;font-weight:400;font-size:.83rem;color:var(--w-45);margin-top:5px;font-family:'Inter';max-width:44ch;line-height:1.5}
+.price-row .pv{font-family:'Space Grotesk';font-weight:700;font-size:1.12rem;color:var(--cyan);white-space:nowrap;text-align:right}
+.price-row .pv .ivatag{display:block;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45);margin-top:3px}
+.price-row .pv.badge{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--cyan-line);border-radius:100px;padding:6px 12px;background:rgba(31,232,216,.08);color:var(--cyan)}
+.inv-ghead .inv-sub{font-family:'Space Grotesk';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.inv-total{margin-top:26px;padding-top:22px;border-top:1.5px solid var(--cyan-line);display:flex;flex-direction:column;gap:11px}
+.inv-total .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-family:'Space Grotesk';font-size:.9rem;color:var(--w-65)}
+.inv-total .row b{font-weight:700;font-size:1.05rem;color:#fff;white-space:nowrap}
+.inv-total .row.grand{padding-top:11px;border-top:1px solid var(--line-soft);font-size:1rem;color:#fff}
+.inv-total .row.grand b{color:var(--cyan);font-size:1.35rem}
+.inv-total .row.muted-row{color:var(--w-45);font-size:.82rem}
+.inv-total .row.muted-row b{color:var(--w-80);font-size:.92rem;font-weight:600}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.price-row.svc-pick.on .pl-t{color:#fff}
+.inv-group+.inv-group{margin-top:24px}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:.98rem;line-height:1.55}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.86rem;color:var(--w-65)}
+.note-pill b{color:var(--cyan);font-family:'Space Grotesk';font-weight:600}
+.callout{margin-top:28px;padding:22px 26px;border-left:3px solid var(--cyan);background:rgba(31,232,216,.06);border-radius:0 14px 14px 0}
+.callout p{color:var(--w-80);font-size:.97rem;line-height:1.65}
+#ctaPick{font-family:'Space Grotesk';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:22px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ============ FOTOGRAFÍA ============ */
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.06) brightness(.95)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.46),rgba(18,5,40,.24) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) brightness(.6) contrast(1.05)}
+.bg-photo.hero img{object-position:58% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.96) 26%,rgba(74,18,168,.62) 62%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.76),rgba(18,5,40,.95))}
+.bg-photo.band::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(45,12,105,.95) 34%,rgba(58,15,135,.78) 68%,rgba(31,232,216,.10))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center;overflow:hidden}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.1;letter-spacing:-.02em;max-width:24ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Space Grotesk';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:18px 44px;border-radius:100px;font-family:'Space Grotesk';font-weight:700;font-size:1.05rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+.signature{margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.92rem;color:var(--w-65)}
+.signature b{font-family:'Space Grotesk';color:#fff;font-size:1.05rem}
+.signature a{color:var(--cyan);text-decoration:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px;font-size:9px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .invest{grid-template-columns:1fr;gap:30px}
+  .phases{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .metaband{grid-template-columns:repeat(2,1fr);gap:22px}
+  .pipe{flex-direction:column}
+  .pipe .node{width:100%;min-width:0}
+  .pipe .arrow{transform:rotate(90deg);justify-content:center;padding:2px 0}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+}
+@media(max-width:560px){
+  .stats{gap:20px 32px}
+  .invest-card{padding:26px 22px}
+}
+
+/* ============ ESCENARIOS DE MEDIOS ============ */
+.scen-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.scen-mini>div{display:flex;flex-direction:column}
+.scen-mini b{font-family:'Space Grotesk';font-weight:700;color:var(--cyan);font-size:1.02rem;line-height:1}
+.scen-mini span{font-family:'Space Grotesk';font-weight:600;font-size:8.5px;line-height:1.25;letter-spacing:.12em;text-transform:uppercase;color:var(--w-45);margin-top:5px}
+.scen-pick{cursor:pointer;user-select:none}
+.scen-pick .pick{display:flex;align-items:center;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:'Space Grotesk';font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
+.scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.scen-pick .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.scen-pick.selected{border-color:var(--cyan);background:rgba(31,232,216,.08);box-shadow:0 0 0 1px var(--cyan) inset,0 14px 40px rgba(31,232,216,.18)}
+.scen-pick.selected .pick{color:var(--cyan)}
+.scen-pick.selected .pick .radio{border-color:var(--cyan)}
+.scen-pick.selected .pick .radio::after{transform:scale(1)}
+.scen-pick .pick .lbl-on{display:none}
+.scen-pick.selected .pick .lbl-off{display:none}
+.scen-pick.selected .pick .lbl-on{display:inline}
+.big-price{font-family:'Space Grotesk';font-weight:700;font-size:1.7rem;line-height:1}
+.big-price small{font-size:.85rem;color:var(--w-45);font-weight:500}
+.tbl td.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl th.num{text-align:right}
+.chiprow{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chiprow span{font-family:'Space Grotesk';font-weight:500;font-size:.86rem;color:var(--w-80);border:1px solid var(--line);padding:9px 16px;border-radius:100px;background:rgba(255,255,255,.04)}
+.chiprow span b{color:var(--cyan);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Confidencial · Al Toque</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Un oficio mandando un audio desde su taller" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r">Al Toque × Popcorn · Growth Marketing · Lanzamiento 2026</div>
+    <h1 class="hero-title r d1">El producto ya funciona.<br>Falta que lo <span class="cy">usen.</span></h1>
+    <p class="hero-sub r d3">Una estrategia de Growth para llevar Al Toque de un producto que anda a un producto que se usa todos los días. Posicionamiento, adquisición, embudo, contenido, automatización y pauta —con una métrica clara para cada etapa.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Growth Marketing</span>
+      <span class="tag">Lanzamiento de producto digital</span>
+      <span class="tag">Adquisición &amp; embudo</span>
+      <span class="tag">Contenido &amp; pauta</span>
+      <span class="tag">Automatización</span>
+    </div>
+    <div class="metaband r d5">
+      <div><span class="k">Preparada para</span><span class="v">Al Toque · Isaías y Tomás</span></div>
+      <div><span class="k">Por</span><span class="v">Florencia Grigolatto · Popcorn</span></div>
+      <div><span class="k">Fecha</span><span class="v">Agosto 2026</span></div>
+      <div><span class="k">Válida hasta</span><span class="v">30 de agosto de 2026</span></div>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para comenzar</div>
+</section>
+
+<!-- ============ 2 · QUIÉNES SOMOS + CLIENTES ============ -->
+<section id="popcorn" data-label="Quiénes somos">
+  <div class="wrap">
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No vendemos publicaciones.<br>Construimos <span class="cy">crecimiento.</span></h2>
+    <p class="lead r d2" style="margin-top:24px">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Empezamos hace casi 15 años como productora audiovisual y hoy somos una agencia integral. Para Al Toque no proponemos "llevar las redes": proponemos diseñar el sistema que convierte a un desconocido en un usuario que vuelve todas las semanas.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Primero el negocio</h3>
+        <p>Arrancamos por el objetivo comercial —usuarios activos, costo de adquisición, conversión a pago— y desde ahí definimos las acciones. Nunca al revés.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M10 18h4"/></svg></div>
+        <h3>Entendemos producto digital</h3>
+        <p>Construimos nuestros propios sistemas con IA puertas adentro: agentes, generador de presupuestos interno, plataforma para que los clientes aprueben videos. Sabemos lo que es lanzar algo que todavía se está puliendo.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Todo bajo un mismo techo</h3>
+        <p>Estrategia, contenido, producción audiovisual, diseño, pauta y automatización en el mismo equipo. Sin coordinar tres proveedores para sacar una campaña.</p>
+      </div>
+    </div>
+
+    <div class="stats r d4">
+      <div class="stat"><div class="v">15 a&ntilde;os</div><div class="l">Trabajando con marcas</div></div>
+      <div class="stat"><div class="v">360&deg;</div><div class="l">Estrategia, contenido, pauta y producci&oacute;n</div></div>
+      <div class="stat"><div class="v">B2C + B2B</div><div class="l">Consumo, salud, industria y tecnolog&iacute;a</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Popcorn</span></div>
+</section>
+
+<!-- ============ 3 · LO QUE ENTENDIMOS ============ -->
+<section id="entendimos" data-label="Lo que entendimos">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:44px">
+      <div class="col-img r d2"><div class="media"><img src="img/presupuesto.jpg" alt="El presupuesto escrito a mano sobre el banco de trabajo"></div></div>
+      <div>
+        <div class="eyebrow r">Lo que entendimos</div>
+        <h2 class="h-lg r d1" style="max-width:19ch">Al Toque no resuelve un trámite. Resuelve una <span class="cy">pérdida.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">El que pide un presupuesto lo quiere ya. Si tarda tres días en llegar, ese trabajo ya se lo llevó otro. Al Toque convierte un audio en un presupuesto profesional en segundos, lo manda, avisa cuando lo aceptan, cobra por Mercado Pago y factura ante ARCA si hace falta. Todo en el mismo hilo de WhatsApp, sin instalar nada.</p>
+        <p class="lead r d3" style="margin-top:18px">Ese es el producto. Lo que falta no es tecnología: es que el mercado se entere, lo pruebe y lo incorpore como hábito.</p>
+      </div>
+    </div>
+
+    <div class="grid g4 r d3">
+      <div class="card">
+        <span class="num-tag">Estado</span>
+        <h3>Producto andando</h3>
+        <p>El bot está operativo y ya se hicieron cobros de prueba punta a punta. Se sigue puliendo seguridad, onboarding y envío automático.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Salida</span>
+        <h3>Mediados de septiembre</h3>
+        <p>La meta original era el 1° de septiembre. Se acordó correrla para construir la estrategia antes del lanzamiento y no en paralelo.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Meta de la etapa 1</span>
+        <h3>Uso, no facturación</h3>
+        <p>Ustedes lo definieron: la primera métrica es el uso, no la cantidad de suscripciones. Coincidimos, y acá lo volvemos medible.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Contexto</span>
+        <h3>Apuesta full</h3>
+        <p>Los dos fundadores dejan lo que hacían para dedicarse a Al Toque. El lanzamiento tiene que ser cómodo: por eso delegan esta parte.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Reunión del 19 de agosto de 2026 + relevamiento propio</span><span class="num">02 — Lo que entendimos</span></div>
+</section>
+
+<!-- ============ 4 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico inicial</div>
+    <h2 class="h-lg r d1">Seis cosas que hoy <span class="cy">frenan</span> el lanzamiento.</h2>
+    <p class="lead r d2" style="margin-top:20px">Revisamos el sitio, los planes publicados, el discurso de la reunión y el mapa competitivo. Cada punto tiene un dato atrás y una forma concreta de resolverlo. No hay una sola cifra inventada en este documento.</p>
+
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <div class="card">
+        <span class="num-tag">01 · Posicionamiento</span>
+        <div class="datum">"Técnicos"</div>
+        <p>La web encierra el producto en un nicho que ustedes mismos dijeron no querer: <b>"no nos queremos limitar solamente a oficios"</b>. Hoy el plan Individual dice <b>"Para técnicos independientes"</b> y el Equipo <b>"Para talleres con más de un técnico"</b>. Cada peso de pauta que traiga a un diseñador o a un kinesiólogo va a rebotar contra una página que le dice que el producto no es para él.</p>
+        <div class="fix"><b>Cómo lo resolvemos</b>Reescribimos el mensaje para que el núcleo siga siendo oficios pero la puerta quede abierta al servicio profesional. Un posicionamiento, dos entradas.</div>
+      </div>
+
+      <div class="card">
+        <span class="num-tag">02 · Precio y valor</span>
+        <div class="datum">$36.000 vs. $8.499</div>
+        <p>Las referencias del ecosistema arrancan mucho más abajo: Facturitas desde $8.499, Factugo desde $7.499, Tramitito desde $4.900. Al Toque hace más que todas ellas —presupuesta, cobra y factura— pero eso no está argumentado en ningún lado. Ustedes quieren que sea <b>"un gasto hormiga"</b>: no lo va a ser bajando el número, lo va a ser cuando el usuario entienda que <b>un solo trabajo más por mes paga la suscripción varias veces</b>.</p>
+        <div class="fix"><b>Cómo lo resolvemos</b>Construimos el argumento de valor en plata, no en features: toda la comunicación se ordena alrededor del trabajo que se pierde, no del PDF que se genera.</div>
+      </div>
+
+      <div class="card">
+        <span class="num-tag">03 · Plan gratuito</span>
+        <div class="datum">15 en total</div>
+        <p>El FREE ofrece <b>"15 presupuestos en total"</b>: es un tope de por vida, no mensual. Si la estrategia es <b>"vení, probanos y nos vas a elegir"</b>, el free tiene que durar lo suficiente para que se forme el hábito. Con 15 de por vida, al usuario activo se le agotan en tres semanas y al tibio no se le agotan nunca —y entonces jamás decide pagar.</p>
+        <div class="fix"><b>Cómo lo resolvemos</b>Proponemos evaluar un free acotado por tiempo o por volumen mensual, con el corte en el momento de mayor valor percibido. La decisión es de ustedes; nosotros aportamos el criterio y después medimos.</div>
+      </div>
+
+      <div class="card">
+        <span class="num-tag">04 · Identidad</span>
+        <div class="datum">#25D366</div>
+        <p>Es el verde exacto de WhatsApp y aparece <b>27 veces</b> en la hoja de estilos del sitio. El problema no es estético: ustedes definieron su diferencial como <b>"no es la IA, es Al Toque, somos nosotros dos por detrás"</b>. Una marca que se parece a WhatsApp no puede reclamar esa confianza —se la transfiere a Meta—. Y en un canal donde circulan bots truchos, parecerse a WhatsApp genera sospecha.</p>
+        <div class="fix"><b>Cómo lo resolvemos</b>Un sistema visual y verbal propio, que conviva con WhatsApp sin depender de su color. Módulo opcional, pero impacta directo en la conversión.</div>
+      </div>
+
+      <div class="card">
+        <span class="num-tag">05 · Prueba social</span>
+        <div class="datum">0</div>
+        <p>Cero testimonios, cero casos, cero números de uso en el sitio. Y las 15 pruebas hechas hasta hoy fueron <b>ficticias, no con personas reales</b>. Mientras tanto, el jugador más grande del ecosistema comunica <b>5.000 usuarios activos</b>. En una categoría donde el freno es "¿le doy mis datos y mis clientes a un bot?", la prueba real es el activo más difícil de conseguir y el más barato de producir.</p>
+        <div class="fix"><b>Cómo lo resolvemos</b>Antes de encender pauta corremos una prueba con usuarios reales. De ahí salen los primeros testimonios y capturas, que después son la materia prima de toda la campaña.</div>
+      </div>
+
+      <div class="card">
+        <span class="num-tag">06 · Medición</span>
+        <div class="datum">Sin captura</div>
+        <p>Todos los botones del sitio llevan a WhatsApp: no hay captura de mail ni oferta intermedia. Si el usuario no abre WhatsApp en ese momento, se perdió y no hay forma de volver a buscarlo. Además, sin eventos instrumentados, el algoritmo de Meta optimiza a ciegas: no sabe quién de los que hicieron clic terminó usando el producto.</p>
+        <div class="fix"><b>Cómo lo resolvemos</b>Instrumentación completa antes del primer peso de pauta: píxel, eventos, API de conversiones y devolución de la señal de "usuario activado" desde el bot.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuentes: altoque.company · planes publicados · reunión 19/08 · relevamiento de mercado</span><span class="num">03 — Diagnóstico</span></div>
+</section>
+
+<!-- ============ 5 · MERCADO ============ -->
+<section id="mercado" data-label="Mercado">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:40px">
+      <div>
+        <div class="eyebrow r">Mercado y competencia</div>
+        <h2 class="h-lg r d1" style="max-width:17ch">La ventana está abierta. No va a quedar abierta.</h2>
+        <p class="lead r d2" style="margin-top:22px">Hoy nadie resuelve <b>presupuesto → aceptación → cobro → factura</b> en un solo hilo de WhatsApp. Ustedes lo detectaron bien. Pero conviene ser precisos sobre qué tipo de ventaja es esa: "presupuestar" es una funcionalidad que un competidor con base instalada puede agregar.</p>
+        <p class="lead r d3" style="margin-top:18px">La ventaja defendible no es el código: es <b>ocupar la palabra "presupuesto" en la cabeza del monotributista antes que ellos</b>. Eso no se programa, se comunica — y es exactamente el trabajo de esta propuesta.</p>
+      </div>
+      <div class="col-img r d2"><div class="media tall"><img src="img/oficios.jpg" alt="Electricista trabajando en obra" style="object-position:center 40%"><div class="cap"><div class="quote" style="font-size:1.02rem">2,2 millones de monotributistas en Argentina. Más del 20% de los aportantes del sistema.</div></div></div></div>
+    </div>
+
+    <div class="grid g3 r d3">
+      <div class="card">
+        <span class="num-tag">Tamaño de mercado</span>
+        <div class="datum">2,2 M</div>
+        <p>Monotributistas activos en Argentina en 2026. Pasaron de 513 mil en 1998 a 2,2 millones: +331% y más del 20% de los aportantes del sistema previsional.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Competidor principal</span>
+        <div class="datum">5.000</div>
+        <p>Usuarios activos que comunica Facturitas, lo más grande del segmento. Genera comprobantes por WhatsApp con IA y declara una meta de USD 500.000 de ARR para fin de 2026. Su core es facturar, no presupuestar.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Territorio libre</span>
+        <div class="datum">Presupuesto</div>
+        <p>El resto —Factugo, TusFacturasAPP, Xubio, Contabilium, Colppy, Tramitito— compite en facturación y contabilidad. El presupuesto, que es donde arranca la venta del oficio, está desatendido.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuentes públicas · agosto 2026</span><span class="num">04 — Mercado</span></div>
+</section>
+
+<!-- ============ 6 · TESIS ============ -->
+<section id="tesis" data-label="La tesis">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Nadie compra un generador de presupuestos.<br>Compran el trabajo que hoy se les <span class="cy">escapa.</span></h2>
+    <p class="lead r d2" style="margin-top:24px">De ahí sale todo lo demás. Y de ahí sale la métrica: si el objetivo de la primera etapa es el uso —como ustedes plantearon— hay que definir qué significa "uso" con precisión, porque de eso depende cómo se optimiza cada campaña.</p>
+
+    <div class="phases r d3">
+      <div class="phase-card">
+        <span class="pn">01</span>
+        <span class="gp">Mes 1</span>
+        <h3>Existir</h3>
+        <p>Que el monotributista sepa que esto existe y entienda en cinco segundos qué le resuelve. Métrica: costo por conversación iniciada.</p>
+      </div>
+      <div class="phase-card hi">
+        <span class="pn">02</span>
+        <span class="gp">Mes 2</span>
+        <h3>Enganchar</h3>
+        <p>Que complete el onboarding y mande su primer presupuesto real a un cliente real. Ahí entiende el producto. Métrica: <b>costo por usuario activado</b>.</p>
+      </div>
+      <div class="phase-card">
+        <span class="pn">03</span>
+        <span class="gp">Mes 3 en adelante</span>
+        <h3>Convertir</h3>
+        <p>Que vuelva. El segundo presupuesto en los primeros siete días es el mejor predictor de que va a pagar. Métrica: retención a 7 días y conversión free → pago.</p>
+      </div>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>La definición que proponemos.</b> "Usuario activado" = terminó el onboarding <u>y</u> envió al menos un presupuesto a un cliente real. No es un registro ni una conversación: es alguien que ya usó Al Toque para trabajar. Todo el sistema —pauta, contenido, automatizaciones— se optimiza contra ese número. Es la diferencia entre traer curiosos y traer usuarios.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Existir → Enganchar → Convertir</span><span class="num">05 — La tesis</span></div>
+</section>
+
+<!-- ============ 7 · RIESGOS ============ -->
+<section id="riesgos" data-label="Riesgos">
+  <div class="wrap">
+    <div class="eyebrow r">Riesgos identificados</div>
+    <h2 class="h-lg r d1">Lo que puede salir mal, y cómo lo <span class="cy">manejamos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Preferimos ponerlos sobre la mesa ahora. Ninguno es motivo para no avanzar; todos son motivo para avanzar de una forma determinada.</p>
+
+    <div class="grid g2 r d3" style="margin-top:42px">
+      <div class="risk">
+        <div class="rt"><span class="lb">Riesgo</span><h3>Traer volumen antes de que el producto esté listo para recibirlo</h3></div>
+        <div class="rb"><span class="lb">Mitigación</span><p>Arrancamos con inversión contenida y crecemos por tramos, atados a que el onboarding y el envío automático estén cerrados. Un mal primer uso no se recupera con más pauta.</p></div>
+      </div>
+      <div class="risk">
+        <div class="rt"><span class="lb">Riesgo</span><h3>Desconfianza hacia la IA y hacia los bots de WhatsApp</h3></div>
+        <div class="rb"><span class="lb">Mitigación</span><p>El lenguaje que ustedes eligieron es el correcto: "somos nosotros", no "es la IA". Lo llevamos a toda la comunicación y lo reforzamos con verificación de Meta, presencia real de marca y prueba de usuarios.</p></div>
+      </div>
+      <div class="risk">
+        <div class="rt"><span class="lb">Riesgo</span><h3>Los fundadores todavía no quieren mostrar la cara</h3></div>
+        <div class="rb"><span class="lb">Mitigación</span><p>Arrancamos con contenido de producto y de usuario, que no los necesita en cámara. Dejamos el contenido de fundadores listo para la etapa 2: es el activo de confianza más potente y más barato que tienen.</p></div>
+      </div>
+      <div class="risk">
+        <div class="rt"><span class="lb">Riesgo</span><h3>Todo el negocio depende de un canal que no controlan</h3></div>
+        <div class="rb"><span class="lb">Mitigación</span><p>Construimos base propia desde el día uno: captura de mail y lista propia de interesados. Si mañana cambia una política de Meta, no se apaga el negocio entero.</p></div>
+      </div>
+      <div class="risk">
+        <div class="rt"><span class="lb">Riesgo</span><h3>Un competidor con base instalada agrega presupuestos</h3></div>
+        <div class="rb"><span class="lb">Mitigación</span><p>Velocidad y territorio: ocupamos la palabra "presupuesto" ahora, mientras el resto mira la factura. La marca es la barrera que el código no da.</p></div>
+      </div>
+      <div class="risk">
+        <div class="rt"><span class="lb">Riesgo</span><h3>No hay datos históricos sobre los cuales proyectar</h3></div>
+        <div class="rb"><span class="lb">Mitigación</span><p>Trabajamos con benchmarks de mercado (ver escenarios de inversión) y los primeros 45 días fijan la línea de base real. Todo lo proyectado se recalibra con datos propios.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Transparencia sobre supuestos y limitaciones</span><span class="num">06 — Riesgos</span></div>
+</section>
+
+<!-- ============ 8 · PÚBLICO ============ -->
+<section id="publico" data-label="A quién le hablamos">
+  <div class="wrap">
+    <div class="eyebrow r">Definición de público</div>
+    <h2 class="h-lg r d1">A quién le hablamos <span class="cy">primero.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Ustedes fueron claros: el foco inicial son individuos y microempresas —oficios y servicios profesionales de una persona—, con el monotributista como público principal. Lo ordenamos en tres tiempos para no diluir el mensaje del lanzamiento.</p>
+
+    <div class="grid g3 r d3" style="margin-top:42px">
+      <div class="card">
+        <span class="num-tag">Núcleo · Lanzamiento</span>
+        <h3>Oficios de una persona</h3>
+        <p>Plomería, electricidad, gas, refrigeración, aire acondicionado, pintura, herrería, cerrajería, service técnico, albañilería, jardinería.</p>
+        <p><b>Por qué primero:</b> presupuestan varias veces por semana, compiten por velocidad de respuesta y cobran en el momento. Es donde el dolor es más frecuente y más caro.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Expansión · Mes 2-3</span>
+        <h3>Servicios profesionales unipersonales</h3>
+        <p>Diseño, fotografía, video, marketing freelance, desarrollo, kinesiología, nutrición, entrenadores, veterinaria, arquitectura y decoración.</p>
+        <p><b>Por qué después:</b> presupuestan menos seguido pero valoran mucho más la presentación y el respaldo del PDF con su marca. Requiere un mensaje distinto, no el mismo con otra foto.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Diferido</span>
+        <h3>Fuera del lanzamiento</h3>
+        <p><b>Estudios jurídicos y contables:</b> ustedes identificaron que la estructura de honorarios —tasa de justicia, cobro por etapas— no entra en el presupuesto genérico.</p>
+        <p><b>Pymes y talleres multi-técnico (plan Equipo):</b> otro discurso, otro canal y otro ciclo de venta. Con ellos vuelve a la mesa LinkedIn, que para esta etapa descartamos.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Núcleo → Expansión → Diferido</span><span class="num">07 — Público</span></div>
+</section>
+
+<!-- ============ 9 · ADQUISICIÓN ============ -->
+<section id="adquisicion" data-label="Adquisición">
+  <div class="bg-photo band"><img src="img/confianza.jpg" alt="Un oficio en la puerta de su local mirando el celular"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Estrategia de adquisición</div>
+    <h2 class="h-lg r d1">Cinco motores, encendidos en <span class="cy">orden.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">No prendemos todo el mismo día. Cada motor tiene un momento, un objetivo y una métrica propia. El orden importa tanto como la elección.</p>
+
+    <div class="grid g3 r d3" style="margin-top:42px">
+      <div class="card">
+        <span class="num-tag">Motor 1 · Día 1</span>
+        <h3>Meta Ads — Instagram y Facebook</h3>
+        <p>El motor principal, tal como ustedes plantearon. Es donde está el monotributista de oficio, donde el costo por conversación es más bajo y la única plataforma que lleva directo al WhatsApp con un clic. Objetivo inicial: mensajes. Desde el mes 2: conversiones optimizadas contra "usuario activado".</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Motor 2 · Día 1</span>
+        <h3>Contenido orgánico de utilidad</h3>
+        <p>Piezas cortas y verticales que muestran el producto funcionando y enseñan algo del oficio. Sostiene la marca entre campaña y campaña, alimenta el remarketing y baja el costo de la pauta con el tiempo. Además: cuando alguien busque "Al Toque" para ver si es confiable, tiene que encontrar una marca viva.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Motor 3 · Mes 1-2</span>
+        <h3>Prueba social y referidos</h3>
+        <p>El producto ya tiene la mecánica —sumar a alguien da meses gratis—, pero está enterrada en el menú del bot. Falta convertirla en campaña, con un momento de pedido y una recompensa clara. En este segmento el boca a boca no complementa al marketing: es el canal principal.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Motor 4 · Mes 2-3</span>
+        <h3>Alianzas de nicho</h3>
+        <p>Corralones, casas de repuestos, distribuidoras de materiales eléctricos y sanitarios, gremios, escuelas de oficios y los grupos de WhatsApp y Facebook donde ya están agrupados. Es el canal más barato y el más subestimado: llegás a cien electricistas de una vez, con la recomendación de alguien en quien ya confían.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Motor 5 · Mes 3+</span>
+        <h3>Google — segunda etapa</h3>
+        <p>Coincidimos con lo hablado: hoy nadie busca "bot que me hace presupuestos" porque la categoría no existe en la cabeza de la gente. Google se enciende cuando haya búsquedas de marca. Ahí sí es imprescindible: cuando alguien escuche "Al Toque" y lo busque, el resultado tiene que ser de ustedes y no de un competidor pujando por su nombre.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.3));border-color:var(--cyan-line)">
+        <span class="num-tag">Fuera del plan inicial</span>
+        <h3>LinkedIn</h3>
+        <p>Estaba en el pedido original y lo evaluamos con seriedad: para esta etapa lo descartamos. El monotributista de oficio no decide ahí y el costo por clic es sensiblemente más alto que el de Meta. Vuelve a la mesa con el plan Equipo y las pymes.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Meta · Contenido · Referidos · Alianzas · Google</span><span class="num">08 — Adquisición</span></div>
+</section>
+
+<!-- ============ 10 · EMBUDO ============ -->
+<section id="embudo" data-label="Embudo de ventas">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:40px">
+      <div class="col-img r d2"><div class="media"><img src="img/embudo.jpg" alt="Flujos de tránsito nocturno convergiendo"></div></div>
+      <div>
+        <div class="eyebrow r">Diseño del embudo</div>
+        <h2 class="h-lg r d1" style="max-width:17ch">Siete pasos. Cinco puntos donde hoy se <span class="cy">cae.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">El embudo de Al Toque no termina en la venta: empieza mucho antes y sigue mucho después. Lo mapeamos entero, identificamos dónde se pierde gente y diseñamos el mensaje y la automatización de cada fuga.</p>
+      </div>
+    </div>
+
+    <div class="pipe r d3">
+      <div class="node"><span class="k">01</span><span class="t">Descubrimiento</span><p>Ve el anuncio o el contenido</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">02</span><span class="t">Conversación</span><p>Abre el WhatsApp</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">03</span><span class="t">Onboarding</span><p>Carga sus datos</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node hot"><span class="k">04</span><span class="t">Activación</span><p>Manda el presupuesto #1</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node hot"><span class="k">05</span><span class="t">Hábito</span><p>Vuelve y manda el #2</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">06</span><span class="t">Conversión</span><p>Se suscribe</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">07</span><span class="t">Referido</span><p>Trae a un colega</p></div>
+    </div>
+
+    <div class="tbl-wrap r d4">
+      <table class="tbl">
+        <thead><tr><th>Punto de fuga</th><th>Qué pasa hoy</th><th>Qué hacemos</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Del anuncio<br>al WhatsApp</td><td>El sitio solo redirige a wa.me. Si no abre WhatsApp en ese momento, se perdió y no hay forma de reimpactarlo.</td><td class="c">Captura de mail como alternativa · píxel y eventos · públicos de remarketing</td></tr>
+          <tr><td class="k">Del "hola"<br>al onboarding</td><td>Pedir muchos datos de una es chocante —lo detectaron ustedes—. Es el momento de mayor abandono de todo el embudo.</td><td class="c">Guion conversacional · orden de las preguntas · momento de pedir logo y web</td></tr>
+          <tr class="hot"><td class="k">Del onboarding<br>al presupuesto #1</td><td>Sin dato aún. Es el paso más importante: sin presupuesto enviado no hay usuario, hay registro.</td><td class="c">Disparador a las 2 h y a las 24 h · plantilla de primer presupuesto · caso de ejemplo listo</td></tr>
+          <tr class="hot"><td class="k">Del #1<br>al #2</td><td>Sin dato aún. Es el mejor predictor de conversión a pago en productos de suscripción.</td><td class="c">Recordatorio útil, no publicitario · aviso de presupuesto aceptado · resumen semanal</td></tr>
+          <tr><td class="k">Del free<br>al pago</td><td>El tope de 15 presupuestos totales no está atado a ningún momento de valor demostrado.</td><td class="c">Aviso al 80% del límite · mensaje de upgrade basado en lo que ya ganó</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r d5" style="margin-top:20px"><span class="note-pill"><b>Alcance</b> · Popcorn diseña los flujos, los tiempos y los textos. La implementación dentro del bot la hace el equipo de Al Toque: es su producto y su código.</span></p>
+  </div>
+  <div class="sfoot"><span>Del anuncio al referido, con métrica en cada paso</span><span class="num">09 — Embudo</span></div>
+</section>
+
+<!-- ============ 11 · CONTENIDO ============ -->
+<section id="contenido" data-label="Contenido">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:40px">
+      <div>
+        <div class="eyebrow r">Generación de contenido</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Contenido que <span class="cy">demuestra</span>, no que anuncia.</h2>
+        <p class="lead r d2" style="margin-top:22px">Al Toque tiene una ventaja enorme para comunicar: el producto se ve. En veinte segundos se muestra un audio entrando y un presupuesto profesional saliendo. Eso convence más que cualquier claim.</p>
+        <p class="lead r d3" style="margin-top:18px">Producimos en dos carriles paralelos: piezas orgánicas que construyen marca, y creatividades específicas para pauta —que no son las mismas, aunque muchos las usen igual—.</p>
+      </div>
+      <div class="col-img r d2"><div class="media tall"><img src="img/contenido.jpg" alt="Producción de contenido vertical del producto en uso" style="object-position:center 45%"></div></div>
+    </div>
+
+    <div class="grid g3 r d3">
+      <div class="card">
+        <span class="num-tag">Pilar 01</span>
+        <h3>Demostración</h3>
+        <p>El producto funcionando, en tiempo real, sin edición trucada. Audio que entra, PDF que sale, cliente que acepta. Es lo que más convierte y lo más fácil de producir.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Pilar 02</span>
+        <h3>El dolor del oficio</h3>
+        <p>El presupuesto que mandaste el lunes y te contestaron el viernes. El trabajo que perdiste porque el otro contestó primero. Situaciones reconocibles, contadas sin solemnidad.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Pilar 03</span>
+        <h3>Educación del negocio</h3>
+        <p>Cómo cotizar sin quedarse corto, cómo actualizar precios, cómo pedir una seña, cómo no regalar la visita. Es el contenido que hace que te sigan sin querer comprarte nada.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Pilar 04</span>
+        <h3>Prueba real</h3>
+        <p>Usuarios contando lo que les pasó, capturas de presupuestos aceptados, números de uso. El pilar que hoy no existe y el que más falta hace. Arranca en la prueba previa al lanzamiento.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Pilar 05</span>
+        <h3>Marca y respaldo</h3>
+        <p>Quiénes están detrás, cómo se cuidan los datos, por qué esto no es un bot más. Responde el freno principal de la categoría. Arranca sin caras y escala a founder-led cuando ustedes decidan.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.3));border-color:var(--cyan-line)">
+        <span class="num-tag">Carril paralelo</span>
+        <h3>Creatividades para pauta</h3>
+        <p>Variantes por ángulo de mensaje, por oficio y por formato, pensadas para testear. Una campaña de descubrimiento necesita varias versiones del mismo mensaje, no una pieza linda.</p>
+      </div>
+    </div>
+
+    <p class="r d4" style="margin-top:24px"><span class="note-pill"><b>Volumen</b> · 8 contenidos mensuales que se replican en historias · diseños incluidos · calendario aprobado por ustedes · producción en tandas · las creatividades para pauta van dentro del módulo de publicidad digital</span></p>
+  </div>
+  <div class="sfoot"><span>Cinco pilares · orgánico + pauta</span><span class="num">10 — Contenido</span></div>
+</section>
+
+<!-- ============ 12 · AUTOMATIZACIÓN ============ -->
+<section id="automatizacion" data-label="Automatización">
+  <div class="wrap">
+    <div class="eyebrow r">Automatización de marketing</div>
+    <h2 class="h-lg r d1">Que el sistema trabaje cuando ustedes <span class="cy">no están.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Con dos personas manejando todo, la automatización no es un lujo: es la única forma de que ningún usuario se pierda por falta de seguimiento. Estos son los flujos, en orden de impacto.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Flujo</th><th>Cuándo se dispara</th><th>Qué busca</th><th>Impacto</th></tr></thead>
+        <tbody>
+          <tr class="hot"><td class="k">Onboarding conversacional</td><td>Primer mensaje al bot</td><td>Que complete la carga de datos sin abandonar, con las preguntas en el orden correcto</td><td class="c">Alto</td></tr>
+          <tr class="hot"><td class="k">Rescate de onboarding</td><td>Empezó y no terminó · 2 h y 24 h</td><td>Recuperar al que se distrajo, retomando desde donde dejó</td><td class="c">Alto</td></tr>
+          <tr class="hot"><td class="k">Empujón al presupuesto #1</td><td>Terminó el onboarding y no presupuestó · 24 h</td><td>Llevarlo al momento donde entiende el producto</td><td class="c">Alto</td></tr>
+          <tr><td class="k">Reactivación</td><td>Hizo el #1 y no volvió · 7 días</td><td>Instalar el hábito antes de que se enfríe</td><td class="c">Alto</td></tr>
+          <tr><td class="k">Disparador de upgrade</td><td>Llega al 80% del límite de su plan</td><td>Ofrecer el plan pago en el momento de mayor valor percibido, no antes</td><td class="c">Alto</td></tr>
+          <tr><td class="k">Aviso de aceptación</td><td>El cliente final acepta el presupuesto</td><td>Convertir una buena noticia en momento de marca y en pedido de reseña</td><td class="c">Medio</td></tr>
+          <tr><td class="k">Pedido de referido</td><td>Después del primer cobro exitoso</td><td>Activar la mecánica de meses gratis que ya existe en el producto</td><td class="c">Medio</td></tr>
+          <tr><td class="k">Nurturing por mail</td><td>Dejó el mail en el sitio y no arrancó</td><td>Construir base propia, independiente de Meta y de WhatsApp</td><td class="c">Etapa 2</td></tr>
+          <tr><td class="k">Resumen semanal</td><td>Lunes, a usuarios activos</td><td>Devolverle sus números para que el producto se vuelva parte de su semana</td><td class="c">Medio</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>Quién hace qué, y cuándo.</b> Popcorn diseña la arquitectura, los tiempos, los disparadores y todos los textos; los flujos que viven dentro del bot los implementa el equipo de Al Toque, porque es su producto y su base de datos. <b>La capa de email marketing queda para una segunda etapa</b>: recién tiene sentido cuando exista una base propia con volumen —contactos capturados en el sitio y usuarios registrados—. Arrancar antes sería pagar una plataforma para escribirle a nadie.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Nueve flujos · diseño Popcorn + implementación compartida</span><span class="num">11 — Automatización</span></div>
+</section>
+
+<!-- ============ 13 · CAMPAÑAS PAGAS ============ -->
+<section id="paid" data-label="Campañas pagas">
+  <div class="bg-photo band"><img src="img/paid.jpg" alt="Tableros de campañas en pantalla"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Gestión de campañas pagas</div>
+    <h2 class="h-lg r d1">Meta primero. Google después.<br>Siempre con la medición <span class="cy">antes.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Cuatro fases. Ninguna arranca antes de que la anterior esté cerrada. La fase 0 es la que más se saltea y la que más caro sale saltear.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Fase 0 · Semanas 1-2 · Antes del primer peso</div>
+        <h3>Instrumentación</h3>
+        <p>Píxel de Meta y API de conversiones, GA4 y Tag Manager, verificación de dominio, definición de eventos —conversación iniciada, onboarding completo, presupuesto enviado, suscripción— y devolución de la señal de "usuario activado" desde el bot hacia las plataformas.</p>
+        <div class="out"><b>Por qué importa</b> · Sin esto, Meta optimiza hacia clics baratos en vez de usuarios reales. Es la diferencia entre gastar e invertir.</div>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Fase 1 · Mes 1 · Descubrimiento</div>
+        <h3>Encontrar el mensaje y la audiencia</h3>
+        <p>Testeamos tres o cuatro ángulos —velocidad, plata perdida, profesionalismo, cobro— contra dos o tres audiencias por intereses y comportamiento. Objetivo: mensajes. Presupuesto contenido y deliberadamente repartido.</p>
+        <div class="out"><b>Entregable</b> · La combinación de mensaje, audiencia y creatividad que trae conversaciones al menor costo.</div>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Fase 2 · Mes 2 · Optimización</div>
+        <h3>Bajar el costo por usuario activado</h3>
+        <p>Concentramos presupuesto en lo que ganó, cambiamos el objetivo a conversiones, sumamos remarketing sobre quienes iniciaron conversación y no activaron, y construimos públicos similares a partir de los que sí activaron.</p>
+        <div class="out"><b>Entregable</b> · Un costo por activación conocido y una estructura de cuenta lista para escalar.</div>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Fase 3 · Mes 3+ · Escala</div>
+        <h3>Ampliar y sumar Google</h3>
+        <p>Aumentamos inversión solo sobre lo que ya demostró rentabilidad. Sumamos Google: campaña de marca —para que nadie compre "Al Toque" antes que ustedes— y búsquedas de categoría a medida que la demanda se instale.</p>
+        <div class="out"><b>Entregable</b> · Un modelo de adquisición con costo conocido y un canal nuevo validado.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Meta Ads · Google Ads · sin LinkedIn en esta etapa</span><span class="num">12 — Campañas pagas</span></div>
+</section>
+
+<!-- ============ 14 · ESCENARIOS DE INVERSIÓN ============ -->
+<section id="escenarios" data-label="Inversión en medios">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en medios y resultados estimados</div>
+    <h2 class="h-lg r d1">Tres puntos de partida, con los <span class="cy">números</span> sobre la mesa.</h2>
+    <p class="lead r d2" style="margin-top:20px">Esta es la inversión mensual en plataformas —la que define y abona Al Toque directamente, con su propia cuenta y tarjeta—. Va aparte del honorario de agencia. Cada escenario está proyectado con benchmarks públicos de mercado, no con números elegidos a gusto: abajo están todos los supuestos.</p>
+
+    <p class="r d3" style="margin-top:36px;margin-bottom:18px"><span class="note-pill"><b>Elegí una opción</b> · al seleccionar un escenario queda incluido en el correo de "Quiero avanzar"</span></p>
+
+    <div class="grid g3 r d3">
+      <div class="card scen-pick" data-scen="1">
+        <span class="num-tag">Escenario 1 · Validación</span>
+        <div class="big-price">ARS 1.200.000<small> / mes</small></div>
+        <div class="scen-mini">
+          <div><b>900</b><span>Conversaciones</span></div>
+          <div><b>158</b><span>Usuarios activados</span></div>
+          <div><b>$7.619</b><span>Costo / activación</span></div>
+        </div>
+        <p style="margin-top:16px;font-size:.88rem;color:var(--w-65)">Solo Meta. Alcanza para aprender, no para escalar.</p>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir esta opción</span><span class="lbl-on">Opción elegida</span></div>
+      </div>
+      <div class="card scen-pick" data-scen="2" style="background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.3));border-color:var(--cyan-line)">
+        <span class="num-tag">Escenario 2 · Optimización · Recomendado</span>
+        <div class="big-price">ARS 2.000.000<small> / mes</small></div>
+        <div class="scen-mini">
+          <div><b>2.083</b><span>Conversaciones</span></div>
+          <div><b>365</b><span>Usuarios activados</span></div>
+          <div><b>$5.486</b><span>Costo / activación</span></div>
+        </div>
+        <p style="margin-top:16px;font-size:.88rem;color:var(--w-65)">Meta con volumen suficiente para testear en serio.</p>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir esta opción</span><span class="lbl-on">Opción elegida</span></div>
+      </div>
+      <div class="card scen-pick" data-scen="3">
+        <span class="num-tag">Escenario 3 · Escala</span>
+        <div class="big-price">ARS 3.500.000<small> / mes</small></div>
+        <div class="scen-mini">
+          <div><b>4.846</b><span>Conversaciones</span></div>
+          <div><b>848</b><span>Usuarios activados</span></div>
+          <div><b>$4.127</b><span>Costo / activación</span></div>
+        </div>
+        <p style="margin-top:16px;font-size:.88rem;color:var(--w-65)">Meta + Google. A partir del mes 3, sobre lo validado.</p>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir esta opción</span><span class="lbl-on">Opción elegida</span></div>
+      </div>
+    </div>
+
+    <p class="r d3" style="margin-top:26px"><span class="note-pill"><b>Fee variable de gestión</b> · 15% sobre la inversión en medios → $180.000 / $300.000 / $525.000 + IVA por mes según el escenario · se factura solo mientras haya campañas activas</span></p>
+
+    <h3 class="h-md r d4" style="margin-top:56px">Cómo se llega a esos números</h3>
+    <div class="tbl-wrap r d4">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Etapa del embudo</th>
+            <th class="num">Esc. 1 · $1,2 M</th>
+            <th class="num">Esc. 2 · $2 M</th>
+            <th class="num">Esc. 3 · $3,5 M</th>
+            <th>Supuesto aplicado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="k">Impresiones</td><td class="num">150.000</td><td class="num">277.778</td><td class="num">538.462</td><td>CPM $8.000 / $7.200 / $6.500 — mejora por optimización</td></tr>
+          <tr><td class="k">Clics</td><td class="num">1.800</td><td class="num">4.167</td><td class="num">9.692</td><td>CTR 1,2% / 1,5% / 1,8%</td></tr>
+          <tr><td class="k">CPC medio</td><td class="num">$667</td><td class="num">$480</td><td class="num">$361</td><td>Resultado, no supuesto</td></tr>
+          <tr class="hot"><td class="k">Conversaciones iniciadas</td><td class="num">900</td><td class="num">2.083</td><td class="num">4.846</td><td>50% de los clics abre el chat</td></tr>
+          <tr><td class="k">Costo por conversación</td><td class="num">$1.333</td><td class="num">$960</td><td class="num">$722</td><td>Resultado, no supuesto</td></tr>
+          <tr><td class="k">Onboardings completos</td><td class="num">315</td><td class="num">729</td><td class="num">1.696</td><td>35% de las conversaciones termina el alta</td></tr>
+          <tr class="hot"><td class="k">Usuarios activados</td><td class="num">158</td><td class="num">365</td><td class="num">848</td><td>50% de los onboardings manda el presupuesto #1</td></tr>
+          <tr class="hot"><td class="k">Costo por activación</td><td class="num">$7.619</td><td class="num">$5.486</td><td class="num">$4.127</td><td>El KPI que gobierna toda la etapa</td></tr>
+          <tr><td class="k">Suscripciones pagas</td><td class="num">13</td><td class="num">29</td><td class="num">68</td><td>8% de los activados pasa a plan pago</td></tr>
+          <tr><td class="k">CAC</td><td class="num">$95.238</td><td class="num">$68.571</td><td class="num">$51.587</td><td>Costo de adquisición por suscriptor</td></tr>
+          <tr class="hot"><td class="k">Meses para repagar el CAC</td><td class="num">2,6</td><td class="num">1,9</td><td class="num">1,4</td><td>Sobre el plan Individual de $36.000/mes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h-md r d5" style="margin-top:52px">Qué pasa a seis meses, en el escenario recomendado</h3>
+    <p class="lead r d5" style="margin-top:14px;font-size:1rem">Sostener $2.000.000/mes durante seis meses, con una baja mensual de suscriptores del 8%.</p>
+    <div class="tbl-wrap r d5">
+      <table class="tbl">
+        <thead><tr><th>Mes</th><th class="num">Activados acumulados</th><th class="num">Suscriptores netos</th><th class="num">Facturación del mes</th><th class="num">Facturación acumulada</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Mes 1</td><td class="num">365</td><td class="num">29</td><td class="num">$1.050.000</td><td class="num">$1.050.000</td></tr>
+          <tr><td class="k">Mes 2</td><td class="num">729</td><td class="num">56</td><td class="num">$2.016.000</td><td class="num">$3.066.000</td></tr>
+          <tr><td class="k">Mes 3</td><td class="num">1.094</td><td class="num">81</td><td class="num">$2.904.720</td><td class="num">$5.970.720</td></tr>
+          <tr><td class="k">Mes 4</td><td class="num">1.458</td><td class="num">103</td><td class="num">$3.722.342</td><td class="num">$9.693.062</td></tr>
+          <tr><td class="k">Mes 5</td><td class="num">1.823</td><td class="num">124</td><td class="num">$4.474.555</td><td class="num">$14.167.617</td></tr>
+          <tr class="hot"><td class="k">Mes 6</td><td class="num">2.187</td><td class="num">144</td><td class="num">$5.166.591</td><td class="num">$19.334.208</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout r d6">
+      <p><b>Cómo leer esto.</b> A seis meses la facturación acumulada estimada ($19,3 M) supera la inversión acumulada en medios ($12 M), y el negocio queda con ~2.200 usuarios que ya probaron el producto y 144 suscriptores activos pagando. Ese es el resultado que hace que valga la pena sostener la inversión: no el mes 1, donde ningún producto de suscripción da vuelta el número.</p>
+    </div>
+
+    <div class="callout r d6" style="border-left-color:var(--w-45);background:rgba(255,255,255,.045)">
+      <p><b>Supuestos y límites de esta proyección.</b> Los CPM y CTR salen de benchmarks públicos de Meta para Argentina y LATAM en 2026 (CPM de Instagram USD 3-8, Reels USD 2-5; CPM LATAM para campañas click-to-WhatsApp EUR 2-5; CTR mediano 1,5-2,5%), convertidos a pesos a un dólar de referencia de $1.500 y tomados en el extremo conservador del rango. Las tasas del embudo —clic a conversación, conversación a onboarding, onboarding a activación, activación a pago— son estimaciones prudentes de Popcorn: <b>Al Toque todavía no tiene datos propios para calibrarlas</b>. A los 45 días de campaña reemplazamos cada supuesto por el dato real y volvemos a proyectar. Las cifras se revisan cada trimestre, por resultados y por inflación.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>La pauta la define y abona Al Toque · cifras estimadas, a recalibrar a los 45 días</span><span class="num">13 — Inversión en medios</span></div>
+</section>
+
+<!-- ============ 15 · KPIs ============ -->
+<section id="kpis" data-label="KPIs">
+  <div class="wrap">
+    <div class="eyebrow r">Definición y seguimiento de KPIs</div>
+    <h2 class="h-lg r d1">Qué vamos a mirar, y en qué <span class="cy">orden.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Un indicador por etapa del embudo. Los de arriba se mueven rápido y sirven para corregir el rumbo; los de abajo tardan más y son los que dicen si el negocio funciona.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Etapa</th><th>Indicador</th><th>Qué nos dice</th><th>Cuándo manda</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Interés</td><td>CTR y retención del video</td><td>Si el mensaje y la creatividad enganchan. Es la señal más rápida de todas</td><td class="c">Mes 1</td></tr>
+          <tr><td class="k">Contacto</td><td>Costo por conversación iniciada</td><td>Cuánto cuesta que alguien abra el WhatsApp. Gobierna el mes 1</td><td class="c">Mes 1</td></tr>
+          <tr><td class="k">Onboarding</td><td>% de onboardings completados</td><td>Si el pedido de datos está bien resuelto o está expulsando gente</td><td class="c">Mes 1-2</td></tr>
+          <tr class="hot"><td class="k">Activación</td><td>Costo por usuario activado</td><td>Cuánto cuesta traer a alguien que realmente usó el producto. <b>El KPI principal de toda la etapa</b></td><td class="c">Mes 2+</td></tr>
+          <tr class="hot"><td class="k">Hábito</td><td>% con presupuesto #2 en 7 días</td><td>El mejor predictor de que esa persona va a pagar. Si sube, todo lo demás mejora</td><td class="c">Mes 2+</td></tr>
+          <tr><td class="k">Conversión</td><td>% de free que pasa a pago</td><td>Si el plan gratuito está bien calibrado y si el argumento de valor cierra</td><td class="c">Mes 3+</td></tr>
+          <tr><td class="k">Negocio</td><td>CAC y meses de repago</td><td>Cuántos meses de suscripción hacen falta para recuperar lo invertido</td><td class="c">Mes 3+</td></tr>
+          <tr><td class="k">Permanencia</td><td>Churn mensual</td><td>Si el producto retiene. Define si conviene escalar la inversión o no</td><td class="c">Mes 4+</td></tr>
+          <tr><td class="k">Marca</td><td>Búsquedas de "Al Toque"</td><td>Si la categoría empieza a existir. Es el disparador para encender Google</td><td class="c">Mes 3+</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="r d4" style="margin-top:22px"><span class="note-pill"><b>Seguimiento</b> · tablero en vivo en Looker Studio · reunión quincenal de gestión · informe mensual con lectura, no solo con datos · revisión de estrategia cada 90 días</span></p>
+
+    <div class="callout r d5">
+      <p><b>Sobre los objetivos numéricos.</b> Las metas de cada indicador son las de la proyección del punto anterior, pero las tomamos como hipótesis, no como promesa: Al Toque es un producto nuevo en una categoría que todavía no existe y no hay histórico propio para calibrar. A los 45 días de campaña tenemos la línea de base real y ahí acordamos objetivos por trimestre que podamos sostener.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un indicador por etapa · línea de base a los 45 días</span><span class="num">14 — KPIs</span></div>
+</section>
+
+<!-- ============ 16 · ALCANCE Y HERRAMIENTAS ============ -->
+<section id="alcance" data-label="Alcance y herramientas">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance del trabajo</div>
+    <h2 class="h-lg r d1">Qué incluye y qué <span class="cy">no.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La claridad sobre los límites evita las dos cosas que arruinan una relación de trabajo: las expectativas mal puestas y las discusiones a mitad de camino.</p>
+
+    <div class="scope r d3" style="margin-top:42px">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <div class="sub">Según los módulos que se contraten</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Estrategia de Growth documentada: posicionamiento, público y manual de mensajes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Diseño del embudo con métricas por etapa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Calendario editorial, producción y publicación de piezas, y creatividades para pauta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Gestión y optimización de campañas en Meta y Google</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Diseño de los flujos de automatización y todos sus textos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Implementación de los flujos de email marketing, a partir de la segunda etapa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Instrumentación de medición y tablero de KPIs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Radar mensual de competencia, reunión quincenal e informe mensual</li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <div class="sub">Se cotiza aparte o queda del lado de Al Toque</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>La inversión en plataformas de pauta.</b> La define y abona Al Toque, con su cuenta y su tarjeta</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>El desarrollo del producto y del bot.</b> Es de ustedes; nosotros aportamos experiencia y textos</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>El sitio web.</b> Como acordamos, queda de su lado. Sí entregamos recomendaciones de conversión y medición</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>Rebranding e identidad visual completa.</b> Módulo opcional, se cotiza por separado</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>Producción con talento, actores o locaciones alquiladas.</b> Se presupuesta por producción</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>Licencias a nombre de Al Toque</b> e infraestructura del producto (OpenAI, WhatsApp Business API, servidores)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>La gestión de comunidad.</b> Publicamos y diseñamos; responder comentarios y mensajes en redes queda del lado de Al Toque</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg><span><b>Atención al cliente y soporte a usuarios</b> del producto</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="h-md r d4" style="margin-top:52px">Herramientas incluidas en el honorario</h3>
+    <div class="chiprow r d4">
+      <span><b>Medición:</b> GA4 · Tag Manager · Meta Pixel + API de Conversiones · Looker Studio</span>
+      <span><b>Pauta:</b> Meta Business Manager · Google Ads · Biblioteca de Anuncios</span>
+      <span><b>Diseño y producción:</b> Suite Adobe · Figma · edición de video y motion · banco de imágenes</span>
+      <span><b>Gestión:</b> calendario editorial · tablero de proyecto · aprobación de piezas en línea</span>
+      <span><b>Inteligencia:</b> radar mensual de competencia</span>
+      <span><b>IA aplicada:</b> guiones, variantes de copy y producción de piezas</span>
+      <span><b>Email marketing:</b> plataforma a definir con ustedes, en la segunda etapa</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Sin letra chica</span><span class="num">15 — Alcance</span></div>
+</section>
+
+<!-- ============ 17 · CRONOGRAMA ============ -->
+<section id="cronograma" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma de implementación</div>
+    <h2 class="h-lg r d1">De la firma al lanzamiento, y los <span class="cy">seis meses</span> que siguen.</h2>
+    <p class="lead r d2" style="margin-top:20px">Como conversamos, el armado de estrategia lleva quince días hábiles con reuniones de por medio. Por eso la salida se corre del 1° a mediados de septiembre: preferimos lanzar con la estrategia lista antes que improvisarla en paralelo.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semana 0</div>
+        <h3>Firma, confidencialidad y accesos</h3>
+        <p>Contrato y acuerdo de confidencialidad mutuo. Accesos a Business Manager, Google, sitio y analítica. Reunión de arranque con los dos equipos.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 1 a 3 · 15 días hábiles</div>
+        <h3>Inmersión y estrategia</h3>
+        <p>Posicionamiento y territorio de marca, público y segmentos, mensajes por ángulo, arquitectura del embudo, plan de contenido, plan de medios y guiones de automatización. Con reuniones de trabajo intermedias, no un documento entregado al final.</p>
+        <div class="out"><b>Entregables</b> · Estrategia de Growth · manual de mensajes · mapa del embudo con métricas · calendario del primer mes</div>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 3 a 4</div>
+        <h3>Producción y setup</h3>
+        <p>Primera tanda de piezas y creatividades. Instrumentación completa de medición. Armado de la estructura de campañas. Prueba con usuarios reales para capturar los primeros testimonios.</p>
+        <div class="out"><b>Entregables</b> · Piezas aprobadas y programadas · campañas cargadas · medición verificada punta a punta</div>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Mediados de septiembre · Mes 1</div>
+        <h3>Lanzamiento y descubrimiento</h3>
+        <p>Encendido de Meta Ads y del contenido orgánico, con seguimiento diario la primera semana. Se define qué mensaje, qué audiencia y qué formato funcionan, y se fija la línea de base de todos los indicadores.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Mes 2</div>
+        <h3>Optimización del embudo</h3>
+        <p>Concentración de la inversión en lo que ganó. Automatizaciones de rescate y activación funcionando. Remarketing y públicos similares. Apertura del segmento de servicios profesionales.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Mes 3</div>
+        <h3>Escala y evaluación de Google</h3>
+        <p>Ampliación de inversión sobre lo validado. Campaña de marca en Google. Activación de referidos y primeras alianzas de nicho. Primera revisión estratégica de 90 días.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Meses 4 a 6</div>
+        <h3>Consolidación</h3>
+        <p>Trabajo sobre retención y conversión a pago. Contenido de usuarios y prueba social. Evaluación del plan Equipo y, con él, de LinkedIn. Segunda revisión estratégica.</p>
+      </div>
+    </div>
+
+    <p class="r d4" style="margin-top:24px"><span class="note-pill"><b>Permanencia sugerida</b> · 6 meses · es el plazo mínimo para que un producto nuevo genere datos suficientes y la estrategia se ajuste sobre resultados, no sobre intuiciones</span></p>
+  </div>
+  <div class="sfoot"><span>Salida acordada: mediados de septiembre de 2026</span><span class="num">16 — Cronograma</span></div>
+</section>
+
+<!-- ============ 18 · MÓDULOS Y MODALIDAD ============ -->
+<section id="inversion" data-label="Honorarios y modalidad">
+  <div class="wrap">
+    <div class="eyebrow r">Honorarios y modalidad de trabajo</div>
+    <h2 class="h-lg r d1">Modular, para que armen su <span class="cy">propio esquema.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Como conversamos, lo armamos en bloques independientes. Pueden tomar todo, tomar algunos y resolver el resto internamente, o incorporarlos por etapas. Tildá los que les interesan y el correo se arma solo con la selección.</p>
+
+    <div class="invest" style="margin-top:44px">
+      <div class="invest-card r d3">
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Proyecto inicial &middot; pago &uacute;nico</span><span class="inv-sub" id="subOnce">&mdash;</span></div>
+          <div class="price-row svc-pick" data-svc="A · Estrategia de Growth" data-type="once" data-amount="1225000" data-price="$1.225.000 + IVA">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">A &middot; Estrategia de Growth</span><small>Posicionamiento, p&uacute;blico, manual de mensajes, arquitectura del embudo, plan de contenido, plan de medios y guiones de las automatizaciones del bot (onboarding, rescate y activaci&oacute;n). Es la base de todo lo dem&aacute;s.</small></span>
+            </div>
+            <span class="pv">$1.225.000<span class="ivatag">+ IVA</span></span>
+          </div>
+          <div class="price-row svc-pick" data-svc="B · Identidad y sistema de marca" data-type="once" data-amount="800000" data-price="$800.000 + IVA">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">B &middot; Identidad y sistema de marca</span><small>Opcional. Resuelve el hallazgo 04: una identidad propia que no dependa del verde de WhatsApp. Sistema visual, aplicaci&oacute;n en piezas y plantilla del PDF de presupuesto.</small></span>
+            </div>
+            <span class="pv">$800.000<span class="ivatag">+ IVA</span></span>
+          </div>
+          <div class="price-row svc-pick" data-svc="C · Start up de publicidad digital" data-type="once" data-amount="680000" data-price="$680.000 + IVA">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">C &middot; Start up de publicidad digital</span><small>Puesta en marcha completa: p&iacute;xel y API de conversiones, GA4, Tag Manager, verificaci&oacute;n de dominio, definici&oacute;n de eventos, armado de la estructura de cuentas y tablero de KPIs en Looker Studio. Se hace una sola vez, antes del primer peso de pauta.</small></span>
+            </div>
+            <span class="pv">$680.000<span class="ivatag">+ IVA</span></span>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Servicios mensuales</span><span class="inv-sub" id="subMonth">&mdash;</span></div>
+          <div class="price-row svc-pick" data-svc="D · Gestión de publicidad digital" data-type="month" data-amount="855000" data-price="$855.000 + IVA / mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">D &middot; Gesti&oacute;n de publicidad digital</span><small>Meta Ads desde el inicio, Google a partir del mes 3. Estructura de cuenta, audiencias, optimizaci&oacute;n semanal y reporte de resultados. <b>Incluye el dise&ntilde;o de todas las piezas para pauta.</b></small></span>
+            </div>
+            <span class="pv">$855.000<span class="ivatag">+ IVA / mes</span></span>
+          </div>
+          <div class="price-row svc-pick" data-svc="E · Gestión de redes sociales" data-type="month" data-amount="970000" data-price="$970.000 + IVA / mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">E &middot; Gesti&oacute;n de redes sociales</span><small><b>8 contenidos mensuales</b>, que se replican en historias. Calendario editorial, redacci&oacute;n, dise&ntilde;o y publicaci&oacute;n. <b>Los dise&ntilde;os est&aacute;n incluidos. No incluye gesti&oacute;n de comunidad</b> —responder comentarios y mensajes queda del lado de Al Toque—.</small></span>
+            </div>
+            <span class="pv">$970.000<span class="ivatag">+ IVA / mes</span></span>
+          </div>
+          <div class="price-row svc-pick" data-svc="G · Acompañamiento estratégico" data-type="month" data-amount="1625000" data-price="$1.625.000 + IVA / mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">G &middot; Acompa&ntilde;amiento estrat&eacute;gico</span><small>Reuni&oacute;n quincenal de gesti&oacute;n, informe mensual con lectura de resultados, radar de competencia y revisi&oacute;n de estrategia cada 90 d&iacute;as.</small></span>
+            </div>
+            <span class="pv">$1.625.000<span class="ivatag">+ IVA / mes</span></span>
+          </div>
+          <div class="price-row" style="cursor:default">
+            <div class="pl">
+              <span class="chk" style="border-color:var(--cyan-line);background:rgba(31,232,216,.10)"><svg viewBox="0 0 24 24" fill="none" stroke="#1fe8d8" stroke-width="3.4" style="opacity:1;transform:none"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Fee variable de gesti&oacute;n de medios</span><small>15% sobre la inversi&oacute;n mensual en plataformas. Va junto con el m&oacute;dulo D y solo existe si hay pauta corriendo: cuanto m&aacute;s chica la inversi&oacute;n, m&aacute;s chico el fee. Al elegir un escenario en el punto 13, se calcula ac&aacute; abajo.</small></span>
+            </div>
+            <span class="pv">15%<span class="ivatag">s/ inversi&oacute;n</span></span>
+          </div>
+          <div class="price-row svc-pick" data-svc="F · Email marketing y automatización (etapa 2)" data-type="later">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">F &middot; Email marketing y automatizaci&oacute;n</span><small>Se activa en una segunda etapa, cuando ya exista base de datos propia: contactos capturados en el sitio y usuarios registrados en el bot. Antes de eso no hay a qui&eacute;n escribirle. Se cotiza al activarlo, seg&uacute;n el tama&ntilde;o de la base.</small></span>
+            </div>
+            <span class="pv badge">Etapa 2</span>
+          </div>
+        </div>
+
+        <div class="inv-total">
+          <div class="row"><span>Proyecto inicial &middot; pago &uacute;nico</span><b id="totOnce">&mdash;</b></div>
+          <div class="row muted-row"><span>Si el proyecto inicial se abona 100% anticipado (&minus;3%)</span><b id="totOnceAnt">&mdash;</b></div>
+          <div class="row"><span>Fee fijo mensual</span><b id="totMonth">&mdash;</b></div>
+          <div class="row"><span>Fee variable &middot; 15% s/ inversi&oacute;n en medios</span><b id="totVar">&mdash;</b></div>
+          <div class="row grand"><span>Total mensual</span><b id="totMonthAll">&mdash;</b></div>
+        </div>
+
+        <div class="callout" style="margin-top:24px">
+          <p><b>Todos los valores son en pesos, más IVA.</b> Los honorarios de agencia van aparte de la inversión en medios del punto 13, que Al Toque abona directamente a las plataformas. El fee variable del 15% se calcula sobre esa inversión y se factura solo mientras haya campañas activas.</p>
+        </div>
+      </div>
+
+      <div class="r d4">
+        <h3 class="h-md" style="margin-bottom:24px">Modalidad de trabajo</h3>
+        <ul class="bullets">
+          <li><span class="bi">1</span><p><b>Contrato y confidencialidad.</b> Firmamos contrato de servicios y acuerdo de confidencialidad mutuo: ustedes se cubren respecto de su proyecto y su tecnología, y nosotros respecto de nuestro equipo.</p></li>
+          <li><span class="bi">2</span><p><b>Permanencia sugerida: 6 meses.</b> No es una atadura comercial: es el plazo mínimo para que un producto nuevo genere datos suficientes.</p></li>
+          <li><span class="bi">3</span><p><b>Pagos.</b> Los servicios mensuales se abonan por adelantado, al inicio de cada período. El proyecto inicial tiene dos modalidades: 50% al inicio y 50% contra entrega al valor de lista, o 100% anticipado con un 3% de bonificación. El fee variable del 15% se factura a mes vencido, sobre la inversión efectivamente ejecutada.</p></li>
+          <li><span class="bi">4</span><p><b>Ajuste.</b> En contratos mensuales, revisión trimestral por índice de precios.</p></li>
+          <li><span class="bi">5</span><p><b>Ritmo de trabajo.</b> Reunión quincenal de gestión, informe mensual, canal directo para el día a día y revisión estratégica cada 90 días.</p></li>
+          <li><span class="bi">6</span><p><b>Propiedad.</b> Las cuentas publicitarias, los píxeles, las bases de datos y todo el material producido son de Al Toque. Sin dependencia de la agencia.</p></li>
+        </ul>
+        <p style="margin-top:26px"><span class="note-pill"><b>Validez de la propuesta</b> · hasta el 30 de agosto de 2026</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Módulos independientes · valores en pesos, más IVA</span><span class="num">17 — Honorarios</span></div>
+</section>
+
+<!-- ============ 19 · CIERRE ============ -->
+<section id="cierre" data-label="Próximos pasos">
+  <div class="bg-photo center"><img src="img/hero.jpg" alt="Al Toque · el presupuesto que sale al toque"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Próximos pasos</div>
+    <h2 class="close-title r d1">El producto ya está.<br>Ahora hay que hacer que el mercado lo <span class="cy">use.</span></h2>
+    <p class="lead r d2" style="margin:26px auto 0;text-align:center;max-width:660px">Revisen los módulos, marquen los que les sirven y escribámonos. Desde la firma hasta el lanzamiento son tres semanas de trabajo, y llegamos cómodos a mediados de septiembre.</p>
+
+    <div class="grid g4 r d3" style="margin-top:48px;text-align:left">
+      <div class="card"><span class="num-tag">Paso 01</span><h3>Revisión</h3><p>Leen la propuesta, marcan los módulos y el escenario de inversión que les cierran.</p></div>
+      <div class="card"><span class="num-tag">Paso 02</span><h3>Ajuste</h3><p>Una llamada corta para ajustar alcance y resolver dudas sobre los números.</p></div>
+      <div class="card"><span class="num-tag">Paso 03</span><h3>Firma</h3><p>Contrato y acuerdo de confidencialidad. Accesos y reunión de arranque.</p></div>
+      <div class="card"><span class="num-tag">Paso 04</span><h3>Arranque</h3><p>Quince días hábiles de estrategia y producción. Lanzamiento a mediados de septiembre.</p></div>
+    </div>
+
+    <div class="r d4" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject=Al%20Toque%20%C2%B7%20Avancemos%20con%20la%20propuesta&body=Hola%20Florencia%2C%20vimos%20la%20propuesta%20de%20Growth%20Marketing%20para%20Al%20Toque%20y%20queremos%20avanzar.">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="signature r d5">
+      <b>Florencia Grigolatto</b>
+      <span>Operations Manager · Popcorn</span>
+      <a href="mailto:florencia@somospopcorn.com">florencia@somospopcorn.com</a>
+    </div>
+
+    <div class="close-sign r d6">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">Al Toque × Popcorn · Que lo usen todos los días.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral (dots) ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Selección de módulos + escenario de medios → totales y mailto ===== */
+const scenData={
+  '1':{label:'Escenario 1 · Validación',inv:1200000,invTxt:'ARS 1.200.000 / mes',conv:'900',act:'158',cact:'$7.619'},
+  '2':{label:'Escenario 2 · Optimización',inv:2000000,invTxt:'ARS 2.000.000 / mes',conv:'2.083',act:'365',cact:'$5.486'},
+  '3':{label:'Escenario 3 · Escala',inv:3500000,invTxt:'ARS 3.500.000 / mes',conv:'4.846',act:'848',cact:'$4.127'}
+};
+const VAR_FEE=0.15, ANTICIPO=0.03;
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const scenPicks=[...document.querySelectorAll('.scen-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const $=id=>document.getElementById(id);
+const ars=n=>'$'+Math.round(n).toLocaleString('es-AR');
+let selScen=null;
+
+function buildMail(){
+  const sel=svcPicks.filter(x=>x.classList.contains('on'));
+  const once =sel.filter(x=>x.dataset.type==='once');
+  const month=sel.filter(x=>x.dataset.type==='month');
+  const later=sel.filter(x=>x.dataset.type==='later');
+  const sum=a=>a.reduce((t,x)=>t+(Number(x.dataset.amount)||0),0);
+  const onceT=sum(once), monthT=sum(month);
+  const paidOn=month.some(x=>x.dataset.svc.indexOf('publicidad digital')>-1);
+  const varT=(selScen && paidOn) ? scenData[selScen].inv*VAR_FEE : 0;
+
+  $('subOnce').textContent  = onceT  ? ars(onceT)+' + IVA'        : '—';
+  $('subMonth').textContent = monthT ? ars(monthT)+' + IVA / mes' : '—';
+  $('totOnce').textContent    = onceT ? ars(onceT)+' + IVA' : '—';
+  $('totOnceAnt').textContent = onceT ? ars(onceT*(1-ANTICIPO))+' + IVA' : '—';
+  $('totMonth').textContent   = monthT ? ars(monthT)+' + IVA' : '—';
+  $('totVar').textContent     = varT ? ars(varT)+' + IVA'
+                              : (paidOn ? 'Elegí un escenario en el punto 13' : '—');
+  $('totMonthAll').textContent= (monthT+varT) ? ars(monthT+varT)+' + IVA / mes' : '—';
+
+  let subject='Al Toque · Avancemos con la propuesta';
+  let body='Hola Florencia, vimos la propuesta de Growth Marketing para Al Toque y queremos avanzar.';
+  if(sel.length){
+    body+='\n\nMódulos que elegimos:';
+    if(once.length){
+      body+='\n\nProyecto inicial:';
+      once.forEach(x=>{body+='\n• '+x.dataset.svc+' — '+x.dataset.price;});
+      body+='\n  Subtotal: '+ars(onceT)+' + IVA (o '+ars(onceT*(1-ANTICIPO))+' + IVA con pago 100% anticipado)';
+    }
+    if(month.length){
+      body+='\n\nServicios mensuales:';
+      month.forEach(x=>{body+='\n• '+x.dataset.svc+' — '+x.dataset.price;});
+      body+='\n  Fee fijo mensual: '+ars(monthT)+' + IVA';
+    }
+    if(later.length){
+      body+='\n\nPara una segunda etapa:';
+      later.forEach(x=>{body+='\n• '+x.dataset.svc;});
+    }
+  }
+  if(selScen && scenData[selScen]){
+    const sc=scenData[selScen];
+    body+='\n\nEscenario de inversión en medios elegido:\n• '+sc.label+'\n• Inversión mensual: '+sc.invTxt+'\n• Conversaciones estimadas: '+sc.conv+'\n• Usuarios activados estimados: '+sc.act+'\n• Costo por activación estimado: '+sc.cact;
+    if(varT){body+='\n• Fee variable de gestión (15%): '+ars(varT)+' + IVA / mes';}
+  }
+  if(monthT+varT){body+='\n\nTotal mensual: '+ars(monthT+varT)+' + IVA';}
+
+  const parts=[];
+  if(sel.length){parts.push(sel.length+' módulo'+(sel.length>1?'s':''));}
+  if(selScen){parts.push(scenData[selScen].label);}
+  if(parts.length){subject='Al Toque · Avancemos · '+parts.join(' + ');}
+  ctaPick.innerHTML = parts.length ? 'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b>' : '<span class="none">Marcá los módulos y el escenario de inversión y quedan incluidos en el correo.</span>';
+  ctaGo.href='mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+svcPicks.forEach(x=>{x.addEventListener('click',()=>{x.classList.toggle('on');buildMail();});});
+scenPicks.forEach(x=>{
+  x.addEventListener('click',()=>{
+    const was=x.classList.contains('selected');
+    scenPicks.forEach(y=>y.classList.remove('selected'));
+    selScen = was ? null : x.dataset.scen;
+    if(!was){x.classList.add('selected');}
+    buildMail();
+  });
+});
+buildMail();
+</script>
+</body>
+</html>
