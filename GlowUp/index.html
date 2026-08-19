@@ -445,6 +445,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
 .logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
 .logocell .brandlogo{max-height:58px;max-width:84%;width:auto;object-fit:contain;display:block}
 .logocell .brandlogo.lg{max-height:72px;max-width:94%}
+/* los sellos circulares necesitan más alto que un logotipo horizontal para tener el mismo peso óptico */
+.logocell.seal{padding:12px}
+.logocell .brandlogo.round{max-height:96px;max-width:96%}
 .logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:1.02rem;letter-spacing:-.01em;line-height:1.18;color:var(--violet-700)}
 .logocell .lk{display:none;font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#9784b5}
 .logocell.noimg .ln,.logocell.noimg .lk{display:block}
@@ -538,7 +541,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
   <div class="wrap">
     <div class="eyebrow hero-eyebrow r">Glow Up × Popcorn · Concepto creativo 360 · Agosto 2026</div>
     <h1 class="hero-title r d1">La autoridad no se declara.<br>Se <span class="cy">demuestra.</span></h1>
-    <p class="hero-sub r d3">Tu home dice que son la mayor marca de odontología estética digital del país. Tenés +25 sedes, +25 doctores y +3.000 casos para probarlo. Pero en la calle te comunicás como uno más. Este es el plan para cerrar esa distancia.</p>
+    <p class="hero-sub r d3">Tu home dice que son la mayor marca de odontología estética digital del país. Tenés clínicas desde Recoleta hasta Córdoba y Mendoza, +25 doctores y miles de tratamientos para probarlo. Pero en la calle te comunicás como uno más. Este es el plan para cerrar esa distancia.</p>
     <div class="hero-tags r d4">
       <span class="tag">Relevamiento de mercado</span>
       <span class="tag">Mystery shopper</span>
@@ -598,7 +601,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Swiss Medical</span><span class="lk">Medicina prepaga</span></div>
       <div class="logocell"><img class="brandlogo lg" src="img/logos/manlab.png" alt="ManLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">ManLab</span><span class="lk">Laboratorio</span></div>
       <div class="logocell"><img class="brandlogo" src="img/logos/centralab.png" alt="CentraLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CentraLab</span><span class="lk">25 sedes · Concepto &ldquo;Estamos cerca&rdquo;</span></div>
-      <div class="logocell"><img class="brandlogo lg" src="img/logos/badental.png" alt="Buenos Aires Dental Studio" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">BA Dental Studio</span><span class="lk">Odontología · De cero a marca en 12 meses</span></div>
+      <div class="logocell seal"><img class="brandlogo round" src="img/logos/badental.png" alt="Buenos Aires Dental Studio" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">BA Dental Studio</span><span class="lk">Odontología · De cero a marca en 12 meses</span></div>
       <div class="logocell"><img class="brandlogo" src="img/logos/cetac.jpg" alt="CETAC Juncal" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CETAC Juncal</span><span class="lk">Diagnóstico &amp; tratamiento</span></div>
       <div class="logocell"><img class="brandlogo" src="img/logos/fitzroy.jpg" alt="CMI Fitz Roy" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CMI Fitz Roy</span><span class="lk">Medicina laboral</span></div>
       <div class="logocell"><img class="brandlogo lg" src="img/logos/fleming.png" alt="Instituto Alexander Fleming" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Instituto Alexander Fleming</span><span class="lk">Oncología</span></div>
@@ -654,13 +657,23 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
   <div class="wrap">
     <div class="eyebrow r">Diagnóstico de marca</div>
     <h2 class="h-lg r d1" style="max-width:22ch">Tenés el tamaño de un líder y la comunicación de un <span class="cy">competidor.</span></h2>
-    <p class="lead r d2" style="margin-top:22px">Tu home abre diciendo <b>&ldquo;Elegí la mayor marca de odontología estética digital del país&rdquo;</b>. Es una declaración de liderazgo. El problema es que no hay una sola pieza en tu comunicación que la sostenga. Y una autoridad declarada que no se demuestra no genera confianza: genera duda.</p>
+    <p class="lead r d2" style="margin-top:22px">Tu home abre diciendo <b>&ldquo;Elegí la mayor marca de odontología estética digital del país&rdquo;</b> —tres veces, en tres bloques distintos— y la página de clínicas agrega <b>&ldquo;cadena de ortodoncia digital líder de nueva generación en Argentina&rdquo;</b>. Son declaraciones de liderazgo. El problema es que no hay una sola pieza en tu comunicación que las sostenga, y algunos de los números que usás para probarlo se contradicen entre sí. Una autoridad declarada que no se demuestra no genera confianza: genera duda.</p>
 
     <div class="grid g2 r d3" style="margin-top:48px">
       <div class="card">
-        <span class="datum">+25</span>
-        <h3>Sedes y doctores que nadie ve</h3>
-        <p>Es el activo más grande de la categoría y está escondido. En el sitio no aparecen las sedes hasta que el usuario intenta agendar un turno. Sol lo vio en vivo: <b>&ldquo;yo veo la página web y pienso que son solamente proveedores de alineadores&rdquo;</b>.</p>
+        <span class="datum">16</span>
+        <h3>Clínicas que el paciente no encuentra</h3>
+        <p>Es el activo más grande de la categoría. Existe una página que lista 16 direcciones —Recoleta, Almagro, Flores, Belgrano, Urquiza, Microcentro, Nordelta, Escobar, Berazategui, Loma Hermosa y Corrientes— pero <b>no está en el menú principal</b>, y el botón &ldquo;Encontrá la ubicación más cerca tuyo&rdquo; del home no lleva ahí: abre WhatsApp.</p>
+      </div>
+      <div class="card">
+        <span class="datum">25 · 16 · 7</span>
+        <h3>Tres respuestas distintas a &ldquo;dónde están&rdquo;</h3>
+        <p>El home promete <b>&ldquo;+25 ubicaciones&rdquo;</b>. La página de clínicas lista <b>16 direcciones</b>. Y el módulo de agendamiento ofrece <b>7 sucursales</b>, de las cuales <b>6 no figuran en esa página</b>. Tres fuentes, tres cifras, tres palabras distintas: ubicaciones, clínicas, sucursales. El paciente que quiere verificar tu tamaño encuentra menos —y distinto— en cada lugar donde busca.</p>
+      </div>
+      <div class="card">
+        <span class="datum">14</span>
+        <h3>Incongruencias entre tus propias fuentes</h3>
+        <p>Tu home dice <b>&ldquo;+3.000 sonrisas alineadas&rdquo;</b> en escritorio y <b>&ldquo;+ de 4.000&rdquo;</b> en celular. Tu marca se escribe de cuatro formas distintas. Y hay tres respuestas a cuántas sedes tenés. Encontramos catorce puntos donde la marca se contradice: <b>los listamos uno por uno en la sección siguiente</b>, con la fuente de cada uno.</p>
       </div>
       <div class="card">
         <span class="datum">0</span>
@@ -670,29 +683,84 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <div class="card">
         <span class="datum">4</span>
         <h3>Servicios sin un eje que los una</h3>
-        <p>Alineadores, blanqueamiento, carillas de resina y placas de bruxismo conviven como productos separados. Existe el combo alineadores + blanqueamiento con descuento, pero es una promoción: no es un relato.</p>
+        <p>Alineadores, carillas de resina, blanqueamiento y placas de bruxismo conviven como productos separados. Existe el combo alineadores + blanqueamiento con descuento, pero es una promoción: no es un relato.</p>
       </div>
       <div class="card">
         <span class="datum">2</span>
         <h3>Beneficios fuertes sin comunicar</h3>
-        <p>Financiación con bancos y alianzas como Club La Nación y Bonda son diferenciales reales frente al preconcepto de &ldquo;la ortodoncia es carísima&rdquo;. En el relevamiento no los encontramos comunicados en el sitio.</p>
+        <p>Las alianzas con bancos, Club La Nación y Bonda son diferenciales reales frente al preconcepto de &ldquo;la ortodoncia es carísima&rdquo;. Buscamos las palabras <b>banco</b>, <b>tarjeta</b> y <b>cuotas</b> en el home: <b>cero menciones</b>. Solo un &ldquo;consultar por opciones de financiamiento&rdquo;.</p>
       </div>
     </div>
 
     <div class="split" style="margin-top:60px">
       <div class="r d4">
         <h3 class="h-md" style="margin-bottom:16px">La distancia entre lo que sos y lo que se ve</h3>
-        <p class="muted" style="font-size:1.05rem;line-height:1.7">Glow Up tiene infraestructura de líder: red de sedes, cuerpo de doctores, volumen de casos, un índice de satisfacción de 4,8/5 y financiación propia. La comunicación, en cambio, muestra un producto —el alineador— con el mismo lenguaje visual que sus competidores. <b>El concepto que hay que construir no tiene que inventar nada: tiene que hacer visible lo que ya existe.</b></p>
+        <p class="muted" style="font-size:1.05rem;line-height:1.7">Glow Up tiene infraestructura de líder: presencia en cuatro provincias, cuerpo de doctores, volumen de casos, un índice de satisfacción de 4,8/5 y financiamiento propio. La comunicación, en cambio, muestra un producto —el alineador— con el mismo lenguaje visual que sus competidores. <b>El concepto que hay que construir no tiene que inventar nada: tiene que hacer visible lo que ya existe.</b></p>
         <div class="stats sm r d5">
-          <div class="stat"><div class="v">+3.000</div><div class="l">Sonrisas alineadas</div></div>
+          <div class="stat"><div class="v">4</div><div class="l">Provincias donde ya atendés</div></div>
           <div class="stat"><div class="v">4,8/5</div><div class="l">Índice de satisfacción</div></div>
           <div class="stat"><div class="v">15 días</div><div class="l">Del escaneo al plan 3D</div></div>
         </div>
       </div>
       <div class="col-img r d3"><div class="media tall"><img src="img/autoridad.jpg" alt="Consultorio de odontología estética" style="object-position:center 40%"><div class="cap"><div class="quote" style="font-size:1.05rem">La autoridad de marca se construye con pruebas, no con adjetivos.</div></div></div></div>
     </div>
+
+    <div class="callout r d6">
+      <p><b>Cómo relevamos esto.</b> No es una impresión: el 19/08/2026 leímos el código de <b>glowupalign.com</b> y además cargamos el sitio en un navegador real —en escritorio y en celular— para ver qué muestra de verdad. Verificamos cada cita y cada número contra el home, la página de clínicas y el módulo de agendamiento. Todo lo que está entre comillas en esta propuesta es textual. Los números que citamos son los que publica Glow Up hoy, incluidas sus contradicciones.</p>
+    </div>
   </div>
-  <div class="sfoot"><span>Autoridad declarada ≠ autoridad demostrada</span><span class="num">03 — Marca</span></div>
+  <div class="sfoot"><span>Autoridad declarada ≠ autoridad demostrada · relevado el 19/08/2026</span><span class="num">03 — Marca</span></div>
+</section>
+
+<!-- ============ 5 · AUDITORÍA DE COHERENCIA ============ -->
+<section id="coherencia" data-label="Incongruencias">
+  <div class="wrap">
+    <div class="eyebrow r">Auditoría de coherencia</div>
+    <h2 class="h-lg r d1">Catorce incongruencias, encontradas en <span class="cy">una tarde.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Esto no es una lista de errores para incomodar a nadie: es la evidencia de por qué el concepto hace falta. Cruzamos tu home, tu página de clínicas y tu módulo de turnos, y encontramos catorce puntos donde la marca se contradice a sí misma. Un paciente que compara tres marcas antes de gastar $1.690.000 va a encontrar varios de estos.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead>
+          <tr><th>Qué</th><th>Qué encontramos</th><th>Dónde</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">1 · Cuántas ubicaciones tenés</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">El home promete <b>&ldquo;+25 ubicaciones&rdquo;</b>. La página de clínicas lista <b>16 direcciones</b>. El módulo de turnos ofrece <b>7 sucursales</b>.</td><td class="obj" style="white-space:nowrap">Home · Clínicas · Turnos</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">2 · Cómo se llaman</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem"><b>&ldquo;Ubicaciones&rdquo;</b> en el home, <b>&ldquo;clínicas&rdquo;</b> en la página, <b>&ldquo;sucursales&rdquo;</b> en el módulo de turnos. Tres palabras para lo mismo.</td><td class="obj" style="white-space:nowrap">Home · Clínicas · Turnos</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">3 · Cuántos pacientes trataste</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem"><b>&ldquo;+3.000 sonrisas alineadas&rdquo;</b> si entrás desde una computadora. <b>&ldquo;+ de 4.000&rdquo;</b> si entrás desde el celular. El mismo dato, dos números, según el dispositivo.</td><td class="obj" style="white-space:nowrap">Home · escritorio vs móvil</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">4 · Precios viejos publicados</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">El visitante ve <b>$1.290.000 / $1.690.000</b>. Pero en el código quedó un bloque anterior con <b>$1.218.000 / $1.610.000</b>, oculto. Hoy nadie lo ve; cualquier ajuste de maquetación lo puede dejar a la vista.</td><td class="obj" style="white-space:nowrap">Home · código</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">5 · Cuánto dura el tratamiento</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">Los planes dicen <b>&ldquo;aproximadamente 8 meses&rdquo;</b>. El apartado de dudas dice <b>&ldquo;en promedio dura entre 8 y 12 meses&rdquo;</b>.</td><td class="obj" style="white-space:nowrap">Home</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">6 · Dónde queda Belgrano</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem"><b>Av. del Libertador 2699, of. 104</b> en la web. <b>Av. del Libertador 6299</b> en el módulo de turnos. Una de las dos está mal.</td><td class="obj" style="white-space:nowrap">Clínicas vs Turnos</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">7 · Dónde queda Nordelta</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem"><b>Agustín M. García 8852</b> en la web. <b>Del Caminante 30, 3er piso, of. 324</b> en el módulo de turnos.</td><td class="obj" style="white-space:nowrap">Clínicas vs Turnos</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">8 · Córdoba, Mendoza y Pilar</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">Se pueden agendar en el módulo de turnos. <b>Cero menciones</b> en todo el sitio: ni en el home ni en la página de clínicas.</td><td class="obj" style="white-space:nowrap">Turnos vs sitio</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">9 · Corrientes</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">Figura en la página de clínicas (Santa Fe 56). <b>No aparece</b> entre las sucursales del módulo de turnos.</td><td class="obj" style="white-space:nowrap">Clínicas vs Turnos</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">10 · Cómo se escribe tu marca</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem"><b>Glow Up</b>, <b>GlowUp</b>, <b>Glow UP</b> y <b>GlowUP</b> conviven en el mismo home. Cuatro grafías del propio nombre.</td><td class="obj" style="white-space:nowrap">Home</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">11 · Cómo te declarás líder</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">El home dice <b>&ldquo;la mayor marca de odontología estética digital del país&rdquo;</b>. La página de clínicas dice <b>&ldquo;cadena de ortodoncia digital líder de nueva generación en Argentina&rdquo;</b>. Dos frases distintas para el mismo lugar.</td><td class="obj" style="white-space:nowrap">Home vs Clínicas</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">12 · &ldquo;Qué dicen nuestros clientes&rdquo;</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">El widget de reseñas carga <b>8 opiniones en el código</b> y <b>ninguna se muestra</b>. Verificado en escritorio y en celular: cero reseñas visibles bajo el título.</td><td class="obj" style="white-space:nowrap">Home</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">13 · El buscador de sedes</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">El botón <b>&ldquo;Encontrá la ubicación más cerca tuyo&rdquo;</b> no lleva a la página de clínicas: <b>abre WhatsApp</b>.</td><td class="obj" style="white-space:nowrap">Home</td></tr>
+            <tr><td class="plat" style="white-space:normal;min-width:180px">14 · Se puede agendar online</td><td class="obj" style="min-width:330px;color:var(--w-80);font-size:.92rem">Solo <b>3 de las 7</b> sucursales permiten reservar. Las otras cuatro dicen <b>&ldquo;Contactar&rdquo;</b>.</td><td class="obj" style="white-space:nowrap">Turnos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g2 r d4" style="margin-top:34px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>De dónde sale la mitad de estas</h3>
+        <p>El home tiene <b>tres bloques de portada y tres bloques de precios superpuestos</b>: uno para escritorio, uno para celular y uno más que quedó oculto. Por eso el número de casos cambia según el dispositivo y hay precios viejos durmiendo en el código. Es un problema de mantenimiento, no de estrategia —y se resuelve en la etapa 4—.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Por qué esto es el argumento y no el problema</h3>
+        <p>Ninguna de las catorce es grave por separado. <b>Juntas son exactamente el problema que viniste a resolver:</b> una marca que se contradice a sí misma no puede reclamar liderazgo, por más que lo escriba en el titular. La autoridad se construye con coherencia, y la coherencia necesita un sistema —no una campaña—.</p>
+      </div>
+    </div>
+
+    <div class="callout r d5">
+      <p><b>Y esto es una muestra de lo que hace la etapa 1.</b> Lo que ves acá salió de revisar tres páginas tuyas en una tarde, sin acceso a tus datos. El relevamiento completo hace esto mismo con tu embudo entero, tus métricas de pauta y las <b>seis a ocho marcas de la competencia</b>, relevadas como paciente real. Si estas catorce aparecieron así, imaginá lo que aparece con acceso.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cruce de home, página de clínicas y módulo de turnos · 19/08/2026</span><span class="num">04 — Incongruencias</span></div>
 </section>
 
 <!-- ============ 5 · DIAGNÓSTICO DIGITAL ============ -->
@@ -760,7 +828,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <p><b>Una honestidad metodológica.</b> Esta medición es de escritorio. En salud, más del 70% del tráfico suele ser móvil y los puntajes de rendimiento caen ahí. Antes de tocar nada, medimos móvil y con datos de campo reales —no vamos a diagnosticar sobre una sola foto—.</p>
     </div>
   </div>
-  <div class="sfoot"><span>PageSpeed Insights de Google · escritorio · 18/08/2026</span><span class="num">04 — Diagnóstico digital</span></div>
+  <div class="sfoot"><span>PageSpeed Insights de Google · escritorio · 18/08/2026</span><span class="num">05 — Diagnóstico digital</span></div>
 </section>
 
 <!-- ============ 6 · EL EMBUDO ============ -->
@@ -778,7 +846,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
       <div class="fstep warn">
         <div class="fk">Paso 2 · Llegada al sitio</div>
-        <div class="ft">Se lee como proveedor de alineadores, no como red de clínicas<small>Las +25 sedes no están visibles. Tampoco los doctores, la financiación ni las alianzas. El usuario no puede confirmar que sos grande.</small></div>
+        <div class="ft">Se lee como proveedor de alineadores, no como red de clínicas<small>Existe una página con 16 clínicas, pero no está en el menú principal. Y el botón &ldquo;Encontrá la ubicación más cerca tuyo&rdquo; del home no lleva ahí: abre WhatsApp. El usuario no puede confirmar que sos grande.</small></div>
         <div class="fs">Fuga de confianza</div>
       </div>
       <div class="fstep bad">
@@ -788,12 +856,12 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
       <div class="fstep bad">
         <div class="fk">Paso 4 · Agendar</div>
-        <div class="ft">El usuario se va del sitio y perdés el rastro<small>&ldquo;Agendar evaluación&rdquo; salta a un dominio externo. Las plataformas no pueden optimizar en base al comportamiento dentro de la web —solo reciben el resultado final—.</small></div>
+        <div class="ft">El usuario se va del sitio y ahí aparecen sucursales que la web no muestra<small>&ldquo;Agendar evaluación&rdquo; salta a Calendico, un dominio externo: se corta el rastreo y las plataformas ya no pueden optimizar por comportamiento. Y del otro lado el paciente descubre <b>Pilar, Córdoba y Mendoza</b> —plazas que en tu sitio no se mencionan ni una vez—. Además, solo <b>3 de las 7</b> se pueden agendar online: las otras cuatro dicen &ldquo;Contactar&rdquo;.</small></div>
         <div class="fs">Fuga de datos</div>
       </div>
       <div class="fstep warn">
         <div class="fk">Paso 5 · La evaluación es paga</div>
-        <div class="ft">Una barrera de entrada que la competencia no tiene<small>Muak invita con un &ldquo;quiero saber si soy candidatx&rdquo; gratis por WhatsApp. No decimos que esté mal cobrar: decimos que hay que medir cuánto cuesta ese filtro y compensarlo con autoridad.</small></div>
+        <div class="ft">Una barrera de entrada que la competencia no tiene<small>Cuesta AR$10.000 y está declarado en el home. Muak, en cambio, invita con un &ldquo;quiero saber si soy candidatx&rdquo; gratis por WhatsApp. No decimos que esté mal cobrar: decimos que hay que medir cuánto cuesta ese filtro y compensarlo con autoridad.</small></div>
         <div class="fs">A validar con datos</div>
       </div>
       <div class="fstep warn">
@@ -807,7 +875,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <p><b>Por qué esto importa para el concepto.</b> Un concepto creativo brillante que desembarca en un embudo con fugas amplifica el problema: más tráfico, misma pérdida. Por eso la etapa 4 —el rediseño web— está en esta propuesta como opcional recomendada. La idea y el lugar donde aterriza tienen que sostenerse mutuamente.</p>
     </div>
   </div>
-  <div class="sfoot"><span>Del anuncio al turno · seis pasos, tres fugas</span><span class="num">05 — El embudo</span></div>
+  <div class="sfoot"><span>Del anuncio al turno · seis pasos, tres fugas</span><span class="num">06 — El embudo</span></div>
 </section>
 
 <!-- ============ 7 · COMPETENCIA ============ -->
@@ -836,10 +904,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
         <tbody>
           <tr class="us">
             <td class="plat">Glow Up</td>
-            <td class="num">$1.690.000<br><span style="font-size:.78rem;color:var(--w-45)">1 maxilar $1.290.000</span></td>
+            <td class="num">$1.610.000<br>a $1.690.000<br><span style="font-size:.78rem;color:var(--w-45)">dos juegos de precios<br>en la misma home</span></td>
             <td class="obj">Producto accesible y profesional. Estética digital.</td>
-            <td class="obj">Red real de +25 sedes y +25 doctores, +3.000 casos, financiación en 3 / 6 / 9 / 12 meses.</td>
-            <td class="obj">No comunica ninguno de esos activos. Sin capa institucional.</td>
+            <td class="obj">Alcance federal real —AMBA, Córdoba, Mendoza, Pilar y Corrientes—, +25 doctores y financiamiento a 3 / 6 / 9 / 12 meses.</td>
+            <td class="obj">No comunica ninguno de esos activos. Su sitio, su página de clínicas y su módulo de turnos dan tres respuestas distintas.</td>
           </tr>
           <tr>
             <td class="plat">Muak</td>
@@ -877,7 +945,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <p><b>Y una ventana que ya se cerró.</b> El 13 de agosto, durante la reunión, el sitio de Muak no cargaba mientras seguían pauteando: estaban pagando tráfico que rebotaba. Al 19 de agosto ya está funcionando, con oferta vigente hasta el 31/08. <b>La ventaja competitiva duró seis días.</b> Es la mejor prueba de por qué la autoridad de marca no se construye con oportunismo táctico: se construye con un territorio propio que el otro no te pueda copiar en una semana.</p>
     </div>
   </div>
-  <div class="sfoot"><span>Precios relevados en sitios oficiales · 19/08/2026</span><span class="num">06 — Competencia</span></div>
+  <div class="sfoot"><span>Precios relevados en sitios oficiales · 19/08/2026</span><span class="num">07 — Competencia</span></div>
 </section>
 
 <!-- ============ 8 · TESIS ============ -->
@@ -921,7 +989,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>De competir por precio a competir por preferencia</span><span class="num">07 — La tesis</span></div>
+  <div class="sfoot"><span>De competir por precio a competir por preferencia</span><span class="num">08 — La tesis</span></div>
 </section>
 
 <!-- ============ 9 · OPORTUNIDAD ============ -->
@@ -933,7 +1001,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
         <h2 class="h-lg r d1" style="max-width:19ch">Hay territorios que <span class="cy">nadie</span> está ocupando.</h2>
         <p class="lead r d2" style="margin-top:22px">Toda la categoría comunica lo mismo: dientes derechos, invisible, cómodo, cuotas. Nadie está parado en el terreno de la escala, la proximidad, el cuerpo profesional ni el acompañamiento del proceso. Esos espacios están vacíos —y Glow Up es la única marca con los activos reales para reclamarlos—.</p>
         <div class="callout r d3">
-          <p><b>Un antecedente que conocemos bien.</b> A CentraLab, un laboratorio con 25 sedes en CABA y GBA, le construimos el concepto &ldquo;Barriales&rdquo;: 25 piezas, una por barrio, hablándole a cada comunidad. Explotó en visualizaciones y seguidores, y la marca adoptó &ldquo;Estamos cerca&rdquo; como concepto madre. Mismo activo, mismo número de sedes. <b>No te proponemos repetir esa idea —tu categoría es otra—: te mostramos que sabemos convertir una red de sedes en un territorio de marca.</b></p>
+          <p><b>Un antecedente que conocemos bien.</b> A CentraLab, un laboratorio con 25 sedes en CABA y GBA, le construimos el concepto &ldquo;Barriales&rdquo;: 25 piezas, una por barrio, hablándole a cada comunidad. Explotó en visualizaciones y seguidores, y la marca adoptó &ldquo;Estamos cerca&rdquo; como concepto madre. Mismo tipo de activo: una red distribuida convertida en territorio de marca. <b>No te proponemos repetir esa idea —tu categoría es otra—: te mostramos que sabemos convertir una red de sedes en un territorio de marca.</b></p>
         </div>
       </div>
       <div class="col-img r d2"><div class="media tall"><img src="img/sedes.jpg" alt="Sede de barrio" style="object-position:center 45%"></div></div>
@@ -942,13 +1010,13 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
     <div class="grid g4 r d4">
       <div class="card">
         <span class="num-tag">Territorio 01</span>
-        <h3>Escala</h3>
-        <p>+25 sedes y +25 doctores. Ninguna otra marca de la categoría puede decirlo hoy. Es el único activo que no se copia con un buen diseñador.</p>
+        <h3>Escala federal</h3>
+        <p>No sos una marca de CABA: atendés en <b>Córdoba, Mendoza y Pilar</b> además del AMBA, y <b>no lo comunicás en ningún lado</b>. Es alcance nacional real, con +25 doctores. Ninguna otra marca de la categoría puede decirlo —Muak no muestra ni una sucursal—. Es el único activo que no se copia con un buen diseñador.</p>
       </div>
       <div class="card">
         <span class="num-tag">Territorio 02</span>
         <h3>Proximidad</h3>
-        <p>No es solo tener sedes: es estar en el barrio del paciente. La ortodoncia es un tratamiento de 8 meses con controles cada 45-60 días. La cercanía es un beneficio funcional real.</p>
+        <p>No es solo tener clínicas: es estar en el barrio del paciente. La ortodoncia es un tratamiento de 8 meses con controles cada 45-60 días. La cercanía es un beneficio funcional real.</p>
       </div>
       <div class="card">
         <span class="num-tag">Territorio 03</span>
@@ -962,11 +1030,23 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
 
-    <div class="callout r d5">
+    <div class="evo r d5" style="margin-top:34px">
+      <div class="evo-bg"><img src="img/medios.jpg" alt="Presencia en la vía pública"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>El activo que nadie sabe que tenés</div>
+      <blockquote class="r d1">Atendés en cuatro provincias y tu comunicación no lo dice ni una vez.</blockquote>
+      <div class="sign">Lo encontramos donde ningún paciente mira: dentro del módulo de turnos. Ahí aparecen <b>Pilar, Córdoba (dos sucursales) y Mendoza</b>. En el home y en la página de clínicas, <b>cero menciones</b> de esas ciudades. Mientras la categoría entera compite por CABA, vos ya tenés cobertura nacional instalada —y la estás regalando—. Para una marca que quiere autoridad, esto no es un detalle operativo: es la prueba más grande y más barata que tenés a mano.</div>
+      <div class="evo-stats r d2">
+        <div><div class="v">4</div><div class="l">Provincias con atención</div></div>
+        <div><div class="v">0</div><div class="l">Menciones de Córdoba o Mendoza en el sitio</div></div>
+        <div><div class="v">3 de 7</div><div class="l">Sucursales que se pueden agendar online</div></div>
+      </div>
+    </div>
+
+    <div class="callout r d6">
       <p><b>Cuál de estos territorios es el bueno lo decide el relevamiento, no nosotros hoy.</b> Estas son cuatro hipótesis sólidas construidas con lo que vimos en dos semanas. La etapa de investigación y mystery shopper existe justamente para validar cuál de ellos es defendible, cuál ya está tomado por alguien que no vimos y cuál le mueve la aguja al negocio. <b>No vendemos intuición disfrazada de estrategia.</b></p>
     </div>
   </div>
-  <div class="sfoot"><span>Escala · proximidad · cuerpo profesional · público desatendido</span><span class="num">08 — Oportunidad</span></div>
+  <div class="sfoot"><span>Escala · proximidad · cuerpo profesional · público desatendido</span><span class="num">09 — Oportunidad</span></div>
 </section>
 
 <!-- ============ 10 · RIESGOS ============ -->
@@ -991,9 +1071,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
       <div class="card">
         <span class="num-tag">Riesgo 03 · Coherencia</span>
-        <h3>25 sedes, 25 formas de comunicar</h3>
+        <h3>Una red federal, muchas formas de comunicar</h3>
         <p>Una red distribuida es una fortaleza de negocio y una amenaza de marca: cada sede tiende a improvisar sus propias piezas.</p>
-        <p><b>Mitigación:</b> kit de aplicación por sede y reglas claras de lo que se puede y no se puede hacer. Auditoría de coherencia trimestral si avanzamos con acompañamiento.</p>
+        <p><b>Mitigación:</b> kit de aplicación por clínica y reglas claras de lo que se puede y no se puede hacer. Auditoría de coherencia trimestral si avanzamos con acompañamiento.</p>
       </div>
       <div class="card">
         <span class="num-tag">Riesgo 04 · Datos</span>
@@ -1015,7 +1095,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>Anticipar el riesgo es parte de la estrategia</span><span class="num">09 — Riesgos</span></div>
+  <div class="sfoot"><span>Anticipar el riesgo es parte de la estrategia</span><span class="num">10 — Riesgos</span></div>
 </section>
 
 <!-- ============ 11 · METODOLOGÍA ============ -->
@@ -1078,7 +1158,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>Etapas 1 y 2 incluidas · etapas 3 y 4 opcionales</span><span class="num">10 — Metodología</span></div>
+  <div class="sfoot"><span>Etapas 1 y 2 incluidas · etapas 3 y 4 opcionales</span><span class="num">11 — Metodología</span></div>
 </section>
 
 <!-- ============ 12 · ENTREGABLES ============ -->
@@ -1124,7 +1204,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>Un territorio, ocho entregables, cero dependencia de nosotros</span><span class="num">11 — Entregables</span></div>
+  <div class="sfoot"><span>Un territorio, ocho entregables, cero dependencia de nosotros</span><span class="num">12 — Entregables</span></div>
 </section>
 
 <!-- ============ 13 · ALCANCE ============ -->
@@ -1172,7 +1252,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
 
     <div class="media wide r d4" style="margin-top:34px"><img src="img/equipo.jpg" alt="Sesión de trabajo estratégico" style="object-position:center 40%"><div class="cap"><div class="quote" style="font-size:1.05rem">Trabajamos con tu equipo, no por encima de tu equipo. Belén sigue liderando la comunicación: nosotros le damos el territorio, el sistema y las herramientas.</div></div></div>
   </div>
-  <div class="sfoot"><span>Alcance de las etapas 1 y 2 · roles claros con tu equipo interno</span><span class="num">12 — Alcance</span></div>
+  <div class="sfoot"><span>Alcance de las etapas 1 y 2 · roles claros con tu equipo interno</span><span class="num">13 — Alcance</span></div>
 </section>
 
 <!-- ============ 14 · CRONOGRAMA ============ -->
@@ -1227,7 +1307,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>Etapas 1 y 2 · seis semanas · cinco hitos de aprobación</span><span class="num">13 — Cronograma</span></div>
+  <div class="sfoot"><span>Etapas 1 y 2 · seis semanas · cinco hitos de aprobación</span><span class="num">14 — Cronograma</span></div>
 </section>
 
 <!-- ============ 15 · KPIs ============ -->
@@ -1265,7 +1345,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>La autoridad deja huellas medibles</span><span class="num">14 — KPIs</span></div>
+  <div class="sfoot"><span>La autoridad deja huellas medibles</span><span class="num">15 — KPIs</span></div>
 </section>
 
 <!-- ============ 16 · EJECUCIÓN ============ -->
@@ -1284,7 +1364,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h3>Cartelería digital en las sedes</h3>
-        <p>+25 sedes son +25 pantallas que hoy no venden. Contenido animado con la sala de espera cautiva: el momento de mayor atención del paciente, y el más barato de comprar. Es un canal propio que ya tenés.</p>
+        <p>Cada clínica es una pantalla que hoy no vende. Contenido animado con la sala de espera cautiva: el momento de mayor atención del paciente, y el más barato de comprar. Es un canal propio que ya tenés.</p>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
@@ -1317,7 +1397,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       <p><b>Por qué la etapa 3 no tiene precio en esta propuesta.</b> Cotizarla hoy sería inventar un número: no sabemos todavía qué necesita el concepto que aún no existe. Un territorio basado en el cuerpo profesional necesita producción audiovisual; uno basado en proximidad necesita medios de barrio y cartelería. <b>Lo dimensionamos con precio cerrado cuando el concepto esté aprobado</b>, y decidís entonces —sin compromiso previo—.</p>
     </div>
   </div>
-  <div class="sfoot"><span>Etapa 3 · nos sumamos donde hace falta músculo de agencia</span><span class="num">15 — Ejecución</span></div>
+  <div class="sfoot"><span>Etapa 3 · nos sumamos donde hace falta músculo de agencia</span><span class="num">16 — Ejecución</span></div>
 </section>
 
 <!-- ============ 17 · INVERSIÓN ============ -->
@@ -1404,7 +1484,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
 
     <p class="r d5" style="margin-top:30px"><span class="note-pill"><b>Tildá los ítems</b> · el total se recalcula solo y viaja en el correo de &ldquo;Quiero avanzar&rdquo; al final de la propuesta</span></p>
   </div>
-  <div class="sfoot"><span>Etapas 1 y 2 con precio cerrado · etapa 3 a cotizar · etapa 4 opcional</span><span class="num">16 — Inversión</span></div>
+  <div class="sfoot"><span>Etapas 1 y 2 con precio cerrado · etapa 3 a cotizar · etapa 4 opcional</span><span class="num">17 — Inversión</span></div>
 </section>
 
 <!-- ============ 18 · PRÓXIMOS PASOS ============ -->
@@ -1455,7 +1535,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:820px}
       </div>
     </div>
   </div>
-  <div class="sfoot"><span>Prelectura · reunión · kick off · diagnóstico</span><span class="num">17 — Próximos pasos</span></div>
+  <div class="sfoot"><span>Prelectura · reunión · kick off · diagnóstico</span><span class="num">18 — Próximos pasos</span></div>
 </section>
 
 <!-- ============ 19 · CIERRE ============ -->
