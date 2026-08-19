@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow Up × Popcorn · La autoridad no se declara, se demuestra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM · Propuesta Glow Up (odontología estética)
+   Violeta eléctrico + cian · tipografía geométrica redondeada
+   ============================================================ */
+:root{
+  --violet-900:#250a4f;
+  --violet-800:#34107a;
+  --violet-700:#4a16a8;
+  --violet-600:#5a18cc;
+  --violet-500:#6e28e8;
+  --violet-glow:#7b34f0;
+  --cyan:#1fe8d8;
+  --cyan-bright:#5cf4e8;
+  --cyan-deep:#12b9ad;
+  --ink:#0e0524;
+  --white:#ffffff;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --warn:#ffa53d;
+  --bad:#ff6b6b;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violet-600);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+    linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ============ HEADER FIJO ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{
+  background:rgba(40,12,100,.72);
+  backdrop-filter:blur(14px);
+  padding:13px 38px;
+  box-shadow:0 1px 0 rgba(255,255,255,.07);
+}
+.brand-tag{
+  font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--w-65);
+  display:flex;align-items:center;gap:9px;
+}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* ============ PROGRESO + NAV LATERAL ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);
+  white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft);
+}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 38px 96px;
+}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+
+.sfoot{
+  position:absolute;left:38px;right:38px;bottom:30px;z-index:3;
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);
+}
+.sfoot .num{color:var(--cyan);white-space:nowrap}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:26px;
+}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+.kicker{font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--cyan)}
+b,strong{color:#fff;font-weight:600}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+/* ============ HERO ============ */
+#hero,#cierre{justify-content:center;overflow:hidden} /* recorta los anillos decorativos */
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-eyebrow{margin-bottom:30px}
+.hero-title{font-weight:700;font-size:clamp(2.5rem,6.8vw,5.6rem);line-height:.98;letter-spacing:-.03em;max-width:17ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:700px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;letter-spacing:.02em;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ META BAND ============ */
+.metaband{position:relative;z-index:5;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(13,4,40,.42);backdrop-filter:blur(8px)}
+.metaband .mb-in{max-width:var(--maxw);margin:0 auto;padding:30px 38px;display:grid;grid-template-columns:repeat(5,1fr);gap:26px}
+.metaband .mb-i .k{font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:7px}
+.metaband .mb-i .v{font-family:'Poppins';font-weight:600;font-size:.95rem;line-height:1.35;color:#fff}
+.metaband .mb-i .v small{display:block;font-family:'Inter';font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px}
+.metaband .mb-i a{color:var(--cyan);text-decoration:none}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;
+  transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);
+  position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{
+  width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px;
+}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card p+p{margin-top:10px}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card .datum{font-family:'Poppins';font-weight:700;font-size:1.9rem;color:var(--cyan);line-height:1;margin-bottom:12px;display:block}
+
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:22ch}
+.stats.sm{gap:14px 44px}
+.stats.sm .v{font-size:clamp(1.45rem,2.5vw,2rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.14em;margin-top:6px}
+
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.chip{
+  font-family:'Poppins';font-weight:500;font-size:1rem;padding:14px 24px;border-radius:14px;
+  background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)
+}
+.chip:hover{border-color:var(--cyan-line);color:var(--cyan);transform:translateY(-3px)}
+
+/* ============ SCORE / DIMENSIONES ============ */
+.diag{display:grid;grid-template-columns:300px 1fr;gap:46px;align-items:start;margin-top:48px}
+.score-card{
+  background:linear-gradient(160deg,rgba(255,165,61,.16),rgba(13,4,40,.45));
+  border:1.5px solid rgba(255,165,61,.4);border-radius:24px;padding:38px 30px;text-align:center;
+}
+.score-card .sv{font-family:'Poppins';font-weight:700;font-size:4.4rem;line-height:1;color:var(--warn)}
+.score-card .sv sup{font-size:1.3rem;font-weight:600;color:var(--w-45);top:-1.5rem}
+.score-card .sl{font-family:'Poppins';font-weight:700;font-size:1.1rem;letter-spacing:.1em;color:#fff;margin-top:6px}
+.score-card .sd{font-size:.88rem;color:var(--w-65);margin-top:14px;line-height:1.55}
+.dims{display:flex;flex-direction:column;gap:24px}
+.dim .dh{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:9px}
+.dim .dn{font-family:'Poppins';font-weight:600;font-size:1rem}
+.dim .dn small{display:block;font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:3px;max-width:52ch}
+.dim .dv{font-family:'Poppins';font-weight:700;font-size:1.15rem;white-space:nowrap}
+.dim-bar{height:8px;border-radius:100px;background:rgba(255,255,255,.09);overflow:hidden}
+.dim-bar-fill{height:100%;border-radius:100px;width:0;transition:width 1.2s var(--ease) .2s}
+.score-high .dim-bar-fill{background:linear-gradient(90deg,var(--cyan-deep),var(--cyan))}
+.score-high .dv{color:var(--cyan)}
+.score-mid .dim-bar-fill{background:linear-gradient(90deg,#c97b19,var(--warn))}
+.score-mid .dv{color:var(--warn)}
+.score-low .dim-bar-fill{background:linear-gradient(90deg,#c93a3a,var(--bad))}
+.score-low .dv{color:var(--bad)}
+
+/* ============ FLOWLINE / PIPE ============ */
+.flowline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;position:relative}
+.flowline .step{position:relative;padding:0 18px}
+.flowline .step .n{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;margin-bottom:18px;background:rgba(31,232,216,.08)}
+.flowline .step h4{font-size:1.05rem;font-weight:600;margin-bottom:7px}
+.flowline .step p{font-size:.88rem;color:var(--w-65);line-height:1.55}
+.flowline .step::after{content:'';position:absolute;top:23px;left:calc(46px + 14px);right:-6px;height:1.5px;background:linear-gradient(90deg,var(--cyan-line),transparent);transform-origin:left;transition:transform 1s var(--ease) .3s;transform:scaleX(0)}
+.flowline.in .step::after{transform:scaleX(1)}
+.flowline .step:last-child::after{display:none}
+
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{
+  flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:24px 20px;
+  position:relative;transition:all .4s var(--ease)
+}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Poppins';font-weight:700;font-size:11px;color:var(--cyan);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:10px}
+.pipe .node .t{font-family:'Poppins';font-weight:600;font-size:1.05rem;display:block;margin-bottom:8px}
+.pipe .node p{font-size:.85rem;color:var(--w-65);line-height:1.5}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.6}
+
+/* ============ EMBUDO ROTO ============ */
+.funnel{display:flex;flex-direction:column;gap:10px;margin-top:44px}
+.fstep{display:grid;grid-template-columns:150px 1fr auto;gap:22px;align-items:center;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 26px;transition:all .4s var(--ease)}
+.fstep:hover{border-color:var(--cyan-line);transform:translateX(5px)}
+.fstep .fk{font-family:'Poppins';font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.fstep .ft{font-family:'Poppins';font-weight:600;font-size:1.05rem}
+.fstep .ft small{display:block;font-family:'Inter';font-weight:400;font-size:.88rem;color:var(--w-65);margin-top:5px;line-height:1.55}
+.fstep .fs{font-family:'Poppins';font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:100px;white-space:nowrap}
+.fstep.ok .fs{color:var(--cyan);background:rgba(31,232,216,.12);border:1px solid var(--cyan-line)}
+.fstep.warn{border-color:rgba(255,165,61,.32)}
+.fstep.warn .fk{color:var(--warn)}
+.fstep.warn .fs{color:var(--warn);background:rgba(255,165,61,.12);border:1px solid rgba(255,165,61,.35)}
+.fstep.bad{border-color:rgba(255,107,107,.34);background:rgba(255,107,107,.05)}
+.fstep.bad .fk{color:var(--bad)}
+.fstep.bad .fs{color:var(--bad);background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.35)}
+
+/* ============ MULTIPLICADOR ============ */
+.multiplier{display:grid;grid-template-columns:300px 1fr;gap:46px;align-items:center}
+.source{
+  background:linear-gradient(160deg,rgba(31,232,216,.16),rgba(31,232,216,.03));
+  border:1.5px solid var(--cyan-line);border-radius:22px;padding:38px 30px;text-align:center;
+}
+.source .big{font-family:'Poppins';font-weight:700;font-size:3.4rem;color:var(--cyan);line-height:1}
+.source h3{font-size:1.3rem;font-weight:600;margin:10px 0 6px}
+.source p{color:var(--w-65);font-size:.92rem}
+.outputs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.out{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:18px 14px;text-align:center;
+  font-family:'Poppins';font-weight:500;font-size:.92rem;transition:all .35s var(--ease)
+}
+.out:hover{border-color:var(--cyan-line);color:var(--cyan);transform:translateY(-4px)}
+.out .oi{width:32px;height:32px;margin:0 auto 10px;color:var(--cyan);opacity:.85}
+.out .oi svg{width:100%;height:100%}
+
+/* ============ INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:start}
+.invest-card{
+  background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.4));
+  border:1.5px solid var(--cyan-line);border-radius:24px;padding:40px;
+}
+.invest-card .per{color:var(--w-65);font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-bottom:8px;display:block}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer;padding:18px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft)}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Poppins';font-weight:600;font-size:1.02rem}
+.price-row .pl .pl-t{display:block}
+.price-row .pl small{display:block;font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:4px;font-family:'Inter';max-width:36ch;line-height:1.5}
+.price-row .pl small.varfee{font-family:'Poppins';font-weight:600;font-size:.8rem;color:var(--cyan);margin-top:7px}
+.price-row .pv{font-family:'Poppins';font-weight:700;font-size:1.25rem;color:var(--cyan);white-space:nowrap}
+.price-row .pv.soft{font-size:.98rem;color:var(--w-45);font-weight:600}
+.price-row .chk,.price-row .chk-spacer{flex:none;width:20px;height:20px;margin-top:1px}
+.price-row .chk{border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.price-row.svc-pick.on .pl-t{color:#fff}
+.pv .ivatag{font-size:.68rem;color:var(--w-45);font-weight:500;letter-spacing:.04em}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);padding-bottom:8px;border-bottom:1px solid var(--cyan-line);margin-bottom:2px}
+.inv-ghead .inv-sub{font-family:'Poppins';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.inv-total{margin-top:30px;padding-top:24px;border-top:1.5px solid var(--cyan-line);display:flex;flex-direction:column;gap:12px}
+.inv-total .tr{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.inv-total .tr .tl{font-family:'Poppins';font-weight:600;font-size:.92rem;color:var(--w-65)}
+.inv-total .tr .tv{font-family:'Poppins';font-weight:700;font-size:1.05rem;color:#fff;white-space:nowrap}
+.inv-total .tr.big .tl{font-size:1.05rem;color:#fff}
+.inv-total .tr.big .tv{font-size:1.8rem;color:var(--cyan)}
+.inv-total .tr.disc .tl{color:var(--cyan)}
+.inv-total .tr.disc .tv{color:var(--cyan)}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+
+/* ============ CAMINOS (A / B) ============ */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.path{position:relative;border:1px solid var(--line-soft);border-radius:22px;padding:36px 32px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.path:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.path.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+.path .pl-k{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:16px}
+.path h3{font-family:'Poppins';font-weight:600;font-size:1.5rem;margin-bottom:12px;line-height:1.2}
+.path>p{color:var(--w-65);font-size:.97rem;line-height:1.6}
+.path .pl-price{margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft);font-family:'Poppins';font-weight:700;font-size:1.9rem;color:var(--cyan);line-height:1}
+.path .pl-price span{font-size:.8rem;font-weight:500;color:var(--w-45);display:block;margin-top:8px;letter-spacing:.04em}
+.path ul{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:11px}
+.path ul li{display:flex;gap:11px;align-items:flex-start;font-size:.93rem;color:var(--w-80);line-height:1.5}
+.path ul li svg{width:17px;height:17px;color:var(--cyan);flex:none;margin-top:3px}
+.path .badge-hi{position:absolute;top:22px;right:24px;font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--cyan);padding:6px 12px;border-radius:100px}
+
+/* ============ TABLA ============ */
+.tbl-wrap{overflow-x:auto;margin-top:40px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card)}
+table.tbl{width:100%;border-collapse:collapse;min-width:820px}
+.tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:18px 20px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:18px 20px;font-size:.92rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.55}
+.tbl td.num{text-align:right;font-family:'Poppins';font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:'Poppins';font-weight:600;color:#fff;white-space:nowrap}
+.tbl .obj{color:var(--w-65);font-size:.86rem;line-height:1.45;min-width:200px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.us td{background:rgba(31,232,216,.07)}
+.tbl tr.us .plat{color:var(--cyan)}
+
+/* ============ WIREFRAME / DASHBOARD ============ */
+.landing{display:grid;grid-template-columns:.92fr 1.08fr;gap:46px;align-items:center}
+.wf{background:rgba(13,4,40,.5);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:11px}
+.wf-bar{display:flex;gap:6px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);margin-bottom:4px;align-items:center}
+.wf-bar span:not(.wf-ttl){flex:none;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18)}
+.wf-bar .wf-ttl{margin-left:10px;min-width:0;flex:1;font-family:'Poppins';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.wf-kpi{background:rgba(255,255,255,.05);border:1px solid var(--line-soft);border-radius:9px;padding:13px 8px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.wf-kpi .kk{font-family:'Poppins';font-size:8px;line-height:1.1;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45);text-align:center}
+.wf-kpi .kv{font-family:'Poppins';font-weight:700;font-size:.92rem;line-height:1;color:var(--cyan);white-space:nowrap}
+.wf-chart{height:120px;background:linear-gradient(180deg,rgba(31,232,216,.08),rgba(255,255,255,.02));border:1px solid var(--line-soft);border-radius:10px;display:flex;align-items:flex-end;gap:8px;padding:14px}
+.wf-chart i{flex:1;background:linear-gradient(180deg,var(--cyan),rgba(31,232,216,.25));border-radius:4px 4px 0 0;display:block}
+.wf-row{background:rgba(255,255,255,.05);border-radius:9px}
+.lp-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin:10px 0 24px}
+.lp-list li{display:flex;gap:12px;align-items:flex-start;color:var(--w-80)}
+.lp-list li svg{width:20px;height:20px;color:var(--cyan);flex:none;margin-top:3px}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.86rem;color:var(--w-65);line-height:1.4}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.scope-col .sub{font-size:.86rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* ============ EVO / BANDA STATEMENT ============ */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,60px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.5) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.92),rgba(40,12,100,.55))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.35;letter-spacing:-.01em;max-width:28ch}
+.evo .sign{margin-top:26px;color:var(--w-65);font-size:.98rem;max-width:660px}
+.evo .evo-stats{display:flex;flex-wrap:wrap;gap:14px 50px;margin-top:34px}
+.evo .evo-stats .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--cyan);line-height:1}
+.evo .evo-stats .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65);margin-top:6px;max-width:20ch}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:44px;display:flex;flex-direction:column;gap:0}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 36px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.95rem;line-height:1.6;max-width:64ch}
+.tl-item .out-tag{display:inline-block;margin-top:12px;font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan-line);background:rgba(31,232,216,.08);padding:6px 12px;border-radius:100px}
+
+/* ============ PHASES ============ */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.phase-card{position:relative;border:1px solid var(--line-soft);border-radius:20px;padding:32px 28px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.phase-card:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.phase-card .pn{font-family:'Poppins';font-weight:700;font-size:3rem;color:rgba(31,232,216,.42);line-height:1;position:absolute;top:18px;right:24px}
+.phase-card h3{font-family:'Poppins';font-weight:600;font-size:1.4rem;margin-bottom:12px}
+.phase-card .gp{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px;display:block}
+.phase-card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.phase-card.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* ============ FOTOGRAFÍA ============ */
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.06) brightness(.93)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.48),rgba(18,5,40,.26) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:32px}
+
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.6) contrast(1.05)}
+.bg-photo.hero img{object-position:62% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.97) 26%,rgba(74,18,168,.62) 60%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.74),rgba(18,5,40,.95))}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* ============ LOGO WALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.logocell{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;
+  min-height:120px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;
+  padding:22px;transition:all .4s var(--ease)
+}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:58px;max-width:84%;width:auto;object-fit:contain;display:block}
+.logocell .brandlogo.lg{max-height:72px;max-width:94%}
+.logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:1.02rem;letter-spacing:-.01em;line-height:1.18;color:var(--violet-700)}
+.logocell .lk{display:none;font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#9784b5}
+.logocell.noimg .ln,.logocell.noimg .lk{display:block}
+
+/* ============ CALLOUT ============ */
+.callout{margin-top:34px;padding:24px 28px;border-left:3px solid var(--cyan);background:rgba(31,232,216,.06);border-radius:0 14px 14px 0}
+.callout p{color:var(--w-80);font-size:.98rem;line-height:1.65}
+.callout p b{color:#fff}
+.callout.warn{border-left-color:var(--warn);background:rgba(255,165,61,.07)}
+
+/* ============ CTA / CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(1.9rem,4.6vw,3.7rem);line-height:1.08;letter-spacing:-.02em;max-width:24ch}
+.close-sign{margin-top:46px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.05rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:18px 44px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.05rem;letter-spacing:.01em;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:24px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px;font-size:9px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .flowline{grid-template-columns:1fr;gap:24px}
+  .flowline .step::after{display:none}
+  .multiplier,.diag{grid-template-columns:1fr;gap:28px}
+  .outputs{grid-template-columns:repeat(2,1fr)}
+  .invest,.landing{grid-template-columns:minmax(0,1fr);gap:30px}
+  .invest>*,.landing>*,.bullets li p{min-width:0}
+  /* los totales se apilan para que el monto nunca empuje el ancho */
+  .inv-total .tr{flex-direction:column;align-items:flex-start;gap:4px}
+  .inv-total .tr .tv{white-space:normal}
+  .phases,.paths{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .pipe .arrow{transform:rotate(90deg)}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .metaband .mb-in{grid-template-columns:repeat(2,1fr);gap:22px;padding:26px 22px}
+  .fstep{grid-template-columns:1fr;gap:12px}
+  .invest-card{padding:28px 20px}
+  /* el diagrama de etapas se apila en vez de comprimirse */
+  .pipe{flex-direction:column}
+  .pipe .node{min-width:0;width:100%;flex:none}
+  /* la calculadora no puede empujar el ancho de la página */
+  .price-row.svc-pick{margin:0;padding:18px 0}
+  .price-row .pl{gap:11px}
+  .price-row .pl small{max-width:none}
+  /* el mockup del tablero se adapta al ancho real */
+  .wf,.wf-kpis,.wf-chart{min-width:0}
+  .wf{padding:14px}
+  .wf-chart{gap:4px}
+  .wf-chart i{min-width:0}
+  .wf-bar .wf-ttl{font-size:9px}
+}
+@media(max-width:560px){
+  .outputs{grid-template-columns:1fr 1fr}
+  .wf-kpis{grid-template-columns:repeat(2,1fr)}
+  .stats{gap:20px 32px}
+  .metaband .mb-in{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESO -->
+<div class="progress" id="prog"></div>
+
+<!-- HEADER -->
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Glow Up · Confidencial</div>
+  <div class="logo">
+    <img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn">
+  </div>
+</header>
+
+<!-- NAV LATERAL -->
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Sonrisa con alineador transparente" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow hero-eyebrow r">Glow Up × Popcorn · Concepto creativo 360 · Agosto 2026</div>
+    <h1 class="hero-title r d1">La autoridad no se declara.<br>Se <span class="cy">demuestra.</span></h1>
+    <p class="hero-sub r d3">Tu home dice que son la mayor marca de odontología estética digital del país. Tenés +25 sedes, +25 doctores y +3.000 casos para probarlo. Pero en la calle te comunicás como uno más. Este es el plan para cerrar esa distancia.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Relevamiento de mercado</span>
+      <span class="tag">Mystery shopper</span>
+      <span class="tag">Territorio de marca</span>
+      <span class="tag">Concepto creativo transversal</span>
+      <span class="tag">Sistema de aplicación 360</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para comenzar</div>
+</section>
+
+<!-- ============ META BAND ============ -->
+<div class="metaband">
+  <div class="mb-in">
+    <div class="mb-i"><span class="k">Preparada para</span><span class="v">Glow Up<small>Marcos · Belén Escalante</small></span></div>
+    <div class="mb-i"><span class="k">Por</span><span class="v">Popcorn<small>Sol Ferrari · Stefani Vicente</small></span></div>
+    <div class="mb-i"><span class="k">Fecha</span><span class="v">19 · 08 · 2026<small>Reunión: 13/08/2026</small></span></div>
+    <div class="mb-i"><span class="k">Válida hasta</span><span class="v">18 · 09 · 2026<small>30 días corridos</small></span></div>
+    <div class="mb-i"><span class="k">Contacto directo</span><span class="v"><a href="mailto:sol@somospopcorn.com">sol@somospopcorn.com</a><small>General Manager</small></span></div>
+  </div>
+</div>
+
+<!-- ============ 2 · QUIÉNES SOMOS ============ -->
+<section id="popcorn" data-label="Quiénes somos">
+  <div class="wrap">
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No vendemos publicaciones.<br>Construimos <span class="cy">marcas que crecen.</span></h2>
+    <p class="lead r d2" style="margin-top:24px">Popcorn nació como productora audiovisual hace 15 años y hoy somos una agencia integral de 27 personas. El 70% de nuestra cartera es salud: hospitales, laboratorios, centros médicos, medicina laboral y odontología. Trabajamos desde el negocio hacia la comunicación —nunca al revés.</p>
+
+    <div class="grid g3 r d3" style="margin-top:50px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Mirada de negocio</h3>
+        <p>Empezamos por el objetivo comercial —volumen de tratamientos, ticket, margen, costo de adquisición— y desde ahí definimos la comunicación.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Anichados en salud</h3>
+        <p>Entendemos pacientes, derivantes, doctores e instituciones. Y en odontología ya trabajamos: implantes dentales y odontología general son cuentas activas.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Equipo completo, un solo interlocutor</h3>
+        <p>Dirección creativa, diseño, contenido, audiovisual, web, digital signage y paid media internos. Un project manager es tu única puerta de entrada.</p>
+      </div>
+    </div>
+
+    <div class="stats r d4">
+      <div class="stat"><div class="v">15</div><div class="l">Años de trayectoria</div></div>
+      <div class="stat"><div class="v">27</div><div class="l">Personas en el equipo</div></div>
+      <div class="stat"><div class="v">70%</div><div class="l">De la cartera es salud</div></div>
+      <div class="stat"><div class="v">360°</div><div class="l">Estrategia, creatividad, producción y medios</div></div>
+    </div>
+
+    <div class="logowall r d5">
+      <div class="logocell"><img class="brandlogo" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Hospital Universitario Austral</span><span class="lk">Salud · Alta complejidad</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Swiss Medical</span><span class="lk">Medicina prepaga</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/logos/manlab.png" alt="ManLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">ManLab</span><span class="lk">Laboratorio</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/centralab.png" alt="CentraLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CentraLab</span><span class="lk">25 sedes · Concepto &ldquo;Estamos cerca&rdquo;</span></div>
+      <div class="logocell noimg"><span class="ln">BA Dental Studio</span><span class="lk">Odontología · De cero a marca en 12 meses</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/cetac.jpg" alt="CETAC Juncal" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CETAC Juncal</span><span class="lk">Diagnóstico &amp; tratamiento</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fitzroy.jpg" alt="CMI Fitz Roy" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CMI Fitz Roy</span><span class="lk">Medicina laboral</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/logos/fleming.png" alt="Instituto Alexander Fleming" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Instituto Alexander Fleming</span><span class="lk">Oncología</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, comunicación y creatividad con foco en crecimiento</span><span class="num">01 — Popcorn</span></div>
+</section>
+
+<!-- ============ 3 · LO QUE ESCUCHAMOS ============ -->
+<section id="pedido" data-label="Lo que escuchamos">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:46px">
+      <div class="col-img r d2"><div class="media"><img src="img/producto.jpg" alt="Alineadores transparentes"></div></div>
+      <div>
+        <div class="eyebrow r">Lo que escuchamos el 13 de agosto</div>
+        <h2 class="h-lg r d1" style="max-width:19ch">No querés un rebranding. Querés una <span class="cy">idea fuerte.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Lo dijiste con precisión, Marcos: <b>&ldquo;queremos tener una campaña con una idea fuerte y trabajarla en todo lo que hacemos, porque queremos empezar a trabajar autoridad de marca&rdquo;</b>. Y Belén lo cerró: <b>&ldquo;no queríamos hacer un rebranding, sino crear un concepto&rdquo;</b>. Esta propuesta hace exactamente eso —y nada más que eso.</p>
+      </div>
+    </div>
+
+    <div class="grid g4 r d3">
+      <div class="card">
+        <span class="num-tag">El pedido</span>
+        <h3>Un concepto transversal</h3>
+        <p>Una idea rectora que funcione igual en redes, pauta, web, vía pública y medios tradicionales. Que la gente empiece a recordar la marca.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">El público</span>
+        <h3>25 a 40, mixto</h3>
+        <p>Foco en adultos jóvenes de clase media-alta. Niños y adolescentes están bienvenidos, pero no son el foco. Mayoría mujeres, con consultas masculinas activas por Instagram.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">La prioridad</span>
+        <h3>Alineadores primero</h3>
+        <p>Es el producto más fuerte y el más rentable. Blanqueamiento, carillas y placas de bruxismo tienen que entrar bajo el mismo eje estético, no como servicios sueltos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">La percepción</span>
+        <h3>Profesional y accesible</h3>
+        <p>No premium. Belén fue clara: comparados con otras marcas, la percepción es de algo accesible. Ese es el punto de partida, y hay que decidir si es el punto de llegada.</p>
+      </div>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>Un dato que nos importa más que el brief.</b> En la reunión pediste algo que casi nadie pide: querés reposicionarte sin cambiar la marca. Eso es más difícil que un rebranding —no podés esconderte detrás de un logo nuevo—. La única forma de lograrlo es con un concepto tan claro que la gente lo reconozca antes de leer el nombre.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Concepto, no rebranding · Autoridad de marca</span><span class="num">02 — El pedido</span></div>
+</section>
+
+<!-- ============ 4 · DIAGNÓSTICO DE MARCA ============ -->
+<section id="marca" data-label="Diagnóstico de marca">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico de marca</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Tenés el tamaño de un líder y la comunicación de un <span class="cy">competidor.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Tu home abre diciendo <b>&ldquo;Elegí la mayor marca de odontología estética digital del país&rdquo;</b>. Es una declaración de liderazgo. El problema es que no hay una sola pieza en tu comunicación que la sostenga. Y una autoridad declarada que no se demuestra no genera confianza: genera duda.</p>
+
+    <div class="grid g2 r d3" style="margin-top:48px">
+      <div class="card">
+        <span class="datum">+25</span>
+        <h3>Sedes y doctores que nadie ve</h3>
+        <p>Es el activo más grande de la categoría y está escondido. En el sitio no aparecen las sedes hasta que el usuario intenta agendar un turno. Sol lo vio en vivo: <b>&ldquo;yo veo la página web y pienso que son solamente proveedores de alineadores&rdquo;</b>.</p>
+      </div>
+      <div class="card">
+        <span class="datum">0</span>
+        <h3>Secciones institucionales</h3>
+        <p>No hay &ldquo;quiénes somos&rdquo;, no hay equipo, no hay historia, no hay caras. En una decisión de salud de ticket alto, la humanización de marca no es decoración: es el driver de confianza.</p>
+      </div>
+      <div class="card">
+        <span class="datum">4</span>
+        <h3>Servicios sin un eje que los una</h3>
+        <p>Alineadores, blanqueamiento, carillas de resina y placas de bruxismo conviven como productos separados. Existe el combo alineadores + blanqueamiento con descuento, pero es una promoción: no es un relato.</p>
+      </div>
+      <div class="card">
+        <span class="datum">2</span>
+        <h3>Beneficios fuertes sin comunicar</h3>
+        <p>Financiación con bancos y alianzas como Club La Nación y Bonda son diferenciales reales frente al preconcepto de &ldquo;la ortodoncia es carísima&rdquo;. En el relevamiento no los encontramos comunicados en el sitio.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:60px">
+      <div class="r d4">
+        <h3 class="h-md" style="margin-bottom:16px">La distancia entre lo que sos y lo que se ve</h3>
+        <p class="muted" style="font-size:1.05rem;line-height:1.7">Glow Up tiene infraestructura de líder: red de sedes, cuerpo de doctores, volumen de casos, un índice de satisfacción de 4,8/5 y financiación propia. La comunicación, en cambio, muestra un producto —el alineador— con el mismo lenguaje visual que sus competidores. <b>El concepto que hay que construir no tiene que inventar nada: tiene que hacer visible lo que ya existe.</b></p>
+        <div class="stats sm r d5">
+          <div class="stat"><div class="v">+3.000</div><div class="l">Sonrisas alineadas</div></div>
+          <div class="stat"><div class="v">4,8/5</div><div class="l">Índice de satisfacción</div></div>
+          <div class="stat"><div class="v">15 días</div><div class="l">Del escaneo al plan 3D</div></div>
+        </div>
+      </div>
+      <div class="col-img r d3"><div class="media tall"><img src="img/autoridad.jpg" alt="Consultorio de odontología estética" style="object-position:center 40%"><div class="cap"><div class="quote" style="font-size:1.05rem">La autoridad de marca se construye con pruebas, no con adjetivos.</div></div></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Autoridad declarada ≠ autoridad demostrada</span><span class="num">03 — Marca</span></div>
+</section>
+
+<!-- ============ 5 · DIAGNÓSTICO DIGITAL ============ -->
+<section id="digital" data-label="Diagnóstico digital">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:20px">
+      <div class="col-img r d2"><div class="media"><img src="img/web.jpg" alt="Auditoría del sitio web"></div></div>
+      <div>
+        <div class="eyebrow r">Auditoría técnica · glowupalign.com</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">El sitio no está lento.<br>Está <span class="cy">desordenado.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Medimos el home con PageSpeed Insights de Google el 18/08/2026. <b>La velocidad no es el problema</b>: el contenido principal aparece a los 2,3 segundos y eso está dentro de lo aceptable. El problema son las otras tres notas —seguridad, medición y rastreabilidad— y ese es justamente el precio que se paga cuando se escala la inversión en pauta: sin medición confiable no se sabe qué mensaje funciona, y el costo por consulta sube.</p>
+      </div>
+    </div>
+
+    <div class="diag r d3">
+      <div class="score-card scale-in">
+        <div class="sv">78<sup>/100</sup></div>
+        <div class="sl">SALUD DIGITAL · C+</div>
+        <div class="sd">Promedio de las cuatro notas de PageSpeed Insights de Google · glowupalign.com · escritorio · 18/08/2026</div>
+      </div>
+      <div class="dims">
+        <div class="dim score-high">
+          <div class="dh"><div class="dn">Rendimiento<small>FCP 0,8 s · LCP 2,3 s · CLS 0 · bloqueo total 0 ms. Sólido, pero con 2.471 KiB de peso total.</small></div><div class="dv">88</div></div>
+          <div class="dim-bar"><div class="dim-bar-fill" data-w="88"></div></div>
+        </div>
+        <div class="dim score-high">
+          <div class="dh"><div class="dn">Accesibilidad<small>Contraste insuficiente en el botón principal y en las tarjetas de blanqueamiento y bruxismo. 7 enlaces de ícono sin nombre accesible.</small></div><div class="dv">88</div></div>
+          <div class="dim-bar"><div class="dim-bar-fill" data-w="88"></div></div>
+        </div>
+        <div class="dim score-high">
+          <div class="dh"><div class="dn">SEO<small>Sin meta description en el home. 33 enlaces de acordeón que Google no puede rastrear —contenido que existe y no indexa—.</small></div><div class="dv">85</div></div>
+          <div class="dim-bar"><div class="dim-bar-fill" data-w="85"></div></div>
+        </div>
+        <div class="dim score-mid">
+          <div class="dh"><div class="dn">Buenas prácticas<small>5 hallazgos de severidad alta: sin política de seguridad de contenido, sin HSTS, sin protección contra clickjacking. Y un error de sintaxis en consola.</small></div><div class="dv">50</div></div>
+          <div class="dim-bar"><div class="dim-bar-fill" data-w="50"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g4 r d4" style="margin-top:52px">
+      <div class="card">
+        <span class="datum">5</span>
+        <h3>Contenedores de medición</h3>
+        <p>Un Google Tag Manager, dos propiedades de Analytics y dos cuentas de Google Ads conviviendo, más el píxel de Meta con 4 eventos. Historial de cuentas duplicadas: hay que auditar cuál es la fuente de verdad.</p>
+      </div>
+      <div class="card">
+        <span class="datum">964 KiB</span>
+        <h3>Solo en fuentes de íconos</h3>
+        <p>Seis familias de íconos cargando en el home —una sola pesa 557 KiB—. Es el 39% del peso total de la página para mostrar un puñado de símbolos.</p>
+      </div>
+      <div class="card">
+        <span class="datum">337 KiB</span>
+        <h3>JavaScript que no se usa</h3>
+        <p>De los cuales 277 KiB son de los contenedores de Google Tag Manager. Además, más de 40 hojas de estilo bloquean el primer render.</p>
+      </div>
+      <div class="card">
+        <span class="datum">565px</span>
+        <h3>La imagen principal, a la mitad</h3>
+        <p>El elemento visual más grande del home se sirve a 565 px de ancho cuando se necesitan 1.130 px. Es la primera impresión de una marca de estética, y se ve blanda.</p>
+      </div>
+    </div>
+
+    <div class="callout warn r d5">
+      <p><b>Una honestidad metodológica.</b> Esta medición es de escritorio. En salud, más del 70% del tráfico suele ser móvil y los puntajes de rendimiento caen ahí. Antes de tocar nada, medimos móvil y con datos de campo reales —no vamos a diagnosticar sobre una sola foto—.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>PageSpeed Insights de Google · escritorio · 18/08/2026</span><span class="num">04 — Diagnóstico digital</span></div>
+</section>
+
+<!-- ============ 6 · EL EMBUDO ============ -->
+<section id="embudo" data-label="El embudo">
+  <div class="wrap">
+    <div class="eyebrow r">El embudo, paso por paso</div>
+    <h2 class="h-lg r d1">Estás pagando por clics que <span class="cy">dejás de ver.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Recorrimos tu embudo como lo recorre un paciente: desde el anuncio hasta el turno. Esto es lo que encontramos en cada paso. Tres de los seis pasos tienen una fuga concreta y medible.</p>
+
+    <div class="funnel r d3">
+      <div class="fstep ok">
+        <div class="fk">Paso 1 · Anuncio</div>
+        <div class="ft">La pauta está activa y aparece<small>Buscamos &ldquo;alineadores invisibles&rdquo; y Glow Up aparece patrocinado. La inversión está trayendo tráfico: el problema no es la entrada.</small></div>
+        <div class="fs">Funciona</div>
+      </div>
+      <div class="fstep warn">
+        <div class="fk">Paso 2 · Llegada al sitio</div>
+        <div class="ft">Se lee como proveedor de alineadores, no como red de clínicas<small>Las +25 sedes no están visibles. Tampoco los doctores, la financiación ni las alianzas. El usuario no puede confirmar que sos grande.</small></div>
+        <div class="fs">Fuga de confianza</div>
+      </div>
+      <div class="fstep bad">
+        <div class="fk">Paso 3 · Contacto rápido</div>
+        <div class="ft">No hay forma fácil de preguntar<small>El WhatsApp está al pie de la página, sin botón flotante. Y el bot que atendía esas consultas se rompió una semana antes de la reunión. Quien no está listo para agendar, se va.</small></div>
+        <div class="fs">Fuga crítica</div>
+      </div>
+      <div class="fstep bad">
+        <div class="fk">Paso 4 · Agendar</div>
+        <div class="ft">El usuario se va del sitio y perdés el rastro<small>&ldquo;Agendar evaluación&rdquo; salta a un dominio externo. Las plataformas no pueden optimizar en base al comportamiento dentro de la web —solo reciben el resultado final—.</small></div>
+        <div class="fs">Fuga de datos</div>
+      </div>
+      <div class="fstep warn">
+        <div class="fk">Paso 5 · La evaluación es paga</div>
+        <div class="ft">Una barrera de entrada que la competencia no tiene<small>Muak invita con un &ldquo;quiero saber si soy candidatx&rdquo; gratis por WhatsApp. No decimos que esté mal cobrar: decimos que hay que medir cuánto cuesta ese filtro y compensarlo con autoridad.</small></div>
+        <div class="fs">A validar con datos</div>
+      </div>
+      <div class="fstep warn">
+        <div class="fk">Paso 6 · Prueba social</div>
+        <div class="ft">La sección de opiniones no muestra opiniones<small>El home carga el script de reseñas (22 KiB) pero en el relevamiento no devolvió testimonios legibles. Pagás el peso y no cobrás la confianza.</small></div>
+        <div class="fs">A verificar</div>
+      </div>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>Por qué esto importa para el concepto.</b> Un concepto creativo brillante que desembarca en un embudo con fugas amplifica el problema: más tráfico, misma pérdida. Por eso la etapa 4 —el rediseño web— está en esta propuesta como opcional recomendada. La idea y el lugar donde aterriza tienen que sostenerse mutuamente.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Del anuncio al turno · seis pasos, tres fugas</span><span class="num">05 — El embudo</span></div>
+</section>
+
+<!-- ============ 7 · COMPETENCIA ============ -->
+<section id="competencia" data-label="Mapa competitivo">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:20px">
+      <div class="col-img r d2"><div class="media"><img src="img/competencia.jpg" alt="Anuncios idénticos de la categoría"></div></div>
+      <div>
+        <div class="eyebrow r">Mapa competitivo</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Sos el más barato de los tres y no se <span class="cy">nota.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Sol lo dijo sin anestesia en la reunión: <b>&ldquo;hoy somos iguales a Muak a simple vista&rdquo;</b>. Mismo tipo de imagen, mismo tipo de mensaje, mismo público, mismo rango de posicionamiento. Pero los precios no son los mismos —y eso cambia todo el análisis—.</p>
+      </div>
+    </div>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th class="num">Precio 2 maxilares</th>
+            <th>Territorio que ocupa hoy</th>
+            <th>Su fortaleza</th>
+            <th>Su punto débil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="us">
+            <td class="plat">Glow Up</td>
+            <td class="num">$1.690.000<br><span style="font-size:.78rem;color:var(--w-45)">1 maxilar $1.290.000</span></td>
+            <td class="obj">Producto accesible y profesional. Estética digital.</td>
+            <td class="obj">Red real de +25 sedes y +25 doctores, +3.000 casos, financiación en 3 / 6 / 9 / 12 meses.</td>
+            <td class="obj">No comunica ninguno de esos activos. Sin capa institucional.</td>
+          </tr>
+          <tr>
+            <td class="plat">Muak</td>
+            <td class="num">$1.899.000<br><span style="font-size:.78rem;color:var(--w-45)">lista $2.599.000</span></td>
+            <td class="obj">Cercanía y relato personal. Marca conversacional, lenguaje inclusivo.</td>
+            <td class="obj">Humaniza con la historia de sus fundadoras. Puerta de entrada gratis por WhatsApp. Oferta con fecha de vencimiento.</td>
+            <td class="obj">No muestra sedes. Compite con descuento del 25%, no con autoridad.</td>
+          </tr>
+          <tr>
+            <td class="plat">Line Up</td>
+            <td class="num">s/d</td>
+            <td class="obj">Respaldo clínico: &ldquo;diseñados por ortodoncistas&rdquo;.</td>
+            <td class="obj">Presencia activa en Instagram y en la subasta de búsqueda paga.</td>
+            <td class="obj">Territorio técnico poco diferenciado; sin relato de marca propio.</td>
+          </tr>
+          <tr>
+            <td class="plat">Odontólogos generales</td>
+            <td class="num">Variable</td>
+            <td class="obj">Confianza del profesional de siempre.</td>
+            <td class="obj">Relación uno a uno con el paciente y derivación boca a boca.</td>
+            <td class="obj">Sin marca, sin escala, sin inversión en comunicación.</td>
+          </tr>
+          <tr>
+            <td class="plat">Marcas internacionales</td>
+            <td class="num">USD 3.500–5.000</td>
+            <td class="obj">Prestigio global y respaldo tecnológico.</td>
+            <td class="obj">Reconocimiento de marca construido durante años.</td>
+            <td class="obj">Precio fuera del alcance del público 25-40 de clase media-alta.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn r d4">
+      <p><b>Y una ventana que ya se cerró.</b> El 13 de agosto, durante la reunión, el sitio de Muak no cargaba mientras seguían pauteando: estaban pagando tráfico que rebotaba. Al 19 de agosto ya está funcionando, con oferta vigente hasta el 31/08. <b>La ventaja competitiva duró seis días.</b> Es la mejor prueba de por qué la autoridad de marca no se construye con oportunismo táctico: se construye con un territorio propio que el otro no te pueda copiar en una semana.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Precios relevados en sitios oficiales · 19/08/2026</span><span class="num">06 — Competencia</span></div>
+</section>
+
+<!-- ============ 8 · TESIS ============ -->
+<section id="tesis" data-label="Nuestra tesis">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <h2 class="h-lg r d1" style="max-width:23ch">La autoridad de marca no es un lujo estético.<br>Es la defensa de tu <span class="cy">margen.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Cuando tres marcas se ven iguales, hablan igual y le hablan al mismo público, el paciente decide por lo único que puede comparar: el precio. Muak ya está jugando ese partido con un 25% de descuento y una fecha de vencimiento. Si Glow Up entra en esa pista, la guerra se pelea sobre el producto más rentable del negocio.</p>
+
+    <div class="phases r d3">
+      <div class="phase-card">
+        <span class="pn">01</span>
+        <span class="gp">Sin concepto</span>
+        <h3>Competís por precio</h3>
+        <p>La marca es intercambiable. El paciente pide tres presupuestos y elige el más bajo. Cada punto de descuento sale directo del margen del tratamiento más rentable.</p>
+      </div>
+      <div class="phase-card hi">
+        <span class="pn">02</span>
+        <span class="gp">Con concepto</span>
+        <h3>Competís por preferencia</h3>
+        <p>La marca significa algo antes de que se mire el precio. El paciente ya no compara peras con peras: compara &ldquo;el más barato&rdquo; contra &ldquo;el que confío&rdquo;.</p>
+      </div>
+      <div class="phase-card">
+        <span class="pn">03</span>
+        <span class="gp">Consecuencia</span>
+        <h3>Bajás el costo de traer un paciente</h3>
+        <p>Una marca reconocida convierte mejor con la misma inversión. La autoridad no es un gasto de imagen: es un multiplicador de la pauta que ya estás pagando.</p>
+      </div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:52px">
+      <div class="evo-bg"><img src="img/concepto.jpg" alt="Dirección creativa"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>La idea rectora que buscamos</div>
+      <blockquote class="r d1">Un concepto que no invente una Glow Up nueva. Que haga imposible ignorar la que ya existe.</blockquote>
+      <div class="sign">No vamos a proponerte un eslogan lindo. Vamos a definir un territorio de marca —un espacio de significado que sea tuyo, defendible y difícil de copiar— y a construir sobre él una idea que funcione en un reel de 15 segundos, en un cartel de la vía pública, en la pantalla de una sede y en la home del sitio. La misma idea, cuatro superficies distintas.</div>
+      <div class="evo-stats r d2">
+        <div><div class="v">1</div><div class="l">Territorio propio</div></div>
+        <div><div class="v">1</div><div class="l">Idea rectora transversal</div></div>
+        <div><div class="v">4</div><div class="l">Servicios bajo un mismo eje</div></div>
+        <div><div class="v">6</div><div class="l">Canales con bajada definida</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>De competir por precio a competir por preferencia</span><span class="num">07 — La tesis</span></div>
+</section>
+
+<!-- ============ 9 · OPORTUNIDAD ============ -->
+<section id="oportunidad" data-label="Territorios libres">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:50px">
+      <div>
+        <div class="eyebrow r">Oportunidad detectada</div>
+        <h2 class="h-lg r d1" style="max-width:19ch">Hay territorios que <span class="cy">nadie</span> está ocupando.</h2>
+        <p class="lead r d2" style="margin-top:22px">Toda la categoría comunica lo mismo: dientes derechos, invisible, cómodo, cuotas. Nadie está parado en el terreno de la escala, la proximidad, el cuerpo profesional ni el acompañamiento del proceso. Esos espacios están vacíos —y Glow Up es la única marca con los activos reales para reclamarlos—.</p>
+        <div class="callout r d3">
+          <p><b>Un antecedente que conocemos bien.</b> A CentraLab, un laboratorio con 25 sedes en CABA y GBA, le construimos el concepto &ldquo;Barriales&rdquo;: 25 piezas, una por barrio, hablándole a cada comunidad. Explotó en visualizaciones y seguidores, y la marca adoptó &ldquo;Estamos cerca&rdquo; como concepto madre. Mismo activo, mismo número de sedes. <b>No te proponemos repetir esa idea —tu categoría es otra—: te mostramos que sabemos convertir una red de sedes en un territorio de marca.</b></p>
+        </div>
+      </div>
+      <div class="col-img r d2"><div class="media tall"><img src="img/sedes.jpg" alt="Sede de barrio" style="object-position:center 45%"></div></div>
+    </div>
+
+    <div class="grid g4 r d4">
+      <div class="card">
+        <span class="num-tag">Territorio 01</span>
+        <h3>Escala</h3>
+        <p>+25 sedes y +25 doctores. Ninguna otra marca de la categoría puede decirlo hoy. Es el único activo que no se copia con un buen diseñador.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Territorio 02</span>
+        <h3>Proximidad</h3>
+        <p>No es solo tener sedes: es estar en el barrio del paciente. La ortodoncia es un tratamiento de 8 meses con controles cada 45-60 días. La cercanía es un beneficio funcional real.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Territorio 03</span>
+        <h3>El cuerpo profesional</h3>
+        <p>&ldquo;100% hecho por dentistas experimentados&rdquo; ya está en el sitio, pero no hay ni un doctor con nombre y cara. Poner el cuerpo profesional al frente es autoridad instantánea.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Territorio 04</span>
+        <h3>El público que no atendés</h3>
+        <p>Hay consultas masculinas activas por Instagram y el 100% del contenido le habla a mujeres. Un público que ya te busca y no encuentra un espejo. Es demanda gratis.</p>
+      </div>
+    </div>
+
+    <div class="callout r d5">
+      <p><b>Cuál de estos territorios es el bueno lo decide el relevamiento, no nosotros hoy.</b> Estas son cuatro hipótesis sólidas construidas con lo que vimos en dos semanas. La etapa de investigación y mystery shopper existe justamente para validar cuál de ellos es defendible, cuál ya está tomado por alguien que no vimos y cuál le mueve la aguja al negocio. <b>No vendemos intuición disfrazada de estrategia.</b></p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Escala · proximidad · cuerpo profesional · público desatendido</span><span class="num">08 — Oportunidad</span></div>
+</section>
+
+<!-- ============ 10 · RIESGOS ============ -->
+<section id="riesgos" data-label="Riesgos">
+  <div class="wrap">
+    <div class="eyebrow r">Lo decimos de frente</div>
+    <h2 class="h-lg r d1">Los seis riesgos de este proyecto, y cómo los <span class="cy">gestionamos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Un socio estratégico no esconde los riesgos: los pone sobre la mesa antes de firmar. Estos son los que vemos, con nuestro plan concreto para cada uno.</p>
+
+    <div class="grid g2 r d3" style="margin-top:48px">
+      <div class="card">
+        <span class="num-tag">Riesgo 01 · Ejecución</span>
+        <h3>El concepto queda en un PDF hermoso</h3>
+        <p>Es el riesgo más común y el más caro. El equipo interno recibe un documento inspirador y no sabe cómo aplicarlo el lunes.</p>
+        <p><b>Mitigación:</b> el entregable no es un PDF de ideas, es un sistema de aplicación con manual, plantillas editables y dos sesiones de capacitación con el equipo de Belén.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo 02 · Tiempo</span>
+        <h3>La categoría se mueve rápido</h3>
+        <p>La web de Muak estuvo caída seis días. Su oferta vence el 31/08. Las ventanas se abren y se cierran en semanas, no en trimestres.</p>
+        <p><b>Mitigación:</b> cronograma de seis semanas con hitos de aprobación cortos. En la semana 3 ya tenés diagnóstico y territorios sobre la mesa.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo 03 · Coherencia</span>
+        <h3>25 sedes, 25 formas de comunicar</h3>
+        <p>Una red distribuida es una fortaleza de negocio y una amenaza de marca: cada sede tiende a improvisar sus propias piezas.</p>
+        <p><b>Mitigación:</b> kit de aplicación por sede y reglas claras de lo que se puede y no se puede hacer. Auditoría de coherencia trimestral si avanzamos con acompañamiento.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo 04 · Datos</span>
+        <h3>Diagnosticar sin la información de pauta</h3>
+        <p>Sin ver qué mensajes ya funcionaron, corremos el riesgo de proponer un territorio que la data ya descartó.</p>
+        <p><b>Mitigación:</b> en la reunión aceptaste compartir las métricas. Las pedimos formalmente en el día 1 —idealmente 6 meses de historial— y son insumo de la etapa 1.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo 05 · Aterrizaje</span>
+        <h3>El concepto aterriza en un embudo con fugas</h3>
+        <p>Si la idea funciona, va a traer más tráfico. Más tráfico sobre las fugas del paso 3 y 4 significa perder más, no ganar más.</p>
+        <p><b>Mitigación:</b> la etapa 4 está cotizada y disponible. Si decidís no tomarla, dejamos por escrito los arreglos mínimos para que tu equipo los haga.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Riesgo 06 · Percepción</span>
+        <h3>&ldquo;Accesible&rdquo; y &ldquo;autoridad&rdquo; pueden chocar</h3>
+        <p>Pediste explícitamente no ser percibidos como premium. Pero la autoridad mal construida sube el precio percibido y te saca del público 25-40.</p>
+        <p><b>Mitigación:</b> el territorio se define sobre escala y confianza, no sobre lujo. Autoridad por tamaño y respaldo, no por exclusividad. Es una decisión de diseño explícita.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Anticipar el riesgo es parte de la estrategia</span><span class="num">09 — Riesgos</span></div>
+</section>
+
+<!-- ============ 11 · METODOLOGÍA ============ -->
+<section id="metodologia" data-label="Metodología">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo lo hacemos</div>
+    <h2 class="h-lg r d1">Cuatro etapas. Dos son <span class="cy">opcionales.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Popcorn nunca propone acciones antes de entender. Las etapas 1 y 2 son el proyecto que cotizamos hoy y no se pueden separar: no hay concepto sólido sin relevamiento previo. Las etapas 3 y 4 las decidís después, con el concepto ya en la mano.</p>
+
+    <div class="grid g4 r d3" style="margin-top:50px">
+      <div class="card">
+        <span class="num-tag">Etapa 1 · Incluida</span>
+        <h3>Relevamiento</h3>
+        <p>Inmersión en el negocio, investigación de mercado, mystery shopper de la categoría, lectura de las métricas de pauta y auditoría del embudo digital.</p>
+        <p style="color:var(--cyan);font-family:'Poppins';font-weight:600;font-size:.85rem">Semanas 1 y 2</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Etapa 2 · Incluida</span>
+        <h3>Creación del concepto</h3>
+        <p>Territorio de marca, idea rectora, sistema verbal, dirección de arte, tres rutas creativas por canal y el sistema completo de aplicación.</p>
+        <p style="color:var(--cyan);font-family:'Poppins';font-weight:600;font-size:.85rem">Semanas 3 a 6</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Etapa 3 · Opcional</span>
+        <h3>Ejecución del concepto</h3>
+        <p>La bajada a los canales que elijas: contenidos, cartelería digital de sedes, medios tradicionales, streaming e influencers. Con acompañamiento estratégico mensual.</p>
+        <p style="color:var(--w-45);font-family:'Poppins';font-weight:600;font-size:.85rem">Se cotiza al aprobar el concepto</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Etapa 4 · Opcional</span>
+        <h3>Rediseño web</h3>
+        <p>Traslado del concepto nuevo al sitio y corrección de los errores que detectamos en el embudo, la medición y la performance.</p>
+        <p style="color:var(--w-45);font-family:'Poppins';font-weight:600;font-size:.85rem">En paralelo, desde la semana 4</p>
+      </div>
+    </div>
+
+    <h3 class="h-md r d4" style="margin-top:66px;margin-bottom:8px">Las etapas 1 y 2, paso por paso</h3>
+    <p class="muted r d4" style="max-width:70ch;margin-bottom:26px">Primero el negocio, después el mercado y la competencia, después el territorio, y solo entonces la idea y su bajada a canales. Cada paso alimenta al siguiente.</p>
+
+    <div class="pipe r d5">
+      <div class="node"><span class="k">Etapa 1 · Paso 1</span><span class="t">Inmersión</span><p>Negocio, objetivos, márgenes por servicio, entrevistas al equipo, lectura de las métricas de pauta y auditoría del embudo.</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Etapa 1 · Paso 2</span><span class="t">Mercado &amp; mystery shopper</span><p>Relevamiento de la categoría como paciente real: qué comunica cada marca, cómo atiende, cómo cotiza y cuánto tarda. Mapa de territorios ocupados y libres.</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Etapa 2 · Paso 3</span><span class="t">Territorio &amp; concepto</span><p>Definición del territorio propio y desarrollo de la idea rectora. Bajada a los cuatro servicios y a los dos públicos.</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">Etapa 2 · Paso 4</span><span class="t">Sistema de aplicación</span><p>Manual, plantillas, rutas creativas ejemplificadas por canal y capacitación al equipo interno para que pueda ejecutarlo solo.</p></div>
+    </div>
+
+    <div class="split" style="margin-top:60px">
+      <div class="col-img r d2"><div class="media wide"><img src="img/relevamiento.jpg" alt="Relevamiento de mercado y mystery shopper"></div></div>
+      <div class="r d3">
+        <h3 class="h-md" style="margin-bottom:16px">Por qué el mystery shopper no es un extra</h3>
+        <p class="muted" style="font-size:1.05rem;line-height:1.7">Vamos a pedir presupuesto en Muak, en Line Up y en clínicas de odontología general como cualquier paciente de 25-40 años. Vamos a medir cuánto tardan en responder, qué preguntan, cómo manejan la objeción de precio, qué mandan por WhatsApp y cómo cierran. <b>La comunicación de una marca no es lo que publica: es lo que le pasa a una persona cuando la contacta.</b> Ahí es donde se encuentran las oportunidades que ningún análisis de redes te va a dar.</p>
+        <div class="stats sm r d4">
+          <div class="stat"><div class="v">6-8</div><div class="l">Marcas relevadas como paciente</div></div>
+          <div class="stat"><div class="v">4</div><div class="l">Servicios auditados</div></div>
+          <div class="stat"><div class="v">2</div><div class="l">Públicos mapeados</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Etapas 1 y 2 incluidas · etapas 3 y 4 opcionales</span><span class="num">10 — Metodología</span></div>
+</section>
+
+<!-- ============ 12 · ENTREGABLES ============ -->
+<section id="entregables" data-label="Qué recibís">
+  <div class="wrap">
+    <div class="eyebrow r">Qué recibís exactamente</div>
+    <h2 class="h-lg r d1">Un concepto es un <span class="cy">sistema</span>, no una frase.</h2>
+    <p class="lead r d2" style="margin-top:20px">Esto es lo que queda en tus manos al final de las seis semanas. Cada pieza es un documento o un archivo editable que tu equipo puede usar sin nosotros.</p>
+
+    <div class="multiplier r d3" style="margin-top:50px">
+      <div class="source scale-in">
+        <div class="big">1</div>
+        <h3>Territorio de marca</h3>
+        <p>Un espacio de significado propio, defendible y difícil de copiar. Todo lo demás se desprende de acá.</p>
+      </div>
+      <div class="outputs">
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14 3v6h6"/></svg></div>Plataforma de marca</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5"/></svg></div>Idea rectora y claim</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>Sistema verbal y tono</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div>Dirección de arte</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>Rutas creativas por canal</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 9v10"/></svg></div>Manual de aplicación</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 6 6 1-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.7L3 9l6-1z"/></svg></div>Plantillas editables</div>
+        <div class="out"><div class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>Capacitación al equipo</div>
+      </div>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:52px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Informe de mercado y competencia</h3>
+        <p>Mapa de territorios de la categoría, resultados del mystery shopper marca por marca, benchmark de precios y financiación, y auditoría de tu embudo y tu medición. Con recomendaciones priorizadas por impacto.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.7L3 9l6-1z"/></svg></div>
+        <h3>Concepto con tres rutas ejemplificadas</h3>
+        <p>No una descripción de la idea: la idea aplicada. Tres bajadas visuales completas —una de redes, una de pauta y una de vía pública o cartelería de sede— para que veas cómo se ve y cómo suena en el mundo real.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 9v10"/></svg></div>
+        <h3>Mapa de mensajes</h3>
+        <p>Qué decir para alineadores, blanqueamiento, carillas y placas de bruxismo. Y cómo cambia el mensaje para el público femenino y para el masculino, hoy desatendido. Un cuadro de doble entrada, listo para usar.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un territorio, ocho entregables, cero dependencia de nosotros</span><span class="num">11 — Entregables</span></div>
+</section>
+
+<!-- ============ 13 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance · Transparencia total</div>
+    <h2 class="h-lg r d1">Qué incluye y qué <span class="cy">no.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Preferimos la incomodidad de aclararlo ahora antes que la de discutirlo después. Este es el alcance exacto del relevamiento y del concepto.</p>
+
+    <div class="scope r d3" style="margin-top:48px">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <p class="sub">Etapas 1 y 2 · $4.450.000 + IVA</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Inmersión en el negocio y entrevistas al equipo de Glow Up</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Investigación de mercado de la categoría en Argentina</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Mystery shopper sobre 6 a 8 competidores, como paciente real</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Análisis de las métricas de pauta que nos comparta Marcos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Auditoría del embudo digital, la medición y la experiencia de contacto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Definición del territorio de marca y la idea rectora</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Dirección de arte de campaña sobre la identidad visual actual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Tres rutas creativas ejemplificadas y mapa de mensajes por servicio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Manual de aplicación 360 y plantillas editables</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Dos sesiones de capacitación al equipo interno</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>Una ronda de ajustes sobre el concepto presentado</li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <p class="sub">Fuera de las etapas 1 y 2</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg><b>Rebranding o cambio de identidad visual.</b> No lo necesitás y no lo proponemos: el concepto se construye sobre tu marca actual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg><b>Etapa 3</b> · producción de las piezas finales de campaña (rodajes, fotografía, edición)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Gestión de contenidos y community management de las redes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Gestión de la pauta digital (hoy la lleva tu equipo externo)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Compra de espacios en medios: vía pública, transporte, streaming, prensa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Contratación y gestión de influencers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg><b>Etapa 4</b> · rediseño del sitio web (opcional, cotizado aparte)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Arreglo del bot de WhatsApp y de la integración de agendamiento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>Estudios cuantitativos con muestra estadística (focus groups, encuestas)</li>
+        </ul>
+        <p style="margin-top:22px;font-size:.9rem;color:var(--w-45);line-height:1.6">Todo lo que está en esta columna es la etapa 3 o la etapa 4, y puede sumarse. La etapa 3 la cotizamos cuando el concepto esté aprobado y sepamos exactamente qué necesita; la etapa 4 ya tiene precio cerrado.</p>
+      </div>
+    </div>
+
+    <div class="media wide r d4" style="margin-top:34px"><img src="img/equipo.jpg" alt="Sesión de trabajo estratégico" style="object-position:center 40%"><div class="cap"><div class="quote" style="font-size:1.05rem">Trabajamos con tu equipo, no por encima de tu equipo. Belén sigue liderando la comunicación: nosotros le damos el territorio, el sistema y las herramientas.</div></div></div>
+  </div>
+  <div class="sfoot"><span>Alcance de las etapas 1 y 2 · roles claros con tu equipo interno</span><span class="num">12 — Alcance</span></div>
+</section>
+
+<!-- ============ 14 · CRONOGRAMA ============ -->
+<section id="cronograma" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1">Etapas 1 y 2 en seis <span class="cy">semanas.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Con hitos de aprobación cortos: en la semana 3 ya tenés el diagnóstico completo sobre la mesa, antes de que empecemos a crear.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Etapa 1 · Semana 1 · Inmersión</div>
+        <h3>Entender el negocio antes que el mercado</h3>
+        <p>Kick off con Marcos y Belén. Entrevistas al equipo comercial y a doctores. Pedido formal de accesos: métricas de pauta de los últimos 6 meses, Analytics, historial de campañas y datos de conversión por sede.</p>
+        <span class="out-tag">Hito · Documento de objetivos de negocio acordados</span>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Etapa 1 · Semanas 1 – 2 · Investigación</div>
+        <h3>Mercado, competencia y mystery shopper</h3>
+        <p>Relevamiento de la categoría. Contacto encubierto con 6 a 8 competidores como paciente real. Auditoría completa del embudo, la medición y la experiencia de contacto de Glow Up. Análisis de la data de pauta.</p>
+        <span class="out-tag">Hito · Informe de mercado y competencia</span>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Etapa 1 → 2 · Semana 3 · Diagnóstico</div>
+        <h3>Presentación de hallazgos y territorios</h3>
+        <p>Reunión de trabajo: qué encontramos, qué territorios están ocupados, cuáles están libres y cuál recomendamos. Acá se toma la decisión estratégica en conjunto, antes de invertir horas creativas.</p>
+        <span class="out-tag">Hito · Territorio de marca elegido</span>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Etapa 2 · Semanas 4 – 5 · Creación</div>
+        <h3>Desarrollo del concepto y las rutas</h3>
+        <p>Idea rectora, claim, sistema verbal, dirección de arte y tres rutas creativas ejemplificadas por canal. Presentación del concepto en vivo, en nuestras oficinas o en las tuyas.</p>
+        <span class="out-tag">Hito · Presentación del concepto</span>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Etapa 2 · Semana 6 · Sistema</div>
+        <h3>Ajustes, manual y capacitación</h3>
+        <p>Una ronda de ajustes sobre lo presentado. Cierre del manual de aplicación 360, entrega de las plantillas editables y dos sesiones de capacitación con el equipo de Belén para que pueda ejecutar de forma autónoma.</p>
+        <span class="out-tag">Hito · Entrega final y equipo capacitado</span>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Etapa 4 · Desde la semana 4 · En paralelo</div>
+        <h3>Rediseño web, si tomás la etapa 4</h3>
+        <p>El traslado del concepto al sitio y la corrección de los errores detectados arrancan en paralelo una vez elegido el territorio, para que la web esté lista cuando la campaña salga. Estimamos 4 semanas desde el arranque.</p>
+        <span class="out-tag">Etapa 4 · opcional</span>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Etapas 1 y 2 · seis semanas · cinco hitos de aprobación</span><span class="num">13 — Cronograma</span></div>
+</section>
+
+<!-- ============ 15 · KPIs ============ -->
+<section id="kpis" data-label="Cómo medimos">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo medimos la autoridad</div>
+    <h2 class="h-lg r d1">Si no se puede medir, no es <span class="cy">estrategia.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">La autoridad de marca parece intangible, pero deja huellas medibles. Definimos la línea de base en la etapa 1 —sin baseline no hay medición posible— y estos son los indicadores que vamos a mover.</p>
+
+    <div class="landing r d3" style="margin-top:50px">
+      <div class="wf scale-in">
+        <div class="wf-bar"><span></span><span></span><span></span><span class="wf-ttl">Tablero de autoridad de marca · Glow Up</span></div>
+        <div class="wf-kpis">
+          <div class="wf-kpi"><span class="kk">Búsquedas de marca</span><span class="kv">↑</span></div>
+          <div class="wf-kpi"><span class="kk">Share of voice</span><span class="kv">%</span></div>
+          <div class="wf-kpi"><span class="kk">Consulta → turno</span><span class="kv">%</span></div>
+          <div class="wf-kpi"><span class="kk">Costo por consulta</span><span class="kv">↓</span></div>
+        </div>
+        <div class="wf-chart"><i style="height:26%"></i><i style="height:34%"></i><i style="height:31%"></i><i style="height:45%"></i><i style="height:52%"></i><i style="height:49%"></i><i style="height:64%"></i><i style="height:71%"></i><i style="height:82%"></i><i style="height:78%"></i><i style="height:92%"></i><i style="height:100%"></i></div>
+        <div class="wf-row" style="height:34px"></div>
+        <div class="wf-row" style="height:34px"></div>
+        <div class="wf-row" style="height:34px"></div>
+      </div>
+      <div>
+        <h3 class="h-md r d2" style="margin-bottom:18px">La prueba dura: que te busquen por tu nombre</h3>
+        <ul class="lp-list r d3">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span><b>Búsquedas de marca.</b> Cuánta gente escribe &ldquo;Glow Up alineadores&rdquo; en Google en lugar de &ldquo;alineadores invisibles&rdquo;. Es el indicador más honesto de que la marca significa algo.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span><b>Share of voice.</b> Tu volumen de búsqueda de marca frente al de Muak y Line Up. Es la cuota de atención de la categoría.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span><b>Rendimiento de la pauta contra el baseline.</b> Mismo presupuesto, mismo equipo de pauta: cambia el concepto y medimos qué pasa con el clic y el costo por consulta.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span><b>Consulta a turno agendado.</b> Hoy este número se pierde al salir del sitio. Recuperarlo es, por sí solo, una mejora de gestión.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span><b>Consultas masculinas sobre el total.</b> Un público que ya te escribe y no medís. Es el indicador de si el concepto amplió la base.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span><b>Coherencia de piezas.</b> Porcentaje de publicaciones que cumplen el manual. Revisión trimestral: un concepto que no se aplica no existe.</span></li>
+        </ul>
+        <p><span class="note-pill"><b>Importante</b> · el baseline se define en la semana 1. Sin punto de partida no hay medición: es la primera cosa que hacemos.</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>La autoridad deja huellas medibles</span><span class="num">14 — KPIs</span></div>
+</section>
+
+<!-- ============ 16 · EJECUCIÓN ============ -->
+<section id="ejecucion" data-label="Ejecución">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:20px">
+      <div class="col-img r d2"><div class="media"><img src="img/medios.jpg" alt="Cartelería digital en vía pública"></div></div>
+      <div>
+        <div class="eyebrow r">Etapa 3 · opcional</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Tenés equipo interno.<br>Elegí dónde te <span class="cy">sumamos.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">La etapa 3 es la bajada del concepto a los canales. Belén y su equipo pueden hacerla puertas adentro: para eso entregamos el manual, las plantillas y la capacitación. Pero hay superficies donde hace falta músculo de agencia. Estas son las que vemos para Glow Up.</p>
+      </div>
+    </div>
+
+    <div class="grid g3 r d3" style="margin-top:40px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Cartelería digital en las sedes</h3>
+        <p>+25 sedes son +25 pantallas que hoy no venden. Contenido animado con la sala de espera cautiva: el momento de mayor atención del paciente, y el más barato de comprar. Es un canal propio que ya tenés.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Gestión de la publicidad digital</h3>
+        <p>Si querés, auditamos el rendimiento actual y proponemos mejoras al equipo que ya tenés. Y si preferís unificar estrategia y ejecución, podemos tomar la gestión completa de Meta y Google.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>
+        <h3>Contenidos para redes</h3>
+        <p>Producción del contenido bajo el nuevo concepto: piezas de feed, reels, historias y cápsulas institucionales. Con nuestro equipo de diseño, contenido y audiovisual interno.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></div>
+        <h3>Medios tradicionales</h3>
+        <p>Vía pública, transporte público y cartelería digital en los barrios donde están tus sedes. Planificación, negociación y producción de las piezas.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <h3>Streaming e influencers</h3>
+        <p>Presencia en canales de streaming y acciones con creadores. Selección por afinidad real con el público 25-40, negociación y medición del retorno.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Acompañamiento estratégico</h3>
+        <p>Reuniones mensuales de objetivos. Nada es estático: revisamos resultados, ajustamos el rumbo y proponemos proactivamente por dónde punchar. Es el modelo con el que trabajamos nuestras cuentas.</p>
+      </div>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>Por qué la etapa 3 no tiene precio en esta propuesta.</b> Cotizarla hoy sería inventar un número: no sabemos todavía qué necesita el concepto que aún no existe. Un territorio basado en el cuerpo profesional necesita producción audiovisual; uno basado en proximidad necesita medios de barrio y cartelería. <b>Lo dimensionamos con precio cerrado cuando el concepto esté aprobado</b>, y decidís entonces —sin compromiso previo—.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Etapa 3 · nos sumamos donde hace falta músculo de agencia</span><span class="num">15 — Ejecución</span></div>
+</section>
+
+<!-- ============ 17 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Cuatro etapas, dos <span class="cy">caminos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Como pediste en la reunión, cotizamos por separado. Los dos caminos comparten las etapas 1 y 2 —no hay forma de ejecutar un concepto que todavía no existe— y se bifurcan en la etapa 3: el camino A la ejecuta tu equipo con el manual en la mano; el camino B la ejecutamos nosotros. La etapa 4 es opcional en los dos.</p>
+
+    <div class="paths r d3">
+      <div class="path hi">
+        <span class="badge-hi">Recomendado para arrancar</span>
+        <span class="pl-k">Camino A</span>
+        <h3>Consultoría y concepto creativo</h3>
+        <p>Las etapas 1 y 2 completas: relevamiento, mystery shopper, territorio de marca, concepto creativo 360 y el sistema de aplicación. La etapa 3 la ejecuta tu equipo interno con el manual, las plantillas y la capacitación en la mano.</p>
+        <div class="pl-price">$4.450.000<span>+ IVA · etapas 1 y 2 · 6 semanas</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 1</b> · Relevamiento — $1.150.000 + IVA</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 2</b> · Creación del concepto — $3.300.000 + IVA</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 3</b> · La ejecuta tu equipo interno</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 4</b> · Rediseño web opcional — + $1.700.000 + IVA</li>
+        </ul>
+      </div>
+      <div class="path">
+        <span class="pl-k">Camino B</span>
+        <h3>Llave en mano</h3>
+        <p>El mismo concepto, pero con la etapa 3 a nuestro cargo: la bajada a los canales donde hace falta músculo de agencia, con acompañamiento estratégico continuo y reuniones mensuales de objetivos. Un solo responsable de punta a punta.</p>
+        <div class="pl-price" style="font-size:1.15rem;line-height:1.35;color:#fff">Etapas 1 y 2 <span style="display:inline;color:var(--cyan);font-size:1.15rem;font-weight:700">+ etapa 3</span><span>La etapa 3 se cotiza con precio cerrado en la semana 3, cuando el territorio elegido define qué canales hacen falta. Sin compromiso previo.</span></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapas 1 y 2</b> · idénticas al camino A</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 3</b> · contenidos y piezas de campaña</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 3</b> · cartelería de sedes, medios tradicionales y streaming</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><b>Etapa 3</b> · acompañamiento y reuniones mensuales</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="invest r d4" style="margin-top:52px">
+      <div class="invest-card scale-in">
+        <span class="per">Armá tu propuesta</span>
+
+        <div class="inv-group">
+          <div class="inv-ghead">Etapas 1 y 2 · el proyecto <span class="inv-sub" id="subBase">—</span></div>
+          <div class="price-row svc-pick on" data-svc="Etapa 1 · Relevamiento" data-price="$1.150.000 + IVA" data-amount="1150000">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Etapa 1 · Relevamiento<small>Inmersión en el negocio, investigación de mercado, mystery shopper de 6 a 8 competidores, análisis de las métricas de pauta y auditoría del embudo digital</small></span></div>
+            <div class="pv">$1.150.000<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-svc="Etapa 2 · Creación del concepto creativo 360" data-price="$3.300.000 + IVA" data-amount="3300000">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Etapa 2 · Creación del concepto creativo 360<small>Territorio de marca, idea rectora, sistema verbal, dirección de arte, tres rutas por canal, manual de aplicación, plantillas editables y capacitación</small></span></div>
+            <div class="pv">$3.300.000<span class="ivatag"> + IVA</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead">Etapas 3 y 4 · opcionales <span class="inv-sub" id="subOpt">—</span></div>
+          <div class="price-row">
+            <div class="pl"><span class="chk-spacer"></span><span class="pl-t">Etapa 3 · Ejecución del concepto<small>Contenidos, cartelería digital de sedes, medios tradicionales, streaming e influencers y acompañamiento estratégico mensual · se cotiza con precio cerrado una vez que sepamos qué se va a ejecutar</small></span></div>
+            <div class="pv soft">A cotizar</div>
+          </div>
+          <div class="price-row svc-pick" data-svc="Etapa 4 · Rediseño web" data-price="$1.700.000 + IVA" data-amount="1700000">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Etapa 4 · Rediseño web<small>Traslado del concepto al sitio, sedes y doctores visibles, WhatsApp flotante, sección institucional, financiación y alianzas, medición del embudo y limpieza técnica sobre el WordPress actual</small></span></div>
+            <div class="pv">$1.700.000<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row">
+            <div class="pl"><span class="chk-spacer"></span><span class="pl-t">Inversión en medios y pauta<small>La abona Glow Up directamente a las plataformas y a los medios · Popcorn planifica y recomienda</small></span></div>
+            <div class="pv soft">Se factura aparte</div>
+          </div>
+        </div>
+
+        <div class="inv-total">
+          <div class="tr big"><span class="tl">Total seleccionado</span><span class="tv" id="totList">—</span></div>
+          <div class="tr"><span class="tl">Opción 1 · 50% al inicio + 50% a 30 días</span><span class="tv" id="tot5050">—</span></div>
+          <div class="tr disc"><span class="tl">Opción 2 · 100% anticipado (−5%)</span><span class="tv" id="totAdv">—</span></div>
+        </div>
+      </div>
+      <ul class="bullets">
+        <li><span class="bi">1</span><p><b>Valores sin IVA, en pesos argentinos.</b> Válidos por 30 días desde la fecha de esta propuesta. Sin rangos ni &ldquo;a definir&rdquo;: lo que está cotizado, está cerrado.</p></li>
+        <li><span class="bi">2</span><p><b>Dos formas de pago.</b> Anticipo del 50% con el saldo a 30 días, o el total anticipado con un 5% de descuento. Elegís al momento de aprobar.</p></li>
+        <li><span class="bi">3</span><p><b>La pauta y los medios van por separado.</b> Nunca facturamos la inversión en medios: la abonás directamente y la vemos juntos con total transparencia.</p></li>
+        <li><span class="bi">4</span><p><b>La etapa 1 tiene valor propio.</b> Aun si no avanzás con la etapa 2, te quedás con un informe de mercado, un mystery shopper de la categoría y una auditoría de tu embudo que podés usar con cualquiera.</p></li>
+        <li><span class="bi">5</span><p><b>Sin costos ocultos.</b> El equipo asignado, las reuniones, las presentaciones y la ronda de ajustes están incluidos en los valores de arriba.</p></li>
+      </ul>
+    </div>
+
+    <p class="r d5" style="margin-top:30px"><span class="note-pill"><b>Tildá los ítems</b> · el total se recalcula solo y viaja en el correo de &ldquo;Quiero avanzar&rdquo; al final de la propuesta</span></p>
+  </div>
+  <div class="sfoot"><span>Etapas 1 y 2 con precio cerrado · etapa 3 a cotizar · etapa 4 opcional</span><span class="num">16 — Inversión</span></div>
+</section>
+
+<!-- ============ 18 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cuatro pasos, sin <span class="cy">fricción.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Sol te lo ofreció en la reunión y lo repetimos acá: si preferís que te la presentemos en vivo, vamos a tus oficinas o los recibimos en las nuestras. Como te sientas más cómodo.</p>
+
+    <div class="flowline r d3" style="margin-top:52px">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Prelectura</h4>
+        <p>Leen la propuesta con tranquilidad, Marcos y Belén. Anotan dudas y objeciones sin apuro.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Reunión de cierre</h4>
+        <p>Nos juntamos —presencial o virtual— a revisar el alcance, ajustar lo que haga falta y elegir el camino.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>Kick off</h4>
+        <p>Aprobación, orden de compra y arranque. Pedimos los accesos y las métricas de pauta el mismo día.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <h4>Semana 3</h4>
+        <p>Diagnóstico y territorios sobre la mesa. La primera decisión estratégica la tomamos juntos.</p>
+      </div>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:56px">
+      <div class="card">
+        <span class="num-tag">Equipo asignado</span>
+        <h3>Quién trabaja en tu cuenta</h3>
+        <p><b>Sol Ferrari</b> · General Manager. Dirección estratégica y paid media.<br><b>Stefani Vicente</b> · Líder de cuentas y estrategia digital. Tu interlocutora del día a día.<br><b>Departamento creativo</b> · dirección de arte, diseño y contenido.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Cómo trabajamos</span>
+        <h3>Un solo interlocutor</h3>
+        <p>Un project manager centraliza todo: no vas a coordinar con cinco personas distintas. Y trabajamos junto al área comercial, porque marketing sin ventas es solo comunicación.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Lo que ya te mandamos</span>
+        <h3>Material para investigarnos</h3>
+        <p>El PDF de casos de éxito, el caso BA Dental Studio —el centro odontológico que nació con nosotros y creció de cero en 12 meses— y el canal de YouTube con entrevistas donde nuestros clientes cuentan su experiencia.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Prelectura · reunión · kick off · diagnóstico</span><span class="num">17 — Próximos pasos</span></div>
+</section>
+
+<!-- ============ 19 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/cierre.jpg" alt="Luz refractada"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Para cerrar</div>
+    <h2 class="close-title r d1">Ya sos la marca más grande de la categoría.<br>Ahora que se <span class="cy">note.</span></h2>
+    <p class="lead r d2" style="margin:28px auto 0;text-align:center">No te proponemos una campaña. Te proponemos el territorio que ninguno de tus competidores puede reclamar, y una idea lo suficientemente clara para que se reconozca antes de leer tu nombre.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:sol@somospopcorn.com?subject=Glow%20Up%20%C2%B7%20Avancemos%20con%20la%20propuesta&body=Hola%20Sol%2C%20vimos%20la%20propuesta%20y%20queremos%20avanzar.">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">Glow Up × Popcorn · La autoridad no se declara, se demuestra.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Propuesta válida hasta el 18/09/2026 · sol@somospopcorn.com</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral (dots) ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.scale-in,.flowline').forEach(el=>io.observe(el));
+
+/* ===== Sección activa para dots ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Barras de las dimensiones del diagnóstico ===== */
+const barIo=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.width=e.target.dataset.w+'%';
+      barIo.unobserve(e.target);
+    }
+  });
+},{threshold:.4});
+document.querySelectorAll('.dim-bar-fill').forEach(el=>barIo.observe(el));
+
+/* ===== Calculadora de inversión + mailto ===== */
+const MAIL='sol@somospopcorn.com';
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
+
+function buildMail(){
+  const on=svcPicks.filter(s=>s.classList.contains('on'));
+  let base=0,opt=0,total=0;
+  on.forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    total+=a;
+    if(s.closest('.inv-group').querySelector('.inv-ghead .inv-sub').id==='subBase'){base+=a;}else{opt+=a;}
+  });
+  document.getElementById('subBase').textContent = base? fmt(base)+' + IVA' : '—';
+  document.getElementById('subOpt').textContent  = opt ? fmt(opt)+' + IVA'  : '—';
+  document.getElementById('totList').textContent = total? fmt(total)+' + IVA' : '—';
+  document.getElementById('tot5050').textContent = total? fmt(Math.round(total/2))+' + '+fmt(total-Math.round(total/2)) : '—';
+  document.getElementById('totAdv').textContent  = total? fmt(Math.round(total*0.95))+' + IVA' : '—';
+
+  let subject='Glow Up · Avancemos con la propuesta';
+  let body='Hola Sol, vimos la propuesta de concepto creativo para Glow Up y queremos avanzar.';
+  if(on.length){
+    body+='\n\nÍtems con los que queremos avanzar:';
+    on.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nTotal: '+fmt(total)+' + IVA';
+    body+='\nOpción 1 (50/50): '+fmt(Math.round(total/2))+' al inicio + '+fmt(total-Math.round(total/2))+' a 30 días';
+    body+='\nOpción 2 (100% anticipado, -5%): '+fmt(Math.round(total*0.95))+' + IVA';
+    subject='Glow Up · Avancemos · '+fmt(total)+' + IVA';
+  }
+  ctaPick.innerHTML = on.length
+    ? 'Avanzás con <b>'+on.length+' ítem'+(on.length>1?'s':'')+'</b> · Total <b>'+fmt(total)+' + IVA</b>'
+    : '<span class="none">Tildá los ítems de la sección de inversión para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:'+MAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+svcPicks.forEach(s=>{
+  s.addEventListener('click',()=>{ s.classList.toggle('on'); buildMail(); });
+});
+buildMail();
+</script>
+</body>
+</html>
