@@ -1,0 +1,2703 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Ventura Wynwood 360</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==================================================================
+   VENTURA WYNWOOD · ESTRATEGIA 360
+   Misma identidad que el reporte de gestion: crema, tinta gris-azulada
+   (nunca negro puro), celeste sobre claro, lima como pop sobre oscuro,
+   verde solo como detalle. Montserrat en tres roles + Caveat.
+   ================================================================== */
+:root{
+  --crema:#F2EEE2;
+  --papel:#FBF9F3;
+  --tinta:#22303a;
+  --celeste:#4C708B;
+  --celeste-cl:#7FA9CC;
+  --lima:#FAFEAC;
+  --verde:#2D3B34;
+
+  --fondo:var(--crema);
+  --superficie:var(--papel);
+  --borde:#DAD3C4;
+  --texto:var(--tinta);
+  /* Los secundarios del tema claro estan calibrados para pasar 4.5:1 sobre crema
+     (#F2EEE2), que es el fondo mas claro del documento. Los valores "bonitos" mas
+     claros (#6E7A80, #B4762A) daban 3.8 y 3.25 y no se leian. Si se toca alguno,
+     correr qa_contraste.py. */
+  --texto-2:#5C686F;   /* 4.94:1 sobre crema */
+  --acento:var(--celeste);
+  --banda:var(--tinta);
+  --banda-sup:#2c3c47;
+  --banda-texto:var(--crema);
+  --banda-texto-2:#A9B6BC;
+  --banda-borde:#3a4c57;
+  --banda-acento:var(--lima);
+  --ok:#3E6B4A;        /* 5.31:1 */
+  --espera:#8A5A1C;    /* 5.09:1 */
+  --alerta:#94452F;    /* 5.74:1 */
+
+  /* Fondos de las pastillas de estado. A proposito NO se remapean en tema oscuro:
+     una insignia tiene que verse igual siempre, y si el fondo se aclarara con el
+     tema el texto blanco de arriba quedaria ilegible (era el caso: blanco sobre
+     celeste claro daba 2.5:1). Todos pasan >4.5:1 con texto blanco. */
+  --pill-celeste:#4C708B;
+  --pill-verde:#2D3B34;
+  --pill-ok:#3E6B4A;
+  --pill-espera:#8A5A1C;
+  --pill-alerta:#94452F;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#161f24;
+    --superficie:#1d282e;
+    --borde:#33434c;
+    --texto:#EDE8DC;
+    --texto-2:#9AA8AF;
+    --acento:var(--celeste-cl);
+    --banda:#0f1619;
+    --banda-sup:#18242a;
+    --banda-texto:#EDE8DC;
+    --banda-borde:#2a3a43;
+    --banda-acento:var(--lima);
+    --ok:#7FB58C;
+    --espera:#E0A85C;
+    --alerta:#D9836C;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#161f24;
+  --superficie:#1d282e;
+  --borde:#33434c;
+  --texto:#EDE8DC;
+  --texto-2:#9AA8AF;
+  --acento:var(--celeste-cl);
+  --banda:#0f1619;
+  --banda-sup:#18242a;
+  --banda-texto:#EDE8DC;
+  --banda-borde:#2a3a43;
+  --banda-acento:var(--lima);
+  --ok:#7FB58C;
+  --espera:#E0A85C;
+  --alerta:#D9836C;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--fondo); color:var(--texto);
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+  font-weight:300; font-size:16.5px; line-height:1.62;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img{max-width:100%; display:block}
+p{margin:0 0 1.05em; max-width:68ch}
+strong,b{font-weight:600; color:inherit}
+em{font-style:italic}
+a{color:var(--acento); text-decoration-thickness:1px; text-underline-offset:3px}
+
+.wrap{max-width:880px; margin:0 auto; padding:0 30px}
+.wrap-ancho{max-width:1140px; margin:0 auto; padding:0 30px}
+/* contenedor de datos: se ensancha hasta donde da la pantalla para que las tablas
+   grandes del plan de medios entren completas y no queden recortadas */
+.wrap-datos{width:100%; max-width:1560px; margin:0 auto; padding:0 30px}
+
+/* ---------------- tipografia estructural ---------------- */
+.eyebrow{
+  font-weight:600; font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--acento); margin:0 0 14px;
+}
+h2{
+  font-weight:300; font-size:clamp(28px,4.4vw,42px); line-height:1.08;
+  letter-spacing:-.02em; margin:0; text-wrap:balance;
+}
+h2 b{font-weight:900}
+h3{
+  font-weight:700; font-size:20px; line-height:1.25; letter-spacing:-.01em;
+  margin:0 0 10px; text-wrap:balance;
+}
+h4{
+  font-weight:600; font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--texto-2); margin:0 0 10px;
+}
+.regla{width:52px; height:4px; background:var(--acento); border-radius:2px; margin:20px 0 26px}
+.bajada{font-size:18px; max-width:60ch; color:var(--texto)}
+.bajada strong{font-weight:600}
+
+section{padding:66px 0}
+section.sinaire{padding-top:0}
+.divisor{height:1px; background:var(--borde); max-width:1140px; margin:0 auto}
+
+/* ---------------- portada ---------------- */
+.portada{position:relative; min-height:min(92vh,860px); display:flex; align-items:flex-end;
+  overflow:hidden; background:var(--tinta)}
+.portada img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.62}
+.portada .velo{position:absolute; inset:0;
+  background:linear-gradient(178deg,rgba(20,30,36,.72) 0%,rgba(20,30,36,.30) 38%,rgba(20,30,36,.88) 100%)}
+.portada .cont{position:relative; width:100%; padding:0 0 62px}
+.portada .marca{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; color:#C9D3D8;
+  font-weight:600; font-size:11.5px; letter-spacing:.26em; text-transform:uppercase; margin-bottom:34px}
+.portada .marca b{font-weight:900; letter-spacing:.14em; color:#fff}
+.portada h1{
+  font-weight:300; font-size:clamp(40px,8.2vw,80px); line-height:.99; letter-spacing:-.035em;
+  margin:0; color:#fff; text-wrap:balance}
+.portada h1 b{font-weight:900}
+/* OJO: no llamar a esto .tag — colisiona con la pastilla de estado .tag y hereda
+   su fondo, mayusculas y padding. */
+.portada .frase{font-family:'Caveat',cursive; font-weight:600; font-size:clamp(28px,4.4vw,40px);
+  color:var(--lima); margin:14px 0 22px; line-height:1.15}
+.portada .sub{color:#DCE3E6; max-width:54ch; font-size:17px; margin:0}
+.portada .pie{display:flex; flex-wrap:wrap; gap:8px 40px; justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,.22); margin-top:40px; padding-top:20px;
+  font-size:12.5px; color:#B8C4CA}
+.portada .pie b{font-weight:600; color:#fff; display:block}
+.portada .pie .der{text-align:right; letter-spacing:.16em; text-transform:uppercase; font-size:10.5px; line-height:1.8}
+
+/* ---------------- superficies ---------------- */
+.card{
+  background:var(--superficie); border:1px solid var(--borde); border-radius:4px;
+  padding:24px 26px;
+}
+.card > :last-child{margin-bottom:0}
+.card.tope{border-top:3px solid var(--acento)}
+.card.tope-lima{border-top:3px solid #C9A227}
+.card.tope-verde{border-top:3px solid var(--verde)}
+.grid{display:grid; gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(178px,1fr))}
+
+/* nota al margen: el dato que falta, la advertencia, la decision */
+.nota{
+  background:transparent; border:1px dashed var(--borde); border-left:3px solid var(--espera);
+  border-radius:3px; padding:18px 22px; margin:26px 0 0;
+}
+.nota h4{color:var(--espera)}
+.nota > :last-child{margin-bottom:0}
+.nota p{max-width:none}
+
+/* dato pendiente inline */
+.falta{
+  font-family:'Caveat',cursive; font-weight:700; font-size:1.18em; color:var(--espera);
+  border-bottom:1.5px dashed var(--espera); padding:0 6px; white-space:nowrap;
+}
+
+/* cita */
+.cita{
+  border-left:3px solid var(--acento); padding:4px 0 4px 24px; margin:30px 0;
+  font-family:'Caveat',cursive; font-weight:600; font-size:clamp(23px,3.2vw,31px);
+  line-height:1.3; color:var(--texto); max-width:34ch;
+}
+.cita.larga{font-family:'Montserrat',sans-serif; font-weight:300; font-style:italic;
+  font-size:clamp(18px,2.3vw,22px); line-height:1.45; max-width:52ch}
+
+/* chips */
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; padding:0; list-style:none}
+.chips li{
+  font-weight:500; font-size:13px; padding:7px 15px; border-radius:999px;
+  border:1px solid var(--borde); background:var(--superficie); color:var(--texto);
+}
+.chips li.on{background:var(--pill-celeste); border-color:var(--pill-celeste); color:#fff; font-weight:600}
+.chips li.oscuro{background:var(--tinta); border-color:var(--tinta); color:var(--crema); font-weight:600}
+
+/* flujo con flechas */
+.flujo{display:flex; flex-wrap:wrap; align-items:center; gap:9px; margin:0 0 26px}
+.flujo span{
+  font-weight:700; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+  padding:11px 17px; border-radius:3px; background:var(--tinta); color:var(--crema);
+}
+.flujo span:nth-child(4n+3){background:var(--pill-celeste)}
+.flujo span:nth-child(4n+5){background:var(--pill-verde)}
+.flujo i{color:var(--texto-2); font-style:normal; font-size:15px}
+
+/* lista con guion */
+ul.guion{list-style:none; padding:0; margin:0 0 1em}
+ul.guion li{position:relative; padding-left:20px; margin-bottom:7px}
+ul.guion li::before{content:"—"; position:absolute; left:0; color:var(--acento); font-weight:400}
+ul.guion li:last-child{margin-bottom:0}
+
+/* lista numerada en pastilla */
+ol.pastilla{list-style:none; padding:0; margin:0; counter-reset:p}
+ol.pastilla li{position:relative; padding-left:34px; margin-bottom:11px; counter-increment:p}
+ol.pastilla li:last-child{margin-bottom:0}
+ol.pastilla li::before{
+  content:counter(p); position:absolute; left:0; top:2px; width:21px; height:21px;
+  border-radius:50%; background:var(--acento); color:#fff;
+  font-weight:700; font-size:11px; display:flex; align-items:center; justify-content:center;
+}
+
+/* ---------------- tablas ----------------
+   Fluidas por defecto: sin min-width, el ancho lo decide el contenido y la caja.
+   El scroll horizontal queda solo como red de seguridad en pantallas chicas, y
+   nunca recorta: el contenedor avisa con un degradado en el borde.
+   `color:inherit` explicito en table/th/td porque sin doctype el navegador entra
+   en quirks mode y ahi las tablas NO heredan color del contenedor (bug real que
+   dejaba el texto oscuro sobre las bandas oscuras).                            */
+.tabla-wrap{
+  overflow-x:auto; margin:0 0 8px; -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain; position:relative;
+}
+/* las tablas grandes de datos van como panel enmarcado: se entiende que tienen
+   su propio scroll y no se leen como pagina cortada */
+.tabla-wrap.panel{border:1px solid var(--borde); border-radius:5px}
+.banda .tabla-wrap.panel{border-color:var(--banda-borde)}
+.tabla-wrap.panel table{min-width:700px}
+/* La tabla de campanas tiene 11 columnas: con ancho fijo y proporciones declaradas
+   entra completa desde ~1150px en vez de forzar scroll en cualquier pantalla. */
+.tabla-wrap.panel table.fija{table-layout:fixed; min-width:1080px}
+table.fija td, table.fija th{overflow-wrap:break-word}
+.tabla-wrap.panel td:first-child, .tabla-wrap.panel th:first-child{padding-left:16px}
+.tabla-wrap.panel td:last-child, .tabla-wrap.panel th:last-child{padding-right:16px}
+.tabla-wrap.panel tbody tr:last-child td{border-bottom:0}
+.aviso-scroll{
+  font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+  color:var(--texto-2); margin:8px 0 0;
+}
+.banda .aviso-scroll{color:var(--banda-texto-2)}
+table{border-collapse:collapse; width:100%; font-size:14.5px; color:inherit}
+table.chica{font-size:13.5px}
+table.densa{font-size:12.8px}
+table.densa td, table.densa th{padding:10px 10px}
+/* en las tablas densas la cabecera puede cortar linea: el nowrap global le ganaba
+   al ancho declarado de la columna y ensanchaba la tabla */
+table.densa th{white-space:normal}
+td{color:inherit}
+th{
+  text-align:left; vertical-align:bottom; font-weight:600; font-size:10px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--crema);
+  background:var(--tinta); padding:12px 14px; white-space:nowrap;
+}
+td{padding:13px 14px; border-bottom:1px solid var(--borde); vertical-align:top}
+tbody tr:nth-child(even) td{background:rgba(76,112,139,.055)}
+td.nom{font-weight:600; min-width:120px}
+td.nom small{display:block; font-weight:400; font-size:12.5px; color:var(--texto-2); margin-top:2px}
+td.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:500}
+th.num{text-align:right}
+td.tot, tr.tot td{font-weight:700; background:rgba(76,112,139,.12)!important; border-bottom:2px solid var(--acento)}
+.tabla-nota{font-size:13px; color:var(--texto-2); margin:10px 0 0; max-width:none}
+
+/* etiquetas de estado */
+.tag{
+  display:inline-block; font-weight:700; font-size:9.5px; letter-spacing:.13em;
+  text-transform:uppercase; padding:5px 10px; border-radius:3px; white-space:nowrap;
+  background:var(--pill-celeste); color:#fff;
+}
+.tag.f1{background:var(--pill-verde); color:var(--crema)}
+.tag.f2{background:var(--pill-celeste)}
+.tag.ok{background:var(--pill-ok); color:#fff}
+.tag.rev{background:transparent; color:var(--espera); border:1px solid var(--espera)}
+.tag.blq{background:var(--pill-alerta); color:#fff}
+.tag.alto{background:var(--pill-espera); color:#fff}
+.tag.med{background:transparent; color:var(--texto-2); border:1px solid var(--borde)}
+
+/* ---------------- bandas oscuras ---------------- */
+.banda{background:var(--banda); color:var(--banda-texto); padding:76px 0}
+.banda h2, .banda h3{color:var(--banda-texto)}
+.banda .eyebrow{color:var(--banda-acento)}
+.banda .regla{background:var(--banda-acento)}
+.banda .bajada{color:#D6DEE2}
+.banda .card{background:var(--banda-sup); border-color:var(--banda-borde); color:#D6DEE2}
+.banda .card h3{color:var(--banda-acento)}
+.banda .card strong{color:#fff}
+.banda ul.guion li::before{color:var(--banda-acento)}
+.banda ol.pastilla li::before{background:var(--banda-acento); color:var(--tinta)}
+.banda th{background:rgba(255,255,255,.09); color:var(--banda-acento)}
+.banda td{border-bottom-color:var(--banda-borde)}
+.banda tbody tr:nth-child(even) td{background:rgba(255,255,255,.035)}
+.banda td.nom small{color:var(--banda-texto-2)}
+.banda .cita{border-left-color:var(--banda-acento); color:#fff}
+.banda .nota{border-color:var(--banda-borde); border-left-color:var(--banda-acento)}
+.banda .nota h4{color:var(--banda-acento)}
+.banda .tabla-nota, .banda p.chico{color:var(--banda-texto-2)}
+.banda a{color:var(--banda-acento)}
+/* las pastillas de fondo transparente heredaban colores del tema claro y quedaban
+   casi invisibles sobre la banda */
+.banda .tag.med{color:var(--banda-texto-2); border-color:var(--banda-borde)}
+.banda .tag.rev{color:var(--banda-acento); border-color:var(--banda-acento)}
+.banda .chips li{background:transparent; border-color:var(--banda-borde); color:#D6DEE2}
+.banda .chips li.on{background:var(--banda-acento); border-color:var(--banda-acento); color:var(--tinta)}
+.banda .falta{color:var(--banda-acento); border-bottom-color:var(--banda-acento)}
+.banda .stat b{color:var(--banda-acento)}
+.banda .flujo span{background:rgba(255,255,255,.1); color:#fff}
+.banda .flujo span:nth-child(4n+3){background:var(--banda-acento); color:var(--tinta)}
+.banda .flujo i{color:var(--banda-texto-2)}
+.banda.verde{background:var(--verde); --banda-sup:#36453d; --banda-borde:#465448}
+
+/* ---------------- numeros grandes ---------------- */
+.stat{border-left:3px solid var(--acento); padding-left:18px}
+.stat b{display:block; font-weight:900; font-size:clamp(34px,5.4vw,48px); line-height:1;
+  letter-spacing:-.03em; color:var(--acento); font-variant-numeric:tabular-nums}
+.stat span{display:block; font-size:14px; color:var(--texto-2); margin-top:8px; max-width:34ch}
+.banda .stat span{color:var(--banda-texto-2)}
+
+.cifras{display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr)); gap:2px;
+  border:1px solid var(--borde); border-radius:4px; overflow:hidden; margin:6px 0 0}
+.cifras div{background:var(--superficie); padding:20px 18px}
+.cifras b{display:block; font-weight:900; font-size:clamp(24px,3.4vw,32px); line-height:1;
+  letter-spacing:-.025em; color:var(--acento); font-variant-numeric:tabular-nums}
+.cifras span{display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--texto-2); margin-top:9px; font-weight:500; line-height:1.45}
+.banda .cifras{border-color:var(--banda-borde)}
+.banda .cifras div{background:var(--banda-sup)}
+.banda .cifras b{color:var(--banda-acento)}
+.banda .cifras span{color:var(--banda-texto-2)}
+
+/* barras de reparto */
+.barras{margin:20px 0 0}
+.barra{display:grid; grid-template-columns:minmax(120px,168px) 1fr 52px; gap:14px;
+  align-items:center; margin-bottom:11px; font-size:14px}
+.barra .et{font-weight:600; line-height:1.28}
+.barra .pista{height:15px; border-radius:8px; background:var(--superficie);
+  border:1px solid var(--borde); overflow:hidden}
+.barra .pista i{display:block; height:100%; border-radius:8px; background:var(--acento)}
+.barra .pc{text-align:right; font-weight:700; font-variant-numeric:tabular-nums; color:var(--acento)}
+.banda .barra .pista{background:rgba(255,255,255,.07); border-color:var(--banda-borde)}
+.banda .barra .pista i{background:var(--banda-acento)}
+.banda .barra .pc{color:var(--banda-acento)}
+
+/* ---------------- fotos ---------------- */
+figure{margin:0}
+figcaption{font-size:12.5px; color:var(--texto-2); margin-top:9px; letter-spacing:.01em}
+.banda figcaption{color:var(--banda-texto-2)}
+.foto-banda{position:relative; height:clamp(230px,38vw,420px); overflow:hidden; background:var(--tinta)}
+.foto-banda img{width:100%; height:100%; object-fit:cover}
+.foto-banda .rotulo{
+  position:absolute; left:0; right:0; bottom:0; padding:44px 30px 26px;
+  background:linear-gradient(to top,rgba(20,30,36,.9),rgba(20,30,36,0));
+  color:#fff;
+}
+.foto-banda .rotulo em{
+  display:block; font-family:'Caveat',cursive; font-style:normal; font-weight:600;
+  font-size:clamp(22px,3.4vw,32px); color:var(--lima); line-height:1.2;
+}
+.foto-banda .rotulo span{
+  display:block; font-weight:600; font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+  color:#C9D3D8; margin-bottom:8px;
+}
+.foto-banda .rotulo .in{max-width:1140px; margin:0 auto}
+
+.parte{position:relative; height:clamp(300px,46vw,500px); overflow:hidden; background:var(--tinta)}
+.parte img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5}
+.parte .velo{position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,30,36,.9),rgba(20,30,36,.42))}
+.parte .cont{position:relative; height:100%; display:flex; flex-direction:column;
+  justify-content:center; max-width:1140px; margin:0 auto; padding:0 30px}
+.parte .num{font-family:'Caveat',cursive; font-weight:700; font-size:clamp(48px,8vw,86px);
+  color:var(--lima); line-height:.9; margin-bottom:6px}
+.parte h2{color:#fff; max-width:22ch}
+.parte p{color:#D6DEE2; max-width:46ch; margin:16px 0 0; font-size:16px}
+
+/* franjas del jardin: cuatro fotos, cuatro momentos */
+.franjas{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-top:8px}
+.franja{background:var(--banda-sup); border:1px solid var(--banda-borde); border-radius:4px; overflow:hidden}
+.franja img{width:100%; aspect-ratio:4/5; object-fit:cover}
+.franja .txt{padding:17px 19px 20px}
+.franja h3{font-size:17px; margin-bottom:6px; color:var(--banda-acento)}
+.franja p{font-size:14px; margin:0; color:#D6DEE2; max-width:none}
+
+/* tarjetas de audiencia con retrato */
+.audi{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:18px}
+.audi article{background:var(--superficie); border:1px solid var(--borde); border-radius:4px;
+  overflow:hidden; display:flex; flex-direction:column}
+.audi img{width:100%; aspect-ratio:3/2.5; object-fit:cover}
+.audi .txt{padding:19px 21px 22px; flex:1}
+.audi .rol{font-weight:700; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--acento); margin-bottom:7px}
+.audi h3{font-size:18px; margin-bottom:7px}
+.audi p{font-size:14px; margin:0 0 .75em; max-width:none}
+.audi p:last-child{margin-bottom:0}
+
+/* par foto + texto */
+.par{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:26px; align-items:center}
+.par img{border-radius:4px; width:100%}
+.par.alto img{aspect-ratio:4/5; object-fit:cover}
+
+/* ---------------- indice lateral ---------------- */
+.indice{
+  position:fixed; left:0; top:0; bottom:0; width:216px; overflow-y:auto; z-index:40;
+  padding:34px 16px 40px 24px; border-right:1px solid var(--borde);
+  background:var(--fondo); display:none;
+}
+.indice .tit{font-weight:900; font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--texto); margin-bottom:18px}
+.indice a{display:block; text-decoration:none; color:var(--texto-2); font-size:12.5px;
+  padding:5px 0 5px 11px; border-left:2px solid transparent; line-height:1.35}
+.indice a:hover{color:var(--texto)}
+.indice a.on{color:var(--acento); border-left-color:var(--acento); font-weight:600}
+.indice .gr{font-weight:700; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--acento); margin:20px 0 7px; padding-left:11px}
+@media (min-width:1320px){
+  .indice{display:block}
+  body{padding-left:216px}
+  .parte .cont, .foto-banda .rotulo .in{padding-left:30px}
+}
+
+/* ---------------- cierre ---------------- */
+.cierre{background:var(--banda); color:var(--banda-texto); padding:88px 0 66px}
+.cierre .eyebrow{color:var(--banda-acento)}
+.cierre h2{color:#fff; font-size:clamp(30px,5.4vw,52px)}
+.cierre p{color:#C9D3D8; max-width:54ch; margin-top:20px}
+.cierre .pie{display:flex; flex-wrap:wrap; gap:14px 40px; justify-content:space-between;
+  border-top:1px solid var(--banda-borde); margin-top:44px; padding-top:22px; font-size:13px;
+  color:var(--banda-texto-2)}
+.cierre .pie b{display:block; font-weight:600; color:#fff}
+.cierre .pie .der{text-align:right; letter-spacing:.16em; text-transform:uppercase;
+  font-size:10.5px; line-height:1.9}
+
+p.chico{font-size:13.5px; color:var(--texto-2)}
+.mt0{margin-top:0} .mb0{margin-bottom:0}
+.mt24{margin-top:24px} .mt34{margin-top:34px} .mt44{margin-top:44px}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:48px 0}
+  .banda{padding:56px 0}
+  .wrap,.wrap-ancho{padding:0 20px}
+  .cita{padding-left:18px}
+}
+
+/* ---------------- impresion ---------------- */
+@media print{
+  :root{
+    --fondo:#fff; --superficie:#FBF9F3; --borde:#DAD3C4; --texto:#22303a;
+    --texto-2:#5C686F; --acento:#4C708B;
+    --ok:#3E6B4A; --espera:#8A5A1C; --alerta:#94452F;
+  }
+  .indice{display:none}
+  body{padding-left:0; font-size:10pt; background:#fff}
+  @page{size:A4; margin:14mm 13mm}
+  section{padding:22px 0}
+  .banda{padding:26px 0; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .portada{min-height:auto; height:250mm}
+  h2{font-size:22pt} h3{font-size:13pt} .bajada{font-size:11pt}
+  .card,.nota,table,.stat,figure,.franja,.audi article,.cifras,.parte{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  /* en papel nada se desplaza: toda tabla entra completa */
+  .tabla-wrap{overflow:visible}
+  .tabla-wrap.panel table{min-width:0}
+  .aviso-scroll{display:none}
+  table{font-size:8.2pt}
+  table.densa{font-size:7.6pt}
+  th,td{padding:6px 7px}
+  table.densa td, table.densa th{padding:5px 6px}
+  .wrap-datos{max-width:none; padding:0}
+  .foto-banda{height:70mm} .parte{height:110mm}
+  a{color:var(--texto); text-decoration:none}
+}
+</style>
+
+<!-- ======================= INDICE ======================= -->
+<nav class="indice" aria-label="Secciones del documento">
+  <div class="tit">Ventura&nbsp;360</div>
+  <a href="#s00">00 · Cómo está armado</a>
+  <div class="gr">Dónde estamos</div>
+  <a href="#s01">01 · El punto de partida</a>
+  <a href="#s02">02 · Mercado: Wynwood</a>
+  <a href="#s02b">02B · Estacionalidad</a>
+  <a href="#s03">03 · Competencia</a>
+  <a href="#s03b">03B · El espacio vacante</a>
+  <a href="#s04">04 · Audiencia</a>
+  <div class="gr">Qué construimos</div>
+  <a href="#s05">05 · Posicionamiento</a>
+  <a href="#s05b">05B · Arquitectura de marca</a>
+  <a href="#s05c">05C · El activo diferencial</a>
+  <a href="#s06">06 · La decisión de foco</a>
+  <div class="gr">Cómo se ejecuta</div>
+  <a href="#s07">07 · Línea de base</a>
+  <a href="#s08">08 · Adquisición</a>
+  <a href="#smp">08E · Plan de medios</a>
+  <a href="#s09">09 · UGC e influencers</a>
+  <a href="#s10">10 · Eventos</a>
+  <a href="#s11">11 · Estrategia de barrio</a>
+  <a href="#s11b">11B · Economía de beneficios</a>
+  <a href="#s12">12 · Growth loop</a>
+  <a href="#s13">13 · Roadmap</a>
+  <a href="#s14">14 · Cómo medimos</a>
+  <a href="#s15">15 · Supuestos y riesgos</a>
+  <a href="#s16">16 · Cómo arrancamos</a>
+</nav>
+
+<!-- ======================= PORTADA ======================= -->
+<div class="portada">
+  <img src="img/garden-mesas.jpg" alt="El jardín de Ventura Wynwood al atardecer, con gente en las mesas">
+  <div class="velo"></div>
+  <div class="cont"><div class="wrap-ancho">
+    <div class="marca"><b>Ventura Wynwood</b> <span>× Popcorn</span></div>
+    <h1>Estrategia<br><b>integral 360°</b></h1>
+    <div class="frase">"You're in Wynwood. Come inside."</div>
+    <p class="sub">Un plan de marca, adquisición y comunidad para convertir a Ventura en el
+      punto de encuentro cotidiano de Wynwood — no un restaurante más en un barrio con mucha
+      oferta, sino el lugar al que el barrio vuelve.</p>
+    <div class="pie">
+      <div><b>33 NW 28th St, Miami, FL 33127</b>Planta baja de i5 Wynwood</div>
+      <div class="der">Documento preparado para el cliente<br>Agosto 2026</div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ======================= 00 · COMO ESTA ARMADO ======================= -->
+<section id="s00"><div class="wrap">
+  <p class="eyebrow">00 · Cómo está armado este documento</p>
+  <h2>Territorio,<br><b>foco y plan</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Ventura no necesita una campaña: necesita ganarse un lugar en un barrio que
+    ya tiene identidad propia. Este documento responde tres preguntas, en ese orden.</p>
+
+  <div class="grid g2 mt34">
+    <div class="card tope">
+      <h3>Dónde estamos</h3>
+      <p class="mb0">Mercado, estacionalidad, competencia y audiencias. Qué ocasión está libre y
+        cuál hay que disputar. <em>Secciones 01 a 04.</em></p>
+    </div>
+    <div class="card tope-verde">
+      <h3>Qué construimos</h3>
+      <p class="mb0">Posicionamiento, arquitectura de marca, el activo diferencial y la puerta de
+        entrada al barrio. <em>Secciones 05 y 06.</em></p>
+    </div>
+    <div class="card tope-lima">
+      <h3>Cómo se ejecuta</h3>
+      <p class="mb0">Medición, adquisición, comunidad, roadmap por fases, inversión y KPIs con
+        meta. <em>Secciones 07 a 16, más el plan de medios completo.</em></p>
+    </div>
+  </div>
+
+  <p class="mt34">La tercera parte es la que suele quedar afuera de un documento de estrategia, y
+    es la que decide si el resto pasa de la intención a la práctica: un plan sin foco ni medición
+    termina ejecutándose por lo que es más fácil de hacer, no por lo que más mueve el negocio.</p>
+
+  <div class="nota">
+    <h4>Sobre los campos en blanco</h4>
+    <p>Los espacios marcados en <span class="falta">punteado</span> son datos que todavía no
+      tenemos y que necesitamos del equipo de Ventura para cerrar el plan. Preferimos dejarlos
+      visibles antes que estimarlos: un plan con números inventados es peor que uno honesto sobre
+      lo que falta.</p>
+  </div>
+</div></section>
+
+<!-- ======================= PARTE 1 ======================= -->
+<div class="parte">
+  <img src="img/barrio-walls.jpg" alt="Wynwood Walls, con gente recorriendo los murales">
+  <div class="velo"></div>
+  <div class="cont">
+    <div class="num">01—04</div>
+    <h2><b>Dónde estamos</b></h2>
+    <p>Mercado, estacionalidad, competencia y audiencias. Qué ocasión está libre y cuál hay que
+      disputar.</p>
+  </div>
+</div>
+
+<!-- ======================= 01 ======================= -->
+<section id="s01"><div class="wrap">
+  <p class="eyebrow">01 · El punto de partida</p>
+  <h2>Más que un restaurante:<br><b>un punto de encuentro</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Ventura es una marca nueva dentro de un ecosistema muy competitivo. Por eso no
+    vamos a posicionarlo simplemente como "un restaurante": queremos que cada persona que entre se
+    sienta bienvenida, relajada y parte de una comunidad, descubriendo un lugar al que quiera
+    volver una y otra vez.</p>
+
+  <div class="par mt34">
+    <div>
+      <h4>Ubicación</h4>
+      <p>Ventura está en <strong>33 NW 28th St</strong>, en planta baja de
+        <strong>i5 Wynwood</strong>. La propuesta combina:</p>
+      <ul class="chips" style="margin-bottom:0">
+        <li class="on">Breakfast / brunch</li>
+        <li>Specialty matchas y coffee</li>
+        <li>Bakery artesanal</li>
+        <li class="oscuro">Lunch y cenas</li>
+        <li>Cocina fusión de raíces latinas</li>
+        <li>Cocktails de autor</li>
+        <li>Eventos privados y corporativos</li>
+        <li class="oscuro">Música / DJ</li>
+        <li>Take away / delivery</li>
+      </ul>
+    </div>
+    <figure>
+      <img src="img/techo.jpg" alt="El salón de Ventura lleno, con plantas colgantes y luz natural">
+      <figcaption>El salón de Ventura, en la planta baja de i5 Wynwood.</figcaption>
+    </figure>
+  </div>
+
+  <p class="mt34">Ventura no está en un barrio cualquiera. Está en una de las zonas de Miami donde
+    convergen arte + turismo + gastronomía + residentes + oficinas + nightlife.</p>
+
+  <blockquote class="cita larga">Por eso la pregunta no es: "¿Cómo conseguimos más gente para el
+    restaurante?" Sino: "¿Cómo hacemos que Ventura se convierta en parte del ecosistema cotidiano
+    de Wynwood?"</blockquote>
+
+  <div class="nota">
+    <h4>Nueve propuestas, una puerta de entrada</h4>
+    <p>Esa lista es la carta completa de posibilidades del negocio, no el plan de comunicación. En
+      la sección 06 definimos cuál de esos momentos abre la conversación con el barrio y cuáles se
+      incorporan después, apalancados en el primero.</p>
+  </div>
+</div></section>
+
+<!-- ======================= 02 ======================= -->
+<div class="banda" id="s02"><div class="wrap">
+  <p class="eyebrow">02 · Mercado: Wynwood</p>
+  <h2>Wynwood ya no es<br><b>solamente arte</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">La identidad histórica del barrio es el arte urbano, los murales y Wynwood
+    Walls. Pero hoy conviven:</p>
+
+  <ul class="chips">
+    <li class="on">Art</li><li class="on">Food</li><li>Nightlife</li><li>Residents</li>
+    <li>Offices</li><li>Tourism</li><li>Lifestyle</li>
+  </ul>
+
+  <p>La oferta gastronómica es enorme: Eater tiene actualmente una selección de 15 restaurantes
+    destacados de Wynwood, y otras guías relevan todavía más propuestas. Además, el mercado de
+    oficinas está creciendo: Wynwood se consolidó como un submercado de oficinas real, atrayendo
+    empresas que antes hubieran elegido Brickell o Coral Gables.</p>
+
+  <div class="grid g2 mt34">
+    <div class="card"><div class="stat">
+      <b>15+</b><span>Restaurantes destacados de Wynwood en la selección actual de Eater.</span>
+    </div></div>
+    <div class="card"><div class="stat">
+      <b>217</b><span>Habitaciones en i5 Wynwood, con coworking, rooftop pool y gimnasio — a un
+        piso de Ventura.</span>
+    </div></div>
+  </div>
+
+  <blockquote class="cita larga">Wynwood como destino <em>vs.</em> Wynwood como barrio. Y la
+    estrategia va a apuntar a ambos.</blockquote>
+</div></div>
+
+<div class="foto-banda">
+  <img src="img/barrio-messi.jpg" alt="Mural de Messi en la calle 28, a metros de Ventura">
+  <div class="rotulo"><div class="in">
+    <span>La 28, a la salida del local</span>
+    <em>Comés acá, salís y ya estás en el mural.</em>
+  </div></div>
+</div>
+
+<!-- ======================= 02B ======================= -->
+<section id="s02b"><div class="wrap">
+  <p class="eyebrow">02B · Estacionalidad</p>
+  <h2>Miami no es un mercado<br><b>de doce meses iguales</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Un restaurante en Wynwood vive un año con picos y valles muy marcados. El
+    calendario de contenido, eventos e inversión tiene que armarse alrededor de esa curva, no en
+    paralelo a ella.</p>
+
+  <div class="tabla-wrap mt34"><table class="chica">
+    <thead><tr><th>Momento</th><th>Qué pasa en el barrio</th><th>Cómo lo jugamos</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="nom">Miami Art Week / Art Basel<small>Principios de diciembre</small></td>
+        <td>El pico del año en Wynwood. Tráfico internacional, prensa, marcas activando en el barrio.</td>
+        <td>Es el momento natural de <strong>Ventura Art Nights</strong>. Programación, alianzas con
+          galerías y capacidad reservada. Se prepara con 8–10 semanas de anticipación, no en noviembre.</td>
+      </tr>
+      <tr>
+        <td class="nom">Temporada alta<small>Noviembre – abril</small></td>
+        <td>Turismo y eventos corporativos en máximo. Mayor competencia por atención y por reserva.</td>
+        <td>Peso alto de la capa turista y del Business Club. Es cuando conviene concentrar la
+          inversión de adquisición.</td>
+      </tr>
+      <tr>
+        <td class="nom">Temporada baja<small>Junio – septiembre</small></td>
+        <td>Cae el turismo, queda el residente y el oficinista. Calor y lluvia afectan el consumo en jardín.</td>
+        <td>Es la temporada del <strong>vecino</strong>: Neighbors Card, i5, recurrencia, CRM. Menos
+          pauta de alcance, más retención.</td>
+      </tr>
+      <tr>
+        <td class="nom">Miami Spice<small>Agosto – septiembre</small></td>
+        <td>Programa gastronómico de ciudad con menús a precio fijo.</td>
+        <td><span class="falta">decisión</span> Evaluar participación. Da visibilidad y prueba, pero
+          comprime margen y atrae un público de precio. Decisión a tomar con el dato de ticket y margen.</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="nota">
+    <h4>A validar con el cliente</h4>
+    <p>Fechas exactas de Art Week y condiciones de Miami Spice del año en curso, y si Ventura ya
+      tiene compromisos o alianzas tomadas para esas ventanas.</p>
+  </div>
+</div></section>
+
+<!-- ======================= 03 ======================= -->
+<section id="s03" class="sinaire"><div class="wrap">
+  <p class="eyebrow">03 · Competencia</p>
+  <h2>Ganarse un lugar en<br><b>un barrio con historia</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Ventura tiene una desventaja frente a sus competidores: todavía no tiene
+    suficiente reconocimiento. Los competidores históricos llevan años acumulando reviews,
+    seguidores, UGC, menciones, artículos, búsquedas, recomendaciones y reputación.</p>
+  <p>Por lo tanto, el primer objetivo de Ventura no debería ser solamente ventas. Debe ser:</p>
+
+  <div class="flujo">
+    <span>Visibilidad</span><i>→</i><span>Prueba</span><i>→</i><span>Repetición</span><i>→</i><span>Recomendación</span>
+  </div>
+
+  <p>Dentro de esta competencia, el fuerte no solo está en lo gastronómico, sino en la
+    <strong>ocasión de consumo</strong>.</p>
+
+  <h3 class="mt34">Competencia de experiencia</h3>
+  <div class="grid g2">
+    <div class="card tope-verde">
+      <h3>KYU</h3>
+      <p>Wood-fired Asian. Uno de los grandes referentes del barrio: ambiente + marca fuerte.</p>
+      <p class="mb0"><em style="color:var(--acento)">"Quiero salir a comer a un lugar cool de Wynwood."</em></p>
+    </div>
+    <div class="card tope-verde">
+      <h3>Doya</h3>
+      <p>Modern Turkish, chef-driven, experiencia gastronómica.</p>
+      <p class="mb0"><em style="color:var(--acento)">"Quiero una experiencia gastronómica especial."</em></p>
+    </div>
+    <div class="card tope-verde">
+      <h3>Los Félix</h3>
+      <p>Modern Mexican, alta cocina de raíz latina.</p>
+      <p class="mb0"><em style="color:var(--acento)">"Quiero comida latina/mexicana pero elevada."</em></p>
+    </div>
+  </div>
+
+  <div class="grid g2 mt24">
+    <div class="card tope">
+      <h3>Competencia casual · Coyo Taco</h3>
+      <p>Más de una década de presencia en Wynwood. Prácticamente un clásico del barrio.</p>
+      <p class="mb0"><em style="color:var(--acento)">Casual + latino + social + precio + nightlife.</em></p>
+    </div>
+    <div class="card tope-lima">
+      <h3>Competencia breakfast / bakery</h3>
+      <p>Competimos indirectamente con Zak the Baker, Bachour, The Salty Donut, cafés y brunch
+        spots. Zak the Baker tiene un reconocimiento enorme como bakery del barrio.</p>
+      <p class="mb0"><em style="color:var(--acento)">No deberíamos intentar ser "la nueva bakery de
+        Wynwood". Tiene que ser mucho más que eso.</em></p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ======================= 03B ======================= -->
+<div class="banda verde" id="s03b"><div class="wrap">
+  <p class="eyebrow">03B · Dónde está el espacio vacante</p>
+  <h2>El territorio no está<br><b>vacío: hay que disputarlo</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Saber qué ocasión ocupa cada competidor no alcanza: hay que probar que la
+    nuestra está libre. Y no lo está del todo. <strong>Coyo Taco lleva más de diez años ocupando
+    "casual + latino + social + barrio"</strong>, que es muy cerca de donde queremos pararnos.</p>
+  <p>La diferencia que sí podemos sostener no es la comida ni el precio: es la <strong>amplitud
+    horaria y el jardín</strong>. Coyo es una ocasión (tarde-noche, social, rápido). Ventura puede
+    ser el único lugar del barrio que funciona a las 8 de la mañana, a la 1 del mediodía, a las 6
+    de la tarde y a las 10 de la noche, en el mismo espacio y con el mismo clima.</p>
+
+  <div class="tabla-wrap mt34"><table class="chica">
+    <thead><tr><th>Ocasión</th><th>Hoy la ocupa</th><th>Posición de Ventura</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Cena de ocasión especial</td><td>KYU · Doya · Los Félix</td>
+        <td>No competir de frente. Entrar más tarde y por experiencia, no por cocina de autor.</td></tr>
+      <tr><td class="nom">Salida casual latina de noche</td><td>Coyo Taco</td>
+        <td>Territorio disputado. Diferencial: jardín, cocktails de autor y música, no precio.</td></tr>
+      <tr><td class="nom">Bakery / dulce de referencia</td><td>Zak the Baker · Bachour · Salty Donut</td>
+        <td>No pelear la categoría. Usar la bakery como excusa de recurrencia, no como bandera.</td></tr>
+      <tr><td class="nom" style="color:var(--banda-acento)">Desayuno / brunch / café de barrio con espacio para quedarse</td>
+        <td>Fragmentado — sin un dueño claro de la ocasión</td>
+        <td><strong>Acá está la puerta de entrada.</strong> Alta frecuencia, competencia blanda y es
+          exactamente lo que necesitan i5 y las oficinas.</td></tr>
+      <tr><td class="nom">After office / happy hour de barrio</td><td>Fragmentado</td>
+        <td>Segunda ocasión a construir, apalancada en el Business Club.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="nota">
+    <h4>Falta un eje: el precio</h4>
+    <p>En gastronomía, el ticket promedio <em>es</em> posicionamiento. Necesitamos el ticket
+      promedio de Ventura por daypart <span class="falta">dato</span> y el de los competidores
+      directos para saber si estamos compitiendo con Coyo, con KYU o con nadie. Sin ese dato,
+      cualquier decisión de promoción es a ciegas.</p>
+  </div>
+</div></div>
+
+<!-- ======================= 04 ======================= -->
+<section id="s04"><div class="wrap">
+  <p class="eyebrow">04 · Audiencia</p>
+  <h2>Cinco formas de ser<br><b>parte de Ventura</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">No trabajamos una única audiencia: son cinco. Pero <strong>no pesan lo
+    mismo</strong>, y ordenarlas es una decisión estratégica en sí misma. Dos sostienen la
+    facturación, una da volumen, y dos son en realidad canales y tácticas que se apoyan sobre las
+    anteriores.</p>
+
+  <div class="tabla-wrap mt34"><table class="chica">
+    <thead><tr><th>Segmento</th><th>Rol en el negocio</th><th>Frecuencia esperada</th><th>Prioridad</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">The Wynwood Local</td>
+        <td>Núcleo de recurrencia. Es el que convierte a Ventura en hábito.</td>
+        <td>Alta · semanal</td><td><span class="tag">Núcleo</span></td></tr>
+      <tr><td class="nom">Office Crowd</td>
+        <td>Núcleo de ticket y previsibilidad: desayuno, lunch, after office, eventos corporativos.</td>
+        <td>Alta · diaria a semanal</td><td><span class="tag">Núcleo</span></td></tr>
+      <tr><td class="nom">Tourists</td>
+        <td>Volumen y reviews. LTV bajo, cero recurrencia, costo de adquisición permanente.</td>
+        <td>Única visita</td><td><span class="tag f1">Volumen</span></td></tr>
+      <tr><td class="nom">Creative Community</td>
+        <td>Más canal que segmento: genera contenido, credibilidad y pertenencia al barrio.</td>
+        <td>Media</td><td><span class="tag med">Canal</span></td></tr>
+      <tr><td class="nom">Pet Parents</td>
+        <td>Táctica de diferenciación y de ocupación de franjas flojas (domingo, media tarde).</td>
+        <td>Media</td><td><span class="tag med">Táctica</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <blockquote class="cita larga">Turistas dan volumen, pero el volumen no construye negocio si se
+    va y no vuelve. La rentabilidad de Ventura se juega en el vecino y en el oficinista: son los
+    únicos que pueden venir cincuenta veces por año.</blockquote>
+
+  <div class="audi mt34">
+    <article>
+      <img src="img/comiendo.jpg" alt="Una clienta almorzando en el salón de Ventura">
+      <div class="txt">
+        <div class="rol">25–40 · Núcleo</div>
+        <h3>The Wynwood Local</h3>
+        <p>Personas que viven o trabajan cerca, salen frecuentemente, buscan lugares nuevos,
+          consumen gastronomía, siguen influencers y valoran estética y experiencia.</p>
+        <p><em>Necesidad: "Quiero mi lugar."</em> No necesariamente el restaurante más famoso. El
+          lugar al que vuelvo.</p>
+        <p><strong>Mensaje: Your neighborhood spot.</strong></p>
+      </div>
+    </article>
+    <article>
+      <img src="img/office-laptop.jpg" alt="Una clienta trabajando con la notebook en una mesa de Ventura">
+      <div class="txt">
+        <div class="rol">25–45 · Núcleo</div>
+        <h3>Office Crowd</h3>
+        <p>Profesionales de tech, marketing, agencias, real estate, startups, finance, industrias
+          creativas y founders.</p>
+        <p><strong>Momentos:</strong> breakfast meeting · business lunch · coffee meeting · after
+          office · corporate events.</p>
+        <p><strong>Acción: Ventura Business Club.</strong></p>
+      </div>
+    </article>
+    <article>
+      <img src="img/barrio-welcome.jpg" alt="Turistas recorriendo los murales de Wynwood">
+      <div class="txt">
+        <div class="rol">Volumen</div>
+        <h3>Tourists</h3>
+        <p>Visitan Wynwood por Wynwood Walls, murales, shopping, nightlife y gastronomía.</p>
+        <p><strong>Mensaje: You're in Wynwood. Welcome.</strong></p>
+      </div>
+    </article>
+    <article>
+      <img src="img/evento-gente.jpg" alt="Gente en un evento en Ventura">
+      <div class="txt">
+        <div class="rol">Canal</div>
+        <h3>Creative Community</h3>
+        <p>Diseñadores, artistas, fotógrafos, músicos, influencers, creators, agencias,
+          arquitectos, fashion.</p>
+        <p>Relación emocional con el barrio. No hay que hablarles como consumidores: hay que
+          hablarles como <strong>comunidad</strong>.</p>
+      </div>
+    </article>
+    <article>
+      <img src="img/garden-plantas.jpg" alt="Mesas del jardín de Ventura entre plantas">
+      <div class="txt">
+        <div class="rol">Táctica</div>
+        <h3>Pet Parents</h3>
+        <p><strong>Ventura Dog Days.</strong> Dog-friendly brunch: "Coffee for humans, treats for
+          dogs".</p>
+        <p>Partnerships con pet shops, veterinarias, dog walkers, groomers, shelters y marcas de
+          alimento.</p>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+<!-- ======================= PARTE 2 ======================= -->
+<div class="parte">
+  <img src="img/garden-aerial.jpg" alt="Vista aérea del jardín de Ventura con sus sombrillas">
+  <div class="velo"></div>
+  <div class="cont">
+    <div class="num">05—06</div>
+    <h2><b>Qué construimos</b></h2>
+    <p>Posicionamiento, arquitectura de marca, el activo diferencial y la puerta de entrada al barrio.</p>
+  </div>
+</div>
+
+<!-- ======================= 05 ======================= -->
+<div class="banda verde" id="s05"><div class="wrap">
+  <p class="eyebrow">05 · Posicionamiento a construir</p>
+  <h2>"You're in Wynwood.<br><b>Come inside."</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Ventura no es un restaurante nuevo que necesita publicidad. Es una marca nueva
+    que se tiene que ganar un lugar en un barrio que ya tiene una identidad muy fuerte. La
+    estrategia se construye desde el concepto de <strong style="color:var(--banda-acento)">VECINOS</strong>:
+    cercanía, ganas de formar parte, comunidad — club y cards específicos, abrir todo el día,
+    convocar artistas locales, invitar a los vecinos, a los oficinistas y a sus mascotas.</p>
+
+  <blockquote class="cita larga">Acá está nuestra oportunidad: no competir por ser el mejor
+    restaurante ni la mejor bakery — no porque no lleguemos a hacerlo, sino porque podemos
+    apropiarnos de algo transversal: ser el lugar donde el barrio se encuentra.</blockquote>
+</div></div>
+
+<!-- ======================= 05B ======================= -->
+<section id="s05b"><div class="wrap-ancho">
+  <p class="eyebrow">05B · Arquitectura de marca</p>
+  <h2>Tres capas que no<br><b>compiten entre sí</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Hay una tensión a resolver antes de bajar a piezas. <strong>"You're in Wynwood.
+    Come inside."</strong> es una línea de bienvenida a alguien que acaba de llegar al barrio: le
+    habla al turista. El concepto <strong>"vecinos"</strong> le habla a quien ya vive ahí y no
+    necesita que le digan dónde está. Son dos territorios distintos conviviendo sin jerarquía.</p>
+  <p>La salida no es elegir uno y descartar el otro, sino ordenarlos en capas. Y sumar una tercera:
+    el descriptor funcional, que parece demasiado literal para ser un concepto de marca pero cumple
+    una función que ninguna de las otras dos puede cubrir.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th>Capa</th><th>Qué es</th><th>Para qué sirve</th><th>Dónde vive</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Descriptor funcional<small><em>Latin &amp; Urban Eatery</em></small></td>
+        <td>Qué es Ventura en términos de categoría.</td>
+        <td>Que Google, Maps, las guías y quien nunca escuchó la marca <strong>entiendan qué
+          es</strong>. Es descubrimiento puro.</td>
+        <td>Google Business Profile · web · Maps · guías · delivery apps</td></tr>
+      <tr><td class="nom">Concepto paraguas<small><em>Vecinos</em></small></td>
+        <td>Cómo se comporta la marca.</td>
+        <td>Rige decisiones: programación, beneficios, tono, partnerships, quién entra y cómo se lo trata.</td>
+        <td>Interno + toda la experiencia y el producto de comunidad</td></tr>
+      <tr><td class="nom">Bajadas por audiencia<small><em>Las líneas</em></small></td>
+        <td>Cómo se dice según a quién.</td>
+        <td>Que cada público escuche un mensaje que le hable a él.</td>
+        <td>Pauta, contenido, cartelería, CRM</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Las líneas, ordenadas</h3>
+  <div class="grid g2">
+    <div class="card tope-verde">
+      <h3>Turista</h3>
+      <p><em style="color:var(--acento)">"You're in Wynwood. Come inside."</em></p>
+      <p class="mb0">Funciona perfecto acá. Es una invitación a entrar a alguien que está pasando
+        por la puerta.</p>
+    </div>
+    <div class="card tope">
+      <h3>Vecino / local</h3>
+      <p><em style="color:var(--acento)">"Your neighborhood spot."</em></p>
+      <p class="mb0">Territorio a desarrollar. El vecino no necesita una bienvenida al barrio:
+        necesita que el lugar sea suyo.</p>
+    </div>
+    <div class="card tope-lima">
+      <h3>Oficina</h3>
+      <p><em>Línea a desarrollar</em> <span class="falta">taller</span></p>
+      <p class="mb0">Debe hablar de tiempo, previsibilidad y de "sacar la reunión de la oficina", no
+        de gastronomía.</p>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>Por qué el descriptor se queda</h4>
+    <p>Descartar "Latin &amp; Urban Eatery" por descriptivo tendría un costo concreto: es
+      exactamente lo que hace que alguien que busca "latin restaurant wynwood" o "brunch wynwood"
+      encuentre a Ventura. El descriptor y el concepto emocional no son competidores: uno resuelve
+      descubrimiento, el otro resuelve preferencia.</p>
+  </div>
+</div></section>
+
+<!-- ======================= 05C · EL JARDIN ======================= -->
+<div class="banda" id="s05c"><div class="wrap">
+  <p class="eyebrow">05C · El activo diferencial</p>
+  <h2>El jardín es el único activo<br><b>que nadie puede copiar</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Todo lo demás de la propuesta es replicable: un competidor puede sumar bakery,
+    matcha, cocktails de autor o una carta latina en un trimestre. <strong>El espacio no.</strong>
+    Por eso el jardín no puede ser un ítem más dentro de una lista de creatividades: es el centro
+    de la estrategia.</p>
+  <p>El jardín es lo que hace posible todo el resto de la estrategia: es lo que permite estar
+    abierto todo el día sin que se sienta el mismo lugar a las 8 AM que a las 8 PM, lo que sostiene
+    el dog-friendly, lo que hace viables los eventos, y lo que hace que alguien elija quedarse dos
+    horas con la notebook en lugar de llevarse el café.</p>
+
+  <div class="franjas mt34">
+    <div class="franja">
+      <img src="img/manana.jpg" alt="Croissant y cappuccino, la mañana en Ventura">
+      <div class="txt"><h3>Mañana</h3>
+        <p>Café, laptop, reunión temprana. El jardín como extensión del coworking de i5.</p></div>
+    </div>
+    <div class="franja">
+      <img src="img/garden-dia.jpg" alt="El jardín de Ventura al mediodía, con las mesas listas">
+      <div class="txt"><h3>Mediodía</h3>
+        <p>Lunch de oficina al aire libre. Sombra, tiempos cortos, previsibilidad.</p></div>
+    </div>
+    <div class="franja">
+      <img src="img/garden-noche.jpg" alt="El jardín de Ventura en la hora dorada, con gente">
+      <div class="txt"><h3>Tarde</h3>
+        <p>Happy hour, perros, sunset. El momento más fotografiable del día.</p></div>
+    </div>
+    <div class="franja">
+      <img src="img/noche-mesa.jpg" alt="Mesa de noche en Ventura, con la luz de la vela">
+      <div class="txt"><h3>Noche</h3>
+        <p>Música, cocktails, arte. La ocasión social sin salir del barrio.</p></div>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>Implicancia operativa</h4>
+    <p>Si el jardín es el héroe, hay decisiones de producto que dejan de ser detalle: sombra y
+      ventilación para el verano de Miami, plan B de lluvia, iluminación pensada para la foto de la
+      tarde, y una identidad fotográfica del espacio consistente en todas las piezas. Vale la pena
+      una <strong>producción de fotografía y video dedicada al jardín en las cuatro franjas
+      horarias</strong> antes de arrancar la pauta.</p>
+  </div>
+</div></div>
+
+<!-- ======================= 06 ======================= -->
+<section id="s06"><div class="wrap">
+  <p class="eyebrow">06 · La decisión de foco</p>
+  <h2>Por dónde entramos<br><b>al barrio</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Ventura tiene ocho momentos de consumo. Para una marca nueva, darles el mismo
+    peso dispersa presupuesto y confunde: nadie se hace conocido por ocho cosas a la vez.
+    Necesitamos una <strong>cabeza de playa</strong>.</p>
+
+  <h2 style="font-size:clamp(22px,3.2vw,30px); margin-top:26px">La propuesta: <b>desayuno · brunch · café</b></h2>
+
+  <div class="grid g2 mt24">
+    <div class="card tope">
+      <h3>Por qué esa</h3>
+      <ul class="guion">
+        <li>Es el daypart de <strong>mayor frecuencia posible</strong>: el hábito de café se
+          construye semanal, el de cena no.</li>
+        <li>Es el hábito <strong>más barato de construir</strong>: ticket bajo, riesgo bajo para el
+          cliente que prueba.</li>
+        <li>Es donde la <strong>competencia es más blanda</strong>: no hay un dueño claro de "café
+          de barrio donde te podés quedar".</li>
+        <li>Capitaliza directo el activo que ya tenemos: <strong>i5 y las oficinas de
+          Wynwood</strong>, que consumen justamente ahí.</li>
+        <li>Alimenta todo lo demás: quien desayuna diez veces prueba una cena. Al revés casi no pasa.</li>
+      </ul>
+    </div>
+    <div class="card tope-verde">
+      <h3>Qué NO significa</h3>
+      <ul class="guion">
+        <li>No significa cerrar de noche ni dejar de comunicar la cena.</li>
+        <li>No significa convertirse en "la nueva bakery de Wynwood" — la bakery es producto, no
+          posicionamiento.</li>
+        <li>Significa que <strong>la mayor parte de la inversión y del contenido de los primeros 90
+          días</strong> empuja esa ocasión, mientras el resto se sostiene orgánicamente.</li>
+      </ul>
+      <p class="mb0" style="margin-top:14px">La cena y el cocktail entran con fuerza en la fase 2,
+        apalancados sobre una base de gente que ya conoce el lugar.</p>
+    </div>
+  </div>
+
+  <blockquote class="cita">Una marca nueva no se hace conocida por todo lo que hace. Se hace
+    conocida por una cosa, y después le suma el resto.</blockquote>
+
+  <div class="nota">
+    <h4>Esta decisión se valida a los 45 días</h4>
+    <p>El primer mes y medio de pauta puede confirmar o corregir esta elección con evidencia propia
+      (ver sección 07). Mientras tanto, dos datos del negocio la definen antes: el mix de
+      facturación por daypart y la capacidad real de cocina en la mañana. Si la cena ya concentra la
+      mayoría del revenue, la cabeza de playa se revisa.</p>
+  </div>
+</div></section>
+
+<!-- ======================= PARTE 3 ======================= -->
+<div class="parte">
+  <img src="img/salon-dia.jpg" alt="El salón de Ventura durante el día, con clientes en las mesas">
+  <div class="velo"></div>
+  <div class="cont">
+    <div class="num">07—16</div>
+    <h2><b>Cómo se ejecuta</b></h2>
+    <p>Medición, adquisición, comunidad, roadmap por fases, inversión y KPIs con meta. Y el plan de
+      medios completo.</p>
+  </div>
+</div>
+
+<!-- ======================= 07 · LINEA DE BASE ======================= -->
+<div class="banda" id="s07"><div class="wrap-datos">
+  <p class="eyebrow">07 · Línea de base</p>
+  <h2>La foto del antes<br><b>se saca una sola vez</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">La pauta se activa esta semana. Antes de que prenda, hay algo que hacer y que
+    después no se puede recuperar: <strong>dejar registrado cómo está Ventura hoy.</strong></p>
+  <p>Una vez que la inversión empieza a correr, el estado previo desaparece. No hay forma de saber
+    después cuántas reseñas había, cuánta gente buscaba a Ventura por su nombre o cuántas reservas
+    entraban solas. Sin esa foto, dentro de tres meses vamos a poder decir cuánto invertimos, pero
+    no cuánto cambió el negocio.</p>
+
+  <h3 class="mt34">Lo que congelamos nosotros, y de dónde sale cada dato</h3>
+  <p class="chico" style="margin-bottom:18px">Nada de esta línea de base necesita Google Analytics:
+    Analytics mide el sitio web, y esto se mide en Google Business Profile, en el sistema de caja y
+    en las redes. Es importante saber de dónde sale cada número, porque uno de ellos hoy
+    <strong>no se puede medir</strong> y conviene decirlo antes de prometerlo.</p>
+
+  <div class="tabla-wrap panel"><table class="chica densa">
+    <thead><tr><th>Dato</th><th>De dónde sale</th><th>¿Se puede hoy?</th><th>Con qué precisión</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="nom">Reseñas y puntaje en Google</td>
+        <td>Google Business Profile — es público, se ve desde la ficha.</td>
+        <td><span class="tag ok">Sí</span></td>
+        <td>Exacta. Se registra cantidad de reseñas y rating con fecha.</td>
+      </tr>
+      <tr>
+        <td class="nom">Búsquedas de "Ventura Wynwood"</td>
+        <td>GBP → Rendimiento → <em>Búsquedas</em> (los términos con los que la gente llegó a la
+          ficha). Desde el 14 de agosto se suma como segunda fuente la campaña de Marca en Google
+          Ads: impresiones sobre el nombre exacto.</td>
+        <td><span class="tag alto">Sí, con reservas</span></td>
+        <td><strong>Directional, no exacta.</strong> GBP muestra los términos principales con
+          volúmenes agrupados y guarda solo los últimos 6 meses. Sirve para ver la tendencia — si el
+          barrio empezó a buscar la marca — no para dar un número al decimal.</td>
+      </tr>
+      <tr>
+        <td class="nom">Gente que pide cómo llegar o llama desde Google</td>
+        <td>GBP → Rendimiento: <em>solicitudes de indicaciones</em>, <em>llamadas</em> y <em>clics al
+          sitio</em>. Desde el 14 de agosto también entran como conversiones de acción local en
+          Google Ads.</td>
+        <td><span class="tag ok">Sí</span></td>
+        <td>Exacta y es el KPI más importante del plan. <strong>GBP guarda solo 6 meses</strong>: por
+          eso hay que capturar los 90 días previos ahora, antes de prender.</td>
+      </tr>
+      <tr>
+        <td class="nom">Covers por día y por franja horaria</td>
+        <td>Toast, el sistema de caja. Export retroactivo del 15/7 al 11/8.</td>
+        <td><span class="tag ok">Sí</span></td>
+        <td>Exacta, y es el único dato de <em>negocio</em> de toda la línea de base. Todo lo demás
+          mide intención; esto mide gente sentada.</td>
+      </tr>
+      <tr>
+        <td class="nom">Reservas por franja horaria</td>
+        <td>El back-office del canal de reserva — Toast u OpenTable, según cuál se confirme como
+          oficial.</td>
+        <td><span class="tag alto">Depende</span></td>
+        <td>Exacta una vez definido el canal. Hoy hay dos conviviendo y nadie confirmó cuál manda
+          (ver <a href="#smp-pendientes">Pendientes</a>).</td>
+      </tr>
+      <tr>
+        <td class="nom">Reservas <em>por origen</em></td>
+        <td>No hay fuente. Ninguna plataforma nos dice hoy si la reserva vino de Maps, de Instagram
+          o de alguien que ya conocía el lugar.</td>
+        <td><span class="tag blq">No</span></td>
+        <td><strong>Se saca de la línea de base.</strong> Se puede habilitar más adelante con tres
+          cosas: <em>Reserve with Google</em> (etiqueta el origen Maps), la pregunta en mesa
+          "¿cómo nos encontraste?" y códigos promocionales por canal — las tres ya están en
+          <a href="#smp-tracking">Tracking</a>.</td>
+      </tr>
+      <tr>
+        <td class="nom">Seguidores e interacción en redes</td>
+        <td>Instagram y Meta Business Suite.</td>
+        <td><span class="tag ok">Sí</span></td>
+        <td>Exacta. Se congela el número de seguidores y el alcance del último mes.</td>
+      </tr>
+      <tr>
+        <td class="nom">Visitas al sitio y origen del tráfico</td>
+        <td>Requiere GA4 instalado en el sitio.</td>
+        <td><span class="tag blq">No</span></td>
+        <td><strong>No entra en la línea de base.</strong> El sitio nuevo todavía no está publicado y
+          no hay analítica instalada. Ver la nota de abajo.</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="nota">
+    <h4>En resumen: cinco de los siete datos ya están medidos, dos cambian</h4>
+    <p>Los que están: <strong>reseñas, acciones en Maps, covers de Toast, reservas por franja y
+      redes.</strong> Solo hay que tomarlos y fecharlos antes de la activación. Búsquedas de marca
+      entra como tendencia, no como número exacto.</p>
+    <p class="mb0"><strong>Los dos que se corrigen</strong> son <em>reservas por origen</em> y
+      <em>visitas al sitio</em>: los dos dependen de instrumentación que hoy no existe, así que
+      salen del tablero inicial en lugar de quedar como un número que nadie va a poder llenar.</p>
+  </div>
+
+  <div class="grid g2 mt34">
+    <div class="card">
+      <h3>Lo que necesitamos de Ventura</h3>
+      <ol class="pastilla">
+        <li>Facturación y cantidad de cubiertos por franja: desayuno, mediodía, tarde y noche.</li>
+        <li>Ticket promedio de cada una de esas franjas.</li>
+        <li>Margen por tipo de producto, para poder diseñar los beneficios sin comerse la
+          rentabilidad.</li>
+        <li>Los contactos que ya tengan cargados hoy (mails y teléfonos).</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>La segunda línea de base: la digital</h3>
+      <p>La instalación de GA4 + Píxel + CAPI está prevista en el plan de medios como tarea del
+        lanzamiento (ver <a href="#smp-tracking">Tracking</a>) y depende de que el sitio se publique y
+        de tener acceso para instrumentarlo.</p>
+      <p class="mb0">Desde el día en que quede instalada empieza a correr una segunda foto del antes.
+        <strong>No se puede reconstruir hacia atrás</strong>: cuanto antes se instale, antes empieza a
+        acumular historial y audiencias de remarketing para las campañas de septiembre.</p>
+    </div>
+  </div>
+
+  <h3 class="mt44">Lo que vamos a poder responder a los 45 días</h3>
+  <p class="chico" style="margin-bottom:18px">La pauta no arranca solo para traer gente: arranca
+    también para responder preguntas que hoy contestamos por criterio.</p>
+  <div class="grid g2">
+    <div class="card"><p class="mb0"><strong>¿Qué momento del día convierte mejor?</strong> Confirma
+      o corrige la puerta de entrada de la sección 06.</p></div>
+    <div class="card"><p class="mb0"><strong>¿Cuánto cuesta traer a una persona?</strong> Por
+      campaña y por tipo de público.</p></div>
+    <div class="card"><p class="mb0"><strong>¿El vecino vuelve y el turista no?</strong> Es la
+      prueba de toda la estrategia de barrio.</p></div>
+    <div class="card"><p class="mb0"><strong>¿Rinde más Google o Meta?</strong> Define cómo
+      repartimos la inversión de ahí en adelante.</p></div>
+  </div>
+
+  <div class="nota">
+    <h4>Por qué corre esta semana</h4>
+    <p class="mb0">Es lo único de todo el plan con fecha de vencimiento. Todo lo demás se puede
+      hacer mejor más adelante; esto, no.</p>
+  </div>
+</div></div>
+
+<!-- ======================= 08 · ADQUISICION ======================= -->
+<section id="s08"><div class="wrap">
+  <p class="eyebrow">08 · Estrategia de adquisición</p>
+  <h2>El funnel <b>de Ventura</b></h2>
+  <div class="regla"></div>
+
+  <div class="flujo">
+    <span>Discovery</span><i>→</i><span>Visit</span><i>→</i><span>Conversión</span><i>→</i><span>Review</span><i>→</i><span>CRM</span><i>→</i><span>Return</span><i>→</i><span>Referral</span>
+  </div>
+
+  <h3 class="mt34" style="font-size:24px">8.1 · Meta Ads</h3>
+  <div class="grid g2">
+    <div class="card tope">
+      <h3>Campaña 1 · Awareness</h3>
+      <p><strong>Radio geográfico:</strong> Wynwood + Miami.</p>
+      <p class="mb0"><strong>Creatividades:</strong> jardín, people, bakery, brunch, cocktails,
+        arte, ambiente.</p>
+    </div>
+    <div class="card tope">
+      <h3>Campaña 2 · Food</h3>
+      <p class="mb0">Videos cortos: "3 things to order at Ventura" · "Your new Wynwood brunch spot"
+        · "POV: when you found your new favorite garden".</p>
+    </div>
+    <div class="card tope">
+      <h3>Campaña 3 · Local</h3>
+      <p class="mb0">Personas que viven o trabajan en un radio cercano. "Your neighborhood just got
+        a new spot."</p>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>Jerarquía entre las tres</h4>
+    <p class="mb0">Las tres corren, pero <strong>la campaña 3 (Local) es la principal</strong>
+      durante los primeros 90 días, con el mayor peso de inversión y una segmentación por radio
+      corto sobre Wynwood + Edgewater + Midtown. Awareness a Miami completo es caro y trae público
+      que no vuelve: entra en fase 2 y en temporada alta.</p>
+  </div>
+
+  <h3 class="mt44" style="font-size:24px">8.2 · Google</h3>
+  <p>Google es el canal de <strong>mayor intención de compra</strong> para un restaurante local —
+    alguien que busca "brunch wynwood" a las 10 AM está a diez minutos de sentarse en una mesa — y
+    además es la fuente de tres de los KPIs de este plan.</p>
+
+  <div class="grid g2">
+    <div class="card tope-verde">
+      <h3>Google Business Profile — prioridad 1</h3>
+      <ul class="guion">
+        <li>Ficha verificada, categorías primaria y secundarias correctas</li>
+        <li>Horarios reales por daypart y horarios especiales de feriados</li>
+        <li>Atributos: outdoor seating, dog-friendly, wifi, breakfast, reservations</li>
+        <li>Menú y productos cargados con foto y precio</li>
+        <li>Fotos nuevas semanales · el perfil con más fotos gana ranking local</li>
+        <li>Posts semanales (eventos, promos, novedades)</li>
+        <li>Q&amp;A sembrado con las preguntas reales que hace la gente</li>
+        <li>Respuesta al 100% de las reviews, en menos de 48 h</li>
+      </ul>
+    </div>
+    <div class="card tope-verde">
+      <h3>Search + Maps</h3>
+      <ul class="guion">
+        <li><strong>Campaña de marca:</strong> defensiva y barata. Que nadie compre "Ventura
+          Wynwood" antes que nosotros.</li>
+        <li><strong>Campaña genérica local:</strong> "brunch wynwood", "coffee wynwood", "latin
+          restaurant wynwood", "dog friendly restaurant miami", "outdoor dining wynwood".</li>
+        <li><strong>Local campaigns / Performance Max con foco en Maps:</strong> aparecer en el
+          momento en que alguien busca dónde comer estando cerca.</li>
+        <li><strong>SEO local en la web:</strong> páginas por ocasión (brunch, happy hour, eventos
+          privados), datos estructurados de restaurante y menú, horarios sincronizados.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>Sobre el plan de medios</h4>
+    <p class="mb0">El plan de Google y Meta ya está armado y se activa esta semana. Esta estructura
+      no lo reemplaza: sirve como chequeo de que no falte ninguna pieza antes de prender, y define
+      qué vamos a comparar entre Google y Meta para ajustar el reparto de inversión a los 45 días.
+      El plan completo — campañas, objetivos e inversión — está a continuación.</p>
+  </div>
+
+  <h3 class="mt44" style="font-size:24px">8.3 · Delivery y take away</h3>
+  <p>El take away y el delivery están dentro de la propuesta del negocio, pero necesitan plan
+    propio. Las apps no son solo un canal de venta: son un canal de <strong>descubrimiento y de
+    reputación</strong> con su propio ranking, sus propias fotos y sus propias reviews. Hace falta
+    definir: en qué apps estamos, con qué carta acotada, con qué margen real después de comisión, y
+    si empujamos pedido directo desde la web para no ceder el cliente ni el dato.</p>
+</div></section>
+
+<div class="banda"><div class="wrap">
+  <p class="eyebrow">8.4 · Review engine</p>
+  <p class="bajada">Objetivo: aumentar reviews de forma sistemática, integrada a la experiencia, sin
+    pedirlas de manera forzada. <strong style="color:var(--banda-acento)">QR en mesa</strong> y
+    <strong style="color:var(--banda-acento)">seguimiento por WhatsApp / email</strong> post-visita,
+    con la línea <em>"Loved your Ventura experience? Tell them all, out loud."</em></p>
+  <div class="nota" style="margin-top:26px">
+    <h4>Advertencia importante</h4>
+    <p>Las políticas de Google prohíben ofrecer incentivos a cambio de reviews y prohíben filtrar
+      quién deja reseña según su experiencia. Un QR que lleve a Google Review está perfecto; un QR
+      que ofrezca un descuento por dejarla puede costar la eliminación de las reseñas o la
+      suspensión de la ficha. El sistema se diseña <strong>sin incentivo material</strong>: el
+      pedido va en el momento de mayor satisfacción, no acompañado de un premio.</p>
+    <p class="mb0">QR único por destino: <strong>Google Review</strong> (prioridad absoluta) ·
+      Tripadvisor · OpenTable — <span class="falta">confirmar en cuáles está Ventura hoy</span>.</p>
+  </div>
+</div></div>
+
+<!-- ================================================================
+     08E · PLAN DE MEDIOS  ·  contenido integro del Media Plan 2026
+     ================================================================ -->
+<div class="parte">
+  <img src="img/garden-dia.jpg" alt="El jardín de Ventura al mediodía">
+  <div class="velo"></div>
+  <div class="cont">
+    <div class="num">08E</div>
+    <h2><b>Plan de medios</b></h2>
+    <p>USD 1.000/mes · Meta + Google · Arranque: viernes 14 de agosto de 2026. Campañas, objetivos
+      e inversión, completo.</p>
+  </div>
+</div>
+
+<!-- ---------- la tesis del plan ---------- -->
+<section id="smp"><div class="wrap">
+  <p class="eyebrow">Plan de medios · La tesis</p>
+  <h2>Comprar la franja<br><b>que está vacía</b></h2>
+  <div class="regla"></div>
+
+  <div class="grid g2 mt34">
+    <div class="card tope">
+      <h3>El hueco</h3>
+      <p class="mb0">Días fuertes: sábado y domingo. Flojos: martes a jueves. De todas formas hay
+        que reforzar toda la semana, tienen muy poca llegada aun los fines de semana.</p>
+    </div>
+    <div class="card tope">
+      <h3>La franja</h3>
+      <p class="mb0">El almuerzo tiene el ticket más alto de las tres ($33,57 contra $25,42 de cena
+        y $23,16 de desayuno). La franja más vacía es también la de mayor valor.</p>
+    </div>
+    <div class="card tope">
+      <h3>La apuesta</h3>
+      <p class="mb0">70% del presupuesto a martes-jueves, con Business Lunch y Happy Hour como
+        oferta. 30% a sostener el fin de semana. El reparto está verificado por fórmula.</p>
+    </div>
+    <div class="card tope">
+      <h3>El vehículo</h3>
+      <p class="mb0">Google Maps vía PMax con objetivos de tienda, y Meta con CTA 'Cómo llegar'. La
+        conducta que buscamos es que entren al local, no que reserven.</p>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>Lunes cerrado</h4>
+    <p class="mb0">Ninguna campaña entrega los lunes. El local está cerrado y la franja de días
+      flojos que se compra es <strong>martes a jueves</strong>.</p>
+  </div>
+
+  <h3 class="mt44">Resumen de inversión</h3>
+  <div class="cifras">
+    <div><b>$1.000</b><span>Presupuesto mensual</span></div>
+    <div><b>$721</b><span>A días flojos (mar–jue)</span></div>
+    <div><b>$279</b><span>A fin de semana</span></div>
+    <div><b>72,1%</b><span>% real a días flojos</span></div>
+    <div><b>74.638</b><span>Impresiones estimadas (mes)</span></div>
+    <div><b>1.270</b><span>Acciones locales estimadas (mes)</span></div>
+    <div><b>$0,74</b><span>Costo estimado por acción local</span></div>
+  </div>
+  <p class="tabla-nota">Agosto arranca con presupuesto prorrateado y solo 4 campañas. Ver
+    <a href="#smp-agosto">Agosto parcial</a>.</p>
+
+  <div class="nota">
+    <h4>Cómo leer los números de este plan</h4>
+    <ul class="guion" style="margin-bottom:0">
+      <li><strong>Input editable</strong> — dato que se puede cambiar y recalcula todo.</li>
+      <li><strong>Fórmula</strong> — se calcula, no se escribe.</li>
+      <li><strong>Estimación de benchmark</strong> — dato faltante cubierto con benchmark de
+        categoría, no con historial de esta cuenta.</li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- ---------- supuestos ---------- -->
+<div class="banda" id="smp-supuestos"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Supuestos del modelo</p>
+  <h2>De dónde sale<br><b>cada número</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Todo lo estimado se declara como estimado. Las columnas de benchmark son de
+    categoría, no historial de esta cuenta: se reemplazan con datos reales al cierre del primer mes.</p>
+
+  <h3 class="mt34">Globales</h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Parámetro</th><th class="num">Valor</th><th>Origen</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Presupuesto total mensual (USD)</td><td class="num">$1.000</td><td>Brief pregunta 36</td></tr>
+      <tr><td class="nom">Días del mes</td><td class="num">30</td><td>—</td></tr>
+      <tr><td class="nom">Objetivo: % del presupuesto a días flojos</td><td class="num">70,0%</td>
+        <td>Decisión acordada: 70/30 lun-jue vs. fin de semana</td></tr>
+      <tr><td class="nom">Capacidad máxima sentados</td><td class="num">74</td>
+        <td>Brief preguntas 19 y 32. Techo del fin de semana.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Por campaña</h3>
+  <div class="tabla-wrap panel"><table class="chica densa">
+    <thead><tr>
+      <th>Campaña</th><th class="num">% del presup.</th><th class="num">CPM est.</th>
+      <th class="num">Tasa de acción local</th><th class="num">% a días flojos</th><th>Base de la estimación</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="nom">Meta — Business Lunch (ES)</td><td class="num">16,5%</td><td class="num">$11,00</td>
+        <td class="num">1,50%</td><td class="num">100,0%</td><td>60% del público habla español. CPM local bajo.</td></tr>
+      <tr><td class="nom">Meta — Business Lunch (EN)</td><td class="num">11,0%</td><td class="num">$14,00</td>
+        <td class="num">1,30%</td><td class="num">100,0%</td><td>40% anglo. CPM más alto: audiencia menor y más disputada.</td></tr>
+      <tr><td class="nom">Meta — Happy Hour lun-jue</td><td class="num">8,5%</td><td class="num">$12,00</td>
+        <td class="num">1,40%</td><td class="num">100,0%</td><td>Franja 14:30-17:00, ángulo del jardín al aire libre.</td></tr>
+      <tr><td class="nom">Meta — Brunch fin de semana</td><td class="num">12,0%</td><td class="num">$13,00</td>
+        <td class="num">1,20%</td><td class="num">0,0%</td><td>Reforzar</td></tr>
+      <tr><td class="nom">Meta — Amplificación DJ / vivo</td><td class="num">6,0%</td><td class="num">$7,00</td>
+        <td class="num">0,80%</td><td class="num">0,0%</td><td>Objetivo Alcance, CPM barato. Pulsado alrededor del evento.</td></tr>
+      <tr><td class="nom">Google — PMax obj. de tienda</td><td class="num">25,0%</td><td class="num">$10,00</td>
+        <td class="num">1,80%</td><td class="num">70,0%</td><td>Inventario de Maps barato y de intención alta.</td></tr>
+      <tr><td class="nom">Google — Marca (Search exacta)</td><td class="num">6,0%</td><td class="num">$67,00</td>
+        <td class="num">15,00%</td><td class="num">60,0%</td><td>Quien busca el nombre ya decidió. Corre toda la semana.</td></tr>
+      <tr><td class="nom">Google — Intención de almuerzo</td><td class="num">9,0%</td><td class="num">$90,00</td>
+        <td class="num">8,00%</td><td class="num">100,0%</td><td>'lunch near me' al mediodía. Máxima intención de la cuenta.</td></tr>
+      <tr><td class="nom">Meta — Eventos privados</td><td class="num">6,0%</td><td class="num">$14,00</td>
+        <td class="num">0,18%</td><td class="num">100,0%</td><td>Formulario de leads. La tasa es de completado, no de clic.</td></tr>
+      <tr class="tot"><td class="nom">TOTAL</td><td class="num">100,0%</td>
+        <td colspan="4">OK — suma 100%</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota">'Acción local' = clic en Cómo llegar, llamada, clic al sitio o interacción en
+    la ficha de Maps. Es lo que las plataformas sí reportan.</p>
+  <p class="tabla-nota">Las columnas de benchmark no son historial de esta cuenta. Se reemplazan con
+    datos reales al cierre del primer mes.</p>
+  <p class="tabla-nota">Ticket promedio del brief, como referencia y sin uso en el modelo: desayuno
+    $23,16 · almuerzo $33,57 · cena $25,42.</p>
+</div></div>
+
+<!-- ---------- asignacion de presupuesto ---------- -->
+<section id="smp-asignacion"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Asignación de presupuesto</p>
+  <h2>Las nueve campañas,<br><b>con objetivo e inversión</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Las cifras estimadas salen de Supuestos. Ocho campañas de tráfico local, más
+    Eventos privados que se mide aparte porque su unidad es otra.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa fija">
+    <colgroup><col style="width:8%"><col style="width:11%"><col style="width:6%"><col style="width:13%"><col style="width:20%"><col style="width:7%"><col style="width:7%"><col style="width:6%"><col style="width:7%"><col style="width:8%"><col style="width:7%"></colgroup>
+    <thead><tr>
+      <th>Plataforma</th><th>Campaña</th><th>Idioma</th><th>Objetivo / optimización</th>
+      <th>Audiencia y franja horaria</th><th class="num">Budget mes</th><th class="num">Budget día</th>
+      <th class="num">CPM est.</th><th class="num">Impres. est.</th><th class="num">Acciones est.</th>
+      <th class="num">Costo x acción</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="nom">Meta</td><td class="nom">Business Lunch</td><td>ES</td>
+        <td>Tráfico en el negocio — CTA 'Cómo llegar'</td>
+        <td>Radio 4 km + capa de oficinas (Wynwood, Midtown, Design District, Brickell). 25-45,
+          hispanohablantes. mar-jue, 10:30-13:30.</td>
+        <td class="num">$165</td><td class="num">$5,50</td><td class="num">$11,00</td>
+        <td class="num">15.000</td><td class="num">225</td><td class="num">$0,73</td>
+      </tr>
+      <tr>
+        <td class="nom">Meta</td><td class="nom">Business Lunch</td><td>EN</td>
+        <td>Tráfico en el negocio — CTA 'Get Directions'</td>
+        <td>Mismo radio y franja, segmento angloparlante. Copy y creativo propios, no traducción
+          literal.</td>
+        <td class="num">$110</td><td class="num">$3,67</td><td class="num">$14,00</td>
+        <td class="num">7.857</td><td class="num">102</td><td class="num">$1,08</td>
+      </tr>
+      <tr>
+        <td class="nom">Meta</td><td class="nom">Happy Hour lun-jue</td><td>ES + EN</td>
+        <td>Tráfico en el negocio</td>
+        <td>Radio 4 km, 25-45. mar-jue, 14:30-17:00. Ángulo: el jardín al aire libre.</td>
+        <td class="num">$85</td><td class="num">$2,83</td><td class="num">$12,00</td>
+        <td class="num">7.083</td><td class="num">99</td><td class="num">$0,86</td>
+      </tr>
+      <tr>
+        <td class="nom">Meta</td><td class="nom">Brunch fin de semana</td><td>ES + EN</td>
+        <td>Tráfico en el negocio</td>
+        <td>Radio 6 km + turista ocasional en Wynwood. Vie-dom, 08:00-12:00.</td>
+        <td class="num">$120</td><td class="num">$4,00</td><td class="num">$13,00</td>
+        <td class="num">9.231</td><td class="num">111</td><td class="num">$1,08</td>
+      </tr>
+      <tr>
+        <td class="nom">Meta</td><td class="nom">Amplificación DJ / vivo</td><td>ES + EN</td>
+        <td>Alcance — pulsado</td>
+        <td>Radio 5 km. Se prende el jueves y corre hasta el domingo del evento. Presupuesto
+          concentrado, no distribuido.</td>
+        <td class="num">$60</td><td class="num">$2,00</td><td class="num">$7,00</td>
+        <td class="num">8.571</td><td class="num">69</td><td class="num">$0,88</td>
+      </tr>
+      <tr>
+        <td class="nom">Google</td><td class="nom">PMax objetivos de tienda</td><td>ES + EN</td>
+        <td>Máximo Rendimiento — acciones locales</td>
+        <td>Radio 15 km, 'Presencia' únicamente. Señales: comensales, oficinistas, gastronomía
+          latina. Programación con peso lun-jue.</td>
+        <td class="num">$250</td><td class="num">$8,33</td><td class="num">$10,00</td>
+        <td class="num">25.000</td><td class="num">450</td><td class="num">$0,56</td>
+      </tr>
+      <tr>
+        <td class="nom">Google</td><td class="nom">Marca (Search exacta)</td><td>ES + EN</td>
+        <td>Search — maximizar clics</td>
+        <td>Términos de marca. Defensa contra OpenTable, Yelp y agregadores. Corre toda la semana.</td>
+        <td class="num">$60</td><td class="num">$2,00</td><td class="num">$67,00</td>
+        <td class="num">896</td><td class="num">134</td><td class="num">$0,45</td>
+      </tr>
+      <tr>
+        <td class="nom">Google</td><td class="nom">Intención de almuerzo</td><td>ES + EN</td>
+        <td>Search — maximizar clics</td>
+        <td>Radio 5 km, 'Presencia'. 'lunch near me', 'business lunch wynwood', 'almuerzo cerca'.
+          Lun-vie 11:00-14:00.</td>
+        <td class="num">$90</td><td class="num">$3,00</td><td class="num">$90,00</td>
+        <td class="num">1.000</td><td class="num">80</td><td class="num">$1,13</td>
+      </tr>
+      <tr class="tot">
+        <td class="nom" colspan="5">TOTAL TRÁFICO LOCAL</td>
+        <td class="num">$940</td><td class="num">$31,33</td><td class="num">$12,59</td>
+        <td class="num">74.638</td><td class="num">1.270</td><td class="num">$0,74</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="nota">
+    <h4>Aparte — unidad distinta</h4>
+    <p class="mb0">Acá 'acciones' son <strong>leads de formulario</strong>, no acciones locales. No
+      se suman al total de arriba.</p>
+  </div>
+
+  <div class="tabla-wrap panel mt24"><table class="chica densa fija">
+    <colgroup><col style="width:8%"><col style="width:11%"><col style="width:6%"><col style="width:13%"><col style="width:20%"><col style="width:7%"><col style="width:7%"><col style="width:6%"><col style="width:7%"><col style="width:8%"><col style="width:7%"></colgroup>
+    <thead><tr>
+      <th>Plataforma</th><th>Campaña</th><th>Idioma</th><th>Objetivo / optimización</th>
+      <th>Audiencia y franja horaria</th><th class="num">Budget mes</th><th class="num">Budget día</th>
+      <th class="num">CPM est.</th><th class="num">Impres. est.</th><th class="num">Leads est.</th>
+      <th class="num">Costo x lead</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="nom">Meta</td><td class="nom">Eventos privados</td><td>ES + EN</td>
+        <td>Clientes potenciales (formulario)</td>
+        <td>Radio 8 km, 25-50. Intereses: organización de eventos, baby shower, RRHH, oficinas.
+          Lun-mié, que es cuando el local puede cerrarse al público.</td>
+        <td class="num">$60</td><td class="num">$2,00</td><td class="num">$14,00</td>
+        <td class="num">4.286</td><td class="num">7,7</td><td class="num">$7,78</td>
+      </tr>
+      <tr class="tot"><td class="nom" colspan="5">TOTAL PRESUPUESTO</td>
+        <td class="num">$1.000</td><td class="num">$33,33</td><td colspan="4"></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="grid g4 mt24">
+    <div class="card"><div class="stat"><b>$721</b><span>Presupuesto a días flojos (lun-jue)</span></div></div>
+    <div class="card"><div class="stat"><b>$279</b><span>Presupuesto a fin de semana</span></div></div>
+    <div class="card"><div class="stat"><b>72,1%</b><span>% real a días flojos</span></div></div>
+    <div class="card" style="display:flex; align-items:center">
+      <p class="mb0"><span class="tag ok">Contra el objetivo</span><br>
+        <strong style="display:inline-block; margin-top:9px">OK — dentro del objetivo</strong></p>
+    </div>
+  </div>
+
+  <h3 class="mt44">Dayparting</h3>
+  <ul class="chips">
+    <li class="oscuro">Mon Closed</li>
+    <li>Tue – Thu 10 AM – 7 PM</li>
+    <li>Fri – Sat 10 AM – 10 PM</li>
+    <li>Sunday 10 AM – 5 PM</li>
+  </ul>
+
+  <div class="nota">
+    <h4>Requisitos duros antes de prender</h4>
+    <ul class="guion" style="margin-bottom:0">
+      <li>PMax con objetivos de tienda exige Google Business Profile vinculado y verificado. El
+        brief confirma que la ficha existe.</li>
+      <li>Meta 'Tráfico en el negocio' exige las ubicaciones cargadas en Business Manager.</li>
+      <li>Activar exclusión de marca en PMax: sin eso canibaliza la campaña de Marca.</li>
+      <li>ES y EN van en campañas separadas, no en un mismo conjunto: los CPM son distintos y
+        mezclarlos deja al algoritmo comprando el más barato, no el que funciona.</li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- ---------- cronograma ---------- -->
+<div class="banda" id="smp-calendario"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Cronograma de lanzamiento</p>
+  <h2>Agosto 2026,<br><b>día por día</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Hoy es miércoles 12 de agosto. Launch parcial el viernes 14. El plan completo
+    arranca el 1 de septiembre.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th>Día</th><th>Fecha</th><th>Acción</th><th>Responsable</th><th>Bloquea el launch</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">MIÉ</td><td>12 ago — HOY</td>
+        <td>Pedir accesos admin: Meta BM, Google Ads, GBP. El brief confirma que están creados y con
+          medio de pago cargado.</td><td>Cliente</td><td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">MIÉ</td><td>12 ago — HOY</td>
+        <td>Exportar de Toast los covers del 15/7 al 11/8, por día y franja. ES LA LÍNEA BASE
+          RETROACTIVA: no hay que esperar 4 semanas, el dato ya existe.</td><td>Popcorn</td>
+        <td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">MIÉ</td><td>12 ago — HOY</td>
+        <td>Capturar GBP Insights de los últimos 90 días: indicaciones, llamadas, vistas.</td>
+        <td>Popcorn</td><td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">MIÉ</td><td>12 ago — HOY</td>
+        <td>WhatsApp a Marcelo: días y condiciones exactas del Business Lunch y del Happy Hour. Son
+          el eje del 70% del presupuesto.</td><td>Popcorn</td><td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">JUE</td><td>13 ago</td>
+        <td>Vincular GBP a Google Ads. Cargar ubicaciones en Meta Business Manager. Requisitos duros
+          de PMax y de Tráfico en el negocio.</td><td>Popcorn</td><td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">JUE</td><td>13 ago</td>
+        <td>Configurar conversiones de acción local en Google Ads: indicaciones, llamadas, clics al
+          sitio.</td><td>Popcorn</td><td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">JUE</td><td>13 ago</td>
+        <td>Armar PMax y Marca en borrador. Cargar negativas y extensiones.</td><td>Popcorn</td>
+        <td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">JUE</td><td>13 ago</td>
+        <td>Sacar frenos, frases reales y FAQs de las reseñas de Google. El brief dejó esas 3
+          preguntas sin responder.</td><td>Popcorn</td><td><span class="tag med">No</span></td></tr>
+      <tr><td class="nom">VIE</td><td>14 ago</td>
+        <td>Editar 3 piezas mínimas con material existente: Business Lunch ES, Business Lunch EN y
+          una de ubicación para PMax.</td><td>Popcorn</td><td><span class="tag blq">Sí</span></td></tr>
+      <tr><td class="nom">VIE</td><td>14 ago</td>
+        <td><strong>LAUNCH PARCIAL: prender PMax y Marca.</strong> Son evergreen y cada día antes es
+          un día antes fuera de aprendizaje.</td><td>Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">VIE</td><td>14 ago</td>
+        <td>Dejar Business Lunch ES y EN configuradas con segmentación horaria lun-jue. No entregan
+          el finde solas, sin intervención.</td><td>Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">SÁB</td><td>15-16 ago</td>
+        <td>Rodaje aprovechando el fin de semana lleno: local con gente, jardín, brunch, platos.
+          Graba la manager. Mejor material del mes y gratis.</td><td>Manager</td>
+        <td><span class="tag med">No</span></td></tr>
+      <tr><td class="nom">LUN</td><td>17 ago</td>
+        <td>Arranca sola la entrega de Business Lunch ES y EN. Primer día flojo con pauta activa.</td>
+        <td>—</td><td>—</td></tr>
+      <tr><td class="nom">LUN</td><td>17 ago</td>
+        <td>Instalar GA4 + Píxel + CAPI en paralelo. La Etapa 1 no los necesita, pero construyen las
+          audiencias de septiembre.</td><td>Popcorn / Dev</td><td><span class="tag med">No</span></td></tr>
+      <tr><td class="nom">MIÉ</td><td>19 ago</td>
+        <td>Chequeo técnico: entrega, rechazos, que las conversiones de acción local registren. Nada
+          de optimizar todavía.</td><td>Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">LUN</td><td>24 ago</td>
+        <td>Editar las piezas del rodaje. Preparar Happy Hour, Brunch y DJ para septiembre.</td>
+        <td>Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">LUN</td><td>24 ago</td>
+        <td>Armar con el cliente los 3 paquetes de eventos privados con precio, para poder pautar
+          eventos en septiembre.</td><td>Cliente / Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">JUE</td><td>27 ago</td>
+        <td>Primera poda: cortar creativos bajo el 50% del CTR promedio. Comparar ES vs. EN y
+          rebalancear.</td><td>Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">LUN</td><td>31 ago</td>
+        <td>CIERRE DE AGOSTO: covers de lun-jue del 17 al 31 contra la línea base retroactiva.
+          Recalibrar CPM y tasas con datos reales.</td><td>Popcorn</td><td>—</td></tr>
+      <tr><td class="nom">MAR</td><td>1 sep</td>
+        <td>Presupuesto completo de $1.000 y las 9 campañas. Entran Happy Hour, Brunch, DJ y Eventos
+          privados.</td><td>Popcorn</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="nota">
+    <h4>Dos advertencias del cronograma</h4>
+    <p>Lo marcado como <strong>bloqueante</strong> es todo del 12 y 13 de agosto: si los accesos no
+      llegan hoy o mañana, la fecha se corre.</p>
+    <p class="mb0">Agosto en Miami es temporada baja: locales de viaje, calor, sin Art Basel. Los
+      números van a ser peores que un mes normal. Avisarlo antes, no en el reporte de cierre.</p>
+  </div>
+</div></div>
+
+<!-- ---------- agosto parcial ---------- -->
+<section id="smp-agosto"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Agosto parcial</p>
+  <h2>17 días de pauta,<br><b>solo cuatro campañas</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Del 15 al 31 de agosto. Concentrar en vez de diluir.</p>
+
+  <h3 class="mt34">Parámetros del mes</h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Parámetro</th><th class="num">Valor</th><th>Nota</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Días de pauta en agosto (15 al 31)</td><td class="num">17</td><td>—</td></tr>
+      <tr><td class="nom">Días lun-jue dentro de esa ventana</td><td class="num">9</td>
+        <td>17, 18, 19, 20, 24, 25, 26, 27 y 31 de agosto</td></tr>
+      <tr><td class="nom">Presupuesto prorrateado</td><td class="num">$567</td>
+        <td>Alternativa: gastar los $1.000 completos en 17 días. No se recomienda: sobrecarga el
+          aprendizaje con audiencias chicas.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Reparto de agosto</h3>
+  <div class="tabla-wrap panel"><table class="chica densa">
+    <thead><tr><th>Campaña</th><th class="num">% en el plan full</th><th class="num">% reescalado</th>
+      <th class="num">Budget agosto</th><th class="num">Días de entrega</th><th class="num">Budget diario</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Google — PMax obj. de tienda</td><td class="num">25,0%</td><td class="num">42,7%</td>
+        <td class="num">$242</td><td class="num">17</td><td class="num">$14,25</td></tr>
+      <tr><td class="nom">Google — Marca (Search exacta)</td><td class="num">6,0%</td><td class="num">10,3%</td>
+        <td class="num">$58</td><td class="num">17</td><td class="num">$3,42</td></tr>
+      <tr><td class="nom">Meta — Business Lunch (ES)</td><td class="num">16,5%</td><td class="num">28,2%</td>
+        <td class="num">$160</td><td class="num">9</td><td class="num">$17,76</td></tr>
+      <tr><td class="nom">Meta — Business Lunch (EN)</td><td class="num">11,0%</td><td class="num">18,8%</td>
+        <td class="num">$107</td><td class="num">9</td><td class="num">$11,84</td></tr>
+      <tr class="tot"><td class="nom">TOTAL</td><td class="num">58,5%</td><td class="num">100,0%</td>
+        <td class="num">$567</td><td class="num"></td><td class="num"></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota"><strong>Ojo con la columna 'Días de entrega':</strong> Business Lunch solo
+    corre lun-jue, así que su budget diario se divide por 9, no por 17. Cargarlo mal deja la mitad
+    sin gastar.</p>
+
+  <div class="grid g2 mt24">
+    <div class="card"><div class="stat"><b>$471</b><span>Presupuesto a días flojos</span></div></div>
+    <div class="card"><div class="stat"><b>83,1%</b><span>% a días flojos en agosto</span></div></div>
+  </div>
+  <p class="tabla-nota">Sube por encima del 70% objetivo porque en agosto no se pauta el fin de
+    semana. Es deliberado: agosto es temporada baja y el finde igual se llena.</p>
+
+  <h3 class="mt44">Qué no corre en agosto y por qué</h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Campaña</th><th>Motivo</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Meta — Happy Hour</td><td>Entra el 1/9. En agosto se prioriza el almuerzo.</td></tr>
+      <tr><td class="nom">Meta — Brunch fin de semana</td>
+        <td>Entra el 1/9. El finde está cerca del tope de 74 asientos y agosto es temporada baja.</td></tr>
+      <tr><td class="nom">Meta — Amplificación DJ</td>
+        <td>Entra el 1/9, con el material del rodaje del 15-16 de agosto.</td></tr>
+      <tr><td class="nom">Meta — Eventos privados</td>
+        <td>Entra el 1/9, cuando existan los 3 paquetes con precio. Pautarlo antes genera consultas
+          que nadie puede cotizar.</td></tr>
+      <tr><td class="nom">Google — Intención de almuerzo</td>
+        <td>Entra el 1/9. En agosto PMax ya cubre la búsqueda local.</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<!-- ---------- creativos ---------- -->
+<div class="banda" id="smp-creativos"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Plan de creativos</p>
+  <h2>Ocho piezas,<br><b>bilingües de verdad</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">ES y EN son piezas distintas, no traducciones. El brief define el tono como
+    'elegante para el barrio, con más diversión'.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th class="num">#</th><th>Campaña</th><th>Idioma</th><th>Formato</th><th>Qué se ve</th>
+      <th>Copy principal</th><th>CTA</th><th>Cuándo</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="nom">Business Lunch</td><td>ES</td><td>Reel 9:16, 12s</td>
+        <td>Plato de almuerzo servido en el jardín, mesa de dos, ritmo rápido. Reloj marcando el mediodía.</td>
+        <td>"Tu hora de almuerzo, mejor gastada. Business Lunch de lunes a jueves en el jardín.
+          33 NW 28th St."</td><td>Cómo llegar</td><td><span class="tag f1">Agosto</span></td></tr>
+      <tr><td class="num">2</td><td class="nom">Business Lunch</td><td>EN</td><td>Reel 9:16, 12s</td>
+        <td>Mismo montaje, casting y locución en inglés. Ritmo un poco más seco.</td>
+        <td>"A lunch break worth leaving the desk for. Business Lunch, Monday to Thursday. One block
+          from the Walls."</td><td>Get Directions</td><td><span class="tag f1">Agosto</span></td></tr>
+      <tr><td class="num">3</td><td class="nom">Ubicación (para PMax)</td><td>ES + EN</td><td>Reel 9:16, 12s</td>
+        <td>Plano saliendo del local: el mural de Messi en la 28, el pink palm, los Walls a tres
+          cuadras. Cierra en la fachada.</td>
+        <td>"Comés acá, salís y ya estás en el mural. 33 NW 28th St, abajo del i5 Wynwood."</td>
+        <td>Cómo llegar</td><td><span class="tag f1">Agosto</span></td></tr>
+      <tr><td class="num">4</td><td class="nom">Happy Hour</td><td>ES + EN</td><td>Reel 9:16, 15s</td>
+        <td>Jardín al atardecer: sombrillas, mesas de mármol, lámparas doradas. Sangría y mimosa en
+          primer plano.</td>
+        <td>ES: 'El jardín, la sangría y el after de Wynwood. De 4 a 7.' EN: 'Golden hour in the
+          garden. 4 to 7, every weekday.'</td><td>Cómo llegar</td><td><span class="tag f2">Septiembre</span></td></tr>
+      <tr><td class="num">5</td><td class="nom">Brunch fin de semana</td><td>ES + EN</td><td>Reel 9:16, 12s</td>
+        <td>Mesa de brunch desde arriba: croissant con stracciatella, matcha, mimosas. Manos entrando
+          en cuadro.</td>
+        <td>ES: 'El brunch de Wynwood abre a las 8.' EN: 'Wynwood brunch, from 8 AM.' Sumar 'Domingos
+          con DJ' cuando aplique.</td><td>Cómo llegar</td><td><span class="tag f2">Septiembre</span></td></tr>
+      <tr><td class="num">6</td><td class="nom">Amplificación DJ</td><td>ES + EN</td><td>Reel 9:16, 10s</td>
+        <td>Clip del DJ del domingo, gente en el jardín, sonido ambiente real. Crudo, filmado con
+          celular por la manager.</td>
+        <td>"Domingo con DJ en el jardín, desde el mediodía."</td><td>Cómo llegar</td>
+        <td><span class="tag f2">Septiembre</span></td></tr>
+      <tr><td class="num">7</td><td class="nom">Eventos privados</td><td>ES + EN</td><td>Carrusel 4:5</td>
+        <td>Salón montado vacío, el baby shower publicado, la mesa larga. Un slide con la capacidad.</td>
+        <td>"Tu evento, el local entero para vos. Hasta 74 personas, de lunes a miércoles."</td>
+        <td>Más información</td><td><span class="tag f2">Septiembre</span></td></tr>
+      <tr><td class="num">8</td><td class="nom">Matcha / sello de marca</td><td>ES + EN</td><td>Reel 9:16, 10s</td>
+        <td>Dragonfruit Matcha: el pour de la leche sobre el matcha, macro, cámara lenta.</td>
+        <td>La Matcha Collection de Ventura. El brief la marca como bebida insignia a instalar.</td>
+        <td>Ver el menú</td><td><span class="tag f2">Septiembre</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt44">Producción</h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Ítem</th><th>Definición</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Quién graba</td>
+        <td>La manager graba el crudo del día a día (brief P28). Chef, manager y servers salen en
+          cámara (P29). Aprovecharlo: contenido con caras rinde más y sale gratis.</td></tr>
+      <tr><td class="nom">Rodaje del 15-16</td>
+        <td>Fin de semana lleno = el mejor material del mes. De ahí salen las piezas 4 a 8 para
+          septiembre.</td></tr>
+      <tr><td class="nom">Assets</td>
+        <td>El brief dejó en blanco la P27 (material existente). Pedir la carpeta antes de rodar:
+          puede que la mitad ya esté.</td></tr>
+      <tr><td class="nom">Manual de marca</td>
+        <td>Existe y lo armó Popcorn. Aplicarlo a placas y tipografías.</td></tr>
+      <tr><td class="nom">Tono</td>
+        <td>'Elegantes para el barrio, nos falta diversión.' En la práctica: estética cuidada, copy
+          más suelto. Sin emojis en Search, con emojis moderados en Meta.</td></tr>
+      <tr><td class="nom">Rotación</td>
+        <td>Refrescar cada 3 semanas o cuando la frecuencia supere 2,5. Con radios chicos la fatiga
+          llega rápido.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota">La dirección va SIEMPRE en el copy y sobreimpresa en el último frame. UTM por
+    pieza (utm_content = número de creativo).</p>
+</div></div>
+
+<!-- ---------- google: estructura ---------- -->
+<section id="smp-google"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Google</p>
+  <h2>Estructura de cuenta:<br><b>Search y PMax</b></h2>
+  <div class="regla"></div>
+
+  <h3 class="mt34">Campaña de marca <span style="font-weight:400; color:var(--texto-2)">— arranca 14 de agosto</span></h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Keyword</th><th>Concordancia</th><th class="num">CPC est.</th><th>Prioridad</th><th>Nota</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">ventura wynwood</td><td>Exacta</td><td class="num">$0,40</td><td>Alta</td><td>Núcleo</td></tr>
+      <tr><td class="nom">ventura restaurant wynwood</td><td>Exacta</td><td class="num">$0,45</td><td>Alta</td><td>Núcleo</td></tr>
+      <tr><td class="nom">ventura wynwood menu</td><td>Exacta</td><td class="num">$0,50</td><td>Alta</td><td>Alta intención de visita</td></tr>
+      <tr><td class="nom">ventura wynwood miami</td><td>Exacta</td><td class="num">$0,45</td><td>Alta</td><td>Núcleo</td></tr>
+      <tr><td class="nom">ventura i5 wynwood</td><td>Exacta</td><td class="num">$0,40</td><td>Media</td><td>Búsqueda por el edificio</td></tr>
+      <tr><td class="nom">ventura wynwood hours</td><td>Exacta</td><td class="num">$0,35</td><td>Media</td><td>Sumar extensión de ubicación</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Campaña de intención de almuerzo <span style="font-weight:400; color:var(--texto-2)">— arranca 1 de septiembre</span></h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Keyword</th><th>Concordancia</th><th class="num">CPC est.</th><th>Prioridad</th><th>Nota</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">lunch near me</td><td>Frase</td><td class="num">$1,40</td><td>Alta</td>
+        <td>Mayor volumen. Depende de la extensión de ubicación.</td></tr>
+      <tr><td class="nom">business lunch wynwood</td><td>Frase</td><td class="num">$1,10</td><td>Alta</td>
+        <td>Match exacto con la oferta del cliente</td></tr>
+      <tr><td class="nom">restaurants open now wynwood</td><td>Frase</td><td class="num">$1,30</td><td>Alta</td>
+        <td>Intención inmediata</td></tr>
+      <tr><td class="nom">almuerzo cerca de mi</td><td>Frase</td><td class="num">$0,90</td><td>Alta</td>
+        <td>60% del público es hispanohablante</td></tr>
+      <tr><td class="nom">donde almorzar en wynwood</td><td>Frase</td><td class="num">$0,95</td><td>Media</td>
+        <td>ES, intención de decisión</td></tr>
+      <tr><td class="nom">lunch specials miami</td><td>Frase</td><td class="num">$1,20</td><td>Media</td>
+        <td>Sensible a precio</td></tr>
+      <tr><td class="nom">happy hour wynwood</td><td>Frase</td><td class="num">$1,15</td><td>Media</td>
+        <td>Alimenta la franja 16-19</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Configuración de PMax</h3>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Parámetro</th><th>Definición</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Objetivo</td><td>Acciones locales: indicaciones, llamadas, clics al sitio.
+        NO usar 'Visitas a la tienda': no va a haber volumen para que Google la reporte.</td></tr>
+      <tr><td class="nom">Ubicación</td><td>Radio 15 km, 'Presencia' únicamente. Nunca 'presencia o
+        interés'.</td></tr>
+      <tr><td class="nom">Exclusión de marca</td><td><strong>ACTIVADA, obligatorio.</strong></td></tr>
+      <tr><td class="nom">Programación</td><td>Peso mar-jue. Excluir 00:00-06:00.</td></tr>
+      <tr><td class="nom">Expansión de URL final</td><td>Desactivada. Con un sitio chico diluye la señal.</td></tr>
+      <tr><td class="nom">Puja</td><td>Maximizar conversiones sin CPA objetivo los primeros 30 días.</td></tr>
+      <tr><td class="nom">Idiomas</td><td>Español e inglés en la configuración de la campaña.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Negativas</h3>
+  <ul class="chips">
+    <li>jobs</li><li>hiring</li><li>careers</li><li>empleo</li><li>salary</li><li>recipe</li>
+    <li>receta</li><li>franchise</li><li>for sale</li><li class="on">ventura california</li>
+    <li class="on">ventura county</li><li class="on">ventura blvd</li><li>ventura hotel</li>
+    <li>closed</li><li>cerrado</li><li>delivery only</li><li>catering equipment</li>
+    <li>food truck</li><li>opentable</li><li>yelp</li>
+  </ul>
+
+  <div class="nota">
+    <h4>Las tres negativas críticas</h4>
+    <p><strong>'ventura california', 'ventura county' y 'ventura blvd'</strong> son críticas: sin
+      ellas se paga tráfico de otro estado. Es la fuga más común en marcas con nombre geográfico.</p>
+    <p class="mb0"><strong>Extensiones obligatorias:</strong> ubicación, llamada, sitelinks (Menú /
+      Reservas / Private Events / Cómo llegar), destacados (Abierto 8 AM, Jardín al aire libre, Happy
+      Hour 4-7, Business Lunch).</p>
+  </div>
+</div></section>
+
+<!-- ---------- tracking ---------- -->
+<div class="banda" id="smp-tracking"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Tracking</p>
+  <h2>Todo se instala ahora,<br><b>aunque se use después</b></h2>
+  <div class="regla"></div>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th class="num">#</th><th>Ítem</th><th>Dónde</th><th>Para qué</th><th>Cuándo</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="nom">Línea base de covers POR DÍA Y FRANJA (15/7 al 11/8)</td>
+        <td>Toast — export retroactivo</td>
+        <td>Es la referencia contra la que se compara todo. El dato ya existe.</td><td>12 ago</td>
+        <td><span class="tag blq">Pendiente</span></td></tr>
+      <tr><td class="num">2</td><td class="nom">Baseline de Google Business Profile (90 días)</td>
+        <td>GBP Insights</td><td>Indicaciones, llamadas y vistas antes de pautar</td><td>12 ago</td>
+        <td><span class="tag blq">Pendiente</span></td></tr>
+      <tr><td class="num">3</td><td class="nom">GBP vinculado a Google Ads</td><td>Google Ads</td>
+        <td>Requisito obligatorio de PMax objetivos de tienda</td><td>13 ago</td>
+        <td><span class="tag alto">Pendiente</span></td></tr>
+      <tr><td class="num">4</td><td class="nom">Ubicaciones cargadas en Meta BM</td><td>Business Manager</td>
+        <td>Requisito de 'Tráfico en el negocio'</td><td>13 ago</td>
+        <td><span class="tag alto">Pendiente</span></td></tr>
+      <tr><td class="num">5</td><td class="nom">Conversiones de acción local</td><td>Google Ads</td>
+        <td>Indicaciones, llamadas y clics: lo que optimiza PMax</td><td>13 ago</td>
+        <td><span class="tag alto">Pendiente</span></td></tr>
+      <tr><td class="num">6</td><td class="nom">GA4 + Píxel + CAPI</td><td>Sitio (GTM)</td>
+        <td>Construye las audiencias de septiembre. Única casilla sin marcar del brief.</td>
+        <td>17 ago</td><td><span class="tag blq">Bloqueado</span></td></tr>
+      <tr><td class="num">7</td><td class="nom">Evento click_directions</td><td>GTM</td>
+        <td>Intención de visita desde el sitio</td><td>17 ago</td><td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">8</td><td class="nom">Evento click_tel</td><td>GTM</td>
+        <td>Llamadas desde mobile</td><td>17 ago</td><td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">9</td><td class="nom">Evento click_whatsapp</td><td>GTM</td>
+        <td>El brief lo marca como canal de reserva activo</td><td>17 ago</td>
+        <td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">10</td><td class="nom">Evento click_order_online (Toast)</td><td>GTM</td>
+        <td>Delivery y pickup</td><td>17 ago</td><td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">11</td><td class="nom">Formulario de eventos privados</td><td>Meta Lead Ads</td>
+        <td>Leads de eventos, con SLA de respuesta de 2 h</td><td>1 sep</td>
+        <td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">12</td><td class="nom">Reserve with Google</td><td>GBP</td>
+        <td>Reservas gratis desde Maps y Search, sin costo de medios</td><td>Cuando se pueda</td>
+        <td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">13</td><td class="nom">Pregunta en mesa: '¿cómo nos encontraste?'</td><td>Salón</td>
+        <td>Única forma de atribuir walk-ins</td><td>17 ago</td>
+        <td><span class="tag med">Pendiente</span></td></tr>
+      <tr><td class="num">14</td><td class="nom">Código promo por canal e idioma</td><td>Salón + anuncios</td>
+        <td>Atribución barata. Además compara ES vs. EN.</td><td>Opcional</td>
+        <td><span class="tag med">Opcional</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota">Las dos primeras filas son lo que permite comparar. Sin línea base, al cierre
+    de agosto solo hay métricas de plataforma y ninguna referencia.</p>
+
+  <div class="nota">
+    <h4>Los ítems 6 a 10 dependen del acceso al sitio</h4>
+    <p class="mb0">Toda la medición de tráfico y de eventos en la web está detrás del mismo bloqueo:
+      el acceso al sitio. Hasta que se resuelva, la lectura del plan se hace con métricas de
+      plataforma, Google Business Profile y covers de Toast — que es exactamente lo que la
+      <a href="#s07">línea de base de la sección 07</a> deja registrado.</p>
+  </div>
+</div></div>
+
+<!-- ---------- seguimiento ---------- -->
+<section id="smp-seguimiento"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Seguimiento</p>
+  <h2>La planilla semanal,<br><b>y qué se lee en ella</b></h2>
+  <div class="regla"></div>
+
+  <h3 class="mt34">Línea base — cargar antes de prender</h3>
+  <p class="chico">Export retroactivo de Toast.</p>
+  <div class="tabla-wrap"><table class="chica">
+    <thead><tr><th>Dato</th><th class="num">Valor</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Covers promedio por semana LUN-JUE, antes de pautar</td>
+        <td class="num"><span class="falta">dato</span></td></tr>
+      <tr><td class="nom">Covers promedio por semana VIE-DOM, antes de pautar</td>
+        <td class="num"><span class="falta">dato</span></td></tr>
+      <tr><td class="nom">Solicitudes de indicaciones en GBP por semana, antes</td>
+        <td class="num"><span class="falta">dato</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota">Separar lun-jue de vie-dom es lo que permite ver si el presupuesto fue al
+    hueco correcto.</p>
+
+  <h3 class="mt34">Qué se carga cada semana</h3>
+  <p class="chico" style="margin-bottom:20px">Una fila por semana y por campaña. Las cuatro primeras
+    columnas se copian de la plataforma, las tres del medio del sistema de caja y de Google Business
+    Profile, y las últimas cinco se calculan solas.</p>
+
+  <div class="grid g3">
+    <div class="card tope">
+      <h4>Se carga a mano</h4>
+      <ul class="guion" style="margin-bottom:0">
+        <li>Semana</li><li>Campaña</li><li>Gasto</li><li>Impresiones</li>
+        <li>Acciones locales</li>
+      </ul>
+    </div>
+    <div class="card tope-verde">
+      <h4>Del local y de Google</h4>
+      <ul class="guion" style="margin-bottom:0">
+        <li>Covers <strong>lun-jue</strong> — Toast</li>
+        <li>Covers <strong>vie-dom</strong> — Toast</li>
+        <li>Indicaciones GBP</li>
+      </ul>
+    </div>
+    <div class="card tope-lima">
+      <h4>Se calcula</h4>
+      <ul class="guion" style="margin-bottom:0">
+        <li>Costo por acción</li><li>CPM real</li>
+        <li><strong>Δ covers lun-jue</strong></li>
+        <li><strong>Δ indicaciones</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <h4 class="mt34">Cómo se ve una fila cargada</h4>
+  <div class="tabla-wrap panel"><table class="chica densa">
+    <thead><tr><th>Campaña</th><th class="num">Gasto</th><th class="num">Impresiones</th>
+      <th class="num">Acciones locales</th><th class="num">Costo x acción</th><th class="num">CPM real</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Meta — Business Lunch (ES)</td><td class="num">$38,00</td>
+        <td class="num">3.400</td><td class="num">51</td><td class="num">$0,75</td>
+        <td class="num">$11,18</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota">'Covers lun-jue' se carga una vez por semana desde Toast, para el total del
+    local. Cargalo en una sola fila por semana para no duplicar.</p>
+
+  <div class="nota">
+    <h4>Cómo se lee</h4>
+    <p>Las dos columnas de delta son la lectura de negocio. <strong>Si las acciones locales suben y
+      los covers no se mueven, el pauteo está comprando clics y no clientes.</strong></p>
+    <p class="mb0">No se calcula facturación ni ROI: no hay forma de atribuir un cubierto a un clic
+      en Cómo llegar. Se reporta el delta y se lee junto al cliente.</p>
+  </div>
+</div></section>
+
+<!-- ---------- pendientes ---------- -->
+<div class="banda verde" id="smp-pendientes"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Pendientes</p>
+  <h2>Qué falta<br><b>y a quién pedirlo</b></h2>
+  <div class="regla"></div>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th>Prioridad</th><th>Qué falta</th><th>Ref. brief</th><th>Por qué importa</th><th>A quién</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag blq">Bloquea</span></td>
+        <td class="nom">Accesos admin a Meta BM, Google Ads y GBP</td><td>P33-34</td>
+        <td>Sin esto no hay launch el viernes.</td><td>Cliente</td></tr>
+      <tr><td><span class="tag blq">Bloquea</span></td>
+        <td class="nom">Días, horarios y condiciones exactas de Business Lunch y Happy Hour</td><td>P9</td>
+        <td>Son el eje del 70% del presupuesto. El brief los nombra pero no los detalla.</td><td>Marcelo</td></tr>
+      <tr><td><span class="tag blq">Bloquea</span></td>
+        <td class="nom">Export de Toast del 15/7 al 11/8, por día y franja</td><td>—</td>
+        <td>Línea base retroactiva. Sin ella no hay con qué comparar en el cierre de agosto.</td>
+        <td>Cliente / Popcorn</td></tr>
+      <tr><td><span class="tag alto">Alto</span></td>
+        <td class="nom">Acceso al sitio para instalar seguimiento</td><td>P33</td>
+        <td>Única casilla sin marcar del brief. No frena agosto, sí frena las audiencias de septiembre.</td>
+        <td>Cliente / Dev</td></tr>
+      <tr><td><span class="tag alto">Alto</span></td>
+        <td class="nom">Aclarar el canal de reserva: ¿Toast, OpenTable o ambos?</td><td>P37</td>
+        <td>El brief dice Toast. OpenTable está corriendo con disponibilidad y Happy Hour cargado.
+          Nadie lo mencionó.</td><td>Cliente</td></tr>
+      <tr><td><span class="tag alto">Alto</span></td>
+        <td class="nom">Carpeta de material visual existente</td><td>P27</td>
+        <td>Quedó en blanco. Puede evitar la mitad del rodaje.</td><td>Cliente</td></tr>
+      <tr><td><span class="tag alto">Alto</span></td>
+        <td class="nom">Paquetes y precios de eventos privados</td><td>P20</td>
+        <td>Sin esto no se pauta eventos en septiembre.</td><td>Cliente</td></tr>
+      <tr><td><span class="tag med">Medio</span></td>
+        <td class="nom">Los 3 platos a empujar</td><td>P6</td>
+        <td>Quedó en blanco. Define el creativo del mes.</td><td>Chef / Manager</td></tr>
+      <tr><td><span class="tag med">Medio</span></td>
+        <td class="nom">Fechas clave de los próximos meses</td><td>P31</td>
+        <td>Quedó en 'a definir'. Art Basel y feriados son los picos de Wynwood.</td><td>Cliente</td></tr>
+      <tr><td><span class="tag med">Medio</span></td>
+        <td class="nom">Frenos, frases de clientes y FAQs</td><td>P14, P15, P40</td>
+        <td>Respondieron 'no sabemos'. LO SACAMOS NOSOTROS de las reseñas de Google.</td><td>Popcorn</td></tr>
+      <tr><td><span class="tag med">Bajo</span></td>
+        <td class="nom">Personalidad de marca y do's &amp; don'ts</td><td>P22, P24</td>
+        <td>Sin definir. Lo proponemos y el cliente valida: más rápido que insistir.</td>
+        <td>Popcorn → Cliente</td></tr>
+      <tr><td><span class="tag med">Bajo</span></td>
+        <td class="nom">Manual de marca (carpeta)</td><td>P26</td>
+        <td>Existe y lo armó Popcorn. Solo hay que ubicarlo.</td><td>Popcorn</td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota">Las tres filas bloqueantes son de hoy y mañana. Si no llegan, el launch del
+    viernes se corre.</p>
+</div></div>
+
+<!-- ---------- etapa 2 ---------- -->
+<section id="smp-etapa2"><div class="wrap-datos">
+  <p class="eyebrow">Plan de medios · Etapa 2</p>
+  <h2>Cuándo pasar<br><b>a medir reservas</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Se dispara por criterios, no por calendario. Hoy la gente va directo al local,
+    así que no tiene sentido optimizar por reservas.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th class="num">#</th><th>Criterio</th><th>Umbral</th><th>Por qué</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td class="nom">Definir el canal de reserva oficial</td><td>Por escrito</td>
+        <td>El brief dice Toast; OpenTable está corriendo. Hay que saber cuál es antes de optimizar
+          hacia él.</td></tr>
+      <tr><td class="num">2</td><td class="nom">Widget de reserva embebido en el sitio</td>
+        <td>Publicado y funcionando en mobile</td>
+        <td>Precondición dura: sin esto no hay conversión que medir.</td></tr>
+      <tr><td class="num">3</td><td class="nom">Píxel instalado y pool de remarketing</td>
+        <td>Mínimo 3.000 usuarios en 30 días</td>
+        <td>Debajo de eso una campaña de remarketing no tiene a quién impactar.</td></tr>
+      <tr><td class="num">4</td><td class="nom">Covers de lunes y jueves sobre la línea base</td>
+        <td>Mejora sostenida 3 semanas</td>
+        <td>Señal de que la etapa actual movió gente en el hueco que importa.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt34">Qué cambia cuando se pasa</h3>
+  <div class="grid g2">
+    <div class="card tope"><h3>Google</h3>
+      <p class="mb0">PMax suma el objetivo de conversión de reserva junto al de acciones locales. No
+        se apaga la señal local: es la que trae gente al mediodía.</p></div>
+    <div class="card tope"><h3>Meta</h3>
+      <p class="mb0">Entra una campaña de remarketing contra el pool construido ahora. Tráfico en el
+        negocio baja de peso pero no se apaga.</p></div>
+    <div class="card tope"><h3>Reporte</h3>
+      <p class="mb0">Se suma CPA por reserva confirmada, cruzado contra el reporte del canal de
+        reserva. Recién ahí hay un número de conversión defendible.</p></div>
+  </div>
+
+  <div class="nota">
+    <h4>Por qué el tracking se instala igual</h4>
+    <p class="mb0">El tracking se instala ahora aunque la Etapa 2 sea a futuro. Instalarlo después
+      significa arrancar sin historial ni audiencias.</p>
+  </div>
+</div></div></section>
+
+<!-- ======================= 09 · UGC ======================= -->
+<div class="foto-banda">
+  <img src="img/matcha.jpg" alt="Dragonfruit matcha de Ventura">
+  <div class="rotulo"><div class="in">
+    <span>The Ventura Moment</span>
+    <em>Productos que piden ser fotografiados.</em>
+  </div></div>
+</div>
+
+<section id="s09" class="sinaire" style="padding-top:66px"><div class="wrap">
+  <p class="eyebrow">09 · UGC engine &amp; influencers</p>
+  <h2>Que los clientes<br><b>produzcan contenido</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Necesitamos que los clientes produzcan contenido, no solamente los influencers.
+    Para eso hay que crear "momentos Ventura": productos y escenas que pidan ser fotografiados.</p>
+
+  <ul class="chips">
+    <li class="on">Ventura Croissant</li>
+    <li class="on">Mango coconut Matcha</li>
+    <li class="oscuro">El encuentro en el Garden</li>
+    <li class="oscuro">Cocktails fotografiables</li>
+    <li>Milanesa</li>
+  </ul>
+
+  <p>La carta ya tiene varios productos visualmente fuertes: sobre eso construimos
+    <strong>THE VENTURA MOMENT</strong>, con una sección de destacados en el perfil para ir
+    compartiendo lo que suben los clientes.</p>
+
+  <div class="par mt34">
+    <figure>
+      <img src="img/plato.jpg" alt="Plato emplatado en Ventura, con copa de espumante">
+      <figcaption>Producto que pide foto: el criterio de selección de "momentos".</figcaption>
+    </figure>
+    <div class="card tope">
+      <h4>Influencer strategy</h4>
+      <p>Storytelling centrado en <strong>foodies · lifestyle · Wynwood · pets · latino
+        creators</strong>. El contenido no se replica en el feed propio: se comparte en "Ventura
+        moment" y debe ser usable en paid media mediante amplificaciones. Cada tres meses se trabaja
+        un storytelling diferente que puncheé un plato o una experiencia.</p>
+      <p class="mb0"><strong>A definir antes de arrancar:</strong> criterio de selección (micro y mid
+        antes que macro, y afinidad con Wynwood por encima de volumen de seguidores), modelo de canje
+        vs. pago, cantidad de colaboraciones por mes, y sobre todo — <strong>derechos de uso por
+        escrito</strong> para poder amplificar el contenido en pauta. Sin ese acuerdo firmado, la
+        amplificación no es legalmente utilizable.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ======================= 10 · EVENTOS ======================= -->
+<div class="banda" id="s10"><div class="wrap-ancho">
+  <p class="eyebrow">10 · Eventos</p>
+  <h2>Razones para volver,<br><b>en el orden correcto</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Hay cinco eventos recurrentes sobre la mesa: prácticamente uno por día. Los
+    eventos son la táctica <strong>más cara, menos escalable y más difícil de sostener</strong> del
+    mix — y uno que se anuncia y después se discontinúa daña más de lo que construye.</p>
+  <p>La propuesta es arrancar con uno, medirlo, y sumar los demás cuando el primero funcione solo.</p>
+
+  <div class="tabla-wrap mt34"><table class="chica">
+    <thead><tr><th>Evento</th><th>Qué resuelve</th><th>Cuándo entra</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Ventura After Work<small>Jueves 5–8 PM</small></td>
+        <td>Happy hour + networking para el office crowd. Es el que tiene el público más cerca (i5 y
+          oficinas del barrio), el costo más bajo y el efecto más directo sobre una franja floja.</td>
+        <td><span class="tag f1">Fase 1</span></td></tr>
+      <tr><td class="nom">Ventura Dog Sundays</td>
+        <td>Brunch + perros. Ocupa el domingo y es fuertemente diferencial y compartible.</td>
+        <td><span class="tag f1">Fase 1 · liviano</span></td></tr>
+      <tr><td class="nom">Sunset in the Garden<small>Mensual</small></td>
+        <td>Música + cocktails + food con artistas locales. Construye la ocasión de noche.</td>
+        <td><span class="tag f2">Fase 2</span></td></tr>
+      <tr><td class="nom">Ventura Art Nights</td>
+        <td>Artistas locales, live painting, DJ, exposición. Es el que más conecta con la identidad
+          del barrio, y el más caro y complejo de producir.</td>
+        <td><span class="tag f2">Fase 2 · pico en Art Week</span></td></tr>
+      <tr><td class="nom">Tuesday Diet Free</td>
+        <td>Promoción de precio para martes.</td>
+        <td><span class="tag rev">A revisar</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="par mt34" style="align-items:stretch">
+    <div class="nota" style="margin:0">
+      <h4>Sobre "Tuesday Diet Free"</h4>
+      <p class="mb0">Es una promo de precio dentro de una estrategia que argumenta explícitamente
+        <em>no competir por precio</em>. Antes de lanzarla conviene medir su costo real de margen y
+        evaluar una alternativa que ocupe el martes sin descontar: una noche temática, un plato de
+        edición limitada, o un beneficio del club en lugar de un descuento abierto al público.</p>
+    </div>
+    <figure>
+      <img src="img/saxo.jpg" alt="Músico en vivo tocando saxo en Ventura" style="height:100%; object-fit:cover; border-radius:4px">
+      <figcaption>Música en vivo en el local: el insumo de Sunset in the Garden y de Art Nights.</figcaption>
+    </figure>
+  </div>
+
+  <div class="nota">
+    <h4>Lo que todo evento necesita antes de anunciarse</h4>
+    <p class="mb0">Costo de producción · responsable con nombre · capacidad esperada · meta de covers
+      · costo por asistente · y una regla de continuidad (si en tres ediciones no llega a X, se
+      cambia o se cierra).</p>
+  </div>
+</div></div>
+
+<!-- ======================= 11 · BARRIO ======================= -->
+<section id="s11"><div class="wrap">
+  <p class="eyebrow">11 · Estrategia de barrio</p>
+  <h2>Ventura no llegó a Wynwood.<br><b>Es un nuevo vecino.</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Wynwood es una confluencia entre oficinas y colivings: incentivar el consumo
+    tiene que venir de la mano con un compromiso de pertenencia. Así como creamos el
+    <strong>Ventura Business Club</strong>, proponemos el <strong>Ventura Neighbors Card</strong>.</p>
+
+  <div class="grid g2 mt34">
+    <div class="card tope">
+      <h3>Ventura Neighbors Card</h3>
+      <ol class="pastilla">
+        <li>10% en breakfast</li>
+        <li>Happy hour lunes / martes / miércoles de 17 a 19 h</li>
+        <li>Prioridad en eventos</li>
+      </ol>
+      <p class="mb0" style="margin-top:14px">Acuerdos posibles con edificios residenciales,
+        gimnasios y hoteles.</p>
+    </div>
+    <div class="card tope-verde">
+      <h3>Ventura Business Club</h3>
+      <ol class="pastilla">
+        <li>Coffee meetings y lunch corporativo</li>
+        <li>Menú ejecutivo y reservas prioritarias</li>
+        <li>Eventos corporativos, after office y catering</li>
+        <li>Mesa reservada + 10% en jarras en el After Work</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>i5 Wynwood · el activo más concreto</h4>
+    <p>Ventura está físicamente conectado con i5 Wynwood: 217 habitaciones, coworking lounge, rooftop
+      pool y gimnasio. Es el pool de audiencia más barato de activar que tiene el proyecto, y
+      muchísimo más rentable que adquirir turistas nuevos de forma permanente: <strong>i5 x Ventura ·
+      Meet your neighbors at Ventura · welcome voucher · resident happy hour.</strong></p>
+    <p class="mb0"><strong>La conversación con i5 todavía no está abierta.</strong> Es la acción
+      pendiente de mayor impacto y menor costo del plan: no requiere inversión de medios, solo una
+      reunión y una propuesta de valor mutua. Hasta que exista ese acuerdo, todo lo que se apoya en i5
+      es potencial, no capacidad instalada.</p>
+  </div>
+</div></section>
+
+<!-- ======================= 11B ======================= -->
+<div class="banda" id="s11b"><div class="wrap">
+  <p class="eyebrow">11B · La economía de los beneficios</p>
+  <h2>Cuánto cuesta ser<br><b>un buen vecino</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Hay cuatro programas de beneficio conviviendo: Neighbors Card, Business Club,
+    welcome voucher de i5 y Tuesday Diet Free. Cada uno tiene sentido por separado.
+    <strong>Sumados, pueden comerse el margen justo en las franjas de mayor frecuencia</strong> — que
+    es exactamente donde queremos construir hábito.</p>
+  <p>El caso a evitar es concreto: un residente de i5 que desayuna cinco veces por semana con 10% de
+    descuento, toma happy hour tres tardes con precio promocional y viene los martes a la promo de
+    hamburguesa, nunca paga precio de carta. Ese cliente es de altísima frecuencia y de margen bajo o
+    negativo.</p>
+
+  <div class="grid g2 mt34">
+    <div class="card tope">
+      <h3>Lo que hay que calcular por programa</h3>
+      <ul class="guion">
+        <li>Ticket promedio de la franja donde aplica</li>
+        <li>Margen bruto de esa franja</li>
+        <li>Descuento efectivo (no nominal: incluye canje y regalo)</li>
+        <li>Frecuencia esperada del socio</li>
+        <li>Margen por cliente/mes con y sin el programa</li>
+      </ul>
+    </div>
+    <div class="card tope-verde">
+      <h3>Reglas de diseño sugeridas</h3>
+      <ul class="guion">
+        <li><strong>Los beneficios no se acumulan.</strong> Una sola regla por visita.</li>
+        <li><strong>Beneficio, no descuento.</strong> Prioridad, acceso, upgrade, invitación y
+          producto exclusivo cuestan menos margen que un porcentaje y construyen más pertenencia.</li>
+        <li><strong>Ventanas horarias definidas</strong>: el beneficio ocupa franjas flojas, no las
+          llenas.</li>
+        <li><strong>Todo beneficio pide dato a cambio.</strong> Sin alta al CRM, no hay card.</li>
+        <li><strong>Vencimiento y revisión trimestral</strong> de cada programa contra su margen real.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nota">
+    <h4>Dimensionar i5 antes de apoyarse en él</h4>
+    <p class="mb0">217 habitaciones no son 217 clientes diarios. El cálculo que necesitamos hacer es:
+      habitaciones × ocupación promedio × personas por habitación × frecuencia esperada × ticket =
+      <strong>potencial real de facturación mensual de i5</strong>. Con ese número sabemos cuánta
+      inversión y cuánto beneficio justifica el acuerdo, y si conviene un modelo de voucher, de card o
+      de comisión. Datos a pedir: ocupación promedio de i5 <span class="falta">dato</span> y perfil
+      del residente <span class="falta">dato</span>.</p>
+  </div>
+</div></div>
+
+<!-- ======================= 12 · GROWTH LOOP ======================= -->
+<section id="s12"><div class="wrap">
+  <p class="eyebrow">12 · Growth loop</p>
+  <h2>No depender solo<br><b>de Instagram</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">En cada visita debemos ofrecer unirse al <strong>Ventura Club</strong> a cambio
+    de email y teléfono. La razón es simple: el alcance de Instagram no nos pertenece, la base de
+    datos sí.</p>
+
+  <div class="card" style="background:var(--tinta); border-color:var(--tinta); margin-top:26px">
+    <h4 style="color:var(--lima)">Join Ventura Club · beneficios</h4>
+    <p class="mb0" style="color:var(--crema); font-weight:600; font-size:19px">
+      Cumpleaños · eventos · reservas · probar nuevos platos.</p>
+  </div>
+
+  <p class="mt34">Tanto en la web como en el local, la invitación se hace mediante un formulario que
+    permita segmentar por momento de consumo y por tipo de público:</p>
+  <ul class="chips">
+    <li>Coffee customer</li><li>Brunch customer</li><li>Lunch customer</li><li>Dinner customer</li>
+    <li>Event customer</li><li class="on">Tourist</li><li class="on">Local</li><li class="oscuro">Office</li>
+  </ul>
+
+  <div class="nota">
+    <h4>Lo que hay que definir para que el loop funcione</h4>
+    <p class="mb0"><strong>Momento de captura:</strong> el mejor es el pago o el wifi, no la entrada. ·
+      <strong>Quién lo pide:</strong> el equipo de salón necesita guion y un incentivo interno. ·
+      <strong>Qué se envía y cada cuánto:</strong> un calendario de comunicaciones por segmento, o la
+      base se enfría en un mes. · <strong>Consentimiento:</strong> opt-in explícito y cumplimiento de
+      CAN-SPAM y de las normas de mensajería de EE.UU. antes del primer envío. · <strong>Meta de altas
+      por mes</strong> <span class="falta">meta</span>.</p>
+  </div>
+</div></section>
+
+<!-- ======================= 13 · ROADMAP ======================= -->
+<div class="banda" id="s13"><div class="wrap-datos">
+  <p class="eyebrow">13 · Roadmap</p>
+  <h2>Todos los ejes,<br><b>pero no todos a la vez</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">El ecosistema de quince ejes funciona como mapa, pero no como plan de trabajo: si
+    todo tiene la misma prioridad, en la práctica se hace lo que resulta más fácil. Esta es la misma
+    estrategia, ordenada en el tiempo.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th>Eje</th><th>Acción</th><th>Fase 1 · 0–90 d</th><th>Fase 2 · 90–180 d</th><th>Fase 3 · 180 d+</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Medición</td><td>Línea de base + tablero de seguimiento + metas</td>
+        <td>★ Antes de activar</td><td>Lectura y optimización</td><td>Automatizado</td></tr>
+      <tr><td class="nom">Google</td><td>GBP + Search + Maps + SEO local</td>
+        <td>★ Prioridad</td><td>Escala</td><td>Sostener</td></tr>
+      <tr><td class="nom">Brand</td><td>Ventura = all-day social spot · el jardín como héroe</td>
+        <td>★ Definición + producción de contenido</td><td>Consolidación</td><td>Sostener</td></tr>
+      <tr><td class="nom">Social</td><td>Food + people + Wynwood + garden</td>
+        <td>★ Foco breakfast/brunch</td><td>Suma cena y cocktail</td><td>Mix completo</td></tr>
+      <tr><td class="nom">Paid</td><td>Geo + intereses + retargeting</td>
+        <td>★ Local corto</td><td>Awareness Miami</td><td>Always-on estacional</td></tr>
+      <tr><td class="nom">Reviews</td><td>Review engine</td><td>★ Arranque</td><td>Sostener</td><td>Sostener</td></tr>
+      <tr><td class="nom">CRM</td><td>Ventura Club</td><td>★ Captura</td><td>Automatizaciones</td>
+        <td>Segmentado por daypart</td></tr>
+      <tr><td class="nom">i5</td><td>Resident partnership</td><td>★ Abrir contacto + dimensionar</td>
+        <td>Acuerdo + activaciones</td><td>Programa estable</td></tr>
+      <tr><td class="nom">B2B</td><td>Business Club · oficinas</td><td>Piloto con 5–10 empresas</td>
+        <td>★ Escala</td><td>Programa estable</td></tr>
+      <tr><td class="nom">Community</td><td>Neighbors program</td><td>Piloto</td><td>★ Lanzamiento</td>
+        <td>Alianzas</td></tr>
+      <tr><td class="nom">Eventos</td><td>After Work · Dog Sundays</td><td>1 recurrente</td>
+        <td>★ Suma Sunset + Art Nights</td><td>Calendario completo</td></tr>
+      <tr><td class="nom">UGC</td><td>Customers as creators</td><td>Momentos + destacados</td>
+        <td>★ Motor activo</td><td>Sostener</td></tr>
+      <tr><td class="nom">Influencers</td><td>Micro/mid creators</td><td>Selección + acuerdos</td>
+        <td>★ Campañas trimestrales</td><td>Sostener</td></tr>
+      <tr><td class="nom">Delivery</td><td>Apps + pedido directo</td><td>Auditoría de fichas</td>
+        <td>★ Optimización</td><td>Canal propio</td></tr>
+      <tr><td class="nom">Tourism</td><td>Wynwood visitors</td><td>Base en GBP</td>
+        <td>★ Temporada alta</td><td>Estacional</td></tr>
+      <tr><td class="nom">Partnerships</td><td>Galerías / hoteles / gyms / pets</td><td>—</td>
+        <td>Primeros acuerdos</td><td>★ Red activa</td></tr>
+      <tr><td class="nom">PR</td><td>Miami food &amp; lifestyle media</td><td>—</td><td>Kit + pitch</td>
+        <td>★ Art Week</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt44">Distribución de inversión sugerida — Fase 1</h3>
+  <p class="chico">Los porcentajes son la recomendación de reparto de la inversión total del proyecto
+    (medios + producción + eventos + creators). El presupuesto de medios ya está cerrado y detallado
+    en el <a href="#smp">plan de medios</a>: USD 1.000/mes.</p>
+  <div class="barras">
+    <div class="barra"><div class="et">Paid local (Meta)</div>
+      <div class="pista"><i style="width:35%"></i></div><div class="pc">35%</div></div>
+    <div class="barra"><div class="et">Google (Search + Maps)</div>
+      <div class="pista"><i style="width:25%"></i></div><div class="pc">25%</div></div>
+    <div class="barra"><div class="et">Producción de contenido</div>
+      <div class="pista"><i style="width:20%"></i></div><div class="pc">20%</div></div>
+    <div class="barra"><div class="et">Eventos y activaciones</div>
+      <div class="pista"><i style="width:12%"></i></div><div class="pc">12%</div></div>
+    <div class="barra"><div class="et">Influencers y UGC</div>
+      <div class="pista"><i style="width:8%"></i></div><div class="pc">8%</div></div>
+  </div>
+
+  <div class="nota">
+    <h4>A definir con el cliente</h4>
+    <ul class="guion" style="margin-bottom:0">
+      <li>Presupuesto de producción de contenido <span class="falta">monto</span></li>
+      <li>Presupuesto de eventos y activaciones <span class="falta">monto</span></li>
+      <li>Responsable de Ventura para cada eje <span class="falta">nombre</span></li>
+    </ul>
+  </div>
+</div></div>
+
+<!-- ======================= 14 · KPIs ======================= -->
+<section id="s14"><div class="wrap-datos">
+  <p class="eyebrow">14 · Cómo medimos el éxito</p>
+  <h2>Siete números,<br><b>no treinta</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Una lista de treinta métricas sin jerarquía ni meta no permite decir si algo
+    funcionó. Por eso el tablero se ordena en dos niveles. Estas son las <strong>siete
+    primarias</strong>: si estas se mueven, la estrategia está funcionando.</p>
+
+  <div class="tabla-wrap panel mt34"><table class="chica densa">
+    <thead><tr><th>Métrica</th><th>Qué demuestra</th><th>De dónde sale</th><th class="num">Hoy</th><th class="num">Meta 90 d</th><th class="num">Meta 180 d</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">Reviews en Google + rating</td>
+        <td>Reputación y ranking local. Es el activo que más tarda en construirse.</td>
+        <td>Google Business Profile — público</td>
+        <td class="num"><span class="falta">base</span></td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+      <tr><td class="nom">Acciones en Google Maps<small>Direction requests + llamadas</small></td>
+        <td>Intención real de visita. El proxy más directo de tráfico al local.</td>
+        <td>GBP → Rendimiento + conversiones de acción local en Google Ads</td>
+        <td class="num"><span class="falta">base</span></td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+      <tr><td class="nom">Búsquedas de marca</td>
+        <td>Si Wynwood empezó a hablar de Ventura. Es el KPI del posicionamiento.</td>
+        <td>GBP → Búsquedas + impresiones de la campaña de Marca. <em>Tendencia, no exacto</em></td>
+        <td class="num"><span class="falta">base</span></td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+      <tr><td class="nom">Covers en el daypart foco</td>
+        <td>Si la cabeza de playa está funcionando.</td>
+        <td>Toast</td>
+        <td class="num"><span class="falta">base</span></td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+      <tr><td class="nom">Altas al Ventura Club / mes</td>
+        <td>Crecimiento del activo propio. Independencia de Instagram.</td>
+        <td>CRM / Ventura Club</td>
+        <td class="num">0</td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+      <tr><td class="nom">Tasa de clientes recurrentes</td>
+        <td>El corazón de la tesis: si vuelven, la estrategia de vecinos funciona.</td>
+        <td>Toast (cliente identificado) + CRM</td>
+        <td class="num"><span class="falta">base</span></td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+      <tr><td class="nom">Costo por visita atribuida</td>
+        <td>Eficiencia de la inversión. Reemplaza al CAC hasta tener LTV real.</td>
+        <td>Inversión de medios ÷ acciones locales de Google Ads y Meta</td>
+        <td class="num">—</td><td class="num"><span class="falta">meta</span></td>
+        <td class="num"><span class="falta">meta</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="tabla-nota"><strong>Ninguna de las siete primarias depende de Google Analytics.</strong> Se leen
+    todas desde Google Business Profile, Google Ads, Toast y el CRM. Es deliberado: el tablero tiene que
+    poder leerse desde el día uno, con el sitio publicado o sin publicar.</p>
+
+  <h3 class="mt44">Métricas secundarias · se monitorean, no se reportan como objetivo</h3>
+  <div class="grid g2">
+    <div class="card tope"><h3>Awareness</h3>
+      <ul class="guion" style="margin-bottom:0"><li>Reach</li><li>Impresiones</li><li>Video views</li>
+        <li>Profile visits</li></ul></div>
+    <div class="card tope"><h3>Acquisition</h3>
+      <ul class="guion" style="margin-bottom:0"><li>Reservas</li><li>First-time customers</li>
+        <li>CAC</li>
+        <li>Visitas al sitio y origen del tráfico
+          <small style="display:block; color:var(--texto-2); font-size:12.5px">No disponible todavía —
+          entra al tablero recién cuando el sitio esté publicado y GA4 instalado</small></li></ul></div>
+    <div class="card tope-verde"><h3>Retention</h3>
+      <ul class="guion" style="margin-bottom:0"><li>Frecuencia</li><li>Crecimiento CRM</li>
+        <li>Repeat purchase rate</li></ul></div>
+    <div class="card tope-verde"><h3>Revenue</h3>
+      <ul class="guion" style="margin-bottom:0"><li>Revenue por daypart</li><li>Ticket promedio</li>
+        <li>ROAS · LTV</li></ul></div>
+  </div>
+
+  <div class="nota">
+    <h4>Ritmo de lectura</h4>
+    <p class="mb0"><strong>Semanal:</strong> tablero corto de las siete primarias, sin análisis. ·
+      <strong>Mensual:</strong> informe con lectura, aprendizajes y ajustes de la inversión. ·
+      <strong>Trimestral:</strong> revisión de estrategia — se confirma o se corrige el foco, los
+      programas de beneficio y el calendario de eventos.</p>
+  </div>
+</div></section>
+
+<!-- ======================= 15 · SUPUESTOS Y RIESGOS ======================= -->
+<div class="banda" id="s15"><div class="wrap-datos">
+  <p class="eyebrow">15 · Supuestos, riesgos y decisiones pendientes</p>
+  <h2>Lo que todavía<br><b>no sabemos</b></h2>
+  <div class="regla"></div>
+  <p class="bajada">Esta sección existe para que nada de lo anterior se lea como un hecho cuando en
+    realidad es un supuesto. Es la parte más incómoda del documento y la más útil.</p>
+
+  <div class="tabla-wrap mt34"><table class="chica">
+    <thead><tr><th>Supuesto</th><th>Por qué importa</th><th>Cómo se valida</th></tr></thead>
+    <tbody>
+      <tr><td class="nom">i5 va a querer trabajar con Ventura</td>
+        <td>Buena parte de la estrategia de recurrencia se apoya en el acceso a los residentes, y la
+          conversación todavía no empezó.</td>
+        <td>Abrir contacto · propuesta de valor mutua · definir modelo y contraprestación</td></tr>
+      <tr><td class="nom">Ventura está en OpenTable y Tripadvisor</td>
+        <td>Aparecen como destino del review engine y como KPI.</td>
+        <td>Auditoría de presencia digital</td></tr>
+      <tr><td class="nom">La cocina soporta el foco en desayuno/brunch</td>
+        <td>Si la capacidad de mañana es limitada, cambia la cabeza de playa.</td>
+        <td>Conversación con operaciones</td></tr>
+      <tr><td class="nom">El equipo de salón puede sostener la captura de datos</td>
+        <td>El growth loop entero depende de eso.</td>
+        <td>Capacitación + guion + incentivo interno</td></tr>
+      <tr><td class="nom">El presupuesto de medios se sostiene</td>
+        <td>El hábito de barrio se construye con continuidad, no con picos.</td>
+        <td>Confirmar presupuesto mensual para los próximos dos trimestres</td></tr>
+      <tr><td class="nom">El sitio se publica y se puede instrumentar</td>
+        <td>Sin sitio publicado no hay medición de tráfico, ni audiencias de remarketing, ni Etapa 2.</td>
+        <td>Aprobación final del menú, publicación, y acceso para instalar GA4 + Píxel + CAPI</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="mt44">Riesgos a mirar</h3>
+  <div class="grid g2">
+    <div class="card"><h3>Dispersión</h3>
+      <p class="mb0">Nueve propuestas, cinco audiencias y cinco eventos. El riesgo principal del
+        proyecto no es hacer poco: es hacer todo un poco.</p></div>
+    <div class="card"><h3>Margen</h3>
+      <p class="mb0">Cuatro programas de descuento superpuestos sobre las franjas de mayor
+        frecuencia.</p></div>
+    <div class="card"><h3>Dependencia de i5</h3>
+      <p class="mb0">La tesis de recurrencia se apoya fuerte en un acuerdo que todavía no existe.
+        Conviene tener un plan de barrio que funcione sin i5.</p></div>
+    <div class="card"><h3>Continuidad</h3>
+      <p class="mb0">Eventos anunciados y discontinuados dañan la marca más de lo que construyen.
+        Mejor uno sostenido que cinco intermitentes.</p></div>
+  </div>
+</div></div>
+
+<!-- ======================= 16 · COMO ARRANCAMOS ======================= -->
+<section id="s16"><div class="wrap">
+  <p class="eyebrow">16 · Próximos pasos</p>
+  <h2>Cómo <b>arrancamos</b></h2>
+  <div class="regla"></div>
+
+  <div class="grid g2 mt24">
+    <div class="card tope">
+      <h3>Inmediato</h3>
+      <ol class="pastilla">
+        <li>Congelar la línea de base <strong>antes de que la pauta se active</strong>. Es lo único
+          que vence.</li>
+        <li>Pedir a Ventura mix por daypart, ticket y margen, y confirmar la cabeza de playa.</li>
+        <li>Cerrar el presupuesto mensual de contenido y eventos — el de medios ya está cerrado.</li>
+        <li>Abrir la conversación con i5. Es la acción de mayor impacto por menor costo.</li>
+        <li>Resolver el acceso al sitio, para que la medición digital empiece a acumular historial.</li>
+      </ol>
+    </div>
+    <div class="card tope-verde">
+      <h3>Primeras semanas</h3>
+      <ol class="pastilla" style="counter-reset:p 5">
+        <li>Tablero de seguimiento semanal, con las metas cargadas.</li>
+        <li>Producción de fotografía y video del jardín en las cuatro franjas horarias.</li>
+        <li>Taller de arquitectura de marca: cerrar las tres capas y la línea para oficina.</li>
+        <li>Un responsable por eje, de cada lado.</li>
+      </ol>
+    </div>
+  </div>
+
+  <blockquote class="cita larga">Recién con eso cerrado la inversión se puede leer. Unas semanas de
+    preparación valen más que varios meses de pauta que no vamos a poder evaluar.</blockquote>
+</div></section>
+
+<!-- ======================= CIERRE ======================= -->
+<div class="cierre"><div class="wrap-ancho">
+  <p class="eyebrow">Próximo paso</p>
+  <h2>Hagamos que Wynwood<br><b>hable de Ventura.</b></h2>
+  <p>Este documento define el territorio, el foco, la forma de medirlo y el plan de medios completo
+    con el que arranca la inversión. El calendario fino de contenidos, el detalle de piezas de
+    septiembre y el cronograma de eventos se desarrollan en la siguiente etapa junto al equipo de
+    Ventura.</p>
+  <div class="pie">
+    <div><b>Ventura Wynwood</b>33 NW 28th St, Miami, FL 33127<br>venturawynwood.com · @venturawynwood</div>
+    <div class="der">Estrategia integral de marca<br>Growth · 360°<br>Agosto 2026</div>
+  </div>
+</div></div>
+
+<script>
+/* Aviso de desplazamiento: solo en las tablas que de verdad no entran en la caja,
+   para que se lea como panel con scroll propio y no como pagina recortada. */
+(function(){
+  function revisar(){
+    document.querySelectorAll('.tabla-wrap').forEach(function(caja){
+      var tabla = caja.querySelector('table');
+      if (!tabla) return;
+      var desborda = tabla.scrollWidth > caja.clientWidth + 1;
+      var aviso = caja.nextElementSibling;
+      var tiene = aviso && aviso.classList.contains('aviso-scroll');
+      if (desborda && !tiene) {
+        var p = document.createElement('p');
+        p.className = 'aviso-scroll';
+        p.textContent = 'Tabla ancha — desplazala hacia el costado →';
+        caja.parentNode.insertBefore(p, caja.nextSibling);
+      } else if (!desborda && tiene) {
+        aviso.remove();
+      }
+    });
+  }
+  revisar();
+  window.addEventListener('resize', revisar);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(revisar);
+})();
+
+/* Marca en el indice la seccion visible. Progresivo: sin JS el indice sigue funcionando. */
+(function(){
+  var enlaces = Array.prototype.slice.call(document.querySelectorAll('.indice a'));
+  var destinos = enlaces.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if (!('IntersectionObserver' in window)) return;
+  var visibles = new Set();
+  var obs = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){
+      if (e.isIntersecting) visibles.add(e.target); else visibles.delete(e.target);
+    });
+    var primera = destinos.find(function(d){ return d && visibles.has(d); });
+    enlaces.forEach(function(a, i){ a.classList.toggle('on', destinos[i] === primera); });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  destinos.forEach(function(d){ if (d) obs.observe(d); });
+})();
+</script>
