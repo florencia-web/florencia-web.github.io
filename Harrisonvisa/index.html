@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harrison Visa × Popcorn · Del boca a boca a un sistema de adquisición</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM — Propuesta Harrison Visa
+   Violeta eléctrico + cian
+   ============================================================ */
+:root{
+  --violet-900:#250a4f; --violet-800:#34107a; --violet-700:#4a16a8;
+  --violet-600:#5a18cc; --violet-500:#6e28e8; --violet-glow:#7b34f0;
+  --cyan:#1fe8d8; --cyan-bright:#5cf4e8; --cyan-deep:#12b9ad;
+  --ink:#0e0524; --white:#ffffff;
+  --w-80:rgba(255,255,255,.80); --w-65:rgba(255,255,255,.65); --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045); --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14); --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --warn:#ffb861; --warn-line:rgba(255,184,97,.34);
+  --maxw:1180px; --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--violet-600);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(1200px 700px at 78% -8%,rgba(123,52,240,.55),transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%,rgba(31,232,216,.10),transparent 55%),
+    linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* HEADER */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* PROGRESO + DOTS */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* SECCIONES */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan);white-space:nowrap}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+.kicker{font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--cyan)}
+b,strong{color:#fff;font-weight:600}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* HERO */
+#hero{justify-content:center}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-title{font-weight:700;font-size:clamp(2.5rem,6.6vw,5.4rem);line-height:1;letter-spacing:-.03em;max-width:20ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--w-80);max-width:680px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.metaband{display:flex;flex-wrap:wrap;gap:12px 46px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.metaband div{display:flex;flex-direction:column;gap:5px}
+.metaband .mk{font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45)}
+.metaband .mv{font-family:'Poppins';font-weight:600;font-size:.95rem;color:#fff}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* CARDS */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card.warn{border-color:var(--warn-line);background:rgba(255,184,97,.06)}
+.card.warn .ico{background:rgba(255,184,97,.12);border-color:var(--warn-line);color:var(--warn)}
+.card .big-n{font-family:'Poppins';font-weight:700;font-size:2.6rem;line-height:1;color:var(--cyan);margin-bottom:12px;display:block}
+.card.warn .big-n{color:var(--warn)}
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.chip{font-family:'Poppins';font-weight:500;font-size:.98rem;padding:13px 22px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
+.chip:hover{border-color:var(--cyan-line);color:var(--cyan);transform:translateY(-3px)}
+
+/* FLOWLINE */
+.flowline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;position:relative}
+.flowline .step{position:relative;padding:0 18px}
+.flowline .step .n{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;margin-bottom:18px;background:rgba(31,232,216,.08)}
+.flowline .step h4{font-size:1.05rem;font-weight:600;margin-bottom:7px}
+.flowline .step p{font-size:.88rem;color:var(--w-65);line-height:1.55}
+.flowline .step::after{content:'';position:absolute;top:23px;left:calc(46px + 14px);right:-6px;height:1.5px;background:linear-gradient(90deg,var(--cyan-line),transparent);transform-origin:left;transition:transform 1s var(--ease) .3s;transform:scaleX(0)}
+.flowline.in .step::after{transform:scaleX(1)}
+.flowline .step:last-child::after{display:none}
+.bigstatement{margin-top:8px;font-family:'Poppins';font-weight:600;font-size:clamp(1.5rem,3.2vw,2.5rem);line-height:1.2;letter-spacing:-.01em;max-width:20ch}
+
+/* PIPE */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:132px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:20px 16px;text-align:center;position:relative;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Poppins';font-weight:700;font-size:11px;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:8px}
+.pipe .node .t{font-family:'Poppins';font-weight:600;font-size:.98rem}
+.pipe .node p{font-size:.78rem;color:var(--w-45);margin-top:6px;line-height:1.4}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.6}
+.pipe .arrow svg{width:20px;height:20px}
+
+/* ECOSISTEMA */
+.eco{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:16px}
+.eco .e{background:var(--card);border:1px solid var(--line-soft);border-radius:14px;padding:20px 12px;text-align:center;font-family:'Poppins';font-weight:600;font-size:.86rem;transition:all .35s var(--ease)}
+.eco .e:hover{border-color:var(--cyan-line);color:var(--cyan);transform:translateY(-4px)}
+.eco .e span{display:block;font-family:'Inter';font-weight:400;font-size:.72rem;color:var(--w-45);margin-top:6px;line-height:1.35}
+.eco .e.hi{background:linear-gradient(160deg,rgba(31,232,216,.16),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* TABLAS */
+.tbl-wrap{overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;min-width:700px}
+.tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:14px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:13px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Poppins';font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:'Poppins';font-weight:600;color:#fff;white-space:nowrap}
+.tbl .obj{color:var(--w-45);font-size:.82rem;line-height:1.4;min-width:180px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(31,232,216,.07);font-family:'Poppins';font-weight:700;color:#fff}
+.tbl tr.total td.num{color:var(--cyan)}
+.tbl tr.sep td{background:rgba(255,255,255,.03);font-family:'Poppins';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+
+/* ESCENARIOS */
+.scen{margin-top:22px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:24px 28px;border-bottom:1px solid var(--line-soft)}
+.scen-head .st{font-family:'Poppins';font-weight:700;font-size:1.22rem}
+.scen-head .st small{display:block;font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:3px}
+.scen-head .si{font-family:'Poppins';font-weight:700;color:var(--cyan);font-size:1.18rem;white-space:nowrap}
+.scen-note{padding:17px 28px;color:var(--w-65);font-size:.89rem;line-height:1.6;border-bottom:1px solid var(--line-soft)}
+.scen-pick{cursor:pointer;user-select:none}
+.scen-pick .pick{display:flex;align-items:center;gap:10px;padding:16px 28px;border-top:1px solid var(--line-soft);font-family:'Poppins';font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
+.scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.scen-pick .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.scen-pick.selected{border-color:var(--cyan);background:rgba(31,232,216,.08);box-shadow:0 0 0 1px var(--cyan) inset,0 14px 40px rgba(31,232,216,.18)}
+.scen-pick.selected .pick{color:var(--cyan)}
+.scen-pick.selected .pick .radio{border-color:var(--cyan)}
+.scen-pick.selected .pick .radio::after{transform:scale(1)}
+.scen-pick .pick .lbl-on{display:none}
+.scen-pick.selected .pick .lbl-off{display:none}
+.scen-pick.selected .pick .lbl-on{display:inline}
+
+/* INVERSIÓN */
+.invest{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.4));border:1.5px solid var(--cyan-line);border-radius:24px;padding:36px}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:17px 0;border-bottom:1px solid var(--line-soft);min-width:0}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer;padding:17px 14px;margin:0 -14px}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04);border-radius:10px}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Poppins';font-weight:600;font-size:1rem;min-width:0;flex:1}
+.price-row .pl>span:last-child{min-width:0}
+.price-row .pl .pl-t{display:block}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--w-45);margin-top:4px;font-family:'Inter';max-width:38ch;line-height:1.45}
+.price-row .pl small.varfee{font-family:'Poppins';font-weight:600;font-size:.79rem;color:var(--cyan);margin-top:7px}
+.price-row .pv{font-family:'Poppins';font-weight:700;font-size:1.24rem;color:var(--cyan);white-space:nowrap}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.price-row .opt-tag{display:inline-block;font-family:'Poppins';font-weight:700;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn);border:1px solid var(--warn-line);border-radius:100px;padding:3px 9px;margin-left:8px;vertical-align:2px}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);padding-bottom:8px;border-bottom:1px solid var(--cyan-line);margin-bottom:2px}
+.inv-ghead .inv-sub{font-family:'Poppins';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:.99rem;line-height:1.55}
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px;padding:18px 22px;border-radius:16px;background:rgba(31,232,216,.07);border:1px solid var(--cyan-line);font-family:'Poppins';font-weight:600;font-size:.95rem}
+.formula .op{color:var(--cyan);font-size:1.2rem}
+.formula .fx{color:var(--w-80);font-weight:500}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65)}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+.callout{margin-top:26px;padding:22px 26px;border-left:3px solid var(--cyan);background:rgba(31,232,216,.06);border-radius:0 14px 14px 0}
+.callout.warn{border-left-color:var(--warn);background:rgba(255,184,97,.07)}
+.callout p{color:var(--w-80);font-size:.97rem;line-height:1.65}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:22px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ALCANCE */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.18rem;margin-bottom:6px}
+.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* EVO BAND */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,60px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.45) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.92),rgba(40,12,100,.55))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.35;letter-spacing:-.01em;max-width:30ch}
+.evo .sign{margin-top:26px;color:var(--w-65);font-size:.97rem;max-width:660px}
+.evo .evo-stats{display:flex;flex-wrap:wrap;gap:14px 50px;margin-top:34px}
+.evo .evo-stats .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--cyan);line-height:1}
+.evo .evo-stats .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65);margin-top:6px}
+
+/* TIMELINE */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.18rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:66ch}
+
+/* FASES */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.phase-card{position:relative;border:1px solid var(--line-soft);border-radius:20px;padding:30px 26px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.phase-card:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.phase-card .pn{font-family:'Poppins';font-weight:700;font-size:2.6rem;color:rgba(31,232,216,.4);line-height:1;position:absolute;top:16px;right:22px}
+.phase-card h3{font-family:'Poppins';font-weight:600;font-size:1.3rem;margin-bottom:10px}
+.phase-card .gp{font-family:'Poppins';font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:block}
+.phase-card p{color:var(--w-65);font-size:.92rem;line-height:1.6}
+.phase-card.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* FOTOGRAFÍA */
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.06) brightness(.93)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.48),rgba(18,5,40,.26) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px;font-family:'Poppins';font-weight:600;font-size:1rem}
+.media .cap small{display:block;font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--w-65);margin-top:5px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.55) contrast(1.05)}
+.bg-photo.hero img{object-position:center 38%}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.97) 24%,rgba(74,18,168,.66) 62%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.74),rgba(18,5,40,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.evidence figure{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--warn-line)}
+.evidence img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:saturate(.55) brightness(.8)}
+.evidence figcaption{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);padding:10px 12px;background:rgba(255,184,97,.08)}
+
+/* LOGOWALL */
+.logowall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:112px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:54px;max-width:84%;width:auto;object-fit:contain;display:block}
+.logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:1rem;line-height:1.18;color:var(--violet-700)}
+.logocell.noimg .ln{display:block}
+
+/* KPI GRID */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.kpi{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:24px}
+.kpi .kt{font-family:'Poppins';font-weight:600;font-size:1.02rem;margin-bottom:7px}
+.kpi .kd{font-size:.86rem;color:var(--w-65);line-height:1.5}
+.kpi .kb{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;display:block}
+
+/* CIERRE */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.1;letter-spacing:-.02em;max-width:24ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:18px 44px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.04rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 88px}
+  .sfoot{left:22px;right:22px;font-size:9px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .flowline{grid-template-columns:1fr;gap:24px}
+  .flowline .step::after{display:none}
+  .invest{grid-template-columns:1fr;gap:30px}
+  .phases,.kpis{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .eco{grid-template-columns:repeat(2,1fr)}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .evidence{grid-template-columns:1fr}
+  .pipe{flex-direction:column}
+  .pipe .node{width:100%}
+  .pipe .arrow{transform:rotate(90deg);align-self:center;flex:none;width:auto}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .hero-orbits{display:none}
+  .invest-card{padding:26px 20px}
+  .price-row.svc-pick{padding:16px 10px;margin:0 -10px}
+  .price-row{gap:12px}
+  .price-row .pl{gap:11px;font-size:.95rem}
+  .price-row .pl small{max-width:100%}
+  .price-row .pv{font-size:1.08rem}
+  .price-row .pv .ivatag{display:block;text-align:right}
+  .formula{font-size:.88rem;padding:16px 18px}
+}
+@media(max-width:560px){
+  .stats{gap:20px 32px}
+  .eco{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta estratégica · Harrison Visa</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Nueva York al amanecer"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r">Propuesta comercial · Confidencial</div>
+    <h1 class="hero-title r d1">Del boca a boca<br>a un <span class="cy">sistema</span><br>de adquisición.</h1>
+    <p class="hero-sub r d2">Harrison Visa ya demostró que su servicio funciona: creció con recomendaciones y contactos personales. El próximo paso es llegar a las personas que todavía no los conocen y construir la confianza necesaria para que elijan a Harrison Visa.</p>
+    <div class="hero-tags r d3">
+      <span class="tag">Estrategia digital</span>
+      <span class="tag">Marca</span>
+      <span class="tag">Google &amp; Meta</span>
+      <span class="tag">Contenidos</span>
+      <span class="tag">SEO &amp; GEO</span>
+      <span class="tag">Medición</span>
+    </div>
+    <div class="metaband r d4">
+      <div><span class="mk">Preparada para</span><span class="mv">Federico &amp; Paula · Harrison Visa</span></div>
+      <div><span class="mk">Por</span><span class="mv">Popcorn</span></div>
+      <div><span class="mk">Fecha</span><span class="mv">21 de agosto de 2026</span></div>
+      <div><span class="mk">Válida hasta</span><span class="mv">20 de septiembre de 2026</span></div>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Scroll</span><div class="mouse"></div></div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Inicio</span></div>
+</section>
+
+<!-- ============ 2 · EL DESAFÍO ============ -->
+<section id="desafio" data-label="El desafío">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">El desafío</div>
+        <h2 class="h-lg r d1">El boca a boca<br>tiene un <span class="cy">límite natural</span>.</h2>
+        <p class="lead r d2" style="margin-top:26px">Y no es un problema de servicio: es un problema de alcance. La red de contactos de Federico ya dio lo que podía dar. Para seguir creciendo hay que hablarle a gente que nunca escuchó el nombre Harrison Visa.</p>
+        <p class="lead r d3" style="margin-top:18px">Ahí aparece la dificultad real. Emigrar no es una compra impulsiva: implica mucha información, procesos largos, datos sensibles y una decisión económica importante. Nadie le confía su futuro a una marca que no conoce.</p>
+        <div class="quote r d4" style="margin-top:36px">El desafío no es conseguir tráfico. Es convertir una marca nueva en una opción confiable para una decisión de altísimo involucramiento.</div>
+      </div>
+      <div class="col-img r d2">
+        <div class="media tall"><img src="img/pro-1.jpg" alt="Persona evaluando su decisión">
+          <div class="cap">Una decisión que se piensa mucho<small>El usuario investiga, compara y duda antes de escribir. La marca tiene que estar ahí durante todo ese recorrido.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Marca nueva · categoría de alta desconfianza · ciclo de decisión largo</span><span class="num">02 — Desafío</span></div>
+</section>
+
+<!-- ============ 3 · LO QUE ENTENDIMOS ============ -->
+<section id="entendimos" data-label="Lo que entendimos">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que entendimos de Harrison Visa</div>
+    <h2 class="h-lg r d1">Antes de proponer,<br><span class="cy">escuchamos</span>.</h2>
+    <div class="grid g4 r d2" style="margin-top:48px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg></div>
+        <h3>Etapa</h3>
+        <p>Construcción de marca y expansión. El servicio está validado; lo que falta es un canal propio de demanda que no dependa de recomendaciones.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.2 2.7-5.2 6-5.2s6 2 6 5.2"/><path d="M16 7.5a3 3 0 010 5.6M18.5 5.4a5.6 5.6 0 010 9.8"/></svg></div>
+        <h3>Público</h3>
+        <p>Latinoamericanos que quieren emigrar legalmente a Estados Unidos. Profesionales, perfiles con trabajo remoto y personas con necesidad migratoria activa.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="15" rx="2.4"/><path d="M3 10h18M8 5V3M16 5V3"/></svg></div>
+        <h3>Servicio</h3>
+        <p>Foco en EB2 / NIW, con visas de trabajo, visas familiares y Green Card. Evaluación inicial sin costo como puerta de entrada.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7.5 4v5.5c0 4.5-3.1 7.6-7.5 8.8-4.4-1.2-7.5-4.3-7.5-8.8V7L12 3z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></svg></div>
+        <h3>El activo a construir</h3>
+        <p>Confianza. En una categoría con mucha promesa falsa, la legalidad y la transparencia no son un detalle: son la ventaja competitiva.</p>
+      </div>
+    </div>
+    <div class="callout r d3">
+      <p><b>Un dato de la reunión que vale como estrategia.</b> Harrison Visa llegó a evaluar agencias a partir de recomendaciones de inteligencia artificial. Si así busca hoy quien contrata servicios profesionales, así va a buscar también quien necesita asesoramiento migratorio. Eso cambia dónde hay que estar presente, y lo trabajamos explícitamente más adelante.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Relevado en la reunión con Federico y Paula</span><span class="num">03 — Comprensión</span></div>
+</section>
+
+<!-- ============ 4 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico digital</div>
+    <h2 class="h-lg r d1">Hay un sitio.<br>Todavía no hay un <span class="cy">sistema</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Relevamos harrisonvisa.com como lo ve un usuario que llega por primera vez. La base está: el mensaje es claro, el foco en EB2 se entiende y hay vías de contacto. Lo que falta es todo lo que convierte una visita en una consulta, y una consulta en confianza.</p>
+
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <div class="card warn">
+        <span class="big-n">0</span>
+        <h3>Pruebas de que funciona</h3>
+        <p>Sin testimonios, sin casos documentados, sin cifras, sin equipo identificable y sin credenciales visibles. En una categoría donde el usuario teme que le mientan, no hay nada que demuestre trayectoria.</p>
+      </div>
+      <div class="card warn">
+        <span class="big-n">0</span>
+        <h3>Redes sociales vinculadas</h3>
+        <p>El sitio no enlaza a Instagram, Facebook ni LinkedIn. Quien quiere investigar quiénes son antes de escribir, no encuentra dónde mirar.</p>
+      </div>
+      <div class="card warn">
+        <span class="big-n">0</span>
+        <h3>Contenido indexable</h3>
+        <p>Sin blog ni artículos. No hay material que pueda posicionar en Google por las preguntas que la gente realmente busca, ni que pueda ser citado por un asistente de IA.</p>
+      </div>
+      <div class="card warn">
+        <span class="big-n">4</span>
+        <h3>Campos en el formulario</h3>
+        <p>Nombre, email, teléfono y mensaje. No pregunta profesión, título, experiencia ni país: justo los datos que permiten saber si la persona puede calificar. Todo lead entra sin calificar.</p>
+      </div>
+      <div class="card warn">
+        <span class="big-n">24h</span>
+        <h3>Promesa de respuesta publicada</h3>
+        <p>El sitio promete responder en menos de 24 horas. En un proceso donde el usuario escribe a varios asesores a la vez, 24 horas es tiempo suficiente para que ya esté hablando con otro.</p>
+      </div>
+      <div class="card warn">
+        <span class="big-n">1</span>
+        <h3>Idioma</h3>
+        <p>Solo español. Coherente con el público latino, pero limita el alcance en búsquedas y en audiencias bilingües ya radicadas en Estados Unidos.</p>
+      </div>
+    </div>
+
+    <div class="r d4" style="margin-top:52px">
+      <h3 class="h-md">El lenguaje visual también comunica</h3>
+      <p class="lead" style="margin-top:14px;max-width:820px">Las tres imágenes principales del sitio son pasaporte y bandera de Estados Unidos, de banco de imágenes. Es el recurso que usa toda la categoría: no diferencia, y en un rubro con mucha oferta dudosa, parecerse a todos los demás juega en contra.</p>
+      <div class="evidence">
+        <figure><img src="img/hv-1.webp" alt="Imagen actual del sitio"><figcaption>Sitio actual · imagen 1</figcaption></figure>
+        <figure><img src="img/hv-2.webp" alt="Imagen actual del sitio"><figcaption>Sitio actual · imagen 2</figcaption></figure>
+        <figure><img src="img/hv-3.webp" alt="Imagen actual del sitio"><figcaption>Sitio actual · imagen 3</figcaption></figure>
+      </div>
+      <p class="r d5" style="margin-top:22px"><span class="note-pill"><b>Ninguno de estos puntos es un error de gestión.</b> Son las tareas que quedan pendientes cuando una empresa crece por recomendación y todavía no necesitó un sistema digital.</span></p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Relevamiento propio de harrisonvisa.com · agosto 2026</span><span class="num">04 — Diagnóstico</span></div>
+</section>
+
+<!-- ============ 5 · OPORTUNIDAD ============ -->
+<section id="oportunidad" data-label="Oportunidad">
+  <div class="wrap">
+    <div class="split rev">
+      <div>
+        <div class="eyebrow r">La oportunidad</div>
+        <h2 class="h-lg r d1">La demanda<br><span class="cy">ya existe</span>.<br>Hay que ir a buscarla.</h2>
+        <p class="lead r d2" style="margin-top:26px">Miles de personas escriben todos los días "visa EB2", "EB2 NIW", "cómo emigrar legalmente a Estados Unidos", "visa de trabajo", "green card". No hay que convencerlas de que quieren emigrar: ya lo decidieron. Están eligiendo con quién.</p>
+        <p class="lead r d3" style="margin-top:18px">Ese usuario vale más que cualquier audiencia construida por interés, porque llega con la necesidad activa y una intención altísima. Hoy, cuando busca, encuentra a la competencia.</p>
+        <div class="chips r d4" style="margin-top:32px">
+          <span class="chip">visa EB2</span><span class="chip">EB2 NIW</span><span class="chip">emigrar legalmente a EE.UU.</span>
+          <span class="chip">visa de trabajo</span><span class="chip">green card</span><span class="chip">asesoría migratoria</span>
+        </div>
+        <p class="r d5" style="margin-top:26px"><span class="note-pill"><b>Sujeto a validación.</b> El volumen y el costo por clic reales se confirman con investigación de palabras clave en la primera etapa del trabajo.</span></p>
+      </div>
+      <div class="col-img r d2">
+        <div class="media"><img src="img/pro-2.jpg" alt="Persona buscando información">
+          <div class="cap">Intención activa<small>Alguien que busca "visa EB2" no está descubriendo una categoría: está a un paso de contratar.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Capturar demanda existente antes que generarla</span><span class="num">05 — Oportunidad</span></div>
+</section>
+
+<!-- ============ 6 · TESIS ============ -->
+<section id="tesis" data-label="Nuestra tesis">
+  <div class="wrap">
+    <div class="evo r">
+      <div class="evo-bg"><img src="img/night.jpg" alt="Ciudad de noche"></div>
+      <div class="badge"><span>Nuestra tesis</span></div>
+      <blockquote>No se trata de empezar haciendo todo. Se trata de construir la base correcta, validar qué funciona y escalar con inteligencia.</blockquote>
+      <p class="sign">Podríamos proponerles ocho canales desde el primer día. Sería más fácil de vender y mucho peor para el negocio: sin datos propios, invertir en todo al mismo tiempo es adivinar con presupuesto. Preferimos empezar con foco, medir en serio y poner la plata donde los números demuestren que funciona.</p>
+      <div class="evo-stats">
+        <div><div class="v">1</div><div class="l">Sistema, no acciones sueltas</div></div>
+        <div><div class="v">4</div><div class="l">Etapas de construcción</div></div>
+        <div><div class="v">90</div><div class="l">Días para las primeras certezas</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Construir · Validar · Escalar</span><span class="num">06 — Tesis</span></div>
+</section>
+
+<!-- ============ 7 · ESTRATEGIA ============ -->
+<section id="estrategia" data-label="Estrategia">
+  <div class="wrap">
+    <div class="eyebrow r">La estrategia</div>
+    <h2 class="h-lg r d1">Cuatro etapas,<br>en este <span class="cy">orden</span>.</h2>
+    <div class="phases">
+      <div class="phase-card hi r d2">
+        <div class="pn">01</div>
+        <span class="gp">Ordenar</span>
+        <h3>Construir las bases</h3>
+        <p>Auditoría, posicionamiento, definición de públicos, investigación de palabras clave, arquitectura de canales, revisión del sitio, definición de conversiones y medición. Sin esto, todo lo que venga después no se puede leer.</p>
+      </div>
+      <div class="phase-card r d3">
+        <div class="pn">02</div>
+        <span class="gp">Activar</span>
+        <h3>Generar demanda</h3>
+        <p>Google Ads como motor principal, apertura del ecosistema social, primeros contenidos, remarketing y optimización de la conversión en el sitio.</p>
+      </div>
+      <div class="phase-card r d4">
+        <div class="pn">03</div>
+        <span class="gp">Validar</span>
+        <h3>Entender qué funciona</h3>
+        <p>Medir palabras clave, audiencias, mensajes y creatividades contra el costo por lead, la calidad del lead y el feedback del equipo comercial. Acá se descarta lo que no rinde.</p>
+      </div>
+      <div class="phase-card r d5">
+        <div class="pn">04</div>
+        <span class="gp">Escalar</span>
+        <h3>Crecer sobre certezas</h3>
+        <p>Aumentar inversión donde ya hay evidencia, expandir palabras clave y audiencias, profundizar SEO, desarrollar LinkedIn y abrir nuevos frentes.</p>
+      </div>
+    </div>
+    <div class="callout r d6">
+      <p><b>Por qué importa el orden.</b> Cada etapa produce el insumo de la siguiente. Si se activa sin ordenar, no hay medición confiable. Si se escala sin validar, se multiplica lo que no funciona. La secuencia no es burocracia: es lo que evita gastar dos veces.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Ordenar → Activar → Validar → Escalar</span><span class="num">07 — Estrategia</span></div>
+</section>
+
+<!-- ============ 8 · ECOSISTEMA Y FUNNEL ============ -->
+<section id="ecosistema" data-label="Ecosistema">
+  <div class="wrap">
+    <div class="eyebrow r">Ecosistema y recorrido</div>
+    <h2 class="h-lg r d1">Cada pieza cumple<br>una <span class="cy">función distinta</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">No son canales sueltos compitiendo por presupuesto. Es un sistema donde cada uno hace una cosa que los otros no pueden hacer.</p>
+    <div class="eco r d3">
+      <div class="e hi">Google<span>Captura la demanda que ya existe</span></div>
+      <div class="e">Meta<span>Presencia, recordación y confianza</span></div>
+      <div class="e">Instagram<span>Humaniza y educa</span></div>
+      <div class="e">LinkedIn<span>Autoridad profesional</span></div>
+      <div class="e">SEO &amp; GEO<span>Presencia orgánica y en IA</span></div>
+      <div class="e hi">Website<span>Convierte la visita en consulta</span></div>
+      <div class="e">Contenidos<span>Construyen la confianza</span></div>
+      <div class="e">WhatsApp<span>Baja la fricción del contacto</span></div>
+      <div class="e">Facebook<span>Distribución y audiencias adultas</span></div>
+      <div class="e">Remarketing<span>Vuelve a quien ya mostró interés</span></div>
+      <div class="e">Equipo comercial<span>Convierte la oportunidad</span></div>
+      <div class="e hi">Analítica<span>Dice qué funciona y qué no</span></div>
+    </div>
+
+    <h3 class="h-md r d4" style="margin-top:60px">El recorrido completo</h3>
+    <div class="pipe r d5" style="margin-top:20px">
+      <div class="node"><span class="k">01</span><span class="t">Descubrimiento</span><p>Busca o encuentra la marca</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">02</span><span class="t">Consideración</span><p>Investiga y compara</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">03</span><span class="t">Consulta</span><p>Formulario o WhatsApp</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">04</span><span class="t">Evaluación inicial</span><p>Sin costo · el corazón del funnel</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">05</span><span class="t">Lead calificado</span><p>Perfil compatible con una visa</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">06</span><span class="t">Cliente</span><p>Contratación y proceso</p></div>
+    </div>
+    <div class="callout r d6">
+      <p><b>La evaluación inicial sin costo es el mejor activo que ya tienen.</b> Es una oferta concreta, de bajo riesgo para el usuario y de alto valor percibido. Toda la comunicación va a empujar hacia ahí, en lugar de pedirle a la gente que "nos contacte".</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un sistema, no una suma de canales</span><span class="num">08 — Ecosistema</span></div>
+</section>
+
+<!-- ============ 9 · GOOGLE VS META ============ -->
+<section id="canales" data-label="Google & Meta">
+  <div class="wrap">
+    <div class="eyebrow r">Paid Media</div>
+    <h2 class="h-lg r d1">Google compra intención.<br>Meta compra <span class="cy">alcance</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Los dos canales entran, pero no hacen lo mismo ni rinden igual. Entender la diferencia es lo que permite repartir el presupuesto con criterio en lugar de por moda.</p>
+
+    <div class="grid g2 r d3" style="margin-top:44px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></div>
+        <span class="num-tag">CANAL PRINCIPAL</span>
+        <h3>Google · demanda activa</h3>
+        <p style="margin-bottom:16px">El usuario ya está buscando la solución. Llega con intención, contexto y urgencia. Es el canal que convierte mejor y el que sostiene el negocio.</p>
+        <div class="stats" style="margin-top:22px;padding-top:22px">
+          <div class="stat"><div class="v">~15%</div><div class="l">De lead a venta</div></div>
+          <div class="stat"><div class="v">~7</div><div class="l">Leads por cliente cerrado</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 01-12.2 7.7L3 21l1.8-5.8A8.5 8.5 0 1121 11.5z"/></svg></div>
+        <span class="num-tag">CANAL COMPLEMENTARIO</span>
+        <h3>Meta · volumen y confianza</h3>
+        <p style="margin-bottom:16px">Genera muchas más conversaciones, pero de calidad más baja: la persona todavía está investigando. Construye marca, recordación y remarketing.</p>
+        <div class="stats" style="margin-top:22px;padding-top:22px">
+          <div class="stat"><div class="v">3%</div><div class="l">De conversación a venta</div></div>
+          <div class="stat"><div class="v">~32</div><div class="l">Conversaciones por cliente cerrado</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn r d4">
+      <p><b>Meta cierra por volumen, no por calidad. Y ese volumen tiene un costo que no aparece en la tabla de inversión: el trabajo de atenderlo.</b> Cada cliente que llega por Meta consume alrededor de cinco veces más gestión que uno que llega por Google —más conversaciones, más tiempo de respuesta, más evaluaciones que no van a ningún lado—. Por eso el peso principal arranca en Google: no porque Meta no funcione, sino porque el equipo comercial es un recurso finito y hay que cuidarlo.</p>
+    </div>
+
+    <p class="r d5" style="margin-top:26px"><span class="note-pill"><b>Hipótesis inicial de reparto: 75% Google / 25% Meta.</b> Se recalibra con datos reales de costo por lead, calidad y cierre.</span></p>
+  </div>
+  <div class="sfoot"><span>El mix se define con datos, no con supuestos</span><span class="num">09 — Canales</span></div>
+</section>
+
+<!-- ============ 10 · FRENTES DE TRABAJO ============ -->
+<section id="frentes" data-label="Frentes de trabajo">
+  <div class="wrap">
+    <div class="eyebrow r">Frentes de trabajo</div>
+    <h2 class="h-lg r d1">Lo que hay que<br>construir en <span class="cy">paralelo</span>.</h2>
+
+    <div class="split r d2" style="margin-top:52px">
+      <div>
+        <span class="kicker">01 · Marca e identidad</span>
+        <h3 class="h-md" style="margin:12px 0 16px">Una identidad propia, no prestada</h3>
+        <p class="lead">Hoy existe un logo y una identidad inicial en desarrollo. Nuestra lectura es que hay una oportunidad de construir un sistema visual más propio y contemporáneo: la "H" y el aire tipográfico actuales remiten a una marca muy establecida de otro rubro, y eso resta personalidad justo donde hay que ganarla.</p>
+        <p class="lead" style="margin-top:16px">Trabajamos con la diseñadora freelance que ya tienen, aportando estrategia, lineamientos, briefs y supervisión de consistencia. Y si en algún momento prefieren delegar el diseño completo, lo podemos asumir nosotros. Las dos formas están disponibles.</p>
+      </div>
+      <div class="col-img"><div class="media"><img src="img/brand.jpg" alt="Trabajo de diseño y marca"><div class="cap">Sistema visual<small>Colores, tipografías, aplicaciones y una identidad pensada para quien está decidiendo su futuro.</small></div></div></div>
+    </div>
+
+    <div class="split rev r d3" style="margin-top:64px">
+      <div>
+        <span class="kicker">02 · Contenidos</span>
+        <h3 class="h-md" style="margin:12px 0 16px">Cápsulas, no publicaciones sueltas</h3>
+        <p class="lead">Paula puede grabar y aportar material: eso baja mucho el costo de producción y hay que aprovecharlo. Proponemos trabajar por cápsulas —una jornada concentrada de grabación cada dos meses— que alimente Instagram, Facebook, LinkedIn, reels, stories, campañas y remarketing durante todo el período.</p>
+        <p class="lead" style="margin-top:16px">Popcorn aporta estrategia, guiones, ideas, briefs, edición, adaptaciones, textos, calendario, distribución y análisis. También funciona la modalidad en la que Federico y Paula filman internamente siguiendo nuestras pautas. La decisión es de ustedes; la estructura se adapta.</p>
+      </div>
+      <div class="col-img"><div class="media"><img src="img/video.jpg" alt="Producción de contenidos"><div class="cap">Una jornada, dos meses de contenido<small>El formato cápsula es lo que hace sostenible el volumen sin inflar el presupuesto.</small></div></div></div>
+    </div>
+
+    <div class="split r d4" style="margin-top:64px">
+      <div>
+        <span class="kicker">03 · Web, SEO y GEO</span>
+        <h3 class="h-md" style="margin:12px 0 16px">Una web no termina cuando se publica</h3>
+        <p class="lead">El sitio necesita optimización continua: posicionamiento orgánico, contenido indexable, nuevas landing pages por tipo de visa, mejoras de conversión, formularios que califiquen y medición real de lo que pasa adentro.</p>
+        <p class="lead" style="margin-top:16px">Y hay una capa nueva que casi nadie está trabajando todavía: <b>GEO — Generative Engine Optimization</b>. Se trata de aumentar las probabilidades de que Harrison Visa aparezca referenciada cuando alguien le pregunta a una inteligencia artificial cómo emigrar a Estados Unidos. Ustedes mismos eligieron evaluar agencias así. Su público va a hacer lo mismo.</p>
+      </div>
+      <div class="col-img"><div class="media"><img src="img/dev.jpg" alt="Optimización web"><div class="cap">Optimización continua<small>SEO tradicional + presencia en respuestas generativas de IA.</small></div></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Marca · Contenidos · Web, SEO y GEO</span><span class="num">10 — Frentes</span></div>
+</section>
+
+<!-- ============ 11 · COORDINACIÓN COMERCIAL ============ -->
+<section id="ventas" data-label="Marketing y ventas">
+  <div class="wrap">
+    <div class="split rev">
+      <div>
+        <div class="eyebrow r">Marketing y ventas</div>
+        <h2 class="h-lg r d1">Nuestro trabajo no termina<br>cuando entra el <span class="cy">formulario</span>.</h2>
+        <p class="lead r d2" style="margin-top:26px">Un lead que nadie atiende rápido no es un lead: es plata gastada. Y en este rubro el usuario escribe a varios asesores al mismo tiempo, así que la primera respuesta se lleva casi toda la ventaja.</p>
+        <p class="lead r d3" style="margin-top:18px">Por eso medimos la calidad del lead junto con ustedes y trabajamos con el equipo comercial: protocolos de respuesta, análisis de objeciones, motivos de pérdida, mensajes, y ajuste de las campañas según qué tipo de lead realmente cierra.</p>
+        <div class="callout r d4">
+          <p><b>Lo que sí prometemos y lo que no.</b> Popcorn es responsable del marketing y de generar oportunidades calificadas. El cierre depende también del equipo comercial, del tiempo de respuesta, de la calidad del asesoramiento, del precio y del seguimiento. No vendemos ventas garantizadas: construimos el sistema que las hace posibles y lo medimos con ustedes.</p>
+        </div>
+      </div>
+      <div class="col-img r d2">
+        <div class="media tall"><img src="img/phone.jpg" alt="Primer contacto con el consultante">
+          <div class="cap">La conversación arranca acá<small>Cuanto más tarda la primera respuesta, más chances tiene el competidor que ya contestó.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Marketing genera oportunidades · el equipo comercial las convierte</span><span class="num">11 — Ventas</span></div>
+</section>
+
+<!-- ============ 12 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Honorarios de Popcorn.<br>La pauta va <span class="cy">aparte</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Dos bloques bien separados: un proyecto inicial por única vez que ordena y define, y un acompañamiento mensual que ejecuta y optimiza. La inversión en plataformas se detalla en la sección siguiente y se abona directamente a Google y Meta.</p>
+
+    <div class="invest" style="margin-top:48px">
+      <div class="invest-card r d3">
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Proyecto inicial · pago único</span><span class="inv-sub" id="subOnce">—</span></div>
+          <div class="price-row svc-pick" data-type="once" data-amount="1320000" data-svc="Estrategia Inicial" data-price="$1.320.000 + IVA">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Estrategia Inicial</span>
+              <small>Estrategia + benchmark de competidores + mystery shopper sobre la competencia, comparando ventajas competitivas y oportunidades de mejora. Entregable en PDF.</small></span>
+            </div>
+            <div class="pv">$1.320.000<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-amount="370000" data-svc="Start Up Paid Media" data-price="$370.000 + IVA">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Start Up Paid Media</span>
+              <small>Puesta en marcha de la estructura de campañas, conversiones y medición.</small>
+              <small class="varfee">Bonificado si arrancamos solo con Google.</small></span>
+            </div>
+            <div class="pv">$370.000<span class="ivatag"> + IVA</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Acompañamiento mensual</span><span class="inv-sub" id="subMonth">—</span></div>
+          <div class="price-row svc-pick" data-type="month" data-amount="1100000" data-svc="Acompañamiento Estratégico" data-price="$1.100.000 + IVA/mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Acompañamiento Estratégico</span>
+              <small>15 horas mensuales: reuniones semanales de estrategia, revisión de avances y trabajo interno. Se revisa según el crecimiento de la cuenta y el nivel de demanda.</small></span>
+            </div>
+            <div class="pv">$1.100.000<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="750000" data-svc="Gestión de Redes Sociales" data-price="$750.000 + IVA/mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Gestión de Redes Sociales</span>
+              <small>12 posteos mensuales sin réplicas: 8 para Instagram + Facebook y 4 para LinkedIn, con estrategia, textos, calendario y publicación. No incluye diseño ni edición.</small></span>
+            </div>
+            <div class="pv">$750.000<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="755000" data-svc="Gestión de Pauta" data-price="$755.000 + IVA/mes + 15% sobre la inversión en plataformas">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Gestión de Pauta</span>
+              <small>Google y Meta: estructura de campañas, optimización, seguimiento de leads y reporte. No incluye diseño ni edición.</small>
+              <small class="varfee">+ 15% sobre la inversión en plataformas.</small></span>
+            </div>
+            <div class="pv">$755.000<span class="ivatag"> + IVA</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Módulos opcionales</span><span class="inv-sub">A elección</span></div>
+          <div class="price-row svc-pick" data-type="month" data-amount="210000" data-svc="Notas de Blog (opcional)" data-price="$210.000 + IVA/mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Notas de Blog <span class="opt-tag">Opcional</span></span>
+              <small>2 notas mensuales orientadas a posicionamiento. Pueden desprenderse de los contenidos que ya generamos para LinkedIn.</small></span>
+            </div>
+            <div class="pv">$210.000<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="1315000" data-svc="Pack de Diseño (opcional)" data-price="$1.315.000 + IVA/mes">
+            <div class="pl">
+              <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M4 12.5l5.5 5.5L20 7"/></svg></span>
+              <span><span class="pl-t">Pack de Diseño <span class="opt-tag">Opcional</span></span>
+              <small>30 horas mensuales para producción de contenidos de redes, anuncios y pedidos puntuales (brochures, banners y piezas específicas). Entra si deciden no continuar con su diseñadora freelance.</small></span>
+            </div>
+            <div class="pv">$1.315.000<span class="ivatag"> + IVA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="h-md r d4">Cómo leer estos números</h3>
+        <ul class="bullets r d5" style="margin-top:24px">
+          <li><span class="bi">1</span><p><b>El proyecto inicial se paga una sola vez</b> y es el que produce el diagnóstico, el benchmark y el mystery shopper. Es la base sobre la que después se optimiza todo lo demás.</p></li>
+          <li><span class="bi">2</span><p><b>El núcleo del acompañamiento mensual es de $2.605.000 + IVA.</b> Es lo que sostiene el sistema: estrategia, redes y pauta.</p></li>
+          <li><span class="bi">3</span><p><b>Los dos módulos opcionales suman $1.525.000 + IVA</b> y se activan solo si los necesitan. No son parte del piso.</p></li>
+          <li><span class="bi">4</span><p><b>La inversión en plataformas se abona aparte</b>, directamente a Google y Meta. Popcorn no la factura: la gestiona.</p></li>
+        </ul>
+        <div class="formula r d6">
+          <span>Fee núcleo</span><span class="op">+</span><span class="fx">15% de la inversión del mes</span><span class="op">+</span><span class="fx">inversión en plataformas</span>
+        </div>
+        <p class="r d6" style="margin-top:14px;font-size:.88rem;color:var(--w-45);line-height:1.6">El 15% se calcula sobre lo que efectivamente se invierta cada mes en Google y Meta, así que varía con el nivel de inversión que elijan. Está incluido en la gestión de pauta y se factura junto al fee.</p>
+
+        <div class="callout r d7">
+          <p><b>Formas de pago.</b> Proyecto inicial: 100% anticipado (valor más conveniente) o 50% al inicio y 50% a los 30 días. Acompañamiento mensual: 100% adelantado. Todos los valores son en pesos argentinos + IVA, con revisión trimestral por variación de costos.</p>
+        </div>
+        <p class="r d8" style="margin-top:20px"><span class="note-pill"><b>Todos los valores + IVA</b> · Propuesta válida hasta el 20/09/2026</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Tildá los servicios que quieran incluir · el total se arma solo</span><span class="num">12 — Inversión</span></div>
+</section>
+
+<!-- ============ 13 · ESCENARIOS DE PAUTA ============ -->
+<section id="escenarios" data-label="Escenarios de pauta">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en plataformas</div>
+    <h2 class="h-lg r d1">Tres niveles de <span class="cy">potencial</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">No son planes bueno, mejor y premium: son tres velocidades distintas. El primero valida, el segundo crece y el tercero escala. Todos calculados para Google y Meta en Argentina.</p>
+
+    <div class="scen scen-pick r d3" data-scen="1">
+      <div class="scen-head">
+        <div class="st">Piso · Validación<small>Aprender qué funciona con la menor inversión posible</small></div>
+        <div class="si">$2.500.000 / mes</div>
+      </div>
+      <div class="scen-note">Suficiente volumen de clics para empezar a leer datos reales: qué palabras clave traen consultas, qué mensajes funcionan y cuánto cuesta un lead. Por debajo de este piso no se valida, se adivina.</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Plataforma</th><th>Función</th><th class="num">Inversión</th><th class="num">CPC</th><th class="num">Clics</th><th class="num">Conv.</th><th class="num">Resultado</th><th class="num">Costo unitario</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google Ads</td><td class="obj">Captar demanda activa</td><td class="num">$1.875.000 (75%)</td><td class="num">$1.100</td><td class="num">~1.705</td><td class="num">4,0%</td><td class="num">~68 leads</td><td class="num">~$27.600</td></tr>
+            <tr><td class="plat">Meta Ads</td><td class="obj">Marca, confianza y remarketing</td><td class="num">$625.000 (25%)</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">~417 conversaciones</td><td class="num">~$1.500</td></tr>
+            <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$2.500.000</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">68 leads + 417 conv.</td><td class="num"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <div class="scen scen-pick r d4" data-scen="2">
+      <div class="scen-head">
+        <div class="st">Recomendado · Crecimiento<small>El punto donde el sistema empieza a rendir de verdad</small></div>
+        <div class="si">$3.400.000 / mes</div>
+      </div>
+      <div class="scen-note">Más cobertura de búsquedas y mejor costo por lead por eficiencia de escala. Es el escenario que recomendamos: da volumen suficiente para optimizar rápido sin comprometer la capacidad de atención.</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Plataforma</th><th>Función</th><th class="num">Inversión</th><th class="num">CPC</th><th class="num">Clics</th><th class="num">Conv.</th><th class="num">Resultado</th><th class="num">Costo unitario</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google Ads</td><td class="obj">Captar demanda activa</td><td class="num">$2.550.000 (75%)</td><td class="num">$1.000</td><td class="num">~2.550</td><td class="num">4,5%</td><td class="num">~115 leads</td><td class="num">~$22.200</td></tr>
+            <tr><td class="plat">Meta Ads</td><td class="obj">Marca, confianza y remarketing</td><td class="num">$850.000 (25%)</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">~607 conversaciones</td><td class="num">~$1.400</td></tr>
+            <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$3.400.000</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">115 leads + 607 conv.</td><td class="num"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <div class="scen scen-pick r d5" data-scen="3">
+      <div class="scen-head">
+        <div class="st">Escalado · Escalamiento<small>Para cuando ya sabemos qué funciona</small></div>
+        <div class="si">$4.500.000 / mes</div>
+      </div>
+      <div class="scen-note">Amplía palabras clave y audiencias sobre lo que ya demostró rendir, con más peso en Meta para sostener la construcción de marca. Requiere capacidad comercial instalada para atender el volumen.</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Plataforma</th><th>Función</th><th class="num">Inversión</th><th class="num">CPC</th><th class="num">Clics</th><th class="num">Conv.</th><th class="num">Resultado</th><th class="num">Costo unitario</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google Ads</td><td class="obj">Captar demanda activa</td><td class="num">$3.150.000 (70%)</td><td class="num">$900</td><td class="num">~3.500</td><td class="num">5,0%</td><td class="num">~175 leads</td><td class="num">~$18.000</td></tr>
+            <tr><td class="plat">Meta Ads</td><td class="obj">Marca, confianza y remarketing</td><td class="num">$1.350.000 (30%)</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">~1.038 conversaciones</td><td class="num">~$1.300</td></tr>
+            <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$4.500.000</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">175 leads + 1.038 conv.</td><td class="num"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <div class="callout r d6">
+      <p><b>Sobre la referencia de $800.000 a $1.000.000 que les pasaron otras agencias.</b> Es un presupuesto posible, pero conviene saber qué compra: con un costo por clic cercano a $1.100, ese monto rinde alrededor de 900 clics, unos 36 leads y muy poco margen de aprendizaje por mes. Se puede arrancar ahí —y si lo prefieren, lo hacemos solo con Google para concentrar todo el presupuesto en el canal que mejor convierte—, pero el objetivo de esa etapa sería aprender, no escalar.</p>
+    </div>
+    <p class="r d7" style="margin-top:20px"><span class="note-pill"><b>Costos por clic estimados</b> · se confirman con investigación de palabras clave en el primer mes</span></p>
+  </div>
+  <div class="sfoot"><span>La pauta se abona directamente a Google y Meta</span><span class="num">13 — Escenarios</span></div>
+</section>
+
+<!-- ============ 14 · PROYECCIÓN ============ -->
+<section id="proyeccion" data-label="Proyección">
+  <div class="wrap">
+    <div class="eyebrow r">Proyección de negocio</div>
+    <h2 class="h-lg r d1">Qué puede significar<br>en <span class="cy">clientes</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Con un ticket de referencia de USD 3.000, y aplicando las tasas de cierre de cada canal: alrededor del 15% en los leads de Google y del 3% en las conversaciones de Meta.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:38px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow-x:auto">
+      <table class="tbl">
+        <thead><tr><th>Indicador</th><th class="num">Piso</th><th class="num">Recomendado</th><th class="num">Escalado</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Inversión mensual en plataformas</td><td class="num">$2.500.000</td><td class="num">$3.400.000</td><td class="num">$4.500.000</td></tr>
+          <tr class="sep"><td colspan="4">Volumen generado</td></tr>
+          <tr><td>Leads de Google</td><td class="num">~68</td><td class="num">~115</td><td class="num">~175</td></tr>
+          <tr><td>Conversaciones de Meta</td><td class="num">~417</td><td class="num">~607</td><td class="num">~1.038</td></tr>
+          <tr class="sep"><td colspan="4">Clientes estimados</td></tr>
+          <tr><td>Por Google <span style="color:var(--w-45);font-size:.82rem">(cierre ~15%)</span></td><td class="num">~10</td><td class="num">~17</td><td class="num">~26</td></tr>
+          <tr><td>Por Meta <span style="color:var(--w-45);font-size:.82rem">(cierre 3%)</span></td><td class="num">~13</td><td class="num">~18</td><td class="num">~31</td></tr>
+          <tr class="total"><td>Total clientes estimados</td><td class="num">~23</td><td class="num">~35</td><td class="num">~57</td></tr>
+          <tr class="sep"><td colspan="4">Resultado económico</td></tr>
+          <tr><td>Facturación estimada <span style="color:var(--w-45);font-size:.82rem">(USD 3.000 × $1.515)</span></td><td class="num">~$104.535.000</td><td class="num">~$159.075.000</td><td class="num">~$259.065.000</td></tr>
+          <tr class="total"><td>Retorno sobre la inversión publicitaria</td><td class="num">~42x</td><td class="num">~47x</td><td class="num">~58x</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn r d4">
+      <p><b>Estas proyecciones son un aspiracional a 3 meses, no un resultado del primer mes.</b> No vamos a cerrar 23 clientes nuevos en el mes 1, y decirlo sería faltar a la verdad: antes hay un trabajo de construcción de marca y de confianza, y este es un servicio de alto involucramiento donde la decisión no es inmediata. Además necesitamos entender el comportamiento real del usuario —desde que entra la consulta hasta que se cierra, cuánto tiempo pasa—. Ese ciclo de venta es hoy un dato que no tenemos, y es el que va a corregir toda la proyección. Los leads de un mes pueden cerrar en el siguiente.</p>
+    </div>
+
+    <div class="grid g2 r d5" style="margin-top:26px">
+      <div class="card">
+        <h3>Qué es y qué no es este retorno</h3>
+        <p>El múltiplo compara la facturación estimada contra la inversión en plataformas. No incluye los honorarios de Popcorn ni el costo de prestación del servicio de Harrison Visa, así que es retorno sobre la pauta y facturación bruta: no es ganancia.</p>
+      </div>
+      <div class="card">
+        <h3>El dato que no depende de ningún supuesto</h3>
+        <p>Un solo cliente —alrededor de $4.545.000— cubre casi la totalidad de la pauta mensual del escenario Piso. El ticket del negocio es lo suficientemente alto como para sostener la inversión desde muy temprano.</p>
+      </div>
+    </div>
+    <p class="r d6" style="margin-top:24px"><span class="note-pill"><b>Las tasas de cierre son supuestos de partida</b> · se reemplazan por datos reales de Harrison Visa en el primer mes</span></p>
+  </div>
+  <div class="sfoot"><span>Proyección · sujeta a validación con datos reales</span><span class="num">14 — Proyección</span></div>
+</section>
+
+<!-- ============ 15 · KPIs ============ -->
+<section id="kpis" data-label="KPIs">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo medimos</div>
+    <h2 class="h-lg r d1">Indicadores de negocio,<br>no de <span class="cy">vanidad</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">No vamos a llevarles un informe de likes. Estos son los números que dicen si el sistema funciona.</p>
+    <div class="kpis r d3">
+      <div class="kpi"><span class="kb">Volumen</span><div class="kt">Leads y conversaciones</div><div class="kd">Cuántas oportunidades entran por canal, con su costo unitario.</div></div>
+      <div class="kpi"><span class="kb">Calidad</span><div class="kt">Leads calificados</div><div class="kd">Cuántos de esos leads tienen perfil compatible con una visa. Se define junto al equipo comercial.</div></div>
+      <div class="kpi"><span class="kb">Eficiencia</span><div class="kt">Costo por lead calificado</div><div class="kd">El número que realmente importa: no cuánto cuesta un formulario, sino cuánto cuesta uno que sirve.</div></div>
+      <div class="kpi"><span class="kb">Proceso</span><div class="kt">Tiempo de respuesta y contactabilidad</div><div class="kd">Cuánto tardamos en responder y a qué porcentaje logramos contactar.</div></div>
+      <div class="kpi"><span class="kb">Avance</span><div class="kt">Evaluaciones y propuestas</div><div class="kd">Cuántas evaluaciones iniciales se concretan y cuántas propuestas se envían.</div></div>
+      <div class="kpi"><span class="kb">Resultado</span><div class="kt">Clientes, CAC y facturación</div><div class="kd">Clientes cerrados, costo de adquisición y facturación generada. ROAS cuando haya datos suficientes.</div></div>
+    </div>
+    <div class="callout r d4">
+      <p><b>El ciclo de venta es el primer indicador a construir.</b> Hoy no sabemos cuánto tarda una consulta en convertirse en cliente. Medirlo desde el mes 1 es lo que va a permitir leer correctamente todos los demás números y ajustar la proyección con realidad en lugar de con supuestos.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Leads · calidad · oportunidades · clientes · facturación</span><span class="num">15 — KPIs</span></div>
+</section>
+
+<!-- ============ 16 · ROADMAP ============ -->
+<section id="roadmap" data-label="Primeros 90 días">
+  <div class="wrap">
+    <div class="eyebrow r">Roadmap</div>
+    <h2 class="h-lg r d1">Los primeros <span class="cy">90 días</span>.</h2>
+    <div class="tl">
+      <div class="tl-item r d2">
+        <div class="dot"></div>
+        <div class="ph">Mes 1</div>
+        <h3>Fundamentos</h3>
+        <p>Auditoría y estrategia. Investigación de palabras clave con volúmenes y costos reales. Definición de públicos, mensajes y posicionamiento. Configuración de medición: Analytics, Tag Manager, pixel y conversiones —incluido el clic a WhatsApp, que hoy no se mide—. Apertura y puesta en marcha del ecosistema social. Benchmark de competidores y mystery shopper.</p>
+      </div>
+      <div class="tl-item r d3">
+        <div class="dot"></div>
+        <div class="ph">Mes 2</div>
+        <h3>Activación</h3>
+        <p>Salida de Google Ads con la estructura definida. Primeros contenidos en Instagram, Facebook y LinkedIn. Apertura de Meta y remarketing. Primeras optimizaciones de conversión en el sitio y ajuste del formulario para que califique. Análisis inicial de los leads que entran.</p>
+      </div>
+      <div class="tl-item r d4">
+        <div class="dot"></div>
+        <div class="ph">Mes 3</div>
+        <h3>Optimización</h3>
+        <p>Análisis de resultados con datos propios. Optimización de campañas, palabras clave, audiencias y contenidos. Revisión de calidad de leads con el equipo comercial y reasignación de inversión hacia lo que rinde. Primera lectura del ciclo de venta real.</p>
+      </div>
+      <div class="tl-item r d5">
+        <div class="dot"></div>
+        <div class="ph">A partir del mes 4</div>
+        <h3>Escalamiento</h3>
+        <p>Con evidencia sobre la mesa: ampliar inversión en lo que funciona, expandir palabras clave y audiencias, profundizar SEO y GEO, desarrollar LinkedIn y explorar nuevos frentes.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fundamentos → Activación → Optimización → Escalamiento</span><span class="num">16 — Roadmap</span></div>
+</section>
+
+<!-- ============ 17 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1">Qué incluye<br>y qué <span class="cy">no</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Preferimos decirlo desde el principio. Es la forma de que nadie se sorprenda en el mes uno.</p>
+    <div class="scope r d3" style="margin-top:44px">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <p class="sub">Con el acompañamiento mensual contratado</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5.5 5.5L20 7"/></svg><span>Estrategia, reuniones semanales y trabajo interno (15 horas mensuales)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5.5 5.5L20 7"/></svg><span>12 posteos mensuales sin réplicas: 8 IG + FB y 4 LinkedIn, con textos y calendario</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5.5 5.5L20 7"/></svg><span>Gestión completa de campañas en Google y Meta, con optimización y reporte</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5.5 5.5L20 7"/></svg><span>Guiones, ideas y briefs para los contenidos que graben Paula o Federico</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5.5 5.5L20 7"/></svg><span>Lineamientos y supervisión de consistencia visual para la diseñadora externa</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12.5l5.5 5.5L20 7"/></svg><span>Medición, análisis de calidad de leads y coordinación con el equipo comercial</span></li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <p class="sub">Se cotiza aparte o se resuelve con un módulo opcional</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Diseño y edición de piezas.</b> Los posteos y las creatividades de anuncios los produce la diseñadora freelance con nuestros briefs, o se contrata el Pack de Diseño</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Inversión en plataformas.</b> Se abona directamente a Google y Meta</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Notas de blog</b>, salvo que se active el módulo opcional</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Rediseño integral del sitio</b> ni desarrollo de nuevas landing pages: se cotiza como proyecto según alcance</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Asesoramiento legal migratorio.</b> Popcorn comunica los servicios de Harrison Visa; el criterio profesional sobre cada caso es siempre de ustedes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Atención de consultas y cierre de ventas.</b> Los leads los atiende el equipo de Harrison Visa</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Transparencia comercial desde el día uno</span><span class="num">17 — Alcance</span></div>
+</section>
+
+<!-- ============ 18 · POPCORN ============ -->
+<section id="popcorn" data-label="Popcorn">
+  <div class="wrap">
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No vendemos publicaciones.<br>Vendemos <span class="cy">crecimiento</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Somos una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Resolvemos estrategia, marca, diseño, contenido, paid media, SEO, web, analítica y producción audiovisual con un equipo multidisciplinario: el proyecto no depende de una sola persona.</p>
+    <p class="lead r d3" style="margin-top:18px">Trabajamos hace años con instituciones de salud, empresas B2B y compañías que necesitan procesos comerciales que funcionen. Sabemos integrarnos con equipos que ya existen —diseñadores, desarrolladores, consultores, áreas comerciales— sin pelearnos por el territorio.</p>
+    <div class="stats r d4">
+      <div class="stat"><div class="v">15+</div><div class="l">Años de trayectoria</div></div>
+      <div class="stat"><div class="v">360°</div><div class="l">Servicios integrados</div></div>
+      <div class="stat"><div class="v">160+</div><div class="l">Marcas acompañadas</div></div>
+    </div>
+    <div class="logowall r d5">
+      <div class="logocell"><img class="brandlogo" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Hospital Universitario Austral</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/manlab.png" alt="ManLab" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">ManLab</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Swiss Medical</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fitzroy.jpg" alt="Centro Médico Integral Fitz Roy" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Centro Médico Fitz Roy</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/cetac.jpg" alt="CETAC" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">CETAC Juncal</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fleni.webp" alt="Fleni" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Fleni</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/centralab.png" alt="CentraLab" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">CentraLab</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fleming.png" alt="Fleming" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Fleming</span></div>
+    </div>
+
+    <div class="grid g3 r d6" style="margin-top:52px">
+      <div class="card">
+        <span class="num-tag">EQUIPO ASIGNADO</span>
+        <h3>Florencia Grigolatto</h3>
+        <p>Operations Manager · Marketing general. Dirección del proyecto, estrategia y coordinación del equipo.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">EQUIPO ASIGNADO</span>
+        <h3>Sol</h3>
+        <p>General Manager · Paid Media. Estructura de campañas en Google y Meta, optimización y análisis de performance.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">EQUIPO ASIGNADO</span>
+        <h3>Demián Linetzky</h3>
+        <p>Executive Director · Audiovisual, Web y Digital. Producción de contenidos, sitio web y desarrollo digital.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">18 — Popcorn</span></div>
+</section>
+
+<!-- ============ 19 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cómo <span class="cy">arrancamos</span>.</h2>
+    <div class="grid g4 r d2" style="margin-top:48px">
+      <div class="card"><span class="num-tag">01</span><h3>Definir el alcance</h3><p>Confirman qué servicios incluir y con qué escenario de inversión quieren arrancar. Se puede empezar por menos y crecer.</p></div>
+      <div class="card"><span class="num-tag">02</span><h3>Reunión de arranque</h3><p>Accesos, objetivos comerciales, capacidad de atención y las preguntas que todavía tenemos abiertas: ciclo de venta y volumen actual de consultas.</p></div>
+      <div class="card"><span class="num-tag">03</span><h3>Mes 1 en marcha</h3><p>Auditoría, investigación de palabras clave, medición, estrategia y apertura de redes. Con datos reales sobre la mesa.</p></div>
+      <div class="card"><span class="num-tag">04</span><h3>Primera revisión</h3><p>A los 30 días ajustamos la proyección con los primeros números propios de Harrison Visa, no con supuestos.</p></div>
+    </div>
+    <div class="callout r d3">
+      <p><b>Dos cosas que necesitamos saber antes de arrancar.</b> Primero: cuántas evaluaciones iniciales pueden atender por mes. Es lo que define cuánto volumen tiene sentido generar, y preferimos ajustar la ambición antes que inundarlos de consultas sin respuesta. Segundo: cuánto tarda hoy una consulta en convertirse en cliente. Con esos dos datos, la proyección deja de ser un escenario y empieza a ser un plan.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Contacto directo · florencia@somospopcorn.com</span><span class="num">19 — Próximos pasos</span></div>
+</section>
+
+<!-- ============ 20 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/city2.jpg" alt="Skyline"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Para cerrar</div>
+    <h2 class="close-title r d1">Construir confianza.<br>Generar demanda.<br>Convertir oportunidades.<br><span class="cy">Escalar con inteligencia.</span></h2>
+    <p class="lead r d2" style="margin:28px auto 0;text-align:center">Harrison Visa no necesita publicar en Instagram. Necesita un ecosistema de adquisición y confianza donde cada pieza cumpla su función y alguien conecte todas las partes. Eso es lo que venimos a hacer.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject=Harrison%20Visa%20%C2%B7%20Avancemos%20con%20la%20propuesta&body=Hola%20Florencia%2C%20vimos%20la%20propuesta%20y%20queremos%20avanzar.">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">Harrison Visa × Popcorn · Del boca a boca a un sistema.</span>
+    </div>
+    <p class="r d5" style="margin-top:30px;font-size:.85rem;color:var(--w-45);text-align:center">Propuesta válida hasta el 20 de septiembre de 2026 · Todos los valores en pesos argentinos + IVA<br>Florencia Grigolatto · florencia@somospopcorn.com</p>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.flowline').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Selección de servicios + escenario ===== */
+const scenData={
+  '1':{label:'Piso · Validación',inv:'$2.500.000 / mes',det:'Google $1.875.000 (75%) + Meta $625.000 (25%) · ~68 leads y ~417 conversaciones'},
+  '2':{label:'Recomendado · Crecimiento',inv:'$3.400.000 / mes',det:'Google $2.550.000 (75%) + Meta $850.000 (25%) · ~115 leads y ~607 conversaciones'},
+  '3':{label:'Escalado · Escalamiento',inv:'$4.500.000 / mes',det:'Google $3.150.000 (70%) + Meta $1.350.000 (30%) · ~175 leads y ~1.038 conversaciones'}
+};
+const picks=[...document.querySelectorAll('.scen-pick')];
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
+let selScen=null;
+
+function buildMail(){
+  let subject='Harrison Visa · Avancemos con la propuesta';
+  let body='Hola Florencia, vimos la propuesta de estrategia digital para Harrison Visa y queremos avanzar.';
+  const svcs=svcPicks.filter(s=>s.classList.contains('on'));
+  let onceT=0,monthT=0;
+  svcs.forEach(s=>{const a=Number(s.dataset.amount)||0;if(s.dataset.type==='once'){onceT+=a;}else{monthT+=a;}});
+  const subO=document.getElementById('subOnce'),subM=document.getElementById('subMonth');
+  if(subO){subO.textContent = onceT? fmt(onceT)+' + IVA' : '—';}
+  if(subM){subM.textContent = monthT? fmt(monthT)+' + IVA / mes' : '—';}
+  if(svcs.length){
+    body+='\n\nServicios con los que queremos avanzar:';
+    svcs.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nResumen:';
+    if(onceT){body+='\n• Proyecto inicial (pago único): '+fmt(onceT)+' + IVA';}
+    if(monthT){body+='\n• Acompañamiento mensual: '+fmt(monthT)+' + IVA / mes';}
+    body+='\n• Más 15% sobre la inversión en plataformas (variable según la inversión del mes).';
+  }
+  if(selScen && scenData[selScen]){
+    const s=scenData[selScen];
+    subject='Harrison Visa · Avancemos · '+s.label;
+    body+='\n\nEscenario de inversión en plataformas elegido:\n• '+s.label+'\n• Inversión: '+s.inv+'\n• '+s.det;
+  }
+  const parts=[];
+  if(svcs.length){parts.push(svcs.length+' servicio'+(svcs.length>1?'s':''));}
+  if(selScen){parts.push(scenData[selScen].label);}
+  ctaPick.innerHTML = parts.length ? 'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b>' : '<span class="none">Elegí servicios y escenario más arriba para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+picks.forEach(p=>{
+  p.addEventListener('click',()=>{
+    const was=p.classList.contains('selected');
+    picks.forEach(x=>x.classList.remove('selected'));
+    if(was){selScen=null;}else{p.classList.add('selected');selScen=p.dataset.scen;}
+    buildMail();
+  });
+});
+svcPicks.forEach(s=>{
+  s.addEventListener('click',()=>{ s.classList.toggle('on'); buildMail(); });
+});
+buildMail();
+</script>
+</body>
+</html>
