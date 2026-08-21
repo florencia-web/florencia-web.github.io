@@ -706,6 +706,17 @@ em{font-style:normal}
 .pay-val span{display:block;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan-deep);margin-top:5px}
 .pay-note{padding:20px 28px 24px;font-size:12.5px;color:var(--gray-500);line-height:1.65;background:#FAFAFC;border-top:1px solid #F0F0F4}
 .pay-note strong{color:var(--purple-deep);font-weight:700}
+/* fila opcional */
+.inv-row.optional{cursor:pointer;background:#FCFCFD}
+.inv-row.optional:hover{background:#F7F5FD}
+.inv-row.optional .inv-precio{color:var(--gray-500)}
+.inv-row.optional.active{background:rgba(15,179,154,0.06)}
+.inv-row.optional.active .inv-precio{color:var(--cyan-deep)}
+.inv-row.optional.active .inv-marker{border-color:var(--cyan-deep);background:var(--cyan-deep)}
+.opt-hint{display:inline-block;margin-left:8px;font-size:9.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple);background:rgba(107,33,214,0.10);padding:3px 8px;border-radius:999px;vertical-align:middle}
+.inv-row.optional.active .opt-hint{color:#0A0A0A;background:var(--cyan)}
+.inv-summary-item.opt .si-val{color:rgba(255,255,255,0.55);font-size:11px}
+.inv-summary-item.opt.on .si-val{color:var(--cyan);font-size:12px}
 .inv-summary-item .si-val.inc{font-size:11px}
 
 
@@ -954,7 +965,7 @@ em{font-style:normal}
           </tr>
           <tr>
             <td>1 episodio final regional</td>
-            <td>Cierre construido con colaboradores reales de los 7 países. El capital cultural que queda instalado.</td>
+            <td>Cierre construido con colaboradores reales de los 7 países. Se puede filmar con entrevistas en cámara el día del evento sumando la jornada opcional.</td>
             <td>Horizontal 16:9 + máster</td>
           </tr>
           <tr>
@@ -974,7 +985,7 @@ em{font-style:normal}
           </tr>
           <tr>
             <td>3 jornadas de rodaje</td>
-            <td>Locaciones reales, dirección de arte propia, más material de archivo de Espartanos donde aplique.</td>
+            <td>Locaciones reales, dirección de arte propia, más material de archivo de Espartanos donde aplique. Con la jornada opcional del día del evento, cuatro.</td>
             <td>—</td>
           </tr>
           <tr>
@@ -1018,7 +1029,7 @@ em{font-style:normal}
     <div class="section-header">
       <span class="eyebrow">05 · Inversión</span>
       <h2>Un proyecto cerrado. <span class="serif-italic" style="color:var(--purple)">Un precio claro.</span></h2>
-      <p>Sin módulos sueltos ni extras que aparecen después. El drone entra incluido y la producción del día del evento va en una propuesta separada.</p>
+      <p>El proyecto va cerrado y con una sola decisión opcional arriba: sumar o no la jornada de rodaje en el evento. El drone entra incluido y el resto de la producción del día del evento va en una propuesta separada.</p>
     </div>
 
     <div class="inv-grid">
@@ -1044,7 +1055,18 @@ em{font-style:normal}
           <div class="inv-precio included">Incluido</div>
         </div>
 
-        <div class="inv-section-title"><span class="num">B</span> Forma de pago</div>
+        <div class="inv-section-title"><span class="num">B</span> Opcional · se suma solo si lo quieren</div>
+
+        <div class="inv-row optional" id="optRow" role="button" tabindex="0" aria-pressed="false">
+          <div class="inv-marker square"></div>
+          <div class="inv-info">
+            <h4>Jornada extra de rodaje en el evento <span class="opt-hint" id="optHint">Tocá para sumarla</span></h4>
+            <p>Una cuarta jornada el día del evento, con entrevistas a colaboradores de los siete países. El episodio final se construye con material capturado ahí, en cámara y con audio limpio, en lugar de depender de envíos a distancia.</p>
+          </div>
+          <div class="inv-precio">+ ARS 2.370.000</div>
+        </div>
+
+        <div class="inv-section-title"><span class="num">C</span> Forma de pago</div>
 
         <div class="pay-row">
           <div class="pay-pct">30%</div>
@@ -1074,7 +1096,8 @@ em{font-style:normal}
         </div>
 
         <div class="pay-note">
-          <strong>Actualización por IPC.</strong> Los pagos 2 y 3 se actualizan según el IPC (INDEC) acumulado entre la confirmación de esta propuesta y el momento de facturación de cada cuota. Los importes indicados son valores a la fecha de esta propuesta. El anticipo no se actualiza.
+          <strong>Actualización por IPC.</strong> Los pagos 2 y 3 se actualizan según el IPC (INDEC) acumulado entre la confirmación de esta propuesta y el momento de facturación de cada cuota. Los importes indicados son valores a la fecha de esta propuesta. El anticipo no se actualiza.<br><br>
+          <strong>Con la jornada opcional.</strong> Los mismos porcentajes se aplican sobre el total de ARS 16.270.000: anticipo ARS 4.881.000, segunda cuota ARS 4.881.000 y última cuota ARS 6.508.000. En ese caso la última jornada es la del día del evento.
         </div>
 
       </div>
@@ -1084,11 +1107,12 @@ em{font-style:normal}
         <div class="inv-summary-list">
           <div class="inv-summary-item"><span class="si-name">Escenario 03 · El ecosistema</span><span class="si-val">ARS 13.900.000</span></div>
           <div class="inv-summary-item"><span class="si-name">Tomas aéreas con drone</span><span class="si-val inc">Incluido</span></div>
-          <div class="inv-summary-item"><span class="si-name">Producción del día del evento</span><span class="si-val inc">Propuesta aparte</span></div>
+          <div class="inv-summary-item opt" id="optLine"><span class="si-name">Jornada extra en el evento</span><span class="si-val">No incluida</span></div>
+          <div class="inv-summary-item"><span class="si-name">Resto de la producción del evento</span><span class="si-val inc">Propuesta aparte</span></div>
         </div>
         <div class="inv-total">
           <span class="inv-total-label">Total</span>
-          <span class="inv-total-value">ARS 13.900.000 <span style="font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0">+ IVA</span></span>
+          <span class="inv-total-value"><span id="invTotal">ARS 13.900.000</span> <span style="font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0">+ IVA</span></span>
         </div>
         <div class="inv-note">Valores en pesos argentinos, más IVA. Pago en tres etapas (30 / 30 / 40), con las cuotas 2 y 3 ajustadas por IPC acumulado al momento de facturar.</div>
         <a href="#" class="btn btn-cyan js-cta-advance">Quiero avanzar con la propuesta &rarr;</a>
@@ -1299,19 +1323,55 @@ em{font-style:normal}
   var TO='florencia@somospopcorn.com';
   var CC='demianlinet@somospopcorn.com';
   var SUBJECT='Trade Alliance Corporation — Quiero avanzar con la propuesta';
-  var body=[
-    'Hola Florencia, quiero avanzar con la propuesta.',
-    '',
-    '— Alcance confirmado —',
-    '• Escenario 03 · El ecosistema — ARS 13.900.000 + IVA',
-    '• Tomas aéreas con drone — incluido',
-    '',
-    'Forma de pago: 30% de anticipo, 30% al confirmar la segunda jornada y 40% al confirmar la última jornada (cuotas 2 y 3 ajustadas por IPC acumulado).',
-    '',
-    'Quedo a la espera para coordinar los próximos pasos.'
-  ].join('\n');
-  var href='mailto:'+TO+'?cc='+encodeURIComponent(CC)+'&subject='+encodeURIComponent(SUBJECT)+'&body='+encodeURIComponent(body);
-  Array.prototype.slice.call(document.querySelectorAll('.js-cta-advance')).forEach(function(a){a.href=href;});
+  var BASE = 13900000, EXTRA = 2370000;
+  var optRow = document.getElementById('optRow');
+  var optLine = document.getElementById('optLine');
+  var optHint = document.getElementById('optHint');
+  var totalEl = document.getElementById('invTotal');
+  var ctas = Array.prototype.slice.call(document.querySelectorAll('.js-cta-advance'));
+
+  function money(n){ return 'ARS ' + n.toLocaleString('es-AR'); }
+
+  function build(withExtra){
+    var lines = [
+      'Hola Florencia, quiero avanzar con la propuesta.',
+      '',
+      '— Alcance confirmado —',
+      '• Escenario 03 · El ecosistema — ' + money(BASE) + ' + IVA',
+      '• Tomas aéreas con drone — incluido',
+      withExtra
+        ? '• Jornada extra de rodaje en el evento con entrevistas — ' + money(EXTRA) + ' + IVA'
+        : '• Jornada extra de rodaje en el evento — no la sumo por ahora',
+      '',
+      'Total: ' + money(BASE + (withExtra ? EXTRA : 0)) + ' + IVA',
+      '',
+      'Forma de pago: 30% de anticipo, 30% al confirmar la segunda jornada y 40% al confirmar la última jornada (cuotas 2 y 3 ajustadas por IPC acumulado).',
+      '',
+      'Quedo a la espera para coordinar los próximos pasos.'
+    ];
+    return 'mailto:'+TO+'?cc='+encodeURIComponent(CC)+'&subject='+encodeURIComponent(SUBJECT)+'&body='+encodeURIComponent(lines.join('\n'));
+  }
+
+  function render(){
+    var on = !!(optRow && optRow.classList.contains('active'));
+    if(totalEl) totalEl.textContent = money(BASE + (on ? EXTRA : 0));
+    if(optLine){
+      optLine.classList.toggle('on', on);
+      optLine.querySelector('.si-val').textContent = on ? '+ ' + money(EXTRA) : 'No incluida';
+    }
+    if(optHint) optHint.textContent = on ? 'Sumada' : 'Tocá para sumarla';
+    if(optRow) optRow.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var href = build(on);
+    ctas.forEach(function(a){ a.href = href; });
+  }
+
+  if(optRow){
+    optRow.addEventListener('click', function(){ optRow.classList.toggle('active'); render(); });
+    optRow.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); optRow.classList.toggle('active'); render(); }
+    });
+  }
+  render();
 
   // Reproductor en la propia pagina (si se abre como archivo local, YouTube no permite el embed -> pestana nueva)
   var isFile = location.protocol === 'file:';
