@@ -117,10 +117,11 @@ b,strong{color:#fff;font-weight:600}
 .photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05) brightness(.95)}
 .media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.42),rgba(18,5,40,.22) 55%,rgba(31,232,216,.10))}
 .media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:64px 26px 24px;font-family:'Poppins';font-weight:600;font-size:.95rem;background:linear-gradient(to top,rgba(12,4,34,.95),rgba(12,4,34,.6) 55%,transparent)}
-.media .cap small{display:block;font-family:'Inter';font-weight:400;font-size:.8rem;color:var(--w-65);margin-top:4px}
+.media .cap small{display:block;font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--w-80);margin-top:4px}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .split>*{min-width:0}
 .split.rev>.col-img{order:-1}
+.split.split-kpi{grid-template-columns:1.45fr .55fr}
 
 /* ============ CARDS ============ */
 .grid{display:grid;gap:20px}
@@ -132,7 +133,7 @@ b,strong{color:#fff;font-weight:600}
 .card .ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:18px}
 .card .ico svg{width:23px;height:23px}
 .card h3{font-size:1.14rem;font-weight:600;margin-bottom:9px}
-.card p{color:var(--w-65);font-size:.94rem;line-height:1.6}
+.card p{color:var(--w-80);font-size:.94rem;line-height:1.6}
 .card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:12px;display:block}
 .card .datapt{display:block;font-family:'Poppins';font-weight:700;font-size:3.2rem;color:var(--cyan);line-height:.9;margin-bottom:14px;letter-spacing:-.02em}
 .quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.05rem,1.7vw,1.45rem);line-height:1.42}
@@ -142,7 +143,7 @@ b,strong{color:#fff;font-weight:600}
 .chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:14px}
 .chip{font-family:'Poppins';font-weight:500;font-size:.95rem;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
 .chip:hover{border-color:var(--cyan-line);color:var(--cyan);transform:translateY(-3px)}
-.note-pill{display:inline-flex;flex-wrap:wrap;max-width:100%;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:13px 22px;font-size:.86rem;color:var(--w-65)}
+.note-pill{display:inline-block;max-width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:14px 22px;font-size:.88rem;line-height:1.6;color:var(--w-80)}
 .note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
 
 /* ============ META BAND ============ */
@@ -192,7 +193,7 @@ b,strong{color:#fff;font-weight:600}
 .pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
 .pipe .node .k{font-family:'Poppins';font-weight:700;font-size:11px;color:var(--cyan);letter-spacing:.14em;display:block;margin-bottom:10px}
 .pipe .node .t{font-family:'Poppins';font-weight:600;font-size:1.05rem;display:block;margin-bottom:7px}
-.pipe .node p{font-size:.85rem;color:var(--w-65);line-height:1.5}
+.pipe .node p{font-size:.85rem;color:var(--w-80);line-height:1.5}
 .pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.55}
 
 /* ============ FUNNEL B2B ============ */
@@ -208,17 +209,20 @@ b,strong{color:#fff;font-weight:600}
 .leadcard.b .lg{color:var(--amber)}
 .leadcard.c .lg{color:var(--w-45)}
 .leadcard h4{font-family:'Poppins';font-weight:600;font-size:1.02rem;margin:12px 0 8px}
-.leadcard p{font-size:.88rem;color:var(--w-65);line-height:1.55}
+.leadcard p{font-size:.89rem;color:var(--w-80);line-height:1.55}
 
 /* ============ TABLAS ============ */
 .tbl-wrap{overflow-x:auto;max-width:100%;margin-top:26px}
 table.tbl{width:100%;border-collapse:collapse;min-width:720px}
+table.tbl.compact{min-width:0}
+.tbl.compact th,.tbl.compact td{padding:11px 12px}
+.tbl.compact td.obj{min-width:0}
 .tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:14px 16px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
 .tbl th.num{text-align:right}
-.tbl td{padding:14px 16px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td{padding:14px 16px;font-size:.9rem;color:#fff;border-bottom:1px solid var(--line-soft);vertical-align:top}
 .tbl td.num{text-align:right;font-family:'Poppins';font-variant-numeric:tabular-nums;white-space:nowrap}
 .tbl .plat{font-family:'Poppins';font-weight:600;color:#fff}
-.tbl .obj{color:var(--w-45);font-size:.82rem;line-height:1.4;min-width:200px}
+.tbl .obj{color:var(--w-80);font-size:.85rem;line-height:1.5;min-width:200px}
 .tbl tr:last-child td{border-bottom:none}
 .tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(31,232,216,.07);font-family:'Poppins';font-weight:700;color:#fff}
 .tbl tr.total td.num{color:var(--cyan)}
@@ -229,7 +233,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .scen-head .st{font-family:'Poppins';font-weight:700;font-size:1.2rem}
 .scen-head .st small{display:block;font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:3px}
 .scen-head .si{font-family:'Poppins';font-weight:700;color:var(--cyan);font-size:1.15rem;white-space:nowrap}
-.scen-note{padding:18px 28px;color:var(--w-65);font-size:.89rem;line-height:1.65}
+.scen-note{padding:18px 28px;color:var(--w-80);font-size:.9rem;line-height:1.65}
 .scen-pick{cursor:pointer;user-select:none}
 .scen-pick .pick{display:flex;align-items:center;gap:10px;margin:0 28px 22px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:'Poppins';font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
 .scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
@@ -255,7 +259,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
 .price-row .pl{display:flex;align-items:flex-start;gap:13px;min-width:0;font-family:'Poppins';font-weight:600;font-size:.99rem}
 .price-row .pl>span{min-width:0}
-.price-row .pl small{display:block;font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:4px;font-family:'Inter';max-width:min(40ch,100%);line-height:1.45}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--w-65);margin-top:4px;font-family:'Inter';max-width:min(40ch,100%);line-height:1.45}
 .price-row .pl small.varfee{font-family:'Poppins';font-weight:600;font-size:.78rem;color:var(--cyan);margin-top:7px}
 .price-row .pv{font-family:'Poppins';font-weight:700;font-size:1.18rem;color:var(--cyan);white-space:nowrap}
 .price-row .pv.pend{color:var(--w-45);font-weight:600;font-size:.95rem}
@@ -276,16 +280,16 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .svc:last-child{border-bottom:1px solid var(--line-soft)}
 .svc .sn{font-family:'Poppins';font-weight:700;font-size:1.5rem;color:rgba(31,232,216,.55);line-height:1}
 .svc h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:8px}
-.svc p{color:var(--w-65);font-size:.95rem;line-height:1.6;max-width:74ch}
+.svc p{color:var(--w-80);font-size:.95rem;line-height:1.6;max-width:74ch}
 .svc .tagline{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.svc .tagline span{font-family:'Poppins';font-weight:500;font-size:11.5px;letter-spacing:.02em;color:var(--w-65);border:1px solid var(--line-soft);padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.03)}
+.svc .tagline span{font-family:'Poppins';font-weight:500;font-size:11.5px;letter-spacing:.02em;color:var(--cyan);border:1px solid var(--line-soft);padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.03)}
 
 /* ============ ALCANCE ============ */
 .scope{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px}
 .scope-col.no{background:rgba(13,4,40,.35)}
 .scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.14rem;margin-bottom:6px}
-.scope-col .sub{font-size:.84rem;color:var(--w-45);margin-bottom:20px}
+.scope-col .sub{font-size:.86rem;color:var(--w-65);margin-bottom:20px}
 .scope-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
 .scope-col li{display:flex;gap:11px;align-items:flex-start;font-size:.94rem;color:var(--w-80);line-height:1.5}
 .scope-col li svg{width:18px;height:18px;flex:none;margin-top:3px}
@@ -308,7 +312,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
 .tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
 .tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.15rem;margin-bottom:8px}
-.tl-item p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:66ch}
+.tl-item p{color:var(--w-80);font-size:.94rem;line-height:1.6;max-width:66ch}
 
 /* ============ WIREFRAME ============ */
 .wf{background:rgba(13,4,40,.5);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:11px}
@@ -351,7 +355,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .split{grid-template-columns:1fr;gap:28px}
+  .split,.split.split-kpi{grid-template-columns:1fr;gap:28px}
   .split.rev>.col-img{order:0}
   .dots{display:none}
   section{padding:104px 22px 84px}
@@ -713,9 +717,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
         <div class="sn">03</div>
         <div>
           <h3>Landing mayorista + catálogo</h3>
-          <p>Diseño, redacción y publicación de la landing B2B completa, con formulario que filtra y califica leads en lugar de solo recibir consultas, y derivación a WhatsApp con mensaje precargado. Más el diseño del <b>catálogo mayorista en PDF</b> para usar como imán de contacto y como herramienta de venta, sin precios públicos.</p>
+          <p>Diseño, redacción y publicación de la landing B2B completa, con formulario que filtra y califica leads en lugar de solo recibir consultas, y derivación a WhatsApp con mensaje precargado. Más el diseño del <b>catálogo mayorista en PDF de hasta 100 productos</b>, para usar como imán de contacto y como herramienta de venta, sin precios públicos.</p>
+          <p class="mt-s">El límite no es arbitrario y tampoco es solo una cuestión de horas de diseño: <b>el catálogo mayorista no es el catálogo completo, es la selección que rota</b>. Un catálogo de 100 productos elegidos por rotación real vende más que uno de mil, porque le resuelve al comerciante la decisión en lugar de delegarla. Si más adelante hace falta ampliarlo, se cotiza por tramos.</p>
           <p class="mt-s muted" style="font-size:.88rem">No incluye hosting, certificado SSL ni soporte técnico posterior. Los cambios y actualizaciones que sufra el catálogo una vez entregado se cotizan aparte.</p>
-          <div class="tagline"><span>Pago único</span><span>Semanas 3-6</span><span>El canal deja de no existir</span></div>
+          <div class="tagline"><span>Pago único</span><span>Semanas 3-6</span><span>Catálogo de hasta 100 productos</span><span>El canal deja de no existir</span></div>
         </div>
       </div>
       <div class="svc">
@@ -832,7 +837,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
   <div class="wrap">
     <div class="eyebrow r">Inversión en medios</div>
     <h2 class="h-lg r d1">Tres escenarios. Cada uno con un <span class="cy">objetivo de aprendizaje</span>, no una promesa.</h2>
-    <p class="lead mt-m r d2">La inversión en medios se factura aparte del honorario y la decide Titan Web. Lo que definimos nosotros es cómo se reparte, qué tiene que responder cada peso y con qué criterio se pasa de un escenario al siguiente. Los montos son sugeridos y ajustables.</p>
+    <p class="lead mt-m r d2">Partimos de una premisa concreta: <b>el lead B2B es más caro que el B2C</b>. Un comerciante busca menos veces, compara más y tarda más en decidir, y las búsquedas que importan tienen menos volumen y más competencia. Una inversión chica no alcanza para sostener presencia en esas búsquedas. Por eso los escenarios arrancan donde arrancan. Los montos son sugeridos y ajustables, y la decisión final es de Titan Web.</p>
 
     <div class="scen scen-pick r d3" data-scen="1">
       <div class="scen-head"><div class="st">Escenario 1 · Validación<small>Objetivo: confirmar que existe demanda mayorista alcanzable con digital</small></div><div class="si" data-medios="e1">$ —</div></div>
@@ -842,11 +847,11 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <tbody>
             <tr><td class="plat">Google Search</td><td class="num" data-med="e1" data-pct="70">—</td><td class="num">70%</td><td class="obj">Al comerciante que ya está buscando proveedor. Es intención, no interés: la conversión más alta y el lead más calificado</td></tr>
             <tr><td class="plat">Meta (Instagram y Facebook)</td><td class="num" data-med="e1" data-pct="30">—</td><td class="num">30%</td><td class="obj">Prueba del perfil emprendedor y revendedor, el único 100% alcanzable por segmentación</td></tr>
-            <tr class="total"><td>Total mensual</td><td class="num" data-medios="e1">—</td><td class="num">100%</td><td class="obj">Volumen bajo a propósito</td></tr>
+            <tr class="total"><td>Total mensual</td><td class="num" data-medios="e1">—</td><td class="num">100%</td><td class="obj">El piso para que Search tenga presencia real</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="scen-note">El resultado que buscamos acá no es facturación: es saber <b>qué términos traen comerciantes de verdad, qué provincias responden y a qué costo entra un lead calificado</b>. Con eso se dimensiona todo lo que viene después. Sin retargeting todavía, porque no hay audiencia que perseguir.</div>
+      <div class="scen-note">El resultado que buscamos acá no es facturación: es saber <b>qué términos traen comerciantes de verdad, qué provincias responden y a qué costo entra un lead calificado</b>. Con eso se dimensiona todo lo que viene después. Sin retargeting todavía, porque no hay audiencia que perseguir. Es el escenario más chico que tiene sentido: por debajo de este monto, en búsquedas B2B, no se sostiene presencia y no se aprende nada.</div>
       <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
     </div>
 
@@ -902,7 +907,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
       <p class="mt-s">A partir del mes 3, la proyección deja de ser una promesa comercial y pasa a ser un cálculo con los datos propios de Titan Web. Ahí sí comprometemos números.</p>
     </div>
 
-    <div class="note-pill mt-m r d7" style="border-color:var(--cyan-line)">Los tres escenarios son <b>sugeridos y ajustables</b>: el monto lo define Titan Web. Sobre la inversión que finalmente se haga en plataformas se aplica un <b>15% variable de gestión</b>.</div>
+    <div class="note-pill mt-m r d7" style="border-color:var(--cyan-line)">Todos los montos de pauta son <b>+ impuestos</b>. <b>* La inversión la abona Titan Web directamente a las plataformas publicitarias</b>, a su nombre: Popcorn no es intermediario ni revende medios. Sobre la inversión que finalmente se haga se aplica un <b>15% variable de gestión</b>.</div>
     <div class="sfoot"><span><span class="num">11</span> · Medios</span><span>La inversión en medios se factura aparte</span></div>
   </div>
 </section>
@@ -915,10 +920,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
     <h2 class="h-lg r d1">Ni seguidores ni alcance.<br><span class="cy">Leads calificados</span>, clientes y recompra.</h2>
     <p class="lead mt-m r d2">Un lead barato pero irrelevante es un lead malo. La métrica que gobierna todo no es el costo por lead: es el <b>costo por lead calificado</b>, y después el costo por cliente.</p>
 
-    <div class="split mt-l">
+    <div class="split split-kpi mt-l">
       <div class="r d3">
         <div class="tbl-wrap">
-          <table class="tbl">
+          <table class="tbl compact">
             <thead><tr><th>Métrica</th><th>Qué responde</th><th class="num">Desde</th></tr></thead>
             <tbody>
               <tr><td class="plat">Leads mayoristas</td><td class="obj">¿Existe demanda alcanzable?</td><td class="num">Mes 1</td></tr>
@@ -1045,7 +1050,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Estrategia, planificación y dirección del proyecto</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Reunión semanal de trabajo con el equipo de Titan Web</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Puesta a punto de perfiles, cuentas publicitarias y medición</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Landing mayorista y diseño del catálogo PDF</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Landing mayorista y catálogo PDF de hasta 100 productos</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>12 piezas de contenido por mes, con copy y diseño</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Gestión y optimización de campañas en Google y Meta</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Media jornada mensual de producción de foto y video</li>
@@ -1060,7 +1065,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Inversión en medios</b> (pauta): se factura aparte y va directo a las plataformas</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Hosting, SSL y soporte técnico</b> de la landing</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>Cambios y actualizaciones del <b>catálogo PDF</b> una vez entregado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Catálogo de más de 100 productos</b>, y cambios o actualizaciones una vez entregado</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Respuesta de mensajes, comentarios y consultas por privado</b></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Ejecución</b> de la Fase 0 sobre el sitio: la hace Titan Web con nuestro checklist, o se cotiza aparte</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>E-commerce, SEO continuo y base de datos</b> (etapa 2)</li>
@@ -1113,7 +1118,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
             <span class="pv" data-price>$ —</span>
           </div>
           <div class="price-row svc-pick" data-type="once" data-key="landing" data-svc="Landing mayorista + catálogo PDF">
-            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">03 · Landing mayorista</span><small>Landing, formulario para filtrar leads y diseño del catálogo PDF. No incluye hosting, SSL ni soporte; cambios del catálogo se cotizan aparte</small></span></span>
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">03 · Landing mayorista</span><small>Landing, formulario para filtrar leads y diseño del catálogo PDF de hasta 100 productos. No incluye hosting, SSL ni soporte; ampliaciones y cambios del catálogo se cotizan aparte</small></span></span>
             <span class="pv" data-price>$ —</span>
           </div>
           <div class="price-row svc-pick" data-type="once" data-key="marca" data-svc="Identidad de marca y sistema visual">
@@ -1149,7 +1154,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
         <div class="inv-group">
           <div class="inv-ghead"><span>Inversión en medios · aparte</span><span class="inv-sub" id="subMedios">—</span></div>
           <div class="price-row">
-            <span class="pl"><span style="flex:none;width:20px"></span><span><span class="pl-t">Pauta digital</span><small>Se factura aparte y va directo a Google y Meta. Sobre esa inversión se aplica el 15% de gestión del ítem 07. Elegí el escenario en la sección anterior.</small></span></span>
+            <span class="pl"><span style="flex:none;width:20px"></span><span><span class="pl-t">Pauta digital</span><small>Elegí el escenario en la sección anterior. <b>* La inversión en plataformas la abona Titan Web directamente a Google y Meta.</b> Popcorn no es intermediario ni revende medios: gestiona las campañas y cobra por eso el 15% del ítem 07.</small></span></span>
             <span class="pv pend" id="medRow">—</span>
           </div>
         </div>
@@ -1161,7 +1166,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <li><span class="bi">A</span><p><b>Puesta en marcha, 100% anticipada.</b> <b class="cy">3% de descuento</b> sobre el valor de la puesta en marcha.</p></li>
           <li><span class="bi">B</span><p><b>Puesta en marcha, en dos pagos.</b> 50% al inicio y 50% al terminar el proyecto o al mes, lo que suceda primero. Sin descuento.</p></li>
           <li><span class="bi">C</span><p><b>Gestión mensual.</b> Se factura por mes adelantado. Contrato mínimo recomendado de 6 meses: en menos tiempo no hay margen para aprender nada de un canal que arranca de cero.</p></li>
-          <li><span class="bi">D</span><p><b>Inversión en medios.</b> La pauta se factura aparte y va directo a las plataformas. Sobre esa inversión se aplica un <b class="cy">15% de gestión</b>, que se factura junto con el honorario mensual.</p></li>
+          <li><span class="bi">D</span><p><b>Inversión en medios.</b> <b>* La abona Titan Web directamente a Google y Meta</b>, con su propio medio de pago y a su nombre. Popcorn no es intermediario ni revende medios. Sobre esa inversión se aplica un <b class="cy">15% de gestión</b>, que se factura junto con el honorario mensual. Los montos de pauta son <b>+ impuestos</b>.</p></li>
           <li><span class="bi">E</span><p>Todos los valores son <b>+ IVA</b>. Los contratos mensuales se ajustan por IPC.</p></li>
         </ul>
         <div class="note-pill mt-m">Recomendación para arrancar: <b>01, 02 y 03</b> de puesta en marcha, <b>05, 06, 07 y 08</b> mensuales, y el escenario recomendado de medios. La marca (04) en el mes 3, y el email marketing (09) en cuanto la base de datos empiece a crecer.</div>
@@ -1231,7 +1236,7 @@ const PRECIOS = {
   email:        300000    // 09 · Email marketing · 2 newsletters          [mensual]
 };
 /* Inversión mensual en medios por escenario (se factura aparte) */
-const MEDIOS = { e1: 1200000, e2: 2200000, e3: 3500000 };
+const MEDIOS = { e1: 1800000, e2: 2500000, e3: 3500000 };
 /* Fee variable de gestión sobre la inversión en plataformas */
 const VARFEE = 0.15;
 /* Descuento por pago 100% anticipado de la puesta en marcha */
@@ -1295,7 +1300,7 @@ svcPicks.forEach(row=>{
 const escLabel={'1':'Escenario 1 · Validación','2':'Escenario 2 · Recomendado','3':'Escenario 3 · Escala'};
 document.querySelectorAll('[data-medios]').forEach(el=>{
   const v=MEDIOS[el.dataset.medios]||0;
-  el.textContent = v>0 ? fmt(v)+' / mes' : 'a confirmar';
+  el.textContent = v>0 ? fmt(v)+' / mes + impuestos' : 'a confirmar';
 });
 /* montos por canal dentro de cada escenario */
 document.querySelectorAll('[data-med][data-pct]').forEach(el=>{
@@ -1323,8 +1328,8 @@ function build(){
   subM.textContent = monthT ? fmt(monthT)+' + IVA / mes' : (on.some(s=>s.dataset.type==='month') ? 'a confirmar' : '—');
 
   const med = selScen ? (MEDIOS['e'+selScen]||0) : 0;
-  subMed.textContent = selScen ? (med ? fmt(med)+' / mes' : 'a confirmar') : '—';
-  medRow.innerHTML = selScen ? (med ? fmt(med)+' / mes <span class="ivatag">+ 15% variable</span>' : 'a confirmar') : '—';
+  subMed.textContent = selScen ? (med ? fmt(med)+' / mes + imp.' : 'a confirmar') : '—';
+  medRow.innerHTML = selScen ? (med ? fmt(med)+' / mes <span class="ivatag">+ impuestos · + 15% variable de gestión</span>' : 'a confirmar') : '—';
 
   let subject='Titan Web · Avancemos con la propuesta';
   let body='Hola Sol, vimos la propuesta para abrir el canal mayorista de Titan Web y queremos avanzar.';
