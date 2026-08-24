@@ -284,10 +284,13 @@ table.tbl{width:100%;border-collapse:collapse;min-width:700px}
 .evidence figcaption{font-family:'Poppins';font-weight:600;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);padding:10px 12px;background:rgba(255,184,97,.08)}
 
 /* LOGOWALL */
-.logowall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:112px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
+.logowall{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:142px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
 .logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
-.logocell .brandlogo{max-height:54px;max-width:84%;width:auto;object-fit:contain;display:block}
+/* escalado óptico: los apaisados se limitan por alto, los cuadrados necesitan más */
+.logocell .brandlogo{max-height:56px;max-width:80%;width:auto;object-fit:contain;display:block}
+.logocell .brandlogo.lg{max-height:70px;max-width:90%}
+.logocell .brandlogo.xl{max-height:88px;max-width:94%}
 .logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:1rem;line-height:1.18;color:var(--violet-700)}
 .logocell.noimg .ln{display:block}
 
@@ -1034,21 +1037,22 @@ table.tbl{width:100%;border-collapse:collapse;min-width:700px}
     <div class="eyebrow r">Quiénes somos</div>
     <h2 class="h-lg r d1">No vendemos publicaciones.<br>Vendemos <span class="cy">crecimiento</span>.</h2>
     <p class="lead r d2" style="margin-top:24px">Somos una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Resolvemos estrategia, marca, diseño, contenido, paid media, SEO, web, analítica y producción audiovisual con un equipo multidisciplinario: el proyecto no depende de una sola persona.</p>
-    <p class="lead r d3" style="margin-top:18px">Trabajamos hace años con instituciones de salud, empresas B2B y compañías que necesitan procesos comerciales que funcionen. Sabemos integrarnos con equipos que ya existen —diseñadores, desarrolladores, consultores, áreas comerciales— sin pelearnos por el territorio.</p>
+    <p class="lead r d3" style="margin-top:18px">Trabajamos con instituciones de salud, industria y B2B técnico, educación, gastronomía y fintech. Rubros muy distintos con un punto en común: necesitan que el marketing traccione ventas, no que junte likes. Y sabemos integrarnos con equipos que ya existen —diseñadores, desarrolladores, consultores, áreas comerciales— sin pelearnos por el territorio.</p>
     <div class="stats r d4">
       <div class="stat"><div class="v">15+</div><div class="l">Años de trayectoria</div></div>
       <div class="stat"><div class="v">360°</div><div class="l">Servicios integrados</div></div>
       <div class="stat"><div class="v">160+</div><div class="l">Marcas acompañadas</div></div>
     </div>
     <div class="logowall r d5">
-      <div class="logocell"><img class="brandlogo" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Hospital Universitario Austral</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/manlab.png" alt="ManLab" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">ManLab</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Swiss Medical</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/fitzroy.jpg" alt="Centro Médico Integral Fitz Roy" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Centro Médico Fitz Roy</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/cetac.jpg" alt="CETAC" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">CETAC Juncal</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/fleni.webp" alt="Fleni" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Fleni</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/centralab.png" alt="CentraLab" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">CentraLab</span></div>
-      <div class="logocell"><img class="brandlogo" src="img/logos/fleming.png" alt="Fleming" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Fleming</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/logos/northfield.webp" alt="Northfield School" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Northfield School</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/transpack.png" alt="Transpack" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Transpack</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/evel.webp" alt="Evel" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Evel</span></div>
+      <div class="logocell"><img class="brandlogo xl" src="img/logos/mitmaq.png" alt="Mitmaq" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Mitmaq</span></div>
+      <div class="logocell"><img class="brandlogo xl" src="img/logos/ventura.png" alt="Ventura Wynwood" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Ventura Wynwood</span></div>
+      <div class="logocell"><img class="brandlogo xl" src="img/logos/mercadocheque.png" alt="Mercado Cheque" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Mercado Cheque</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical Group" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Swiss Medical Group</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Hospital Austral</span></div>
+      <div class="logocell"><img class="brandlogo xl" src="img/logos/centralab.png" alt="CentraLab" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">CentraLab</span></div>
     </div>
 
     <div class="grid g3 r d6" style="margin-top:52px">
