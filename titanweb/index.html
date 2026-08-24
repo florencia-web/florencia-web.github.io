@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titan Web × Popcorn · Primero el camino, después el tráfico — Apertura del canal mayorista</title>
+<meta name="description" content="Propuesta comercial de Popcorn para Titan Web: apertura y escalado del canal mayorista B2B.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM · Propuesta Titan Web (canal mayorista)
+   Violeta eléctrico + cian · chasis premium
+   ============================================================ */
+:root{
+  --violet-900:#250a4f;
+  --violet-800:#34107a;
+  --violet-700:#4a16a8;
+  --violet-600:#5a18cc;
+  --violet-500:#6e28e8;
+  --violet-glow:#7b34f0;
+  --cyan:#1fe8d8;
+  --cyan-bright:#5cf4e8;
+  --ink:#0e0524;
+  --white:#ffffff;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --amber:#ffb454;
+  --red:#ff6b6b;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violet-600);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+             radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+             linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ============ TOPBAR ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:26px;width:auto;display:block}
+.logo-pic.close{height:46px}
+
+/* ============ PROGRESO + DOTS ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2;padding-bottom:54px}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.28rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+.kicker{font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--cyan)}
+b,strong{color:#fff;font-weight:600}
+.mt-s{margin-top:16px}.mt-m{margin-top:30px}.mt-l{margin-top:46px}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-title{font-weight:700;font-size:clamp(2.5rem,6.4vw,5.2rem);line-height:1;letter-spacing:-.03em;max-width:19ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--w-80);max-width:680px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ FOTOS ============ */
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.55) contrast(1.05)}
+.bg-photo.hero img{object-position:60% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(50,12,120,.96) 24%,rgba(74,18,168,.66) 62%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.76),rgba(18,5,40,.95))}
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05) brightness(.95)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.42),rgba(18,5,40,.22) 55%,rgba(31,232,216,.10))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:64px 26px 24px;font-family:'Poppins';font-weight:600;font-size:.95rem;background:linear-gradient(to top,rgba(12,4,34,.95),rgba(12,4,34,.6) 55%,transparent)}
+.media .cap small{display:block;font-family:'Inter';font-weight:400;font-size:.8rem;color:var(--w-65);margin-top:4px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split>*{min-width:0}
+.split.rev>.col-img{order:-1}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:18px}
+.card .ico svg{width:23px;height:23px}
+.card h3{font-size:1.14rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.94rem;line-height:1.6}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:12px;display:block}
+.card .datapt{display:block;font-family:'Poppins';font-weight:700;font-size:3.2rem;color:var(--cyan);line-height:.9;margin-bottom:14px;letter-spacing:-.02em}
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.05rem,1.7vw,1.45rem);line-height:1.42}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:44px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.9rem,3.8vw,2.9rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:14px}
+.chip{font-family:'Poppins';font-weight:500;font-size:.95rem;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
+.chip:hover{border-color:var(--cyan-line);color:var(--cyan);transform:translateY(-3px)}
+.note-pill{display:inline-flex;flex-wrap:wrap;max-width:100%;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:13px 22px;font-size:.86rem;color:var(--w-65)}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+
+/* ============ META BAND ============ */
+.metaband{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;margin-bottom:52px}
+.metaband div{background:rgba(13,4,40,.35);padding:20px 22px}
+.metaband .mk{font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:7px}
+.metaband .mv{font-family:'Poppins';font-weight:600;font-size:.95rem;line-height:1.3}
+.metaband .mv small{display:block;font-family:'Inter';font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:3px}
+
+/* ============ LOGOWALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:104px;border:1px solid rgba(255,255,255,.5);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:56px;max-width:86%;width:auto;object-fit:contain;display:block}
+.logocell .brandlogo.lg{max-height:44px;max-width:94%}
+.logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:1rem;letter-spacing:-.01em;line-height:1.18;color:var(--violet-700)}
+.logocell .lk{font-family:'Poppins';font-weight:600;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#9784b5}
+.logocell.noimg .ln{display:block}
+
+/* ============ SCORE / DIAGNÓSTICO ============ */
+.diag{display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;align-items:center}
+.score-card{background:linear-gradient(160deg,rgba(255,107,107,.16),rgba(13,4,40,.42));border:1.5px solid rgba(255,107,107,.42);border-radius:24px;padding:40px 34px;text-align:center}
+.score-card .sv{font-family:'Poppins';font-weight:700;font-size:clamp(4rem,9vw,6.4rem);line-height:.9;color:var(--red)}
+.score-card .sv sup{font-size:.28em;font-weight:600;color:var(--w-45);vertical-align:super;margin-left:4px}
+.score-card .sl{font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-65);margin-top:14px}
+.score-card p{color:var(--w-65);font-size:.9rem;line-height:1.6;margin-top:18px;border-top:1px solid var(--line-soft);padding-top:18px}
+.dim{margin-bottom:16px}
+.dim:last-child{margin-bottom:0}
+.dim-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.dim-top .dn{font-family:'Poppins';font-weight:600;font-size:.98rem}
+.dim-top .dn small{display:block;font-family:'Inter';font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:2px}
+.dim-top .dv{font-family:'Poppins';font-weight:700;font-size:1rem;color:var(--cyan);white-space:nowrap}
+.dim-bar{height:7px;border-radius:6px;background:rgba(255,255,255,.09);overflow:hidden}
+.dim-bar-fill{height:100%;border-radius:6px;width:0;transition:width 1.2s var(--ease) .2s}
+.in .dim-bar-fill{width:var(--w)}
+.score-low .dim-bar-fill{background:linear-gradient(90deg,#ff6b6b,#ff9a6b)}
+.score-low .dv{color:var(--red)}
+.score-mid .dim-bar-fill{background:linear-gradient(90deg,#ffb454,#ffd76b)}
+.score-mid .dv{color:var(--amber)}
+.score-high .dim-bar-fill{background:linear-gradient(90deg,var(--cyan),var(--cyan-bright))}
+.score-na .dim-bar-fill{background:repeating-linear-gradient(45deg,rgba(255,255,255,.18),rgba(255,255,255,.18) 5px,transparent 5px,transparent 10px);width:100%!important}
+.score-na .dv{color:var(--w-45);font-size:.8rem}
+
+/* ============ PIPE / MÉTODO ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Poppins';font-weight:700;font-size:11px;color:var(--cyan);letter-spacing:.14em;display:block;margin-bottom:10px}
+.pipe .node .t{font-family:'Poppins';font-weight:600;font-size:1.05rem;display:block;margin-bottom:7px}
+.pipe .node p{font-size:.85rem;color:var(--w-65);line-height:1.5}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.55}
+
+/* ============ FUNNEL B2B ============ */
+.funnel{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.funnel span{font-family:'Poppins';font-weight:600;font-size:.85rem;padding:11px 16px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);white-space:nowrap}
+.funnel i{display:flex;align-items:center;color:var(--cyan);opacity:.6;font-style:normal}
+
+/* ============ LEAD SCORING ============ */
+.leadgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+.leadcard{border-radius:18px;padding:26px;border:1px solid var(--line-soft);background:var(--card)}
+.leadcard.a{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+.leadcard .lg{font-family:'Poppins';font-weight:700;font-size:2rem;line-height:1;color:var(--cyan)}
+.leadcard.b .lg{color:var(--amber)}
+.leadcard.c .lg{color:var(--w-45)}
+.leadcard h4{font-family:'Poppins';font-weight:600;font-size:1.02rem;margin:12px 0 8px}
+.leadcard p{font-size:.88rem;color:var(--w-65);line-height:1.55}
+
+/* ============ TABLAS ============ */
+.tbl-wrap{overflow-x:auto;max-width:100%;margin-top:26px}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px}
+.tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:14px 16px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:14px 16px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Poppins';font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:'Poppins';font-weight:600;color:#fff}
+.tbl .obj{color:var(--w-45);font-size:.82rem;line-height:1.4;min-width:200px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(31,232,216,.07);font-family:'Poppins';font-weight:700;color:#fff}
+.tbl tr.total td.num{color:var(--cyan)}
+
+/* ============ ESCENARIOS ============ */
+.scen{margin-top:22px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow:hidden;transition:all .35s var(--ease)}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:24px 28px;border-bottom:1px solid var(--line-soft)}
+.scen-head .st{font-family:'Poppins';font-weight:700;font-size:1.2rem}
+.scen-head .st small{display:block;font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:3px}
+.scen-head .si{font-family:'Poppins';font-weight:700;color:var(--cyan);font-size:1.15rem;white-space:nowrap}
+.scen-note{padding:18px 28px;color:var(--w-65);font-size:.89rem;line-height:1.65}
+.scen-pick{cursor:pointer;user-select:none}
+.scen-pick .pick{display:flex;align-items:center;gap:10px;margin:0 28px 22px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:'Poppins';font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
+.scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.scen-pick .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.scen-pick.selected{border-color:var(--cyan);background:rgba(31,232,216,.08);box-shadow:0 0 0 1px var(--cyan) inset,0 14px 40px rgba(31,232,216,.16)}
+.scen-pick.selected .pick{color:var(--cyan)}
+.scen-pick.selected .pick .radio{border-color:var(--cyan)}
+.scen-pick.selected .pick .radio::after{transform:scale(1)}
+.scen-pick .pick .lbl-on{display:none}
+.scen-pick.selected .pick .lbl-off{display:none}
+.scen-pick.selected .pick .lbl-on{display:inline}
+
+/* ============ INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:start}
+.invest>*{min-width:0}
+.invest-card{background:linear-gradient(160deg,rgba(31,232,216,.13),rgba(13,4,40,.42));border:1.5px solid var(--cyan-line);border-radius:24px;padding:36px}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);padding-bottom:8px;border-bottom:1px solid var(--cyan-line);margin-bottom:2px}
+.inv-ghead .inv-sub{font-family:'Poppins';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer;padding:16px 14px;margin:0 -14px;border-radius:10px;transition:background .25s var(--ease)}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
+.price-row .pl{display:flex;align-items:flex-start;gap:13px;min-width:0;font-family:'Poppins';font-weight:600;font-size:.99rem}
+.price-row .pl>span{min-width:0}
+.price-row .pl small{display:block;font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:4px;font-family:'Inter';max-width:min(40ch,100%);line-height:1.45}
+.price-row .pl small.varfee{font-family:'Poppins';font-weight:600;font-size:.78rem;color:var(--cyan);margin-top:7px}
+.price-row .pv{font-family:'Poppins';font-weight:700;font-size:1.18rem;color:var(--cyan);white-space:nowrap}
+.price-row .pv.pend{color:var(--w-45);font-weight:600;font-size:.95rem}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.pv .ivatag{font-size:.66rem;color:var(--w-45);font-weight:500;letter-spacing:.04em}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:17px}
+.bullets li{display:flex;gap:13px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:.98rem;line-height:1.55}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:22px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ============ SERVICIOS numerados ============ */
+.svc{border-top:1px solid var(--line-soft);padding:26px 0;display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start}
+.svc:last-child{border-bottom:1px solid var(--line-soft)}
+.svc .sn{font-family:'Poppins';font-weight:700;font-size:1.5rem;color:rgba(31,232,216,.55);line-height:1}
+.svc h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:8px}
+.svc p{color:var(--w-65);font-size:.95rem;line-height:1.6;max-width:74ch}
+.svc .tagline{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.svc .tagline span{font-family:'Poppins';font-weight:500;font-size:11.5px;letter-spacing:.02em;color:var(--w-65);border:1px solid var(--line-soft);padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.03)}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.14rem;margin-bottom:6px}
+.scope-col .sub{font-size:.84rem;color:var(--w-45);margin-bottom:20px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.scope-col li{display:flex;gap:11px;align-items:flex-start;font-size:.94rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:18px;height:18px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+.panel{margin-top:22px;border-radius:20px;padding:30px;border:1px solid var(--amber);background:linear-gradient(160deg,rgba(255,180,84,.12),rgba(13,4,40,.35))}
+.panel h3{font-family:'Poppins';font-weight:600;font-size:1.14rem;margin-bottom:6px;color:var(--amber)}
+.panel .sub{font-size:.84rem;color:var(--w-65);margin-bottom:20px}
+.panel ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.panel li{display:flex;gap:11px;align-items:flex-start;font-size:.93rem;color:var(--w-80);line-height:1.5}
+.panel li::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--amber);margin-top:8px}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.15rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:66ch}
+
+/* ============ WIREFRAME ============ */
+.wf{background:rgba(13,4,40,.5);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:11px}
+.wf-bar{display:flex;gap:6px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);align-items:center}
+.wf-bar span:not(.wf-ttl){flex:none;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18)}
+.wf-bar .wf-ttl{margin-left:10px;min-width:0;flex:1;font-family:'Poppins';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.wf-kpi{background:rgba(255,255,255,.05);border:1px solid var(--line-soft);border-radius:9px;padding:13px 8px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.wf-kpi .kk{font-family:'Poppins';font-size:8px;line-height:1.1;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45);text-align:center}
+.wf-kpi .kv{font-family:'Poppins';font-weight:700;font-size:.9rem;line-height:1;color:var(--cyan)}
+.wf-chart{height:112px;background:linear-gradient(180deg,rgba(31,232,216,.08),rgba(255,255,255,.02));border:1px solid var(--line-soft);border-radius:10px;display:flex;align-items:flex-end;gap:8px;padding:14px}
+.wf-chart i{flex:1;background:linear-gradient(180deg,var(--cyan),rgba(31,232,216,.25));border-radius:4px 4px 0 0;display:block}
+.wf-legend{font-family:'Poppins';font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--w-45);text-align:center}
+
+/* ============ CATÁLOGO STRIP ============ */
+.catstrip{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:36px}
+.catstrip div{aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid var(--line-soft);background:#fff}
+.catstrip img{width:100%;height:100%;object-fit:contain;display:block;padding:8px}
+
+/* ============ EVO / STATEMENT ============ */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,58px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.45) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.93),rgba(40,12,100,.58))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:22px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.25rem,2.5vw,2rem);line-height:1.35;letter-spacing:-.01em;max-width:28ch}
+.evo .sign{margin-top:24px;color:var(--w-65);font-size:.96rem;max-width:660px}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.02em;max-width:24ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:38px;padding:18px 42px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.03rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+.foot{margin-top:64px;padding-top:26px;border-top:1px solid var(--line-soft);width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .diag,.invest{grid-template-columns:1fr;gap:30px}
+  .metaband{grid-template-columns:1fr 1fr}
+  .leadgrid{grid-template-columns:1fr}
+  .scope,.panel ul{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .catstrip{grid-template-columns:repeat(3,1fr)}
+  .pipe .arrow{flex:0 0 100%;justify-content:center}
+  .pipe .arrow svg{transform:rotate(90deg)}
+  .svc{grid-template-columns:1fr;gap:10px}
+  .price-row{flex-wrap:wrap}
+  .price-row .pv{width:100%;text-align:right}
+  .invest-card{padding:26px 20px}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+}
+@media(max-width:560px){
+  .metaband{grid-template-columns:1fr}
+  .wf-kpis{grid-template-columns:repeat(2,1fr)}
+  .stats{gap:20px 32px}
+  .funnel span{font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta estratégica · Titan Web</div>
+  <div class="logo"><img class="logo-pic" src="img/popcorn-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero-deposito.jpg" alt="Depósito de artículos de bazar y repostería"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Propuesta comercial · Confidencial</div>
+    <h1 class="hero-title r d1">Los primeros 10 clientes <span class="cy">mayoristas</span>. Y saber exactamente cómo los conseguimos.</h1>
+    <p class="hero-sub r d2">Titan Web ya está prometiendo venta mayorista. Hoy, el comerciante que pregunta termina en una tienda con precio al público. Esta propuesta construye el camino, lo mide, y recién después le compra tráfico.</p>
+    <div class="hero-tags r d3">
+      <span class="tag">Estrategia B2B</span>
+      <span class="tag">Canal mayorista</span>
+      <span class="tag">Paid Media</span>
+      <span class="tag">Contenido y producción</span>
+      <span class="tag">Identidad de marca</span>
+      <span class="tag">Acompañamiento comercial</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Deslizá</div>
+  <div class="sfoot"><span><span class="num">01</span> · Portada</span><span>Popcorn · 2026</span></div>
+</section>
+
+
+<!-- ============ 2 · POPCORN ============ -->
+<section id="popcorn" data-label="Popcorn">
+  <div class="wrap">
+    <div class="metaband r">
+      <div><span class="mk">Preparada para</span><span class="mv">Titan Web<small>Bazar del Pacífico</small></span></div>
+      <div><span class="mk">Por</span><span class="mv">Popcorn<small>Marketing, comunicación y creatividad</small></span></div>
+      <div><span class="mk">Fecha</span><span class="mv">24 · 08 · 2026</span></div>
+      <div><span class="mk">Válida hasta</span><span class="mv">03 · 09 · 2026<small>10 días desde la emisión</small></span></div>
+      <div><span class="mk">Contacto</span><span class="mv">Sol<small>sol@somospopcorn.com</small></span></div>
+    </div>
+
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No somos un proveedor de posteos.<br>Somos <span class="cy">el equipo de marketing</span> que le falta a tu negocio.</h2>
+    <p class="lead mt-m r d2">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde la mirada del negocio. No vendemos publicaciones: vendemos crecimiento. Trabajamos con empresas medianas y grandes, y también con negocios que están abriendo una unidad nueva y necesitan que alguien piense con ellos, no que les entregue contenido y se vaya.</p>
+    <p class="lead mt-s r d3">Nico nos dijo que su principal frustración anterior fue la falta de acompañamiento. Lo tomamos como el punto de partida de esta propuesta: <b>reunión semanal, tablero siempre abierto y análisis de leads con el equipo comercial</b>. No una reunión por mes para mostrar un reporte.</p>
+
+    <div class="stats r d4">
+      <div class="stat"><div class="v">15+</div><div class="l">Años de experiencia</div></div>
+      <div class="stat"><div class="v">160+</div><div class="l">Marcas acompañadas</div></div>
+      <div class="stat"><div class="v">360°</div><div class="l">Estrategia, contenido, medios, web y audiovisual en un solo equipo</div></div>
+      <div class="stat"><div class="v">1</div><div class="l">Interlocutor: Titan Web ↔ Popcorn, sin intermediarios</div></div>
+    </div>
+
+    <div class="logowall r d5">
+      <div class="logocell"><img class="brandlogo" src="img/l-northfield.png" alt="Northfield School" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Northfield School</span><span class="lk">Educación</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/l-frambuesa.png" alt="Frambuesa Design" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Frambuesa Design</span><span class="lk">Diseño y consumo</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/l-mercadocheque.png" alt="Mercado Cheque" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Mercado Cheque</span><span class="lk">Fintech B2B</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/l-transpack.png" alt="Transpack" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Transpack</span><span class="lk">Mudanzas internacionales</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/l-evel.png" alt="Evel" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Evel</span><span class="lk">Instrumentos de medición</span></div>
+    </div>
+    <div class="sfoot"><span><span class="num">02</span> · Popcorn</span><span>Titan Web × Popcorn</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 3 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico · Auditoría 360 del 21/08/2026</div>
+    <h2 class="h-lg r d1">Auditamos web, marca, mercado y competencia <span class="cy">antes</span> de escribir una sola línea de esta propuesta.</h2>
+    <p class="lead mt-m r d2">Todo lo que sigue está verificado con URL y fecha. Lo que no pudimos medir con herramienta real, lo decimos: preferimos ser exactos antes que optimistas.</p>
+
+    <div class="diag mt-l">
+      <div class="score-card scale-in">
+        <div class="sv">5<sup>/100</sup></div>
+        <div class="sl">Preparación del canal mayorista</div>
+        <p>No es un error de tipeo. En todo el sitio, la palabra <b>“mayorista”</b> no aparece una sola vez. Lo único que existe hoy es un WhatsApp compartido con el consumidor final.</p>
+      </div>
+      <div class="r d2">
+        <div class="dim score-low"><div class="dim-top"><span class="dn">Coherencia entre canales<small>La marca aparece con seis nombres distintos según el canal</small></span><span class="dv">25/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:25%"></div></div></div>
+        <div class="dim score-low"><div class="dim-top"><span class="dn">Contenido<small>Cero copy de categoría, sin blog, sin contenido de marca</small></span><span class="dv">30/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:30%"></div></div></div>
+        <div class="dim score-low"><div class="dim-top"><span class="dn">SEO<small>Migración desde MercadoShops sin terminar + títulos por defecto</small></span><span class="dv">32/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:32%"></div></div></div>
+        <div class="dim score-low"><div class="dim-top"><span class="dn">Marca e identidad<small>Un solo archivo de logo, sin isotipo, favicon inexistente, sin manual</small></span><span class="dv">36/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:36%"></div></div></div>
+        <div class="dim score-low"><div class="dim-top"><span class="dn">Web (global)<small>Funciona para cerrar una venta ya decidida. No para generar confianza</small></span><span class="dv">38/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:38%"></div></div></div>
+        <div class="dim score-mid"><div class="dim-top"><span class="dn">Conversión B2C<small>Sin prueba social, agotados navegables, urgencia falsa</small></span><span class="dv">42/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:42%"></div></div></div>
+        <div class="dim score-mid"><div class="dim-top"><span class="dn">Instagram<small>3.352 seguidores · sin sistema visual · foto de catálogo</small></span><span class="dv">45/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:45%"></div></div></div>
+        <div class="dim score-mid"><div class="dim-top"><span class="dn">Experiencia de uso (UX)<small>Lo mejor puntuado: la tienda cumple lo básico</small></span><span class="dv">55/100</span></div><div class="dim-bar"><div class="dim-bar-fill" style="--w:55%"></div></div></div>
+        <div class="dim score-na"><div class="dim-top"><span class="dn">Velocidad y Core Web Vitals<small>La herramienta de medición devolvió error. No estimamos el número: se mide con accesos</small></span><span class="dv">No medido</span></div><div class="dim-bar"><div class="dim-bar-fill"></div></div></div>
+      </div>
+    </div>
+    <div class="sfoot"><span><span class="num">03</span> · Diagnóstico</span><span>Auditoría verificada</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 4 · HALLAZGOS ============ -->
+<section id="hallazgos" data-label="Hallazgos">
+  <div class="wrap">
+    <div class="eyebrow r">Hallazgos clave</div>
+    <h2 class="h-lg r d1">Seis cosas que <span class="cy">hoy</span> están frenando el canal mayorista.</h2>
+    <div class="grid g3 mt-l">
+      <div class="card r d1">
+        <span class="datapt">0</span>
+        <h3>Menciones de “mayorista” en el sitio</h3>
+        <p>Recorrimos la home, las 8 categorías, productos, contacto, preguntas frecuentes y quiénes somos. No aparece “mayorista”, ni “revendedor”, ni “por mayor”, ni “comercio”. El lead B2B no tiene por dónde entrar.</p>
+      </div>
+      <div class="card r d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+        <h3>La promesa ya está hecha, sin destino</h3>
+        <p>La bio de Instagram dice <b>“Venta mayorista y minoristas — escribinos”</b> y hay una pieza que anuncia <b>“Ahora vendemos por mayor”</b>. El link lleva a la home minorista, con precio al público, 10% OFF y cuotas. Se está gastando atención B2B y entregándola en la vidriera B2C.</p>
+      </div>
+      <div class="card r d3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>La confianza no está construida</h3>
+        <p>El correo de reclamos publicado es un Gmail gratuito <b>con el nombre de otra marca</b>. “Quiénes somos” todavía tiene el texto de ejemplo que trae Tiendanube. Términos y condiciones da error. No hay razón social, CUIT, dirección ni horarios. Y circulan tres teléfonos, dos correos y dos domicilios distintos.</p>
+      </div>
+      <div class="card r d4">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Google todavía indexa la etapa anterior</h3>
+        <p>La mudanza de MercadoShops a Tiendanube quedó a medio hacer: hay direcciones de <b>2022</b> que siguen apareciendo en Google y devuelven error en lugar de redirigir. Peor: lo que Google tiene indexado es catálogo de juguetería. Hay gente que busca Titan Web, hace clic y llega a una pared.</p>
+      </div>
+      <div class="card r d5">
+        <span class="datapt">6</span>
+        <h3>Nombres para una sola marca</h3>
+        <p>Titan Web · TITANWEB · Titanwebok · Bazar del Pacífico · TITANWEB S.R.L. · y un nombre de juguetería. Buscar “titanweb” en Mercado Libre no lleva a la tienda oficial. Sin puente entre el marketplace y los canales propios, la estrategia de capturar demanda es imposible.</p>
+      </div>
+      <div class="card r d6">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>Cada venta se vuelve a pagar</h3>
+        <p>No hay base de datos propia: el newsletter no ofrece nada concreto, no separa consumidor de comercio, y no hay CRM. Hoy Titan Web no puede volver a hablarle a nadie que ya le compró. En mayorista eso es grave: el negocio se gana en la segunda y la tercera compra.</p>
+      </div>
+    </div>
+    <div class="sfoot"><span><span class="num">04</span> · Hallazgos</span><span>Todo verificado con URL y fecha</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 5 · CONTEXTO ============ -->
+<section id="contexto" data-label="Contexto">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que encontramos y cambia el plan</div>
+    <h2 class="h-lg r d1">Tres datos que nos hicieron <span class="cy">reescribir</span> la estrategia.</h2>
+
+    <div class="split mt-l">
+      <div class="r d1">
+        <h3 class="h-md">1 · El rubro cae 12,3%. Eso cambia el mensaje, no el plan.</h3>
+        <p class="lead mt-s">Bazar, decoración y textiles de hogar es <b>el rubro más golpeado del comercio minorista pyme argentino en 2026</b> (CAME). Al mismo tiempo, el canal digital crece 41% en volumen. No es un mercado que crece: es un mercado que <b>se está reasignando entre canales</b>.</p>
+        <p class="lead mt-s">Consecuencia directa: un comerciante que vende 12% menos <b>no compra más surtido, compra menos riesgo</b>. El titular no puede ser “más variedad”. Tiene que ser <b class="cy">“probá con poco, reponé rápido”</b>. La variedad pasa a ser el argumento número dos.</p>
+        <div class="note-pill mt-m">La promesa “el mercado crece y te subís” sería mentira. <b>Titan Web puede crecer en un mercado que cae</b> tomando participación del proveedor tradicional.</div>
+      </div>
+      <div class="col-img media wide r d2"><img src="img/bazar-interior.jpg" alt="Interior de un bazar de barrio"><div class="cap">El cliente de Titan Web<small>Bazares, casas de repostería y cotillonerías: 8.488 comercios relevados en el país, ~52% fuera de PBA y CABA</small></div></div>
+    </div>
+
+    <div class="grid g2 mt-l">
+      <div class="card r d3">
+        <span class="num-tag">2 · MERCADO LIBRE</span>
+        <h3>El problema no son solo las comisiones</h3>
+        <p>En cerca del <b>40% del catálogo (193 de 488 publicaciones)</b> Titan Web compite contra el dueño de la marca que revende, con el producto idéntico. Wilton tiene tienda oficial propia; Doña Clara registra más de 1.700 publicaciones. Cuando el producto es el mismo, la única variable que queda es el precio — exactamente lo que Nico no quiere.</p>
+        <p class="mt-s"><b>La salida de fondo no es marketing: es producto.</b> Exclusividad de importación, surtidos que nadie más tenga y, más adelante, marca propia. Lo decimos ahora porque ninguna campaña resuelve esto sola.</p>
+      </div>
+      <div class="card r d4">
+        <span class="num-tag">3 · COMPETENCIA</span>
+        <h3>Tres de los cinco “competidores” son proveedores</h3>
+        <p>Los clasificamos uno por uno con evidencia: <b>Doña Clara son 121 productos del catálogo de Titan Web — el 25% del surtido</b>. Plus Market y Telaflex también están adentro. Gazatex fabrica tejidos técnicos, no bazar. Y de los cinco nombres, el competidor real del canal mayorista no estaba en la lista.</p>
+        <p class="mt-s">Además: <b>Megamix ya está pautando el claim que Titan Web quiere usar</b> (“todo en un solo pedido, evitá fragmentar proveedores”) y el nombre “Titán mayorista” ya está ocupado por otra empresa. Hay que decidir el territorio antes de comprarlo.</p>
+      </div>
+    </div>
+
+    <div class="evo mt-l r d5">
+      <div class="evo-bg"><img src="img/reposteria-mesa.jpg" alt="Mesa de trabajo de repostería"></div>
+      <div class="badge">El estándar del rubro, verificado</div>
+      <blockquote>Ocultar el precio mayorista <span class="cy">es la norma</span>, no una desventaja. Lo que nadie resolvió bien es cuánta fricción hay para llegar a él.</blockquote>
+      <p class="sign">7 de 11 competidores no publican precios: tres piden login, cinco derivan a WhatsApp. Los cuatro que sí los publican compiten por precio. Los mínimos de compra declarados van de <b>$70.000 a $700.000</b>, y seis no lo declaran: obligan al comerciante a preguntar solo para saber si califica. <b>Publicar el mínimo es un diferencial que no expone un solo margen.</b></p>
+    </div>
+    <div class="sfoot"><span><span class="num">05</span> · Contexto</span><span>Fuentes: CAME · INDEC · relevamiento propio</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 6 · TESIS ============ -->
+<section id="tesis" data-label="Tesis">
+  <div class="bg-photo center"><img src="img/importacion-cajas.jpg" alt="Cajas de importación abiertas"></div>
+  <div class="wrap" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <h2 class="h-xl r d1" style="max-width:20ch">Primero el camino.<br><span class="cy">Después</span> el tráfico.</h2>
+    <p class="lead mt-m r d2" style="max-width:720px">Traer visitantes a una web que no genera confianza, que no tiene por dónde entrar un comerciante y que no mide lo que pasa, es la forma más rápida de gastar un presupuesto sin aprender nada. Vamos en el orden inverso al habitual, y es a propósito.</p>
+    <div class="pipe mt-l r d3" style="text-align:left">
+      <div class="node"><span class="k">PASO 1</span><span class="t">Reparar</span><p>Confianza, datos de empresa y deuda técnica. Barato, rápido, y condición para todo lo demás.</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">PASO 2</span><span class="t">Construir</span><p>Que el canal mayorista exista: landing, calificación de leads, condiciones publicadas y medición.</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">PASO 3</span><span class="t">Traer demanda</span><p>Contenido y pauta hacia un embudo que ya funciona y ya se mide. No antes.</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">PASO 4</span><span class="t">Escalar lo que funciona</span><p>Sabiendo qué canal, qué mensaje y qué perfil de comercio trajo a cada cliente.</p></div>
+    </div>
+    <div class="quote mt-l r d4" style="text-align:left;max-width:760px">El objetivo no es hacer ruido. Es conseguir <b>los primeros diez buenos clientes mayoristas</b> y entender exactamente cómo se consiguieron, para poder repetirlo.</div>
+    <div class="sfoot"><span><span class="num">06</span> · Tesis</span><span>Validar · medir · aprender · escalar</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 7 · TERRITORIO ============ -->
+<section id="territorio" data-label="Territorio">
+  <div class="wrap">
+    <div class="eyebrow r">Posicionamiento</div>
+    <h2 class="h-lg r d1">No un bazar más grande.<br>El <span class="cy">especialista</span> en equipar la cocina que vende.</h2>
+    <p class="lead mt-m r d2">El mercado mayorista está partido en dos y nadie cruzó al medio: los polirrubros tienen repostería como una sección entre diez, y los especialistas están anclados en insumos comestibles — chocolate, fondant, colorantes. <b>Nadie es el mayorista experto en equipamiento</b>: moldes, placas, láminas, descartables técnicos y accesorios de air fryer. Y air fryer ya tiene demanda construida del lado del consumidor, con cero oferta mayorista.</p>
+
+    <div class="grid g3 mt-l">
+      <div class="card r d1">
+        <span class="num-tag">TERRITORIO CENTRAL</span>
+        <h3>“Esto es lo que se vende, y lo sabemos porque lo vendemos”</h3>
+        <p>Los once competidores que analizamos ofrecen catálogo y mínimo de compra. Ninguno responde la pregunta difícil del comerciante, que no es “qué hay” sino <b>“qué me conviene comprar”</b>. Titan Web es el único que tiene el dato, porque le vende el mismo producto al consumidor final desde hace años. Es el único territorio que nadie está diciendo y que además se puede probar.</p>
+      </div>
+      <div class="card r d2">
+        <span class="num-tag">ARGUMENTO #1</span>
+        <h3>Probá con poco, reponé rápido</h3>
+        <p>Mínimo de compra accesible, reposición y rotación demostrada. En un rubro que cae, el diferencial no es cuánto surtido tenés: es cuánto capital le pedís al comerciante para empezar. El mínimo bajo deja de ser una condición comercial y se convierte en <b>herramienta de adquisición</b>.</p>
+      </div>
+      <div class="card r d3">
+        <span class="num-tag">ARGUMENTO #2</span>
+        <h3>Menos proveedores, menos vueltas</h3>
+        <p>Horneado, air fryer, hogar, cotillón y manicuría: <b>cinco categorías que hoy obligan al comerciante a comprarle a cuatro proveedores distintos</b>. Ese es el claim honesto — y difícil de igualar. No “más productos que nadie”: contra los mayoristas de +5.000 SKUs, esa pelea no se gana y no hace falta darla.</p>
+      </div>
+    </div>
+
+    <div class="catstrip r d4">
+      <div><img src="img/prod-1.jpg" alt="Producto Titan Web"></div>
+      <div><img src="img/prod-6.jpg" alt="Producto Titan Web"></div>
+      <div><img src="img/prod-11.jpg" alt="Producto Titan Web"></div>
+      <div><img src="img/prod-7.jpg" alt="Producto Titan Web"></div>
+      <div><img src="img/prod-12.jpg" alt="Producto Titan Web"></div>
+      <div><img src="img/prod-9.jpg" alt="Producto Titan Web"></div>
+    </div>
+    <p class="muted mt-s r d5" style="font-size:.85rem">Productos del catálogo actual de titanweb.com.ar. Uno de los primeros entregables es la selección de los 5 a 7 productos estratégicos sobre los que se construye el contenido y la pauta.</p>
+
+    <div class="note-pill mt-m r d6">Los territorios de mensaje son <b>hipótesis a validar</b> con mercado y con los primeros clientes. No los cerramos en una reunión: los probamos con pauta y los ajustamos con datos.</div>
+    <div class="sfoot"><span><span class="num">07</span> · Territorio</span><span>Posicionamiento B2B</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 8 · CANAL B2B ============ -->
+<section id="canal" data-label="Canal B2B">
+  <div class="wrap">
+    <div class="eyebrow r">El activo que hay que construir</div>
+    <h2 class="h-lg r d1">Una landing mayorista que <span class="cy">califica</span>, no una página que contesta.</h2>
+    <p class="lead mt-m r d2">El error típico es poner un formulario de contacto. Esto tiene que ser un formulario de calificación: cada campo sirve para decidir si el lead vale la llamada y para que el comercial abra la conversación sabiendo con quién habla. Todo sin publicar un solo precio mayorista.</p>
+
+    <div class="split mt-l">
+      <div class="r d3">
+        <ul class="bullets">
+          <li><span class="bi">1</span><p><b>Un solo mensaje arriba:</b> proveedor mayorista de bazar, cocina y repostería con envíos a todo el país. Nada de precios.</p></li>
+          <li><span class="bi">2</span><p><b>A quién le vendemos:</b> bazares, casas de repostería, cotillonerías, negocios de manicuría, tiendas online, revendedores. Que el comerciante se reconozca — y que el consumidor final se autofiltre.</p></li>
+          <li><span class="bi">3</span><p><b>Condiciones publicadas sin lista de precios:</b> mínimo de compra, plazos, cobertura, medios de pago y <b>compromiso de tiempo de respuesta</b>. Es lo que el rubro no hace y lo que más confianza construye.</p></li>
+          <li><span class="bi">4</span><p><b>Prueba de capacidad:</b> depósito, mercadería, cajas de importación, volumen. En B2B una foto real del stock vale más que cualquier claim.</p></li>
+          <li><span class="bi">5</span><p><b>Cómo se compra, en cuatro pasos.</b> “No sé cómo se compra al por mayor” es una fricción real del rubro y se resuelve explicándolo.</p></li>
+          <li><span class="bi">6</span><p><b>Dos salidas:</b> formulario de calificación y WhatsApp Business separado del canal B2C, con mensaje precargado según de dónde viene el clic.</p></li>
+        </ul>
+      </div>
+      <div class="col-img r d4">
+        <div class="wf">
+          <div class="wf-bar"><span></span><span></span><span></span><span class="wf-ttl">titanweb.com.ar/mayorista</span></div>
+          <div style="height:52px;border-radius:9px;background:linear-gradient(100deg,rgba(31,232,216,.22),rgba(255,255,255,.05));border:1px solid var(--cyan-line);display:flex;align-items:center;padding:0 16px;font-family:'Poppins';font-weight:600;font-size:.82rem">Abastecé tu negocio con un solo proveedor</div>
+          <div class="wf-kpis">
+            <div class="wf-kpi"><span class="kk">Categorías</span><span class="kv">8</span></div>
+            <div class="wf-kpi"><span class="kk">Mínimo</span><span class="kv">Publicado</span></div>
+            <div class="wf-kpi"><span class="kk">Envíos</span><span class="kv">País</span></div>
+            <div class="wf-kpi"><span class="kk">Respuesta</span><span class="kv">SLA</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+            <div style="height:56px;border-radius:8px;background:rgba(255,255,255,.06)"></div>
+            <div style="height:56px;border-radius:8px;background:rgba(255,255,255,.06)"></div>
+            <div style="height:56px;border-radius:8px;background:rgba(255,255,255,.06)"></div>
+            <div style="height:56px;border-radius:8px;background:rgba(255,255,255,.06)"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <div class="wf-row" style="height:13px;width:100%"></div>
+            <div class="wf-row" style="height:13px;width:82%"></div>
+            <div class="wf-row" style="height:13px;width:64%"></div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <div style="flex:1;height:38px;border-radius:9px;background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));color:var(--ink);font-family:'Poppins';font-weight:700;font-size:.76rem;display:flex;align-items:center;justify-content:center">Pedí el catálogo</div>
+            <div style="flex:1;height:38px;border-radius:9px;border:1px solid var(--cyan-line);color:var(--cyan);font-family:'Poppins';font-weight:600;font-size:.76rem;display:flex;align-items:center;justify-content:center">Hablar con un asesor</div>
+          </div>
+          <div class="wf-legend">Esquema de referencia · no es diseño final</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="h-md mt-l r d5">Y cada lead entra clasificado</h3>
+    <div class="leadgrid r d6">
+      <div class="leadcard a"><div class="lg">A</div><h4>Contacto inmediato</h4><p>Comercio identificado, ya vende el rubro, volumen por encima del mínimo y logística resuelta. Va al comercial en el día.</p></div>
+      <div class="leadcard b"><div class="lg">B</div><h4>Nutrición y seguimiento</h4><p>Emprendedor o comercio nuevo, sin volumen definido pero con rubro coherente. Entra a una secuencia, no al olvido.</p></div>
+      <div class="leadcard c"><div class="lg">C</div><h4>Derivación al minorista</h4><p>Consumidor final o por debajo del mínimo. Se lo deriva con amabilidad a la tienda. <b>Eso también es una venta</b>, no una pérdida.</p></div>
+    </div>
+    <div class="note-pill mt-m r d7">Empezamos en <b>titanweb.com.ar/mayorista</b>, dentro del dominio: cero costo de infraestructura, hereda autoridad y sale en días. Si la demanda lo justifica, se migra a landing dedicada. <b>Lo que no se puede hacer es esperar el desarrollo perfecto para empezar a captar.</b></div>
+    <div class="sfoot"><span><span class="num">08</span> · Canal B2B</span><span>Captar · calificar · derivar · medir</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 9 · SERVICIOS ============ -->
+<section id="propuesta" data-label="Propuesta">
+  <div class="wrap">
+    <div class="eyebrow r">Qué vamos a hacer</div>
+    <h2 class="h-lg r d1">El programa completo, <span class="cy">en el orden</span> en que hay que hacerlo.</h2>
+    <p class="lead mt-m r d2">Cuatro ítems de puesta en marcha y cinco de gestión mensual. Cada uno es seleccionable en la sección de inversión: el alcance final lo definimos juntos. Y una Fase 0 de reparación que no cuesta dinero, pero sí decisión.</p>
+
+    <div class="mt-l r d3">
+      <div class="svc">
+        <div class="sn">01</div>
+        <div>
+          <h3>Start up de redes y pauta</h3>
+          <p>Poner en condiciones los activos digitales para poder comunicar y medir. Unificación del nombre de la marca en los canales donde hoy aparece de seis formas distintas. Optimización de los perfiles de Instagram y Facebook: bio, destacados y <b>link bifurcado que separe al consumidor final del comerciante</b> — hoy la bio promete venta mayorista y manda a la tienda minorista. Creación y configuración de Meta Business Manager, cuenta publicitaria, píxel y eventos de conversión, Google Ads y GA4. WhatsApp Business separado del canal minorista, con perfil completo y mensajes precargados según el origen del clic. Y la línea de base de medición: hoy no hay manera de saber cuántos leads mayoristas se están perdiendo.</p>
+          <div class="tagline"><span>Pago único</span><span>Semanas 1-2</span><span>Sin esto no se puede pautar ni medir</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">02</div>
+        <div>
+          <h3>Estrategia mayorista y definición de la oferta</h3>
+          <p>Talleres de trabajo con Nico para cerrar lo que hoy no está definido y bloquea todo: mínimo de compra, condiciones comerciales, plazos, cobertura y compromiso de respuesta. Territorio de posicionamiento y argumentario de venta. Arquitectura de marca y decisión de nombre y dominio del canal B2B — hay una colisión de nombre a resolver antes de invertir. Política de precios y promociones B2C que no canibalice el margen del revendedor. Perfil del cliente mayorista ideal y criterios de calificación de leads.</p>
+          <div class="tagline"><span>Pago único</span><span>Semanas 1-3</span><span>Decisión comercial, no diseño</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">03</div>
+        <div>
+          <h3>Landing mayorista + catálogo</h3>
+          <p>Diseño, redacción y publicación de la landing B2B completa, con formulario que filtra y califica leads en lugar de solo recibir consultas, y derivación a WhatsApp con mensaje precargado. Más el diseño del <b>catálogo mayorista en PDF</b> para usar como imán de contacto y como herramienta de venta, sin precios públicos.</p>
+          <p class="mt-s muted" style="font-size:.88rem">No incluye hosting, certificado SSL ni soporte técnico posterior. Los cambios y actualizaciones que sufra el catálogo una vez entregado se cotizan aparte.</p>
+          <div class="tagline"><span>Pago único</span><span>Semanas 3-6</span><span>El canal deja de no existir</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">04</div>
+        <div>
+          <h3>Identidad de marca y sistema visual <span class="muted" style="font-weight:400;font-size:.8em">· opcional o etapa 2</span></h3>
+          <p>Titan Web tiene logo pero no tiene manual. Rediseño con continuidad (no se tira a la basura la marca que ya conocen), versiones y aplicaciones, paleta, tipografías, kit de plantillas para redes y piezas comerciales, y una arquitectura que diferencie el discurso B2B del B2C sin romper la marca. Se puede activar desde el inicio o después de validar el canal: nuestra recomendación es arrancar por lo comercial y hacer marca en el mes 3.</p>
+          <div class="tagline"><span>Pago único</span><span>4-6 semanas</span><span>Activable en etapa 2</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">05</div>
+        <div>
+          <h3>Dirección estratégica y acompañamiento comercial</h3>
+          <p>El corazón de la relación, y lo que faltó en la experiencia anterior. <b>Reunión semanal</b> de trabajo, no de reporte. Tablero de leads y resultados siempre disponible. Análisis conjunto de la calidad de los leads con el equipo comercial: qué consultan, qué objetan, qué productos piden, de qué zona son, por qué se pierde una venta. Ese retorno vuelve a las campañas cada semana. Reporte mensual de gestión con lectura de negocio, no lista de métricas. Incluye el checklist priorizado de la Fase 0 y su seguimiento.</p>
+          <div class="tagline"><span>Mensual</span><span>Reunión semanal</span><span>Tablero + reporte mensual</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">06</div>
+        <div>
+          <h3>Contenido</h3>
+          <p><b>12 piezas mensuales</b> entre feed, reels y stories, con los dos discursos claramente separados y sin mezclar: consumidor final y comerciante. Incluye concepto, copy, diseño sobre el sistema visual, calendario y publicación. Los cuatro pilares están en la sección siguiente.</p>
+          <p class="mt-s muted" style="font-size:.88rem">No incluye respuesta de mensajes, comentarios ni consultas por privado. Ese punto queda del lado de Titan Web, y no es un detalle: en este rubro <b>una parte de los leads mayoristas entra por mensaje directo</b>, y un mensaje sin responder es un cliente perdido. Definimos juntos quién lo atiende.</p>
+          <div class="tagline"><span>Mensual</span><span>12 piezas</span><span>B2B y B2C separados</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">07</div>
+        <div>
+          <h3>Paid Media: generación de demanda mayorista</h3>
+          <p>Estructura de campañas orientada a comerciantes, no a consumidores. Google Search para captar intención (“bazar mayorista”, “repostería por mayor”, “proveedor de moldes”), Meta para llegar a emprendedores y revendedores y construir marca, y retargeting sobre quien ya mostró interés. Creatividades, textos, segmentaciones, optimización semanal y control de <b>calidad de lead</b> — no de costo por lead barato. Incluye el mantenimiento de la campaña B2C para no descuidar la tienda.</p>
+          <div class="tagline"><span>Mensual</span><span>Google + Meta</span><span>Inversión en medios aparte</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">08</div>
+        <div>
+          <h3>Producción audiovisual y fotografía</h3>
+          <p><b>Media jornada mensual</b> de producción en el depósito: fotografía de producto propia — hoy se usa foto de catálogo del proveedor, igual que la competencia —, material de stock y mercadería como prueba de capacidad, y video corto para redes y pauta. Incluye la serie de la importación en curso y, cuando Nico decida dar el paso, las piezas con él a cámara.</p>
+          <div class="tagline"><span>Mensual</span><span>Media jornada</span><span>Material propio, no de proveedor</span></div>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="sn">09</div>
+        <div>
+          <h3>Email marketing</h3>
+          <p>Diseño y armado de textos para <b>dos newsletters por mes</b>. Es la pieza que construye el activo que hoy no existe: una base de datos propia. Con dos usos claros y separados — nutrir al lead mayorista que todavía no compró (novedades de importación, productos que rotan, condiciones) y hacer volver al cliente que ya compró una vez, que es donde el negocio mayorista se vuelve rentable.</p>
+          <p class="mt-s muted" style="font-size:.88rem">No incluye los créditos de envío de la plataforma de email.</p>
+          <div class="tagline"><span>Mensual</span><span>2 newsletters</span><span>Construye base propia</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-l r d4" style="border-color:var(--amber)">
+      <h3 style="color:var(--amber)">Fase 0 · Lo que hay que reparar antes de traer tráfico</h3>
+      <p class="mt-s">Hay un bloque de arreglos que <b>no requiere rediseño ni desarrollo: son horas de trabajo</b>, y son la condición para que la pauta rinda. Página institucional con razón social, CUIT y dirección. Email corporativo en el dominio propio, en lugar del Gmail de otra marca que hoy figura como contacto de reclamos. Términos y condiciones. Redirección de las URLs viejas de MercadoShops que hoy devuelven error en Google. Orden de los productos sin stock en el listado. Reseñas de producto activadas.</p>
+      <p class="mt-s">Lo entregamos como <b>checklist priorizado dentro de la dirección estratégica (ítem 05)</b> y lo ejecuta el equipo de Titan Web, que puede hacer casi todo desde el panel de Tiendanube. Si prefieren que lo hagamos nosotros, se cotiza aparte. Lo que no recomendamos es encender campañas antes de que esté resuelto.</p>
+      <p class="mt-s muted" style="font-size:.9rem">Del mismo modo, el trabajo continuo de <b>e-commerce, SEO y base de datos</b> — fichas, categorías, blog, recuperación de carrito y secuencias de email y WhatsApp para recompra — queda planteado como <b>etapa 2</b> y se cotiza cuando el canal mayorista ya esté funcionando.</p>
+    </div>
+    <div class="sfoot"><span><span class="num">09</span> · Propuesta</span><span>4 ítems de arranque · 5 mensuales</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 10 · CONTENIDO ============ -->
+<section id="contenido" data-label="Contenido">
+  <div class="wrap">
+    <div class="eyebrow r">Contenido</div>
+    <h2 class="h-lg r d1">Cuatro pilares. Y el más importante <span class="cy">ya está pasando</span> en el depósito.</h2>
+    <p class="lead mt-m r d2">No vamos a intentar comunicar el catálogo entero. Se trabaja con 5 a 7 productos estratégicos y con contenido que además de mostrar, prueba.</p>
+
+    <div class="split mt-l">
+      <div class="col-img media wide r d1"><img src="img/importacion-cajas.jpg" alt="Cajas de importación"><div class="cap">Pilar 1 · Prueba de capacidad<small>La importación en curso: ~32 productos y más de 20.000 unidades</small></div></div>
+      <div class="r d2">
+        <h3 class="h-md">La importación es contenido y es prueba, en la misma pieza</h3>
+        <p class="lead mt-s">Llegada de mercadería, apertura de cajas, volumen, cómo se elige qué se importa. Para el consumidor es contenido de marca; <b>para el comerciante es la respuesta a la única pregunta que importa: “¿me vas a poder abastecer?”</b>. No hay que inventarlo ni producirlo desde cero: está ocurriendo ahora y hoy no se está registrando.</p>
+      </div>
+    </div>
+
+    <div class="grid g3 mt-l">
+      <div class="card r d3">
+        <span class="num-tag">PILAR 2</span>
+        <h3>Surtido curado: qué rota</h3>
+        <p>El contenido que ningún competidor puede hacer. “Estos cinco productos son los que más se venden en air fryer, y lo sabemos porque los vendemos todos los días.” Le resuelve al comerciante la decisión de compra, no solo la información.</p>
+      </div>
+      <div class="card r d4">
+        <span class="num-tag">PILAR 3</span>
+        <h3>Producto en uso y premium</h3>
+        <p>Demostración, tamaño real, textura, comparativa, usos. Y la línea premium (mármol, piedra volcánica, utensilios de diseño) con fotografía propia: es lo que saca a la marca del lugar de “otro bazar más”, aunque el volumen venga de los productos masivos.</p>
+      </div>
+      <div class="card r d5">
+        <span class="num-tag">PILAR 4</span>
+        <h3>Negocio mayorista y confianza</h3>
+        <p>Contenido que le habla al comerciante: cómo comprar, condiciones, cobertura, reposición, y Nico explicando el criterio detrás del surtido. En B2B la confianza es el factor decisivo y el fundador es el activo más creíble que la marca tiene hoy.</p>
+      </div>
+    </div>
+
+    <div class="split mt-l">
+      <div class="r d6">
+        <h3 class="h-md">Dos advertencias honestas sobre el contenido</h3>
+        <p class="lead mt-s"><b>Uno:</b> la idea de Nico a cámara es buena, pero el territorio “comerciante real contando su día a día” ya lo ocupa un competidor con 108.000 seguidores. El ángulo diferencial tiene que ser <b>dato de negocio</b> — qué rota, qué conviene, qué se viene — no autenticidad genérica.</p>
+        <p class="lead mt-s"><b>Dos:</b> los productos premium de mármol del catálogo actual son todos de una misma marca de terceros. Titan Web puede apropiarse de la <b>curaduría</b>, no del producto. Si el negocio escala a contenedores completos, marca propia es la conversación de fondo que hay que abrir.</p>
+      </div>
+      <div class="col-img media r d7"><img src="img/premium-marmol.jpg" alt="Productos premium de cocina en mármol y piedra"><div class="cap">Línea premium<small>Diferenciación por curaduría y fotografía propia</small></div></div>
+    </div>
+    <div class="sfoot"><span><span class="num">10</span> · Contenido</span><span>4 pilares · 5-7 productos estratégicos</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 11 · MEDIOS ============ -->
+<section id="medios" data-label="Medios">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en medios</div>
+    <h2 class="h-lg r d1">Tres escenarios. Cada uno con un <span class="cy">objetivo de aprendizaje</span>, no una promesa.</h2>
+    <p class="lead mt-m r d2">La inversión en medios se factura aparte del honorario y la decide Titan Web. Lo que definimos nosotros es cómo se reparte, qué tiene que responder cada peso y con qué criterio se pasa de un escenario al siguiente. Los montos son sugeridos y ajustables.</p>
+
+    <div class="scen scen-pick r d3" data-scen="1">
+      <div class="scen-head"><div class="st">Escenario 1 · Validación<small>Objetivo: confirmar que existe demanda mayorista alcanzable con digital</small></div><div class="si" data-medios="e1">$ —</div></div>
+      <div class="tbl-wrap" style="margin-top:0">
+        <table class="tbl">
+          <thead><tr><th>Canal</th><th class="num">Inversión</th><th class="num">%</th><th>Qué compra</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google Search</td><td class="num" data-med="e1" data-pct="70">—</td><td class="num">70%</td><td class="obj">Al comerciante que ya está buscando proveedor. Es intención, no interés: la conversión más alta y el lead más calificado</td></tr>
+            <tr><td class="plat">Meta (Instagram y Facebook)</td><td class="num" data-med="e1" data-pct="30">—</td><td class="num">30%</td><td class="obj">Prueba del perfil emprendedor y revendedor, el único 100% alcanzable por segmentación</td></tr>
+            <tr class="total"><td>Total mensual</td><td class="num" data-medios="e1">—</td><td class="num">100%</td><td class="obj">Volumen bajo a propósito</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scen-note">El resultado que buscamos acá no es facturación: es saber <b>qué términos traen comerciantes de verdad, qué provincias responden y a qué costo entra un lead calificado</b>. Con eso se dimensiona todo lo que viene después. Sin retargeting todavía, porque no hay audiencia que perseguir.</div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <div class="scen scen-pick r d4" data-scen="2">
+      <div class="scen-head"><div class="st">Escenario 2 · Recomendado<small>Objetivo: flujo sostenido de leads calificados y cierre de los primeros clientes</small></div><div class="si" data-medios="e2">$ —</div></div>
+      <div class="tbl-wrap" style="margin-top:0">
+        <table class="tbl">
+          <thead><tr><th>Canal</th><th class="num">Inversión</th><th class="num">%</th><th>Qué compra</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google Search</td><td class="num" data-med="e2" data-pct="50">—</td><td class="num">50%</td><td class="obj">Captación sostenida de comercios establecidos, con cobertura nacional de términos</td></tr>
+            <tr><td class="plat">Meta (Instagram y Facebook)</td><td class="num" data-med="e2" data-pct="35">—</td><td class="num">35%</td><td class="obj">Frente de emprendedores y revendedores, más construcción de marca sobre el público comerciante</td></tr>
+            <tr><td class="plat">Retargeting</td><td class="num" data-med="e2" data-pct="15">—</td><td class="num">15%</td><td class="obj">Recupera al que entró a la landing o consultó y no cerró. En B2B el ciclo casi nunca se cierra en la primera visita</td></tr>
+            <tr class="total"><td>Total mensual</td><td class="num" data-medios="e2">—</td><td class="num">100%</td><td class="obj">Es el escenario que recomendamos</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scen-note">Permite <b>comparar dos perfiles de cliente en paralelo</b> — comercio establecido vía Google, emprendedor vía Meta — y decidir con datos propios dónde está el negocio real. Es la diferencia entre suponer y saber: los dos perfiles tienen ticket, ciclo y recompra distintos, y hay que reportarlos separados desde el día uno.</div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <div class="scen scen-pick r d5" data-scen="3">
+      <div class="scen-head"><div class="st">Escenario 3 · Escala<small>Objetivo: tomar participación en el interior y sostener recompra</small></div><div class="si" data-medios="e3">$ —</div></div>
+      <div class="tbl-wrap" style="margin-top:0">
+        <table class="tbl">
+          <thead><tr><th>Canal</th><th class="num">Inversión</th><th class="num">%</th><th>Qué compra</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google Search</td><td class="num" data-med="e3" data-pct="45">—</td><td class="num">45%</td><td class="obj">Cobertura ampliada de términos y de marca propia, ya con datos de qué convierte</td></tr>
+            <tr><td class="plat">Meta (Instagram y Facebook)</td><td class="num" data-med="e3" data-pct="30">—</td><td class="num">30%</td><td class="obj">Escala sobre los perfiles y creatividades que ya demostraron traer leads buenos</td></tr>
+            <tr><td class="plat">Retargeting y recompra</td><td class="num" data-med="e3" data-pct="15">—</td><td class="num">15%</td><td class="obj">Segunda y tercera compra de los clientes ya activos, que es donde el mayorista se vuelve rentable</td></tr>
+            <tr><td class="plat">Campañas por región y por categoría</td><td class="num" data-med="e3" data-pct="10">—</td><td class="num">10%</td><td class="obj">Córdoba, Santa Fe, Entre Ríos y Mendoza concentran cerca de 1.800 comercios del rubro que hoy viajan a Once o pagan flete. Más campañas separadas de air fryer, cotillón y manicuría</td></tr>
+            <tr class="total"><td>Total mensual</td><td class="num" data-medios="e3">—</td><td class="num">100%</td><td class="obj">Se activa cuando el escenario 2 ya mostró qué funciona</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="scen-note">No se arranca acá. Este escenario se justifica cuando ya hay un costo por lead calificado conocido y un ticket promedio medido: <b>escalar antes de saber qué funciona es multiplicar el error</b>.</div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <div class="card mt-m r d6">
+      <h3>Cuándo se pasa de un escenario al siguiente</h3>
+      <p class="mt-s">No por calendario ni por entusiasmo. La regla que proponemos, y que revisamos juntos cada mes:</p>
+      <ul class="bullets mt-m">
+        <li><span class="bi">1</span><p><b>Del 1 al 2:</b> cuando al menos <b>6 de cada 10 leads</b> sean calificados (comercio real, rubro coherente) y el costo por lead calificado sea pagable con el margen de un primer pedido.</p></li>
+        <li><span class="bi">2</span><p><b>Del 2 al 3:</b> cuando haya <b>ticket promedio mayorista medido</b>, una tasa de cierre conocida y al menos un puñado de clientes con segunda compra. Ahí el costo de adquisición deja de ser un gasto y pasa a ser una inversión con retorno calculable.</p></li>
+        <li><span class="bi">3</span><p><b>Se baja de escenario</b>, sin drama, si la calidad de lead cae o si el stock no acompaña. Preferimos frenar y corregir antes que sostener una campaña que no rinde.</p></li>
+      </ul>
+    </div>
+
+    <div class="card mt-l r d6" style="border-color:var(--amber)">
+      <h3 style="color:var(--amber)">Por qué no hay una proyección de leads en esta propuesta</h3>
+      <p class="mt-s">Porque cualquier número que pusiéramos hoy sería inventado, y preferimos decirlo. Para proyectar leads, costo por cliente y retorno hacen falta cinco datos que todavía no tenemos: <b>ticket promedio mayorista, margen por categoría, tasa de cierre del equipo comercial, frecuencia de recompra y capacidad real de atención</b>. Los dos primeros meses de trabajo generan exactamente esa información.</p>
+      <p class="mt-s">Además, los números de Mercado Libre que surgieron en la reunión (15 ventas mensuales y $40 millones de facturación por mes) son incompatibles entre sí: implicarían un ticket promedio de $2,6 millones sobre productos que van de $6.000 a $21.000. <b>Es el primer dato que necesitamos aclarar</b>, y no lo usamos como base de nada hasta entonces.</p>
+      <p class="mt-s">A partir del mes 3, la proyección deja de ser una promesa comercial y pasa a ser un cálculo con los datos propios de Titan Web. Ahí sí comprometemos números.</p>
+    </div>
+
+    <div class="note-pill mt-m r d7" style="border-color:var(--cyan-line)">Los tres escenarios son <b>sugeridos y ajustables</b>: el monto lo define Titan Web. Sobre la inversión que finalmente se haga en plataformas se aplica un <b>15% variable de gestión</b>.</div>
+    <div class="sfoot"><span><span class="num">11</span> · Medios</span><span>La inversión en medios se factura aparte</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 12 · KPIs ============ -->
+<section id="kpis" data-label="KPIs">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo se mide</div>
+    <h2 class="h-lg r d1">Ni seguidores ni alcance.<br><span class="cy">Leads calificados</span>, clientes y recompra.</h2>
+    <p class="lead mt-m r d2">Un lead barato pero irrelevante es un lead malo. La métrica que gobierna todo no es el costo por lead: es el <b>costo por lead calificado</b>, y después el costo por cliente.</p>
+
+    <div class="split mt-l">
+      <div class="r d3">
+        <div class="tbl-wrap">
+          <table class="tbl">
+            <thead><tr><th>Métrica</th><th>Qué responde</th><th class="num">Desde</th></tr></thead>
+            <tbody>
+              <tr><td class="plat">Leads mayoristas</td><td class="obj">¿Existe demanda alcanzable?</td><td class="num">Mes 1</td></tr>
+              <tr><td class="plat">% de leads calificados (A+B)</td><td class="obj">¿Estamos trayendo comerciantes o consumidores?</td><td class="num">Mes 1</td></tr>
+              <tr><td class="plat">Costo por lead calificado</td><td class="obj">¿A qué precio entra un comerciante real?</td><td class="num">Mes 2</td></tr>
+              <tr><td class="plat">Contactos efectivos y tiempo de respuesta</td><td class="obj">¿El lead se atiende o se enfría?</td><td class="num">Mes 1</td></tr>
+              <tr><td class="plat">Cotizaciones enviadas</td><td class="obj">¿El lead avanza en el embudo?</td><td class="num">Mes 2</td></tr>
+              <tr><td class="plat">Clientes mayoristas nuevos</td><td class="obj">El objetivo real: los primeros 10</td><td class="num">Mes 2-3</td></tr>
+              <tr><td class="plat">Ticket promedio y segunda compra</td><td class="obj">¿Es un cliente o fue una venta suelta?</td><td class="num">Mes 3</td></tr>
+              <tr><td class="plat">Costo de adquisición de cliente</td><td class="obj">¿El canal es rentable y escalable?</td><td class="num">Mes 3</td></tr>
+              <tr><td class="plat">% de ventas en canales propios vs. Mercado Libre</td><td class="obj">¿Estamos reduciendo la dependencia?</td><td class="num">Mes 2</td></tr>
+              <tr><td class="plat">Búsquedas de marca y tráfico directo</td><td class="obj">¿La marca empieza a existir sola?</td><td class="num">Mes 3</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-img r d4">
+        <div class="wf">
+          <div class="wf-bar"><span></span><span></span><span></span><span class="wf-ttl">Tablero Titan Web · canal mayorista</span></div>
+          <div class="wf-kpis">
+            <div class="wf-kpi"><span class="kk">Leads</span><span class="kv">—</span></div>
+            <div class="wf-kpi"><span class="kk">Calificados</span><span class="kv">—</span></div>
+            <div class="wf-kpi"><span class="kk">Costo / lead cal.</span><span class="kv">—</span></div>
+            <div class="wf-kpi"><span class="kk">Clientes</span><span class="kv">—</span></div>
+          </div>
+          <div class="wf-chart"><i style="height:26%"></i><i style="height:38%"></i><i style="height:34%"></i><i style="height:52%"></i><i style="height:61%"></i><i style="height:57%"></i><i style="height:74%"></i><i style="height:88%"></i></div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <div class="wf-row" style="height:15px;width:100%"></div>
+            <div class="wf-row" style="height:15px;width:76%"></div>
+            <div class="wf-row" style="height:15px;width:58%"></div>
+          </div>
+          <div class="wf-legend">Tablero de referencia · se completa con datos reales desde el mes 1</div>
+        </div>
+        <div class="note-pill mt-m">El tablero está <b>siempre abierto</b>. No se espera al reporte de fin de mes para ver cómo va.</div>
+      </div>
+    </div>
+
+    <div class="funnel mt-l r d5">
+      <span>Anuncio</span><i>→</i><span>Landing mayorista</span><i>→</i><span>Formulario / WhatsApp</span><i>→</i><span>Calificación A·B·C</span><i>→</i><span>Contacto comercial</span><i>→</i><span>Catálogo</span><i>→</i><span>Pedido</span><i>→</i><span>Recompra</span>
+    </div>
+    <div class="sfoot"><span><span class="num">12</span> · KPIs</span><span>Calidad de lead sobre volumen de lead</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 13 · RIESGOS ============ -->
+<section id="riesgos" data-label="Riesgos">
+  <div class="wrap">
+    <div class="eyebrow r">Riesgos y cómo los manejamos</div>
+    <h2 class="h-lg r d1">Preferimos decirlo <span class="cy">antes</span> que explicarlo después.</h2>
+    <div class="tbl-wrap r d2">
+      <table class="tbl">
+        <thead><tr><th>Riesgo</th><th>Por qué es real</th><th>Cómo lo manejamos</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="plat">El WhatsApp mayorista sin dueño ni tiempo de respuesta</td>
+            <td class="obj">Es el riesgo número uno. En B2B la velocidad de respuesta es el principal predictor de cierre. Generar leads hacia un canal que nadie atiende es quemar presupuesto.</td>
+            <td class="obj">Se define antes de encender la primera campaña: quién responde, en cuánto tiempo y con qué guion. Queda escrito como compromiso de Titan Web y se mide todos los meses.</td>
+          </tr>
+          <tr>
+            <td class="plat">Quiebre de stock sobre un producto en campaña</td>
+            <td class="obj">Un comerciante al que le fallás una vez no vuelve. Y hoy el catálogo tiene volumen alto de agotados navegables: en una página del listado, los 12 productos estaban sin stock.</td>
+            <td class="obj">Ninguna campaña se activa sin validar stock, reposición y margen. El plan de contenido se arma contra disponibilidad real, no contra el catálogo completo.</td>
+          </tr>
+          <tr>
+            <td class="plat">Canibalizar al propio revendedor</td>
+            <td class="obj">La tienda comunica 15% de descuento por transferencia y envío gratis. Cuando haya revendedores, eso choca de frente con su margen — justo lo que Nico quiere evitar.</td>
+            <td class="obj">Política de precios y promociones definida en el primer taller: qué categorías admiten promoción agresiva al público y cuáles quedan protegidas como núcleo del mayorista.</td>
+          </tr>
+          <tr>
+            <td class="plat">Dependencia de un proveedor que también es competidor</td>
+            <td class="obj">Una sola marca de terceros representa cerca del 25% del catálogo, y le vende al mismo comerciante que Titan Web quiere captar.</td>
+            <td class="obj">Se prioriza en contenido y en pauta el surtido propio e importado directo. A mediano plazo, exclusividades y marca propia entran en la conversación de producto.</td>
+          </tr>
+          <tr>
+            <td class="plat">Colisión de nombre en el canal mayorista</td>
+            <td class="obj">Ya existe otra empresa posicionada como “Titán mayorista” con más de 5.000 productos. Salir así es competir contra otra marca por la propia búsqueda.</td>
+            <td class="obj">Decisión de naming y dominio en la semana 1, antes de invertir en marca. Es una definición de cinco minutos ahora y un problema caro después.</td>
+          </tr>
+          <tr>
+            <td class="plat">El bazar de bajo precio y el producto importado por courier</td>
+            <td class="obj">Se abrieron más de 250 bazares asiáticos en ocho meses, con precios 30% a 50% menores, y el courier creció 123% interanual.</td>
+            <td class="obj">Es un argumento a favor, bien comunicado: el courier no sirve para revender (tope de 3 unidades iguales por envío y 5 envíos al año). Frente a eso, Titan Web ofrece entrega en 24-72 horas, factura, garantía y reposición.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="quote mt-l r d3">Si los leads son malos, si la campaña no funciona, si la landing no convierte o si el vendedor tarda en responder, lo vas a saber por nosotros y esa misma semana. <b>Detectar rápido, comunicar, corregir, medir.</b></div>
+    <div class="sfoot"><span><span class="num">13</span> · Riesgos</span><span>Transparencia operativa</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 14 · ROADMAP ============ -->
+<section id="roadmap" data-label="Roadmap">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1">Seis meses. Y una <span class="cy">ventana</span> que se abre ahora.</h2>
+    <p class="lead mt-m r d2">La compra mayorista de Navidad y Día de la Madre se define entre fines de agosto y septiembre. Si el canal no está vivo en las próximas semanas, el próximo pico real de compra mayorista es marzo de 2027. No es urgencia de vendedor: es el calendario del rubro.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item"><div class="dot"></div><div class="ph">Semanas 1-2</div><h3>Fundación y decisiones</h3><p>Accesos y auditoría técnica con Search Console. Taller de definición de la oferta mayorista y decisión de naming. Checklist de la Fase 0 entregado y arrancando del lado de Titan Web: institucional, datos de empresa, políticas, email corporativo y redirecciones. Start up de redes y pauta: perfiles, cuentas publicitarias y medición.</p></div>
+      <div class="tl-item"><div class="dot"></div><div class="ph">Semanas 3-4</div><h3>El canal existe</h3><p>Landing mayorista publicada con formulario de calificación y WhatsApp Business separado. Catálogo mayorista en PDF. Ítem “Mayorista” en el menú del sitio y en la bio de Instagram apuntando al lugar correcto. Kit de venta para el comercial. Primera jornada de producción en depósito.</p></div>
+      <div class="tl-item"><div class="dot"></div><div class="ph">Semanas 5-8</div><h3>Primera demanda y primeros aprendizajes</h3><p>Campañas de captación activas. Contenido en marcha con los dos discursos separados. Primer análisis de calidad de leads con el equipo comercial: qué perfil consulta, qué objeta, de dónde viene. Ajuste de mensaje y de segmentación con datos propios.</p></div>
+      <div class="tl-item"><div class="dot"></div><div class="ph">Mes 3</div><h3>Los primeros clientes y los números propios</h3><p>Cierre de los primeros clientes mayoristas y construcción de la proyección real: ticket, tasa de cierre, costo por cliente. Definición de objetivos de facturación B2B con datos, no con supuestos. Arranque de identidad de marca si se decide activarla.</p></div>
+      <div class="tl-item"><div class="dot"></div><div class="ph">Meses 4-6</div><h3>Escalar lo que funciona</h3><p>Presión sobre las provincias y las categorías que respondieron. Secuencias de recompra y nutrición sobre la base propia. SEO de fondo empezando a traer tráfico sin costo por clic. Revisión de la dependencia de Mercado Libre con números. Decisión sobre etapa 2: catálogo digital mayorista o e-commerce B2B.</p></div>
+    </div>
+    <div class="note-pill mt-l r d4">Enero es el mejor mes del año para prospectar y sumar clientes nuevos en este rubro: <b>caja mínima, nadie vende, todos escuchan.</b> Lo dejamos planificado desde ahora.</div>
+    <div class="sfoot"><span><span class="num">14</span> · Roadmap</span><span>6 meses · revisión semanal</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 15 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1">Qué está incluido, qué no, y <span class="cy">qué depende de Titan Web</span>.</h2>
+    <div class="scope mt-l">
+      <div class="scope-col yes r d1">
+        <h3>Incluido</h3>
+        <div class="sub">Según los ítems seleccionados en la sección de inversión</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Estrategia, planificación y dirección del proyecto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Reunión semanal de trabajo con el equipo de Titan Web</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Puesta a punto de perfiles, cuentas publicitarias y medición</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Landing mayorista y diseño del catálogo PDF</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>12 piezas de contenido por mes, con copy y diseño</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Gestión y optimización de campañas en Google y Meta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Media jornada mensual de producción de foto y video</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Medición, tablero de resultados y reporte mensual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Dos newsletters por mes, con diseño y textos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg>Checklist priorizado de la Fase 0 y su seguimiento</li>
+        </ul>
+      </div>
+      <div class="scope-col no r d2">
+        <h3>No incluido</h3>
+        <div class="sub">Se cotiza aparte, corresponde a una etapa posterior o queda del lado del cliente</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Inversión en medios</b> (pauta): se factura aparte y va directo a las plataformas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Hosting, SSL y soporte técnico</b> de la landing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>Cambios y actualizaciones del <b>catálogo PDF</b> una vez entregado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Respuesta de mensajes, comentarios y consultas por privado</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>Ejecución</b> de la Fase 0 sobre el sitio: la hace Titan Web con nuestro checklist, o se cotiza aparte</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><b>E-commerce, SEO continuo y base de datos</b> (etapa 2)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>E-commerce B2B con login y precios por cliente, y automatización de pedidos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>Licencias, apps de Tiendanube, CRM pago, <b>créditos de envío de email</b> y herramientas de terceros</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>Gestión de la operación de Mercado Libre y atención comercial de los leads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>Stand y producción para ferias del sector (Expo Presentes, marzo 2027)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel r d3">
+      <h3>Lo que necesitamos de Titan Web</h3>
+      <div class="sub">Marketing genera oportunidades. Ventas las convierte en facturación. Esto no funciona sin la otra mitad.</div>
+      <ul>
+        <li>Un responsable del WhatsApp mayorista con tiempo de respuesta comprometido</li>
+        <li>Alguien que responda los mensajes y comentarios de Instagram: ahí también entran leads</li>
+        <li>Ejecución de la Fase 0 sobre el sitio, con nuestro checklist</li>
+        <li>Los números de Mercado Libre aclarados y el ticket promedio real</li>
+        <li>Mínimo de compra, condiciones comerciales y margen por categoría</li>
+        <li>Razón social, CUIT, dirección y horarios para publicar</li>
+        <li>Accesos: Search Console, Tiendanube, Analytics, Meta Business, Mercado Libre</li>
+        <li>Información semanal del comercial: leads buenos, malos, objeciones y motivos de pérdida</li>
+        <li>Definición de stock y reposición de los productos que van a campaña</li>
+        <li>Decisión sobre el nombre y el dominio del canal mayorista</li>
+      </ul>
+    </div>
+    <div class="sfoot"><span><span class="num">15</span> · Alcance</span><span>Transparencia comercial</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 16 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Armá tu selección.<br>Nosotros <span class="cy">recomendamos</span> por dónde empezar.</h2>
+    <p class="lead mt-m r d2">Tildá los ítems con los que quieras avanzar: el correo de respuesta se arma solo con tu selección y el total.</p>
+
+    <div class="invest mt-l">
+      <div class="invest-card r d3">
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Puesta en marcha · pago único</span><span class="inv-sub" id="subOnce">—</span></div>
+          <div class="price-row svc-pick" data-type="once" data-key="startup" data-svc="Start up de redes y pauta">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">01 · Start up de redes y pauta</span><small>Perfiles, link bifurcado B2C/B2B, Meta Business, píxel y eventos, Google Ads, GA4, WhatsApp Business separado</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-key="estrategia" data-svc="Estrategia mayorista y oferta">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">02 · Estrategia mayorista y oferta</span><small>Posicionamiento, argumentario, naming, política de precios, perfil de cliente ideal</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-key="landing" data-svc="Landing mayorista + catálogo PDF">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">03 · Landing mayorista</span><small>Landing, formulario para filtrar leads y diseño del catálogo PDF. No incluye hosting, SSL ni soporte; cambios del catálogo se cotizan aparte</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-key="marca" data-svc="Identidad de marca y sistema visual">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">04 · Identidad de marca y sistema visual</span><small>Rediseño con continuidad, manual, aplicaciones y kit de plantillas · opcional o etapa 2</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Gestión mensual · recurrente</span><span class="inv-sub" id="subMonth">—</span></div>
+          <div class="price-row svc-pick" data-type="month" data-key="direccion" data-svc="Dirección estratégica y acompañamiento">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">05 · Dirección estratégica y acompañamiento</span><small>Reunión semanal, tablero, análisis de leads con el comercial, reporte mensual</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-key="contenido" data-svc="Contenido">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">06 · Contenido</span><small>12 piezas mensuales feed, reels y stories, con discursos B2B y B2C separados. No incluye respuesta de mensajes</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-key="paid" data-svc="Paid Media B2B + B2C">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">07 · Paid Media B2B + B2C</span><small>Google y Meta, creatividades, optimización semanal, control de calidad de lead</small><small class="varfee">+ 15% sobre la inversión en plataformas</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-key="audiovisual" data-svc="Producción audiovisual y fotografía">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">08 · Producción audiovisual y fotografía</span><small>Media jornada mensual en depósito: foto de producto propia, stock y video corto</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-key="email" data-svc="Email marketing">
+            <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="m5 13 4 4L19 7"/></svg></span><span><span class="pl-t">09 · Email marketing</span><small>Diseño y armado de textos para 2 newsletters mensuales. No incluye créditos de envío</small></span></span>
+            <span class="pv" data-price>$ —</span>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Inversión en medios · aparte</span><span class="inv-sub" id="subMedios">—</span></div>
+          <div class="price-row">
+            <span class="pl"><span style="flex:none;width:20px"></span><span><span class="pl-t">Pauta digital</span><small>Se factura aparte y va directo a Google y Meta. Sobre esa inversión se aplica el 15% de gestión del ítem 07. Elegí el escenario en la sección anterior.</small></span></span>
+            <span class="pv pend" id="medRow">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="r d4">
+        <h3 class="h-md">Formas de pago</h3>
+        <ul class="bullets mt-m">
+          <li><span class="bi">A</span><p><b>Puesta en marcha, 100% anticipada.</b> <b class="cy">3% de descuento</b> sobre el valor de la puesta en marcha.</p></li>
+          <li><span class="bi">B</span><p><b>Puesta en marcha, en dos pagos.</b> 50% al inicio y 50% al terminar el proyecto o al mes, lo que suceda primero. Sin descuento.</p></li>
+          <li><span class="bi">C</span><p><b>Gestión mensual.</b> Se factura por mes adelantado. Contrato mínimo recomendado de 6 meses: en menos tiempo no hay margen para aprender nada de un canal que arranca de cero.</p></li>
+          <li><span class="bi">D</span><p><b>Inversión en medios.</b> La pauta se factura aparte y va directo a las plataformas. Sobre esa inversión se aplica un <b class="cy">15% de gestión</b>, que se factura junto con el honorario mensual.</p></li>
+          <li><span class="bi">E</span><p>Todos los valores son <b>+ IVA</b>. Los contratos mensuales se ajustan por IPC.</p></li>
+        </ul>
+        <div class="note-pill mt-m">Recomendación para arrancar: <b>01, 02 y 03</b> de puesta en marcha, <b>05, 06, 07 y 08</b> mensuales, y el escenario recomendado de medios. La marca (04) en el mes 3, y el email marketing (09) en cuanto la base de datos empiece a crecer.</div>
+        <div id="ctaPick"></div>
+        <a class="cta-go" id="ctaGo" href="mailto:sol@somospopcorn.com">Avanzar con esta selección
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="sfoot"><span><span class="num">16</span> · Inversión</span><span>Valores sin IVA · pauta aparte</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 17 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo seguimos</div>
+    <h2 class="h-lg r d1">Cuatro pasos y <span class="cy">arrancamos</span>.</h2>
+    <div class="grid g4 mt-l">
+      <div class="card r d1"><span class="num-tag">PASO 1</span><h3>Confirmás el alcance</h3><p>Elegís los ítems en la sección de inversión y nos llega tu selección por correo. Si querés, lo repasamos juntos antes.</p></div>
+      <div class="card r d2"><span class="num-tag">PASO 2</span><h3>Taller de arranque</h3><p>Una reunión de trabajo de dos horas para cerrar la oferta mayorista, el naming y los datos que faltan. De ahí sale el plan definitivo.</p></div>
+      <div class="card r d3"><span class="num-tag">PASO 3</span><h3>Accesos y medición</h3><p>Nos das los accesos, montamos la medición y empezamos por la reparación de confianza y la deuda técnica.</p></div>
+      <div class="card r d4"><span class="num-tag">PASO 4</span><h3>El canal sale a la calle</h3><p>Landing mayorista publicada, WhatsApp separado y primeras campañas. Desde ahí, reunión semanal y tablero abierto.</p></div>
+    </div>
+    <div class="note-pill mt-l r d5">Si arrancamos en las próximas dos semanas, el canal mayorista queda operativo <b>dentro de la ventana de compra de fin de año</b>.</div>
+    <div class="sfoot"><span><span class="num">17</span> · Próximos pasos</span><span>Sin fricción</span></div>
+  </div>
+</section>
+
+
+<!-- ============ 18 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/hero-deposito.jpg" alt="Depósito de bazar y repostería"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Para cerrar</div>
+    <h2 class="close-title r d1">No hay magia.<br>Hay un <span class="cy">sistema</span>, y hay trabajo.</h2>
+    <p class="lead mt-m r d2" style="max-width:700px">Titan Web no necesita hacer marketing. Necesita construir un sistema de crecimiento que conecte la marca, el contenido, la publicidad, la tienda, los leads, las ventas, el stock y la importación. Nosotros ponemos el sistema y el acompañamiento. Y te vamos a decir la verdad todas las semanas, incluso cuando no sea la que queremos escuchar.</p>
+    <a class="cta-go r d3" id="ctaGo2" href="mailto:sol@somospopcorn.com?subject=Titan%20Web%20%C2%B7%20Avancemos%20con%20la%20propuesta">Hablemos y arrancamos
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/popcorn-blanco.png" alt="Popcorn">
+      <div class="close-tag">Marketing, comunicación y creatividad</div>
+    </div>
+    <div class="foot r d5">
+      <span>Propuesta confidencial · Titan Web</span>
+      <span>Válida hasta el 03 · 09 · 2026</span>
+      <span>sol@somospopcorn.com</span>
+    </div>
+  </div>
+</section>
+
+
+<script>
+/* ============================================================
+   PRECIOS · editar SOLO acá. Poner el monto en número plano
+   (sin puntos ni símbolos). Un 0 muestra "$ —" en la propuesta.
+   ============================================================ */
+const PRECIOS = {
+  startup:     1230000,   // 01 · Start up de redes y pauta                [pago único]
+  estrategia:  1400000,   // 02 · Estrategia mayorista y oferta            [pago único]
+  landing:     1450000,   // 03 · Landing mayorista + catálogo PDF         [pago único]
+  marca:        870000,   // 04 · Identidad de marca y sistema visual      [pago único · opcional]
+  direccion:   1870000,   // 05 · Dirección estratégica y acompañamiento   [mensual]
+  contenido:   1200000,   // 06 · Contenido · 12 piezas                    [mensual]
+  paid:         890000,   // 07 · Paid Media B2B + B2C                     [mensual] + 15% sobre la pauta
+  audiovisual:  500000,   // 08 · Producción audiovisual · media jornada   [mensual]
+  email:        300000    // 09 · Email marketing · 2 newsletters          [mensual]
+};
+/* Inversión mensual en medios por escenario (se factura aparte) */
+const MEDIOS = { e1: 1200000, e2: 2200000, e3: 3500000 };
+/* Fee variable de gestión sobre la inversión en plataformas */
+const VARFEE = 0.15;
+/* Descuento por pago 100% anticipado de la puesta en marcha */
+const DTO_ANTICIPADO = 0.03;
+/* ============================================================ */
+
+const fmt = n => '$' + Number(n).toLocaleString('es-AR');
+
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.scale-in').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const act=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>act.observe(s));
+
+/* ===== Render de precios ===== */
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+svcPicks.forEach(row=>{
+  const k=row.dataset.key, v=PRECIOS[k]||0, el=row.querySelector('[data-price]');
+  row.dataset.amount=v;
+  if(v>0){
+    el.classList.remove('pend');
+    el.innerHTML=fmt(v)+' <span class="ivatag">'+(row.dataset.type==='month'?'+ IVA / mes':'+ IVA')+'</span>';
+    row.dataset.price=fmt(v)+(row.dataset.type==='month'?' + IVA / mes':' + IVA');
+  }else{
+    el.classList.add('pend');
+    el.textContent='a confirmar';
+    row.dataset.price='a confirmar';
+  }
+});
+const escLabel={'1':'Escenario 1 · Validación','2':'Escenario 2 · Recomendado','3':'Escenario 3 · Escala'};
+document.querySelectorAll('[data-medios]').forEach(el=>{
+  const v=MEDIOS[el.dataset.medios]||0;
+  el.textContent = v>0 ? fmt(v)+' / mes' : 'a confirmar';
+});
+/* montos por canal dentro de cada escenario */
+document.querySelectorAll('[data-med][data-pct]').forEach(el=>{
+  const tot=MEDIOS[el.dataset.med]||0, pct=Number(el.dataset.pct);
+  el.textContent = tot>0 ? fmt(Math.round(tot*pct/100)) : '—';
+});
+
+
+/* ===== Selección + mailto ===== */
+const picks=[...document.querySelectorAll('.scen-pick')];
+const ctaGo=document.getElementById('ctaGo'), ctaPick=document.getElementById('ctaPick');
+const subO=document.getElementById('subOnce'), subM=document.getElementById('subMonth');
+const subMed=document.getElementById('subMedios'), medRow=document.getElementById('medRow');
+let selScen=null;
+
+function build(){
+  const on=svcPicks.filter(s=>s.classList.contains('on'));
+  let onceT=0,monthT=0,pend=0;
+  on.forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    if(!a) pend++;
+    if(s.dataset.type==='once') onceT+=a; else monthT+=a;
+  });
+  subO.textContent = onceT ? fmt(onceT)+' + IVA' : (on.some(s=>s.dataset.type==='once') ? 'a confirmar' : '—');
+  subM.textContent = monthT ? fmt(monthT)+' + IVA / mes' : (on.some(s=>s.dataset.type==='month') ? 'a confirmar' : '—');
+
+  const med = selScen ? (MEDIOS['e'+selScen]||0) : 0;
+  subMed.textContent = selScen ? (med ? fmt(med)+' / mes' : 'a confirmar') : '—';
+  medRow.innerHTML = selScen ? (med ? fmt(med)+' / mes <span class="ivatag">+ 15% variable</span>' : 'a confirmar') : '—';
+
+  let subject='Titan Web · Avancemos con la propuesta';
+  let body='Hola Sol, vimos la propuesta para abrir el canal mayorista de Titan Web y queremos avanzar.';
+  if(on.length){
+    body+='\n\nÍtems con los que queremos avanzar:';
+    on.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nResumen:';
+    if(onceT){
+      body+='\n• Puesta en marcha: '+fmt(onceT)+' + IVA';
+      body+='\n• Puesta en marcha con 3% de descuento por pago 100% anticipado: '+fmt(Math.round(onceT*(1-DTO_ANTICIPADO)))+' + IVA';
+    }
+    if(monthT) body+='\n• Gestión mensual: '+fmt(monthT)+' + IVA / mes';
+    if(pend) body+='\n• Ítems con valor a confirmar: '+pend;
+  }
+  if(selScen){
+    subject='Titan Web · Avancemos · '+escLabel[selScen];
+    body+='\n\nInversión en medios elegida:\n• '+escLabel[selScen]+(med?'\n• Pauta: '+fmt(med)+' / mes (se factura aparte, directo a las plataformas)\n• Gestión de pauta: 15% variable sobre la inversión en plataformas':'\n• Monto a confirmar');
+  }
+  const parts=[];
+  if(on.length) parts.push(on.length+' ítem'+(on.length>1?'s':''));
+  if(selScen) parts.push(escLabel[selScen]);
+  ctaPick.innerHTML = parts.length ? 'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b>' : '<span class="none">Tildá los ítems y elegí un escenario de medios para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+picks.forEach(p=>{
+  p.addEventListener('click',()=>{
+    const was=p.classList.contains('selected');
+    picks.forEach(x=>x.classList.remove('selected'));
+    if(was){selScen=null;}else{p.classList.add('selected');selScen=p.dataset.scen;}
+    build();
+  });
+});
+svcPicks.forEach(s=>s.addEventListener('click',()=>{s.classList.toggle('on');build();}));
+build();
+</script>
+</body>
+</html>
