@@ -84,8 +84,8 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
   background:linear-gradient(180deg,rgba(10,6,18,.92),rgba(10,6,18,.7) 70%,transparent);
   backdrop-filter:blur(6px);
 }
-.topbar .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.02em;}
-.topbar .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);}
+.topbar .brand{display:flex;align-items:center;gap:10px;}
+.topbar .brand img{height:20px;width:auto;display:block;}
 .topbar .client{font-size:12.5px;color:var(--ink-dim);letter-spacing:.05em;}
 .topbar .client b{color:var(--ink);}
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--violet-2),var(--cyan));z-index:60;width:0%;transition:width .08s linear;}
@@ -279,10 +279,18 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 .cierre h2{font-size:clamp(30px,4.4vw,52px);max-width:760px;}
 .cierre .sub{max-width:560px;margin:20px 0 40px;color:var(--ink-dim);font-size:16.5px;}
 .cierre .btn{width:auto;padding:17px 38px;}
+.cierre .closing-logo{height:40px;width:auto;margin-bottom:26px;}
+@media(max-width:700px){
+  .cierre .closing-logo{height:30px;}
+  .topbar{padding:13px 18px;gap:14px;}
+  .topbar .brand img{height:15px;}
+  .topbar .brand{flex:0 0 auto;}
+  .topbar .client{font-size:10.5px;line-height:1.35;text-align:right;max-width:56%;}
+}
 .footer{border-top:1px solid var(--line);padding:38px 0;font-size:12.5px;color:var(--ink-faint);}
 .footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer .brandmark{display:flex;align-items:center;gap:9px;font-family:var(--font-display);color:var(--ink-dim);font-weight:700;font-size:13px;}
-.footer .brandmark .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);}
+.footer .brandmark{display:flex;align-items:center;gap:9px;}
+.footer .brandmark img{height:17px;width:auto;display:block;opacity:.8;}
 
 /* ============ MISC ============ */
 .steps{counter-reset:step;}
@@ -304,7 +312,7 @@ th{color:var(--ink-faint);font-weight:600;text-transform:uppercase;font-size:11p
 <div class="progress-bar" id="progressBar"></div>
 
 <div class="topbar">
-  <div class="brand"><span class="dot"></span>POPCORN</div>
+  <div class="brand"><img src="img/popcorn-logo.png" alt="Popcorn"></div>
   <div class="client">Propuesta para <b>Trade Alliance Corporation</b></div>
 </div>
 
@@ -984,6 +992,7 @@ th{color:var(--ink-faint);font-weight:600;text-transform:uppercase;font-size:11p
 <!-- ============ CIERRE ============ -->
 <section class="cierre" id="cierre">
   <div class="wrap">
+    <img class="closing-logo r" src="img/popcorn-logo.png" alt="Popcorn">
     <div class="eyebrow r" style="justify-content:center;">Listos cuando ustedes lo estén</div>
     <h2 class="r d1">Hagamos que las 400 personas de Trade Alliance Corporation vean el mismo evento, perfecto, en vivo y en streaming.</h2>
     <p class="sub r d2">Cualquier duda sobre el alcance, los rubros o la inversión — escribinos directamente.</p>
@@ -993,7 +1002,7 @@ th{color:var(--ink-faint);font-weight:600;text-transform:uppercase;font-size:11p
 
 <footer class="footer">
   <div class="wrap">
-    <div class="brandmark"><span class="dot"></span>POPCORN</div>
+    <div class="brandmark"><img src="img/popcorn-logo.png" alt="Popcorn"></div>
     <div>Propuesta válida hasta el 17/09/2026 · Demián Linetzky — demianlinet@somospopcorn.com</div>
   </div>
 </footer>
