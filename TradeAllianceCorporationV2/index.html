@@ -717,6 +717,26 @@ em{font-style:normal}
 .inv-row.optional.active .opt-hint{color:#0A0A0A;background:var(--cyan)}
 .inv-summary-item.opt .si-val{color:rgba(255,255,255,0.55);font-size:11px}
 .inv-summary-item.opt.on .si-val{color:var(--cyan);font-size:12px}
+/* opciones de pago v3 */
+.pay-opts{padding:22px 28px 26px;display:grid;gap:14px}
+.pay-opt{border:1px solid #E8E8EF;border-radius:16px;padding:20px 22px;background:#fff}
+.pay-opt.best{border-color:var(--purple);background:rgba(107,33,214,0.045);box-shadow:0 12px 34px rgba(107,33,214,0.10)}
+.pay-opt-row{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start}
+.pay-opt-tag{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+.pay-opt.best .pay-opt-tag{color:#0A0A0A;background:var(--cyan);display:inline-block;padding:4px 11px;border-radius:999px}
+.pay-opt h4{font-size:16px;color:var(--purple-deep);margin-bottom:7px;line-height:1.3}
+.pay-opt p{font-size:13px;color:var(--gray-500);line-height:1.55;margin:0}
+.pay-opt p b{color:var(--purple-deep);font-weight:700}
+.pay-opt-val{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:16px;font-weight:800;color:var(--purple-deep);white-space:nowrap;text-align:right;line-height:1.35}
+.pay-opt-sub{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan-deep);font-weight:700;text-align:right;margin-top:6px}
+.pay-two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.pay-two{grid-template-columns:1fr}}
+/* cronograma */
+.crono{margin-top:40px;padding:30px 32px 12px;border:1px solid rgba(255,255,255,0.10);border-radius:20px;background:rgba(255,255,255,0.02)}
+.crono h4.crono-tit{font-size:22px;color:var(--white);margin-bottom:8px;line-height:1.2}
+.crono .timeline-icon{box-shadow:0 0 0 6px #0A0A0A;font-size:18px}
+.crono .timeline-content h4{font-size:18px}
+.crono .timeline-content p{font-size:14.5px}
 .inv-summary-item .si-val.inc{font-size:11px}
 
 
@@ -799,9 +819,9 @@ em{font-style:normal}
       <div class="meta-item"><div class="meta-label">Preparada para</div><div class="meta-value">Trade Alliance Corporation</div></div>
       <div class="meta-item"><div class="meta-label">Proyecto</div><div class="meta-value">Serie audiovisual + evento</div></div>
       <div class="meta-item"><div class="meta-label">Protagonistas</div><div class="meta-value">Coco Oderigo · Matías Corral</div></div>
-      <div class="meta-item"><div class="meta-label">Producción</div><div class="meta-value">3 jornadas · <span style="color:#5EEAD4">drone incluido</span></div></div>
+      <div class="meta-item"><div class="meta-label">Producción</div><div class="meta-value">3 jornadas en 10 días · <span style="color:#5EEAD4">drone incluido</span></div></div>
       <div class="meta-item"><div class="meta-label">Preparada por</div><div class="meta-value">Popcorn</div></div>
-      <div class="meta-item"><div class="meta-label">Fecha</div><div class="meta-value">Agosto 2026 · v2</div></div>
+      <div class="meta-item"><div class="meta-label">Fecha</div><div class="meta-value">Agosto 2026 · v3</div></div>
     </div>
     </div>
   </div>
@@ -872,10 +892,10 @@ em{font-style:normal}
         <div class="solo-tag">Escenario 03 · alcance confirmado</div>
         <h3>Serie de 3 + 1 episodios, trailer y piezas resumen <span class="serif-italic">— con el evento como cierre narrativo.</span></h3>
         <div class="solo-facts">
-          <div class="fact"><div class="fact-label">Producción</div><div class="fact-value">3 jornadas de rodaje</div></div>
+          <div class="fact"><div class="fact-label">Producción</div><div class="fact-value">3 jornadas en 10 días</div></div>
           <div class="fact"><div class="fact-label">Entregables</div><div class="fact-value">3+1 episodios · trailer · 4 resúmenes</div></div>
           <div class="fact"><div class="fact-label">Tomas aéreas</div><div class="fact-value"><span class="in">Drone incluido</span></div></div>
-          <div class="fact"><div class="fact-label">Vida útil</div><div class="fact-value">1–2 años · activo cultural</div></div>
+          <div class="fact"><div class="fact-label">Entrega</div><div class="fact-value">1° capítulo para noviembre</div></div>
         </div>
       </div>
 
@@ -887,7 +907,7 @@ em{font-style:normal}
           </div>
           <div class="scen-block">
             <h5>Cómo se construye</h5>
-            <p>3 jornadas de rodaje en locaciones reales, no en estudio. Producción cinematográfica completa: dirección de arte propia, lente fija, color cálido, audio limpio y <b>tomas aéreas con drone</b> que le dan escala a cada locación. Post de nivel serie editorial. Acceso a entrenamientos de Espartanos si es viable.</p>
+            <p>3 jornadas de rodaje en locaciones reales, no en estudio, <b>concentradas en una ventana de 10 días</b> para no comerle tiempo a la post. Producción cinematográfica completa: dirección de arte propia, lente fija, color cálido, audio limpio y <b>tomas aéreas con drone</b> que le dan escala a cada locación. Post de nivel serie editorial. Acceso a entrenamientos de Espartanos si es viable.</p>
           </div>
           <div class="scen-block">
             <h5>Por qué funciona</h5>
@@ -906,6 +926,7 @@ em{font-style:normal}
         <aside class="solo-side">
           <div class="side-label">Qué incluye</div>
           <ul class="solo-includes">
+            <li class="hl"><b>Primer capítulo terminado para noviembre</b> <span class="chip">prioridad</span><br>Se edita y entrega primero, para que el evento tenga su pieza a tiempo</li>
             <li><b>3 episodios principales</b> de 10–15 minutos, con Coco y Matías cruzados en cada uno</li>
             <li><b>1 episodio final regional</b> construido con colaboradores de los 7 países</li>
             <li><b>1 trailer</b> tipo serie para activar antes del evento</li>
@@ -985,12 +1006,12 @@ em{font-style:normal}
           </tr>
           <tr>
             <td>3 jornadas de rodaje</td>
-            <td>Locaciones reales, dirección de arte propia, más material de archivo de Espartanos donde aplique. Con la jornada opcional del día del evento, cuatro.</td>
+            <td>Concentradas en una ventana de 10 días. Locaciones reales, dirección de arte propia, más material de archivo de Espartanos donde aplique. Con la jornada opcional del día del evento, cuatro.</td>
             <td>—</td>
           </tr>
           <tr>
             <td>Post-producción editorial</td>
-            <td>Montaje, corrección de color, diseño sonoro, motion graphics y subtitulado regional.</td>
+            <td>Montaje, corrección de color, diseño sonoro, motion graphics y subtitulado regional. Entrega de todos los editados dentro de 2026.</td>
             <td>Todos los entregables</td>
           </tr>
           <tr>
@@ -1006,6 +1027,45 @@ em{font-style:normal}
       <img src="Img/alcance-aerea.jpg" alt="Vista aérea cenital de un predio al atardecer" loading="lazy">
       <figcaption><span class="cap-label">Drone incluido</span>Las aéreas no son decoración: ubican al espectador, marcan el paso del tiempo entre episodios y suben el valor de producción sin sumar jornadas.</figcaption>
     </figure>
+
+    <div class="crono">
+      <div class="out-label">Cronograma</div>
+      <h4 class="crono-tit">Noviembre manda. <span class="serif-italic">El plan se armó alrededor de esa fecha.</span></h4>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">01</div>
+          <div class="timeline-content">
+            <span class="eyebrow">Al confirmar</span>
+            <h4>Guión, preproducción y agenda</h4>
+            <p>Cerramos guión, locaciones y las fechas exactas de las tres jornadas. Es la etapa que define si noviembre se cumple.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">02</div>
+          <div class="timeline-content">
+            <span class="eyebrow">Ventana de 10 días</span>
+            <h4>Las 3 jornadas de rodaje</h4>
+            <p>Rodaje concentrado en diez días en lugar de repartido en el calendario. Menos costo de coordinación y más tiempo libre para la post.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">03</div>
+          <div class="timeline-content">
+            <span class="eyebrow">Prioridad</span>
+            <h4>Primer capítulo terminado para noviembre</h4>
+            <p>El primer episodio entra a post apenas termina su rodaje y se entrega antes que el resto. La urgencia está contemplada en el plan, no resuelta a último momento.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">04</div>
+          <div class="timeline-content">
+            <span class="eyebrow">Cierre 2026</span>
+            <h4>El resto de los editados</h4>
+            <p>Episodios restantes, episodio final regional, trailer y las cuatro piezas resumen, entregados dentro de 2026.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="out-block">
       <div class="out-label">Fuera de este alcance</div>
@@ -1029,7 +1089,7 @@ em{font-style:normal}
     <div class="section-header">
       <span class="eyebrow">05 · Inversión</span>
       <h2>Un proyecto cerrado. <span class="serif-italic" style="color:var(--purple)">Un precio claro.</span></h2>
-      <p>El proyecto va cerrado y con una sola decisión opcional arriba: sumar o no la jornada de rodaje en el evento. El drone entra incluido y el resto de la producción del día del evento va en una propuesta separada.</p>
+      <p>Valor ajustado al nuevo esquema: las tres jornadas concentradas en 10 días y el primer capítulo priorizado para noviembre. El drone entra incluido, la jornada en el evento es opcional y el resto de la producción del día del evento va en una propuesta separada.</p>
     </div>
 
     <div class="inv-grid">
@@ -1041,9 +1101,9 @@ em{font-style:normal}
           <div class="inv-marker round" style="border-color:var(--purple);background:var(--purple)"></div>
           <div class="inv-info">
             <h4>Escenario 03 · El ecosistema</h4>
-            <p>3+1 episodios + trailer + 4 piezas resumen · 3 jornadas de rodaje · post editorial completa</p>
+            <p>3+1 episodios + trailer + 4 piezas resumen · 3 jornadas en 10 días · post editorial completa · entrega 2026</p>
           </div>
-          <div class="inv-precio">ARS 13.900.000</div>
+          <div class="inv-precio">ARS 13.365.000</div>
         </div>
 
         <div class="inv-row static active">
@@ -1068,36 +1128,55 @@ em{font-style:normal}
 
         <div class="inv-section-title"><span class="num">C</span> Forma de pago</div>
 
-        <div class="pay-row">
-          <div class="pay-pct">30%</div>
-          <div class="pay-info">
-            <h4>Anticipo</h4>
-            <p>Al confirmar la propuesta. Con ese pago arrancamos guión, preproducción y agenda de rodaje.</p>
-          </div>
-          <div class="pay-val">ARS 4.170.000</div>
-        </div>
+        <div class="pay-opts">
 
-        <div class="pay-row">
-          <div class="pay-pct">30%</div>
-          <div class="pay-info">
-            <h4>Al confirmar la segunda jornada</h4>
-            <p>Se factura en el momento en que queda confirmada la segunda jornada de rodaje.</p>
+          <div class="pay-opt best">
+            <div class="pay-opt-row">
+              <div>
+                <div class="pay-opt-tag">Opción preferencial · 3% de descuento</div>
+                <h4>100% anticipado</h4>
+                <p>Un solo pago al confirmar la propuesta, con <b>3% de descuento</b> sobre la inversión. Sin ajustes posteriores de ningún tipo.</p>
+              </div>
+              <div>
+                <div class="pay-opt-val" id="payFull">ARS 12.964.050</div>
+                <div class="pay-opt-sub">3% ya aplicado</div>
+              </div>
+            </div>
           </div>
-          <div class="pay-val">ARS 4.170.000<span>+ ajuste IPC</span></div>
-        </div>
 
-        <div class="pay-row">
-          <div class="pay-pct">40%</div>
-          <div class="pay-info">
-            <h4>Al confirmar la última jornada</h4>
-            <p>Se factura en el momento en que queda confirmada la tercera y última jornada de rodaje.</p>
+          <div class="pay-two">
+            <div class="pay-opt">
+              <div class="pay-opt-tag">Opción 1</div>
+              <h4>50% anticipo + saldo a 30 días</h4>
+              <p>Anticipo al confirmar y saldo <b>dentro de los 30 días como máximo</b>. Pagando en ese plazo, el saldo no se ajusta.</p>
+              <div class="pay-opt-row" style="margin-top:14px">
+                <div class="pay-opt-sub" style="text-align:left;color:var(--gray-500)">Anticipo<br><span style="color:var(--cyan-deep)">Saldo ≤ 30 días</span></div>
+                <div>
+                  <div class="pay-opt-val" id="payHalfA">ARS 6.682.500</div>
+                  <div class="pay-opt-val" id="payRestA" style="color:var(--cyan-deep)">ARS 6.682.500</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pay-opt">
+              <div class="pay-opt-tag">Opción 2</div>
+              <h4>50% anticipo + saldo ajustado por IPC</h4>
+              <p>Anticipo al confirmar y saldo cuando lo necesiten, <b>actualizado por IPC</b> según la fecha efectiva de pago.</p>
+              <div class="pay-opt-row" style="margin-top:14px">
+                <div class="pay-opt-sub" style="text-align:left;color:var(--gray-500)">Anticipo<br><span style="color:var(--cyan-deep)">Saldo + IPC</span></div>
+                <div>
+                  <div class="pay-opt-val" id="payHalfB">ARS 6.682.500</div>
+                  <div class="pay-opt-val" id="payRestB" style="color:var(--cyan-deep)">ARS 6.682.500</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="pay-val">ARS 5.560.000<span>+ ajuste IPC</span></div>
+
         </div>
 
         <div class="pay-note">
-          <strong>Actualización por IPC.</strong> Los pagos 2 y 3 se actualizan según el IPC (INDEC) acumulado entre la confirmación de esta propuesta y el momento de facturación de cada cuota. Los importes indicados son valores a la fecha de esta propuesta. El anticipo no se actualiza.<br><br>
-          <strong>Con la jornada opcional.</strong> Los mismos porcentajes se aplican sobre el total de ARS 16.270.000: anticipo ARS 4.881.000, segunda cuota ARS 4.881.000 y última cuota ARS 6.508.000. En ese caso la última jornada es la del día del evento.
+          <strong>Actualización por IPC.</strong> Aplica únicamente a la Opción 2: el saldo se actualiza por el IPC (INDEC) acumulado entre la confirmación de esta propuesta y la fecha efectiva de pago. En la Opción 1 el saldo no se ajusta si se abona dentro de los 30 días, y en la opción de pago total anticipado no hay ajuste posible.<br><br>
+          <strong>Con la jornada opcional en el evento.</strong> Los valores se recalculan solos sobre el total: pago total anticipado ARS 15.262.950, o 50% de ARS 7.867.500 y saldo por el mismo importe.
         </div>
 
       </div>
@@ -1105,16 +1184,16 @@ em{font-style:normal}
       <aside class="inv-summary">
         <div class="inv-summary-label">Tu inversión</div>
         <div class="inv-summary-list">
-          <div class="inv-summary-item"><span class="si-name">Escenario 03 · El ecosistema</span><span class="si-val">ARS 13.900.000</span></div>
+          <div class="inv-summary-item"><span class="si-name">Escenario 03 · El ecosistema</span><span class="si-val">ARS 13.365.000</span></div>
           <div class="inv-summary-item"><span class="si-name">Tomas aéreas con drone</span><span class="si-val inc">Incluido</span></div>
           <div class="inv-summary-item opt" id="optLine"><span class="si-name">Jornada extra en el evento</span><span class="si-val">No incluida</span></div>
           <div class="inv-summary-item"><span class="si-name">Resto de la producción del evento</span><span class="si-val inc">Propuesta aparte</span></div>
         </div>
         <div class="inv-total">
           <span class="inv-total-label">Total</span>
-          <span class="inv-total-value"><span id="invTotal">ARS 13.900.000</span> <span style="font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0">+ IVA</span></span>
+          <span class="inv-total-value"><span id="invTotal">ARS 13.365.000</span> <span style="font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0">+ IVA</span></span>
         </div>
-        <div class="inv-note">Valores en pesos argentinos, más IVA. Pago en tres etapas (30 / 30 / 40), con las cuotas 2 y 3 ajustadas por IPC acumulado al momento de facturar.</div>
+        <div class="inv-note">Valores en pesos argentinos, más IVA. Tres formas de pago: 100% anticipado con 3% de descuento, 50% + saldo a 30 días, o 50% + saldo ajustado por IPC a la fecha de pago.</div>
         <a href="#" class="btn btn-cyan js-cta-advance">Quiero avanzar con la propuesta &rarr;</a>
       </aside>
     </div>
@@ -1268,7 +1347,7 @@ em{font-style:normal}
       <div class="paso">
         <div class="paso-num">01</div>
         <h4>Confirmación</h4>
-        <p>Confirmación del alcance y anticipo del 30%. Con eso reservamos equipo y agenda de rodaje.</p>
+        <p>Confirmación del alcance, elección de la forma de pago y anticipo. Con eso reservamos equipo y la ventana de rodaje.</p>
       </div>
       <div class="paso">
         <div class="paso-num">02</div>
@@ -1299,7 +1378,7 @@ em{font-style:normal}
       </div>
       <div class="footer-validity">
         <span>Propuesta válida</span>
-        <strong>10 días desde 21 de agosto 2026</strong>
+        <strong>10 días desde su envío</strong>
       </div>
       <div class="footer-contact">
         <div class="label">Contacto directo</div>
@@ -1323,29 +1402,35 @@ em{font-style:normal}
   var TO='florencia@somospopcorn.com';
   var CC='demianlinet@somospopcorn.com';
   var SUBJECT='Trade Alliance Corporation — Quiero avanzar con la propuesta';
-  var BASE = 13900000, EXTRA = 2370000;
+  var BASE = 13365000, EXTRA = 2370000, DESC = 0.03;
   var optRow = document.getElementById('optRow');
   var optLine = document.getElementById('optLine');
   var optHint = document.getElementById('optHint');
   var totalEl = document.getElementById('invTotal');
   var ctas = Array.prototype.slice.call(document.querySelectorAll('.js-cta-advance'));
 
-  function money(n){ return 'ARS ' + n.toLocaleString('es-AR'); }
+  function money(n){ return 'ARS ' + Math.round(n).toLocaleString('es-AR'); }
+  function setText(id, txt){ var el = document.getElementById(id); if(el) el.textContent = txt; }
 
   function build(withExtra){
+    var total = BASE + (withExtra ? EXTRA : 0);
     var lines = [
       'Hola Florencia, quiero avanzar con la propuesta.',
       '',
       '— Alcance confirmado —',
       '• Escenario 03 · El ecosistema — ' + money(BASE) + ' + IVA',
+      '• Tres jornadas de rodaje en una ventana de 10 días, primer capítulo priorizado para noviembre',
       '• Tomas aéreas con drone — incluido',
       withExtra
         ? '• Jornada extra de rodaje en el evento con entrevistas — ' + money(EXTRA) + ' + IVA'
         : '• Jornada extra de rodaje en el evento — no la sumo por ahora',
       '',
-      'Total: ' + money(BASE + (withExtra ? EXTRA : 0)) + ' + IVA',
+      'Total: ' + money(total) + ' + IVA',
       '',
-      'Forma de pago: 30% de anticipo, 30% al confirmar la segunda jornada y 40% al confirmar la última jornada (cuotas 2 y 3 ajustadas por IPC acumulado).',
+      '— Forma de pago —',
+      '• 100% anticipado con 3% de descuento: ' + money(total * (1 - DESC)) + ' + IVA',
+      '• 50% de anticipo (' + money(total / 2) + ') + saldo dentro de los 30 días',
+      '• 50% de anticipo (' + money(total / 2) + ') + saldo ajustado por IPC a la fecha de pago',
       '',
       'Quedo a la espera para coordinar los próximos pasos.'
     ];
@@ -1354,13 +1439,21 @@ em{font-style:normal}
 
   function render(){
     var on = !!(optRow && optRow.classList.contains('active'));
-    if(totalEl) totalEl.textContent = money(BASE + (on ? EXTRA : 0));
+    var total = BASE + (on ? EXTRA : 0);
+    if(totalEl) totalEl.textContent = money(total);
     if(optLine){
       optLine.classList.toggle('on', on);
       optLine.querySelector('.si-val').textContent = on ? '+ ' + money(EXTRA) : 'No incluida';
     }
     if(optHint) optHint.textContent = on ? 'Sumada' : 'Tocá para sumarla';
     if(optRow) optRow.setAttribute('aria-pressed', on ? 'true' : 'false');
+
+    setText('payFull', money(total * (1 - DESC)));
+    setText('payHalfA', money(total / 2));
+    setText('payRestA', money(total / 2));
+    setText('payHalfB', money(total / 2));
+    setText('payRestB', money(total / 2));
+
     var href = build(on);
     ctas.forEach(function(a){ a.href = href; });
   }
