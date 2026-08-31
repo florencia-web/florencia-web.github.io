@@ -1130,9 +1130,23 @@ em{font-style:normal}
 
         <div class="pay-opts">
 
+          <div class="pay-opt best">
+            <div class="pay-opt-row">
+              <div>
+                <div class="pay-opt-tag">Opción 1 · la más simple</div>
+                <h4>100% adelantado</h4>
+                <p>Un solo pago al confirmar la propuesta. <b>Sin saldos pendientes y sin ajustes de ningún tipo</b>: el valor queda fijo desde el día uno.</p>
+              </div>
+              <div>
+                <div class="pay-opt-val" id="payFull">ARS 13.365.000</div>
+                <div class="pay-opt-sub">Un único pago</div>
+              </div>
+            </div>
+          </div>
+
           <div class="pay-two">
             <div class="pay-opt">
-              <div class="pay-opt-tag">Opción 1</div>
+              <div class="pay-opt-tag">Opción 2</div>
               <h4>50% anticipo + saldo a 30 días</h4>
               <p>Anticipo al confirmar y saldo <b>dentro de los 30 días como máximo</b>. Pagando en ese plazo, el saldo no se ajusta.</p>
               <div class="pay-opt-row" style="margin-top:14px">
@@ -1145,7 +1159,7 @@ em{font-style:normal}
             </div>
 
             <div class="pay-opt">
-              <div class="pay-opt-tag">Opción 2</div>
+              <div class="pay-opt-tag">Opción 3</div>
               <h4>50% anticipo + saldo ajustado por IPC</h4>
               <p>Anticipo al confirmar y saldo cuando lo necesiten, <b>actualizado por IPC</b> según la fecha efectiva de pago.</p>
               <div class="pay-opt-row" style="margin-top:14px">
@@ -1161,8 +1175,8 @@ em{font-style:normal}
         </div>
 
         <div class="pay-note">
-          <strong>Actualización por IPC.</strong> Aplica únicamente a la Opción 2: el saldo se actualiza por el IPC (INDEC) acumulado entre la confirmación de esta propuesta y la fecha efectiva de pago. En la Opción 1 el saldo no se ajusta, siempre que se abone dentro de los 30 días.<br><br>
-          <strong>Con la jornada opcional en el evento.</strong> Los importes se recalculan solos sobre el total: anticipo de ARS 7.867.500 y saldo por el mismo importe.
+          <strong>Actualización por IPC.</strong> Aplica únicamente a la Opción 3: el saldo se actualiza por el IPC (INDEC) acumulado entre la confirmación de esta propuesta y la fecha efectiva de pago. En la Opción 2 el saldo no se ajusta, siempre que se abone dentro de los 30 días, y en la Opción 1 no hay ajuste posible porque no queda saldo.<br><br>
+          <strong>Con la jornada opcional en el evento.</strong> Los importes se recalculan solos sobre el total: pago único de ARS 15.735.000, o anticipo de ARS 7.867.500 y saldo por el mismo importe.
         </div>
 
       </div>
@@ -1179,7 +1193,7 @@ em{font-style:normal}
           <span class="inv-total-label">Total</span>
           <span class="inv-total-value"><span id="invTotal">ARS 13.365.000</span> <span style="font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0">+ IVA</span></span>
         </div>
-        <div class="inv-note">Valores en pesos argentinos, más IVA. Dos formas de pago: 50% de anticipo + saldo dentro de los 30 días, o 50% de anticipo + saldo ajustado por IPC a la fecha de pago.</div>
+        <div class="inv-note">Valores en pesos argentinos, más IVA. Tres formas de pago: 100% adelantado, 50% de anticipo + saldo dentro de los 30 días, o 50% de anticipo + saldo ajustado por IPC a la fecha de pago.</div>
         <a href="#" class="btn btn-cyan js-cta-advance">Quiero avanzar con la propuesta &rarr;</a>
       </aside>
     </div>
@@ -1414,6 +1428,7 @@ em{font-style:normal}
       'Total: ' + money(total) + ' + IVA',
       '',
       '— Forma de pago —',
+      '• 100% adelantado: ' + money(total) + ' + IVA en un único pago',
       '• 50% de anticipo (' + money(total / 2) + ') + saldo dentro de los 30 días',
       '• 50% de anticipo (' + money(total / 2) + ') + saldo ajustado por IPC a la fecha de pago',
       '',
@@ -1433,6 +1448,7 @@ em{font-style:normal}
     if(optHint) optHint.textContent = on ? 'Sumada' : 'Tocá para sumarla';
     if(optRow) optRow.setAttribute('aria-pressed', on ? 'true' : 'false');
 
+    setText('payFull', money(total));
     setText('payHalfA', money(total / 2));
     setText('payRestA', money(total / 2));
     setText('payHalfB', money(total / 2));
