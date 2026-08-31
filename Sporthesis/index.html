@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sporthesis × Popcorn · No falta pauta, falta circuito — Propuesta comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM — Propuesta comercial Sporthesis
+   Violeta eléctrico + cian · tipografía geométrica
+   ============================================================ */
+:root{
+  --violet-900:#250a4f;
+  --violet-800:#34107a;
+  --violet-700:#4a16a8;
+  --violet-600:#5a18cc;
+  --violet-500:#6e28e8;
+  --violet-glow:#7b34f0;
+  --cyan:#1fe8d8;
+  --cyan-bright:#5cf4e8;
+  --cyan-deep:#12b9ad;
+  --ink:#0e0524;
+  --white:#ffffff;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(31,232,216,.35);
+  --warn:#ffb454;
+  --warn-line:rgba(255,180,84,.34);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--violet-600);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(123,52,240,.55), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(31,232,216,.10), transparent 55%),
+    linear-gradient(160deg,#4d12b0 0%,#5a18cc 42%,#3d0f95 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Poppins',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ============ HEADER ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* ============ PROGRESO + DOTS ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Poppins';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+section.compact{min-height:auto;padding:0 38px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Poppins';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+b,strong{color:#fff;font-weight:600}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(31,232,216,.28),transparent 70%)}
+.hero-eyebrow{margin-bottom:30px}
+.hero-title{font-weight:700;font-size:clamp(2.7rem,7.4vw,6rem);line-height:.98;letter-spacing:-.03em;max-width:16ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:680px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Poppins';font-weight:500;font-size:13px;letter-spacing:.02em;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Poppins';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ META BAND ============ */
+.metaband{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:rgba(13,4,40,.28)}
+.metaband div{padding:26px 24px;border-right:1px solid var(--line-soft)}
+.metaband div:last-child{border-right:none}
+.metaband .k{font-family:'Poppins';font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:8px}
+.metaband .v{font-family:'Poppins';font-weight:600;font-size:.95rem;line-height:1.35;color:#fff;word-break:break-word}
+.metaband .v small{display:block;font-family:'Inter';font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:4px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card .num-tag{font-family:'Poppins';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card.warn{border-color:var(--warn-line);background:linear-gradient(160deg,rgba(255,180,84,.09),rgba(13,4,40,.32))}
+.card.warn .num-tag{color:var(--warn)}
+.card.warn:hover{border-color:var(--warn)}
+
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Poppins';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+.stat .v{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.stats.sm{gap:14px 44px}
+.stats.sm .v{font-size:clamp(1.45rem,2.5vw,2rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.14em;margin-top:6px}
+
+/* ============ DATOS DEL DIAGNÓSTICO ============ */
+.datagrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.datacell{background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:28px 24px;transition:all .4s var(--ease)}
+.datacell:hover{transform:translateY(-5px);border-color:var(--cyan-line)}
+.datacell .dv{font-family:'Poppins';font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1;color:var(--cyan)}
+.datacell .dv.alert{color:var(--warn)}
+.datacell .dl{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--w-65);margin-top:12px;line-height:1.5}
+.datacell .dn{font-size:.82rem;color:var(--w-45);margin-top:10px;line-height:1.5}
+
+/* ============ PIPE / CIRCUITO ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:10px}
+.pipe .node{flex:1;min-width:128px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:20px 14px;text-align:center;position:relative;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node.leak{border-color:var(--warn-line);background:linear-gradient(160deg,rgba(255,180,84,.10),rgba(13,4,40,.3))}
+.pipe .node.leak .k{color:var(--warn)}
+.pipe .node .k{font-family:'Poppins';font-weight:700;font-size:11px;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:8px}
+.pipe .node .t{font-family:'Poppins';font-weight:600;font-size:.98rem}
+.pipe .node p{font-size:.78rem;color:var(--w-45);margin-top:6px;line-height:1.4}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.55}
+.loopback{display:flex;align-items:center;gap:12px;margin-top:22px;margin-bottom:26px;padding:16px 22px;border:1px dashed var(--cyan-line);border-radius:14px;color:var(--w-80);font-size:.92rem}
+.loopback svg{width:22px;height:22px;color:var(--cyan);flex:none}
+
+/* ============ ETAPAS ============ */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.phase-card{position:relative;border:1px solid var(--line-soft);border-radius:20px;padding:32px 26px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.phase-card:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.phase-card .pn{font-family:'Poppins';font-weight:700;font-size:2.6rem;color:rgba(31,232,216,.4);line-height:1;position:absolute;top:18px;right:22px}
+.phase-card h3{font-family:'Poppins';font-weight:600;font-size:1.3rem;margin-bottom:12px}
+.phase-card .gp{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:block}
+.phase-card p{color:var(--w-65);font-size:.93rem;line-height:1.6}
+.phase-card.hi{background:linear-gradient(160deg,rgba(31,232,216,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* ============ SERVICIO (bloque de etapa) ============ */
+.svc{border:1px solid var(--line-soft);border-radius:24px;background:rgba(13,4,40,.32);overflow:hidden;margin-top:40px}
+.svc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:26px 32px;border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.03)}
+.svc-head .st{font-family:'Poppins';font-weight:700;font-size:1.3rem}
+.svc-head .st small{display:block;font-family:'Inter';font-weight:400;font-size:.84rem;color:var(--w-45);margin-top:4px}
+.svc-head .sp{font-family:'Poppins';font-weight:700;color:var(--cyan);font-size:1.25rem;white-space:nowrap;text-align:right}
+.svc-head .sp small{display:block;font-family:'Inter';font-weight:400;font-size:.74rem;color:var(--w-45);margin-top:4px;letter-spacing:.04em}
+.svc-body{padding:30px 32px;display:grid;grid-template-columns:1.15fr .85fr;gap:38px}
+.svc-body h4{font-family:'Poppins';font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.svc-body p{color:var(--w-80);font-size:.98rem;line-height:1.68}
+.deliv{list-style:none;display:flex;flex-direction:column;gap:11px}
+.deliv li{display:flex;gap:11px;align-items:flex-start;font-size:.93rem;color:var(--w-80);line-height:1.5}
+.deliv li svg{width:17px;height:17px;color:var(--cyan);flex:none;margin-top:3px}
+/* etiqueta de modalidad en el head del servicio (los precios viven solo en Inversión) */
+.svc-head .smod{font-family:'Poppins';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan-line);padding:10px 17px;border-radius:100px;white-space:nowrap;background:rgba(31,232,216,.07)}
+.svc-head .smod.two{color:var(--warn);border-color:var(--warn-line);background:rgba(255,180,84,.08)}
+
+/* las dos opciones, desarrolladas */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:0 32px 26px}
+.opt{border:1px solid var(--line-soft);border-radius:18px;padding:26px;background:rgba(255,255,255,.035);transition:transform .4s var(--ease),border-color .4s var(--ease);display:flex;flex-direction:column}
+.opt:hover{transform:translateY(-4px);border-color:var(--cyan-line)}
+.opt.hi{border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.11),rgba(13,4,40,.3))}
+.opt .ok{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.opt .oletra{font-family:'Poppins';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--warn);border:1px solid var(--warn-line);padding:5px 12px;border-radius:100px}
+.opt.hi .oletra{color:var(--ink);background:var(--cyan);border-color:var(--cyan)}
+.opt .orec{font-family:'Poppins';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.opt h5{font-family:'Poppins';font-weight:600;font-size:1.14rem;margin-bottom:11px;line-height:1.25}
+.opt p{color:var(--w-65);font-size:.93rem;line-height:1.62}
+.opt p+p{margin-top:12px}
+.opt .odif{margin-top:auto;padding-top:18px;margin-bottom:0;border-top:1px solid var(--line-soft);font-size:.88rem;color:var(--w-80);line-height:1.55}
+.opt .odif .ol{color:var(--cyan);font-family:'Poppins';font-weight:700;display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:7px}
+.optnote{padding:0 32px 30px;color:var(--w-45);font-size:.87rem;line-height:1.55}
+.optnote b{color:var(--w-80);font-weight:600}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.scope-col .sub{font-size:.86rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col li span{min-width:0}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* ============ EVO / STATEMENT ============ */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(31,232,216,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(34px,5vw,60px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.5) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.92),rgba(40,12,100,.55))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Poppins';font-weight:500;font-size:clamp(1.3rem,2.6vw,2.1rem);line-height:1.35;letter-spacing:-.01em;max-width:26ch}
+.evo .sign{margin-top:26px;color:var(--w-65);font-size:.98rem;max-width:660px}
+.evo .evo-stats{display:flex;flex-wrap:wrap;gap:14px 50px;margin-top:34px}
+.evo .evo-stats .v{font-family:'Poppins';font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--cyan);line-height:1}
+.evo .evo-stats .l{font-family:'Poppins';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65);margin-top:6px}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column;gap:0}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(31,232,216,.05))}
+.tl-item{position:relative;padding:0 0 36px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Poppins';font-weight:600;font-size:1.2rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.95rem;line-height:1.6;max-width:64ch}
+
+/* ============ TABLA KPI ============ */
+.tbl-wrap{overflow-x:auto;margin-top:40px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card)}
+table.tbl{width:100%;border-collapse:collapse;min-width:760px}
+.tbl th{font-family:'Poppins';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:16px 20px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl td{padding:16px 20px;font-size:.92rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.55}
+.tbl td.k{font-family:'Poppins';font-weight:600;color:#fff;white-space:nowrap}
+.tbl td.hoy{color:var(--warn);font-family:'Poppins';font-weight:600;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:none}
+
+/* ============ INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(31,232,216,.13),rgba(13,4,40,.42));border:1.5px solid var(--cyan-line);border-radius:24px;padding:36px}
+.invest-card .per{color:var(--w-65);font-family:'Poppins';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-bottom:6px;display:block}
+.invest-card .perhint{color:var(--w-45);font-size:.84rem;margin-bottom:20px;display:block;line-height:1.5}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Poppins';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);padding-bottom:8px;border-bottom:1px solid var(--cyan-line);margin-bottom:2px}
+.inv-ghead .inv-sub{font-family:'Poppins';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer;padding:16px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft)}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Poppins';font-weight:600;font-size:.99rem}
+.price-row .pl .pl-t{display:block}
+.price-row .pl small{display:block;font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:4px;font-family:'Inter';max-width:36ch;line-height:1.5}
+.price-row .pl small.varfee{font-family:'Poppins';font-weight:600;font-size:.78rem;color:var(--cyan);margin-top:7px}
+.price-row .pl small.antic{font-family:'Poppins';font-weight:600;font-size:.76rem;color:var(--cyan-deep);margin-top:6px}
+.price-row .pv{font-family:'Poppins';font-weight:700;font-size:1.2rem;color:var(--cyan);white-space:nowrap;text-align:right}
+.price-row .chk,.price-row .chk-spacer{flex:none;width:20px;height:20px;margin-top:1px}
+.price-row .chk{border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.price-row.svc-pick.on .pl-t{color:#fff}
+.pv .ivatag{font-size:.68rem;color:var(--w-45);font-weight:500;letter-spacing:.04em}
+.pv .permes{display:block;font-size:.7rem;color:var(--w-45);font-weight:500;margin-top:3px}
+.abtag{display:inline-block;font-family:'Poppins';font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);border:1px solid var(--warn-line);padding:3px 8px;border-radius:100px;margin-right:8px;vertical-align:2px}
+.rectag{display:inline-block;font-family:'Poppins';font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--cyan);padding:3px 8px;border-radius:100px;margin-right:8px;vertical-align:2px}
+.inv-total{margin-top:28px;padding-top:22px;border-top:1.5px solid var(--cyan-line);display:flex;flex-direction:column;gap:10px}
+.inv-total .tr{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.inv-total .tr .tk{font-family:'Poppins';font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65)}
+.inv-total .tr .tv{font-family:'Poppins';font-weight:700;font-size:1.15rem;color:#fff}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(31,232,216,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:.99rem;line-height:1.55}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.86rem;color:var(--w-65)}
+.note-pill b{color:var(--cyan);font-family:'Poppins';font-weight:600}
+.paybox{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.paycard{border:1px solid var(--line-soft);border-radius:16px;padding:22px;background:rgba(255,255,255,.04)}
+.paycard.hi{border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.3))}
+.paycard .pk{font-family:'Poppins';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.paycard p{font-size:.9rem;color:var(--w-80);line-height:1.55}
+
+/* ============ FOTOGRAFÍA ============ */
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05) brightness(.93)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.46),rgba(18,5,40,.24) 55%,rgba(31,232,216,.12))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.55) contrast(1.05)}
+.bg-photo.hero img{object-position:60% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.97) 26%,rgba(74,18,168,.62) 60%,rgba(31,232,216,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.74),rgba(18,5,40,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+
+/* ============ LOGO WALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:46px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:120px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:22px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:58px;max-width:84%;width:auto;object-fit:contain;display:block}
+.logocell .brandlogo.lg{max-height:72px;max-width:94%}
+.logocell .ln{display:none;font-family:'Poppins';font-weight:700;font-size:1.02rem;letter-spacing:-.01em;line-height:1.18;color:var(--violet-700)}
+.logocell .lk{display:none;font-family:'Poppins';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#9784b5}
+.logocell.noimg .ln,.logocell.noimg .lk{display:block}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Poppins';font-weight:700;font-size:clamp(2rem,5vw,4rem);line-height:1.08;letter-spacing:-.02em;max-width:22ch}
+.close-sign{margin-top:46px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Poppins';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.05rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:18px 44px;border-radius:100px;font-family:'Poppins';font-weight:700;font-size:1.05rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(31,232,216,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(31,232,216,.45)}
+.cta-go svg{width:20px;height:20px}
+#ctaPick{font-family:'Poppins';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:26px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ============ PRÓXIMOS PASOS ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.stepcard{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px 26px;position:relative;transition:all .4s var(--ease)}
+.stepcard:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.stepcard .sn{font-family:'Poppins';font-weight:700;font-size:2.4rem;color:rgba(31,232,216,.38);line-height:1;margin-bottom:14px}
+.stepcard h3{font-family:'Poppins';font-weight:600;font-size:1.08rem;margin-bottom:8px}
+.stepcard p{color:var(--w-65);font-size:.9rem;line-height:1.6}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1000px){
+  .svc-body{grid-template-columns:1fr;gap:26px}
+  .datagrid{grid-template-columns:repeat(2,1fr)}
+  .phases{grid-template-columns:repeat(2,1fr)}
+  .opts{grid-template-columns:1fr}
+  .metaband{grid-template-columns:repeat(2,1fr)}
+  .metaband div{border-right:none;border-bottom:1px solid var(--line-soft)}
+}
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  section.compact{padding:0 22px}
+  .sfoot{left:22px;right:22px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .trio{grid-template-columns:1fr}
+  .invest{grid-template-columns:1fr;gap:30px}
+  .phases{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .paybox{grid-template-columns:1fr}
+  .pipe .arrow{transform:rotate(90deg)}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .invest-card{padding:26px}
+  .svc-head,.svc-body,.opts,.optnote{padding-left:22px;padding-right:22px}
+  .opts{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .datagrid{grid-template-columns:1fr}
+  .metaband{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .stats{gap:20px 32px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Sporthesis · Confidencial</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="La pisada en movimiento" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow hero-eyebrow r">Sporthesis × Popcorn · Agosto 2026</div>
+    <h1 class="hero-title r d1">No falta pauta.<br>Falta <span class="cy">circuito.</span></h1>
+    <p class="hero-sub r d3">Sporthesis genera consultas. Lo que no está funcionando es lo que pasa entre la consulta y la venta. Una propuesta para ordenar el circuito completo —contenido, pauta, conversión y datos— antes de invertir más.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Estrategia digital</span>
+      <span class="tag">Contenido &amp; creatividad</span>
+      <span class="tag">Performance · Meta + Google</span>
+      <span class="tag">Conversión &amp; CRM</span>
+      <span class="tag">Producción audiovisual</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para comenzar</div>
+</section>
+
+<!-- ============ META BAND ============ -->
+<section class="compact" id="meta" data-label="Datos de la propuesta">
+  <div class="wrap">
+    <div class="metaband r">
+      <div><span class="k">Preparada para</span><span class="v">Sporthesis S.A.<small>Olivos · Buenos Aires</small></span></div>
+      <div><span class="k">Preparada por</span><span class="v">Popcorn<small>Marketing, comunicación &amp; creatividad</small></span></div>
+      <div><span class="k">Responsable</span><span class="v">Sol<small>General Manager · Paid Media<br>sol@somospopcorn.com</small></span></div>
+      <div><span class="k">Fecha de emisión</span><span class="v">31 de agosto de 2026</span></div>
+      <div><span class="k">Validez</span><span class="v">Hasta el 10/09/2026<small>10 días corridos</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · QUIÉNES SOMOS ============ -->
+<section id="popcorn" data-label="Quiénes somos">
+  <div class="wrap">
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No vendemos publicaciones.<br>Vendemos <span class="cy">crecimiento.</span></h2>
+    <p class="lead r d2" style="margin-top:24px">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Para Sporthesis no proponemos “hacer más pauta”: proponemos diseñar el sistema completo que convierte una consulta en un turno, y un turno en una venta.</p>
+
+    <div class="grid g3 r d3" style="margin-top:50px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Mirada de negocio</h3>
+        <p>Empezamos por el objetivo comercial —ventas, CAC, ticket— y desde ahí definimos las acciones. Nunca al revés.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Especialistas en salud</h3>
+        <p>Años trabajando con hospitales, centros médicos y laboratorios. Entendemos pacientes, derivantes y decisiones de alta consideración.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <h3>Agencia integral</h3>
+        <p>Estrategia, contenido, diseño, audiovisual, performance y desarrollo web bajo un mismo equipo. Un solo interlocutor, un solo criterio.</p>
+      </div>
+    </div>
+
+    <div class="stats r d4">
+      <div class="stat"><div class="v">+15</div><div class="l">Años de experiencia</div></div>
+      <div class="stat"><div class="v">360°</div><div class="l">Estrategia · contenido · pauta · audiovisual · web</div></div>
+      <div class="stat"><div class="v">+30</div><div class="l">Instituciones de salud acompañadas</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Popcorn</span></div>
+</section>
+
+<!-- ============ 3 · CREDENCIALES SALUD ============ -->
+<section id="credenciales" data-label="Experiencia en salud">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Credenciales</div>
+        <h2 class="h-lg r d1">Sabemos comunicar <span class="cy">salud</span> sin convertirla en promesa.</h2>
+        <p class="lead r d2" style="margin-top:22px">Trabajamos con instituciones donde cada palabra importa: hospitales, laboratorios, centros de diagnóstico y medicina laboral. Sabemos dónde está el límite entre explicar un beneficio y prometer un resultado clínico —un límite que en el rubro de Sporthesis es especialmente delicado.</p>
+        <div class="stats sm r d3">
+          <div class="stat"><div class="v">Derivantes</div><div class="l">Comunicación a profesionales que derivan pacientes</div></div>
+          <div class="stat"><div class="v">B2C + B2B</div><div class="l">Paciente final y red profesional</div></div>
+          <div class="stat"><div class="v">Ticket alto</div><div class="l">Embudos de consideración, no de impulso</div></div>
+        </div>
+      </div>
+      <div class="col-img r d2"><div class="media tall"><img src="img/estudio.jpg" alt="Estudio de la pisada en el consultorio de Sporthesis" style="object-position:center 25%"><div class="cap"><div class="quote" style="font-size:1.05rem">El estudio de pisada es parte del proceso de elaboración de la plantilla. Comunicarlo bien es comunicarlo sin prometer un diagnóstico médico.</div></div></div></div>
+    </div>
+
+    <div class="logowall r d4">
+      <div class="logocell"><img class="brandlogo" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Hospital Universitario Austral</span><span class="lk">Salud · Alta complejidad</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Swiss Medical</span><span class="lk">Medicina prepaga</span></div>
+      <div class="logocell lg"><img class="brandlogo lg" src="img/logos/manlab.png" alt="ManLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">ManLab</span><span class="lk">Laboratorio</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/cetac.jpg" alt="CETAC Juncal" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CETAC Juncal</span><span class="lk">Diagnóstico &amp; tratamiento</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fitzroy.jpg" alt="CMI Fitz Roy" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CMI Fitz Roy</span><span class="lk">Medicina laboral</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fleni.webp" alt="FLENI" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">FLENI</span><span class="lk">Neurología</span></div>
+      <div class="logocell"><img class="brandlogo lg" src="img/logos/fleming.png" alt="Instituto Alexander Fleming" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">Instituto Alexander Fleming</span><span class="lk">Oncología</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/centralab.png" alt="CentraLab" onerror="this.closest('.logocell').classList.add('noimg');this.remove()"><span class="ln">CentraLab</span><span class="lk">Laboratorio</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Instituciones que ya nos eligieron</span><span class="num">02 — Credenciales</span></div>
+</section>
+
+<!-- ============ 4 · LO QUE ENTENDIMOS ============ -->
+<section id="entendimos" data-label="Lo que entendimos">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:46px">
+      <div class="col-img r d2"><div class="media"><img src="img/consultorio.jpg" alt="Consultorio Sporthesis en Olivos" style="object-position:center 22%"></div></div>
+      <div>
+        <div class="eyebrow r">Lo que entendimos</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Una marca sólida, con un canal digital <span class="cy">desordenado.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Desde 2008 Sporthesis hace análisis de pisada y plantillas personalizadas, con tecnología Footscan, consultorio propio en Olivos y una red de franquicias. Hay producto, hay proceso, hay prestigio y hay profesionales que derivan pacientes. Lo que no hay es un circuito digital que convierta ese activo en ventas de manera previsible.</p>
+      </div>
+    </div>
+
+    <div class="grid g4 r d3">
+      <div class="card">
+        <span class="num-tag">Producto</span>
+        <h3>Plantilla a medida</h3>
+        <p>El estudio en consultorio forma parte del proceso de elaboración y está incluido en el valor.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Canales</span>
+        <h3>Web + Tienda Nube + IG</h3>
+        <p>Sitio institucional, ecommerce, Instagram y WhatsApp como puerta de entrada real.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Foco</span>
+        <h3>Olivos, no franquicias</h3>
+        <p>Esta propuesta trabaja el negocio propio de Sporthesis. La comunicación de franquicias queda fuera de alcance.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Equipo</span>
+        <h3>Diseñador propio</h3>
+        <p>Sporthesis tiene un diseñador que conoce la marca hace años. No proponemos reemplazarlo: proponemos potenciarlo.</p>
+      </div>
+    </div>
+
+    <p class="r d4" style="margin-top:34px"><span class="note-pill"><b>Fuente</b> · Todo lo que sigue surge de la reunión comercial con Lucas y de la información pública de Sporthesis. Donde hay una recomendación nuestra, está señalada como tal.</span></p>
+  </div>
+  <div class="sfoot"><span>Producto sólido · canal por ordenar</span><span class="num">03 — Contexto</span></div>
+</section>
+
+<!-- ============ 5 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico</div>
+    <h2 class="h-lg r d1">Los números que salieron de la <span class="cy">reunión.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">No hace falta una auditoría para ver el problema: está en los datos que ya tiene Sporthesis. Estos son los que nos compartió Lucas, y lo que se deduce de ellos.</p>
+
+    <div class="datagrid r d3">
+      <div class="datacell">
+        <div class="dv">~70</div>
+        <div class="dl">Consultas mensuales por WhatsApp</div>
+        <div class="dn">Volumen histórico. El canal atrae. El problema aparece después.</div>
+      </div>
+      <div class="datacell">
+        <div class="dv alert">~5</div>
+        <div class="dl">Ventas mensuales actuales</div>
+        <div class="dn">Tras los ajustes que hizo Lucas internamente en los últimos dos meses.</div>
+      </div>
+      <div class="datacell">
+        <div class="dv alert">15</div>
+        <div class="dl">Consultas sin conversión en agosto</div>
+        <div class="dn">Consultan, reciben información y dejan de responder.</div>
+      </div>
+      <div class="datacell">
+        <div class="dv alert">0</div>
+        <div class="dl">Campañas activas en Google Ads</div>
+        <div class="dn">La demanda que busca “plantillas” o “estudio de pisada” hoy no se captura.</div>
+      </div>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:22px">
+      <div class="card warn">
+        <span class="num-tag">Cálculo · estimación</span>
+        <h3>~7% de conversión consulta → venta</h3>
+        <p>Con ~70 consultas y ~5 ventas mensuales, 9 de cada 10 personas que levantan la mano no compran. Y hubo períodos prolongados con cero conversiones.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Cálculo · estimación</span>
+        <h3>~$178.000 de costo por venta</h3>
+        <p>Sumando la inversión publicitaria mencionada (+$400.000/mes) y el fee de la agencia actual ($480.000–$500.000/mes) sobre ~5 ventas mensuales. Es el número que hay que atacar.</p>
+      </div>
+      <div class="card warn">
+        <span class="num-tag">Cálculo · estimación</span>
+        <h3>55% del presupuesto va a gestión</h3>
+        <p>Del gasto mensual total, más de la mitad es honorario de agencia y menos de la mitad llega al mercado como pauta. Sin creatividades, sin redes y sin Google.</p>
+      </div>
+    </div>
+
+    <p class="r d5" style="margin-top:30px"><span class="note-pill"><b>Cómo leer esto</b> · Los tres cálculos son estimaciones derivadas de los datos que se mencionaron en la reunión, no mediciones auditadas. La auditoría inicial los confirma o los corrige con datos del CRM y de las plataformas.</span></p>
+  </div>
+  <div class="sfoot"><span>El volumen existe. La conversión no.</span><span class="num">04 — Diagnóstico</span></div>
+</section>
+
+<!-- ============ 6 · LOS PUNTOS DE FUGA ============ -->
+<section id="fugas" data-label="Puntos de fuga">
+  <div class="wrap">
+    <div class="eyebrow r">Hallazgos</div>
+    <h2 class="h-lg r d1">Cinco puntos de <span class="cy">fuga.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Ninguno se resuelve subiendo el presupuesto. Todos se resuelven ordenando el circuito.</p>
+
+    <div class="grid g2 r d3" style="margin-top:48px">
+      <div class="card">
+        <span class="num-tag">Fuga 01 · Pauta</span>
+        <h3>Segmentación sin foco geográfico</h3>
+        <p>La campaña llegó a estar configurada para toda la Argentina con un consultorio propio en Olivos. Cada peso que impacta a alguien que no puede llegar al turno es un peso perdido. <b>Se resuelve:</b> reestructurando campañas por objetivo y por radio real de captación.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Fuga 02 · Creatividad</span>
+        <h3>La pauta usa contenido orgánico</h3>
+        <p>Hoy se pautan piezas pensadas para el feed, no para vender. No existen creatividades diseñadas para captar demanda, ni versiones por público o por ángulo. <b>Se resuelve:</b> produciendo piezas específicas para pauta y testeando mensajes.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Fuga 03 · Contenido</span>
+        <h3>Demasiado informativo, poco comercial</h3>
+        <p>El feed comunica bien hacia el deportista, pero el equilibrio entre educar y vender está corrido. El ritmo de producción también es lento. <b>Se resuelve:</b> con un plan editorial que balancee contenido educativo y contenido de venta, y con producción propia de material.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Fuga 04 · Conversión</span>
+        <h3>El sitio no confirma que el envío funcionó</h3>
+        <p>Durante la reunión probamos el formulario del sitio institucional y no quedó claro que se hubiera enviado. Si el usuario duda, el lead no existe. La Tienda Nube funciona mejor, pero registra ~1 venta mensual y obliga a coordinar el turno por WhatsApp después de pagar. <b>Se resuelve:</b> con una landing de campaña con formulario confiable y WhatsApp directo.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">Fuga 05 · Datos</span>
+        <h3>El CRM no le habla a la pauta</h3>
+        <p>Lucas registra en el CRM de dónde viene cada lead y qué pasó con él. Esa información no vuelve a Meta. Las plataformas optimizan a “consultas”, no a ventas reales. <b>Se resuelve:</b> conectando conversiones offline y optimizando a venta, no a volumen.</p>
+      </div>
+      <div class="card" style="border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.3))">
+        <span class="num-tag">Y una oportunidad</span>
+        <h3>Un universo más grande del que se está usando</h3>
+        <p>El deportista es y sigue siendo el público principal. Pero postura, horas sentado, sobrepeso, dolores de rodilla o pies y calzado inadecuado son territorios que hoy casi no se comunican —y donde hay demanda con capacidad de pago.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cinco fugas · ninguna se tapa con más presupuesto</span><span class="num">05 — Hallazgos</span></div>
+</section>
+
+<!-- ============ 7 · LA TESIS ============ -->
+<section id="tesis" data-label="Nuestra tesis">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Primero ordenar.<br>Después convertir.<br>Y recién ahí, <span class="cy">escalar.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Aumentar la inversión sobre un circuito que pierde en cinco puntos no genera más ventas: genera más consultas perdidas y un costo por venta más alto. El orden importa tanto como las acciones.</p>
+
+    <div class="phases r d3">
+      <div class="phase-card">
+        <span class="pn">01</span>
+        <span class="gp">Entender</span>
+        <h3>Ordenar</h3>
+        <p>Auditar campañas, activos digitales, públicos y CRM. Definir objetivos de venta, KPIs y ejes de comunicación. Sin esta base, todo lo que sigue es intuición.</p>
+      </div>
+      <div class="phase-card hi">
+        <span class="pn">02</span>
+        <span class="gp">Convertir</span>
+        <h3>Tapar las fugas</h3>
+        <p>Landing que convierta, WhatsApp integrado, creatividades específicas para pauta y contenido con foco comercial. Mejorar lo que pasa después del clic.</p>
+      </div>
+      <div class="phase-card">
+        <span class="pn">03</span>
+        <span class="gp">Medir</span>
+        <h3>Conectar</h3>
+        <p>Que el CRM le devuelva a Meta y a Google qué lead terminó en venta. Recién ahí las plataformas dejan de optimizar a volumen y empiezan a optimizar a facturación.</p>
+      </div>
+      <div class="phase-card">
+        <span class="pn">04</span>
+        <span class="gp">Acelerar</span>
+        <h3>Escalar</h3>
+        <p>Aumentar inversión solo sobre los públicos, ángulos y canales que ya demostraron rentabilidad. Crecer sobre certezas, no sobre supuestos.</p>
+      </div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:50px">
+      <div class="evo-bg"><img src="img/plantilla.jpg" alt="Plantilla Sporthesis"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>La idea rectora</div>
+      <blockquote>El objetivo de los primeros 90 días no es gastar más. Es que cada consulta valga más.</blockquote>
+      <p class="sign">Si con las mismas ~70 consultas mensuales la conversión pasa de ~7% a ~12%, las ventas casi se duplican sin sumar un peso de pauta. Ese es el primer objetivo. La escala viene después.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Ordenar → convertir → conectar → escalar</span><span class="num">06 — La tesis</span></div>
+</section>
+
+<!-- ============ 8 · EL CIRCUITO ============ -->
+<section id="circuito" data-label="El circuito">
+  <div class="wrap">
+    <div class="eyebrow r">El ecosistema de conversión</div>
+    <h2 class="h-lg r d1">El circuito completo, y <span class="cy">dónde se rompe.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Cada venta de Sporthesis recorre este camino. Hoy tres de sus ocho estaciones pierden gente. Trabajar solo una no alcanza: hay que ordenar el recorrido entero.</p>
+
+    <div class="pipe r d3" style="margin-top:46px">
+      <div class="node"><span class="k">01</span><span class="t">Atracción</span><p>Instagram, búsqueda, boca a boca, derivantes</p></div>
+      <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node leak"><span class="k">02 · Fuga</span><span class="t">Contenido</span><p>Informativo, con poco gancho comercial</p></div>
+      <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node leak"><span class="k">03 · Fuga</span><span class="t">Pauta</span><p>Sin creatividades propias, sin Google</p></div>
+      <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node leak"><span class="k">04 · Fuga</span><span class="t">Landing / Web</span><p>Formulario sin confirmación clara</p></div>
+    </div>
+    <div class="pipe r d4" style="margin-top:12px">
+      <div class="node"><span class="k">05</span><span class="t">WhatsApp</span><p>Puerta de entrada real de la consulta</p></div>
+      <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">06</span><span class="t">Atención</span><p>Respuesta, precio, coordinación del turno</p></div>
+      <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">07</span><span class="t">Venta</span><p>Estudio + plantilla en el consultorio</p></div>
+      <div class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node leak"><span class="k">08 · Fuga</span><span class="t">CRM</span><p>Registra, pero no le devuelve datos a la pauta</p></div>
+    </div>
+
+    <div class="loopback r d5">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+      <span><b>El bucle que falta.</b> Cuando el CRM le devuelve a Meta y a Google qué lead terminó en venta, las plataformas dejan de buscar “gente que consulta” y empiezan a buscar “gente que compra”. Ese es el cambio de mayor impacto de toda la propuesta.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Atracción → contenido → pauta → landing → WhatsApp → atención → venta → CRM</span><span class="num">07 — El circuito</span></div>
+</section>
+
+<!-- ============ 9 · LA OPORTUNIDAD / PÚBLICOS ============ -->
+<section id="publicos" data-label="La oportunidad">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:44px">
+      <div>
+        <div class="eyebrow r">La oportunidad</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">El deportista sigue primero. Pero no está <span class="cy">solo.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">Hoy el feed y la pauta le hablan casi exclusivamente al deportista. Es el consumidor principal y tiene que seguir siéndolo. Pero hay un universo mucho más amplio de personas que sufren las consecuencias de una mala pisada sin identificarse jamás como “deportistas” —y que tienen capacidad de pago para una solución personalizada.</p>
+        <p class="lead r d3" style="margin-top:18px">Estos no son públicos definitivos: son <b>territorios a validar con datos</b> en los primeros 60 días de campaña.</p>
+      </div>
+      <div class="col-img r d2"><div class="media"><img src="img/publicos.jpg" alt="Distintos tipos de pisada, distintos tipos de calzado" style="object-position:center 62%"></div></div>
+    </div>
+
+    <div class="grid g4 r d4">
+      <div class="card"><span class="num-tag">Territorio 01</span><h3>Deportistas</h3><p>Runners, tenis, fútbol, entrenamiento. El núcleo actual: performance y prevención de lesiones.</p></div>
+      <div class="card"><span class="num-tag">Territorio 02</span><h3>Horas sentado</h3><p>Trabajo de escritorio, poca actividad, molestias que aparecen al pararse o caminar.</p></div>
+      <div class="card"><span class="num-tag">Territorio 03</span><h3>Postura y dolores</h3><p>Rodillas, pies, espalda. Personas que ya probaron otras soluciones sin resultado.</p></div>
+      <div class="card"><span class="num-tag">Territorio 04</span><h3>Sobrepeso</h3><p>Mayor carga sobre la pisada. Un ángulo que exige mucho cuidado en el tono y el respeto.</p></div>
+      <div class="card"><span class="num-tag">Territorio 05</span><h3>Calzado inadecuado</h3><p>Quienes pasan el día con calzado que no acompaña. Territorio de comodidad, no de patología.</p></div>
+      <div class="card"><span class="num-tag">Territorio 06</span><h3>Renovación</h3><p>Ya usaron plantillas y necesitan reemplazarlas. El público más barato de convertir.</p></div>
+      <div class="card"><span class="num-tag">Territorio 07</span><h3>Derivados</h3><p>Pacientes que llegan por indicación de un profesional. Alta intención, cero costo de medios.</p></div>
+      <div class="card" style="border-color:var(--cyan-line);background:linear-gradient(160deg,rgba(31,232,216,.12),rgba(13,4,40,.3))"><span class="num-tag">Eje transversal</span><h3>Original vs. franquicia</h3><p>Hay que dejar clarísimo qué significa comprar el producto propio de Sporthesis y no el de una franquicia. Es la diferencia que hoy no se está comunicando.</p></div>
+    </div>
+
+    <div class="trio r d5">
+      <div class="media"><img src="img/prevencion.jpg" alt="Actividad física sin dolor a cualquier edad"></div>
+      <div class="media"><img src="img/caminar.jpg" alt="Caminar todos los días"></div>
+      <div class="media"><img src="img/deportista.jpg" alt="Deportista con plantillas Sporthesis"></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Un público principal, siete territorios por validar</span><span class="num">08 — Oportunidad</span></div>
+</section>
+
+<!-- ============ 10 · ETAPA 1 ============ -->
+<section id="etapa1" data-label="Etapa 1 · Orden">
+  <div class="wrap">
+    <div class="eyebrow r">Etapa 1 · Orden y estrategia</div>
+    <h2 class="h-lg r d1">Antes de invertir, <span class="cy">entender.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Es la base sobre la que se apoya todo lo demás. Sin esto, cualquier acción posterior es una apuesta.</p>
+
+    <div class="svc r d3">
+      <div class="svc-head">
+        <div class="st">Estrategia inicial<small>Pago único · 3 a 4 semanas · condición previa recomendada para el resto</small></div>
+        <div class="smod">Una sola modalidad</div>
+      </div>
+      <div class="svc-body">
+        <div>
+          <h4>Qué resuelve</h4>
+          <p>Ordenamos las bases antes de invertir en pauta: relevamos a la competencia directa e indirecta —franquicias, otras marcas de plantillas y calzado ortopédico—, definimos los ejes de contenido que van a guiar la comunicación de la marca, establecemos un manual de tono y voz que unifique el discurso en todos los canales, y segmentamos los distintos públicos a los que Sporthesis le habla hoy, con un mensaje diferenciado para cada uno.</p>
+          <p style="margin-top:16px">Este trabajo funciona como la base sobre la que se construyen todas las acciones posteriores, tanto orgánicas como pagas. Incluye además la revisión del CRM y de la trazabilidad de leads, para saber qué se puede medir hoy y qué falta.</p>
+        </div>
+        <div>
+          <h4>Entregables</h4>
+          <ul class="deliv">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Auditoría de Meta Ads y de campañas actuales</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Auditoría de activos digitales y de conversión</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Análisis de competencia directa e indirecta</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Mapa de públicos con mensaje diferenciado</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Ejes de contenido de la marca</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Manual de tono y voz</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Revisión de CRM y trazabilidad de leads</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Definición de KPIs y objetivos de venta</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Estrategia digital y de adquisición · definición del funnel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc r d4">
+      <div class="svc-head">
+        <div class="st">Acompañamiento estratégico<small>Mensual · opcional · estratega de cuentas dedicado</small></div>
+        <div class="smod">Una sola modalidad</div>
+      </div>
+      <div class="svc-body">
+        <div>
+          <h4>Qué resuelve</h4>
+          <p>Horas mensuales de un estratega de cuentas dedicado al seguimiento integral de la marca: análisis de resultados de pauta y contenido, detección de oportunidades de mejora comercial —por ejemplo, en el proceso de venta o en la conversión de consultas—, monitoreo del mercado y la competencia, y definición conjunta de la planificación de contenidos y piezas publicitarias del mes.</p>
+          <p style="margin-top:16px">Es la instancia donde se conecta lo que pasa en las plataformas con lo que pasa en el consultorio, para que las decisiones de inversión y estrategia estén siempre respaldadas por datos reales de venta.</p>
+        </div>
+        <div>
+          <h4>Entregables</h4>
+          <ul class="deliv">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Análisis mensual de resultados de pauta y contenido</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Detección de oportunidades de mejora comercial</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Monitoreo de mercado y competencia</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Planificación conjunta de contenidos y piezas del mes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Reporte ejecutivo y reunión de seguimiento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Sin base estratégica, todo lo demás es intuición</span><span class="num">09 — Etapa 1</span></div>
+</section>
+
+<!-- ============ 11 · ETAPA 2 ============ -->
+<section id="etapa2" data-label="Etapa 2 · Contenido">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:40px">
+      <div class="col-img r d2"><div class="media"><img src="img/contenido.jpg" alt="Producción de contenido en el consultorio"></div></div>
+      <div>
+        <div class="eyebrow r">Etapa 2 · Contenido y creatividad</div>
+        <h2 class="h-lg r d1" style="max-width:16ch">Dejar de pautar el <span class="cy">feed.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">El problema no es que el contenido sea malo: es que el contenido del feed y las piezas de pauta tienen objetivos distintos y hoy son lo mismo. Además hace falta materia prima nueva: material del consultorio, del proceso y de las personas reales.</p>
+      </div>
+    </div>
+
+    <div class="svc r d3">
+      <div class="svc-head">
+        <div class="st">Gestión de redes sociales<small>Mensual · 8 posteos mensuales · Instagram y las redes que se definan</small></div>
+        <div class="smod two">Dos opciones</div>
+      </div>
+      <div class="svc-body">
+        <div>
+          <h4>Qué resuelve</h4>
+          <p>Diseñamos el calendario editorial mensual con foco en balancear contenido informativo con contenido de venta —hoy uno de los puntos débiles detectados—, incorporando los públicos y ejes definidos en la estrategia inicial.</p>
+          <p style="margin-top:16px">La <b>planificación, la redacción de copies y la dirección de arte</b> de cada pieza son siempre nuestras, en las dos opciones. Lo único que cambia entre una y otra es <b>quién produce gráficamente las piezas</b>.</p>
+        </div>
+        <div>
+          <h4>Entregables · comunes a las dos opciones</h4>
+          <ul class="deliv">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Calendario editorial mensual</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>8 posteos mensuales planificados</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Redacción de copies</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Dirección de arte por pieza</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Balance de contenido educativo y comercial</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Stories y community management</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Reporte mensual</li>
+          </ul>
+        </div>
+      </div>
+      <div class="opts">
+        <div class="opt hi">
+          <div class="ok"><span class="oletra">Opción A</span><span class="orec">Nuestra recomendación</span></div>
+          <h5>Sin diseño · produce el equipo de Sporthesis</h5>
+          <p>Sporthesis ya cuenta con un diseñador propio que conoce la marca hace años. Ese conocimiento es un activo, no un problema a resolver: nosotros aportamos el plan, los copies y la dirección de arte de cada pieza, y su equipo las produce.</p>
+          <p>Es la opción que recomendamos porque aprovecha algo que ya existe y mantiene la coherencia visual construida durante años, sin sumar un costo que hoy Sporthesis ya está cubriendo internamente.</p>
+          <p class="odif"><span class="ol">La diferencia</span>La producción gráfica de las piezas queda del lado de Sporthesis.</p>
+        </div>
+        <div class="opt">
+          <div class="ok"><span class="oletra">Opción B</span></div>
+          <h5>Con diseño · producimos nosotros</h5>
+          <p>Si Sporthesis prefiere liberar a su equipo interno o acelerar el ritmo de producción —hoy señalado como lento—, sumamos el diseño y la edición de las piezas al mismo alcance.</p>
+          <p>Conviene cuando el cuello de botella es la capacidad de producción y no el criterio de marca: nosotros absorbemos todo el proceso, de la idea a la pieza terminada.</p>
+          <p class="odif"><span class="ol">La diferencia</span>Incluye el diseño y la edición de las piezas, además de todo lo anterior.</p>
+        </div>
+      </div>
+      <p class="optnote">Las dos opciones son excluyentes: se elige una. <b>Los valores de cada una están en la sección de Inversión.</b></p>
+    </div>
+
+    <div class="svc r d4">
+      <div class="svc-head">
+        <div class="st">Jornada de contenidos en el consultorio<small>4 horas in situ · recomendada cada dos meses · entrega en 5 días hábiles</small></div>
+        <div class="smod">Una sola modalidad</div>
+      </div>
+      <div class="svc-body">
+        <div>
+          <h4>Qué resuelve</h4>
+          <p>Una jornada de producción en el consultorio de Olivos, donde grabamos y fotografiamos material fresco para nutrir tanto las redes como las piezas de pauta: testimonios, proceso del estudio de pisada, elaboración de la plantilla, instalaciones y equipo.</p>
+          <p style="margin-top:16px">Esto asegura contenido variado y con foco comercial durante todo el trimestre, y evita la repetición y el desgaste creativo que hoy afecta al feed. Es, además, la única forma de tener creatividades de pauta que muestren lo que realmente diferencia a Sporthesis: el proceso.</p>
+        </div>
+        <div>
+          <h4>Entregables por jornada</h4>
+          <ul class="deliv">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>40 a 50 fotografías</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>8 a 10 videos cortos (máx. 0:40)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Content creator + asistente en el lugar</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Testimonios, proceso, producto e instalaciones</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Material apto para orgánico y para pauta</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Entrega hasta 5 días hábiles post-jornada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="r d5" style="margin-top:30px"><span class="note-pill"><b>Sobre el diseñador de Sporthesis</b> · No proponemos reemplazarlo. Conoce la marca hace años y ese conocimiento es un activo. Proponemos trabajar con él: nosotros ponemos plan, copy y dirección de arte; él produce.</span></p>
+  </div>
+  <div class="sfoot"><span>Contenido para el feed ≠ creatividades para vender</span><span class="num">10 — Etapa 2</span></div>
+</section>
+
+<!-- ============ 12 · ETAPA 3 ============ -->
+<section id="etapa3" data-label="Etapa 3 · Performance">
+  <div class="wrap">
+    <div class="eyebrow r">Etapa 3 · Performance</div>
+    <h2 class="h-lg r d1">Gestionar campañas contra <span class="cy">ventas</span>, no contra clics.</h2>
+    <p class="lead r d2" style="margin-top:20px">Dos plataformas, dos roles distintos: Meta genera demanda nueva, Google captura la que ya existe y hoy nadie está capturando.</p>
+
+    <div class="svc r d3">
+      <div class="svc-head">
+        <div class="st">Gestión de pauta digital · Meta Ads + Google Ads<small>Mensual · 2 plataformas · incluye la incorporación de Google Ads</small></div>
+        <div class="smod two">Dos opciones</div>
+      </div>
+      <div class="svc-body">
+        <div>
+          <h4>Qué resuelve</h4>
+          <p>Administración profesional de las campañas en ambas plataformas: armado y optimización de audiencias y segmentaciones, estructura de campañas por objetivo (consulta, tráfico, conversión), seguimiento diario de métricas y ajustes de presupuesto en base a resultados.</p>
+          <p style="margin-top:16px">En las dos opciones <b>se suma Google Ads</b> como canal nuevo para captar demanda activa de búsqueda, hoy inexplorada, y se corrige la segmentación geográfica. Lo que cambia entre una y otra es <b>quién produce las piezas publicitarias</b>.</p>
+        </div>
+        <div>
+          <h4>Entregables · comunes a las dos opciones</h4>
+          <ul class="deliv">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Estructura de campañas por objetivo</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Audiencias, lookalikes y remarketing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Segmentación geográfica acorde al radio real de captación</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Alta y gestión de Google Ads (búsqueda)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Testing de creatividades, mensajes y ángulos</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Seguimiento diario y ajuste de presupuesto</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Reporte con CPL, CPA, conversión y ventas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="opts">
+        <div class="opt hi">
+          <div class="ok"><span class="oletra">Opción B</span><span class="orec">Nuestra recomendación</span></div>
+          <h5>Con diseño de anuncios · las piezas las creamos nosotros</h5>
+          <p>Creamos piezas publicitarias pensadas específicamente para pauta —por público y por ángulo— en lugar de reutilizar el contenido orgánico del feed, que es exactamente lo que se hace hoy.</p>
+          <p>La recomendamos porque la falta de creatividades propias es una de las cinco fugas del circuito. Sin resolverla, la gestión termina optimizando sobre material que nunca fue pensado para vender: se mejora la distribución de un mensaje que no convierte.</p>
+          <p class="odif"><span class="ol">La diferencia</span>Incluye el diseño y la edición de las piezas publicitarias.</p>
+        </div>
+        <div class="opt">
+          <div class="ok"><span class="oletra">Opción A</span></div>
+          <h5>Sin diseño de anuncios · las piezas las provee Sporthesis</h5>
+          <p>Misma gestión, misma estructura de campañas, mismo trabajo diario de optimización y los mismos reportes. Las creatividades las entrega Sporthesis.</p>
+          <p>Conviene si Sporthesis va a producir las piezas de pauta por su cuenta y con un criterio distinto al del feed. Si se van a seguir usando los posteos orgánicos, la fuga sigue abierta.</p>
+          <p class="odif"><span class="ol">La diferencia</span>No incluye la producción de las piezas publicitarias.</p>
+        </div>
+      </div>
+      <p class="optnote">Las dos opciones son excluyentes: se elige una. En ambas se suma el 15% variable sobre la inversión en medios administrada. <b>Los valores están en la sección de Inversión.</b></p>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:34px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <h3>Google captura lo que ya existe</h3>
+        <p>Alguien que busca “estudio de pisada” o “plantillas ortopédicas” ya decidió que tiene un problema. Hoy Sporthesis no aparece pagando por esa búsqueda. Es la demanda más barata de convertir y está sin trabajar.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Meta genera demanda nueva</h3>
+        <p>Es donde se le habla a quien todavía no sabe que la solución existe. Ahí es donde los territorios nuevos —postura, horas sentado, calzado— se ponen a prueba con creatividades propias.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Optimizamos a venta</h3>
+        <p>Con las conversiones del CRM conectadas, la optimización deja de perseguir volumen de consultas y empieza a perseguir facturación. Es el cambio que más mueve el costo por venta.</p>
+      </div>
+    </div>
+
+    <p class="r d5" style="margin-top:30px"><span class="note-pill"><b>Importante</b> · La inversión publicitaria en plataformas es adicional al honorario y la define y abona Sporthesis directamente. Sobre esa inversión administrada se aplica un <b>15% variable</b>.</span></p>
+  </div>
+  <div class="sfoot"><span>Meta genera · Google captura · el CRM decide</span><span class="num">11 — Etapa 3</span></div>
+</section>
+
+<!-- ============ 13 · ETAPA 4 ============ -->
+<section id="etapa4" data-label="Etapa 4 · Conversión">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:40px">
+      <div>
+        <div class="eyebrow r">Etapa 4 · Conversión</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Mejorar lo que pasa <span class="cy">después</span> del clic.</h2>
+        <p class="lead r d2" style="margin-top:22px">Es la etapa de mayor impacto sobre el costo por venta y la más rápida de implementar. No proponemos rehacer el sitio institucional: proponemos una landing específica para campañas que resuelva el problema hoy. La necesidad de rehacer el sitio completo se evalúa después, con los datos de la auditoría.</p>
+      </div>
+      <div class="col-img r d2"><div class="media"><img src="img/conversion.jpg" alt="La consulta empieza en el celular"></div></div>
+    </div>
+
+    <div class="svc r d3">
+      <div class="svc-head">
+        <div class="st">Landing page de campaña<small>Pago único · WordPress · responsive · Tag Manager, Analytics y Pixel</small></div>
+        <div class="smod two">Dos opciones</div>
+      </div>
+      <div class="svc-body">
+        <div>
+          <h4>Qué resuelve</h4>
+          <p>Una página de aterrizaje enfocada exclusivamente en convertir el tráfico de las campañas, con <b>formulario de contacto funcional y con confirmación de envío</b> —resolviendo el problema que detectamos en el sitio actual— y botón directo a WhatsApp.</p>
+          <p style="margin-top:16px">Las dos opciones tienen <b>el mismo alcance funcional</b>: la misma estructura, el mismo formulario, el mismo tracking. Lo que cambia es <b>el nivel de personalización del diseño</b>.</p>
+        </div>
+        <div>
+          <h4>Entregables · comunes a las dos opciones</h4>
+          <ul class="deliv">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Landing responsive en WordPress</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Formulario con confirmación de envío visible</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Botón directo a WhatsApp</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Redacción de contenido orientado a conversión</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Google Tag Manager, Analytics y Pixel</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Definición de eventos de conversión</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg>Hasta 1 ronda de revisión</li>
+          </ul>
+        </div>
+      </div>
+      <div class="opts">
+        <div class="opt hi">
+          <div class="ok"><span class="oletra">Opción A</span><span class="orec">Nuestra recomendación</span></div>
+          <h5>Sobre plantilla editable</h5>
+          <p>Se monta sobre una plantilla de WordPress. Es más económica y bastante más rápida de implementar, con una ventaja concreta: <b>Sporthesis puede administrarla de forma autónoma</b> en el tiempo, sin depender de nosotros para cambiar un texto, una oferta o una imagen.</p>
+          <p>La recomendamos porque la landing es la solución rápida para tapar la fuga de conversión. Cuanto antes esté publicada, antes empieza a rendir cada peso de pauta.</p>
+          <p class="odif"><span class="ol">La diferencia</span>Diseño basado en plantilla · administrable por Sporthesis.</p>
+        </div>
+        <div class="opt">
+          <div class="ok"><span class="oletra">Opción B</span></div>
+          <h5>Con diseño personalizado</h5>
+          <p>Mismo alcance funcional, con el diseño trabajado sobre la identidad visual de Sporthesis: más margen para que la pieza se sienta parte de la marca y no un formulario genérico.</p>
+          <p>Conviene si la landing va a convivir mucho tiempo con la marca y la coherencia visual pesa más que la velocidad de salida.</p>
+          <p class="odif"><span class="ol">La diferencia</span>Diseño a medida, alineado a la identidad de la marca.</p>
+        </div>
+      </div>
+      <p class="optnote">Las dos opciones son excluyentes: se elige una. <b>Los valores de cada una están en la sección de Inversión.</b></p>
+    </div>
+
+    <div class="grid g3 r d4" style="margin-top:34px">
+      <div class="card"><span class="num-tag">Se define en la Etapa 1</span><h3>Integración CRM ↔ plataformas</h3><p>Conectar el CRM con Meta y Google para enviar conversiones de venta real. El alcance y el esfuerzo dependen de qué CRM usa Sporthesis —dato que se releva en la auditoría inicial y se cotiza una vez identificado.</p></div>
+      <div class="card"><span class="num-tag">A evaluar</span><h3>Optimización de la Tienda Nube</h3><p>Hoy registra ~1 venta mensual y obliga a coordinar el turno por WhatsApp después de pagar. Hay margen de mejora, pero se define su prioridad recién con los datos de la auditoría.</p></div>
+      <div class="card"><span class="num-tag">A evaluar</span><h3>Sitio institucional</h3><p>Está desactualizado y cumple además un rol vinculado a las franquicias. No lo damos por necesario: la auditoría dirá si conviene rehacerlo o si la landing alcanza.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>La etapa de mayor impacto sobre el costo por venta</span><span class="num">12 — Etapa 4</span></div>
+</section>
+
+<!-- ============ 14 · METODOLOGÍA ============ -->
+<section id="metodologia" data-label="Cómo trabajamos">
+  <div class="wrap">
+    <div class="split rev" style="margin-bottom:44px">
+      <div class="col-img r d2"><div class="media"><img src="img/metodologia.jpg" alt="Trabajo conjunto entre agencia y cliente"></div></div>
+      <div>
+        <div class="eyebrow r">Cómo trabajamos</div>
+        <h2 class="h-lg r d1" style="max-width:18ch">Para vender la plantilla, primero hay que <span class="cy">entenderla.</span></h2>
+        <p class="lead r d2" style="margin-top:22px">En la reunión quedó explícito y lo tomamos como condición: si trabajamos juntos, Popcorn tiene que conocer el producto, visitar el consultorio de Olivos y entender el proceso productivo. No es una cortesía: es lo que separa una campaña genérica de una campaña que comunica lo que realmente diferencia a Sporthesis.</p>
+      </div>
+    </div>
+
+    <div class="grid g4 r d3">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Visita al consultorio</h3>
+        <p>Conocer el espacio, el Footscan, el estudio y el proceso de elaboración de la plantilla, en persona.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3>Trabajo con el equipo</h3>
+        <p>Con Lucas, con el diseñador de la marca y con quien atiende las consultas. No en paralelo: en conjunto.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Ritmo de revisión</h3>
+        <p>Seguimiento diario de campañas, revisión mensual de resultados de negocio y ajuste de plan.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Un solo interlocutor</h3>
+        <p>Estrategia, contenido, pauta, audiovisual y desarrollo en el mismo equipo. Sin coordinar cuatro proveedores.</p>
+      </div>
+    </div>
+
+    <div class="split" style="margin-top:50px">
+      <div class="r d4">
+        <h3 class="h-md" style="margin-bottom:16px">Lo que no vamos a hacer</h3>
+        <p class="muted" style="font-size:1.03rem;line-height:1.7">No vamos a garantizar una cantidad de ventas. No vamos a presentar el estudio de pisada como un diagnóstico médico. No vamos a proponer reemplazar al diseñador que conoce la marca. Y no vamos a recomendar aumentar la inversión hasta que el circuito esté ordenado y sepamos qué está funcionando.</p>
+      </div>
+      <div class="col-img r d3"><div class="media wide"><img src="img/autoridad.jpg" alt="Sporthesis en congresos y formación profesional"><div class="cap"><div class="quote" style="font-size:1rem">Sporthesis ya tiene autoridad técnica y presencia profesional. El trabajo es traducir eso a un lenguaje que venda.</div></div></div></div>
+    </div>
+    <p class="r d5" style="margin-top:34px"><span class="note-pill"><b>Del lado de Sporthesis</b> · Necesitamos un referente único para decisiones y aprobaciones —entendemos que sería Lucas— y coordinación directa con el diseñador de la marca.</span></p>
+  </div>
+  <div class="sfoot"><span>Conocer el producto es parte del trabajo</span><span class="num">13 — Metodología</span></div>
+</section>
+
+<!-- ============ 15 · ROADMAP ============ -->
+<section id="roadmap" data-label="Roadmap 90 días">
+  <div class="wrap">
+    <div class="eyebrow r">Hoja de ruta</div>
+    <h2 class="h-lg r d1">Los primeros <span class="cy">90 días.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">El plan asume que se avanza con el paquete recomendado. Si Sporthesis selecciona un alcance distinto, el cronograma se ajusta en consecuencia.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semana 1</div>
+        <h3>Onboarding y accesos</h3>
+        <p>Visita al consultorio de Olivos. Relevamiento del producto y del proceso. Accesos a Meta Business, Google, Analytics, Tienda Nube, CRM y redes. Definición del objetivo comercial concreto de los próximos 90 días con Lucas.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 2 a 4</div>
+        <h3>Estrategia inicial · la base</h3>
+        <p>Auditoría de campañas, activos digitales y conversión. Análisis de competencia directa e indirecta. Mapa de públicos y ejes de contenido. Manual de tono y voz. Revisión del CRM y definición de KPIs. Al cierre de esta etapa, Sporthesis tiene el diagnóstico completo y el plan escrito.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 3 a 5 · en paralelo</div>
+        <h3>Landing y primera jornada de contenidos</h3>
+        <p>Desarrollo de la landing de campaña con formulario confiable y WhatsApp. Instalación de Tag Manager, Analytics, Pixel y eventos de conversión. Primera jornada de producción de 4 horas en el consultorio para generar la materia prima de las creatividades.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 5 a 8</div>
+        <h3>Salida de campañas</h3>
+        <p>Reestructuración de Meta Ads con segmentación geográfica correcta y campañas por objetivo. Alta de Google Ads de búsqueda. Primeras tandas de creatividades propias por territorio. Arranca el testing de mensajes y ángulos.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 8 a 10</div>
+        <h3>Conexión CRM ↔ plataformas</h3>
+        <p>Envío de conversiones de venta real desde el CRM hacia Meta y Google. La optimización pasa de perseguir consultas a perseguir ventas. El alcance exacto se define en la auditoría, según el CRM que use Sporthesis.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot"></div>
+        <div class="ph">Semanas 10 a 12</div>
+        <h3>Primera lectura y decisión de escala</h3>
+        <p>Revisión de resultados con datos propios: qué territorio convierte, qué mensaje funciona, cuál es el costo por venta real. Recién con ese número sobre la mesa se define si conviene aumentar la inversión, y en qué canal.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>90 días para tener certezas, no impresiones</span><span class="num">14 — Roadmap</span></div>
+</section>
+
+<!-- ============ 16 · KPIs ============ -->
+<section id="kpis" data-label="Qué vamos a medir">
+  <div class="wrap">
+    <div class="eyebrow r">Medición</div>
+    <h2 class="h-lg r d1">Qué vamos a <span class="cy">medir.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">No fijamos metas numéricas antes de tener línea de base auditada: sería inventar. Definimos qué se mide desde el día uno y, al cierre de la Etapa 1, se acuerdan los objetivos concretos junto a Sporthesis.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead>
+          <tr><th>Métrica</th><th>Qué responde</th><th>Situación hoy</th><th>Cómo se trabaja</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="k">Consultas / mes</td><td>¿Cuánta gente levanta la mano?</td><td class="hoy">~70 históricas</td><td>Se mantiene como línea de base. No es la métrica a maximizar en la primera etapa.</td></tr>
+          <tr><td class="k">Conversión consulta → turno</td><td>¿Cuántas consultas llegan a agendar?</td><td class="hoy">Sin medir</td><td>Se instrumenta desde el CRM. Es el eslabón donde hoy se pierde más gente.</td></tr>
+          <tr><td class="k">Conversión turno → venta</td><td>¿Cuántos turnos terminan en plantilla?</td><td class="hoy">Sin medir</td><td>Separar estos dos pasos permite saber si el problema es la atención o el precio.</td></tr>
+          <tr><td class="k">Conversión consulta → venta</td><td>¿Cuánto rinde el volumen que entra?</td><td class="hoy">~7% estimado</td><td>La métrica central de los primeros 90 días.</td></tr>
+          <tr><td class="k">CPL por plataforma y territorio</td><td>¿Cuánto cuesta cada consulta y de dónde viene?</td><td class="hoy">Sin desagregar</td><td>Se abre por Meta / Google y por territorio para saber qué ángulo rinde.</td></tr>
+          <tr><td class="k">Costo por venta (CAC)</td><td>¿Cuánto cuesta cada plantilla vendida?</td><td class="hoy">~$178.000 estimado</td><td>Incluye medios + honorarios. Es el número que define si el canal es rentable.</td></tr>
+          <tr><td class="k">Ventas atribuidas a pauta</td><td>¿Cuánto factura el canal digital?</td><td class="hoy">Sin atribución</td><td>Requiere la conexión CRM ↔ plataformas. Habilita optimizar a venta.</td></tr>
+          <tr><td class="k">Tienda Nube</td><td>¿El ecommerce crece?</td><td class="hoy">~1 venta / mes</td><td>Se mide en paralelo. Es el canal con mayor margen de mejora relativa.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="r d4" style="margin-top:26px"><span class="note-pill"><b>Regla</b> · Ninguna de estas métricas se reporta sola. Cada reporte responde una sola pregunta: cuánto costó cada venta este mes, y por qué.</span></p>
+  </div>
+  <div class="sfoot"><span>Métricas de negocio, no métricas de plataforma</span><span class="num">15 — KPIs</span></div>
+</section>
+
+<!-- ============ 17 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Transparencia</div>
+    <h2 class="h-lg r d1">Qué incluye y qué <span class="cy">no.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Preferimos dejarlo escrito antes de empezar.</p>
+
+    <div class="scope r d3" style="margin-top:46px">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <div class="sub">En los servicios seleccionados</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Visita al consultorio de Olivos y relevamiento del producto</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Trabajo colaborativo con el equipo interno y el diseñador de Sporthesis</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Reunión mensual de resultados con foco en negocio</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Gestión de Meta Ads y Google Ads en cuentas propiedad de Sporthesis</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Segmentación geográfica ajustada al radio real de captación del consultorio</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Testing continuo de creatividades, mensajes y territorios</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Instalación de Tag Manager, Analytics, Pixel y eventos de conversión en la landing</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg><span>Reportes con métricas de negocio, no solo de plataforma</span></li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <div class="sub">Se cotiza aparte o queda fuera de alcance</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>La inversión publicitaria en plataformas.</b> La define y abona Sporthesis directamente. Sobre esa inversión administrada se aplica un 15% variable.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>Hosting, dominio, SSL y licencias</b> (por ejemplo Elementor Pro) de la landing.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>El rediseño del sitio institucional completo.</b> Se evalúa con la auditoría y se cotiza aparte si corresponde.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>La integración CRM ↔ plataformas.</b> El esfuerzo depende del CRM que use Sporthesis; se releva en la Etapa 1 y se cotiza una vez identificado.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>La optimización de la Tienda Nube</b> como desarrollo. Se evalúa su prioridad tras la auditoría.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>La comunicación y la pauta de las franquicias.</b> Esta propuesta cubre el negocio propio de Sporthesis en Olivos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>Cachés de influencers o embajadores</b>, si se decidiera trabajarlos.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Honorarios y medios, siempre separados</span><span class="num">16 — Alcance</span></div>
+</section>
+
+<!-- ============ 18 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Armá tu <span class="cy">propuesta.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Cada servicio es independiente y seleccionable. Marcamos con <b>Recomendado</b> el paquete que resuelve el diagnóstico completo, pero Sporthesis decide con qué avanzar. Los pares marcados como <b>Opción A / B</b> son alternativas —se elige una— y están explicadas en detalle en cada etapa.</p>
+
+    <div class="invest r d3" style="margin-top:46px">
+      <div class="invest-card scale-in">
+        <span class="per">Seleccioná los servicios</span>
+        <span class="perhint">Tocá cada ítem para agregarlo o quitarlo. El total se actualiza y viaja en el correo de “Quiero avanzar”.</span>
+
+        <div class="inv-group">
+          <div class="inv-ghead">Pago único <span class="inv-sub" id="subOnce">—</span></div>
+          <div class="price-row svc-pick on" data-svc="Estrategia inicial" data-price="$1.094.258 + IVA · pago único" data-type="once" data-amount="1094258">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="rectag">Recomendado</span>Estrategia inicial<small>Auditorías, competencia, públicos, ejes de contenido, tono y voz, CRM y KPIs</small><small class="antic">100% anticipado (−3%): $1.061.431 + IVA</small></span></div>
+            <div class="pv">$1.094.258<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-svc="Landing de campaña · Opción A (sobre plantilla editable)" data-price="$508.161 + IVA · pago único" data-type="once" data-amount="508161">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="rectag">Recomendado</span><span class="abtag">Opción A</span>Landing de campaña · sobre plantilla<small>Formulario con confirmación + WhatsApp + tracking. Administrable por Sporthesis</small><small class="antic">100% anticipado (−3%): $492.916 + IVA</small></span></div>
+            <div class="pv">$508.161<span class="ivatag"> + IVA</span></div>
+          </div>
+          <div class="price-row svc-pick" data-svc="Landing de campaña · Opción B (diseño personalizado)" data-price="$750.149 + IVA · pago único" data-type="once" data-amount="750149">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="abtag">Opción B</span>Landing de campaña · diseño personalizado<small>Mismo alcance, con diseño trabajado sobre la identidad de la marca</small><small class="antic">100% anticipado (−3%): $727.644 + IVA</small></span></div>
+            <div class="pv">$750.149<span class="ivatag"> + IVA</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead">Servicios mensuales <span class="inv-sub" id="subMonth">—</span></div>
+          <div class="price-row svc-pick on" data-svc="Gestión de pauta digital · Opción B (con diseño de anuncios) — Meta + Google" data-price="$1.049.636 + IVA / mes + 15% sobre la inversión en medios administrada" data-type="month" data-amount="1049636">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="rectag">Recomendado</span><span class="abtag">Opción B</span>Gestión de pauta · con diseño de anuncios<small>Meta Ads + Google Ads. Incluye la creación de piezas publicitarias propias</small><small class="varfee">+ 15% sobre la inversión en medios administrada</small></span></div>
+            <div class="pv">$1.049.636<span class="ivatag"> + IVA</span><span class="permes">por mes</span></div>
+          </div>
+          <div class="price-row svc-pick" data-svc="Gestión de pauta digital · Opción A (sin diseño de anuncios) — Meta + Google" data-price="$777.477 + IVA / mes + 15% sobre la inversión en medios administrada" data-type="month" data-amount="777477">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="abtag">Opción A</span>Gestión de pauta · sin diseño de anuncios<small>Misma gestión. Las creatividades las provee Sporthesis</small><small class="varfee">+ 15% sobre la inversión en medios administrada</small></span></div>
+            <div class="pv">$777.477<span class="ivatag"> + IVA</span><span class="permes">por mes</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-svc="Gestión de redes sociales · Opción A (sin diseño)" data-price="$686.384 + IVA / mes" data-type="month" data-amount="686384">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="rectag">Recomendado</span><span class="abtag">Opción A</span>Gestión de redes · sin diseño<small>8 posteos/mes. Plan, copies y dirección de arte; produce el diseñador de Sporthesis</small></span></div>
+            <div class="pv">$686.384<span class="ivatag"> + IVA</span><span class="permes">por mes</span></div>
+          </div>
+          <div class="price-row svc-pick" data-svc="Gestión de redes sociales · Opción B (con diseño)" data-price="$1.120.229 + IVA / mes" data-type="month" data-amount="1120229">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="abtag">Opción B</span>Gestión de redes · con diseño<small>Mismo alcance + diseño y edición de las piezas de nuestro lado</small></span></div>
+            <div class="pv">$1.120.229<span class="ivatag"> + IVA</span><span class="permes">por mes</span></div>
+          </div>
+          <div class="price-row svc-pick" data-svc="Acompañamiento estratégico" data-price="$860.553 + IVA / mes" data-type="month" data-amount="860553">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t">Acompañamiento estratégico<small>Estratega de cuentas dedicado: resultados, oportunidades comerciales, mercado y plan del mes</small></span></div>
+            <div class="pv">$860.553<span class="ivatag"> + IVA</span><span class="permes">por mes</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead">Producción por jornada <span class="inv-sub" id="subJor">—</span></div>
+          <div class="price-row svc-pick on" data-svc="Jornada de contenidos en el consultorio (4 hs)" data-price="$370.020 + IVA por jornada · recomendada cada 2 meses" data-type="jor" data-amount="370020">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></span><span class="pl-t"><span class="rectag">Recomendado</span>Jornada de contenidos · 4 hs in situ<small>40-50 fotos + 8-10 videos cortos. Recomendada cada 2 meses</small><small class="antic">100% anticipado (−3%): $358.920 + IVA</small></span></div>
+            <div class="pv">$370.020<span class="ivatag"> + IVA</span><span class="permes">por jornada</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead">A cargo de Sporthesis</div>
+          <div class="price-row">
+            <div class="pl"><span class="chk-spacer"></span><span class="pl-t">Inversión publicitaria en medios<small>Meta Ads + Google Ads. La define y abona Sporthesis directamente. Popcorn recomienda el monto y la distribución con base en resultados</small><small class="varfee">Sobre esta inversión administrada se aplica el 15% variable</small></span></div>
+            <div class="pv">Aparte</div>
+          </div>
+        </div>
+
+        <div class="inv-total">
+          <div class="tr"><span class="tk">Total pago único</span><span class="tv" id="totOnce">—</span></div>
+          <div class="tr"><span class="tk">Total mensual</span><span class="tv" id="totMonth">—</span></div>
+          <div class="tr"><span class="tk">Total por jornada</span><span class="tv" id="totJor">—</span></div>
+        </div>
+      </div>
+
+      <div>
+        <ul class="bullets">
+          <li><span class="bi">1</span><p><b>Honorarios y medios, siempre separados.</b> Lo que se ve arriba son honorarios de Popcorn. La inversión publicitaria es adicional, la define y abona Sporthesis, y sobre ella se aplica un 15% variable.</p></li>
+          <li><span class="bi">2</span><p><b>Todo seleccionable.</b> Cada servicio funciona por sí solo. Nuestra recomendación es arrancar por la Estrategia inicial: es la única pieza que condiciona a todas las demás.</p></li>
+          <li><span class="bi">3</span><p><b>Sin “a definir”.</b> Los únicos ítems sin precio en esta propuesta son los que dependen de un dato que todavía no tenemos —el CRM, el estado del sitio— y están explícitamente señalados como tales.</p></li>
+          <li><span class="bi">4</span><p><b>Comparación honesta.</b> Hoy Sporthesis paga $480.000–$500.000 mensuales por gestión de pauta únicamente. Nuestra propuesta cubre estrategia, contenido, creatividades, dos plataformas de pauta, producción audiovisual y conversión. No es el mismo servicio a otro precio: es otro alcance.</p></li>
+        </ul>
+
+        <div class="paybox">
+          <div class="paycard hi">
+            <div class="pk">Servicios de pago único</div>
+            <p><b>Opción 1 · 100% anticipado.</b> 3% de descuento sobre el valor de lista (el monto exacto va indicado bajo cada ítem).<br><br><b>Opción 2 · 50% al inicio y 50% al finalizar o a los 30 días</b>, lo que ocurra primero. Se aplica el valor de lista.</p>
+          </div>
+          <div class="paycard">
+            <div class="pk">Servicios mensuales</div>
+            <p>Se facturan por mes adelantado, del 1 al 10 de cada mes. Contratos con revisión trimestral y ajuste por IPC.<br><br>Todos los valores están expresados <b>en pesos y sin IVA</b>.</p>
+          </div>
+        </div>
+
+        <p style="margin-top:24px"><span class="note-pill"><b>Validez</b> · Esta propuesta tiene vigencia hasta el <b>10/09/2026</b>, 10 días corridos desde su emisión.</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Valores en pesos · sin IVA · medios aparte</span><span class="num">17 — Inversión</span></div>
+</section>
+
+<!-- ============ 19 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cómo <span class="cy">arrancamos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Sin fricción y con fechas concretas.</p>
+
+    <div class="steps r d3">
+      <div class="stepcard"><div class="sn">01</div><h3>Selección de servicios</h3><p>Sporthesis elige con qué avanzar desde la sección de inversión y nos lo envía en un clic.</p></div>
+      <div class="stepcard"><div class="sn">02</div><h3>Reunión de cierre</h3><p>Repasamos el alcance elegido, ajustamos lo que haga falta y confirmamos el cronograma.</p></div>
+      <div class="stepcard"><div class="sn">03</div><h3>Visita al consultorio</h3><p>Vamos a Olivos a conocer el producto, el Footscan y el proceso. Semana 1 del proyecto.</p></div>
+      <div class="stepcard"><div class="sn">04</div><h3>Arranque</h3><p>Accesos, kickoff y comienzo de la Etapa 1. El plan corre desde ese día.</p></div>
+    </div>
+
+    <div class="evo r d4" style="margin-top:56px">
+      <div class="evo-bg"><img src="img/embajador.jpg" alt="Sporthesis y sus embajadores deportivos"></div>
+      <div class="badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)"></span>Lo que ya tiene Sporthesis</div>
+      <blockquote>Producto propio, tecnología, 18 años de trayectoria y deportistas que la eligen. La materia prima está.</blockquote>
+      <p class="sign">Nada de lo que proponemos requiere inventar una marca nueva. Requiere ordenar el circuito por el que hoy se pierden nueve de cada diez consultas.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cuatro pasos hasta el kickoff</span><span class="num">18 — Próximos pasos</span></div>
+</section>
+
+<!-- ============ 20 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/cierre.jpg" alt="Cada pisada cuenta"></div>
+  <div class="hero-orbits" style="left:-200px;right:auto"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Sporthesis × Popcorn</div>
+    <h2 class="close-title r d1">No proponemos más pauta.<br>Proponemos ordenar el <span class="cy">circuito.</span></h2>
+    <p class="lead r d2" style="margin:28px auto 0;text-align:center;max-width:640px">Primero ordenar. Después convertir. Y recién ahí, escalar. Ahí es donde están las ventas que hoy se pierden.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject=Sporthesis%20%C2%B7%20Avancemos%20con%20la%20propuesta&body=Hola%20Sol%2C%20vimos%20la%20propuesta%20de%20Popcorn%20para%20Sporthesis%20y%20queremos%20avanzar.">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <span class="close-tag">Sol · General Manager · sol@somospopcorn.com</span>
+      <span style="color:var(--w-45);font-size:.86rem;margin-top:4px">Propuesta válida hasta el 10/09/2026 · Valores en pesos, sin IVA</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral (dots) ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r,.scale-in').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Selector de servicios + mailto ===== */
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
+function setTxt(id,v){const el=document.getElementById(id);if(el)el.textContent=v;}
+
+function buildMail(){
+  const svcs=svcPicks.filter(s=>s.classList.contains('on'));
+  let onceT=0,monthT=0,jorT=0;
+  svcs.forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    if(s.dataset.type==='once'){onceT+=a;}
+    else if(s.dataset.type==='month'){monthT+=a;}
+    else{jorT+=a;}
+  });
+  setTxt('subOnce', onceT? fmt(onceT)+' + IVA' : '—');
+  setTxt('subMonth', monthT? fmt(monthT)+' + IVA / mes' : '—');
+  setTxt('subJor', jorT? fmt(jorT)+' + IVA / jornada' : '—');
+  setTxt('totOnce', onceT? fmt(onceT)+' + IVA' : '—');
+  setTxt('totMonth', monthT? fmt(monthT)+' + IVA' : '—');
+  setTxt('totJor', jorT? fmt(jorT)+' + IVA' : '—');
+
+  let subject='Sporthesis · Avancemos con la propuesta';
+  let body='Hola Sol, vimos la propuesta de Popcorn para Sporthesis y queremos avanzar.';
+  if(svcs.length){
+    body+='\n\nServicios con los que queremos avanzar:';
+    svcs.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nResumen de honorarios Popcorn:';
+    if(onceT){body+='\n• Pago único: '+fmt(onceT)+' + IVA';}
+    if(monthT){body+='\n• Mensual: '+fmt(monthT)+' + IVA / mes';}
+    if(jorT){body+='\n• Por jornada: '+fmt(jorT)+' + IVA';}
+    body+='\n\n(La inversión publicitaria en medios es adicional y la abona Sporthesis directamente, con un 15% variable sobre la inversión administrada.)';
+    ctaPick.innerHTML='Avanzás con <b>'+svcs.length+' servicio'+(svcs.length>1?'s':'')+'</b>'+(monthT?' · <b>'+fmt(monthT)+' + IVA / mes</b>':'');
+  }else{
+    ctaPick.innerHTML='<span class="none">Elegí los servicios más arriba para incluirlos en el correo.</span>';
+  }
+  ctaGo.href='mailto:sol@somospopcorn.com?cc=florencia@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+svcPicks.forEach(s=>{s.addEventListener('click',()=>{s.classList.toggle('on');buildMail();});});
+buildMail();
+</script>
+</body>
+</html>

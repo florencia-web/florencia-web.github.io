@@ -1,0 +1,187 @@
+{
+  "cliente": {
+    "nombre": "Sporthesis",
+    "razon_social": "Sporthesis S.A.",
+    "sector": "Salud / biomecánica · plantillas personalizadas y análisis de pisada",
+    "desde": 2008,
+    "sede": "Olivos, Buenos Aires",
+    "sitio": "https://sporthesis.com",
+    "ecommerce": "https://sporthesis.mitiendanube.com",
+    "contacto_cliente": "Lucas",
+    "alcance_geografico": "Negocio propio de Olivos. Excluye comunicación y pauta de franquicias."
+  },
+  "propuesta": {
+    "titulo": "No falta pauta. Falta circuito.",
+    "nivel": 3,
+    "nivel_nombre": "custom",
+    "tipo": ["estrategica-consultiva", "performance", "contenido", "conversion"],
+    "fecha_emision": "2026-08-31",
+    "valida_hasta": "2026-09-10",
+    "responsable": {
+      "nombre": "Sol",
+      "rol": "General Manager · Paid Media",
+      "email": "sol@somospopcorn.com"
+    },
+    "responsable_secundario": {
+      "nombre": "Florencia",
+      "rol": "Operations Manager",
+      "email": "florencia@somospopcorn.com"
+    },
+    "idea_rectora": "Primero ordenar. Después convertir. Y recién ahí, escalar.",
+    "moneda": "ARS",
+    "iva": "Valores sin IVA"
+  },
+  "diagnostico": {
+    "fuente": "Reunión comercial con Lucas + información pública de Sporthesis",
+    "datos_del_cliente": [
+      { "dato": "Consultas mensuales por WhatsApp (histórico)", "valor": "~70" },
+      { "dato": "Ventas mensuales actuales (últimos 2 meses)", "valor": "~5" },
+      { "dato": "Consultas sin conversión en agosto 2026", "valor": "15" },
+      { "dato": "Campañas activas en Google Ads", "valor": "0" },
+      { "dato": "Inversión publicitaria histórica mensual", "valor": "$400.000+" },
+      { "dato": "Fee mensual de la agencia actual (solo pauta)", "valor": "$480.000 – $500.000" },
+      { "dato": "Ventas mensuales en Tienda Nube", "valor": "~1" },
+      { "dato": "Segmentación histórica", "valor": "Llegó a estar configurada para toda la Argentina" }
+    ],
+    "estimaciones_derivadas": [
+      { "metrica": "Conversión consulta → venta", "valor": "~7%", "calculo": "~5 ventas / ~70 consultas" },
+      { "metrica": "Costo por venta (medios + fee)", "valor": "~$178.000", "calculo": "($400.000 + $490.000) / 5 ventas" },
+      { "metrica": "Share de honorarios sobre gasto total", "valor": "~55%", "calculo": "$490.000 fee / $890.000 gasto mensual total" }
+    ],
+    "puntos_de_fuga": [
+      "Pauta: segmentación sin foco geográfico",
+      "Creatividad: la pauta reutiliza contenido orgánico del feed",
+      "Contenido: demasiado informativo, poco comercial y con producción lenta",
+      "Conversión: el formulario del sitio no confirma el envío",
+      "Datos: el CRM registra pero no devuelve conversiones a las plataformas"
+    ]
+  },
+  "servicios": [
+    {
+      "id": "estrategia-inicial",
+      "nombre": "Estrategia inicial",
+      "etapa": "1 · Orden y estrategia",
+      "modalidad": "pago_unico",
+      "recomendado": true,
+      "inversion_ars": 1094258,
+      "inversion_100_anticipado_ars": 1061431,
+      "fuente_excel": "1. Estrategia inicial!E20 / E21",
+      "plazo": "3 a 4 semanas"
+    },
+    {
+      "id": "acompanamiento-estrategico",
+      "nombre": "Acompañamiento estratégico",
+      "etapa": "1 · Orden y estrategia",
+      "modalidad": "mensual",
+      "recomendado": false,
+      "inversion_ars": 860553,
+      "fuente_excel": "2. Acompañamiento estratégico!E20"
+    },
+    {
+      "id": "redes-sin-diseno",
+      "nombre": "Gestión de redes sociales · Opción A (sin diseño)",
+      "etapa": "2 · Contenido y creatividad",
+      "modalidad": "mensual",
+      "recomendado": true,
+      "alternativa_de": "redes-con-diseno",
+      "inversion_ars": 686384,
+      "fuente_excel": "3. Gestión Redes (sin diseño)!E25",
+      "nota": "Plan, copies y dirección de arte. Produce el diseñador interno de Sporthesis. 8 posteos/mes."
+    },
+    {
+      "id": "redes-con-diseno",
+      "nombre": "Gestión de redes sociales · Opción B (con diseño)",
+      "etapa": "2 · Contenido y creatividad",
+      "modalidad": "mensual",
+      "recomendado": false,
+      "alternativa_de": "redes-sin-diseno",
+      "inversion_ars": 1120229,
+      "fuente_excel": "3. Gestión Redes (con diseño)!E24"
+    },
+    {
+      "id": "jornada-contenidos",
+      "nombre": "Jornada de contenidos en el consultorio (4 hs)",
+      "etapa": "2 · Contenido y creatividad",
+      "modalidad": "por_jornada",
+      "frecuencia_recomendada": "bimestral",
+      "recomendado": true,
+      "inversion_ars": 370020,
+      "inversion_100_anticipado_ars": 358920,
+      "fuente_excel": "11. Jornada de grabaciñon!E21 / E22",
+      "entregables": "40-50 fotos + 8-10 videos ≤0:40 · entrega hasta 5 días hábiles"
+    },
+    {
+      "id": "pauta-con-diseno",
+      "nombre": "Gestión de pauta digital · Opción B (con diseño de anuncios) — Meta + Google",
+      "etapa": "3 · Performance",
+      "modalidad": "mensual",
+      "recomendado": true,
+      "alternativa_de": "pauta-sin-diseno",
+      "inversion_ars": 1049636,
+      "variable": "15% sobre la inversión en medios administrada",
+      "fuente_excel": "Gestión Pauta (con diseño)!E24"
+    },
+    {
+      "id": "pauta-sin-diseno",
+      "nombre": "Gestión de pauta digital · Opción A (sin diseño de anuncios) — Meta + Google",
+      "etapa": "3 · Performance",
+      "modalidad": "mensual",
+      "recomendado": false,
+      "alternativa_de": "pauta-con-diseno",
+      "inversion_ars": 777477,
+      "variable": "15% sobre la inversión en medios administrada",
+      "fuente_excel": "4b. Gestión Pauta (sin diseño)!E24"
+    },
+    {
+      "id": "landing-plantilla",
+      "nombre": "Landing de campaña · Opción A (sobre plantilla editable)",
+      "etapa": "4 · Conversión",
+      "modalidad": "pago_unico",
+      "recomendado": true,
+      "alternativa_de": "landing-a-medida",
+      "inversion_ars": 508161,
+      "inversion_100_anticipado_ars": 492916,
+      "fuente_excel": "5. Diseño Web Op 1!E23 / E24"
+    },
+    {
+      "id": "landing-a-medida",
+      "nombre": "Landing de campaña · Opción B (diseño personalizado)",
+      "etapa": "4 · Conversión",
+      "modalidad": "pago_unico",
+      "recomendado": false,
+      "alternativa_de": "landing-plantilla",
+      "inversion_ars": 750149,
+      "inversion_100_anticipado_ars": 727644,
+      "fuente_excel": "Diseño Web Op 2!E23 / E24"
+    }
+  ],
+  "paquete_recomendado": {
+    "servicios": ["estrategia-inicial", "landing-plantilla", "pauta-con-diseno", "redes-sin-diseno", "jornada-contenidos"],
+    "total_pago_unico_ars": 1602419,
+    "total_mensual_ars": 1736020,
+    "total_por_jornada_ars": 370020,
+    "variable": "15% sobre la inversión en medios administrada",
+    "nota": "Valores sin IVA. La inversión publicitaria en medios es adicional y la abona Sporthesis directamente."
+  },
+  "condiciones": {
+    "iva": "Todos los valores están expresados sin IVA",
+    "pago_unico": "Opción 1: 100% anticipado, 3% de descuento sobre el valor de lista. Opción 2: 50% al inicio + 50% al finalizar o a los 30 días, lo que ocurra primero (valor de lista).",
+    "mensual": "Se factura por mes adelantado, del 1 al 10 de cada mes. Revisión trimestral con ajuste por IPC.",
+    "medios": "La inversión publicitaria la define y abona Sporthesis directamente. Sobre esa inversión administrada se aplica un 15% variable.",
+    "validez": "10 días corridos desde la emisión (hasta el 10/09/2026)"
+  },
+  "pendientes_de_definir": [
+    "Integración CRM ↔ plataformas: el esfuerzo depende del CRM que use Sporthesis. Se releva en la Etapa 1 y se cotiza una vez identificado.",
+    "Rediseño del sitio institucional completo: se evalúa con la auditoría y se cotiza aparte si corresponde.",
+    "Optimización de la Tienda Nube como desarrollo: se evalúa su prioridad tras la auditoría."
+  ],
+  "assets": {
+    "fotos_reales_del_cliente": [
+      "consultorio.jpg", "estudio.jpg", "plantilla.jpg", "embajador.jpg",
+      "deportista.jpg", "contenido.jpg", "caminar.jpg", "autoridad.jpg"
+    ],
+    "fuente_fotos_cliente": "sporthesis.com (galería, novedades y productos)",
+    "fotos_de_apoyo_cc0": ["hero.jpg", "publicos.jpg", "prevencion.jpg", "metodologia.jpg", "conversion.jpg", "cierre.jpg"],
+    "fuente_fotos_apoyo": "StockSnap.io (CC0)"
+  }
+}
