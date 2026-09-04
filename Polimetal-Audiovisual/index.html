@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polimetal · Producción Audiovisual — Popcorn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM — paleta canónica 2026-09-02
+   Violeta #580D9F + aqua #74FAE3 · Public Sans + Space Grotesk
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --logo:url('data:image/png;base64,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');
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violeta);
+  color:var(--white);
+  font-family:'Space Grotesk',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(162,98,229,.5), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(0,253,226,.10), transparent 55%),
+    linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 42%,var(--violeta-900) 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Public Sans',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* ============ HEADER FIJO ============ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(43,6,78,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{display:inline-block;background:var(--logo) no-repeat center/contain;width:104px;height:38px}
+.logo-img.close{width:264px;height:96px}
+
+/* ============ PROGRESO + NAV LATERAL ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.9);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Public Sans';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--aqua)}
+.nb{white-space:nowrap}
+.hl{background:var(--aqua);color:var(--tinta);padding:.08em .28em;border-radius:.18em;font-style:normal;box-decoration-break:clone;-webkit-box-decoration-break:clone;white-space:nowrap;display:inline-block}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+.kicker{font-family:'Public Sans';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--aqua)}
+b.wt{color:#fff;font-family:'Public Sans',sans-serif;font-weight:600}
+
+/* ============ ANIMACIONES ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}
+.scale-in{opacity:0;transform:scale(.94);transition:all .9s var(--ease)}
+.scale-in.in{opacity:1;transform:none}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-orbits{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:760px;height:760px;z-index:0;opacity:.5;pointer-events:none}
+.hero-orbits div{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12);inset:0}
+.hero-orbits div:nth-child(2){inset:90px}
+.hero-orbits div:nth-child(3){inset:190px}
+.hero-orbits .core{inset:300px;border:none;background:radial-gradient(circle,rgba(0,253,226,.28),transparent 70%)}
+.hero-eyebrow{margin-bottom:30px}
+.hero-title{font-weight:800;font-size:clamp(2.7rem,7.2vw,6rem);line-height:1;letter-spacing:-.03em;max-width:22ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.4rem);color:var(--w-80);max-width:660px;line-height:1.6}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{white-space:nowrap;font-family:'Public Sans';font-weight:500;font-size:13px;letter-spacing:.02em;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Public Sans';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ META BAND ============ */
+.metaband{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:26px 0;margin-top:54px}
+.metaband .m-l{font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);margin-bottom:6px}
+.metaband .m-v{font-family:'Public Sans';font-size:1.02rem;font-weight:600;color:#fff}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(0,253,226,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.2rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.card .num-tag{font-family:'Public Sans';font-weight:700;font-size:13px;color:var(--aqua);letter-spacing:.1em;margin-bottom:14px;display:block}
+
+.quote{border-left:2px solid var(--aqua);padding-left:22px;color:var(--white);font-family:'Public Sans';font-weight:500;font-size:clamp(1.1rem,1.7vw,1.5rem);line-height:1.4}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.chip{font-family:'Public Sans';font-weight:500;font-size:1rem;padding:14px 24px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
+.chip:hover{border-color:var(--aqua-line);color:var(--aqua);transform:translateY(-3px)}
+.chip.sm{font-size:.86rem;padding:10px 16px}
+
+/* ============ PIPELINE (metodología) ============ */
+.pipe{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch;margin-top:50px}
+.pipe .node{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:28px}
+.pipe .node .n-tag{font-family:'Public Sans';font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:12px;display:block}
+.pipe .node h3{font-size:1.15rem;font-weight:700;margin-bottom:12px}
+.pipe .node ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.pipe .node li{font-size:.92rem;color:var(--w-80);line-height:1.5;padding-left:16px;position:relative}
+.pipe .node li::before{content:'';position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--aqua)}
+.pipe .arrow{display:flex;align-items:center;justify-content:center;color:var(--w-45)}
+.pipe .arrow svg{width:22px;height:22px}
+@media(max-width:900px){.pipe{grid-template-columns:1fr}.pipe .arrow{transform:rotate(90deg);margin:-4px 0}}
+
+/* ============ GALERÍA FOTOS ============ */
+.photog{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.photog .ph{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:4/5}
+.photog .ph.feat{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.photog .ph img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) contrast(1.04)}
+.photog .ph .cap{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(0deg,rgba(20,4,40,.85),transparent);font-family:'Public Sans';font-weight:600;font-size:.85rem;color:#fff}
+@media(max-width:900px){.photog{grid-template-columns:1fr 1fr}.photog .ph.feat{grid-row:auto;grid-column:span 2;aspect-ratio:16/9}}
+
+/* ============ REELS / REFERENCIAS ============ */
+.reels{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.reel{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:16/9;cursor:pointer;background:var(--violeta-900)}
+.reel.feat{grid-column:1/-1;aspect-ratio:21/9}
+/* Filtro suave: las portadas vienen del propio video y su brillo es dispar.
+   El degradado del pie es el que garantiza la legibilidad, no el oscurecido de la foto. */
+.reel img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) brightness(.88)}
+.reel .play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.reel .play-btn span{width:70px;height:70px;border-radius:50%;background:rgba(0,253,226,.16);border:1.5px solid var(--aqua-line);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
+.reel:hover .play-btn span{transform:scale(1.1);background:rgba(0,253,226,.28)}
+.reel .play-btn svg{width:26px;height:26px;color:#fff;margin-left:4px}
+.reel .rc{position:absolute;left:0;right:0;bottom:0;padding:20px 22px;background:linear-gradient(0deg,rgba(14,2,32,.95) 0%,rgba(14,2,32,.62) 48%,rgba(14,2,32,0) 100%);font-family:'Public Sans'}
+.reel.feat .rc{padding:26px 28px}
+.reel.feat .rc .rt{font-size:1.3rem}
+.reel .rc .rt{font-weight:700;font-size:1.02rem;color:#fff}
+.reel .rc .rs{font-size:.82rem;color:var(--w-65);margin-top:2px}
+@media(max-width:1000px){.reels{grid-template-columns:1fr 1fr}.reel.feat{aspect-ratio:16/9}}
+@media(max-width:700px){.reels{grid-template-columns:1fr}}
+
+/* ============ SELECT CARDS (plan de rodaje) ============ */
+.selcards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.selcard{position:relative;display:block;cursor:pointer}
+.selcard input{position:absolute;opacity:0;width:0;height:0}
+.selcard .sc-body{background:rgba(9,2,26,.30);border:1.5px solid var(--line-soft);border-radius:20px;padding:30px;transition:all .3s var(--ease);height:100%}
+.selcard:hover .sc-body{border-color:rgba(116,250,227,.22)}
+.selcard input:focus-visible ~ .sc-body{outline:2px solid var(--aqua);outline-offset:3px}
+.selcard input:checked ~ .sc-body{border-color:var(--aqua);background:linear-gradient(160deg,rgba(0,253,226,.10),rgba(13,4,40,.35));box-shadow:0 18px 44px rgba(0,253,226,.12)}
+.sc-check{position:absolute;top:26px;right:26px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.selcard input:checked ~ .sc-body .sc-check{background:var(--aqua);border-color:var(--aqua)}
+.sc-check svg{width:13px;height:13px;color:var(--tinta);opacity:0;transition:opacity .2s}
+.selcard input:checked ~ .sc-body .sc-check svg{opacity:1}
+.sc-eyebrow{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:10px;display:block}
+.sc-title{font-family:'Public Sans';font-weight:700;font-size:1.35rem;margin-bottom:12px;padding-right:40px}
+.sc-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin:16px 0 20px}
+.sc-list li{font-size:.9rem;color:var(--w-65);padding-left:16px;position:relative}
+.sc-list li::before{content:'';position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--aqua)}
+.sc-price{font-family:'Public Sans';font-weight:700;font-size:1.5rem;color:#fff}
+.sc-price .iva{display:block;font-family:'Space Grotesk';font-weight:400;font-size:11px;color:var(--w-45);margin-top:2px}
+.addon-card{margin-top:20px}
+.addon-card .sc-body{display:flex;align-items:center;gap:20px;padding:26px 30px}
+.addon-card .sc-check{position:static;flex:none}
+.addon-txt{flex:1}
+.addon-txt h4{font-family:'Public Sans';font-weight:700;font-size:1.08rem;margin-bottom:4px}
+.addon-txt p{color:var(--w-65);font-size:.88rem}
+.addon-price{font-family:'Public Sans';font-weight:700;font-size:1.2rem;text-align:right;flex:none}
+.addon-price .iva{display:block;font-family:'Space Grotesk';font-weight:400;font-size:10px;color:var(--w-45)}
+@media(max-width:820px){
+  .selcards{grid-template-columns:1fr}
+  .addon-card .sc-body{flex-direction:column;align-items:flex-start;gap:14px;padding:24px}
+  .addon-card .sc-check{order:-1}
+  .addon-price{text-align:left;font-size:1.15rem}
+}
+
+/* ============ TOTAL / INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;margin-top:40px}
+.invest-card{background:linear-gradient(160deg,rgba(0,253,226,.14),rgba(13,4,40,.4));border:1.5px solid var(--aqua-line);border-radius:24px;padding:40px}
+.invest-card .per{color:var(--w-65);font-family:'Public Sans';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;margin-bottom:14px;display:block}
+.invest-card .amount{font-family:'Public Sans';font-weight:700;font-size:clamp(2.2rem,4.4vw,3.2rem);color:var(--white);line-height:1}
+.invest-card .amount .imp{font-size:1.05rem;color:var(--aqua);font-weight:600;display:block;margin-top:8px;letter-spacing:.02em}
+.invest-card hr{border:none;border-top:1px solid rgba(255,255,255,.20);margin:24px 0}
+.alt-pago{margin-top:20px;padding:18px 20px;border-radius:14px;background:rgba(6,1,20,.30);border:1px dashed var(--aqua-line)}
+.alt-pago .ap-l{font-family:'Public Sans';font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:9px}
+.alt-pago .ap-r{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.alt-pago .ap-r span{color:var(--w-65);font-size:.9rem;line-height:1.4}
+.alt-pago .ap-r b{font-family:'Public Sans';font-weight:700;font-size:1.3rem;color:#fff;white-space:nowrap}
+.invest-card .selline{display:flex;justify-content:space-between;font-size:.92rem;color:var(--w-65);padding:6px 0}
+.invest-card .selline b{color:#fff;font-family:'Public Sans';font-weight:600}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(0,253,226,.12);border:1px solid var(--aqua-line);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+.cta-invest{display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:16px 32px;border-radius:100px;font-family:'Public Sans';font-weight:700;font-size:.98rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 32px rgba(0,253,226,.3);transition:transform .25s ease,box-shadow .25s ease}
+.cta-invest:hover{transform:translateY(-3px)}
+.cta-invest svg{width:18px;height:18px}
+
+/* ============ DOS COLUMNAS INCLUYE / NO INCLUYE ============ */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px}
+.onecol{display:grid;grid-template-columns:1fr;margin-top:20px}
+.onecol .panel ul{display:grid;grid-template-columns:1fr 1fr;gap:16px 32px}
+@media(max-width:760px){.onecol .panel ul{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.panel.good{border-color:var(--aqua-line);background:linear-gradient(165deg,rgba(0,253,226,.07),rgba(255,255,255,.03))}
+.panel h3{font-size:1.15rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.panel h3 .ic{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.panel.good h3 .ic{background:rgba(0,253,226,.14);border:1px solid var(--aqua-line);color:var(--aqua)}
+.panel.warn h3 .ic{background:rgba(18,18,18,.06);border:1px solid rgba(18,18,18,.18);color:rgba(18,18,18,.55)}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:16px}
+.panel li{display:flex;gap:12px;align-items:flex-start;color:var(--w-80);font-size:.95rem;line-height:1.55}
+.panel li svg{width:18px;height:18px;flex:none;margin-top:3px}
+.panel.good li svg{color:var(--aqua)}
+.panel.warn li svg{color:rgba(18,18,18,.4)}
+.panel li b{color:var(--white);font-family:'Public Sans';font-weight:600}
+@media(max-width:820px){.twocol{grid-template-columns:1fr}}
+
+.hlnote{display:flex;gap:16px;align-items:flex-start;margin-top:24px;padding:22px 24px;border-radius:16px;background:linear-gradient(165deg,rgba(0,253,226,.08),rgba(255,255,255,.03));border:1px solid var(--aqua-line)}
+.hlnote .bi{flex:none;width:34px;height:34px;border-radius:10px;background:rgba(0,253,226,.14);border:1px solid var(--aqua-line);color:var(--aqua);display:flex;align-items:center;justify-content:center}
+.hlnote .bi svg{width:18px;height:18px}
+.hlnote p{color:var(--w-80);font-size:.96rem;line-height:1.55}
+
+/* ============ SECCIÓN CLARA (papel) ============ */
+.section-light{background:var(--papel);color:var(--tinta)}
+.section-light .eyebrow{color:var(--violeta)}
+.section-light .eyebrow::before{background:var(--violeta);box-shadow:0 0 12px rgba(88,13,159,.4)}
+.section-light .cy{color:var(--violeta)}
+.section-light .lead{color:rgba(18,18,18,.72)}
+.section-light .sfoot{color:rgba(18,18,18,.4)}
+.section-light .sfoot .num{color:var(--violeta)}
+.section-light .card,.section-light .panel{background:rgba(18,18,18,.03);border-color:rgba(18,18,18,.1)}
+.section-light .card:hover{border-color:rgba(88,13,159,.35);background:rgba(18,18,18,.05)}
+.section-light .card .ico{background:rgba(88,13,159,.1);border-color:rgba(88,13,159,.3);color:var(--violeta)}
+.section-light .panel.good{border-color:rgba(88,13,159,.35);background:rgba(88,13,159,.06)}
+.section-light .panel.good h3 .ic{background:rgba(88,13,159,.14);border-color:rgba(88,13,159,.35);color:var(--violeta)}
+.section-light .panel.good li svg{color:var(--violeta)}
+.section-light .panel li b{color:var(--tinta)}
+.section-light .panel li{color:rgba(18,18,18,.72)}
+.section-light b.wt{color:var(--tinta)}
+.section-light .kicker{color:var(--violeta)}
+.section-light .muted{color:rgba(18,18,18,.55)}
+.section-light .metaband{border-color:rgba(18,18,18,.12)}
+.section-light .metaband .m-v{color:var(--tinta)}
+.section-light .metaband .m-l{color:rgba(18,18,18,.45)}
+.section-light .hlnote{background:rgba(88,13,159,.06);border-color:rgba(88,13,159,.25)}
+.section-light .hlnote p{color:rgba(18,18,18,.72)}
+.section-light .hlnote p b{color:var(--tinta)}
+.section-light .hlnote .bi{background:rgba(88,13,159,.12);border-color:rgba(88,13,159,.32);color:var(--violeta)}
+.section-light .panel.warn{background:rgba(18,18,18,.035);border-color:rgba(18,18,18,.12)}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:50px;padding-left:34px}
+.tl::before{content:'';position:absolute;left:-2px;top:10px;bottom:0;width:2px;background:linear-gradient(180deg,rgba(18,18,18,.18) 0%,rgba(18,18,18,.18) 80%,rgba(18,18,18,0) 100%)}
+.tl-item{position:relative;padding-bottom:40px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-43px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--violeta);border:3px solid var(--papel);box-shadow:0 0 0 2px var(--violeta)}
+.tl-item .tl-w{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--violeta);margin-bottom:6px}
+.tl-item h3{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+.tl-item p{color:rgba(18,18,18,.68);font-size:.96rem;line-height:1.55;max-width:640px}
+
+/* ============ PRÓXIMOS PASOS ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.step{background:rgba(18,18,18,.03);border:1px solid rgba(18,18,18,.1);border-radius:18px;padding:26px}
+.step .sn{font-family:'Public Sans';font-weight:800;font-size:1.8rem;color:var(--violeta);margin-bottom:14px}
+.step h4{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+.step p{font-size:.88rem;color:rgba(18,18,18,.62);line-height:1.5}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Public Sans';font-weight:700;font-size:clamp(2rem,5vw,4rem);line-height:1.08;letter-spacing:-.02em;max-width:20ch}
+.close-sign{margin-top:46px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.close-sign .c-logo{display:flex;align-items:center;gap:10px}
+.close-tag{font-family:'Public Sans';font-weight:500;color:var(--aqua);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:40px;padding:18px 44px;border-radius:100px;font-family:'Public Sans';font-weight:700;font-size:1.05rem;letter-spacing:.01em;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(0,253,226,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(0,253,226,.45)}
+.cta-go svg{width:20px;height:20px}
+
+/* ============ FONDO FOTO (hero) ============ */
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.62) contrast(1.06)}
+.bg-photo.hero img{object-position:60% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(46,3,86,.97) 26%,rgba(74,6,132,.72) 60%,rgba(0,253,226,.10))}
+.bg-photo.hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(28,3,51,.55),transparent 42%)}
+
+/* ============ LIGHTBOX DE VIDEO ============ */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,1,24,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:5vh 5vw}
+.lb.on{display:flex}
+.lb .lb-in{width:100%;max-width:1100px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--aqua-line);background:#000}
+.lb iframe{width:100%;height:100%;border:0;display:block}
+.lb-x{position:absolute;top:22px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-x:hover{background:rgba(255,255,255,.16)}
+
+/* ============ RESPONSIVE GENERAL ============ */
+@media(max-width:900px){
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .invest{grid-template-columns:1fr;gap:30px}
+  .metaband{grid-template-columns:1fr 1fr}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+}
+@media(max-width:900px){
+  .scrollcue{display:none}
+  .hero-orbits{width:520px;height:520px;right:-150px}
+  .hero-orbits div:nth-child(2){inset:62px}
+  .hero-orbits div:nth-child(3){inset:130px}
+  .hero-orbits .core{inset:205px}
+  section{padding-bottom:96px}
+}
+@media(max-width:560px){
+  .metaband{grid-template-columns:1fr}
+  .logo-img{width:88px;height:32px}
+  .logo-img.close{width:200px;height:73px}
+  .alt-pago .ap-r{flex-direction:column;align-items:flex-start;gap:4px}
+  .alt-pago .ap-r span br{display:none}
+  .invest-card .selline{gap:16px}
+  .tag{font-size:12px;padding:8px 14px}
+  .hero-tags{gap:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Confidencial</div>
+  <div class="logo"><span class="logo-img" role="img" aria-label="Popcorn"></span></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · HERO ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/corte-laser.jpg" alt="Corte láser de tubo en planta Polimetal" loading="eager"></div>
+  <div class="hero-orbits"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow hero-eyebrow r">Polimetal × Popcorn · Producción audiovisual 2026</div>
+    <h1 class="hero-title r d1">El proceso que <span class="hl">nadie ve,</span> en primer plano.</h1>
+    <p class="hero-sub r d3">Una jornada de rodaje industrial en planta para mostrar cómo Polimetal corta, pliega y transforma el metal, más un video institucional que presenta a la empresa ante nuevos clientes y socios comerciales.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Rodaje en planta</span>
+      <span class="tag">Fotografía de producto</span>
+      <span class="tag">Video institucional</span>
+      <span class="tag">Locución con IA</span>
+      <span class="tag">Edición y color</span>
+    </div>
+
+    <div class="metaband r d5">
+      <div><div class="m-l">Preparado para</div><div class="m-v">Polimetal</div></div>
+      <div><div class="m-l">Preparado por</div><div class="m-v">Popcorn — Demián Linetzky</div></div>
+      <div><div class="m-l">Fecha</div><div class="m-v">4 de septiembre de 2026</div></div>
+      <div><div class="m-l">Válida hasta</div><div class="m-v">14 de septiembre de 2026</div></div>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para ver la propuesta</div>
+</section>
+
+<!-- ============ 2 · CONTEXTO / EL PROYECTO ============ -->
+<section id="proyecto" data-label="El proyecto">
+  <div class="wrap">
+    <div class="eyebrow r">El proyecto</div>
+    <h2 class="h-lg r d1">Sumamos <span class="cy">imagen real</span><br>a lo que ya construimos juntos.</h2>
+    <p class="lead r d2" style="margin-top:22px">Hoy trabajamos con Polimetal en redes sociales, pauta digital y soporte del sitio. Esta propuesta suma la pieza que faltaba: contenido audiovisual propio, filmado en planta, que muestre el proceso productivo —corte láser, plasma, oxicorte, plegado— y los productos —tubos, perfiles, mallas— con el nivel de calidad que la marca necesita para reforzar su posicionamiento como proveedor siderúrgico integral, con más de 45 años en el mercado.</p>
+
+    <div class="grid g3 r d3" style="margin-top:50px">
+      <div class="card">
+        <span class="num-tag">01</span>
+        <h3>Rodaje en planta</h3>
+        <p>Una jornada de filmación en las instalaciones de Polimetal (Loma Hermosa o Pablo Podestá), con equipo técnico completo en set.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">02</span>
+        <h3>Material reutilizable</h3>
+        <p>Lo filmado alimenta redes sociales, sitio web y pauta digital durante meses: no es una pieza de un solo uso.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">03</span>
+        <h3>Video institucional</h3>
+        <p>Un corto de hasta 2 minutos, adicional al rodaje, que presenta a Polimetal ante nuevos clientes, proveedores y socios.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicaci&oacute;n</span><span class="num">01 — Contexto</span></div>
+</section>
+
+<!-- ============ 3 · METODOLOGÍA ============ -->
+<section id="metodologia" data-label="Metodología">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo trabajamos</div>
+    <h2 class="h-lg r d1">Tres etapas, <span class="cy">un mismo equipo.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Toda producción audiovisual de Popcorn se organiza de la misma manera, dure la jornada 4 u 8 horas. Esto es lo que incluye cada etapa.</p>
+
+    <div class="pipe r d3">
+      <div class="node">
+        <span class="n-tag">Etapa 1</span>
+        <h3>Preproducción</h3>
+        <ul>
+          <li>Guion y shot list del rodaje</li>
+          <li>Relevamiento y definición de locaciones dentro de planta</li>
+          <li>Coordinación de fecha y accesos con el equipo de Polimetal</li>
+          <li>Plan de rodaje y necesidades técnicas (drone, luces, sonido)</li>
+        </ul>
+      </div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node">
+        <span class="n-tag">Etapa 2</span>
+        <h3>Producción (rodaje)</h3>
+        <ul>
+          <li>Equipo técnico en planta: dirección creativa, coordinación audiovisual, cámara y asistencia</li>
+          <li>Registro del proceso productivo y del producto terminado</li>
+          <li>Tomas aéreas con drone (adicional opcional, en cualquiera de las dos jornadas)</li>
+          <li>Seguro de accidentes personales para el equipo en locación</li>
+        </ul>
+      </div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node">
+        <span class="n-tag">Etapa 3</span>
+        <h3>Postproducción</h3>
+        <ul>
+          <li>Edición, grafismos y corrección de color</li>
+          <li>Locución generada con inteligencia artificial, sin costo de locutor</li>
+          <li>Musicalización</li>
+          <li>Entrega en formatos para redes, sitio web y pauta digital</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Preproducción · Rodaje · Postproducción</span><span class="num">02 — Metodología</span></div>
+</section>
+
+<!-- ============ 4 · GALERÍA / EL MUNDO POLIMETAL ============ -->
+<section id="polimetal" data-label="Lo que vamos a filmar">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que vamos a filmar</div>
+    <h2 class="h-lg r d1">El proceso, el producto<br>y la <span class="cy">escala</span> de Polimetal.</h2>
+    <p class="lead r d2" style="margin-top:20px">Corte láser de tubo, oxicorte y plegado, perfiles de hierro, mallas, tubos redondos y cuadrados, el movimiento de grúas y el depósito clasificado: el registro se apoya en lo que la planta ya produce todos los días.</p>
+
+    <div class="photog r d3">
+      <div class="ph feat"><img src="img/sistema-gruas.jpg" alt="Grúa puente trasladando chapa de acero"><span class="cap">Grúa puente trasladando chapa</span></div>
+      <div class="ph"><img src="img/tubos-perfiles.jpg" alt="Tubos redondos y cuadrados"><span class="cap">Tubos redondos y cuadrados</span></div>
+      <div class="ph"><img src="img/perfil-ipn.jpg" alt="Perfil IPN"><span class="cap">Perfiles IPN</span></div>
+      <div class="ph"><img src="img/corte-laser.jpg" alt="Corte láser de tubo"><span class="cap">Corte láser de tubo</span></div>
+      <div class="ph"><img src="img/oxicorte.jpg" alt="Traslado de chapa hacia la mesa de oxicorte"><span class="cap">Traslado a la mesa de oxicorte</span></div>
+      <div class="ph"><img src="img/piezas-cortadas.jpg" alt="Piezas de acero ya cortadas por láser"><span class="cap">Piezas cortadas, listas para retirar</span></div>
+      <div class="ph"><img src="img/deposito-perfiles.jpg" alt="Depósito de perfiles y caños clasificados por lote"><span class="cap">Depósito de perfiles y caños</span></div>
+      <div class="ph"><img src="img/mallas-muestrario.jpg" alt="Muestrario de mallas metálicas de colores"><span class="cap">Muestrario de mallas metálicas</span></div>
+      <div class="ph"><img src="img/perfil-especial.jpg" alt="Detalle de perfil especial en caño"><span class="cap">Perfil especial, en detalle</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Material propio de Polimetal</span><span class="num">03 — Producto y proceso</span></div>
+</section>
+
+<!-- ============ 5 · CASOS (institucionales industriales de Popcorn) ============ -->
+<section id="referencias" data-label="Casos Popcorn">
+  <div class="wrap">
+    <div class="eyebrow r">Ya filmamos tu mundo</div>
+    <h2 class="h-lg r d1">Institucionales industriales<br><span class="cy">producidos por Popcorn.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Planta, proceso, producto y gente: el mismo tono y el mismo ritmo que proponemos para Polimetal. Todas son producciones propias, para clientes de industria y manufactura.</p>
+
+    <div class="reels r d3">
+      <a class="reel feat" href="https://www.youtube.com/watch?v=k_DQc9Jpurk" target="_blank" rel="noopener" data-yt="k_DQc9Jpurk">
+        <img src="img/caso-esab.jpg" alt="Video de lanzamiento de marca de Esab, producido por Popcorn" loading="lazy">
+        <div class="play-btn"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="rc"><div class="rt">Esab · Lanzamiento de marca</div><div class="rs">Soldadura industrial</div></div>
+      </a>
+      <a class="reel" href="https://www.youtube.com/watch?v=w1rN5OQCi8o" target="_blank" rel="noopener" data-yt="w1rN5OQCi8o">
+        <img src="img/caso-losarc.jpg" alt="Comercial de LOSARC, producido por Popcorn" loading="lazy">
+        <div class="play-btn"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="rc"><div class="rt">LOSARC · Comercial</div><div class="rs">Soldadura y electrodos</div></div>
+      </a>
+      <a class="reel" href="https://www.youtube.com/watch?v=-wWuVl2vQSk" target="_blank" rel="noopener" data-yt="-wWuVl2vQSk">
+        <img src="img/caso-libus.jpg" alt="Video institucional de Libus, producido por Popcorn" loading="lazy">
+        <div class="play-btn"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="rc"><div class="rt">Libus · Institucional</div><div class="rs">Seguridad industrial y EPP</div></div>
+      </a>
+      <a class="reel" href="https://www.youtube.com/watch?v=Gb6vF_JAh8c" target="_blank" rel="noopener" data-yt="Gb6vF_JAh8c">
+        <img src="img/caso-bolsaflex.jpg" alt="Video institucional de Bolsaflex, producido por Popcorn" loading="lazy">
+        <div class="play-btn"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="rc"><div class="rt">Bolsaflex · Institucional</div><div class="rs">Envases flexibles y manufactura</div></div>
+      </a>
+    </div>
+
+    <p class="muted r d4" style="margin-top:26px;font-size:.95rem">También produjimos el institucional de <b class="wt">Cromosol</b> (autopartes) y piezas audiovisuales para <b class="wt">Bosch</b>, <b class="wt">Banco Galicia</b> y <b class="wt">Farmacity</b>.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Producciones propias de Popcorn</span><span class="num">04 — Casos</span></div>
+</section>
+
+<!-- ============ 6 · PLANES / INVERSIÓN (interactivo) ============ -->
+<section id="inversion" data-label="Planes e inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Planes de rodaje</div>
+    <h2 class="h-lg r d1">Eleg&iacute; la duraci&oacute;n de tu <span class="cy">jornada.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Dos formatos de rodaje según el volumen de material que necesites, con la opción de sumar tomas aéreas con drone y el video institucional como adicionales. Valores netos, <b class="wt">sin IVA</b>.</p>
+
+    <div class="selcards r d3">
+      <label class="selcard">
+        <input type="radio" name="jornada" value="j8" checked>
+        <div class="sc-body">
+          <span class="sc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+          <span class="sc-eyebrow">Jornada de rodaje</span>
+          <div class="sc-title">8 horas</div>
+          <ul class="sc-list">
+            <li>Dirección creativa + coordinación audiovisual</li>
+            <li>Cámara jornada completa</li>
+            <li>Content Creator y asistente de rodaje</li>
+            <li>Seguro (4 personas) y movilidad incluidos</li>
+          </ul>
+          <div class="sc-price" id="price-j8">$2.350.196<span class="iva">Valores netos · + IVA</span></div>
+        </div>
+      </label>
+      <label class="selcard">
+        <input type="radio" name="jornada" value="j4">
+        <div class="sc-body">
+          <span class="sc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+          <span class="sc-eyebrow">Jornada de rodaje</span>
+          <div class="sc-title">4 horas</div>
+          <ul class="sc-list">
+            <li>Coordinación de rodaje compacta</li>
+            <li>Cámara media jornada</li>
+            <li>Content Creator</li>
+            <li>Seguro (4 personas) y movilidad incluidos</li>
+          </ul>
+          <div class="sc-price" id="price-j4">$1.979.845<span class="iva">Valores netos · + IVA</span></div>
+        </div>
+      </label>
+    </div>
+
+    <label class="selcard addon-card r d4">
+      <input type="checkbox" id="addDrone">
+      <div class="sc-body">
+        <span class="sc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+        <div class="addon-txt">
+          <h4>Sumar: Tomas aéreas con drone</h4>
+          <p>Piloto y equipo de drone durante la jornada elegida, para planos aéreos de planta y proceso.</p>
+        </div>
+        <div class="addon-price" id="dronePrice">+ $357.969<span class="iva">Valores netos · + IVA</span></div>
+      </div>
+    </label>
+
+    <label class="selcard addon-card r d4">
+      <input type="checkbox" id="addInstitucional" checked>
+      <div class="sc-body">
+        <span class="sc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+        <div class="addon-txt">
+          <h4>Sumar: Video institucional (hasta 2 min)</h4>
+          <p>Guion, edición dedicada, grafismos y locución con IA sobre el material registrado en la jornada.</p>
+        </div>
+        <div class="addon-price">+ $2.003.160<span class="iva">Valores netos · + IVA</span></div>
+      </div>
+    </label>
+
+    <div class="invest r d5">
+      <div class="invest-card scale-in">
+        <span class="per">Tu selección</span>
+        <div class="amount" id="totalMonto">$4.353.356<span class="imp" id="totalImp">Pago 50% + saldo a 30 días</span></div>
+        <hr>
+        <div class="selline"><span id="selJornada">Jornada de rodaje · 8 horas</span><b id="selJornadaPrecio">$2.350.196</b></div>
+        <div class="selline" id="selDroneRow" style="display:none"><span>Tomas aéreas con drone (adicional)</span><b id="selDronePrecio">+ $357.969</b></div>
+        <div class="selline" id="selAddonRow"><span>Video institucional (adicional)</span><b id="selAddonPrecio">$2.003.160</b></div>
+        <div class="alt-pago">
+          <div class="ap-l">Otra forma de pago</div>
+          <div class="ap-r"><span>100% adelantado,<br>sin costo financiero</span><b id="totalAnticipado">$4.222.755</b></div>
+        </div>
+        <a class="cta-invest" id="ctaInvest" href="#" target="_blank">
+          Quiero avanzar con esta selección
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="bullets">
+        <li><span class="bi">1</span><p><b class="wt">Seguro incluido.</b> Cobertura de accidentes personales para el equipo técnico en locación (4 integrantes), ya contemplada en el valor de cada jornada.</p></li>
+        <li><span class="bi">2</span><p><b class="wt">Locución con IA sin costo extra.</b> El video institucional incluye voz en off generada con inteligencia artificial. Si preferís un locutor profesional humano, es un adicional a cotizar aparte.</p></li>
+        <li><span class="bi">3</span><p><b class="wt">Drone opcional.</b> Las tomas aéreas se suman como adicional a cualquiera de las dos jornadas.</p></li>
+        <li><span class="bi">4</span><p><b class="wt">Dos formas de pago.</b> Anticipo 50% + saldo a 30 días, o el total por adelantado sin costo financiero.</p></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sfoot"><span>2 jornadas · 2 adicionales · 2 formas de pago</span><span class="num">05 — Inversión</span></div>
+</section>
+
+<!-- ============ 7 · ALCANCE (INCLUYE / NO INCLUYE) ============ -->
+<section id="alcance" class="section-light" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance de la propuesta</div>
+    <h2 class="h-lg r d1">Qu&eacute; entra y <span class="cy">qu&eacute; no.</span></h2>
+
+    <div class="twocol r d2">
+      <div class="panel good">
+        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg></span>Incluye</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg><span><b>Guion, shot list y coordinación</b> del rodaje.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg><span><b>Equipo técnico completo</b> en planta.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg><span><b>Seguro</b> de accidentes personales del equipo (4 integrantes).</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg><span><b>Movilidad</b> dentro del radio habitual de rodaje.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg><span><b>Edición, grafismos y color</b> del material.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg><span><b>Locución con IA</b>, sin costo de locutor.</span></li>
+        </ul>
+      </div>
+
+      <div class="panel warn">
+        <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg></span>No incluye</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>IVA.</b> Todos los valores de la propuesta son netos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Tomas aéreas con drone.</b> Se suman como adicional a la jornada elegida.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Video institucional.</b> Es un adicional al rodaje, no está incluido en la jornada.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Locutor profesional humano.</b> La locución incluida es con IA; la voz humana se cotiza aparte.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Movilidad fuera del radio habitual</b> de rodaje.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Jornadas de rodaje adicionales</b> a la contratada.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hlnote r d3">
+      <span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v5M12 16h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
+      <p>Los valores de esta propuesta se calculan sobre el <b>tarifario de recursos Popcorn</b> vigente al 31/08/2026. Cambios relevantes en el tarifario o en el tipo de cambio pueden actualizar el presupuesto pasada la fecha de validez.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Transparencia en el alcance</span><span class="num">06 — Alcance</span></div>
+</section>
+
+<!-- ============ 8 · CRONOGRAMA ============ -->
+<section id="cronograma" class="section-light" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1">De la idea al material <span class="cy">entregado.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Un proceso corto: definir, filmar y entregar, sin tiempos muertos.</p>
+
+    <div class="tl r d3">
+      <div class="tl-item">
+        <div class="tl-w">Semana 1</div>
+        <h3>Preproducción</h3>
+        <p>Guion, shot list, definición de locaciones dentro de planta y coordinación de fecha con el equipo de Polimetal.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-w">Semana 2</div>
+        <h3>Rodaje</h3>
+        <p>Jornada de filmación (4 u 8 horas) en Loma Hermosa o Pablo Podestá, según se defina.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-w">Semana 3</div>
+        <h3>Entrega</h3>
+        <p>Video institucional y cortes para redes, editados, con grafismos, color y locución con IA. Entre 5 y 7 días hábiles después del rodaje.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Sin tiempos muertos</span><span class="num">07 — Cronograma</span></div>
+</section>
+
+<!-- ============ 9 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" class="section-light" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Así seguimos, sin <span class="cy">fricción.</span></h2>
+
+    <div class="steps r d2">
+      <div class="step"><div class="sn">01</div><h4>Elegís tu jornada</h4><p>4 u 8 horas, y si sumás el video institucional.</p></div>
+      <div class="step"><div class="sn">02</div><h4>Coordinamos fecha</h4><p>Definimos el día y la locación dentro de planta.</p></div>
+      <div class="step"><div class="sn">03</div><h4>Filmamos</h4><p>El equipo técnico trabaja en planta, sin interrumpir la operación.</p></div>
+      <div class="step"><div class="sn">04</div><h4>Recibís el material</h4><p>Video institucional y cortes, listos para usar.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicaci&oacute;n</span><span class="num">08 — Próximos pasos</span></div>
+</section>
+
+<!-- ============ 10 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="hero-orbits" style="left:50%;right:auto;transform:translate(-50%,-50%);opacity:.26"><div></div><div></div><div></div><div class="core"></div></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Siguiente paso</div>
+    <h2 class="close-title r d1">Mostremos c&oacute;mo trabaja <span class="cy">Polimetal.</span></h2>
+    <p class="lead r d2" style="margin:28px auto 0;text-align:center">Definimos la duración de la jornada, si sumamos el video institucional y arrancamos con la producción.</p>
+    <div class="r d3" style="text-align:center">
+      <a class="cta-go" id="ctaClose" href="mailto:demianlinet@somospopcorn.com?subject=Polimetal%20%C2%B7%20Avanzamos%20con%20la%20producci%C3%B3n%20audiovisual">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="close-sign r d4">
+      <div class="c-logo"><span class="logo-img close" role="img" aria-label="Popcorn"></span></div>
+      <span class="close-tag">Popcorn · Marketing &amp; Comunicaci&oacute;n</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Válida hasta el 14 de septiembre de 2026</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Reproductor de video">
+  <button class="lb-x" id="lbX" aria-label="Cerrar">&times;</button>
+  <div class="lb-in" id="lbIn"></div>
+</div>
+
+<script>
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r,.scale-in').forEach(el=>io.observe(el));
+
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ============ CALCULADORA DE INVERSIÓN ============ */
+const JORNADAS={
+  j8:{label:'Jornada de rodaje · 8 horas',sinDrone:{total30:2350196,anticipado:2279690},conDrone:{total30:2708165,anticipado:2626920}},
+  j4:{label:'Jornada de rodaje · 4 horas',sinDrone:{total30:1979845,anticipado:1920450},conDrone:{total30:2218491,anticipado:2151937}}
+};
+const ADICIONAL={label:'Video institucional (adicional, hasta 2 min)',total30:2003160,anticipado:1943065};
+const fmt=n=>'$'+n.toLocaleString('es-AR');
+
+function recalc(){
+  const jKey=document.querySelector('input[name="jornada"]:checked').value;
+  const jornada=JORNADAS[jKey];
+  const withDrone=document.getElementById('addDrone').checked;
+  const addOn=document.getElementById('addInstitucional').checked;
+  const base=withDrone?jornada.conDrone:jornada.sinDrone;
+  const droneDelta30=jornada.conDrone.total30-jornada.sinDrone.total30;
+  const droneDeltaAnt=jornada.conDrone.anticipado-jornada.sinDrone.anticipado;
+
+  /* Las tarjetas muestran SIEMPRE la jornada sola: el drone se lee una unica vez, en su propia fila. */
+  document.getElementById('price-j8').innerHTML=fmt(JORNADAS.j8.sinDrone.total30)+'<span class="iva">Valores netos · + IVA</span>';
+  document.getElementById('price-j4').innerHTML=fmt(JORNADAS.j4.sinDrone.total30)+'<span class="iva">Valores netos · + IVA</span>';
+  document.getElementById('dronePrice').innerHTML='+ '+fmt(droneDelta30)+'<span class="iva">Valores netos · + IVA</span>';
+
+  const total30=base.total30+(addOn?ADICIONAL.total30:0);
+  const totalAnt=base.anticipado+(addOn?ADICIONAL.anticipado:0);
+
+  document.getElementById('selJornada').textContent=jornada.label;
+  document.getElementById('selJornadaPrecio').textContent=fmt(jornada.sinDrone.total30);
+  document.getElementById('selDroneRow').style.display=withDrone?'flex':'none';
+  document.getElementById('selDronePrecio').textContent='+ '+fmt(droneDelta30);
+  document.getElementById('selAddonRow').style.display=addOn?'flex':'none';
+  document.getElementById('selAddonPrecio').textContent=fmt(ADICIONAL.total30);
+  document.getElementById('totalMonto').innerHTML=fmt(total30)+'<span class="imp">Pago 50% + saldo a 30 días</span>';
+  document.getElementById('totalAnticipado').textContent=fmt(totalAnt);
+
+  const items=[jornada.label+(withDrone?' + tomas aéreas con drone':' (sin drone)')];
+  if(addOn) items.push(ADICIONAL.label);
+  const body='Hola Demián, vimos la propuesta de producción audiovisual para Polimetal y queremos avanzar con:\n- '+items.join('\n- ')+'\n\nTotal (pago 50% + saldo a 30 días): '+fmt(total30)+'\nTotal pago 100% adelantado: '+fmt(totalAnt)+'\n\nQuedamos atentos para coordinar fecha de rodaje.';
+  const mailto='mailto:demianlinet@somospopcorn.com?subject='+encodeURIComponent('Polimetal · Avanzamos con la producción audiovisual')+'&body='+encodeURIComponent(body);
+  document.getElementById('ctaInvest').href=mailto;
+  document.getElementById('ctaClose').href=mailto;
+}
+document.querySelectorAll('input[name="jornada"], #addInstitucional, #addDrone').forEach(el=>el.addEventListener('change',recalc));
+recalc();
+
+/* ============ LIGHTBOX DE CASOS ============
+   Servido por http/https reproduce dentro de la pagina.
+   Abierto como archivo local (file://) YouTube devuelve error 153,
+   asi que en ese caso se deja el comportamiento por defecto del link. */
+const lb=document.getElementById('lb'),lbIn=document.getElementById('lbIn');
+function closeLb(){lb.classList.remove('on');lbIn.innerHTML='';}
+document.querySelectorAll('.reel[data-yt]').forEach(a=>{
+  a.addEventListener('click',ev=>{
+    if(location.protocol==='file:') return; // deja abrir YouTube en pestana nueva
+    ev.preventDefault();
+    lbIn.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+a.dataset.yt+'?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    lb.classList.add('on');
+  });
+});
+lb.addEventListener('click',ev=>{if(ev.target===lb||ev.target.id==='lbX')closeLb();});
+document.getElementById('lbX').addEventListener('click',closeLb);
+addEventListener('keydown',ev=>{if(ev.key==='Escape')closeLb();});
+</script>
+</body>
+</html>
