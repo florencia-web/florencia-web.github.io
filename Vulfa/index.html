@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VULFA × Popcorn · Primero la prueba — Plan de lanzamiento y piloto de ventas</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · BRAND SYSTEM — paleta canónica (marca/identidad-popcorn.md)
+   ============================================================ */
+:root{
+  --violet-900:#1A032F;
+  --violet-800:#2A0454;
+  --violet-700:#3B0670;
+  --violet-600:#580D9F;
+  --violet-500:#6E1DBE;
+  --violet-glow:#A262E5;
+  --cyan:#74FAE3;
+  --cyan-bright:#00FDE2;
+  --cyan-deep:#0BB6A2;
+  --ink:#121216;
+  --papel:#F2F4EF;
+  --white:#ffffff;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --cyan-line:rgba(116,250,227,.35);
+  --warn:#F5A524;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violet-600);color:var(--white);
+  font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(110,29,190,.55), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(116,250,227,.10), transparent 55%),
+    linear-gradient(160deg,#470082 0%,#580D9F 42%,#3B0670 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Public Sans',sans-serif;font-style:normal}
+em,i{font-style:normal}
+
+/* HEADER */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease)}
+.topbar.scrolled{background:rgba(40,12,100,.72);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:56px}
+
+/* PROGRESO + DOTS */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--cyan-bright));z-index:100;box-shadow:0 0 14px var(--cyan)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:12px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--cyan);box-shadow:0 0 12px var(--cyan);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(20,6,55,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* SECCIONES */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:'Public Sans';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--cyan)}
+
+/* TIPOGRAFÍA */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.h-xl{font-weight:700;font-size:clamp(2.4rem,6.2vw,5rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(1.9rem,4.4vw,3.4rem);line-height:1.06;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.35rem,2.3vw,1.9rem);line-height:1.15}
+.cy{color:var(--cyan)}
+.lead{font-size:clamp(1.02rem,1.5vw,1.26rem);color:var(--w-80);max-width:780px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+.kicker{font-family:'Public Sans';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--cyan)}
+b,strong{color:#fff;font-weight:600}
+.hl{background:var(--cyan);color:var(--ink);padding:0 .16em .05em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.mt-s{margin-top:14px}.mt-m{margin-top:26px}.mt-l{margin-top:44px}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}
+.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* HERO */
+#hero{justify-content:center}
+.hero-title{font-weight:700;font-size:clamp(2.6rem,7.2vw,5.6rem);line-height:.98;letter-spacing:-.03em;max-width:17ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.02rem,1.6vw,1.32rem);color:var(--w-80);max-width:680px;line-height:1.62}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Public Sans';font-weight:500;font-size:12.5px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Public Sans';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--cyan);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* GRID + CARDS */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:28px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--cyan-line);background:rgba(255,255,255,.07)}
+.card .ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:18px}
+.card .ico svg{width:23px;height:23px}
+.card h3{font-size:1.14rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.94rem;line-height:1.6}
+.card .num-tag{font-family:'Public Sans';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:12px;display:block}
+.card.hi{background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+.card.warn{border-color:rgba(245,165,36,.35);background:rgba(245,165,36,.06)}
+.card.warn .ico{background:rgba(245,165,36,.12);border-color:rgba(245,165,36,.35);color:var(--warn)}
+.card.warn .num-tag{color:var(--warn)}
+
+.quote{border-left:2px solid var(--cyan);padding-left:22px;color:var(--white);font-family:'Public Sans';font-weight:500;font-size:clamp(1.05rem,1.6vw,1.4rem);line-height:1.42}
+.stats{display:flex;flex-wrap:wrap;gap:14px 52px;border-top:1px solid var(--line-soft);padding-top:32px;margin-top:44px}
+.stat .v{font-family:'Public Sans';font-weight:700;font-size:clamp(1.9rem,3.8vw,2.9rem);color:var(--cyan);line-height:1}
+.stat .l{font-family:'Public Sans';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.stats.sm .v{font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.stats.sm .l{font-size:10px;letter-spacing:.13em;margin-top:6px}
+
+/* METABAND */
+.metaband{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;margin-top:40px}
+.metaband>div{background:rgba(20,6,55,.35);padding:20px 22px}
+.metaband .mk{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:7px}
+.metaband .mv{font-family:'Public Sans';font-weight:600;font-size:.95rem;line-height:1.35}
+.metaband .mv small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px}
+
+/* PIPE */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:140px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 18px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--cyan-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Public Sans';font-weight:700;font-size:12px;color:var(--cyan);letter-spacing:.1em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:'Public Sans';font-weight:600;font-size:1rem}
+.pipe .node p{font-size:.8rem;color:var(--w-45);margin-top:6px;line-height:1.4}
+.pipe .arrow{display:flex;align-items:center;color:var(--cyan);opacity:.6}
+
+/* FLOWLINE */
+.flowline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;position:relative}
+.flowline .step{position:relative;padding:0 18px}
+.flowline .step .n{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:700;margin-bottom:18px;background:rgba(116,250,227,.08)}
+.flowline .step h4{font-size:1.04rem;font-weight:600;margin-bottom:7px;font-family:'Public Sans'}
+.flowline .step p{font-size:.87rem;color:var(--w-65);line-height:1.55}
+.flowline .step::after{content:'';position:absolute;top:23px;left:calc(46px + 14px);right:-6px;height:1.5px;background:linear-gradient(90deg,var(--cyan-line),transparent);transform-origin:left;transition:transform 1s var(--ease) .3s;transform:scaleX(0)}
+.flowline.in .step::after{transform:scaleX(1)}
+.flowline .step:last-child::after{display:none}
+
+/* TABLAS */
+.tbl-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line-soft);background:var(--card);margin-top:26px}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px}
+.tbl th{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:14px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:'Public Sans';font-weight:600;color:#fff;white-space:nowrap}
+.tbl .obj{color:var(--w-45);font-size:.82rem;line-height:1.4;min-width:180px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(116,250,227,.07);font-family:'Public Sans';font-weight:700;color:#fff}
+.tbl tr.total td.num{color:var(--cyan)}
+
+/* ESCENARIOS */
+.scen{margin-top:22px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow:hidden;transition:all .35s var(--ease)}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:24px 28px;border-bottom:1px solid var(--line-soft)}
+.scen-head .st{font-family:'Public Sans';font-weight:700;font-size:1.22rem}
+.scen-head .st small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:3px}
+.scen-head .si{font-family:'Public Sans';font-weight:700;color:var(--cyan);font-size:1.18rem;white-space:nowrap;text-align:right}
+.scen-head .si small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:3px}
+.scen-note{padding:18px 28px;color:var(--w-65);font-size:.9rem;line-height:1.65;border-bottom:1px solid var(--line-soft)}
+.scen .tbl-wrap{margin:0;border:none;border-radius:0;background:transparent}
+.scen-pick{cursor:pointer;user-select:none}
+.scen-pick .pick{display:flex;align-items:center;gap:10px;padding:18px 28px;font-family:'Public Sans';font-weight:600;font-size:.82rem;letter-spacing:.03em;color:var(--w-45);transition:color .3s var(--ease);border-top:1px solid var(--line-soft)}
+.scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.scen-pick .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--cyan);transform:scale(0);transition:transform .25s var(--ease)}
+.scen-pick.selected{border-color:var(--cyan);background:rgba(116,250,227,.07);box-shadow:0 0 0 1px var(--cyan) inset,0 14px 40px rgba(116,250,227,.16)}
+.scen-pick.selected .pick{color:var(--cyan)}
+.scen-pick.selected .pick .radio{border-color:var(--cyan)}
+.scen-pick.selected .pick .radio::after{transform:scale(1)}
+.scen-pick .pick .lbl-on{display:none}
+.scen-pick.selected .pick .lbl-off{display:none}
+.scen-pick.selected .pick .lbl-on{display:inline}
+.badge-rec{display:inline-flex;align-items:center;gap:7px;font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--cyan);padding:5px 11px;border-radius:100px;margin-left:10px;vertical-align:middle}
+
+/* INVERSIÓN */
+.invest{display:grid;grid-template-columns:1.06fr .94fr;gap:44px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(116,250,227,.13),rgba(13,4,40,.4));border:1.5px solid var(--cyan-line);border-radius:24px;padding:34px}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);padding-bottom:8px;border-bottom:1px solid var(--cyan-line);margin-bottom:2px}
+.inv-ghead .inv-sub{font-family:'Public Sans';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer;padding:16px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft)}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.04)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Public Sans';font-weight:600;font-size:1rem}
+.price-row .pl .pl-t{display:block}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--w-45);margin-top:4px;font-family:'Space Grotesk';max-width:40ch;line-height:1.45}
+.price-row .pl small.varfee{font-family:'Public Sans';font-weight:600;font-size:.79rem;color:var(--cyan);margin-top:7px}
+.price-row[data-type="var"]{background:rgba(116,250,227,.06);padding:16px 14px;margin:0 -14px;border-top:1px solid var(--cyan-line)}
+.price-row .pv{font-family:'Public Sans';font-weight:700;font-size:1.18rem;color:var(--cyan);white-space:nowrap;text-align:right}
+.price-row .pv .ivatag{display:block;font-size:.66rem;color:var(--w-45);font-weight:500;letter-spacing:.04em}
+.price-row .chk,.price-row .chk-spacer{flex:none;width:20px;height:20px;margin-top:2px}
+.price-row .chk{border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--ink);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--cyan);border-color:var(--cyan)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.pay{display:block;border:1px solid var(--line-soft);border-radius:16px;padding:20px 22px;background:rgba(255,255,255,.04);margin-top:14px}
+.pay.hi{border-color:var(--cyan-line);background:rgba(116,250,227,.08)}
+.pay .pt{font-family:'Public Sans';font-weight:700;font-size:1rem;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.pay .pd{font-size:.86rem;color:var(--w-65);margin-top:7px;line-height:1.5}
+.pay .pnum{font-family:'Public Sans';font-weight:700;font-size:1.35rem;color:var(--cyan);margin-top:10px}
+.pay .off{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--cyan);padding:4px 10px;border-radius:100px}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:16px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(116,250,227,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:.97rem;line-height:1.55}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65);margin-top:18px}
+.note-pill b{color:var(--cyan);font-family:'Public Sans';font-weight:600}
+#ctaPick{font-family:'Public Sans';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:22px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* ALCANCE */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px}
+.scope-col.no{background:rgba(13,4,40,.35)}
+.scope-col h3{font-family:'Public Sans';font-weight:600;font-size:1.16rem;margin-bottom:6px}
+.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:20px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:18px;height:18px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--cyan)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* EVO banda */
+.evo{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(116,250,227,.10),rgba(13,4,40,.35));border:1px solid var(--cyan-line);border-radius:24px;padding:clamp(32px,5vw,58px)}
+.evo .evo-bg{position:absolute;inset:0;z-index:0}
+.evo .evo-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.5) contrast(1.05)}
+.evo .evo-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(40,12,100,.93),rgba(40,12,100,.55))}
+.evo>*:not(.evo-bg){position:relative;z-index:1}
+.evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Public Sans';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
+.evo blockquote{font-family:'Public Sans';font-weight:600;font-size:clamp(1.35rem,2.7vw,2.2rem);line-height:1.32;letter-spacing:-.01em;max-width:28ch}
+.evo .sign{margin-top:24px;color:var(--w-65);font-size:.97rem;max-width:660px;line-height:1.6}
+
+/* TIMELINE */
+.tl{position:relative;margin-top:38px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--cyan-line),rgba(116,250,227,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violet-700);border:2px solid var(--cyan);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.tl-item .ph{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+.tl-item h3{font-family:'Public Sans';font-weight:600;font-size:1.16rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:66ch}
+
+/* FASES */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.phase-card{position:relative;border:1px solid var(--line-soft);border-radius:20px;padding:30px 26px;background:var(--card);overflow:hidden;transition:all .4s var(--ease)}
+.phase-card:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.phase-card .pn{font-family:'Public Sans';font-weight:700;font-size:2.8rem;color:rgba(116,250,227,.4);line-height:1;position:absolute;top:16px;right:22px}
+.phase-card h3{font-family:'Public Sans';font-weight:600;font-size:1.32rem;margin-bottom:12px;max-width:14ch}
+.phase-card .gp{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;display:block}
+.phase-card p{color:var(--w-65);font-size:.93rem;line-height:1.6}
+.phase-card.hi{background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
+
+/* FOTOGRAFÍA */
+.photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media{aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.photo img,.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.06) brightness(.93)}
+.media::after,.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(74,18,168,.42),rgba(18,5,40,.22) 55%,rgba(116,250,227,.10))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px}
+.media .cap .ct{font-family:'Public Sans';font-weight:600;font-size:1.05rem}
+.media .cap .cs{font-size:.84rem;color:var(--w-65);margin-top:4px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.6) contrast(1.05)}
+.bg-photo.hero img{object-position:58% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(63,15,149,.97) 26%,rgba(74,18,168,.62) 60%,rgba(116,250,227,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.72),rgba(18,5,40,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* PRODUCTOS */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.prod{border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.03);transition:all .4s var(--ease)}
+.prod:hover{transform:translateY(-6px);border-color:var(--cyan-line)}
+.prod img{width:100%;height:190px;display:block;object-fit:contain;background:#0e0e12;padding:14px}
+.prod .pb{padding:18px 20px}
+.prod .pb .pn{font-family:'Public Sans';font-weight:700;font-size:1.02rem}
+.prod .pb .pr{font-family:'Public Sans';font-weight:600;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-top:7px}
+.prod .pb p{font-size:.84rem;color:var(--w-65);margin-top:8px;line-height:1.5}
+
+/* LOGOWALL */
+.logowall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:112px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(13,4,40,.35)}
+.logocell .brandlogo{max-height:54px;max-width:86%;width:auto;object-fit:contain;display:block}
+.logocell .ln{display:none;font-family:'Public Sans';font-weight:700;font-size:1rem;line-height:1.18;color:var(--violet-700)}
+.logocell.noimg .ln{display:block}
+
+/* DASHBOARD MOCK */
+.landing{display:grid;grid-template-columns:.94fr 1.06fr;gap:44px;align-items:center}
+.wf{background:rgba(13,4,40,.5);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:11px}
+.wf-bar{display:flex;gap:6px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);margin-bottom:4px;align-items:center}
+.wf-bar span:not(.wf-ttl){flex:none;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.18)}
+.wf-bar .wf-ttl{margin-left:10px;min-width:0;flex:1;font-family:'Public Sans';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wf-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.wf-kpi{background:rgba(255,255,255,.05);border:1px solid var(--line-soft);border-radius:9px;padding:13px 8px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.wf-kpi .kk{font-family:'Public Sans';font-size:8px;line-height:1.1;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45);text-align:center}
+.wf-kpi .kv{font-family:'Public Sans';font-weight:700;font-size:.9rem;line-height:1;color:var(--cyan);white-space:nowrap}
+.wf-chart{height:120px;background:linear-gradient(180deg,rgba(116,250,227,.08),rgba(255,255,255,.02));border:1px solid var(--line-soft);border-radius:10px;display:flex;align-items:flex-end;gap:8px;padding:14px}
+.wf-chart i{flex:1;background:linear-gradient(180deg,var(--cyan),rgba(116,250,227,.25));border-radius:4px 4px 0 0;display:block}
+.wf-row{background:rgba(255,255,255,.05);border-radius:9px}
+
+/* CIERRE */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Public Sans';font-weight:700;font-size:clamp(1.9rem,4.8vw,3.7rem);line-height:1.08;letter-spacing:-.02em;max-width:24ch}
+.close-sign{margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Public Sans';font-weight:500;color:var(--cyan);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:38px;padding:18px 42px;border-radius:100px;font-family:'Public Sans';font-weight:700;font-size:1.02rem;color:var(--ink);background:linear-gradient(95deg,var(--cyan),var(--cyan-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.32);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(116,250,227,.45)}
+.cta-go svg{width:20px;height:20px}
+.footer-line{margin-top:52px;padding-top:26px;border-top:1px solid var(--line-soft);width:100%;max-width:820px;font-size:.82rem;color:var(--w-45);line-height:1.7}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .prods{grid-template-columns:repeat(2,1fr)}
+  .flowline{grid-template-columns:1fr;gap:24px}
+  .flowline .step::after{display:none}
+  .invest,.landing{grid-template-columns:1fr;gap:30px}
+  .phases{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .metaband{grid-template-columns:1fr 1fr}
+  .pipe .arrow{transform:rotate(90deg)}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+}
+@media(max-width:560px){
+  .prods{grid-template-columns:1fr}
+  .wf-kpis{grid-template-columns:repeat(2,1fr)}
+  .metaband{grid-template-columns:1fr}
+  .stats{gap:20px 30px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<div class="dots" id="dots"></div>
+
+<header class="topbar" id="topbar">
+  <div class="logo"><img class="logo-pic" src="img/logo-popcorn-blanco.png" alt="Popcorn"></div>
+  <div class="brand-tag"><span class="dot"></span> VULFA · Propuesta comercial</div>
+</header>
+
+<!-- 01 · HERO -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Deportista entrenando"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Propuesta comercial · Confidencial · Septiembre 2026</div>
+    <h1 class="hero-title r d1">Primero <span class="hl">la prueba</span>. Después la marca.</h1>
+    <p class="hero-sub r d2">VULFA ya tiene planta, marca registrada, etiquetas y producto. Lo que todavía no tiene
+      es la evidencia de que puede generar demanda, vender y volver a vender. Ese es el trabajo de los próximos
+      cinco meses, y es lo único que va a mirar el inversor en 2027.</p>
+    <div class="hero-tags r d3">
+      <span class="tag">Objetivo: 3.000 unidades / mes</span>
+      <span class="tag">Programa sep 2026 – ene 2027</span>
+      <span class="tag">Meta · Google · Mercado Ads</span>
+      <span class="tag">B2B + D2C</span>
+      <span class="tag">Presupuesto USD 50.000</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div><span>Deslizá</span></div>
+  <div class="sfoot"><span class="num">01 / 18</span><span>VULFA × Popcorn</span></div>
+</section>
+
+<!-- 02 · PUNTO DE PARTIDA -->
+<section id="hoy" data-label="El punto de partida">
+  <div class="wrap">
+    <div class="eyebrow r">El punto de partida</div>
+    <h2 class="h-lg r d1">No arrancan de cero.<br>Arrancan de la mitad.</h2>
+    <p class="lead mt-m r d2">Antes de proponer nada, ordenamos lo que ya existe. Es más de lo que suele
+      haber cuando una marca nos llama, y cambia por completo dónde conviene poner la plata: no hay que
+      construir identidad, hay que construir <b>demanda y canal</b>.</p>
+
+    <div class="grid g2 mt-l">
+      <div class="card r d3">
+        <span class="num-tag">YA ESTÁ RESUELTO</span>
+        <ul class="bullets mt-s">
+          <li><span class="bi">✓</span><p><b>Planta propia habilitada</b> con historia farmacéutica desde 2003 (Laboratorio Sudamericano SRL) y capacidad de 20.000 kg/mes de polvos, 10 M de comprimidos y 2 M de cápsulas.</p></li>
+          <li><span class="bi">✓</span><p><b>Marca VULFA registrada</b>, manual de marca, sistema de símbolos por producto y etiquetas diseñadas para los 6 SKU de lanzamiento.</p></li>
+          <li><span class="bi">✓</span><p><b>Infraestructura de venta armada:</b> sitio web en desarrollo, Tienda Nube, tiendas de Mercado Libre abiertas y dos vendedores B2B en la calle.</p></li>
+          <li><span class="bi">✓</span><p><b>Presupuesto y objetivo definidos:</b> USD 50.000 para cinco meses y una meta clara de 3.000 unidades mensuales.</p></li>
+        </ul>
+      </div>
+      <div class="card warn r d4">
+        <span class="num-tag">LO QUE FALTA (Y ES LO CARO)</span>
+        <ul class="bullets mt-s">
+          <li><span class="bi">1</span><p><b>Cero awareness.</b> Nadie busca "VULFA" hoy. En una categoría donde la recomendación pesa más que el precio, arrancar sin marca conocida es la barrera real.</p></li>
+          <li><span class="bi">2</span><p><b>Cero prueba social.</b> Ninguna reseña en Mercado Libre, ningún testimonio, ninguna foto de producto en manos de nadie. En suplementos, eso es lo primero que mira el comprador.</p></li>
+          <li><span class="bi">3</span><p><b>Cero activos de contenido.</b> La web tiene los espacios de fotos de producto vacíos. Sin fotos no hay ficha de ML, no hay pauta y no hay catálogo comercial.</p></li>
+          <li><span class="bi">4</span><p><b>Cero presencia social.</b> No hay Instagram, TikTok ni Facebook activos. El descubrimiento de la categoría pasa por ahí.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="metaband r d5">
+      <div><div class="mk">Preparada para</div><div class="mv">VULFA · Grupo Bulla<small>Macarena Bulla · Juan Mariano Bulla</small></div></div>
+      <div><div class="mk">Por</div><div class="mv">Popcorn<small>Florencia Grigolatto · Sol Ferrari</small></div></div>
+      <div><div class="mk">Fecha</div><div class="mv">8 de septiembre de 2026<small>Reunión del 7 de septiembre</small></div></div>
+      <div><div class="mk">Válida hasta</div><div class="mv">18 de septiembre de 2026<small>10 días desde la emisión</small></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">02 / 18</span><span>El punto de partida</span></div>
+</section>
+
+<!-- 03 · LA VERDAD -->
+<section id="verdad" data-label="La verdad">
+  <div class="bg-photo center"><img src="img/atleta.jpg" alt="Entrenamiento"></div>
+  <div class="wrap">
+    <div class="evo r">
+      <div class="badge">Lo que nos pidieron: sinceridad</div>
+      <blockquote>En cinco meses no se construye una marca. Se construye la prueba de que la marca puede
+        funcionar. Es un objetivo distinto, más chico y mucho más alcanzable.</blockquote>
+      <p class="sign">Juan nos pidió que le dijéramos la verdad, incluso si la verdad era "no". Acá está:
+        con USD 50.000 en cinco meses —fee de agencia, medios, canjes y acciones incluidos— <b>no se instala
+        una marca de suplementos en Argentina.</b> ENA vende más de un millón de unidades por año y tiene
+        más del 30% del mercado. Gentech es proveedor oficial de AFA y está en el 80% de los clubes de
+        primera. Ese lugar no se compra con este presupuesto, y quien les diga que sí les está vendiendo humo.<br><br>
+        Lo que sí se puede hacer —y es exactamente lo que el inversor necesita ver— es <b>demostrar demanda
+        real, con números, en tres meses de piloto.</b> Toda esta propuesta está diseñada para producir esa
+        evidencia y no para gastar en alcance que no se puede sostener.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">03 / 18</span><span>La verdad</span></div>
+</section>
+
+<!-- 04 · MERCADO -->
+<section id="mercado" data-label="El mercado">
+  <div class="wrap">
+    <div class="eyebrow r">El mercado y la competencia</div>
+    <h2 class="h-lg r d1">Un mercado concentrado,<br>con un hueco muy concreto.</h2>
+    <div class="split mt-l">
+      <div>
+        <p class="lead r d2">La categoría está partida en dos mundos que no se hablan, y VULFA nace justo
+          en el medio con algo que ninguno de los dos tiene del todo.</p>
+        <div class="grid g2 mt-m" style="gap:16px">
+          <div class="card r d3">
+            <span class="num-tag">MUNDO GYM</span>
+            <h3>Volumen y guerra de precio</h3>
+            <p>ENA, Star Nutrition, Gentech, HTN, Ultratech, Xtrenght, Gold Nutrition, Body Advance, Pulver.
+              Estética fitness, potes grandes, aval deportivo y batalla de precio en Mercado Libre.
+              Muchísimo volumen, cero relato de laboratorio.</p>
+          </div>
+          <div class="card r d4">
+            <span class="num-tag">MUNDO FARMACIA</span>
+            <h3>Confianza sin deseo</h3>
+            <p>Suplementos y vitaminas de mostrador. Tienen respaldo y credibilidad, pero comunican como
+              prospecto: funcional, frío, sin narrativa. Se venden por prescripción, no por elección.</p>
+          </div>
+        </div>
+        <div class="card hi r d5" style="margin-top:16px">
+          <span class="num-tag">EL LUGAR DE VULFA</span>
+          <h3>Un suplemento fabricado como un medicamento</h3>
+          <p>Es la única frase que VULFA puede decir y sus competidores no: <b>la misma planta que hacía
+            medicamentos, haciendo su proteína.</b> No es un claim de marketing, es un dato verificable —y en
+            una categoría donde ANMAT publica prohibiciones de suplementos con rótulos irregulares, vale doble.
+            Ese es el territorio, y es gratis: ya lo tienen.</p>
+        </div>
+      </div>
+      <div class="col-img">
+        <div class="media tall r d3">
+          <img src="img/planta.jpg" alt="Predio industrial">
+          <div class="cap"><div class="ct">El activo más difícil de copiar</div><div class="cs">Una planta farmacéutica propia con 20 años de historia. Ningún competidor del mundo gym la tiene.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="stats sm r d6">
+      <div class="stat"><div class="v">+30%</div><div class="l">Share del líder (ENA) en un mercado concentrado</div></div>
+      <div class="stat"><div class="v">+1 M</div><div class="l">Unidades/año que vende el líder</div></div>
+      <div class="stat"><div class="v">~7,7%</div><div class="l">CAGR proyectado 2026–2031 de suplementos proteicos</div></div>
+      <div class="stat"><div class="v">2025</div><div class="l">Res. Conjunta 33/2025: se habilitan declaraciones de propiedades saludables autorizadas</div></div>
+    </div>
+    <p class="muted mt-m r d7" style="font-size:.8rem;max-width:900px">Fuentes: Forbes Argentina (share y volumen de ENA), Gentech
+      (proveedor oficial AFA), Mordor Intelligence (CAGR de suplementos proteicos), Boletín Oficial 26/06/2025
+      (Resolución Conjunta 33/2025, sustitución del art. 235 del Código Alimentario Argentino). Consultadas el 8/9/2026.</p>
+  </div>
+  <div class="sfoot"><span class="num">04 / 18</span><span>El mercado</span></div>
+</section>
+
+<!-- 05 · ARITMÉTICA -->
+<section id="aritmetica" data-label="Las 3.000 unidades">
+  <div class="wrap">
+    <div class="eyebrow r">La aritmética del objetivo</div>
+    <h2 class="h-lg r d1">¿De dónde salen<br>las 3.000 unidades?</h2>
+    <p class="lead mt-m r d2">Esta es la cuenta que hicimos antes de armar el plan, y es la que define todo lo
+      que sigue. Si el objetivo de 3.000 unidades mensuales se persigue solo con publicidad digital,
+      no se llega: la aritmética no da con ningún presupuesto razonable. Si se abre por canal, sí da.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr>
+          <th>Canal</th><th class="num">Unidades / mes</th><th class="num">Peso</th>
+          <th>Cómo se consigue</th><th>Qué palanca lo mueve</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="plat">Distribuidores B2B</td><td class="num">1.300</td><td class="num">43%</td>
+            <td class="obj">2 a 3 cuentas activas de 400–600 unidades</td>
+            <td class="obj">Kit comercial, prueba de rotación y una marca que se vea seria en góndola</td></tr>
+          <tr><td class="plat">Venta directa B2B</td><td class="num">900</td><td class="num">30%</td>
+            <td class="obj">~50 cuentas (gimnasios, boxes, tiendas) de ~18 unidades/mes</td>
+            <td class="obj">Prospección de los vendedores + prescriptor local + consumidor que pregunta la marca</td></tr>
+          <tr><td class="plat">Mercado Libre</td><td class="num">500</td><td class="num">17%</td>
+            <td class="obj">~360 órdenes/mes</td>
+            <td class="obj">Fichas optimizadas, Mercado Ads y reputación</td></tr>
+          <tr><td class="plat">Tienda propia (D2C)</td><td class="num">300</td><td class="num">10%</td>
+            <td class="obj">~215 órdenes/mes</td>
+            <td class="obj">Meta, Google, email y recompra</td></tr>
+          <tr class="total"><td>Objetivo</td><td class="num">3.000</td><td class="num">100%</td>
+            <td class="obj">Digital = 800 un. (27%) · B2B = 2.200 un. (73%)</td><td class="obj"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g3 mt-l">
+      <div class="card hi r d4">
+        <span class="num-tag">CONSECUENCIA 1</span>
+        <h3>El 73% del objetivo se cierra en el canal B2B</h3>
+        <p>Y lo que abre una cuenta B2B no es un CPM: es material comercial profesional, una muestra, una
+          rotación demostrable y un consumidor que entra al gimnasio preguntando por VULFA. Por eso el plan
+          invierte en <b>habilitar la venta</b>, no solo en publicar.</p>
+      </div>
+      <div class="card r d5">
+        <span class="num-tag">CONSECUENCIA 2</span>
+        <h3>La tienda propia no es el motor de volumen</h3>
+        <p>Comprar el tráfico necesario para vender 300 unidades mensuales en la tienda propia consumiría
+          prácticamente todo el presupuesto de medios. La tienda propia es donde se <b>cuida el margen y se
+          construye la base de datos</b>, no donde se hacen los 3.000.</p>
+      </div>
+      <div class="card r d6">
+        <span class="num-tag">CONSECUENCIA 3</span>
+        <h3>No todas las unidades valen lo mismo</h3>
+        <p>Una unidad vendida en la tienda propia deja bastante más margen que una vendida a distribuidor.
+          Optimizar por unidades sin mirar el margen por canal lleva a decisiones malas. <b>Necesitamos la
+          lista de precios y el margen de contribución por canal</b> para optimizar por lo que importa.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">05 / 18</span><span>Las 3.000 unidades</span></div>
+</section>
+
+<!-- 06 · ACTIVOS DORMIDOS -->
+<section id="activos" data-label="Activos dormidos">
+  <div class="wrap">
+    <div class="eyebrow r">Dos oportunidades que no estaban en la mesa</div>
+    <h2 class="h-lg r d1">Tienen dos activos<br>que todavía no usan.</h2>
+    <div class="grid g2 mt-l">
+      <div class="card hi r d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <span class="num-tag">OPORTUNIDAD 01</span>
+        <h3>El canal propio del grupo</h3>
+        <p>Grupo Bulla tiene <b>una droguería (Medinfar) y dos farmacias (Mata y Guiñazú)</b>. En la
+          presentación aparecen como ramas que "no tienen nada que ver" con VULFA. Comercialmente son otra
+          cosa: son el <b>primer punto de venta propio donde medir rotación real sin costo de sell-in</b>,
+          la vía más corta para generar las primeras reseñas y fotos de góndola, y una puerta ya construida
+          al canal farmacia a través de la cartera de la droguería.<br><br>
+          Es una decisión societaria, no de marketing —pero si la respuesta es sí, es la palanca más
+          barata que tienen y la queremos sobre la mesa en la primera semana.</p>
+      </div>
+      <div class="card hi r d3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 10l4.55-2.28A1 1 0 0 1 21 8.6v6.8a1 1 0 0 1-1.45.89L15 14M4 6h9a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg></div>
+        <span class="num-tag">OPORTUNIDAD 02</span>
+        <h3>El gimnasio es canal y medio al mismo tiempo</h3>
+        <p>El sponsoreo institucional grande ya está tomado: ENA con la UAR y Los Pumas, Gentech con AFA.
+          Con este presupuesto no se compra ese lugar. Pero un box de crossfit que compra 20 unidades es
+          <b>tres cosas a la vez</b>: cliente B2B, punto de venta y medio de comunicación —su coach es un
+          prescriptor y su comunidad es una audiencia calificada.<br><br>
+          Por eso la estrategia es <b>capilaridad, no cobertura</b>: densidad en los lugares donde el
+          deportista ya está, en vez de alcance masivo que no se puede sostener cinco meses.</p>
+      </div>
+    </div>
+    <div class="quote mt-l r d4">Y una tercera, que es de Sol: hay equipos y atletas preparándose para los
+      Juegos Olímpicos que hoy no tienen sponsor de nutrición. Ahí hay credibilidad deportiva real a un
+      costo que este presupuesto sí paga —no un influencer de moda.</div>
+  </div>
+  <div class="sfoot"><span class="num">06 / 18</span><span>Activos dormidos</span></div>
+</section>
+
+<!-- 07 · TESIS -->
+<section id="tesis" data-label="La tesis">
+  <div class="wrap">
+    <div class="eyebrow r">La tesis</div>
+    <h2 class="h-lg r d1">Cada peso se juzga por la<br>evidencia que produce.</h2>
+    <p class="lead mt-m r d2">No por el alcance, no por los seguidores, no por lo linda que quedó la placa.
+      El programa de septiembre a enero tiene un solo público real: <b>el inversor que decide la segunda inyección
+      de capital.</b> Y lo que ese inversor necesita ver son cuatro cosas.</p>
+    <div class="flowline mt-l r d3">
+      <div class="step"><div class="n">1</div><h4>Que hay demanda</h4><p>Gente que no conocía VULFA la compra. Con costo de adquisición medido, no estimado.</p></div>
+      <div class="step"><div class="n">2</div><h4>Que hay canal</h4><p>Cuentas B2B abiertas que <b>reponen</b>. Un cliente que repite vale más que diez que probaron.</p></div>
+      <div class="step"><div class="n">3</div><h4>Que hay recompra</h4><p>El negocio de suplementos vive de la recurrencia. La tasa de recompra a 60 días es el indicador de valor de marca.</p></div>
+      <div class="step"><div class="n">4</div><h4>Que hay marca</h4><p>Que alguien busque "vulfa" en Google. La primera prueba de que una marca existe es que la busquen por su nombre.</p></div>
+    </div>
+    <div class="phases">
+      <div class="phase-card r d4"><div class="pn">01</div><span class="gp">Septiembre</span><h3>Habilitar</h3><p>Estrategia, medición, fotos de producto, fichas de ML, redes y material comercial. Sin estos activos no se puede vender ni medir nada. La pauta arranca en modo reconocimiento.</p></div>
+      <div class="phase-card hi r d5"><div class="pn">02</div><span class="gp">Octubre – Noviembre</span><h3>Probar</h3><p>Lanzamiento comercial. Pauta encendida, primeros prescriptores, sell-in B2B con material profesional. Se aprende cuánto cuesta vender una unidad.</p></div>
+      <div class="phase-card r d6"><div class="pn">03</div><span class="gp">Diciembre – Enero</span><h3>Escalar lo que funciona</h3><p>Se corta lo que no rinde y se pone presupuesto donde el costo por unidad cierra. Cierre con el informe del piloto en formato para el inversor.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">07 / 18</span><span>La tesis</span></div>
+</section>
+
+<!-- 08 · SERVICIOS -->
+<section id="servicios" data-label="Los seis frentes">
+  <div class="wrap">
+    <div class="eyebrow r">Qué hacemos, todos los meses</div>
+    <h2 class="h-lg r d1">Seis frentes de trabajo.<br>Un solo equipo.</h2>
+    <p class="lead mt-m r d2">Nos pidieron un aliado estratégico y no una fábrica de contenido. La diferencia
+      está en el primer frente: alguien que lidere la estrategia, decida dónde va la plata, reporte con datos
+      y diga "por acá no va" cuando corresponda. Los otros cinco son la ejecución de esa decisión.</p>
+
+    <div class="grid g3 mt-l">
+      <div class="card hi r d3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div>
+        <span class="num-tag">FRENTE 01</span>
+        <h3>Dirección estratégica y de medios</h3>
+        <p><b>Una reunión semanal fija con Macarena</b> más un comité mensual con la Dirección. Tablero de KPIs
+          siempre online, reporte mensual, radar de competencia y decisión explícita de asignación de
+          presupuesto mes a mes. Es el rol que pidieron: liderar, reportar y traer la agenda de oportunidades.</p>
+      </div>
+      <div class="card r d4">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="1"/></svg></div>
+        <span class="num-tag">FRENTE 02</span>
+        <h3>Contenido y redes</h3>
+        <p>Instagram y TikTok como cuentas principales, Facebook como espejo para pauta. <b>12 piezas y 8 videos
+          verticales por mes</b>, stories tres veces por semana y reporte. Pilares: para qué sirve cada producto,
+          dosis y evidencia, backstage de fabricación, y comunidad deportiva. Incluye <b>moderación de las
+          consultas públicas</b> —comentarios y preguntas en las publicaciones— con derivación al asesor
+          comercial. Los mensajes directos los responde VULFA.</p>
+      </div>
+      <div class="card r d5">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <span class="num-tag">FRENTE 03</span>
+        <h3>Jornada mensual de contenido</h3>
+        <p>Una jornada de captura por mes con equipo liviano: <b>40 a 50 fotos y 10 a 12 videos verticales</b>
+          en planta, en un gimnasio aliado o en estudio. Es lo que hace que el mes siguiente no se resuelva
+          con banco de imágenes: contenido propio, con producto real y gente real.</p>
+      </div>
+      <div class="card r d6">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+        <span class="num-tag">FRENTE 04</span>
+        <h3>Pauta digital · Meta, Google y Mercado Ads</h3>
+        <p>Meta para descubrimiento, catálogo y retargeting; Google para capturar la intención que ya existe
+          ("creatina", "whey protein", "colágeno hidrolizado"); Mercado Ads donde ya hay decisión de compra.
+          <b>Optimizaciones, reportes y creatividades</b>: el relevo creativo es parte del servicio, no un
+          extra, porque hoy la ventana de fatiga en Meta es de dos a tres semanas.</p>
+      </div>
+      <div class="card r d7">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+        <span class="num-tag">FRENTE 05</span>
+        <h3>Mercado Libre y Mercado Ads</h3>
+        <p>Tienda oficial diseñada y las 6 fichas optimizadas: título con SEO, atributos completos, fotos,
+          descripción y contenido enriquecido. Después, <b>gestión mensual de Mercado Ads</b>: Product Ads sobre
+          los 6 SKU con puja diferenciada por producto ancla y lectura de rotación por publicación. Es la
+          tercera plataforma de pauta y la que trabaja donde ya hay intención de compra. La operación diaria de
+          la ficha —preguntas, reclamos y reputación— queda del lado de VULFA.</p>
+      </div>
+      <div class="card r d8">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="num-tag">FRENTE 06</span>
+        <h3>Prescriptores y micro-influencers</h3>
+        <p>Las horas de búsqueda de perfiles: scoring de deportistas, entrenadores, nutricionistas y boxes;
+          negociación de canje o caché; brief creativo; seguimiento. <b>Cada activación sale con su código de
+          seguimiento</b>, para saber cuál vendió y cuál no. Incluye también la negociación y el brief de los
+          <b>PNTs en streaming</b>. Los cachés y el costo del PNT van aparte, dentro del bolsillo de inversión.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">08 / 18</span><span>Los seis frentes</span></div>
+</section>
+
+<!-- 09 · PRODUCCIÓN -->
+<section id="produccion" data-label="Producción">
+  <div class="wrap">
+    <div class="eyebrow r">Producción audiovisual</div>
+    <h2 class="h-lg r d1">Lo primero que hay que resolver<br>son las fotos.</h2>
+    <div class="split mt-l">
+      <div>
+        <p class="lead r d2">Hoy la web tiene los espacios de producto vacíos, las fichas de Mercado Libre no
+          pueden publicarse bien y la pauta no tiene con qué armar un anuncio. <b>La producción de fotos no es
+          un lujo del plan: es el cuello de botella.</b></p>
+        <ul class="bullets mt-m r d3">
+          <li><span class="bi">1</span><p><b>Jornada de producto (va en el arranque).</b> Packshots de los 6 SKU
+            sobre fondo, producto en contexto y 6 a 8 reels. Habilita web, fichas de ML, catálogo y pauta.</p></li>
+          <li><span class="bi">2</span><p><b>Jornada en planta (recomendada, adicional).</b> Institucional de
+            60 a 90 segundos, versión de 30 para pauta, reels de calidad farmacéutica y backstage. Es el único
+            contenido que ningún competidor del mundo gym puede producir.</p></li>
+          <li><span class="bi">3</span><p><b>Jornada ágil mensual (recurrente).</b> Alimenta el mes con formato
+            nativo, que es el que rinde en Instagram y TikTok. Deliberadamente más liviana y más barata que un
+            rodaje: no todo el contenido tiene que ser una producción.</p></li>
+        </ul>
+        <div class="card mt-m r d4">
+          <h3>Sobre trabajar con Pisco Producciones</h3>
+          <p>No tenemos ningún problema y no somos una agencia monopólica. Si la producción va con Pisco,
+            <b>nosotros escribimos los guiones, armamos el plan de rodaje y dirigimos el uso del material;
+            ellos ejecutan.</b> Lo mismo aplica al diseñador que hizo el manual de marca. Ustedes eligen a
+            quién le dan cada pieza; nosotros nos ocupamos de que todo tire para el mismo lado.</p>
+        </div>
+      </div>
+      <div class="col-img">
+        <div class="media wide r d3">
+          <img src="img/web.jpg" alt="Sitio de VULFA en desarrollo">
+          <div class="cap"><div class="ct">La web, hoy</div><div class="cs">Buena base y buen claim. Los espacios de fotos de producto, los precios y las redes están vacíos: eso es lo que hay que llenar primero.</div></div>
+        </div>
+        <div class="media r d4" style="margin-top:16px">
+          <img src="img/gym.jpg" alt="Entrenamiento con mancuerna">
+          <div class="cap"><div class="ct">Una jornada alimenta un mes</div><div class="cs">Producto, planta y deportista: los tres mundos que la marca necesita mostrar.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">09 / 18</span><span>Producción</span></div>
+</section>
+
+<!-- 10 · PORTFOLIO -->
+<section id="portfolio" data-label="Portfolio">
+  <div class="wrap">
+    <div class="eyebrow r">Prioridad de portfolio</div>
+    <h2 class="h-lg r d1">Seis productos.<br>No los seis a la vez.</h2>
+    <p class="lead mt-m r d2">Con este presupuesto, repartir el esfuerzo en partes iguales entre los seis SKU
+      es la forma más rápida de no mover ninguno. Nos dijeron que la proteína y la creatina son los de mejor
+      margen: el plan concentra ahí, y usa el resto como <b>puerta de entrada de ticket bajo y como argumento
+      de recompra</b>.</p>
+    <div class="prods">
+      <div class="prod r d3"><img src="img/prod-whey.jpg" alt="VULFA Whey Protein Orion">
+        <div class="pb"><div class="pn">Whey Protein Orion</div><div class="pr">Prioridad 1 · Producto ancla</div>
+          <p>El más buscado de la categoría y el de mejor margen. Es el producto con el que se compite y por el
+            que la gente descubre la marca. 60% del esfuerzo creativo y de pauta.</p></div></div>
+      <div class="prod r d4"><img src="img/prod-creatina.jpg" alt="VULFA Creatina Monohidrato">
+        <div class="pb"><div class="pn">Creatina Monohidrato</div><div class="pr">Prioridad 1 · Producto de tracción</div>
+          <p>La categoría de crecimiento más explosivo: saltó del gimnasio al público general. Ticket accesible,
+            demanda de búsqueda alta y conversación viva en redes. El mejor producto de primera compra.</p></div></div>
+      <div class="prod r d5"><img src="img/prod-magnesio.jpg" alt="VULFA Magnesio Blend">
+        <div class="pb"><div class="pn">Magnesio Blend</div><div class="pr">Prioridad 2 · Puerta de entrada</div>
+          <p>Cinco tipos de magnesio en polvo. El magnesio es el suplemento más consumido del país y el de
+            barrera de entrada más baja. Sirve para captar gente que todavía no se define "deportista".</p></div></div>
+      <div class="prod r d6"><img src="img/prod-colageno.jpg" alt="VULFA Colágeno Hidrolizado">
+        <div class="pb"><div class="pn">Colágeno Hidrolizado</div><div class="pr">Prioridad 2 · Audiencia distinta</div>
+          <p>Habla a un público que no es el del gimnasio y que ya está en Instagram. Es el producto que abre
+            la puerta a la línea de estética y adulto mayor que Macarena dejó explícitamente no descartada.</p></div></div>
+      <div class="prod r d7"><img src="img/prod-citrato.jpg" alt="VULFA Citrato de Magnesio 1000">
+        <div class="pb"><div class="pn">Citrato de Magnesio 1000</div><div class="pr">Prioridad 3 · Formato farmacia</div>
+          <p>Comprimidos: el formato que entiende el canal farmacia y la droguería. Es el SKU que mejor viaja
+            al canal propio del grupo y a prescripción profesional.</p></div></div>
+      <div class="prod r d8"><img src="img/prod-bcaa.jpg" alt="VULFA BCAA 5000 Plus">
+        <div class="pb"><div class="pn">BCAA 5000+</div><div class="pr">Prioridad 3 · Complemento</div>
+          <p>Producto de nicho, para el consumidor ya informado. No lidera campañas: trabaja como complemento
+            en el catálogo, en el combo con proteína y en la venta B2B a tiendas especializadas.</p></div></div>
+    </div>
+    <div class="note-pill r d8"><b>Nota de compliance:</b> toda la comunicación se produce dentro del marco del
+      Código Alimentario Argentino — sin claims medicinales ni terapéuticos, con la leyenda obligatoria y solo con
+      declaraciones de propiedades saludables autorizadas. Venimos de trabajar con laboratorios y hospitales: lo tenemos incorporado.</div>
+  </div>
+  <div class="sfoot"><span class="num">10 / 18</span><span>Portfolio</span></div>
+</section>
+
+<!-- 11 · ESCENARIOS -->
+<section id="escenarios" data-label="Cómo se reparte la plata">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo se reparte cada peso</div>
+    <h2 class="h-lg r d1">Cuatro bolsillos.<br>Ni uno oculto.</h2>
+    <p class="lead mt-m r d2">Antes de los escenarios, esto: <b>qué es honorario nuestro, qué es inversión
+      de ustedes, qué se paga en producto y qué queda afuera del presupuesto.</b> Todo lo que está en los
+      bolsillos 1 y 2 sale de los USD 50.000. Nada más. Y una precisión que importa:
+      <b>el fee variable del 15% se calcula únicamente sobre lo invertido en plataformas</b> —Meta, Google y
+      Mercado Ads—, nunca sobre los PNTs de streaming, los cachés de prescriptores ni las activaciones.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Bolsillo</th><th>Qué incluye</th><th>Quién lo cobra</th><th>¿Sale de los USD 50.000?</th><th>¿Paga el 15% variable?</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">1 · Honorarios Popcorn</td>
+            <td class="obj">Arranque de pago único + fee fijo mensual + <b>fee variable del 15%</b></td>
+            <td class="obj">Popcorn</td>
+            <td class="obj"><b>Sí, los tres.</b> El variable también.</td>
+            <td class="obj">—</td></tr>
+          <tr><td class="plat">2a · Inversión en plataformas</td>
+            <td class="obj">Meta Ads · Google Ads · Mercado Ads</td>
+            <td class="obj">Las plataformas, directo. Popcorn no toca esa plata: la administra</td>
+            <td class="obj"><b>Sí</b></td>
+            <td class="obj"><b>Sí.</b> Es la única base del fee variable</td></tr>
+          <tr><td class="plat">2b · Acciones</td>
+            <td class="obj">Cachés de prescriptores · <b>PNTs en streaming</b> · activaciones y punto de venta</td>
+            <td class="obj">Los creadores, los canales y los proveedores de cada acción</td>
+            <td class="obj"><b>Sí</b></td>
+            <td class="obj"><b>No.</b> El fee variable no se aplica sobre acciones: la coordinación ya está paga en el fee fijo</td></tr>
+          <tr><td class="plat">3 · Aporte en producto</td>
+            <td class="obj">Canje con micro-creadores y siembra por reseña. Se mide en unidades, no en pesos</td>
+            <td class="obj">Nadie: es producto de VULFA</td>
+            <td class="obj"><b>No.</b> Se valúa a costo de fabricación y se registra como costo de producto</td>
+            <td class="obj"><b>No.</b> No hay flujo de caja que administrar</td></tr>
+          <tr><td class="plat">4 · Impuestos de plataforma</td>
+            <td class="obj">IVA, percepciones de IVA e IIBB y retención de Ganancias sobre lo invertido en Meta, Google y ML: entre 40% y 52%</td>
+            <td class="obj">Las plataformas, directo</td>
+            <td class="obj"><b>No.</b> Para VULFA es crédito fiscal computable, no gasto</td>
+            <td class="obj"><b>No</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-pill r d4"><b>Una definición pendiente:</b> el bolsillo 4 lo tiene que confirmar David Leal.
+      Si administración lo computa como crédito fiscal, el plan es el que está escrito. Si lo trata como gasto
+      de marketing dentro de los USD 50.000, la pauta real baja entre un 30% y un 35% y rearmamos los escenarios.</div>
+  </div>
+  <div class="sfoot"><span class="num">11 / 18</span><span>Cómo se reparte la plata</span></div>
+</section>
+
+<!-- 11b · ESCENARIOS -->
+<section id="planes" data-label="Escenarios de inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Los dos escenarios</div>
+    <h2 class="h-lg r d1">El que entra en el presupuesto<br>y el que hace falta.</h2>
+    <p class="lead mt-m r d2">Todo lo que sigue es <b>bolsillo 2: inversión en efectivo, montos netos</b>.
+      Está partido en dos: lo que corre <b>todos los meses</b> —las plataformas, que es la única base del fee
+      variable— y las <b>bolsas para acciones</b>, que son un monto total y se usan cuando aparece la
+      oportunidad, no en cuotas.</p>
+    <p class="lead mt-s r d2"><b>Son cinco meses de trabajo y cinco meses de inversión.</b> Si el arranque cae
+      a mitad de mes, el primer mes se prorratea y el programa corre igual sus cinco meses completos. En
+      septiembre la pauta trabaja en modo reconocimiento mientras se termina de habilitar el producto; desde
+      octubre pasa a conversión.</p>
+
+    <!-- ESCENARIO B -->
+    <div class="scen scen-pick r d3" data-scen="B">
+      <div class="scen-head">
+        <div class="st">Escenario B · Conservador <span class="badge-rec">Recomendado</span><small>Cierra los USD 50.000 con honorarios y fee variable adentro</small></div>
+        <div class="si">$31.500.000 en 5 meses<small>≈ USD 21.000 · $4.700.000/mes + $8.000.000 de bolsas</small></div>
+      </div>
+      <div class="scen-note">Es el escenario que recomendamos. Permite tener las tres plataformas con
+        presupuesto suficiente para salir de la fase de aprendizaje de Meta, más <b>ocho millones de pesos en
+        bolsas de acción</b> para prescriptores, un PNT en streaming y presencia en punto de venta. Con esto el
+        piloto genera datos confiables, que es el objetivo.</div>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Partida</th><th class="num">Por mes</th><th class="num">Total 5 meses</th><th>Qué compra</th></tr></thead>
+        <tbody>
+          <tr><td class="plat" colspan="4" style="color:var(--cyan);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-top:18px">Inversión mensual sostenida</td></tr>
+          <tr><td class="plat">Meta Ads</td><td class="num">$2.250.000</td><td class="num">$11.250.000</td><td class="obj">Descubrimiento + conversión + catálogo + retargeting, con presupuesto para testear creatividades</td></tr>
+          <tr><td class="plat">Google Ads</td><td class="num">$1.500.000</td><td class="num">$7.500.000</td><td class="obj">Búsqueda genérica y de marca + Shopping/Performance Max sobre el feed de la tienda</td></tr>
+          <tr><td class="plat">Mercado Ads</td><td class="num">$950.000</td><td class="num">$4.750.000</td><td class="obj">Product Ads sobre los 6 SKU, con puja diferenciada por producto ancla</td></tr>
+          <tr class="total"><td>Subtotal plataformas · base del 15%</td><td class="num">$4.700.000</td><td class="num">$23.500.000</td><td class="obj">Cinco meses, de septiembre a enero. Fee variable: $3.525.000</td></tr>
+          <tr><td class="plat" colspan="4" style="color:var(--cyan);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-top:22px">Bolsas para acciones · monto total, no mensual</td></tr>
+          <tr><td class="plat">Prescriptores y creadores</td><td class="num">bolsa</td><td class="num">$2.000.000</td><td class="obj">Cachés de perfiles pagos, para usar cuando aparece el perfil que vale la pena. El canje de producto va aparte y no consume esta bolsa</td></tr>
+          <tr><td class="plat">PNT en streaming</td><td class="num">1 acción</td><td class="num">$3.000.000</td><td class="obj">Campaña de menciones en un canal de streaming deportivo. Recomendamos ubicarla en noviembre, con el lanzamiento ya en la calle</td></tr>
+          <tr><td class="plat">Activaciones y punto de venta</td><td class="num">bolsa</td><td class="num">$3.000.000</td><td class="obj">Activaciones en boxes, torneos y eventos del calendario deportivo, material POP y siembra por reseña</td></tr>
+          <tr class="total"><td>Subtotal acciones · sin fee variable</td><td class="num">—</td><td class="num">$8.000.000</td><td class="obj">El reparto entre las tres se ajusta según lo que aparezca: es una bolsa, no tres compartimentos cerrados</td></tr>
+          <tr class="total"><td>Inversión en efectivo</td><td class="num">$4.700.000/mes</td><td class="num">$31.500.000</td><td class="obj">Total del programa con honorarios y fee variable: USD 49.971</td></tr>
+        </tbody>
+      </table></div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario B seleccionado</span></div>
+    </div>
+
+    <!-- ESCENARIO C -->
+    <div class="scen scen-pick r d4" data-scen="C">
+      <div class="scen-head">
+        <div class="st">Escenario C · Ideal<small>Requiere USD 15.188 por encima del presupuesto actual</small></div>
+        <div class="si">$52.000.000 en 5 meses<small>≈ USD 34.667 · $7.800.000/mes + $13.000.000 de bolsas</small></div>
+      </div>
+      <div class="scen-note">Es el único escenario en el que <b>3.000 unidades mensuales para enero deja de
+        depender de que el canal B2B haga casi todo</b>. Suma YouTube, una segunda acción de streaming y un
+        atleta o equipo federado con contrato semestral. Lo incluimos porque nos pidieron sinceridad: si el
+        objetivo de enero es firme, este es el orden de magnitud que hace falta. Se puede llegar acá
+        reasignando desde diciembre, si el piloto rinde.</div>
+      <div class="tbl-wrap"><table class="tbl">
+        <thead><tr><th>Partida</th><th class="num">Por mes</th><th class="num">Total 5 meses</th><th>Qué compra</th></tr></thead>
+        <tbody>
+          <tr><td class="plat" colspan="4" style="color:var(--cyan);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-top:18px">Inversión mensual sostenida</td></tr>
+          <tr><td class="plat">Meta Ads</td><td class="num">$3.800.000</td><td class="num">$19.000.000</td><td class="obj">Todo lo anterior + campañas de marca sostenidas y audiencias amplias</td></tr>
+          <tr><td class="plat">Google Ads</td><td class="num">$2.600.000</td><td class="num">$13.000.000</td><td class="obj">Búsqueda + Performance Max + YouTube para instalar el relato de laboratorio</td></tr>
+          <tr><td class="plat">Mercado Ads</td><td class="num">$1.400.000</td><td class="num">$7.000.000</td><td class="obj">Pelea por la posición de "más vendidos" en las categorías ancla</td></tr>
+          <tr class="total"><td>Subtotal plataformas · base del 15%</td><td class="num">$7.800.000</td><td class="num">$39.000.000</td><td class="obj">Cinco meses, de septiembre a enero. Fee variable: $5.850.000</td></tr>
+          <tr><td class="plat" colspan="4" style="color:var(--cyan);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-top:22px">Bolsas para acciones · monto total, no mensual</td></tr>
+          <tr><td class="plat">Prescriptores y creadores</td><td class="num">bolsa</td><td class="num">$3.000.000</td><td class="obj">Cachés de perfiles pagos, con margen para sostener a los que funcionan y no solo probar</td></tr>
+          <tr><td class="plat">PNTs en streaming</td><td class="num">2 acciones</td><td class="num">$6.000.000</td><td class="obj">Una en el lanzamiento de noviembre y otra en el pico de verano de enero</td></tr>
+          <tr><td class="plat">Embajador deportivo</td><td class="num">semestral</td><td class="num">$2.500.000</td><td class="obj">Un atleta o equipo federado con derechos de imagen y contenido propio</td></tr>
+          <tr><td class="plat">Activaciones y punto de venta</td><td class="num">bolsa</td><td class="num">$1.500.000</td><td class="obj">Presencia en eventos y torneos del calendario deportivo</td></tr>
+          <tr class="total"><td>Subtotal acciones · sin fee variable</td><td class="num">—</td><td class="num">$13.000.000</td><td class="obj">El reparto interno se ajusta según lo que aparezca</td></tr>
+          <tr class="total"><td>Inversión en efectivo</td><td class="num">$7.800.000/mes</td><td class="num">$52.000.000</td><td class="obj">Total del programa con honorarios y fee variable: USD 65.188</td></tr>
+        </tbody>
+      </table></div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario C seleccionado</span></div>
+    </div>
+
+    <h3 class="h-md mt-l r d5">Por qué las acciones van como bolsa y no como cuota</h3>
+    <div class="grid g3 mt-m">
+      <div class="card hi r d5"><span class="num-tag">LA LÓGICA</span>
+        <p>Un PNT en streaming cuesta del orden de <b>$3.000.000 y puede ser más</b>. Diluirlo en cinco cuotas
+          de $600.000 no compra nada. Lo mismo con un caché que vale la pena: si el perfil correcto aparece en
+          noviembre, hay que poder pagarlo en noviembre. <b>La bolsa existe para poder decidir cuándo</b>, no
+          para repartir en partes iguales.</p></div>
+      <div class="card r d6"><span class="num-tag">CÓMO SE USA</span>
+        <p>Popcorn propone, la Dirección Comercial aprueba y se ejecuta. Cada acción sale con su <b>código de
+          seguimiento propio</b>, así que a fin de mes se sabe cuánto vendió cada una. Al cierre del piloto
+          queda un registro de qué acción trajo unidades y a qué costo: eso es exactamente lo que el inversor
+          va a querer ver.</p></div>
+      <div class="card r d7"><span class="num-tag">LO QUE NO PAGA</span>
+        <p>Estas bolsas <b>no pagan el fee variable del 15%</b>: el variable se calcula solo sobre lo invertido
+          en Meta, Google y Mercado Ads. Cada peso que va a una acción va completo a la acción. Y el
+          <b>canje de producto va aparte</b> y no consume la bolsa: se paga en unidades.</p></div>
+    </div>
+
+    <h3 class="h-md mt-l r d7">Bolsillo 3: el canje se paga en producto, no en plata</h3>
+    <p class="lead mt-s r d7">La partida que <b>no consume presupuesto y no paga fee variable</b>, y donde VULFA
+      tiene una ventaja que ninguna marca sin planta puede igualar: un competidor que compra producto terminado
+      paga el canje a precio de reventa; <b>ustedes lo pagan a costo de fabricación</b>. Por eso el plan arranca
+      por canje y guarda la bolsa de efectivo para los dos o tres perfiles que realmente muevan venta.</p>
+    <div class="tbl-wrap r d8">
+      <table class="tbl">
+        <thead><tr><th>Uso</th><th class="num">B · Conservador</th><th class="num">C · Ideal</th><th>Criterio</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Canje con micro-creadores</td><td class="num">~24 un/mes</td><td class="num">~45 un/mes</td><td class="obj">3 a 6 unidades por perfil, para que prueben y muestren el producto en uso durante varias semanas</td></tr>
+          <tr><td class="plat">Siembra por reseña en ML</td><td class="num">~16 un/mes</td><td class="num">~25 un/mes</td><td class="obj">Primeras unidades a cambio de reseña verificada. Es lo que rompe el cero de prueba social</td></tr>
+          <tr class="total"><td>Total en unidades · 5 meses</td><td class="num">~200 un</td><td class="num">~350 un</td><td class="obj">En el escenario B es menos del 7% de un mes de objetivo de venta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid g2 mt-m">
+      <div class="card r d8"><span class="num-tag">CÓMO SE DECIDE A QUIÉN PAGARLE</span>
+        <p>Nunca por seguidores. Cada activación sale con <b>código de descuento propio y UTM</b>, así que a
+          fin de mes sabemos exactamente cuántas unidades vendió cada perfil. Se renueva a quien vendió y se
+          corta a quien no, sin discusión de afinidad. En el mes 3 la bolsa ya se concentra en los que
+          funcionan.</p></div>
+      <div class="card r d8"><span class="num-tag">LO QUE NO VAMOS A HACER</span>
+        <p>Ir a buscar a la figura de moda. Como dijo Sol en la reunión: <b>lo que le sirve a un laboratorio
+          es prescripción, no fama.</b> Un nutricionista con 8.000 seguidores que recomienda la creatina de
+          VULFA vale más que un famoso con 500.000 que no la toma —y además es lo único defendible frente al
+          marco regulatorio.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">12 / 18</span><span>Escenarios de inversión</span></div>
+</section>
+
+<!-- 12 · PROYECCIÓN -->
+<section id="proyeccion" data-label="Qué podríamos lograr">
+  <div class="wrap">
+    <div class="eyebrow r">Qué podríamos lograr</div>
+    <h2 class="h-lg r d1">Los números, con los<br>supuestos a la vista.</h2>
+    <p class="lead mt-m r d2">No vamos a poner un CPL o un CPC como si fuera un dato: <b>no tenemos todavía la
+      cuenta de VULFA</b>, y en Argentina no existe un estudio público de costos por industria. Lo que sí
+      podemos hacer es mostrar el modelo completo con cada supuesto declarado, para que se pueda discutir
+      y para que en dos semanas lo reemplacemos por el dato real de la subasta.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Supuesto</th><th class="num">Valor de trabajo</th><th>De dónde sale</th><th>Cuándo se reemplaza</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Precio promedio por unidad</td><td class="num">$50.000</td><td class="obj">Punto medio conservador del rango que declaró VULFA ($35.000 a $100.000)</td><td class="obj">Con la lista de precios final — es el dato que más nos falta</td></tr>
+          <tr><td class="plat">Unidades por orden</td><td class="num">1,4</td><td class="obj">Criterio: la orden típica de la categoría combina proteína con creatina o magnesio</td><td class="obj">Primeras 100 órdenes reales</td></tr>
+          <tr><td class="plat">CPC promedio ponderado</td><td class="num">$500 a $900</td><td class="obj">Criterio del equipo de Paid Media. No es un dato de mercado publicado</td><td class="obj">Semana 1: Planificador de Palabras Clave de Google en pesos + estimación del administrador de Meta</td></tr>
+          <tr><td class="plat">Conversión en Mercado Libre</td><td class="num">3,5%</td><td class="obj">Criterio: ML resuelve pago, envío y confianza, así que convierte muy por encima de una tienda nueva</td><td class="obj">Semana 2: ML informa visitas por publicación</td></tr>
+          <tr><td class="plat">Conversión en tienda propia</td><td class="num">1,2%</td><td class="obj">Marca nueva sin reputación. La referencia local de alimentos y bebidas para grandes marcas es 2,07% (CACE)</td><td class="obj">Semana 2, con el pixel y GA4 midiendo</td></tr>
+          <tr><td class="plat">Ticket de referencia del e-commerce argentino</td><td class="num">$107.597</td><td class="obj">CACE, primer semestre 2026 (dato local publicado)</td><td class="obj">Sirve de control: nuestro supuesto de ticket queda por debajo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h-md mt-l r d4">Unidades mensuales por canal digital (Mercado Libre + tienda propia)</h3>
+    <div class="tbl-wrap r d5">
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th class="num">Clics / mes</th><th class="num">Órdenes / mes</th><th class="num">Unidades / mes</th><th class="num">Punto de trabajo</th><th class="num">% del objetivo digital</th></tr></thead>
+        <tbody>
+          
+          <tr><td class="plat">B · Conservador</td><td class="num">4.350 – 7.800</td><td class="num">80 – 250</td><td class="num">135 – 490</td><td class="num">~310</td><td class="num">39%</td></tr>
+          <tr><td class="plat">C · Ideal</td><td class="num">7.200 – 12.900</td><td class="num">130 – 410</td><td class="num">230 – 805</td><td class="num">~515</td><td class="num">64%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted mt-s r d5" style="font-size:.82rem">Las unidades incluyen el aporte del orgánico, los prescriptores y la
+      recompra (entre un 25% y un 40% por encima de lo que compra el clic). El "% del objetivo digital" se calcula sobre
+      las 800 unidades mensuales que el canal digital tiene que aportar dentro de las 3.000 totales.</p>
+
+    <h3 class="h-md mt-l r d6">Curva de arranque · unidades digitales mes a mes</h3>
+    <div class="tbl-wrap r d6">
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th class="num">Sep</th><th class="num">Oct</th><th class="num">Nov</th><th class="num">Dic</th><th class="num">Ene</th><th class="num">Total 5 meses</th></tr></thead>
+        <tbody>
+          
+          <tr><td class="plat">B · Conservador</td><td class="num">78</td><td class="num">171</td><td class="num">248</td><td class="num">310</td><td class="num">341</td><td class="num">1.148</td></tr>
+          <tr><td class="plat">C · Ideal</td><td class="num">129</td><td class="num">283</td><td class="num">412</td><td class="num">515</td><td class="num">567</td><td class="num">1.906</td></tr>
+          <tr class="total"><td>Rampa aplicada</td><td class="num">25%</td><td class="num">55%</td><td class="num">80%</td><td class="num">100%</td><td class="num">110%</td><td class="num">del régimen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="evo mt-l r d7">
+      <div class="badge">La conclusión honesta</div>
+      <blockquote>Con el escenario conservador, 3.000 unidades mensuales es un objetivo de marzo o abril, no de enero. Con el ideal, enero es alcanzable si el canal B2B acompaña.</blockquote>
+      <p class="sign">Y eso no es un problema del plan: es la aritmética del presupuesto. Preferimos decirlo
+        ahora, dejarlo escrito y trabajar contra un número real, antes que prometer enero y explicar en diciembre por qué no llegamos. Si mientras el inversor <b>vea crecimiento sostenido mes a mes</b> —que fue
+        exactamente lo que Juan dijo que necesita— el piloto cumple su función.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">13 / 18</span><span>Qué podríamos lograr</span></div>
+</section>
+
+<!-- 13 · MAPA DE LOS 50.000 -->
+<section id="mapa" data-label="El mapa de los USD 50.000">
+  <div class="wrap">
+    <div class="eyebrow r">Asignación del presupuesto</div>
+    <h2 class="h-lg r d1">Cómo se reparten<br>los USD 50.000.</h2>
+    <p class="lead mt-m r d2">Nos dijeron que no sabían si era mucho o poco. Esta es nuestra respuesta:
+      <b>es un presupuesto acotado pero suficiente para un piloto bien hecho</b>, siempre que el primer mes se
+      use para construir los activos y no para comprar alcance. Acá está todo adentro —honorarios fijos, fee
+      variable e inversión— en el escenario recomendado.</p>
+
+    <div class="tbl-wrap r d3">
+      <table class="tbl">
+        <thead><tr><th>Destino</th><th class="num">Por mes</th><th class="num">Total del programa</th><th class="num">USD</th><th class="num">Peso</th><th>Cuándo se paga</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">1a · Arranque</td><td class="num">pago único</td><td class="num">$11.374.008</td><td class="num">7.583</td><td class="num">15%</td><td class="obj">Una sola vez, al confirmar. Cubre el trabajo de septiembre: estrategia, medición, fotos, tienda y fichas de ML, redes y kit comercial</td></tr>
+          <tr><td class="plat">1b · Fee fijo de Popcorn</td><td class="num">$5.711.500</td><td class="num">$28.557.502</td><td class="num">19.038</td><td class="num">38%</td><td class="obj">Cinco cuotas iguales de $5.711.500, de septiembre a enero, 100% adelantadas</td></tr>
+          <tr><td class="plat">1c · Fee variable de Popcorn · 15%</td><td class="num">≈ $705.000</td><td class="num">$3.525.000</td><td class="num">2.350</td><td class="num">5%</td><td class="obj">Cinco meses, de septiembre a enero. 15% de lo invertido en Meta, Google y Mercado Ads, a mes cerrado: si un mes se invierte menos, se paga menos. No se aplica a PNTs, cachés ni activaciones</td></tr>
+          <tr><td class="plat">2a · Inversión en plataformas</td><td class="num">$4.700.000</td><td class="num">$23.500.000</td><td class="num">15.667</td><td class="num">31%</td><td class="obj">Cinco meses, de septiembre a enero. Lo paga VULFA directo a cada plataforma</td></tr>
+          <tr><td class="plat">2b · Bolsas de acción</td><td class="num">bolsa</td><td class="num">$8.000.000</td><td class="num">5.333</td><td class="num">11%</td><td class="obj">Sin cuota mensual: se usan cuando conviene. Prescriptores $2.000.000 + punto de venta $3.000.000 + PNT en streaming $3.000.000</td></tr>
+          <tr class="total"><td>Total del programa</td><td class="num">—</td><td class="num">$74.956.510</td><td class="num">49.971</td><td class="num">100%</td><td class="obj">Dentro del presupuesto habilitado de USD 50.000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted mt-s r d3" style="font-size:.82rem"><b>Cómo leer la tabla:</b> la columna "por mes" es lo que
+      se factura o se invierte cada mes; la columna "total del programa" es la suma de todo el período, no un pago
+      único. Solo la primera fila se paga de una vez.<br>
+      Los bolsillos 3 (canje en producto, ~200 unidades) y 4 (impuestos de plataforma, crédito fiscal) no consumen
+      este presupuesto: están explicados en la sección "cómo se reparte cada peso".</p>
+
+    <div class="grid g3 mt-l">
+      <div class="card r d4"><span class="num-tag">POR QUÉ EL MES 0 PESA</span>
+        <p>El 15% inicial construye lo que hoy bloquea todo lo demás: sin fotos de producto no hay fichas, sin
+          fichas no hay Mercado Ads, sin material comercial los vendedores salen a la calle con las manos
+          vacías. <b>Es la inversión que desbloquea las otras dos.</b></p></div>
+      <div class="card r d5"><span class="num-tag">POPCORN 58% / INVERSIÓN 42%</span>
+        <p>Es una proporción alta, y es la del arranque de una marca que hay que construir entera: producción,
+          fichas, redes, material comercial y medición se hacen una sola vez y se pagan en estos cinco meses.
+          A partir de febrero el mix se invierte solo, porque el fee fijo no se mueve y la inversión crece. Y de
+          los $31.500.000, <b>$8.000.000 quedan como bolsa de acciones</b> sin comprometer mes a mes: es el
+          margen de maniobra para decidir sobre la marcha.</p></div>
+      <div class="card r d6"><span class="num-tag">LO QUE NO ESTÁ ACÁ</span>
+        <p>Desarrollo de la web (la hace Fernando), etiquetas y packaging (ya están), impresión del POP,
+          logística de muestras, y los impuestos de plataforma del bolsillo 4. Todo detallado en el alcance.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">14 / 18</span><span>El mapa de los USD 50.000</span></div>
+</section>
+
+<!-- 14 · INVERSIÓN -->
+<section id="inversion" data-label="Honorarios">
+  <div class="wrap">
+    <div class="eyebrow r">Honorarios de Popcorn</div>
+    <h2 class="h-lg r d1">Cada servicio, con su precio.<br>Sin ítems "a definir".</h2>
+    <p class="lead mt-m r d2">Tildá los servicios con los que quieren avanzar y elegí un escenario de medios
+      más arriba: el botón del final arma el correo con la selección exacta. Todos los valores son
+      <b>+ IVA</b> y están expresados en pesos a septiembre de 2026.</p>
+
+    <div class="invest mt-l">
+      <div class="invest-card r d3">
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Bloque A · Arranque · pago único</span><span class="inv-sub" id="subOnce">—</span></div>
+          <div class="price-row svc-pick on" data-type="once" data-amount="3374705" data-svc="Arranque estratégico y sistema de medición" data-price="$3.374.705 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Arranque estratégico y sistema de medición</span>
+              <small>Inmersión, mapa competitivo de 10 marcas por SKU, plan de medios a 5 meses, arquitectura de KPIs y setup completo de medición (GA4, Pixel, Google Ads, Tienda Nube, UTMs, Google Business). 74 horas.</small></span></div>
+            <div class="pv">$3.374.705<span class="ivatag">+ IVA · único</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="once" data-amount="3745510" data-svc="Producción de lanzamiento · jornada de producto" data-price="$3.745.510 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Producción de lanzamiento · jornada de producto</span>
+              <small>1 jornada con camarógrafo y fotógrafo: packshots de los 6 SKU, producto en contexto y 6 a 8 reels. Incluye dirección creativa, coordinación, edición y logística.</small></span></div>
+            <div class="pv">$3.745.510<span class="ivatag">+ IVA · único</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="once" data-amount="1580092" data-svc="Kit comercial B2B" data-price="$1.580.092 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Kit comercial B2B</span>
+              <small>Catálogo digital, carpeta comercial, presentación para distribuidores, argumentario de venta por canal, una pieza POP de mostrador y flyer de lanzamiento. Si Fernando ya tiene la propuesta para distribuidores, la auditamos y adaptamos con alcance reducido.</small></span></div>
+            <div class="pv">$1.580.092<span class="ivatag">+ IVA · único</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="once" data-amount="1232874" data-svc="Mercado Libre: tienda oficial y 6 fichas" data-price="$1.232.874 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Mercado Libre: tienda oficial y 6 fichas</span>
+              <small>Diseño de tienda oficial, fichas con título SEO, atributos, fotos, descripciones y contenido enriquecido, plantillas de respuesta y política de reputación.</small></span></div>
+            <div class="pv">$1.232.874<span class="ivatag">+ IVA · único</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="once" data-amount="951090" data-svc="Puesta en marcha de redes y sistema de contenido" data-price="$951.090 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Puesta en marcha de redes y sistema de contenido</span>
+              <small>Alta y optimización de Instagram, TikTok y Facebook, sistema de plantillas sobre el manual VULFA, primer lote de 12 piezas y plan de contenido del lanzamiento.</small></span></div>
+            <div class="pv">$951.090<span class="ivatag">+ IVA · único</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="once" data-amount="841510" data-svc="Puesta en marcha de pauta (Meta + Google)" data-price="$841.510 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Puesta en marcha de pauta · Meta + Google</span>
+              <small>Estructura de campañas por objetivo, audiencias, conversiones, feed de catálogo, primer set creativo por formato y plan de testing.</small></span></div>
+            <div class="pv">$841.510<span class="ivatag">+ IVA · único</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Bloque B · Mensual · sep a ene</span><span class="inv-sub" id="subMonth">—</span></div>
+          <div class="price-row svc-pick on" data-type="month" data-amount="1285009" data-svc="Dirección estratégica y de medios" data-price="$1.285.009 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Dirección estratégica y de medios</span>
+              <small>Reunión semanal con la Dirección Comercial, comité mensual, tablero de KPIs, reporte, radar de competencia y decisión de asignación de presupuesto. 24 horas/mes de perfiles senior.</small></span></div>
+            <div class="pv">$1.285.009<span class="ivatag">+ IVA / mes</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="month" data-amount="1993738" data-svc="Contenido y gestión de redes" data-price="$1.993.738 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Contenido y gestión de redes</span>
+              <small>12 posts + 8 videos verticales + stories 3 veces por semana en Instagram, TikTok y Facebook. Moderación de consultas públicas en redes y derivación al asesor comercial, no mensajes directos. Reporte mensual.</small></span></div>
+            <div class="pv">$1.993.738<span class="ivatag">+ IVA / mes</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="month" data-amount="937018" data-svc="Gestión de pauta Meta + Google" data-price="$937.018 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Gestión de pauta · Meta + Google</span>
+              <small>Optimizaciones, reportes y creatividades sobre Meta y Google. No incluye la inversión en medios.</small></span></div>
+            <div class="pv">$937.018<span class="ivatag">+ IVA / mes</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="month" data-amount="535970" data-svc="Programa de prescriptores y micro-influencers" data-price="$535.970 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Programa de prescriptores y micro-influencers</span>
+              <small>Búsqueda y scoring de perfiles, negociación, brief creativo, seguimiento y medición por código. El caché o canje va aparte.</small></span></div>
+            <div class="pv">$535.970<span class="ivatag">+ IVA / mes</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="month" data-amount="514484" data-svc="Jornada mensual de contenido" data-price="$514.484 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Jornada mensual de contenido</span>
+              <small>Una jornada de 4 a 5 horas por mes con equipo liviano: 40 a 50 fotos y 10 a 12 videos verticales.</small></span></div>
+            <div class="pv">$514.484<span class="ivatag">+ IVA / mes</span></div>
+          </div>
+          <div class="price-row svc-pick on" data-type="month" data-amount="445281" data-svc="Gestión de Mercado Ads" data-price="$445.281 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Gestión de Mercado Ads</span>
+              <small>Product Ads dentro de Mercado Libre: la tercera plataforma. Puja diferenciada por SKU, optimización sobre el producto ancla, control de precio contra los competidores de la categoría y lectura de rotación por publicación. Se enciende desde el mes 2, cuando las fichas ya tienen visitas orgánicas para leer.</small></span></div>
+            <div class="pv">$445.281<span class="ivatag">+ IVA / mes</span></div>
+          </div>
+          <div class="price-row" data-type="var">
+            <div class="pl"><span class="chk-spacer"></span>
+              <span><span class="pl-t">Fee variable sobre inversión administrada</span>
+              <small>15% sobre <b>la inversión en plataformas</b> y nada más: Meta Ads, Google Ads y Mercado Ads. <b>No se aplica</b> a los PNTs en streaming, a los cachés de prescriptores, a las activaciones ni al canje de producto: la coordinación de todo eso ya está paga dentro del fee fijo.</small>
+              <small class="varfee">Va como fórmula y no como monto fijo, porque depende del escenario que elijan y varía mes a mes.</small></span></div>
+            <div class="pv">15%<span class="ivatag">+ IVA · s/ inversión</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Bloque C · Adicionales recomendados</span><span class="inv-sub" id="subAdd">—</span></div>
+          <div class="price-row svc-pick" data-type="once" data-amount="3636996" data-svc="Jornada en planta + video institucional" data-price="$3.636.996 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Jornada en planta + video institucional</span>
+              <small>Rodaje en Burzaco: institucional de 60 a 90 segundos, versión de 30 para pauta, reels de calidad farmacéutica y backstage. Incluye locución, seguros y logística. Recomendamos hacerlo en noviembre.</small></span></div>
+            <div class="pv">$3.636.996<span class="ivatag">+ IVA · único</span></div>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-amount="397743" data-svc="Drone (media jornada)" data-price="$397.743 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <span><span class="pl-t">Drone · media jornada</span>
+              <small>Tomas aéreas del predio, para el institucional y para la apertura de las piezas de marca.</small></span></div>
+            <div class="pv">$397.743<span class="ivatag">+ IVA · único</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="h-md r d4">Formas de pago</h3>
+        <p class="muted mt-s r d4" style="font-size:.92rem">Para los servicios de pago único hay dos opciones.
+          El bloque mensual se factura siempre 100% adelantado y <b>no tiene descuento por anticipado</b>: lo
+          aclaramos para que no haya confusión.</p>
+
+        <div class="pay hi r d5">
+          <div class="pt">Bloque A · 100% anticipado <span class="off">−3%</span></div>
+          <div class="pd">Valor preferencial. Se factura al confirmar y el equipo arranca al día siguiente.</div>
+          <div class="pnum">$11.374.008 + IVA</div>
+        </div>
+        <div class="pay r d5">
+          <div class="pt">Bloque A · 50% + 50%</div>
+          <div class="pd">50% al iniciar el proyecto y 50% al finalizarlo o a los 30 días de iniciado, lo que ocurra primero.</div>
+          <div class="pnum">$11.725.781 + IVA</div>
+        </div>
+        <div class="pay r d6">
+          <div class="pt">Bloque B · mensual, 100% adelantado</div>
+          <div class="pd">Cinco cuotas iguales de septiembre a enero, facturadas los primeros días de cada mes.
+            Sin descuento por anticipado. El <b>fee variable del 15%</b> se factura por separado a mes cerrado,
+            sobre la inversión que efectivamente se ejecutó.<br><b>Si el arranque cae a mitad de mes, la primera
+            cuota se prorratea por los días trabajados</b> y el programa corre igual sus cinco meses completos.</div>
+          <div class="pnum">$5.711.500 + IVA / mes</div>
+        </div>
+
+        <div class="card mt-m r d7">
+          <h3>Totales del programa</h3>
+          <ul class="bullets mt-s">
+            <li><span class="bi">Σ</span><p><b>Honorarios fijos, 5 meses:</b> $39.931.510 + IVA con el bloque A anticipado, o $40.283.283 + IVA con el bloque A en dos pagos. Equivale a <b>USD 26.621</b> o USD 26.856 de referencia.</p></li>
+            <li><span class="bi">Σ</span><p><b>Fee variable (escenario B):</b> 15% sobre los $23.500.000 invertidos en plataformas = <b>$3.525.000 + IVA en cinco meses</b> ≈ USD 2.350. Se factura a mes cerrado, sobre lo efectivamente ejecutado: si un mes se invierte menos, se paga menos.</p></li>
+            <li><span class="bi">Σ</span><p><b>Inversión en efectivo (escenario B):</b> $31.500.000 en cinco meses, ≈ USD 21.000. Son $23.500.000 de plataformas más $8.000.000 de bolsas de acción —prescriptores, PNT en streaming y punto de venta—, que <b>no pagan fee variable</b>. Lo paga VULFA directo, más los impuestos y percepciones que factura cada plataforma.</p></li>
+            <li><span class="bi">Σ</span><p><b>Total del programa:</b> ≈ <b>USD 49.971</b> del presupuesto de USD 50.000 habilitado. <b>El fee variable está adentro de esa cifra</b>, no por encima.</p></li>
+          </ul>
+        </div>
+
+        <div class="card mt-m r d8">
+          <h3>Actualización de valores</h3>
+          <p>Los honorarios mensuales quedan <b>fijos de septiembre a noviembre</b>. Para diciembre y enero se aplica una única actualización por IPC (INDEC) acumulado del trimestre. Como el presupuesto de VULFA está
+            definido en dólares, <b>también podemos fijar el contrato en USD</b> y facturar al tipo de cambio MEP
+            del día: si prefieren esa modalidad, la dejamos escrita y evitamos el ajuste por inflación.</p>
+        </div>
+        <div class="note-pill r d8"><b>Equivalencia en USD:</b> informativa, calculada a $1.500 por dólar sobre el valor
+          más alto. Se factura en pesos.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">15 / 18</span><span>Honorarios</span></div>
+</section>
+
+<!-- 15 · KPIs -->
+<section id="kpis" data-label="KPIs y decisiones">
+  <div class="wrap">
+    <div class="eyebrow r">Medición y gobierno</div>
+    <h2 class="h-lg r d1">Ocho números y una regla<br>para cortar a tiempo.</h2>
+    <div class="landing mt-l">
+      <div>
+        <ul class="bullets r d2">
+          <li><span class="bi">1</span><p><b>Unidades vendidas por mes y por canal.</b> El número madre. Los 3.000 desagregados en distribuidores, venta directa, ML y tienda propia.</p></li>
+          <li><span class="bi">2</span><p><b>Cuentas B2B activas y tasa de reposición.</b> Un cliente que repite vale diez que probaron. Es el indicador de que el producto rota, no solo que se vendió.</p></li>
+          <li><span class="bi">3</span><p><b>Costo de marketing por unidad vendida.</b> Inversión total del mes dividido unidades. Es la métrica que va a mirar el inversor, y la que gobierna la regla de decisión.</p></li>
+          <li><span class="bi">4</span><p><b>Tasa de recompra a 60 días en D2C.</b> El corazón del negocio de suplementos: sin recompra no hay negocio, hay una venta.</p></li>
+          <li><span class="bi">5</span><p><b>Rotación por punto de venta.</b> Unidades por mes por cuenta. Distingue las cuentas que hay que atender de las que hay que dejar ir.</p></li>
+          <li><span class="bi">6</span><p><b>Reputación y posición en Mercado Libre.</b> Color de reputación, cantidad de reseñas y posición en las búsquedas de categoría de los SKU ancla.</p></li>
+          <li><span class="bi">7</span><p><b>Búsquedas de marca.</b> Cuánta gente busca "vulfa" en Google. Es la prueba más limpia de que la marca empezó a existir.</p></li>
+          <li><span class="bi">8</span><p><b>Facturación atribuida por canal.</b> No solo unidades: pesos, para poder optimizar por margen y no por volumen.</p></li>
+        </ul>
+      </div>
+      <div>
+        <div class="wf r d3">
+          <div class="wf-bar"><span></span><span></span><span></span><span class="wf-ttl">VULFA · Tablero del piloto</span></div>
+          <div class="wf-kpis">
+            <div class="wf-kpi"><div class="kk">Unidades mes</div><div class="kv">—</div></div>
+            <div class="wf-kpi"><div class="kk">Cuentas B2B</div><div class="kv">—</div></div>
+            <div class="wf-kpi"><div class="kk">Costo x unidad</div><div class="kv">—</div></div>
+            <div class="wf-kpi"><div class="kk">Recompra 60d</div><div class="kv">—</div></div>
+          </div>
+          <div class="wf-chart"><i style="height:22%"></i><i style="height:38%"></i><i style="height:52%"></i><i style="height:64%"></i><i style="height:78%"></i><i style="height:92%"></i></div>
+          <div class="wf-row" style="height:26px"></div>
+          <div class="wf-row" style="height:26px"></div>
+          <div class="wf-row" style="height:26px"></div>
+        </div>
+        <p class="muted mt-s r d3" style="font-size:.8rem">Tablero online, siempre disponible para la Dirección.
+          Sin números precargados: se llena con los datos reales desde la primera semana.</p>
+
+        <div class="card hi mt-m r d4">
+          <span class="num-tag">LA REGLA DE DECISIÓN · REVISIÓN DEL 15 DE DICIEMBRE</span>
+          <h3>Cuándo escalamos y cuándo cortamos</h3>
+          <ul class="bullets mt-s">
+            <li><span class="bi">↑</span><p>Si el costo de marketing por unidad es <b>menor al 35% del margen de contribución</b>: escalamos del escenario B al C con la reserva.</p></li>
+            <li><span class="bi">=</span><p>Entre <b>35% y 70%</b>: se mantiene la inversión y se trabaja sobre creatividad, oferta y ficha.</p></li>
+            <li><span class="bi">↓</span><p>Por encima del <b>70%</b>: se corta el gasto de tráfico y se reasigna al canal B2B —muestras, POP, viáticos de vendedores, activaciones en gimnasios.</p></li>
+          </ul>
+          <p class="mt-s"><b>Para que esta regla funcione necesitamos el margen de contribución por SKU y por canal.</b>
+            Es el dato que más nos falta hoy, y el que convierte el reporte en una decisión.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">16 / 18</span><span>KPIs y decisiones</span></div>
+</section>
+
+<!-- 16 · CRONOGRAMA -->
+<section id="crono" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1">Cinco meses, mes por mes.</h2>
+    <p class="lead mt-m r d2">Alineado a su propio calendario: inspección de planta, RNPA, producto en la
+      calle a fines de septiembre o principios de octubre, y piloto de ventas hasta el cierre de enero.
+      <b>El programa arranca en septiembre y termina en enero.</b></p>
+    <div class="tl">
+      <div class="tl-item r d3"><div class="dot"></div><div class="ph">Septiembre · mes 1</div>
+        <h3>Arranque y habilitación</h3>
+        <p>Inmersión y workshop con Macarena. Mapa competitivo por SKU. Plan de medios. Setup completo de
+          medición. Jornada de producción de producto. Alta de redes y sistema de plantillas. Tienda oficial y
+          seis fichas de Mercado Libre listas para publicar. Kit comercial en manos de los vendedores.
+          <b>La pauta arranca en modo reconocimiento</b>, mientras se termina de habilitar el producto. Cierra
+          con el <b>plan de lanzamiento aprobado</b>.</p></div>
+      <div class="tl-item r d4"><div class="dot"></div><div class="ph">Octubre · mes 2</div>
+        <h3>Lanzamiento comercial</h3>
+        <p>Producto en la calle y <b>la pauta pasa a conversión</b>. Meta y Google con foco en
+          descubrimiento y captura de intención. Fichas de ML activas y siembra de las primeras reseñas.
+          Primeros prescriptores. Sell-in B2B con material profesional. Al cierre del mes, <b>el primer costo
+          real por unidad vendida</b>.</p></div>
+      <div class="tl-item r d5"><div class="dot"></div><div class="ph">Noviembre · mes 3</div>
+        <h3>Calibración y escalado del piloto</h3>
+        <p>Se reemplazan todos los supuestos por datos de la cuenta. Se enciende Mercado Ads. Jornada de rodaje
+          en planta y video institucional, y <b>la acción de PNT en streaming</b>. Se duplica lo que rinde y se
+          apaga lo que no. Ampliación del programa de prescriptores con los perfiles que efectivamente
+          vendieron.</p></div>
+      <div class="tl-item r d6"><div class="dot"></div><div class="ph">Diciembre · mes 4</div>
+        <h3>Temporada y decisión de escalado</h3>
+        <p>Campaña de verano y fiestas: es el pico de la categoría. <b>Revisión del 15 de diciembre</b> con la
+          regla de decisión sobre la mesa: se escala, se sostiene o se reasigna al canal B2B. Cierre del
+          trimestre con el primer informe consolidado.</p></div>
+      <div class="tl-item r d7"><div class="dot"></div><div class="ph">Enero · mes 5</div>
+        <h3>Pico de verano, cierre e informe para el inversor</h3>
+        <p>Enero es el mes de mayor inscripción en gimnasios del año: foco en conversión, retargeting y primera
+          campaña de recompra sobre la base construida. Y cierra el programa con <b>un informe del piloto
+          redactado en formato para el inversor</b>: qué se probó, qué costó, qué rotó, qué se aprendió y qué
+          haría falta para escalar en 2027. Ese documento es el entregable más importante de todo el
+          programa.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">17 / 18</span><span>Cronograma</span></div>
+</section>
+
+<!-- 17 · RIESGOS + ALCANCE + QUÉ NECESITAMOS -->
+<section id="riesgos" data-label="Riesgos y alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Riesgos, alcance y lo que necesitamos</div>
+    <h2 class="h-lg r d1">Lo que puede salir mal<br>y cómo lo manejamos.</h2>
+    <div class="grid g3 mt-l">
+      <div class="card r d2"><span class="num-tag">RIESGO 01</span><h3>El RNPA o la habilitación se demoran</h3>
+        <p>No se enciende pauta de conversión sin stock: el mes se reorienta a contenido de marca y sell-in B2B,
+          que no necesitan producto en góndola. <b>Cero presupuesto quemado en tráfico sin producto.</b></p></div>
+      <div class="card r d3"><span class="num-tag">RIESGO 02</span><h3>El precio no es competitivo en Mercado Libre</h3>
+        <p>Antes de publicar mapeamos precio por SKU de las diez marcas top. Si VULFA no puede competir en precio,
+          no vamos a la góndola de precio: vamos con el relato de laboratorio, ficha superior y contenido.</p></div>
+      <div class="card r d4"><span class="num-tag">RIESGO 03</span><h3>Cero reseñas al arrancar</h3>
+        <p>Programa de siembra desde el día 1: primeras unidades a cambio de reseña verificada, y las farmacias
+          del grupo como primer punto de rotación medible si la Dirección lo habilita.</p></div>
+      <div class="card r d5"><span class="num-tag">RIESGO 04</span><h3>Dispersión entre seis SKU</h3>
+        <p>Concentramos el 60% del esfuerzo en proteína y creatina, que son los de mejor margen según nos dijeron.
+          El resto trabaja como puerta de entrada y como argumento de recompra.</p></div>
+      <div class="card r d6"><span class="num-tag">RIESGO 05</span><h3>Que la agencia no siga el ritmo</h3>
+        <p>Ya les pasó. La respuesta es cadencia escrita: <b>reunión semanal fija con Macarena, tablero siempre
+          online y responsables con nombre.</b> Si algo se atrasa, se ve antes de que sea un problema.</p></div>
+      <div class="card r d7"><span class="num-tag">RIESGO 06</span><h3>Objetivo de enero muy exigente</h3>
+        <p>Ya lo dijimos con números: con el escenario conservador, los 3.000 llegan en marzo o abril, no en enero. Lo dejamos escrito para poder negociar el plazo con el inversor sobre datos y no sobre expectativas.</p></div>
+    </div>
+
+    <div class="scope mt-l">
+      <div class="scope-col yes r d3">
+        <h3>Incluido en los honorarios</h3>
+        <div class="sub">Todo lo que está en los bloques A y B</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Estrategia, plan de medios, medición y tablero de KPIs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Reunión semanal con la Dirección Comercial y reporte mensual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Producción, diseño y edición de todo el contenido de redes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Gestión de campañas en Meta y Google, con relevo creativo mensual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Tienda oficial y fichas de Mercado Libre, y la gestión de Mercado Ads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Búsqueda, negociación y coordinación de prescriptores</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Kit comercial B2B y una jornada mensual de contenido</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Guion y plan de rodaje si la producción la ejecuta un tercero (Pisco)</li>
+        </ul>
+      </div>
+      <div class="scope-col no r d4">
+        <h3>No incluido</h3>
+        <div class="sub">Se cotiza aparte o lo absorbe VULFA</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Inversión en medios, cachés y canjes de prescriptores, PNTs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Impuestos y percepciones que facturan Meta, Google y Mercado Libre</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Operación diaria de la ficha de ML: preguntas, reclamos y reputación</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Desarrollo o rediseño de la web y de la tienda (lo hace Fernando)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Etiquetas, packaging y manual de marca — ya están hechos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Impresión y producción física del material POP y del catálogo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Logística y envío de muestras y de producto a prescriptores</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Jornadas de rodaje adicionales a las cotizadas y animación 2D</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>Email marketing y automatizaciones — lo proponemos para 2027, hoy no hay base</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>SEO de contenidos y blog — es una apuesta a más de seis meses</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="h-md mt-l r d5">Los ocho datos que necesitamos en la primera semana</h3>
+    <div class="grid g4 mt-m">
+      <div class="card r d6"><span class="num-tag">01</span><p><b>Lista de precios por canal</b> (retail, mayorista, distribuidor) y <b>margen de contribución por SKU</b>. Es el dato más importante de todos.</p></div>
+      <div class="card r d6"><span class="num-tag">02</span><p><b>Stock disponible y lead time</b> de producción por SKU, para no pautar sin producto.</p></div>
+      <div class="card r d7"><span class="num-tag">03</span><p><b>Fecha real de RNPA</b> por producto y estado de la habilitación de planta.</p></div>
+      <div class="card r d7"><span class="num-tag">04</span><p><b>Accesos:</b> Meta Business, Google Ads y Analytics, Tienda Nube, Mercado Libre y dominio.</p></div>
+      <div class="card r d8"><span class="num-tag">05</span><p><b>Manual de marca en editable</b>, etiquetas finales y logo vectorial.</p></div>
+      <div class="card r d8"><span class="num-tag">06</span><p><b>Cartera actual de contactos B2B</b> de Gerardo y Miguel, para no prospectar lo ya trabajado.</p></div>
+      <div class="card r d8"><span class="num-tag">07</span><p><b>Los 3.000 desagregados por canal</b>, tal como los mira la Dirección Comercial.</p></div>
+      <div class="card hi r d8"><span class="num-tag">08</span><p><b>La decisión sobre el canal propio:</b> ¿entran Medinfar, Mata y Guiñazú como canal de prueba?</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">18 / 18</span><span>Riesgos y alcance</span></div>
+</section>
+
+<!-- POPCORN -->
+<section id="popcorn" data-label="Por qué Popcorn">
+  <div class="wrap">
+    <div class="eyebrow r">Por qué nosotros</div>
+    <h2 class="h-lg r d1">Venimos del mundo del<br>laboratorio y del mundo de vender.</h2>
+    <p class="lead mt-m r d2">VULFA es las dos cosas a la vez: un laboratorio farmacéutico que tiene que vender
+      un producto de consumo. Es exactamente la intersección donde trabajamos.</p>
+    <div class="split mt-l">
+      <div>
+        <ul class="bullets r d3">
+          <li><span class="bi">1</span><p><b>Ocho de cada diez de nuestros clientes son de salud.</b> Trabajamos
+            con hospitales, laboratorios de análisis clínicos, prepagas y centros médicos. Comunicación regulada,
+            evidencia y públicos profesionales son nuestro terreno habitual, no una curva de aprendizaje.</p></li>
+          <li><span class="bi">2</span><p><b>Y también vendemos producto.</b> Tenemos clientes de consumo,
+            e-commerce y B2B industrial: marcas que se miden en unidades vendidas y en cuentas abiertas,
+            no en impresiones.</p></li>
+          <li><span class="bi">3</span><p><b>Todo bajo un mismo techo.</b> Estrategia, paid media, contenido,
+            producción audiovisual, diseño y web con una sola dirección estratégica. No coordinamos
+            proveedores: los tenemos adentro.</p></li>
+          <li><span class="bi">4</span><p><b>No somos monopólicos.</b> Trabajamos con los equipos externos que
+            ustedes elijan —Pisco, su diseñador, quien sea. Nos ocupamos de que todo apunte al mismo objetivo
+            comercial.</p></li>
+        </ul>
+        <div class="stats sm r d4">
+          <div class="stat"><div class="v">15+</div><div class="l">Años trabajando</div></div>
+          <div class="stat"><div class="v">160+</div><div class="l">Marcas acompañadas</div></div>
+          <div class="stat"><div class="v">360°</div><div class="l">Servicio integral, un solo equipo</div></div>
+        </div>
+      </div>
+      <div class="col-img">
+        <div class="media r d3"><img src="img/deportista.jpg" alt="Deportista">
+          <div class="cap"><div class="ct">Popcorn</div><div class="cs">Marketing, comunicación y creatividad con mirada de negocio.</div></div></div>
+      </div>
+    </div>
+    <div class="logowall r d5">
+      <div class="logocell"><img class="brandlogo" src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Hospital Universitario Austral</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/manlab.png" alt="ManLab" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">ManLab</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Swiss Medical</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/fitzroy.jpg" alt="Centro Médico Integral Fitz Roy" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">CMI Fitz Roy</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/mercadocheque.png" alt="Mercado Cheque" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Mercado Cheque</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/transpack.png" alt="Transpack" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Transpack</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/evel.webp" alt="Evel" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Evel</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/mitmaq.png" alt="Mitmaq" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Mitmaq</span></div>
+    </div>
+
+    <h3 class="h-md mt-l r d6">Quién va a estar del otro lado del teléfono</h3>
+    <div class="grid g3 mt-m">
+      <div class="card r d7"><span class="num-tag">DIRECCIÓN DE PROYECTO</span><h3>Florencia Grigolatto</h3>
+        <p>Operations Manager. Es el contacto directo de Macarena: lleva la estrategia, la cadencia semanal y el
+          reporte a la Dirección Comercial. <b>florencia@somospopcorn.com</b></p></div>
+      <div class="card r d7"><span class="num-tag">DIRECCIÓN DE MEDIOS</span><h3>Sol Ferrari</h3>
+        <p>General Manager y responsable de Paid Media. Define el mix de inversión, la estructura de campañas y
+          la estrategia de prescriptores. <b>sol@somospopcorn.com</b></p></div>
+      <div class="card r d7"><span class="num-tag">DIRECCIÓN AUDIOVISUAL</span><h3>Demián Linetzky</h3>
+        <p>Executive Director. Dirige las jornadas de producción y el institucional de planta, y coordina con
+          equipos externos si la producción va con terceros. <b>demianlinet@somospopcorn.com</b></p></div>
+    </div>
+    <p class="muted mt-m r d8" style="font-size:.88rem">Detrás de ellos: un analista de marketing, un coordinador
+      y un analista de paid media, diseño, content creator, community manager y edición. El equipo completo está
+      dimensionado en las horas de cada servicio.</p>
+  </div>
+  <div class="sfoot"><span class="num">+</span><span>Por qué Popcorn</span></div>
+</section>
+
+<!-- PASOS + CIERRE -->
+<section id="cierre" data-label="Próximos pasos">
+  <div class="bg-photo center"><img src="img/planta2.jpg" alt="Planta"></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="align-self:center">Próximos pasos</div>
+    <h2 class="close-title r d1">Si nos eligen, el lunes<br>arrancamos con el workshop.</h2>
+    <div class="grid g4 mt-l" style="text-align:left;width:100%">
+      <div class="card r d2"><span class="num-tag">PASO 01</span><h3>Confirmación</h3><p>Seleccionan servicios y escenario de medios acá abajo y nos mandan el correo. Sin ida y vuelta de PDFs.</p></div>
+      <div class="card r d3"><span class="num-tag">PASO 02</span><h3>Facturación y accesos</h3><p>Facturamos el bloque A y nos pasan los ocho datos y los accesos de la primera semana.</p></div>
+      <div class="card r d4"><span class="num-tag">PASO 03</span><h3>Workshop con Macarena</h3><p>Dos horas para cerrar objetivos por canal, prioridad de SKU y calendario de lanzamiento.</p></div>
+      <div class="card r d5"><span class="num-tag">PASO 04</span><h3>Plan aprobado en 10 días</h3><p>Plan de lanzamiento, plan de medios y jornada de producción agendada. Octubre sale.</p></div>
+    </div>
+    <div id="ctaPick" class="r d6"></div>
+    <a class="cta-go r d6" id="ctaGo" href="mailto:florencia@somospopcorn.com">
+      Avancemos con la propuesta
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="close-sign r d7">
+      <img class="logo-pic close" src="img/logo-popcorn-vertical-blanco.png" alt="Popcorn">
+      <div class="close-tag">Popcorn · Marketing, comunicación y creatividad</div>
+    </div>
+    <div class="footer-line r d8">
+      Propuesta preparada para VULFA · Grupo Bulla el 8 de septiembre de 2026 · <b>Válida hasta el 18 de septiembre de 2026</b>.<br>
+      Valores expresados en pesos argentinos, sin IVA, a valores de septiembre 2026. La equivalencia en dólares es
+      informativa y se calcula a $1.500 por dólar. La inversión en medios se factura aparte y directamente a las plataformas.<br>
+      Florencia Grigolatto · Operations Manager · florencia@somospopcorn.com &nbsp;·&nbsp; Sol Ferrari · General Manager · sol@somospopcorn.com
+    </div>
+  </div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral (dots) ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r,.flowline').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.4});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Selección de servicios + escenario ===== */
+const scenData={
+  'B':{label:'Escenario B · Conservador (recomendado)',inv:'ARS 31.500.000 en 5 meses (USD 21.000): ARS 4.700.000/mes de plataformas + ARS 8.000.000 de bolsas para acciones',un:'~310 unidades/mes en régimen (135 a 490)',mix:'Meta + Google + Mercado Ads + bolsa de prescriptores + 1 PNT en streaming + punto de venta',nota:'Fee variable 15% solo sobre plataformas = ARS 3.525.000. Cierra los USD 50.000 con honorarios fijos y variable adentro'},
+  'C':{label:'Escenario C · Ideal',inv:'ARS 52.000.000 en 5 meses (USD 34.667): ARS 7.800.000/mes de plataformas + ARS 13.000.000 de bolsas para acciones',un:'~515 unidades/mes en régimen (230 a 805)',mix:'Todo lo anterior + YouTube + 2 PNTs + atleta o equipo federado',nota:'Fee variable 15% solo sobre plataformas = ARS 5.850.000. Requiere USD 15.188 por encima del presupuesto actual'}
+};
+const picks=[...document.querySelectorAll('.scen-pick')];
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
+let selScen='B';
+
+function buildMail(){
+  let onceT=0,monthT=0;
+  const chosen=svcPicks.filter(s=>s.classList.contains('on'));
+  chosen.forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    if(s.dataset.type==='once'){onceT+=a;}else{monthT+=a;}
+  });
+  document.getElementById('subOnce').textContent = onceT? fmt(onceT)+' + IVA' : '—';
+  document.getElementById('subMonth').textContent = monthT? fmt(monthT)+' + IVA / mes' : '—';
+  document.getElementById('subAdd').textContent = 'Opcionales';
+
+  let subject='VULFA · Avancemos con la propuesta de Popcorn';
+  let body='Hola Florencia, vimos la propuesta para VULFA y queremos avanzar.';
+  if(chosen.length){
+    body+='\n\nServicios con los que queremos avanzar:';
+    chosen.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nResumen de honorarios:';
+    if(onceT){body+='\n• Pago único: '+fmt(onceT)+' + IVA';}
+    if(monthT){body+='\n• Mensual (sep a ene): '+fmt(monthT)+' + IVA / mes  —  total 5 meses: '+fmt(monthT*5)+' + IVA';}
+    if(onceT&&monthT){body+='\n• Total del programa a 5 meses: '+fmt(onceT+monthT*5)+' + IVA';}
+  }
+  if(selScen&&scenData[selScen]){
+    const s=scenData[selScen];
+    subject='VULFA · Avancemos · '+s.label;
+    body+='\n\nEscenario de inversión en medios elegido:\n• '+s.label+'\n• Inversión: '+s.inv+'\n• Proyección digital: '+s.un+'\n• Mix: '+s.mix+'\n• Nota: '+s.nota;
+  }
+  body+='\n\nEntendemos que al fee mensual se suma el 15% variable sobre la inversión administrada en Meta, Google y Mercado Ads, facturado a mes cerrado.';
+  body+='\n\nForma de pago del bloque único que preferimos: (100% anticipado / 50% + 50%)\n\nGracias.';
+  const parts=[];
+  if(chosen.length){parts.push(chosen.length+' servicio'+(chosen.length>1?'s':''));}
+  if(selScen){parts.push(scenData[selScen].label);}
+  ctaPick.innerHTML = parts.length ? 'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b>' : '<span class="none">Elegí servicios y un escenario de medios más arriba para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+picks.forEach(p=>{
+  if(p.dataset.scen==='B'){p.classList.add('selected');}
+  p.addEventListener('click',()=>{
+    const wasSel=p.classList.contains('selected');
+    picks.forEach(x=>x.classList.remove('selected'));
+    if(wasSel){selScen=null;}else{p.classList.add('selected');selScen=p.dataset.scen;}
+    buildMail();
+  });
+});
+svcPicks.forEach(s=>{
+  s.addEventListener('click',()=>{ s.classList.toggle('on'); buildMail(); });
+});
+buildMail();
+</script>
+</body>
+</html>
