@@ -89,7 +89,7 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 .h-md{font-weight:600;font-size:clamp(1.35rem,2.3vw,1.9rem);line-height:1.15}
 .cy{color:var(--cyan)}
 .lead{font-size:clamp(1.02rem,1.5vw,1.26rem);color:var(--w-80);max-width:780px;font-weight:400;line-height:1.65}
-.muted{color:var(--w-65)}
+.muted{color:rgba(255,255,255,.78)}
 .kicker{font-family:'Public Sans';font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--cyan)}
 b,strong{color:#fff;font-weight:600}
 .hl{background:var(--cyan);color:var(--ink);padding:0 .16em .05em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -123,7 +123,7 @@ b,strong{color:#fff;font-weight:600}
 .card .ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--cyan-line);color:var(--cyan);margin-bottom:18px}
 .card .ico svg{width:23px;height:23px}
 .card h3{font-size:1.14rem;font-weight:600;margin-bottom:9px}
-.card p{color:var(--w-65);font-size:.94rem;line-height:1.6}
+.card p{color:rgba(255,255,255,.82);font-size:.94rem;line-height:1.6}
 .card .num-tag{font-family:'Public Sans';font-weight:700;font-size:13px;color:var(--cyan);letter-spacing:.1em;margin-bottom:12px;display:block}
 .card.hi{background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(13,4,40,.35));border-color:var(--cyan-line)}
 .card.warn{border-color:rgba(245,165,36,.35);background:rgba(245,165,36,.06)}
@@ -164,14 +164,14 @@ b,strong{color:#fff;font-weight:600}
 .flowline .step:last-child::after{display:none}
 
 /* TABLAS */
-.tbl-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line-soft);background:var(--card);margin-top:26px}
+.tbl-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line-soft);background:rgba(14,3,36,.34);margin-top:26px}
 table.tbl{width:100%;border-collapse:collapse;min-width:720px}
-.tbl th{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th{font-family:'Public Sans';font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
 .tbl th.num{text-align:right}
-.tbl td{padding:14px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td{padding:14px 18px;font-size:.9rem;color:#fff;border-bottom:1px solid var(--line-soft);vertical-align:top}
 .tbl td.num{text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap}
 .tbl .plat{font-family:'Public Sans';font-weight:600;color:#fff;white-space:nowrap}
-.tbl .obj{color:var(--w-45);font-size:.82rem;line-height:1.4;min-width:180px}
+.tbl .obj{color:rgba(255,255,255,.80);font-size:.855rem;line-height:1.45;min-width:180px}
 .tbl tr:last-child td{border-bottom:none}
 .tbl tr.total td{border-top:1.5px solid var(--cyan-line);background:rgba(116,250,227,.07);font-family:'Public Sans';font-weight:700;color:#fff}
 .tbl tr.total td.num{color:var(--cyan)}
@@ -230,7 +230,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .bullets li{display:flex;gap:14px;align-items:flex-start}
 .bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(116,250,227,.12);border:1px solid var(--cyan-line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:700;font-size:13px;margin-top:2px}
 .bullets li p{color:var(--w-80);font-size:.97rem;line-height:1.55}
-.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65);margin-top:18px}
+.note-pill{display:inline-flex;max-width:100%;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65);margin-top:18px}
 .note-pill b{color:var(--cyan);font-family:'Public Sans';font-weight:600}
 #ctaPick{font-family:'Public Sans';font-weight:600;font-size:.95rem;color:var(--cyan);margin-top:22px;min-height:1.2em}
 #ctaPick .none{color:var(--w-45);font-weight:500}
@@ -256,7 +256,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .evo>*:not(.evo-bg){position:relative;z-index:1}
 .evo .badge{display:inline-flex;align-items:center;gap:10px;font-family:'Public Sans';font-weight:600;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--cyan);margin-bottom:24px;border:1px solid var(--cyan-line);padding:8px 16px;border-radius:100px}
 .evo blockquote{font-family:'Public Sans';font-weight:600;font-size:clamp(1.35rem,2.7vw,2.2rem);line-height:1.32;letter-spacing:-.01em;max-width:28ch}
-.evo .sign{margin-top:24px;color:var(--w-65);font-size:.97rem;max-width:660px;line-height:1.6}
+.evo .sign{margin-top:24px;color:rgba(255,255,255,.82);font-size:.97rem;max-width:660px;line-height:1.6}
 
 /* TIMELINE */
 .tl{position:relative;margin-top:38px;display:flex;flex-direction:column}
@@ -852,10 +852,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
       septiembre la pauta trabaja en modo reconocimiento mientras se termina de habilitar el producto; desde
       octubre pasa a conversión.</p>
 
-    <!-- ESCENARIO B -->
-    <div class="scen scen-pick r d3" data-scen="B">
+    <!-- ESCENARIO A -->
+    <div class="scen scen-pick r d3" data-scen="A">
       <div class="scen-head">
-        <div class="st">Escenario B · Conservador <span class="badge-rec">Recomendado</span><small>Cierra los USD 50.000 con honorarios y fee variable adentro</small></div>
+        <div class="st">Escenario A · Conservador <span class="badge-rec">Recomendado</span><small>Cierra los USD 50.000 con honorarios y fee variable adentro</small></div>
         <div class="si">$31.500.000 en 5 meses<small>≈ USD 21.000 · $4.700.000/mes + $8.000.000 de bolsas</small></div>
       </div>
       <div class="scen-note">Es el escenario que recomendamos. Permite tener las tres plataformas con
@@ -875,16 +875,16 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <tr><td class="plat">PNT en streaming</td><td class="num">1 acción</td><td class="num">$3.000.000</td><td class="obj">Campaña de menciones en un canal de streaming deportivo. Recomendamos ubicarla en noviembre, con el lanzamiento ya en la calle</td></tr>
           <tr><td class="plat">Activaciones y punto de venta</td><td class="num">bolsa</td><td class="num">$3.000.000</td><td class="obj">Activaciones en boxes, torneos y eventos del calendario deportivo, material POP y siembra por reseña</td></tr>
           <tr class="total"><td>Subtotal acciones · sin fee variable</td><td class="num">—</td><td class="num">$8.000.000</td><td class="obj">El reparto entre las tres se ajusta según lo que aparezca: es una bolsa, no tres compartimentos cerrados</td></tr>
-          <tr class="total"><td>Inversión en efectivo</td><td class="num">$4.700.000/mes</td><td class="num">$31.500.000</td><td class="obj">Total del programa con honorarios y fee variable: USD 49.971</td></tr>
+          <tr class="total"><td>Inversión en efectivo</td><td class="num">$4.700.000/mes<br><small style="font-weight:400;opacity:.75">+ bolsas</small></td><td class="num">$31.500.000</td><td class="obj">$23.500.000 de plataformas (5 cuotas de $4.700.000) + $8.000.000 de bolsas. Total del programa con honorarios y fee variable: USD 49.971</td></tr>
         </tbody>
       </table></div>
-      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario B seleccionado</span></div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario A seleccionado</span></div>
     </div>
 
-    <!-- ESCENARIO C -->
-    <div class="scen scen-pick r d4" data-scen="C">
+    <!-- ESCENARIO B -->
+    <div class="scen scen-pick r d4" data-scen="B">
       <div class="scen-head">
-        <div class="st">Escenario C · Ideal<small>Requiere USD 15.188 por encima del presupuesto actual</small></div>
+        <div class="st">Escenario B · Ideal<small>Requiere USD 15.188 por encima del presupuesto actual</small></div>
         <div class="si">$52.000.000 en 5 meses<small>≈ USD 34.667 · $7.800.000/mes + $13.000.000 de bolsas</small></div>
       </div>
       <div class="scen-note">Es el único escenario en el que <b>3.000 unidades mensuales para enero deja de
@@ -906,10 +906,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <tr><td class="plat">Embajador deportivo</td><td class="num">semestral</td><td class="num">$2.500.000</td><td class="obj">Un atleta o equipo federado con derechos de imagen y contenido propio</td></tr>
           <tr><td class="plat">Activaciones y punto de venta</td><td class="num">bolsa</td><td class="num">$1.500.000</td><td class="obj">Presencia en eventos y torneos del calendario deportivo</td></tr>
           <tr class="total"><td>Subtotal acciones · sin fee variable</td><td class="num">—</td><td class="num">$13.000.000</td><td class="obj">El reparto interno se ajusta según lo que aparezca</td></tr>
-          <tr class="total"><td>Inversión en efectivo</td><td class="num">$7.800.000/mes</td><td class="num">$52.000.000</td><td class="obj">Total del programa con honorarios y fee variable: USD 65.188</td></tr>
+          <tr class="total"><td>Inversión en efectivo</td><td class="num">$7.800.000/mes<br><small style="font-weight:400;opacity:.75">+ bolsas</small></td><td class="num">$52.000.000</td><td class="obj">$39.000.000 de plataformas (5 cuotas de $7.800.000) + $13.000.000 de bolsas. Total del programa con honorarios y fee variable: USD 65.188</td></tr>
         </tbody>
       </table></div>
-      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario C seleccionado</span></div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario B seleccionado</span></div>
     </div>
 
     <h3 class="h-md mt-l r d5">Por qué las acciones van como bolsa y no como cuota</h3>
@@ -937,11 +937,11 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
       por canje y guarda la bolsa de efectivo para los dos o tres perfiles que realmente muevan venta.</p>
     <div class="tbl-wrap r d8">
       <table class="tbl">
-        <thead><tr><th>Uso</th><th class="num">B · Conservador</th><th class="num">C · Ideal</th><th>Criterio</th></tr></thead>
+        <thead><tr><th>Uso</th><th class="num">A · Conservador</th><th class="num">B · Ideal</th><th>Criterio</th></tr></thead>
         <tbody>
           <tr><td class="plat">Canje con micro-creadores</td><td class="num">~24 un/mes</td><td class="num">~45 un/mes</td><td class="obj">3 a 6 unidades por perfil, para que prueben y muestren el producto en uso durante varias semanas</td></tr>
           <tr><td class="plat">Siembra por reseña en ML</td><td class="num">~16 un/mes</td><td class="num">~25 un/mes</td><td class="obj">Primeras unidades a cambio de reseña verificada. Es lo que rompe el cero de prueba social</td></tr>
-          <tr class="total"><td>Total en unidades · 5 meses</td><td class="num">~200 un</td><td class="num">~350 un</td><td class="obj">En el escenario B es menos del 7% de un mes de objetivo de venta</td></tr>
+          <tr class="total"><td>Total en unidades · 5 meses</td><td class="num">~200 un</td><td class="num">~350 un</td><td class="obj">En el escenario A es menos del 7% de un mes de objetivo de venta</td></tr>
         </tbody>
       </table>
     </div>
@@ -957,6 +957,15 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           VULFA vale más que un famoso con 500.000 que no la toma —y además es lo único defendible frente al
           marco regulatorio.</p></div>
     </div>
+    <div class="card mt-m r d8"><span class="num-tag">EL PERFIL QUE BUSCAMOS, CON NOMBRE</span>
+      <p>Magui Aicega —ex capitana de Las Leonas, medallista olímpica y nutricionista— reúne en una sola
+        persona las dos cosas que el marco regulatorio nos obliga a cuidar: <b>puede hablar de rendimiento
+        porque compitió al máximo nivel, y puede hablar de suplementación porque es su profesión.</b> Y hoy
+        tiene presencia estable en radio y TV deportiva, así que la prescripción llega con alcance propio en
+        lugar de necesitar pauta para existir. Es un <b>perfil candidato a explorar</b>: no hay conversación
+        iniciada ni caché confirmado, y por su nivel de exposición probablemente ocupe una parte importante de
+        la bolsa. Lo dejamos escrito como <b>referencia del estándar</b> con el que vamos a elegir, no como una
+        promesa.</p></div>
   </div>
   <div class="sfoot"><span class="num">12 / 18</span><span>Escenarios de inversión</span></div>
 </section>
@@ -991,8 +1000,8 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
         <thead><tr><th>Escenario</th><th class="num">Clics / mes</th><th class="num">Órdenes / mes</th><th class="num">Unidades / mes</th><th class="num">Punto de trabajo</th><th class="num">% del objetivo digital</th></tr></thead>
         <tbody>
           
-          <tr><td class="plat">B · Conservador</td><td class="num">4.350 – 7.800</td><td class="num">80 – 250</td><td class="num">135 – 490</td><td class="num">~310</td><td class="num">39%</td></tr>
-          <tr><td class="plat">C · Ideal</td><td class="num">7.200 – 12.900</td><td class="num">130 – 410</td><td class="num">230 – 805</td><td class="num">~515</td><td class="num">64%</td></tr>
+          <tr><td class="plat">A · Conservador</td><td class="num">4.350 – 7.800</td><td class="num">80 – 250</td><td class="num">135 – 490</td><td class="num">~310</td><td class="num">39%</td></tr>
+          <tr><td class="plat">B · Ideal</td><td class="num">7.200 – 12.900</td><td class="num">130 – 410</td><td class="num">230 – 805</td><td class="num">~515</td><td class="num">64%</td></tr>
         </tbody>
       </table>
     </div>
@@ -1006,8 +1015,8 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
         <thead><tr><th>Escenario</th><th class="num">Sep</th><th class="num">Oct</th><th class="num">Nov</th><th class="num">Dic</th><th class="num">Ene</th><th class="num">Total 5 meses</th></tr></thead>
         <tbody>
           
-          <tr><td class="plat">B · Conservador</td><td class="num">78</td><td class="num">171</td><td class="num">248</td><td class="num">310</td><td class="num">341</td><td class="num">1.148</td></tr>
-          <tr><td class="plat">C · Ideal</td><td class="num">129</td><td class="num">283</td><td class="num">412</td><td class="num">515</td><td class="num">567</td><td class="num">1.906</td></tr>
+          <tr><td class="plat">A · Conservador</td><td class="num">78</td><td class="num">171</td><td class="num">248</td><td class="num">310</td><td class="num">341</td><td class="num">1.148</td></tr>
+          <tr><td class="plat">B · Ideal</td><td class="num">129</td><td class="num">283</td><td class="num">412</td><td class="num">515</td><td class="num">567</td><td class="num">1.906</td></tr>
           <tr class="total"><td>Rampa aplicada</td><td class="num">25%</td><td class="num">55%</td><td class="num">80%</td><td class="num">100%</td><td class="num">110%</td><td class="num">del régimen</td></tr>
         </tbody>
       </table>
@@ -1216,8 +1225,8 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <h3>Totales del programa</h3>
           <ul class="bullets mt-s">
             <li><span class="bi">Σ</span><p><b>Honorarios fijos, 5 meses:</b> $39.931.510 + IVA con el bloque A anticipado, o $40.283.283 + IVA con el bloque A en dos pagos. Equivale a <b>USD 26.621</b> o USD 26.856 de referencia.</p></li>
-            <li><span class="bi">Σ</span><p><b>Fee variable (escenario B):</b> 15% sobre los $23.500.000 invertidos en plataformas = <b>$3.525.000 + IVA en cinco meses</b> ≈ USD 2.350. Se factura a mes cerrado, sobre lo efectivamente ejecutado: si un mes se invierte menos, se paga menos.</p></li>
-            <li><span class="bi">Σ</span><p><b>Inversión en efectivo (escenario B):</b> $31.500.000 en cinco meses, ≈ USD 21.000. Son $23.500.000 de plataformas más $8.000.000 de bolsas de acción —prescriptores, PNT en streaming y punto de venta—, que <b>no pagan fee variable</b>. Lo paga VULFA directo, más los impuestos y percepciones que factura cada plataforma.</p></li>
+            <li><span class="bi">Σ</span><p><b>Fee variable (escenario A):</b> 15% sobre los $23.500.000 invertidos en plataformas = <b>$3.525.000 + IVA en cinco meses</b> ≈ USD 2.350. Se factura a mes cerrado, sobre lo efectivamente ejecutado: si un mes se invierte menos, se paga menos.</p></li>
+            <li><span class="bi">Σ</span><p><b>Inversión en efectivo (escenario A):</b> $31.500.000 en cinco meses, ≈ USD 21.000. Son $23.500.000 de plataformas más $8.000.000 de bolsas de acción —prescriptores, PNT en streaming y punto de venta—, que <b>no pagan fee variable</b>. Lo paga VULFA directo, más los impuestos y percepciones que factura cada plataforma.</p></li>
             <li><span class="bi">Σ</span><p><b>Total del programa:</b> ≈ <b>USD 49.971</b> del presupuesto de USD 50.000 habilitado. <b>El fee variable está adentro de esa cifra</b>, no por encima.</p></li>
           </ul>
         </div>
@@ -1275,7 +1284,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:720px}
           <span class="num-tag">LA REGLA DE DECISIÓN · REVISIÓN DEL 15 DE DICIEMBRE</span>
           <h3>Cuándo escalamos y cuándo cortamos</h3>
           <ul class="bullets mt-s">
-            <li><span class="bi">↑</span><p>Si el costo de marketing por unidad es <b>menor al 35% del margen de contribución</b>: escalamos del escenario B al C con la reserva.</p></li>
+            <li><span class="bi">↑</span><p>Si el costo de marketing por unidad es <b>menor al 35% del margen de contribución</b>: escalamos del escenario A al B con la reserva.</p></li>
             <li><span class="bi">=</span><p>Entre <b>35% y 70%</b>: se mantiene la inversión y se trabaja sobre creatividad, oferta y ficha.</p></li>
             <li><span class="bi">↓</span><p>Por encima del <b>70%</b>: se corta el gasto de tráfico y se reasigna al canal B2B —muestras, POP, viáticos de vendedores, activaciones en gimnasios.</p></li>
           </ul>
@@ -1540,15 +1549,15 @@ sections.forEach(s=>active.observe(s));
 
 /* ===== Selección de servicios + escenario ===== */
 const scenData={
-  'B':{label:'Escenario B · Conservador (recomendado)',inv:'ARS 31.500.000 en 5 meses (USD 21.000): ARS 4.700.000/mes de plataformas + ARS 8.000.000 de bolsas para acciones',un:'~310 unidades/mes en régimen (135 a 490)',mix:'Meta + Google + Mercado Ads + bolsa de prescriptores + 1 PNT en streaming + punto de venta',nota:'Fee variable 15% solo sobre plataformas = ARS 3.525.000. Cierra los USD 50.000 con honorarios fijos y variable adentro'},
-  'C':{label:'Escenario C · Ideal',inv:'ARS 52.000.000 en 5 meses (USD 34.667): ARS 7.800.000/mes de plataformas + ARS 13.000.000 de bolsas para acciones',un:'~515 unidades/mes en régimen (230 a 805)',mix:'Todo lo anterior + YouTube + 2 PNTs + atleta o equipo federado',nota:'Fee variable 15% solo sobre plataformas = ARS 5.850.000. Requiere USD 15.188 por encima del presupuesto actual'}
+  'A':{label:'Escenario A · Conservador (recomendado)',inv:'ARS 31.500.000 en 5 meses (USD 21.000): ARS 4.700.000/mes de plataformas + ARS 8.000.000 de bolsas para acciones',un:'~310 unidades/mes en régimen (135 a 490)',mix:'Meta + Google + Mercado Ads + bolsa de prescriptores + 1 PNT en streaming + punto de venta',nota:'Fee variable 15% solo sobre plataformas = ARS 3.525.000. Cierra los USD 50.000 con honorarios fijos y variable adentro'},
+  'B':{label:'Escenario B · Ideal',inv:'ARS 52.000.000 en 5 meses (USD 34.667): ARS 7.800.000/mes de plataformas + ARS 13.000.000 de bolsas para acciones',un:'~515 unidades/mes en régimen (230 a 805)',mix:'Todo lo anterior + YouTube + 2 PNTs + atleta o equipo federado',nota:'Fee variable 15% solo sobre plataformas = ARS 5.850.000. Requiere USD 15.188 por encima del presupuesto actual'}
 };
 const picks=[...document.querySelectorAll('.scen-pick')];
 const svcPicks=[...document.querySelectorAll('.svc-pick')];
 const ctaGo=document.getElementById('ctaGo');
 const ctaPick=document.getElementById('ctaPick');
 const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
-let selScen='B';
+let selScen='A';
 
 function buildMail(){
   let onceT=0,monthT=0;
@@ -1585,7 +1594,7 @@ function buildMail(){
   ctaGo.href='mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 }
 picks.forEach(p=>{
-  if(p.dataset.scen==='B'){p.classList.add('selected');}
+  if(p.dataset.scen==='A'){p.classList.add('selected');}
   p.addEventListener('click',()=>{
     const wasSel=p.classList.contains('selected');
     picks.forEach(x=>x.classList.remove('selected'));
