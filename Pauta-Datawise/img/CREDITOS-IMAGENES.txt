@@ -1,0 +1,69 @@
+CRÉDITOS DE IMÁGENES — Propuesta DataWise (pauta regional)
+Relevado y descargado el 15 de septiembre de 2026.
+
+=========================================================================
+FOTOGRAFÍAS — Wikimedia Commons
+=========================================================================
+Todas fueron recortadas y reescaladas para la propuesta (obra derivada).
+
+ARCHIVO             OBRA ORIGINAL                                          LICENCIA
+-------------------------------------------------------------------------
+hero.jpg            BalticServers data center                              CC BY-SA 3.0
+                    https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg
+
+ciberseguridad.jpg  Batelco Network Operations Centre (NOC)                 CC BY-SA 3.0
+                    https://commons.wikimedia.org/wiki/File:Batelco_Network_Operations_Centre_(NOC).JPG
+
+ia.jpg              Front of Cray XE6 Blue Waters supercomputer cabinets    CC BY-SA 3.0
+                    https://commons.wikimedia.org/wiki/File:Front_of_Cray_XE6_Blue_Waters_supercomputer_cabinets.JPG
+
+medicion.jpg        Server Rack with Spaghetti-Like Mass of Network Cables  CC BY-SA 2.0
+                    https://commons.wikimedia.org/wiki/File:Server_Rack_with_Spaghetti-Like_Mass_of_Network_Cables.jpg
+
+argentina.jpg       Ponte da Mulher (Puente de la Mujer, Puerto Madero)     CC BY 2.0
+                    https://commons.wikimedia.org/wiki/File:Ponte_da_Mulher.jpg
+
+peru.jpg            Lima, Peru San Isidro Skyline                           CC BY-SA 3.0
+                    https://commons.wikimedia.org/wiki/File:Lima,_Peru_San_Isidro_Skyline.jpg
+
+chile.jpg           Gran Santiago Tower, Views from San Cristóbal Hill      CC BY-SA 3.0
+                    https://commons.wikimedia.org/wiki/File:Gran_Santiago_Tower,_Views_from_San_Critóbal_Hill_-_Santiago_-_Chile_01.jpg
+
+uruguay.jpg         Anfiteatro de la Torre de Antel, Uruguay                CC BY 2.0
+                    https://commons.wikimedia.org/wiki/File:Anfiteatro_de_la_Torre_de_Antel,_Uruguay.jpg
+
+reunion.jpg         2019 Comprehensive Test-Ban Treaty Art. XIV Conference  CC BY 2.0
+                    https://commons.wikimedia.org/wiki/File:2019_Comprehensive_Test-Ban_Treaty_Article_XIV_Conference_(48831503168).jpg
+
+=========================================================================
+A TENER EN CUENTA (decisión de Flo / Demián antes de publicar)
+=========================================================================
+Las licencias CC BY y CC BY-SA **exigen atribución**. Este archivo la cumple a nivel
+carpeta, pero la propuesta publicada no muestra los créditos en pantalla. Opciones:
+
+  a) Dejarlo así: la propuesta es un documento comercial privado, se comparte por link
+     con el cliente y este archivo acompaña la carpeta. Es lo habitual y el riesgo es bajo.
+  b) Agregar una línea de créditos discreta en el footer del index.html.
+  c) Reemplazar las fotos por material propio de Popcorn o por imágenes de banco pagas.
+
+Además, CC BY-SA aplica ShareAlike a las obras derivadas, y acá las imágenes fueron
+recortadas. Si la propuesta se publicara abiertamente (no por link privado al cliente),
+conviene revisar este punto o cambiar esas cuatro imágenes por CC BY / CC0.
+
+=========================================================================
+LOGOS — carpeta clientes/
+=========================================================================
+irsa · icbc · supervielle · bind · despegar · maipu · Bomberos-Chile · Senama ·
+Stgo · BNP · Bechtel · AHK
+
+Descargados de las homes de datawise.com.ar y datawise-latam.com el 15/09/2026.
+Son los clientes que DataWise publica hoy en su propio sitio. Se usan dentro de una
+propuesta dirigida al propio DataWise, para mostrarle un hallazgo sobre su sitio
+(la prueba social está en la home y no en las landings que reciben la pauta).
+NO usar estos logos en piezas públicas de Popcorn ni como credenciales propias.
+
+=========================================================================
+LOGO POPCORN
+=========================================================================
+logo-popcorn-blanco.png y logo-popcorn-vertical-blanco.png
+Copiados de .claude/skills/propuesta-popcorn/marca/ (archivos oficiales).
