@@ -290,6 +290,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(74,18,168,.80),rgba(18,5,40,.95))}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .split.rev>.col-img{order:-1}
+.split.fill{align-items:stretch}
+.split.fill .col-img{display:flex}
+.split.fill .media{height:100%;aspect-ratio:auto;min-height:340px}
 /* los hijos de grid no deben forzar el ancho del documento (min-width:auto) */
 .split>*,.invest>*,.grid>*,.scope>*,.phases>*,.team>*,.metaband>*{min-width:0}
 .tbl-wrap{max-width:100%}
@@ -309,9 +312,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .mkt{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:3/4;margin:0}
 .mkt img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.62) brightness(.55) contrast(1.06)}
 .mkt::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,12,100,.20) 30%,rgba(18,5,40,.92) 100%)}
-.mkt figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:20px 18px}
+.mkt figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 18px}
 .mkt figcaption b{display:block;font-family:'Public Sans';font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:6px}
-.mkt figcaption span{display:block;font-size:.78rem;color:var(--w-65);line-height:1.45}
+.mkt figcaption span{display:block;font-size:.88rem;color:var(--w-80);line-height:1.5}
 .mkt::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;z-index:3;background:var(--violeta-claro)}
 .mkt.ok::before{background:var(--aqua)}
 .mkt.bad::before{background:var(--alerta)}
@@ -342,16 +345,20 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 /* ecosistema de marcas + videos de casos */
 .ecosystem{display:flex;align-items:center;justify-content:center;gap:clamp(26px,5vw,60px);
   background:linear-gradient(150deg,rgba(116,250,227,.10),rgba(13,4,40,.42));
-  border:1px solid var(--aqua-line);border-radius:22px;padding:clamp(26px,4vw,44px) 28px}
+  border:1px solid var(--aqua-line);border-radius:22px;padding:clamp(40px,6vw,72px) 28px;min-height:200px}
 .eco-logo{width:auto;display:block;object-fit:contain}
-.eco-pop{height:clamp(30px,3.6vw,44px)}
-.eco-dw{height:clamp(24px,2.8vw,34px)}
+.eco-pop{height:clamp(26px,3.2vw,40px)}
+.eco-dw{height:clamp(24px,2.9vw,36px)}
 .eco-x{font-family:'Public Sans';font-weight:300;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--aqua);line-height:1}
 .vid{cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:18px;
   overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease)}
 .vid:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
 .vid-thumb{position:relative;aspect-ratio:16/9;overflow:hidden}
-.vid-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) brightness(.82)}
+.vid-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) contrast(1.04) brightness(.86)}
+.vid-thumb::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 60% at 50% 50%,rgba(18,5,40,.42),transparent 70%),
+             linear-gradient(180deg,rgba(18,5,40,.10),rgba(40,12,100,.34))}
+.vid-thumb .play-btn{z-index:2}
 .vid:hover .vid-thumb img{filter:saturate(1) brightness(.95)}
 .play-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;
   border-radius:50%;background:var(--aqua);display:flex;align-items:center;justify-content:center;
@@ -509,7 +516,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       </div>
       <div class="col-img r d3">
         <div class="ecosystem">
-          <img src="img/logo-popcorn-blanco.png" alt="Popcorn" class="eco-logo eco-pop">
+          <img src="img/logo-popcorn-trim.png" alt="Popcorn" class="eco-logo eco-pop">
           <span class="eco-x">+</span>
           <img src="img/logo-datawise.png" alt="Datawise" class="eco-logo eco-dw">
         </div>
@@ -840,9 +847,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
   <div class="wrap">
     <div class="eyebrow r">Territorio de mensaje</div>
     <h2 class="h-lg r d1">Un ángulo que hoy<br>no ocupa nadie.</h2>
-    <div class="split mt46">
+    <div class="split fill mt46">
       <div class="col-img r d2">
-        <div class="media wide"><img src="img/ia.jpg" alt="Infraestructura de cómputo"></div>
+        <div class="media tall"><img src="img/ia.jpg" alt="Infraestructura de cómputo"></div>
       </div>
       <div class="r d3">
         <p class="lead">Al revisar a los competidores de los cuatro mercados encontramos un espacio vacío que Datawise puede ocupar <b>con lo que ya vende</b>, sin construir capacidad nueva.</p>
@@ -1179,7 +1186,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
   <div class="wrap">
     <div class="eyebrow r">Reporting y KPIs</div>
     <h2 class="h-lg r d1">Dejar de reportar clics.<br>Empezar a reportar negocio.</h2>
-    <div class="split mt46">
+    <div class="split mt46" style="align-items:start">
       <div class="r d2">
         <p class="lead">Hoy el reporte termina donde empieza la pregunta importante. La cadena que vamos a reportar es la del negocio, desagregada por <b>país, vertical, campaña y plataforma</b>.</p>
         <div class="pipe mt34">
