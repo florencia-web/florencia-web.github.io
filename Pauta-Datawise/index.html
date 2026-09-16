@@ -28,9 +28,9 @@
   --gris-tinta:#1F2124;
   --negro:#121216;
   --white:#ffffff;
-  --w-80:rgba(255,255,255,.80);
-  --w-65:rgba(255,255,255,.65);
-  --w-45:rgba(255,255,255,.45);
+  --w-80:rgba(255,255,255,.90);
+  --w-65:rgba(255,255,255,.78);
+  --w-45:rgba(255,255,255,.62);
   --card:rgba(255,255,255,.045);
   --card-2:rgba(13,4,40,.45);
   --line:rgba(255,255,255,.14);
@@ -137,12 +137,12 @@ b,strong{color:#fff;font-weight:600}
 .card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:20px}
 .card .ico svg{width:24px;height:24px}
 .card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px}
-.card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.card p{color:var(--w-80);font-size:1rem;line-height:1.62}
 .card .num-tag{font-family:'Public Sans';font-weight:700;font-size:13px;color:var(--aqua);letter-spacing:.1em;margin-bottom:14px;display:block}
 .card.hi{background:linear-gradient(160deg,rgba(116,250,227,.13),rgba(13,4,40,.35));border-color:var(--aqua-line)}
 .card .big{font-family:'Public Sans';font-weight:700;font-size:clamp(2rem,3.6vw,2.9rem);color:var(--aqua);line-height:1;margin-bottom:10px}
 .card .big.warn{color:var(--alerta)}
-.card .foot{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:.83rem;color:var(--w-45);line-height:1.5}
+.card .foot{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:.9rem;color:var(--w-65);line-height:1.55}
 
 /* stats */
 .stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
@@ -159,7 +159,7 @@ b,strong{color:#fff;font-weight:600}
 table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .tbl th{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
 .tbl th.num{text-align:right}
-.tbl td{padding:14px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td{padding:15px 18px;font-size:.96rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
 .tbl td.num{text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap}
 .tbl td.plat,.tbl .plat{font-family:'Public Sans';font-weight:600;color:#fff;white-space:nowrap}
 .tbl td.ok{color:var(--aqua);font-family:'Public Sans';font-weight:600}
@@ -167,7 +167,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .tbl tr:last-child td{border-bottom:none}
 .tbl tr.total td{border-top:1.5px solid var(--aqua-line);background:rgba(116,250,227,.07);font-family:'Public Sans';font-weight:700;color:#fff}
 .tbl tr.total td.num{color:var(--aqua)}
-.tblnote{font-size:.82rem;color:var(--w-45);margin-top:14px;line-height:1.6;max-width:80ch}
+.tblnote{font-size:.95rem;color:var(--w-80);margin-top:16px;line-height:1.7;max-width:86ch}
 
 /* ============ PIPE ============ */
 .pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
@@ -186,7 +186,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .phase-card .pn{font-family:'Public Sans';font-weight:700;font-size:3rem;color:rgba(116,250,227,.38);line-height:1;position:absolute;top:16px;right:24px}
 .phase-card h3{font-family:'Public Sans';font-weight:600;font-size:1.35rem;margin-bottom:12px;max-width:12ch}
 .phase-card .gp{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-bottom:18px;display:block}
-.phase-card p{color:var(--w-65);font-size:.93rem;line-height:1.6}
+.phase-card p{color:var(--w-80);font-size:1rem;line-height:1.65}
 .phase-card ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px}
 .phase-card li{font-size:.86rem;color:var(--w-65);padding-left:16px;position:relative;line-height:1.5}
 .phase-card li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--aqua)}
@@ -204,7 +204,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .price-row.svc-pick:hover{background:rgba(255,255,255,.05)}
 .price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Public Sans';font-weight:600;font-size:1rem}
 .price-row .pl .pl-t{display:block}
-.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--w-45);margin-top:5px;font-family:'Space Grotesk';max-width:38ch;line-height:1.5}
+.price-row .pl small{display:block;font-weight:400;font-size:.9rem;color:var(--w-80);margin-top:6px;font-family:'Space Grotesk';max-width:40ch;line-height:1.55}
 .price-row .pv{font-family:'Public Sans';font-weight:700;font-size:1.22rem;color:var(--aqua);white-space:nowrap;text-align:right}
 .price-row .pv .ivatag{display:block;font-size:.66rem;color:var(--w-45);font-weight:500;letter-spacing:.04em;margin-top:3px}
 .price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
@@ -217,7 +217,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .paycard .pk{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);display:block;margin-bottom:8px}
 .paycard.best .pk{color:var(--aqua)}
 .paycard .pvv{font-family:'Public Sans';font-weight:700;font-size:1.25rem;color:#fff}
-.paycard .pd{font-size:.79rem;color:var(--w-45);margin-top:7px;line-height:1.45}
+.paycard .pd{font-size:.88rem;color:var(--w-80);margin-top:8px;line-height:1.5}
 .paycard .badge{position:absolute;top:-10px;right:14px;background:var(--aqua);color:var(--tinta);font-family:'Public Sans';font-weight:700;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px}
 .bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
 .bullets li{display:flex;gap:14px;align-items:flex-start}
@@ -236,7 +236,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .scen-mini>div{display:flex;flex-direction:column}
 .scen-mini b{font-family:'Public Sans';font-weight:700;color:var(--aqua);font-size:1.12rem;line-height:1}
 .scen-mini span{font-family:'Public Sans';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--w-45);margin-top:5px}
-.scen-body p{color:var(--w-65);font-size:.9rem;line-height:1.65}
+.scen-body p{color:var(--w-80);font-size:.98rem;line-height:1.68}
 .scen-pick{cursor:pointer;user-select:none}
 .scen-pick .pick{display:flex;align-items:center;gap:10px;margin:18px 28px 22px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:'Public Sans';font-weight:600;font-size:.82rem;letter-spacing:.03em;color:var(--w-45);transition:color .3s var(--ease)}
 .scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
@@ -256,9 +256,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
 .scope-col.no{background:rgba(13,4,40,.38)}
 .scope-col h3{font-family:'Public Sans';font-weight:600;font-size:1.18rem;margin-bottom:6px}
-.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:22px}
+.scope-col .sub{font-size:.93rem;color:var(--w-65);margin-bottom:22px}
 .scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
-.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--w-80);line-height:1.5}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;color:var(--w-80);line-height:1.55}
 .scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
 .scope-col.yes li svg{color:var(--aqua)}
 .scope-col.no li svg{color:var(--w-45)}
@@ -273,7 +273,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 10px var(--aqua)}
 .tl-item .ph{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);margin-bottom:4px}
 .tl-item h3{font-family:'Public Sans';font-weight:600;font-size:1.15rem;margin-bottom:8px}
-.tl-item p{color:var(--w-65);font-size:.93rem;line-height:1.6;max-width:66ch}
+.tl-item p{color:var(--w-80);font-size:1rem;line-height:1.65;max-width:66ch}
 
 /* ============ FOTOGRAFÍA ============ */
 .photo,.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
@@ -321,11 +321,50 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .logocell{display:flex;align-items:center;justify-content:center;min-height:84px;border:1px solid var(--line);border-radius:14px;background:var(--gris-tinta);padding:14px;transition:all .4s var(--ease)}
 .logocell:hover{transform:translateY(-4px);border-color:var(--aqua-line);box-shadow:0 14px 34px rgba(13,4,40,.45)}
 .logocell img{max-height:44px;max-width:88%;width:auto;object-fit:contain;display:block}
-.wallnote{font-size:.83rem;color:var(--w-45);margin-top:14px;line-height:1.6}
+.wallnote{font-size:.95rem;color:var(--w-80);margin-top:16px;line-height:1.7}
+
+/* embudo como linea de tiempo */
+.funnel{list-style:none;position:relative;padding-left:30px}
+.funnel::before{content:'';position:absolute;left:8px;top:10px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--aqua) 0%,var(--aqua-line) 18%,rgba(255,255,255,.14) 40%)}
+.funnel li{position:relative;padding:0 0 22px}
+.funnel li:last-child{padding-bottom:0}
+.funnel li::before{content:'';position:absolute;left:-30px;top:4px;width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.28);background:var(--violeta-900)}
+.funnel li.on::before{border-color:var(--aqua);background:var(--aqua);box-shadow:0 0 14px rgba(116,250,227,.55)}
+.funnel .fk{display:block;font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--w-45);margin-bottom:3px}
+.funnel li.on .fk{color:var(--aqua)}
+.funnel b{display:block;font-family:'Public Sans';font-weight:600;font-size:1.12rem;color:#fff;line-height:1.2}
+.funnel li:not(.on) b{color:var(--w-65)}
+.funnel em{display:block;font-style:normal;font-size:.88rem;color:var(--w-65);margin-top:4px;line-height:1.45}
+
+/* ecosistema de marcas + videos de casos */
+.ecosystem{display:flex;align-items:center;justify-content:center;gap:clamp(26px,5vw,60px);
+  background:linear-gradient(150deg,rgba(116,250,227,.10),rgba(13,4,40,.42));
+  border:1px solid var(--aqua-line);border-radius:22px;padding:clamp(26px,4vw,44px) 28px}
+.eco-logo{width:auto;display:block;object-fit:contain}
+.eco-pop{height:clamp(30px,3.6vw,44px)}
+.eco-dw{height:clamp(24px,2.8vw,34px)}
+.eco-x{font-family:'Public Sans';font-weight:300;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--aqua);line-height:1}
+.vid{cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:18px;
+  overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease)}
+.vid:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.vid-thumb{position:relative;aspect-ratio:16/9;overflow:hidden}
+.vid-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) brightness(.82)}
+.vid:hover .vid-thumb img{filter:saturate(1) brightness(.95)}
+.play-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;
+  border-radius:50%;background:var(--aqua);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 26px rgba(116,250,227,.4);transition:transform .3s var(--ease)}
+.vid:hover .play-btn{transform:translate(-50%,-50%) scale(1.1)}
+.play-btn svg{width:20px;height:20px;color:var(--tinta);margin-left:3px}
+.vid-meta{padding:18px 20px 20px}
+.vid-meta h4{font-family:'Public Sans';font-weight:600;font-size:1.08rem;margin-bottom:5px}
+.vid-meta span{font-size:.88rem;color:var(--w-65)}
 
 /* listas de entregables de la puesta a punto */
 .deliv{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:6px}
-.deliv li{position:relative;padding-left:18px;font-size:.9rem;color:var(--w-65);line-height:1.55}
+.deliv li{position:relative;padding-left:19px;font-size:1rem;color:var(--w-80);line-height:1.6}
 .deliv li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--aqua)}
 
 /* etiqueta de modulo en el alcance */
@@ -338,7 +377,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .swipe{display:none}
 
 /* pill de nota */
-.note-pill{display:inline-flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:16px 22px;font-size:.88rem;color:var(--w-65);line-height:1.6;max-width:78ch}
+.note-pill{display:inline-flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:18px;padding:18px 24px;font-size:1rem;color:var(--w-80);line-height:1.65;max-width:80ch}
 .note-pill b{color:var(--aqua);font-family:'Public Sans';font-weight:600}
 .note-pill.warn{border-color:rgba(245,165,36,.4);background:rgba(245,165,36,.07)}
 .note-pill.warn b{color:var(--alerta)}
@@ -362,7 +401,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .tm:hover{transform:translateY(-5px);border-color:var(--aqua-line)}
 .tm .rol{font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);display:block;margin-bottom:10px}
 .tm h4{font-family:'Public Sans';font-weight:600;font-size:1.05rem;margin-bottom:8px}
-.tm p{font-size:.86rem;color:var(--w-65);line-height:1.55}
+.tm p{font-size:.95rem;color:var(--w-80);line-height:1.6}
 
 /* ============ CIERRE ============ */
 #cierre{text-align:center;align-items:center}
@@ -373,7 +412,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:38px;padding:18px 44px;border-radius:100px;font-family:'Public Sans';font-weight:700;font-size:1.05rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.30);transition:transform .25s ease,box-shadow .25s ease}
 .cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(116,250,227,.44)}
 .cta-go svg{width:20px;height:20px}
-.legal{margin-top:54px;padding-top:26px;border-top:1px solid var(--line-soft);font-size:.78rem;color:var(--w-45);line-height:1.7;max-width:74ch}
+.legal{margin-top:54px;padding-top:26px;border-top:1px solid var(--line-soft);font-size:.86rem;color:var(--w-65);line-height:1.75;max-width:78ch}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
@@ -462,23 +501,37 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 <section id="historia" data-label="Ya nos conocemos">
   <div class="wrap">
     <div class="eyebrow r">Antes de empezar</div>
-    <h2 class="h-lg r d1">El primer trabajo<br>ya lo hicimos juntos.</h2>
-    <div class="split mt46">
+    <h2 class="h-lg r d1">No es la primera vez<br>que trabajamos juntos.</h2>
+    <div class="split mt46" style="align-items:start">
       <div class="r d2">
-        <p class="lead">Martinica nos encontró buscando agencias en Google. Sin saber que los casos de éxito que en Datawise se siguen mostrando puertas adentro —esos que le habían recomendado como referencia de calidad— <b>los habíamos producido nosotros</b>.</p>
-        <p class="lead mt24">No es una casualidad simpática: es un dato operativo. Ya conocemos cómo se cuenta Datawise, cómo habla de sus soluciones y cómo trabaja su gente. No arrancamos de cero en la parte que más tiempo suele llevar.</p>
-        <div class="note-pill mt34">
-          <span>Lo que cambia esta vez: entonces el trabajo fue <b>contar lo que Datawise ya había vendido</b>. Ahora el trabajo es <b>generar la demanda que viene</b>.</span>
-        </div>
+        <p class="lead">Popcorn produjo los casos de éxito de Datawise: las piezas que todavía circulan puertas adentro como referencia de cómo se cuenta lo que hacen. Eso significa que ya conocemos el negocio, las soluciones y la forma de trabajar de su equipo — que suele ser la parte que más tiempo lleva.</p>
+        <p class="lead mt24">Aquel trabajo fue <b>contar lo que Datawise ya había vendido</b>. Esta vez el desafío es el anterior: <b>acompañarlos en el posicionamiento de los cuatro mercados y en la demanda que todavía no está llegando.</b></p>
       </div>
       <div class="col-img r d3">
-        <div class="media wide">
-          <img src="img/reunion.jpg" alt="Equipo trabajando">
+        <div class="ecosystem">
+          <img src="img/logo-popcorn-blanco.png" alt="Popcorn" class="eco-logo eco-pop">
+          <span class="eco-x">+</span>
+          <img src="img/logo-datawise.png" alt="Datawise" class="eco-logo eco-dw">
         </div>
-        <div class="card hi mt24" style="padding:26px">
-          <p class="kicker">Lo que ya hicimos para Datawise</p>
-          <p class="mt14" style="color:var(--w-80);font-size:.97rem;line-height:1.6">Producción audiovisual de <b>casos de éxito con clientes finales</b>: el material que hoy circula internamente como referencia de calidad.</p>
-        </div>
+      </div>
+    </div>
+
+    <p class="kicker mt46 r d4">Lo que ya produjimos juntos</p>
+    <div class="grid g3 mt14">
+      <div class="vid r d5" data-yt="4ibyQZDUy7A">
+        <div class="vid-thumb"><img src="img/casos/4ibyQZDUy7A.jpg" alt="Caso de éxito Datawise con Banco Galicia">
+          <span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vid-meta"><h4>Banco Galicia</h4><span>Caso de éxito · producción Popcorn</span></div>
+      </div>
+      <div class="vid r d6" data-yt="aBm9dZDbWvQ">
+        <div class="vid-thumb"><img src="img/casos/aBm9dZDbWvQ.jpg" alt="Caso de éxito Datawise con Bind">
+          <span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vid-meta"><h4>Bind</h4><span>Caso de éxito · producción Popcorn</span></div>
+      </div>
+      <div class="vid r d7" data-yt="_EGkHprp0cM">
+        <div class="vid-thumb"><img src="img/casos/_EGkHprp0cM.jpg" alt="Caso de éxito Datawise con Farmacity">
+          <span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vid-meta"><h4>Farmacity</h4><span>Caso de éxito · producción Popcorn</span></div>
       </div>
     </div>
   </div>
@@ -719,15 +772,12 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
           <p class="kicker">Lo que falta para poder decidir</p>
           <p class="bigstatement mt14">Sin el CRM conectado, Datawise no conoce su tasa de cierre.</p>
           <p class="mt24 muted">Y sin tasa de cierre no puede saber cuánto <b>puede</b> pagar por un lead. Por eso Google sigue optimizando hacia “formulario enviado”: es la única señal que recibe. Optimiza hacia el objetivo equivocado porque nadie le dio uno mejor.</p>
-          <div class="pipe mt34">
-            <div class="node"><span class="k">HOY</span><span class="t">Lead</span><p>Formulario enviado</p></div>
-            <div class="arrow">→</div>
-            <div class="node off"><span class="k">FALTA</span><span class="t">Calificado</span><p>Sin señal</p></div>
-            <div class="arrow">→</div>
-            <div class="node off"><span class="k">FALTA</span><span class="t">Oportunidad</span><p>Sin señal</p></div>
-            <div class="arrow">→</div>
-            <div class="node off"><span class="k">FALTA</span><span class="t">Venta</span><p>Sin señal</p></div>
-          </div>
+          <ol class="funnel mt34">
+            <li class="on"><span class="fk">Hoy</span><b>Lead</b><em>Formulario enviado — es la única señal que Google recibe</em></li>
+            <li><span class="fk">Falta</span><b>Lead calificado</b><em>Vive en el CRM, no llega a la plataforma</em></li>
+            <li><span class="fk">Falta</span><b>Oportunidad</b><em>Vive en el CRM, no llega a la plataforma</em></li>
+            <li><span class="fk">Falta</span><b>Venta</b><em>Nunca vuelve al origen que la generó</em></li>
+          </ol>
         </div>
       </div>
     </div>
@@ -746,7 +796,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
   <div class="wrap">
     <div class="eyebrow r">Qué proponemos</div>
     <h2 class="h-lg r d1">Cuatro frentes que se<br>trabajan en paralelo.</h2>
-    <p class="lead mt24 r d2">No es “gestión de Google Ads”. Es un sistema donde la pauta es una de las cuatro piezas, y donde ninguna funciona sola.</p>
+    <p class="lead mt24 r d2">No es “gestión de Google Ads”. Es un sistema donde la pauta es una de las cuatro piezas, y donde ninguna funciona sola. <b>Los tres primeros arrancan juntos en la puesta a punto</b>; Meta entra después, cuando la señal ya funciona.</p>
 
     <div class="grid g2 mt46">
       <div class="card r d3">
@@ -761,16 +811,16 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
         <span class="num-tag">FRENTE 02 · EL PILAR</span>
         <h3>Medición y CRM: que la plataforma aprenda qué lead es bueno</h3>
-        <p>Conectamos <b>Clientify (Argentina)</b> y <b>Odoo (LATAM)</b> con Google Ads para construir la trazabilidad completa: <b>lead → lead calificado → oportunidad → venta</b>, y devolver esa señal a la plataforma.</p>
+        <p>El objetivo es la trazabilidad completa —<b>lead → lead calificado → oportunidad → venta</b>— y devolver esa señal a Google Ads, conectando <b>Clientify (Argentina)</b> y <b>Odoo (LATAM)</b>.</p><p class="mt14"><b>Qué hacemos nosotros:</b> definimos el esquema (qué estados del CRM equivalen a qué evento), configuramos la importación de conversiones offline en Google Ads y validamos la trazabilidad punta a punta. <b>Qué queda de su lado:</b> el desarrollo dentro de Odoo y Clientify, que es trabajo de API. Lo hace el equipo técnico de Datawise — les entregamos la especificación exacta de qué evento enviar, con qué dato y en qué formato, para que sea ejecutar y no diseñar.</p>
         <p class="mt14">Separamos la medición por país, instalamos GA4 donde falta y dejamos de contar el formulario de postulación laboral como conversión comercial. El objetivo no es medir mejor por prolijidad: es <b>que Google deje de optimizar hacia el formulario y empiece a optimizar hacia el negocio</b>.</p>
       </div>
 
-      <div class="card r d5">
+      <div class="card hi r d5">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 14h7"/></svg></div>
-        <span class="num-tag">FRENTE 03</span>
+        <span class="num-tag">FRENTE 03 · NO PUEDE ESPERAR</span>
         <h3>Conversión: arreglar lo que pasa después del clic</h3>
         <p>Formulario en el primer pantallazo y con <b>campos que califican</b> (empresa, cargo, tamaño, solución). Prueba social en la landing, no solo en la home. Mensaje por intención y por mercado. Señales locales en el sitio regional. Tests A/B.</p>
-        <p class="mt14">No proponemos rehacer todas las landings: proponemos <b>corregir las existentes y crear variantes donde hay una oportunidad concreta</b>. Ustedes deciden si lo ejecuta su equipo con nuestros lineamientos o si lo cotizamos.</p>
+        <p class="mt14">No proponemos rehacer todas las landings: proponemos <b>corregir las existentes y crear variantes donde hay una oportunidad concreta</b>. Ustedes deciden si lo ejecuta su equipo con nuestros lineamientos o si lo cotizamos.</p><p class="mt14"><b>Este frente no espera a los otros.</b> Si el problema está después del clic, cada mes que la pauta corre sobre una página que no convierte es presupuesto gastado en confirmar lo que ya sabemos. Por eso la especificación del formulario y las correcciones prioritarias son entregables de los <b>primeros 45 días</b>, no de una fase posterior.</p>
       </div>
 
       <div class="card r d6">
@@ -931,9 +981,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <span class="num-tag">03</span>
         <h3>Conexión de Clientify y Odoo</h3>
         <ul class="deliv">
-          <li>Clientify (Argentina) y Odoo (LATAM) integrados con Google Ads.</li>
+          <li>Esquema de integración definido: qué estado de Clientify y de Odoo equivale a qué evento de conversión.</li>
           <li>Definición conjunta con el equipo comercial de qué cuenta como lead calificado y qué como oportunidad.</li>
-          <li>Primeras conversiones enviadas desde el CRM a la plataforma: Google empieza a optimizar hacia calidad y no hacia formulario.</li>
+          <li>Importación de conversiones offline configurada y validada del lado de Google Ads.</li>
+          <li><b>Especificación técnica para el equipo de Datawise</b>: qué evento enviar desde Odoo y Clientify, con qué dato y en qué formato. El desarrollo del lado del CRM lo ejecuta su equipo.</li>
         </ul>
       </div>
 
@@ -944,6 +995,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
           <li>Estrategia propia de Inteligencia Artificial y Ciberseguridad para cada uno de los cuatro mercados.</li>
           <li>Keywords, mensajes y segmentación por país — no la réplica de Argentina.</li>
           <li>Recomendaciones de landing y CRO priorizadas por impacto, entregadas por escrito.</li>
+          <li><b>Especificación del formulario que califica</b>: qué campos (empresa, cargo, tamaño, solución), cómo se validan y cómo se mapean al CRM. Lista para implementar, sin esperar al mes 2.</li>
         </ul>
       </div>
 
@@ -1056,7 +1108,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M2</span>Gestión de Google Ads en Argentina, Perú, Chile y Uruguay</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M2</span>Piloto de Meta Ads sobre IA y Ciberseguridad</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M1</span>Implementación de medición: GTM, GA4, eventos y conversiones por país</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M1</span>Integración de Clientify y Odoo con Google Ads (conversiones offline)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M1</span>Esquema de integración de Clientify y Odoo, y configuración de las conversiones offline en Google Ads</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M2</span>Redacción de anuncios por vertical y por mercado</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M2</span>Edición y adaptación de las piezas a los formatos de cada plataforma: cortes, subtítulos y versiones para Meta y YouTube</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><span class="mtag">M3</span>Recomendaciones de landing y CRO documentadas</span></li>
@@ -1074,7 +1126,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Licencias de software, CRM o herramientas de terceros</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Producción audiovisual y fotográfica</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Gestión de redes orgánicas y community management</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Desarrollo dentro del CRM (automatizaciones, flujos comerciales)</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg><span><b>El desarrollo dentro de Odoo y Clientify</b> (API, automatizaciones, flujos comerciales). Nosotros definimos el esquema, entregamos la especificación y configuramos Google Ads; <b>la programación del lado del CRM la ejecuta el equipo técnico de Datawise</b></span></li>
         </ul>
       </div>
     </div>
@@ -1114,6 +1166,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <span class="num-tag">05 · TAREA DE DATAWISE, SIN COSTO</span>
         <h3>Dos cosas que conviene resolver puertas adentro antes de que empecemos</h3>
         <p><b>Verificar qué dispara cada conversión.</b> Si el formulario de postulación laboral está registrando el mismo evento que el comercial, el histórico de “formularios enviados” está contaminado y todo el análisis se apoya sobre ruido.</p>
+        <p class="mt14"><b>El desarrollo de la integración, del lado del CRM.</b> Podríamos cotizarlo, pero sería cobrarles por algo que su propio equipo hace mejor y más rápido: conocen Odoo y nosotros no. Les damos la especificación cerrada y lo ejecutan ustedes.</p>
         <p class="mt14"><b>Conseguir la autorización para publicar casos y testimoniales con nombre, y para usar los logos en las landings de campaña.</b> Es lo más barato y potente que se puede hacer por la conversión, lleva semanas de gestión interna y no depende de nosotros. Cuanto antes arranque, antes rinde.</p>
       </div>
     </div>
@@ -1178,7 +1231,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
     <div class="tl">
       <div class="tl-item r d2"><span class="dot"></span><div class="ph">Semana 1</div><h3>Accesos, diagnóstico y prioridades</h3><p>Accesos a las cuatro cuentas, a los CRM y al gestor de etiquetas. Auditoría completa con la composición real de campañas y creatividades. Verificación de qué dispara cada conversión. Cierre de las dos verticales prioritarias por mercado.</p></div>
       <div class="tl-item r d3"><span class="dot"></span><div class="ph">Semanas 2 a 4</div><h3>Reestructuración y medición</h3><p>Rearmado de campañas por mercado y vertical, keywords, negativas y pujas. GA4 en Argentina, medición separada por país, píxel de Meta instalado. Entrega del documento de correcciones de landing priorizadas.</p></div>
-      <div class="tl-item r d4"><span class="dot"></span><div class="ph">Semanas 4 a 6</div><h3>Conexión de CRM</h3><p>Se sientan Marketing, Comercial y nosotros a definir qué cuenta como lead calificado y qué como oportunidad — sin ese acuerdo no hay señal que enviar. Con eso cerrado, salen las primeras conversiones desde el CRM hacia la plataforma.</p></div>
+      <div class="tl-item r d4"><span class="dot"></span><div class="ph">Semanas 4 a 6</div><h3>Conexión de CRM</h3><p>Se sientan Marketing, Comercial y nosotros a definir qué cuenta como lead calificado y qué como oportunidad — sin ese acuerdo no hay señal que enviar. Con eso cerrado entregamos la especificación técnica a su equipo, y a medida que la implementan salen las primeras conversiones desde el CRM hacia la plataforma.</p></div>
       <div class="tl-item r d5"><span class="dot"></span><div class="ph">Semanas 6 a 9</div><h3>Primer corte de calidad y piloto de Meta</h3><p>Primer dato real de calidad comercial por mercado. Arranque del piloto de Meta sobre IA y Ciberseguridad. Escalamiento del 20% al 25% solo donde haya señales favorables. Primeros tests A/B.</p></div>
       <div class="tl-item r d6"><span class="dot"></span><div class="ph">Semanas 9 a 12</div><h3>Decisión de inversión con evidencia</h3><p>Costo por oportunidad por mercado y vertical. Redistribución del presupuesto entre países según valor real, no según herencia. Recomendación fundada de escenario para el trimestre siguiente y plan de los próximos 90 días.</p></div>
     </div>
@@ -1320,6 +1373,11 @@ picks.forEach(p=>p.addEventListener('click',()=>{
   buildMail();
 }));
 svcPicks.forEach(s=>s.addEventListener('click',()=>{s.classList.toggle('on');buildMail();}));
+
+/* ===== Casos de exito: abrir el video en YouTube ===== */
+document.querySelectorAll('.vid').forEach(v=>{
+  v.addEventListener('click',()=>window.open('https://www.youtube.com/watch?v='+v.dataset.yt,'_blank','noopener'));
+});
 buildMail();
 </script>
 </body>
