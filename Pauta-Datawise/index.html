@@ -343,12 +343,13 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .funnel em{display:block;font-style:normal;font-size:.88rem;color:var(--w-65);margin-top:4px;line-height:1.45}
 
 /* ecosistema de marcas + videos de casos */
-.ecosystem{display:flex;align-items:center;justify-content:center;gap:clamp(26px,5vw,60px);
+.ecosystem{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(18px,3vw,34px);
   background:linear-gradient(150deg,rgba(116,250,227,.10),rgba(13,4,40,.42));
-  border:1px solid var(--aqua-line);border-radius:22px;padding:clamp(40px,6vw,72px) 28px;min-height:200px}
-.eco-logo{width:auto;display:block;object-fit:contain}
-.eco-pop{height:clamp(26px,3.2vw,40px)}
-.eco-dw{height:clamp(24px,2.9vw,36px)}
+  border:1px solid var(--aqua-line);border-radius:22px;padding:clamp(34px,5vw,56px) clamp(20px,3vw,34px);
+  min-height:190px;overflow:hidden}
+.eco-logo{height:auto;display:block;object-fit:contain}
+.eco-pop{width:min(38%,196px)}
+.eco-dw{width:min(38%,182px)}
 .eco-x{font-family:'Public Sans';font-weight:300;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--aqua);line-height:1}
 .vid{cursor:pointer;background:var(--card);border:1px solid var(--line-soft);border-radius:18px;
   overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease)}
@@ -810,32 +811,32 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
         <span class="num-tag">FRENTE 01</span>
         <h3>Google Ads: auditoría y reestructuración completa</h3>
-        <p>Estructura de campañas, keywords y términos de búsqueda, negativas y concordancias, pujas, distribución del presupuesto, anuncios y conversiones — <b>mercado por mercado y vertical por vertical</b>.</p>
-        <p class="mt14">No replicamos Argentina en el resto de LATAM: los resultados ya demostraron que cada mercado necesita su propia hipótesis. Y auditamos la composición real de las creatividades activas antes de tocar un presupuesto, para saber cuánto es captura de demanda y cuánto es alcance.</p>
+        <p><b>No replicamos Argentina en el resto de LATAM.</b> Cada mercado necesita su propia hipótesis de demanda, y Perú —el más eficiente de los cuatro— ya demuestra que funciona distinto.</p>
+        <p class="mt14">Antes de mover un presupuesto auditamos qué está corriendo realmente: cuánto es captura de demanda y cuánto es alcance. Sin ese dato, subir o bajar inversión es adivinar.</p>
       </div>
 
       <div class="card hi r d4">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
         <span class="num-tag">FRENTE 02 · EL PILAR</span>
         <h3>Medición y CRM: que la plataforma aprenda qué lead es bueno</h3>
-        <p>El objetivo es la trazabilidad completa —<b>lead → lead calificado → oportunidad → venta</b>— y devolver esa señal a Google Ads, conectando <b>Clientify (Argentina)</b> y <b>Odoo (LATAM)</b>.</p><p class="mt14"><b>Qué hacemos nosotros:</b> definimos el esquema (qué estados del CRM equivalen a qué evento), configuramos la importación de conversiones offline en Google Ads y validamos la trazabilidad punta a punta. <b>Qué queda de su lado:</b> el desarrollo dentro de Odoo y Clientify, que es trabajo de API. Lo hace el equipo técnico de Datawise — les entregamos la especificación exacta de qué evento enviar, con qué dato y en qué formato, para que sea ejecutar y no diseñar.</p>
-        <p class="mt14">Separamos la medición por país, instalamos GA4 donde falta y dejamos de contar el formulario de postulación laboral como conversión comercial. El objetivo no es medir mejor por prolijidad: es <b>que Google deje de optimizar hacia el formulario y empiece a optimizar hacia el negocio</b>.</p>
+        <p>Hoy Google solo sabe que alguien completó un formulario. El trabajo es que sepa <b>cuáles terminan en negocio</b>, conectando Clientify y Odoo para devolverle la señal.</p>
+        <p class="mt14"><b>Nosotros</b> definimos el esquema y configuramos la importación de conversiones offline; <b>el desarrollo del lado del CRM lo ejecuta el equipo de Datawise</b> con nuestra especificación. Sin este frente, todo lo demás optimiza hacia el objetivo equivocado.</p>
       </div>
 
       <div class="card hi r d5">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 14h7"/></svg></div>
         <span class="num-tag">FRENTE 03 · NO PUEDE ESPERAR</span>
         <h3>Conversión: arreglar lo que pasa después del clic</h3>
-        <p>Formulario en el primer pantallazo y con <b>campos que califican</b> (empresa, cargo, tamaño, solución). Prueba social en la landing, no solo en la home. Mensaje por intención y por mercado. Señales locales en el sitio regional. Tests A/B.</p>
-        <p class="mt14">No proponemos rehacer todas las landings: proponemos <b>corregir las existentes y crear variantes donde hay una oportunidad concreta</b>. Ustedes deciden si lo ejecuta su equipo con nuestros lineamientos o si lo cotizamos.</p><p class="mt14"><b>Este frente no espera a los otros.</b> Si el problema está después del clic, cada mes que la pauta corre sobre una página que no convierte es presupuesto gastado en confirmar lo que ya sabemos. Por eso la especificación del formulario y las correcciones prioritarias son entregables de los <b>primeros 45 días</b>, no de una fase posterior.</p>
+        <p>Un formulario que califique en el primer pantallazo, prueba social en la landing y mensaje por mercado. <b>No proponemos rehacer todas las landings:</b> corregir las existentes y crear variantes donde haya una oportunidad concreta.</p>
+        <p class="mt14"><b>Este frente no espera a los otros.</b> Cada mes que la pauta corre sobre una página que no convierte es presupuesto gastado en confirmar lo que ya sabemos. Por eso entra en los <b>primeros 45 días</b>.</p>
       </div>
 
       <div class="card r d6">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M10 20V4M16 20v-7M22 20V7"/></svg></div>
         <span class="num-tag">FRENTE 04</span>
         <h3>Meta: completar el embudo, como piloto de 90 días</h3>
-        <p>Google captura la demanda que ya existe. Meta <b>genera demanda, educa y construye audiencias</b> — incluyendo las que hoy no se pueden armar porque no hay píxel instalado.</p>
-        <p class="mt14">Trabajamos sobre IA y Ciberseguridad con casos de éxito, dolores concretos, contenido técnico y remarketing por interacción, midiendo contra oportunidad comercial y no contra alcance. Arranca como piloto acotado: si a los 90 días no muestra señales, se apaga y se explica por qué.</p>
+        <p>Google captura la demanda que ya existe. <b>Meta la genera</b>, educa y construye las audiencias que hoy ni siquiera se pueden armar.</p>
+        <p class="mt14">IA y Ciberseguridad con casos de éxito, dolores concretos y remarketing, midiendo contra oportunidad comercial y no contra alcance. <b>Arranca acotado:</b> si a los 90 días no muestra señales, se apaga y se explica por qué.</p>
       </div>
     </div>
   </div>
@@ -874,19 +875,19 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       <div class="phase-card hi r d3">
         <span class="pn">01</span><span class="gp">Mes 1</span>
         <h3>Optimizar y medir</h3>
-        <p>Reestructuración de las cuatro cuentas, medición separada por país y conexión de los CRM. Se corrige lo que rompe la conversión antes de mover un peso de inversión.</p>
+        <p>Se corrige lo que rompe la conversión <b>antes</b> de mover un peso de inversión.</p>
         
       </div>
       <div class="phase-card r d4">
         <span class="pn">02</span><span class="gp">Mes 2</span>
         <h3>Validar la calidad</h3>
-        <p>Con la señal ya funcionando, aparece el primer dato real de calidad comercial. Recién ahí se escala, y solo donde hay evidencia: <b>20% a 25%</b> en las campañas y mercados que la muestren.</p>
+        <p>Con la señal funcionando aparece el primer dato real de calidad comercial. Recién ahí se escala, y solo donde hay evidencia: <b>20% a 25%</b>.</p>
         
       </div>
       <div class="phase-card r d5">
         <span class="pn">03</span><span class="gp">Mes 3</span>
         <h3>Escalar con evidencia</h3>
-        <p>Segundo aumento <b>solo si el costo por lead y el costo por oportunidad acompañan</b>. Si no acompañan, no se sube: se corrige. Y se dice.</p>
+        <p>Segundo aumento <b>solo si el costo por oportunidad acompaña</b>. Si no acompaña, no se sube: se corrige. Y se dice.</p>
         
       </div>
     </div>
@@ -1171,9 +1172,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       </div>
       <div class="card hi r d7" style="grid-column:1/-1">
         <span class="num-tag">05 · TAREA DE DATAWISE, SIN COSTO</span>
-        <h3>Dos cosas que conviene resolver puertas adentro antes de que empecemos</h3>
+        <h3>Tres cosas que se resuelven puertas adentro</h3>
         <p><b>Verificar qué dispara cada conversión.</b> Si el formulario de postulación laboral está registrando el mismo evento que el comercial, el histórico de “formularios enviados” está contaminado y todo el análisis se apoya sobre ruido.</p>
-        <p class="mt14"><b>El desarrollo de la integración, del lado del CRM.</b> Podríamos cotizarlo, pero sería cobrarles por algo que su propio equipo hace mejor y más rápido: conocen Odoo y nosotros no. Les damos la especificación cerrada y lo ejecutan ustedes.</p>
+        <p class="mt14"><b>El desarrollo de la integración del lado del CRM.</b> Podríamos cotizarlo, pero sería cobrarles por algo que su equipo hace mejor y más rápido: conocen Odoo y nosotros no.</p>
         <p class="mt14"><b>Conseguir la autorización para publicar casos y testimoniales con nombre, y para usar los logos en las landings de campaña.</b> Es lo más barato y potente que se puede hacer por la conversión, lleva semanas de gestión interna y no depende de nosotros. Cuanto antes arranque, antes rinde.</p>
       </div>
     </div>
