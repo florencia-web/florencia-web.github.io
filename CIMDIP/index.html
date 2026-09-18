@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela CIMDIP &amp; Miguel Cané × Popcorn · Propuesta de comunicación y captación de matrícula</title>
+<meta name="description" content="Propuesta comercial de Popcorn para la Escuela CIMDIP &amp; Miguel Cané: diagnóstico, estrategia de captación y retención de matrícula, y dos modelos de trabajo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · SISTEMA DE MARCA — modo claro dominante
+   Paleta canónica: marca/identidad-popcorn.md (rev. 2026-09-02)
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --t-85:rgba(18,18,18,.85);
+  --t-70:rgba(18,18,18,.68);
+  --t-50:rgba(18,18,18,.50);
+  --t-38:rgba(18,18,18,.38);
+  --line-d:rgba(18,18,18,.13);
+  --line-d-soft:rgba(18,18,18,.075);
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--white);
+  color:var(--tinta);
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.022'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Public Sans',system-ui,sans-serif;font-style:normal}
+em,i{font-style:normal}
+b,strong{font-weight:600;color:var(--tinta)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ============ TOPBAR ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{
+  background:rgba(255,255,255,.90);
+  backdrop-filter:blur(14px);
+  padding:13px 38px;
+  box-shadow:0 1px 0 rgba(18,18,18,.09);
+}
+.brand-tag{
+  font-family:'Public Sans';font-weight:700;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--t-50);
+  display:flex;align-items:center;gap:9px;
+}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--violeta)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:27px;width:auto;display:block}
+.logo-pic.close{height:58px}
+.logo-light{display:none}
+.topbar:not(.scrolled) .logo-dark{display:none}
+.topbar:not(.scrolled) .logo-light{display:block}
+.topbar:not(.scrolled) .brand-tag{display:none}
+
+/* ============ PROGRESO + DOTS ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--violeta),var(--aqua-deep));z-index:100}
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(18,18,18,.2);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--t-50);transform:scale(1.25)}
+.dots a.active{background:var(--violeta);transform:scale(1.4)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);
+  white-space:nowrap;font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--white);background:var(--violeta-900);padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;transition:all .25s var(--ease);
+}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES Y MODOS ============ */
+section{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:118px 38px 92px;
+}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.s-paper{background:var(--papel)}
+.s-white{background:var(--white)}
+.s-violet{background:linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 48%,var(--violeta-900) 100%);color:var(--white)}
+.s-dark{background:var(--negro);color:var(--white)}
+.s-violet h1,.s-violet h2,.s-violet h3,.s-dark h1,.s-dark h2,.s-dark h3{color:var(--white)}
+.s-violet b,.s-violet strong,.s-dark b,.s-dark strong{color:var(--white)}
+.s-violet::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.55;
+  background-image:linear-gradient(45deg,rgba(255,255,255,.05) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.05) 75%),
+                   linear-gradient(45deg,rgba(255,255,255,.05) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.05) 75%);
+  background-size:48px 48px;background-position:0 0,24px 24px;
+  -webkit-mask-image:radial-gradient(circle at 88% 6%,#000,transparent 60%);
+  mask-image:radial-gradient(circle at 88% 6%,#000,transparent 60%);
+}
+.sfoot{
+  position:absolute;left:38px;right:38px;bottom:24px;z-index:3;
+  display:flex;justify-content:space-between;align-items:center;gap:18px;
+  font-family:'Public Sans';font-size:9.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--t-38);
+}
+.sfoot .num{color:var(--violeta);white-space:nowrap}
+.s-violet .sfoot,.s-dark .sfoot{color:var(--w-45)}
+.s-violet .sfoot .num,.s-dark .sfoot .num{color:var(--aqua)}
+
+/* ============ TIPOGRAFÍA ============ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Public Sans';font-weight:700;font-size:11.5px;letter-spacing:.21em;text-transform:uppercase;
+  color:var(--violeta);margin-bottom:24px;
+}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua-deep)}
+.s-violet .eyebrow,.s-dark .eyebrow{color:var(--aqua)}
+.s-violet .eyebrow::before,.s-dark .eyebrow::before{background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.h-xl{font-weight:800;font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.0;letter-spacing:-.025em}
+.h-lg{font-weight:800;font-size:clamp(1.9rem,4.2vw,3.25rem);line-height:1.05;letter-spacing:-.018em}
+.h-md{font-weight:700;font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.16;letter-spacing:-.01em}
+.lead{font-size:clamp(1.01rem,1.45vw,1.24rem);color:var(--t-70);max-width:760px;line-height:1.68}
+.s-violet .lead,.s-dark .lead{color:var(--w-80)}
+.muted{color:var(--t-50)}
+.s-violet .muted,.s-dark .muted{color:var(--w-65)}
+.vi{color:var(--violeta)}
+.aq{color:var(--aqua)}
+.aqd{color:var(--aqua-deep)}
+.mark{background:var(--aqua);color:var(--tinta);padding:.01em .22em;border-radius:.08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.uline{position:relative;display:inline-block;z-index:0}
+.uline::after{
+  content:'';position:absolute;left:-.06em;right:-.06em;bottom:.02em;height:.32em;z-index:-1;
+  background:var(--aqua);border-radius:.18em;transform:rotate(-.7deg)
+}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.08s}.r.d2{transition-delay:.16s}.r.d3{transition-delay:.24s}
+.r.d4{transition-delay:.32s}.r.d5{transition-delay:.40s}.r.d6{transition-delay:.48s}
+.r.d7{transition-delay:.56s}.r.d8{transition-delay:.64s}
+@media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}}
+
+/* ============ HERO ============ */
+#hero{justify-content:flex-end;padding-bottom:104px;overflow:hidden;color:var(--white)}
+#hero h1,#hero .hero-title{color:var(--white)}
+#hero b,#hero strong{color:var(--white)}
+#hero .sfoot{color:var(--w-45)}
+#hero .sfoot .num{color:var(--aqua)}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.bg-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(172deg,rgba(71,0,130,.74) 0%,rgba(88,13,159,.80) 40%,rgba(26,3,47,.95) 100%);
+}
+.hero-title{font-weight:800;font-size:clamp(2.4rem,6.2vw,5.1rem);line-height:1.13;letter-spacing:-.032em;max-width:18ch}
+.hero-sub{margin-top:26px;font-size:clamp(1.01rem,1.55vw,1.3rem);color:var(--w-80);max-width:700px;line-height:1.62}
+.pill{
+  display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:700;font-size:11px;
+  letter-spacing:.17em;text-transform:uppercase;padding:9px 18px;border-radius:999px;
+  border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--w-80);
+}
+.pill.dark{border-color:var(--line-d);background:rgba(18,18,18,.035);color:var(--t-70)}
+.hero-tags{margin-top:32px;display:flex;flex-wrap:wrap;gap:9px}
+.tag{font-family:'Public Sans';font-weight:500;font-size:12.5px;color:var(--w-80);border:1px solid var(--line);padding:8px 17px;border-radius:999px;background:rgba(255,255,255,.05)}
+.badge-top{
+  position:absolute;top:0;right:7vw;z-index:5;background:var(--white);
+  border-radius:0 0 22px 22px;padding:24px 22px 18px;
+  box-shadow:0 10px 40px rgba(26,3,47,.3);
+}
+.badge-top img{height:54px;width:auto}
+.ghost{
+  position:absolute;top:8vh;left:-1.5vw;z-index:1;pointer-events:none;
+  font-family:'Public Sans';font-weight:800;font-size:clamp(5rem,15vw,13rem);line-height:.8;
+  letter-spacing:-.045em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.13);
+  text-transform:uppercase;
+}
+.scrollcue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--w-45);font-family:'Public Sans';font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:21px;height:32px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ META BAND ============ */
+.meta-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-radius:18px;overflow:hidden}
+.meta-band>div{background:var(--white);padding:22px 24px}
+.meta-band .k{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--t-38);margin-bottom:7px}
+.meta-band .v{font-family:'Public Sans';font-weight:700;font-size:1rem;color:var(--tinta);line-height:1.35}
+.meta-band .v small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.8rem;color:var(--t-50);margin-top:3px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--white);border:1px solid var(--line-d);border-radius:20px;padding:27px;
+  transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease);
+  position:relative;overflow:hidden;
+}
+.s-white .card{background:var(--papel);border-color:var(--line-d-soft)}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-deep);box-shadow:0 14px 40px rgba(18,18,18,.07)}
+.s-violet .card,.s-dark .card{background:rgba(255,255,255,.055);border-color:var(--line-soft);color:var(--w-80)}
+.s-violet .card:hover,.s-dark .card:hover{border-color:var(--aqua-line);background:rgba(255,255,255,.085);box-shadow:none}
+.card .ico{
+  width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(116,250,227,.22);border:1px solid rgba(11,182,162,.34);color:var(--aqua-deep);margin-bottom:18px;
+}
+.s-violet .card .ico,.s-dark .card .ico{background:rgba(116,250,227,.12);border-color:var(--aqua-line);color:var(--aqua)}
+.card .ico svg{width:23px;height:23px}
+.card h3{font-size:1.12rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+.card p{color:var(--t-70);font-size:.94rem;line-height:1.6}
+.s-violet .card p,.s-dark .card p{color:var(--w-65)}
+.card .num-tag{font-family:'Public Sans';font-weight:800;font-size:12px;color:var(--violeta);letter-spacing:.1em;margin-bottom:12px;display:block}
+.s-violet .card .num-tag,.s-dark .card .num-tag{color:var(--aqua)}
+.fact{font-family:'Public Sans';font-weight:800;font-size:clamp(1.55rem,2.9vw,2.2rem);color:var(--violeta);line-height:1;letter-spacing:-.025em;margin-bottom:10px}
+.s-violet .fact,.s-dark .fact{color:var(--aqua)}
+.src{display:block;font-family:'Public Sans';font-weight:700;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--t-38);margin-top:13px;line-height:1.5}
+.s-violet .src,.s-dark .src{color:var(--w-45)}
+
+/* ============ STATS ============ */
+.stats{display:flex;flex-wrap:wrap;gap:16px 52px;border-top:1px solid var(--line-d);padding-top:30px;margin-top:40px}
+.s-violet .stats,.s-dark .stats{border-color:var(--line-soft)}
+.stat .v{font-family:'Public Sans';font-weight:800;font-size:clamp(1.85rem,3.6vw,2.8rem);color:var(--violeta);line-height:1;letter-spacing:-.025em}
+.s-violet .stat .v,.s-dark .stat .v{color:var(--aqua)}
+.stat .l{font-family:'Public Sans';font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--t-50);margin-top:8px;max-width:25ch}
+.s-violet .stat .l,.s-dark .stat .l{color:var(--w-65)}
+
+/* ============ PILL STACK ============ */
+.pillstack{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.pillstack span{
+  display:inline-block;border-radius:999px;padding:.26em .72em;
+  font-family:'Public Sans';font-weight:800;font-size:clamp(1.35rem,3.3vw,2.5rem);line-height:1.14;letter-spacing:-.022em;
+}
+.pillstack .p1{background:var(--violeta-900);color:var(--white)}
+.pillstack .p2{background:var(--aqua);color:var(--violeta-900);margin-left:1.6em}
+.pillstack .p3{background:var(--violeta-claro);color:var(--white);margin-left:.7em}
+.pillstack .p4{background:var(--white);color:var(--violeta);border:2px solid var(--violeta);margin-left:2.3em}
+
+/* ============ QUOTE ============ */
+.quote{border-left:3px solid var(--aqua-deep);padding-left:22px;font-family:'Public Sans';font-weight:600;font-size:clamp(1.06rem,1.75vw,1.45rem);line-height:1.42;letter-spacing:-.01em}
+.s-violet .quote,.s-dark .quote{border-color:var(--aqua);color:var(--white)}
+.quote cite{display:block;font-family:'Space Grotesk';font-style:normal;font-weight:400;font-size:.83rem;color:var(--t-50);margin-top:12px;letter-spacing:.02em}
+.s-violet .quote cite,.s-dark .quote cite{color:var(--w-45)}
+
+/* ============ SPLIT foto + texto ============ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.split.narrow{grid-template-columns:.88fr 1.12fr}
+.split.wide{grid-template-columns:1.15fr .85fr}
+.ph{border-radius:22px;overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--papel)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph.tall{aspect-ratio:3/4}
+.ph.wide{aspect-ratio:16/9}
+.ph .cap{
+  position:absolute;left:16px;bottom:14px;right:16px;z-index:2;
+  font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--white);
+}
+.ph .cap::before{content:'';position:absolute;inset:-16px -16px -14px -16px;z-index:-1;background:linear-gradient(0deg,rgba(26,3,47,.78),transparent)}
+.ph .float{
+  position:absolute;z-index:3;font-family:'Public Sans';font-weight:700;font-size:11.5px;letter-spacing:.05em;
+  padding:9px 16px;border-radius:999px;
+}
+.ph .float.a{background:var(--aqua);color:var(--violeta-900);top:16px;left:16px}
+.ph .float.v{background:var(--violeta);color:var(--aqua);top:16px;right:16px}
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.photo-strip .ph{aspect-ratio:1/1;border-radius:16px}
+
+/* ============ HALLAZGOS (lista numerada con dato) ============ */
+.finding{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line-d)}
+.finding:last-child{border-bottom:none}
+.finding .fn{font-family:'Public Sans';font-weight:800;font-size:1.5rem;color:var(--violeta);line-height:1;letter-spacing:-.03em}
+.finding h4{font-family:'Public Sans';font-weight:700;font-size:1.06rem;margin-bottom:6px;letter-spacing:-.01em}
+.finding p{color:var(--t-70);font-size:.95rem;line-height:1.62;max-width:72ch}
+.finding .ev{display:inline-block;margin-top:10px;font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--aqua-deep);background:rgba(116,250,227,.2);padding:5px 11px;border-radius:999px}
+
+/* ============ COMPARATIVA ============ */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;min-width:680px}
+.tbl th{font-family:'Public Sans';font-weight:800;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--violeta);text-align:left;padding:14px 16px;border-bottom:1.5px solid var(--line-d);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:14px 16px;font-size:.91rem;color:var(--t-70);border-bottom:1px solid var(--line-d-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600;color:var(--tinta)}
+.tbl .plat{font-family:'Public Sans';font-weight:700;color:var(--tinta);white-space:nowrap}
+.tbl .obj{color:var(--t-50);font-size:.85rem;line-height:1.45;min-width:180px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.total td{border-top:1.5px solid var(--aqua-deep);background:rgba(116,250,227,.14);font-family:'Public Sans';font-weight:800;color:var(--tinta)}
+.tbl tr.total td.num{color:var(--violeta)}
+.tbl .yes{color:var(--aqua-deep);font-weight:700}
+.tbl .no{color:#C2410C;font-weight:700}
+.s-violet .tbl th,.s-dark .tbl th{color:var(--aqua);border-color:var(--line)}
+.s-violet .tbl td,.s-dark .tbl td{color:var(--w-80);border-color:var(--line-soft)}
+.s-violet .tbl td.num,.s-dark .tbl td.num,.s-violet .tbl .plat,.s-dark .tbl .plat{color:var(--white)}
+.s-violet .tbl tr.total td,.s-dark .tbl tr.total td{background:rgba(116,250,227,.09);color:var(--white)}
+.s-violet .tbl tr.total td.num,.s-dark .tbl tr.total td.num{color:var(--aqua)}
+
+/* ============ FLUJO / METODOLOGÍA ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:11px;margin-top:10px}
+.pipe .node{
+  flex:1;min-width:150px;background:var(--white);border:1px solid var(--line-d);border-radius:16px;padding:22px 18px;
+  transition:all .4s var(--ease)
+}
+.s-paper .pipe .node{background:var(--white)}
+.pipe .node:hover{border-color:var(--aqua-deep);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Public Sans';font-weight:800;font-size:11px;color:var(--violeta);letter-spacing:.11em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:'Public Sans';font-weight:700;font-size:1rem;letter-spacing:-.01em}
+.pipe .node p{font-size:.83rem;color:var(--t-50);margin-top:6px;line-height:1.48}
+.pipe .arrow{display:flex;align-items:center;color:var(--aqua-deep);opacity:.75}
+.pipe .arrow svg{width:22px;height:22px}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;padding-left:40px;margin-top:8px}
+.tl::before{content:'';position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--violeta),var(--aqua-deep))}
+.tl .it{position:relative;padding:0 0 34px}
+.tl .it:last-child{padding-bottom:0}
+.tl .it::before{content:'';position:absolute;left:-34px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--white);border:3px solid var(--violeta)}
+.tl .it .per{font-family:'Public Sans';font-weight:800;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--violeta);margin-bottom:6px}
+.tl .it h4{font-family:'Public Sans';font-weight:700;font-size:1.12rem;margin-bottom:7px;letter-spacing:-.01em}
+.tl .it p{color:var(--t-70);font-size:.94rem;line-height:1.6;max-width:66ch}
+.tl .it ul{list-style:none;margin-top:10px;display:flex;flex-wrap:wrap;gap:7px}
+.tl .it ul li{font-family:'Public Sans';font-weight:600;font-size:11.5px;padding:6px 13px;border-radius:999px;background:var(--white);border:1px solid var(--line-d);color:var(--t-70)}
+.s-paper .tl .it::before{background:var(--papel)}
+
+/* ============ ALCANCE incluye / no incluye ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{border-radius:20px;padding:30px;border:1px solid var(--line-d);background:var(--white)}
+.panel.good{border-color:rgba(11,182,162,.4);background:rgba(116,250,227,.09)}
+.panel.warn{border-color:var(--line-d);background:var(--papel)}
+.panel h3{font-family:'Public Sans';font-weight:800;font-size:11px;letter-spacing:.17em;text-transform:uppercase;margin-bottom:18px}
+.panel.good h3{color:var(--aqua-deep)}
+.panel.warn h3{color:var(--t-50)}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.panel li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;line-height:1.55;color:var(--t-70)}
+.panel li svg{flex:none;width:17px;height:17px;margin-top:3px}
+.panel.good li svg{color:var(--aqua-deep)}
+.panel.warn li svg{color:var(--t-38)}
+
+/* ============ MODELOS A / B ============ */
+.models{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.model{border:1.5px solid var(--line-d);border-radius:24px;overflow:hidden;background:var(--white);transition:all .4s var(--ease)}
+.model:hover{border-color:var(--aqua-deep);box-shadow:0 18px 50px rgba(18,18,18,.08)}
+.model.feat{border-color:var(--violeta)}
+.model .mh{padding:30px 30px 24px;border-bottom:1px solid var(--line-d-soft);position:relative}
+.model.feat .mh{background:linear-gradient(150deg,var(--violeta-grad-1),var(--violeta) 60%,var(--violeta-900));color:var(--white)}
+.model .ml{font-family:'Public Sans';font-weight:800;font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--violeta);margin-bottom:11px}
+.model.feat .ml{color:var(--aqua)}
+.model .mt{font-family:'Public Sans';font-weight:800;font-size:1.5rem;letter-spacing:-.018em;line-height:1.14}
+.model .md{font-size:.92rem;color:var(--t-70);margin-top:11px;line-height:1.58}
+.model.feat .md{color:var(--w-80)}
+.model .mb{padding:26px 30px 30px}
+.model .mb h4{font-family:'Public Sans';font-weight:800;font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--t-38);margin-bottom:14px}
+.model .mb ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+.model .mb li{display:flex;gap:11px;font-size:.93rem;color:var(--t-70);line-height:1.5}
+.model .mb li svg{flex:none;width:16px;height:16px;margin-top:3px;color:var(--aqua-deep)}
+.model .mfor{margin-top:4px;padding:16px 18px;border-radius:14px;background:var(--papel);font-size:.88rem;color:var(--t-70);line-height:1.55}
+.model.feat .mfor{background:rgba(88,13,159,.06)}
+.model .mfor b{display:block;font-family:'Public Sans';font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--violeta);margin-bottom:6px}
+
+/* ============ INVERSIÓN ============ */
+.inv-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+.inv-card{background:var(--white);border:1.5px solid var(--line-d);border-radius:24px;padding:34px}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Public Sans';font-weight:800;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--violeta);padding-bottom:9px;border-bottom:1.5px solid rgba(11,182,162,.45);margin-bottom:4px}
+.inv-ghead .inv-sub{font-family:'Public Sans';font-weight:800;font-size:.98rem;letter-spacing:0;text-transform:none;color:var(--tinta);white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:17px 14px;margin:0 -14px;border-bottom:1px solid var(--line-d-soft);border-radius:12px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer}
+.price-row.svc-pick:hover{background:rgba(116,250,227,.12)}
+.price-row .pl{display:flex;align-items:flex-start;gap:13px;font-family:'Public Sans';font-weight:700;font-size:1rem;letter-spacing:-.005em}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--t-50);margin-top:5px;font-family:'Space Grotesk';max-width:42ch;line-height:1.5}
+.price-row .pv{font-family:'Public Sans';font-weight:800;font-size:1.22rem;color:var(--violeta);white-space:nowrap;text-align:right}
+.price-row .pv small{display:block;font-size:.66rem;color:var(--t-38);font-weight:600;letter-spacing:.06em;margin-top:3px;font-family:'Public Sans'}
+.price-row .pl small.varfee{font-family:'Public Sans';font-weight:700;font-size:.78rem;color:var(--aqua-deep);margin-top:7px}
+.varnote{margin-top:12px;font-family:'Public Sans';font-weight:700;font-size:.8rem;color:var(--aqua);line-height:1.45}
+.fineprint{font-size:.79rem;color:var(--w-65);margin-top:18px;line-height:1.55}
+.fineprint b{color:var(--white)}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--t-38);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--violeta-900);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--aqua);border-color:var(--aqua-deep)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.price-row.svc-pick.on{background:rgba(116,250,227,.1)}
+.inv-side{position:sticky;top:110px}
+.inv-tot{background:linear-gradient(155deg,var(--violeta-grad-1),var(--violeta) 55%,var(--violeta-900));color:var(--white);border-radius:24px;padding:32px}
+.inv-tot .tl-k{font-family:'Public Sans';font-weight:800;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua);margin-bottom:8px}
+.inv-tot .tl-v{font-family:'Public Sans';font-weight:800;font-size:2rem;line-height:1.05;letter-spacing:-.03em}
+.inv-tot .tl-v small{font-size:.9rem;font-weight:600;color:var(--w-65);display:block;margin-top:5px;letter-spacing:0}
+.inv-tot b,.inv-tot strong{color:var(--aqua)}
+.inv-tot hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+.pay{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.pay .opt{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.055)}
+.pay .opt.best{border-color:var(--aqua);background:rgba(116,250,227,.1)}
+.pay .opt .ot{font-family:'Public Sans';font-weight:700;font-size:.93rem;display:flex;align-items:center;gap:9px;justify-content:space-between}
+.pay .opt .badge{font-family:'Public Sans';font-weight:800;font-size:9px;letter-spacing:.12em;text-transform:uppercase;background:var(--aqua);color:var(--violeta-900);padding:4px 9px;border-radius:999px}
+.pay .opt p{font-size:.82rem;color:var(--w-65);margin-top:6px;line-height:1.5}
+.note-pill{display:inline-block;font-size:.85rem;color:var(--t-50);background:var(--papel);border:1px solid var(--line-d);padding:10px 16px;border-radius:999px;line-height:1.5}
+
+/* ============ ESCENARIOS ============ */
+.scen{margin-top:20px;border:1.5px solid var(--line-d);border-radius:20px;background:var(--white);overflow:hidden;cursor:pointer;transition:all .35s var(--ease)}
+.scen:hover{border-color:var(--aqua-deep)}
+.scen.selected{border-color:var(--violeta);box-shadow:0 14px 44px rgba(88,13,159,.13)}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:22px 26px;border-bottom:1px solid var(--line-d-soft)}
+.scen-head .st{font-family:'Public Sans';font-weight:800;font-size:1.18rem;letter-spacing:-.015em;display:flex;align-items:center;gap:12px}
+.scen-head .st small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.81rem;color:var(--t-50);margin-top:3px;letter-spacing:0}
+.scen-head .si{font-family:'Public Sans';font-weight:800;color:var(--violeta);font-size:1.12rem;white-space:nowrap;text-align:right}
+.scen-head .si small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.72rem;color:var(--t-50);margin-top:3px}
+.scen .chk{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--t-38);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.scen .chk svg{width:11px;height:11px;color:var(--violeta-900);opacity:0;transition:all .2s var(--ease)}
+.scen.selected .chk{background:var(--aqua);border-color:var(--aqua-deep)}
+.scen.selected .chk svg{opacity:1}
+.scen-note{padding:16px 26px;color:var(--t-70);font-size:.89rem;line-height:1.62;border-bottom:1px solid var(--line-d-soft);background:var(--papel)}
+
+/* ============ CTA ============ */
+.cta-go{
+  display:inline-flex;align-items:center;gap:12px;margin-top:22px;
+  font-family:'Public Sans';font-weight:800;font-size:1.02rem;letter-spacing:-.01em;
+  background:var(--aqua);color:var(--violeta-900);padding:17px 32px;border-radius:999px;
+  text-decoration:none;transition:all .35s var(--ease);
+}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(116,250,227,.32)}
+.cta-go svg{width:19px;height:19px}
+#ctaPick{font-size:.94rem;color:var(--w-80);margin-top:6px;min-height:1.5em}
+#ctaPick .none{color:var(--w-45)}
+.close-title{font-family:'Public Sans';font-weight:800;font-size:clamp(1.8rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.022em;text-align:center}
+.close-sign{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
+.close-tag{font-family:'Public Sans';font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);text-align:center}
+
+/* ============ LOGOWALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.logowall div{
+  border:1px solid var(--line-d);border-radius:16px;padding:22px 20px;text-align:center;background:var(--white);
+  font-family:'Public Sans';font-weight:700;font-size:.88rem;color:var(--t-70);letter-spacing:-.01em;
+  display:flex;align-items:center;justify-content:center;min-height:116px;transition:all .35s var(--ease)
+}
+.logowall div:hover{border-color:var(--aqua-deep);color:var(--violeta);transform:translateY(-4px);box-shadow:0 12px 32px rgba(18,18,18,.07)}
+.logowall img{max-height:58px;width:auto;max-width:86%;object-fit:contain}
+.logowall img.tall{max-height:90px}
+
+/* ============ CALLOUT ============ */
+.callout{padding:24px 28px;border-left:4px solid var(--aqua-deep);background:rgba(116,250,227,.12);border-radius:0 16px 16px 0}
+.callout p{color:var(--t-70);font-size:.98rem;line-height:1.65}
+.s-violet .callout,.s-dark .callout{border-color:var(--aqua);background:rgba(116,250,227,.08)}
+.s-violet .callout p,.s-dark .callout p{color:var(--w-80)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1040px){
+  .split,.split.narrow,.split.wide{grid-template-columns:1fr;gap:34px}
+  .inv-wrap{grid-template-columns:1fr;gap:30px}
+  .inv-side{position:static}
+  .models{grid-template-columns:1fr}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .dots{display:none}
+}
+@media (max-width:760px){
+  section{padding:96px 22px 84px;min-height:0}
+  .topbar,.topbar.scrolled{padding:14px 22px}
+  .sfoot{left:22px;right:22px;font-size:8.5px;letter-spacing:.12em;gap:10px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .photo-strip{grid-template-columns:repeat(2,1fr)}
+  .badge-top{right:22px;padding:18px 16px 14px}
+  .badge-top img{height:40px}
+  .ghost{font-size:clamp(3.4rem,17vw,5.6rem);left:0;top:6vh}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .meta-band{grid-template-columns:1fr}
+  .pillstack span{font-size:clamp(1.15rem,6.4vw,1.8rem)}
+  .pillstack .p2{margin-left:.6em}.pillstack .p3{margin-left:.3em}.pillstack .p4{margin-left:.9em}
+  .inv-card{padding:24px 20px}
+  .price-row{flex-direction:column;gap:8px}
+  .price-row .pv{text-align:left}
+  .finding{grid-template-columns:38px 1fr;gap:14px}
+  .tl{padding-left:30px}
+  .tl::before{left:7px}
+  .tl .it::before{left:-30px;width:12px;height:12px}
+  .stats{gap:20px 32px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<div class="dots" id="dots"></div>
+
+<header class="topbar" id="topbar">
+  <div class="logo">
+    <img class="logo-pic logo-dark" src="img/logo-popcorn-negro.png" alt="Popcorn">
+    <img class="logo-pic logo-light" src="img/logo-popcorn-blanco.png" alt="Popcorn">
+  </div>
+  <div class="brand-tag"><span class="dot"></span>Propuesta · Confidencial</div>
+</header>
+
+<!-- ============ 01 · HERO ============ -->
+<section id="hero" data-label="Portada">
+  <div class="bg-photo"><img src="img/hero-familias.jpg" alt="Alumnos de la Escuela CIMDIP &amp; Miguel Cané"></div>
+  <div class="ghost">Matrícula</div>
+  <div class="badge-top"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+  <div class="wrap">
+    <span class="pill r">Propuesta comercial · Escuela CIMDIP &amp; Miguel Cané</span>
+    <h1 class="hero-title r d1" style="margin-top:26px">Una escuela de 1.700 alumnos que se <span class="mark">comunica</span> como una de 200.</h1>
+    <p class="hero-sub r d2">Tienen Aula Maker desde sala, sede de exámenes Cambridge, escuela de ballet con certificación internacional y cuatro décadas de egresados. Nada de eso aparece donde las familias deciden. Esta propuesta no es de publicaciones: es el plan para que lo que ya construyeron empiece a sostener la matrícula.</p>
+    <div class="hero-tags r d3">
+      <span class="tag">Diagnóstico</span>
+      <span class="tag">Captación ciclo 2027</span>
+      <span class="tag">Retención de comunidad</span>
+      <span class="tag">Dos modelos de trabajo</span>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Desplazá</span><div class="mouse"></div></div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Portada</span></div>
+</section>
+
+<!-- ============ 02 · META ============ -->
+<section id="ficha" data-label="La propuesta" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">La propuesta</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Lo que sigue a la reunión del <span class="uline">18 de septiembre</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">En esa conversación quedaron tres pedidos concretos: un diagnóstico externo, un plan de trabajo por etapas y dos alternativas de gestión —una con la agencia haciéndolo todo y otra capacitando al equipo del colegio—. Esto es exactamente eso, con los números y los plazos puestos.</p>
+    <div class="meta-band r d3" style="margin-top:44px">
+      <div><div class="k">Preparada para</div><div class="v">Escuela CIMDIP &amp; Miguel Cané<small>Leticia Cimmino y María José Cimmino · Representantes legales</small></div></div>
+      <div><div class="k">Preparada por</div><div class="v">Popcorn<small>Sol Ferrari · General Manager<br>Florencia Grigolatto · Operations Manager</small></div></div>
+      <div><div class="k">Fecha</div><div class="v">18 de septiembre de 2026<small>Reunión del mismo día</small></div></div>
+      <div><div class="k">Validez</div><div class="v">28 de septiembre de 2026<small>10 días desde la emisión</small></div></div>
+    </div>
+    <div class="callout r d4" style="margin-top:34px">
+      <p><b>Una aclaración de método.</b> Todo lo que sigue está verificado: lo que sale de la reunión aparece como dicho por ustedes, lo que sale de nuestra auditoría dice de dónde lo medimos, y lo que sale de datos públicos lleva la fuente. Donde falta un dato, lo pedimos. No hay una sola cifra estimada presentada como si fuera un hecho.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Escuela CIMDIP &amp; Miguel Cané × Popcorn</span><span class="num">02 — La propuesta</span></div>
+</section>
+
+<!-- ============ 03 · QUIÉNES SOMOS ============ -->
+<section id="popcorn" data-label="Popcorn" class="s-paper">
+  <div class="wrap">
+    <div class="split narrow">
+      <div>
+        <div class="eyebrow r">Quiénes somos</div>
+        <h2 class="h-lg r d1">No somos una agencia de <span class="uline">publicaciones</span>.</h2>
+        <p class="lead r d2" style="margin-top:22px">Popcorn empezó hace 15 años como productora audiovisual y hoy somos un equipo de alrededor de 25 personas que trabaja marketing, comunicación, contenido, pauta, desarrollo web y producción. Entre el 75% y el 80% de nuestra cartera es del sector salud, donde la decisión de compra también es de confianza, es familiar y se toma despacio.</p>
+        <p class="lead r d3" style="margin-top:18px">En educación gestionamos tres colegios de la red Itínere —Northfield School, Colegio del Faro y Lighthouse— y trabajamos con 12ntes, plataforma de formación docente. Conocemos el calendario de admisión, sabemos qué cuesta traer una consulta y sabemos qué pasa cuando un colegio abre una sede nueva y la matrícula no acompaña.</p>
+        <div class="stats r d4">
+          <div class="stat"><div class="v">15</div><div class="l">años de trayectoria</div></div>
+          <div class="stat"><div class="v">~25</div><div class="l">personas en el equipo</div></div>
+          <div class="stat"><div class="v">3</div><div class="l">colegios gestionados hoy</div></div>
+        </div>
+      </div>
+      <div class="ph r d2">
+        <img src="img/comunidad-acto.jpg" alt="Acto escolar en la Escuela CIMDIP &amp; Miguel Cané">
+        <span class="float a">Comunidad</span>
+        <div class="cap">1.700 alumnos · 200 personas trabajando</div>
+      </div>
+    </div>
+    <div class="r d5" style="margin-top:50px">
+      <div class="eyebrow">Algunas marcas que confían en nosotros</div>
+      <div class="logowall">
+        <div><img src="img/logos/austral.png" alt="Hospital Universitario Austral" onerror="this.outerHTML='Hospital Universitario Austral'"></div>
+        <div><img src="img/logos/swiss.png" alt="Swiss Medical Group" onerror="this.outerHTML='Swiss Medical Group'"></div>
+        <div><img src="img/logos/12ntes.png" alt="12ntes" onerror="this.outerHTML='12ntes'"></div>
+        <div><img src="img/logos/northfield.png" alt="Northfield School" onerror="this.outerHTML='Northfield School'"></div>
+        <div><img src="img/logos/faro.png" alt="Colegio del Faro" onerror="this.outerHTML='Colegio del Faro'"></div>
+        <div><img class="tall" src="img/logos/lighthouse.png" alt="Lighthouse School" onerror="this.outerHTML='Lighthouse School'"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Trabajamos donde la decisión es de confianza</span><span class="num">03 — Popcorn</span></div>
+</section>
+
+<!-- ============ 04 · EL CONTEXTO ============ -->
+<section id="contexto" data-label="Contexto" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">El contexto</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">El mercado se achica. <span class="uline">No es una impresión</span>: está medido.</h2>
+    <p class="lead r d2" style="margin-top:22px">En la reunión plantearon que la caída de la natalidad está cerrando jardines y afectando la matrícula. Lo verificamos y es correcto —incluso más marcado de lo que se suele decir—. Pero hay una segunda parte del diagnóstico que cambia la prioridad de las acciones.</p>
+
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <div class="card">
+        <div class="fact">−46,8%</div>
+        <h3>Nacimientos en Argentina</h3>
+        <p>De 777.012 nacimientos en 2014 a 413.135 en 2024. La tasa de fecundidad está en 1,23 hijos por mujer. En 2024, en provincia de Buenos Aires y CABA las defunciones superaron a los nacimientos por primera vez en la historia estadística del país.</p>
+        <span class="src">Fuente · DEIS, Ministerio de Salud · serie 2014-2024</span>
+      </div>
+      <div class="card">
+        <div class="fact">−30,5%</div>
+        <h3>Primaria en PBA hacia 2030</h3>
+        <p>La provincia de Buenos Aires perdería 510.433 alumnos de primaria hacia 2030, la mayor caída absoluta del país. El escalón más fuerte en el ingreso a primaria ya ocurrió: −14,7% en 2026. Secundaria tiene colchón hasta 2031.</p>
+        <span class="src">Fuente · Argentinos por la Educación · enero 2026</span>
+      </div>
+      <div class="card">
+        <div class="fact">11%</div>
+        <h3>Morosidad promedio</h3>
+        <p>La morosidad en colegios privados pasó de 7% a 11% interanual, con subas del 20% en zonas del AMBA. Los hogares con más de tres deudas pasaron del 8% al 28,4% entre julio de 2024 y agosto de 2026.</p>
+        <span class="src">Fuente · relevamientos de cámaras del sector y consumo · 2026</span>
+      </div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:38px">
+      <p><b>Acá está la corrección más importante que les traemos.</b> Buscamos evidencia de la fuga masiva hacia colegios más baratos y <b>no aparece</b>. El estudio de FLACSO sobre 25 años de series y 600 familias muestra la matrícula privada de secundaria estable en 27% durante un cuarto de siglo, y la cámara de institutos privados de la provincia declara expresamente que no ve pases a la escuela estatal. Lo que sí está medido es la morosidad. La conclusión práctica: <b>la familia mayoritariamente no se va, se queda y le cuesta pagar</b>. Y eso se trabaja distinto —comunicando valor hacia adentro, no solo saliendo a buscar afuera—.</p>
+    </div>
+
+    <div class="r d5" style="margin-top:34px">
+      <p class="lead" style="max-width:none"><b>Una consecuencia que nos obliga a los dos.</b> La Dirección General de Cultura y Educación siguió fijando topes de aumento de cuotas durante todo 2026 —agosto 5,5%, septiembre 2,5%—. Con cerca del 80% de la estructura de costos en salarios atados a paritaria y el precio topeado, no hay palanca de rentabilidad por precio. Solo quedan dos: <b>volumen de matrícula y cobrabilidad</b>. Esos son los dos números que esta propuesta se compromete a mover.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Todo dato lleva fuente y fecha</span><span class="num">04 — Contexto</span></div>
+</section>
+
+<!-- ============ 05 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico" class="s-paper">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico · auditoría del 18 de septiembre de 2026</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">El primer contacto de una familia con ustedes dice <span class="uline">2013</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Auditamos el sitio, el Instagram y el circuito de admisión. Lo que sigue no son opiniones de estilo: es lo que una familia se encuentra hoy, antes de conocerlos. Cada punto se puede comprobar en dos minutos.</p>
+
+    <div class="r d3" style="margin-top:40px">
+      <div class="finding">
+        <div class="fn">01</div>
+        <div>
+          <h4>El pie de página dice «© 2013» en todas las páginas revisadas</h4>
+          <p>Aparece en las cinco páginas que auditamos, incluida la de admisión. Una institución que se presenta como innovadora y en crecimiento permanente muestra una fecha de hace trece años en el único lugar donde el visitante busca señales de vigencia.</p>
+          <span class="ev">Verificado en el sitio · 5 de 5 páginas</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">02</div>
+        <div>
+          <h4>Hay una página publicada con el texto de plantilla de Wix, en inglés</h4>
+          <p>La sección de preguntas frecuentes está online e indexable con el contenido de ejemplo que trae la plantilla: «I'm a question. Click here to edit my style», y categorías numeradas de «CATEGORY 1» a «CATEGORY 6». El sitio además se declara en inglés a los buscadores, y el ícono de YouTube apunta al canal de demostración de Wix, no al del colegio.</p>
+          <span class="ev">Verificado · página /faq indexable</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">03</div>
+        <div>
+          <h4>Un colegio bilingüe con errores de ortografía en sus titulares</h4>
+          <p>«Billingue» en la sección de extensión bilingüe, «la mejores escuela para sus hijos» en la portada, «KINDERGARDEN» como título de sección y «Ajedréz» en la descripción que ve Google. Son detalles que, en la categoría educativa, la familia lee como una señal sobre el nivel académico.</p>
+          <span class="ev">Verificado en el sitio</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">04</div>
+        <div>
+          <h4>Dos formularios en todo el sitio, ninguno en la portada</h4>
+          <p>El de admisión es un formulario de Google alojado fuera del sitio: la familia necesita dos clics y un salto a otro dominio para dejar sus datos, y el botón está por debajo del carrusel. Al ser externo, <b>hoy es imposible saber cuántas consultas generó Instagram, cuántas el boca a boca y cuántas una búsqueda</b>. Esa ceguera es la razón por la que todavía no recomendamos invertir en pauta.</p>
+          <span class="ev">Verificado · circuito de admisión completo</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">05</div>
+        <div>
+          <h4>No hay WhatsApp en ningún punto del recorrido</h4>
+          <p>En la reunión lo plantearon como una elección. La auditoría muestra que es una consecuencia: el canal no existe en el sitio, ni en el enlace del perfil de Instagram, y los teléfonos de la portada están sin código de área. Los dos competidores directos sí lo tienen, y además segmentado por nivel.</p>
+          <span class="ev">Verificado · sitio, Instagram y competencia</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">06</div>
+        <div>
+          <h4>El sitio se comparte sin imagen</h4>
+          <p>No tiene definida la imagen de vista previa. Cuando una familia pasa el enlace del colegio por WhatsApp —que es exactamente como se mueve la recomendación en esta zona— llega un rectángulo gris con texto. El canal más importante que tienen, el boca a boca, viaja sin una sola foto de las instalaciones.</p>
+          <span class="ev">Verificado · etiqueta og:image ausente</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">07</div>
+        <div>
+          <h4>Tienen 3,9 sobre 5 con 180 valoraciones, en una ficha que no administran</h4>
+          <p>Hay reputación acumulada de familias reales en un portal de búsqueda de colegios, y la ficha no está reclamada por la institución. No se responde, no se actualiza y no se usa. Mientras tanto, el sitio propio no tiene un solo testimonio.</p>
+          <span class="ev">Verificado · portal Micole, 18/09/2026</span>
+        </div>
+      </div>
+      <div class="finding">
+        <div class="fn">08</div>
+        <div>
+          <h4>Un dato para revisar internamente antes de que lo encuentre otro</h4>
+          <p>La página del cuadro de honor publica nombre, apellido y promedios de alumnos del secundario, indexable por buscadores, y el sitio no tiene política de privacidad pese a tener formularios activos y galerías con menores. Lo señalamos porque es el único punto de esta auditoría que no es una oportunidad comercial sino una exposición a resolver.</p>
+          <span class="ev">Verificado · a revisar con la dirección</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Auditoría propia · verificable punto por punto</span><span class="num">05 — Diagnóstico</span></div>
+</section>
+
+<!-- ============ 06 · LA TESIS ============ -->
+<section id="tesis" data-label="La tesis" class="s-violet">
+  <div class="wrap">
+    <div class="eyebrow r">La tesis</div>
+    <div class="pillstack r d1" style="margin-bottom:38px">
+      <span class="p1">Tienen un colegio</span>
+      <span class="p2">de un millón y medio.</span>
+      <span class="p3">Lo comunican como</span>
+      <span class="p4">uno de ochenta mil.</span>
+    </div>
+
+    <div class="split r d3" style="margin-top:46px">
+      <div>
+        <p class="lead">Contra lo que suele pasar, el problema de CIMDIP no es que le falte producto. Aula Maker desde inicial, sede de exámenes Cambridge, certificaciones de Digital House para secundaria, escuela modelo de las editoriales, sede oficial de exámenes de la American Academy of Ballet, tres salones de ballet con pisos especializados, gabinete psicopedagógico, comedor con nutricionista, y acceso a natatorio, estadio de hockey y polideportivo por convenio con instituciones de la zona.</p>
+        <p class="lead" style="margin-top:20px"><b>Esa lista es de un colegio de otra categoría de precio.</b> Y sin embargo, la comunicación que la acompaña habla de contención, valores y familia: exactamente el mismo discurso que usa, a un cuarto del precio, el colegio que ustedes identifican como el que les copia los proyectos.</p>
+        <p class="lead" style="margin-top:20px">Ahí está la pelea perdida de antemano. <b>Si los dos decimos lo mismo, gana el más barato.</b> Un proyecto educativo se copia en un ciclo lectivo. Cuatro décadas de convenios, certificaciones internacionales y egresados, no.</p>
+      </div>
+      <div class="ph tall r d4">
+        <img src="img/infra-pileta.jpg" alt="Alumnos del colegio en clase de natación">
+        <span class="float v">No se copia</span>
+        <div class="cap">Natación · convenio con instituciones de la zona</div>
+      </div>
+    </div>
+
+    <div class="callout r d5" style="margin-top:44px">
+      <p><b>El reposicionamiento que proponemos.</b> Dejar de ser «el colegio más caro de Quilmes Oeste» —que obliga a pedir disculpas por el precio— y pasar a ser <b>el piso de la educación completa</b>: todo lo que en Quilmes centro se paga cuatro veces más, acá está resuelto sin salir del barrio. No se baja el precio: se cambia con quién nos comparamos.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>La idea rectora de todo el plan</span><span class="num">06 — La tesis</span></div>
+</section>
+
+<!-- ============ 07 · COMPETENCIA ============ -->
+<section id="competencia" data-label="Competencia" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Dónde está la pelea</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Un colegio nuevo tiene la misma audiencia que ustedes con <span class="uline">cuarenta años menos</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Relevamos los perfiles públicos de los colegios de la zona el 18 de septiembre. El dato que más nos llamó la atención no es cuántos seguidores tienen ustedes: es cómo los consiguieron.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:36px">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Colegio</th><th class="num">Seguidores</th><th class="num">Sigue a</th><th class="num">Ratio</th>
+            <th>WhatsApp</th><th>Enlace a admisión</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="plat">Innova</td><td class="num">8.707</td><td class="num">3</td><td class="num">2.902 : 1</td>
+            <td class="yes">Sí, por nivel</td><td class="obj">Bajo dos enlaces de búsqueda de personal</td>
+          </tr>
+          <tr style="background:rgba(116,250,227,.1)">
+            <td class="plat">CIMDIP &amp; Miguel Cané</td><td class="num">8.573</td><td class="num">1.781</td><td class="num">4,8 : 1</td>
+            <td class="no">No existe</td><td class="obj">Primero, pero entre cinco opciones</td>
+          </tr>
+          <tr>
+            <td class="plat">Manuel Belgrano (Vigil)</td><td class="num">6.548</td><td class="num">590</td><td class="num">11 : 1</td>
+            <td class="yes">Sí, 3 líneas por nivel</td><td class="obj">Directo a la página de admisión</td>
+          </tr>
+          <tr>
+            <td class="plat">Colegio Alemán (Holmberg)</td><td class="num">6.093</td><td class="num">89</td><td class="num">68 : 1</td>
+            <td class="obj">—</td><td class="obj">Enlace múltiple</td>
+          </tr>
+          <tr>
+            <td class="plat">Sagrado Corazón Quilmes</td><td class="num">2.889</td><td class="num">17</td><td class="num">170 : 1</td>
+            <td class="obj">—</td><td class="obj">Sitio + 4 enlaces</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note-pill r d4" style="margin-top:18px">Perfiles públicos de Instagram, observados el 18/09/2026.</p>
+
+    <div class="grid g3 r d5" style="margin-top:44px">
+      <div class="card">
+        <span class="num-tag">LO QUE DICE EL RATIO</span>
+        <h3>Ellos ganaron su audiencia. Ustedes la construyeron a mano.</h3>
+        <p>Innova sigue a 3 cuentas y tiene 8.707 seguidores. CIMDIP sigue a 1.781 para tener 8.573. Con 1.700 alumnos y 200 empleados, eso da cinco seguidores por alumno y dos generaciones de egresados sin capturar. Corregido por tamaño, es el desempeño orgánico más flojo del grupo.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">LA FUGA MÁS BARATA DE TAPAR</span>
+        <h3>El padre que quiere saber si hay vacante tiene que mandar un mail.</h3>
+        <p>Y esperar. Los dos competidores directos responden por WhatsApp segmentado por nivel. Es la pérdida más cara del recorrido y, al mismo tiempo, la más barata de resolver: se arregla en la primera semana de trabajo.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">EL ESPACIO VACÍO</span>
+        <h3>Nadie le habla al padre que está eligiendo.</h3>
+        <p>Los seis perfiles relevados le hablan a las familias que ya están adentro. Ninguno produce contenido para quien está comparando: cómo elegir un colegio, qué preguntar en una visita, qué mirar en el paso a secundaria. Es el terreno más barato de ocupar y no tiene dueño.</p>
+      </div>
+    </div>
+
+    <div class="callout r d6" style="margin-top:40px">
+      <p><b>Y acá el hallazgo que más nos sorprendió.</b> Consultamos la Biblioteca de Anuncios de Meta el 18 de septiembre buscando campañas activas de los colegios de la zona. <b>No encontramos una sola campaña activa: ni de Innova, ni de Manuel Belgrano, ni de ustedes.</b> Significa dos cosas. La primera: la ventaja de Innova no es un presupuesto de publicidad que ustedes no tienen, es una decisión de producto —el transporte a los countries—, y eso se contesta más barato. La segunda, más importante: <b>el espacio publicitario de la categoría en Quilmes está vacío</b>. El primer colegio que lo ocupe bien va a pagar por cada consulta menos de lo que pagará el segundo.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Relevamiento propio de perfiles públicos</span><span class="num">07 — Competencia</span></div>
+</section>
+
+<!-- ============ 08 · ESTRATEGIA ============ -->
+<section id="estrategia" data-label="Estrategia" class="s-paper">
+  <div class="wrap">
+    <div class="eyebrow r">La estrategia</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Tres frentes, y <span class="uline">en este orden</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">El orden no es un detalle de presentación: es la diferencia entre gastar y construir. Salir a captar con el circuito de admisión roto es pagar para perder consultas. Por eso el primer frente es el más barato y el que más rinde.</p>
+
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="num-tag">FRENTE 1 · ADENTRO</span>
+        <h3>Que las 1.700 familias que ya están sepan lo que pagan</h3>
+        <p>Es el frente con más volumen y menos costo. Son 1.700 familias que ya eligieron y que hoy comparan una cuota contra otra sin tener idea de lo que hay del otro lado. Sostener a esas familias vale exactamente lo mismo que sumar familias nuevas, y cuesta mucho menos.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <span class="num-tag">FRENTE 2 · EL PRECIO</span>
+        <h3>Dejar de competir contra el más barato</h3>
+        <p>Construir el argumento de relación precio-prestación que hoy no tiene dueño en la zona: comedor, docentes y proyectos compartidos con colegios de cuota cuatro veces mayor, y una infraestructura que ningún competidor de su rango tiene. La comparación se elige, no se sufre.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.4 8.5 8.5 0 0 1-7.6-4.7L3 21l1.9-4.5A8.38 8.38 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.38 8.38 0 0 1 9 8.4z"/></svg></div>
+        <span class="num-tag">FRENTE 3 · AFUERA</span>
+        <h3>Captar, pero recién con el embudo arreglado</h3>
+        <p>WhatsApp, formulario propio y medición primero. Después, campañas para atraer a las familias que hoy pagan el doble en Quilmes centro y a las que están fuera del radio habitual del colegio. Traer tráfico a un circuito ciego es tirar plata, y preferimos decirlo antes que después.</p>
+      </div>
+    </div>
+
+    <div class="r d4" style="margin-top:50px">
+      <div class="eyebrow">Cómo trabajamos</div>
+      <div class="pipe">
+        <div class="node"><span class="k">01</span><span class="t">Entender</span><p>Diagnóstico, datos propios del colegio y definición de públicos.</p></div>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="node"><span class="k">02</span><span class="t">Ordenar</span><p>Identidad, circuito de admisión, WhatsApp y medición.</p></div>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="node"><span class="k">03</span><span class="t">Comunicar</span><p>Contenido, campañas y reposicionamiento de precio.</p></div>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+        <div class="node"><span class="k">04</span><span class="t">Medir</span><p>Consultas, matrículas y reinscripción, con reunión de seguimiento.</p></div>
+      </div>
+    </div>
+
+    <div class="photo-strip r d5">
+      <div class="ph"><img src="img/aula-maker.jpg" alt="Aula Maker"><div class="cap">Aula Maker</div></div>
+      <div class="ph"><img src="img/arte-ballet.jpg" alt="Escuela de ballet"><div class="cap">Ballet</div></div>
+      <div class="ph"><img src="img/deportes.jpg" alt="Natación"><div class="cap">Natación</div></div>
+      <div class="ph"><img src="img/egresados.jpg" alt="Acto de egresados"><div class="cap">Egresados</div></div>
+    </div>
+    <p class="note-pill r d6" style="margin-top:16px">Todo esto ya existe en el colegio y ya está fotografiado. Hoy no se usa donde las familias deciden.</p>
+  </div>
+  <div class="sfoot"><span>El orden es la estrategia</span><span class="num">08 — Estrategia</span></div>
+</section>
+
+<!-- ============ 09 · URGENCIA / CALENDARIO ============ -->
+<section id="calendario" data-label="El reloj" class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow r">El reloj</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Hoy es 18 de septiembre. La decisión del ciclo 2027 <span class="mark">ya empezó</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Esto define cómo armamos la propuesta. Un plan que empiece a ejecutar en noviembre no está vendiendo el ciclo 2027: está vendiendo el 2028. Por eso separamos el trabajo en dos velocidades distintas, con precios distintos, y no en un único paquete anual.</p>
+
+    <div class="grid g2 r d3" style="margin-top:44px">
+      <div class="card">
+        <span class="num-tag">VELOCIDAD 1 · OCTUBRE A FEBRERO</span>
+        <h3>Sprint de cierre del ciclo 2027</h3>
+        <p>Arreglar el circuito de admisión, abrir WhatsApp, poner una landing que convierta y salir a buscar las consultas que todavía están en juego. Es lo urgente y tiene fecha de vencimiento: en marzo ya no sirve.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">VELOCIDAD 2 · TODO EL AÑO</span>
+        <h3>Construcción de marca y comunidad</h3>
+        <p>Reposicionamiento, contenido, comunidad interna, egresados y reputación. Es lo que hace que el ciclo 2028 no dependa de una campaña, y lo que sostiene la cuota cuando el mercado se achica.</p>
+      </div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:38px">
+      <p><b>Lo que necesitamos de ustedes para afinar esto.</b> Hay cuatro datos que tiene el colegio y nosotros no: matrícula propia por nivel de los últimos cinco años, morosidad propia, tasa de reinscripción por nivel y porcentaje de aporte estatal. No son un trámite: si la morosidad está en el 11% del promedio del mercado, el problema es del contexto y la respuesta es captar; si está en 25% o 30%, el problema es propio y la primera prioridad cambia. Los pedimos en la primera semana y el diagnóstico los incorpora.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>La ventana de admisión manda sobre el plan</span><span class="num">09 — El reloj</span></div>
+</section>
+
+<!-- ============ 10 · ETAPA 1 ============ -->
+<section id="fundacion" data-label="Etapa 1" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Etapa 1 · las primeras semanas</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Cinco trabajos que se hacen <span class="uline">una sola vez</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Es la base común a los dos modelos de trabajo. Sin esto, cualquier inversión posterior en comunicación rinde menos de lo que debería.</p>
+
+    <div class="grid g2 r d3" style="margin-top:42px">
+      <div class="card">
+        <span class="num-tag">E1 · 01</span>
+        <h3>Diagnóstico estratégico y plan de captación 2027</h3>
+        <p>Auditoría completa de sitio, redes, circuito de admisión y competencia, incorporando los datos propios del colegio. Definición de públicos prioritarios, plan de captación y retención, rediseño del recorrido de admisión y tablero de indicadores. Se entrega como documento ejecutivo y se presenta en reunión.</p>
+        <span class="src">Entregable · documento ejecutivo y reunión de presentación</span>
+      </div>
+      <div class="card">
+        <span class="num-tag">E1 · 02</span>
+        <h3>Sistema de identidad visual</h3>
+        <p>Normativa de marca sobre el logo que ya tienen y está registrado: paleta, tipografías, grilla, iconografía, criterios de fotografía y aplicaciones. No rehacemos el logo. Queda como manual operativo para que el diseñador del colegio produzca con criterio propio y todo salga parejo.</p>
+        <span class="src">Entregable · manual de marca y plantillas editables</span>
+      </div>
+      <div class="card">
+        <span class="num-tag">E1 · 03</span>
+        <h3>Landing de captación de matrícula</h3>
+        <p>Una página enfocada solo en convertir: formulario corto de seis campos, propuesta académica resumida, prueba social, WhatsApp integrado y medición completa. Es la que usamos con Northfield y la que les mostramos en la reunión. No reemplaza al sitio institucional: lo descarga de una función que hoy no cumple.</p>
+        <span class="src">Incluye · Analytics, Tag Manager, píxel de Meta y etiqueta de Google Ads</span>
+      </div>
+      <div class="card">
+        <span class="num-tag">E1 · 04</span>
+        <h3>Puesta en marcha de pauta digital</h3>
+        <p>Estrategia de medios, apertura y configuración de las cuentas de Meta y Google, medición y conversiones, arquitectura de campañas, audiencias y el primer set de creatividades por formato. Es lo que hace que, desde el primer peso invertido, se sepa qué funciona.</p>
+        <span class="src">Entregable · cuentas configuradas, campañas armadas y creatividades por formato</span>
+      </div>
+      <div class="card">
+        <span class="num-tag">E1 · 05</span>
+        <h3>Relanzamiento de Instagram, Facebook y LinkedIn</h3>
+        <p>Reordenamiento de Instagram y Facebook y apertura del perfil institucional de LinkedIn: línea gráfica, estructura de destacadas, biografía y enlaces —hoy la admisión compite con cuatro opciones más—, pilares de contenido, grilla modelo y guía de publicación. Incluye pasar el contacto del perfil a una casilla institucional.</p>
+        <span class="src">Entregable · tres perfiles ordenados, grilla modelo y guía de publicación</span>
+      </div>
+      <div class="card" style="background:linear-gradient(155deg,var(--violeta-grad-1),var(--violeta) 60%,var(--violeta-900));border:none;color:var(--white)">
+        <span class="num-tag" style="color:var(--aqua)">LO QUE SE ARREGLA SIN COSTO</span>
+        <h3 style="color:var(--white)">Lo que corregimos en la primera semana</h3>
+        <p style="color:var(--w-80)">El pie de página de 2013, la página con el texto de plantilla en inglés, el enlace al canal de demostración de Wix, el idioma declarado del sitio, la imagen de vista previa para que el enlace viaje con foto por WhatsApp, los errores de ortografía de los titulares y el reclamo de la ficha con 180 valoraciones. Entra en la Etapa 1, no se cobra aparte.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Base común a los dos modelos</span><span class="num">10 — Etapa 1</span></div>
+</section>
+
+<!-- ============ 11 · LOS DOS MODELOS ============ -->
+<section id="modelos" data-label="Dos modelos" class="s-paper">
+  <div class="wrap">
+    <div class="eyebrow r">Etapa 2 · dos maneras de trabajar</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Lo mismo todos los meses. Cambia <span class="uline">quién captura</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Es la pregunta que dejaron planteada en la reunión: si conviene un servicio integral de la agencia o apoyarse en gente de la casa. Vamos a ser claros con algo, porque simplifica la decisión: <b>el servicio que reciben todos los meses es el mismo en los dos modelos, y por eso vale lo mismo.</b> Lo único que cambia es <b>quién sale a capturar el día a día del colegio</b> y <b>cada cuánto nos sentamos con ustedes</b>.</p>
+
+    <div class="callout r d3" style="margin-top:32px">
+      <p><b>Idéntico en los dos modelos:</b> la gestión de Instagram, Facebook y LinkedIn —12 posteos, 5 videos y stories por mes, con el diseño, la edición, la redacción, la publicación y la moderación a cargo de Popcorn— y la gestión de pauta en <b>Meta y Google</b>, con su reporte mensual. Nada de eso se delega ni se recorta: es el piso de los dos caminos.</p>
+    </div>
+
+    <div class="models r d3" style="margin-top:46px">
+      <div class="model feat">
+        <div class="mh">
+          <div class="ml">Modelo A</div>
+          <div class="mt">Nosotros capturamos</div>
+          <div class="md">Popcorn va al colegio dos veces por mes a filmar y fotografiar. La dirección no depende de que alguien de la casa se acuerde de sacar el material.</div>
+        </div>
+        <div class="mb">
+          <h4>Suma al servicio de todos los meses</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Dos jornadas de captura en el colegio por mes</b>, con coordinación audiovisual. Cada una entrega 40 a 50 fotos y 8 a 10 videos.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Acompañamiento estratégico con <b>una reunión por semana</b> con la dirección.</span></li>
+          </ul>
+          <div class="mfor">
+            <b>Para quién es</b>
+            Para un colegio que necesita que esto funcione ya y no quiere que el ritmo de publicación dependa de nadie de la casa. Resuelve lo que plantearon en la reunión: que el profesor actual no es el perfil y que la estudiante contratada no tiene las horas.
+          </div>
+        </div>
+      </div>
+
+      <div class="model">
+        <div class="mh">
+          <div class="ml">Modelo B</div>
+          <div class="mt">Capturan ustedes</div>
+          <div class="md">El personal del colegio filma y saca fotos, con método y capacitación. Todo lo demás sigue siendo exactamente igual.</div>
+        </div>
+        <div class="mb">
+          <h4>Suma al servicio de todos los meses</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Capacitación en captura</b>, una sola vez: 4 encuentros de 2 horas sobre cómo filmar y fotografiar con celular, qué capturar, encuadre, luz y sonido. Con manual y guía.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Acompañamiento estratégico con <b>una reunión por mes</b> con la dirección.</span></li>
+          </ul>
+          <div class="mfor">
+            <b>Para quién es</b>
+            Para un colegio que ya tiene gente adentro sacando material y quiere aprovecharla mejor. Cuesta menos por mes, pero el ritmo de publicación depende de que ese material llegue: si una semana no filman, esa semana no hay material nuevo del colegio.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout r d4" style="margin-top:38px">
+      <p><b>Nuestra recomendación honesta, sabiendo que somos parte interesada.</b> En la reunión contaron que ya tienen personal sacando material y que lo que falta es profesionalizarlo. Si eso se sostiene, el <b>Modelo B</b> es mejor negocio para ustedes y lo decimos aunque facturemos bastante menos. La condición es una sola y conviene ponerla por escrito: <b>que haya una persona designada con la obligación de capturar y enviar el material cada semana</b>. Si en cambio el colegio prefiere no depender de eso durante la temporada de admisión, el Modelo A lo resuelve sin que nadie de la casa tenga que acordarse.</p>
+    </div>
+
+    <div class="r d5" style="margin-top:30px">
+      <p class="lead" style="max-width:none">Hay un tercer camino que conviene mirar: <b>empezar con el Modelo A durante el sprint de cierre del ciclo 2027</b> —de octubre a febrero, que es cuando no hay margen de error— y pasar al Modelo B en marzo, con el personal del colegio ya capacitado y con el sistema andando. Es el que más veces vimos funcionar.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>La decisión es de ustedes; la recomendación es nuestra</span><span class="num">11 — Dos modelos</span></div>
+</section>
+
+<!-- ============ 12 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Qué entra y qué <span class="uline">no entra</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Preferimos que esto quede escrito desde el primer día. Es lo que evita las conversaciones incómodas del mes cinco.</p>
+
+    <div class="scope r d3" style="margin-top:42px">
+      <div class="panel good">
+        <h3>Incluido</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Todo lo detallado en la Etapa 1 y en el modelo que elijan.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Las correcciones urgentes del sitio listadas en la Etapa 1, sin costo adicional.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Reuniones de gestión con la dirección: semanales en el Modelo A, mensuales en el Modelo B.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Integración con el diseñador interno del colegio: le pasamos el sistema y los archivos editables.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Dos rondas de revisión por pieza.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Acuerdo de confidencialidad y contrato de locación de servicios, firmados antes de empezar.</span></li>
+        </ul>
+      </div>
+      <div class="panel warn">
+        <h3>No incluido</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span><b>La inversión en medios</b> de Meta y Google. Se abona directamente a las plataformas y se define aparte.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>El rediseño del sitio institucional completo. Va en la Etapa 3, cotizado aparte.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Rediseño del logotipo. Trabajamos sobre la marca que ya tienen registrada.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Cobertura de eventos con menos de 72 horas de aviso. Planificamos con un mes de anticipación; lo urgente es la excepción, no la regla.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Producción audiovisual con rodaje profesional, animaciones y piezas institucionales. Se cotizan por proyecto.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Las autorizaciones de uso de imagen de los alumnos, que las gestiona el colegio.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Lo escrito hoy evita la discusión de mañana</span><span class="num">12 — Alcance</span></div>
+</section>
+
+<!-- ============ 13 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión" class="s-paper">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Tildá lo que quieran y el total se arma <span class="uline">solo</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Todos los valores salen de nuestro tarifario de septiembre-octubre de 2026 y están calculados rol por rol según el equipo que interviene. Son <b>sin IVA</b>. La inversión en medios va aparte y tiene su propia sección.</p>
+
+    <div class="inv-wrap r d3" style="margin-top:44px">
+      <div class="inv-card">
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Etapa 1 · Fundación — pago único</span><span class="inv-sub" id="subE1">—</span></div>
+          <div class="price-row svc-pick" data-type="once" data-amount="2022000" data-svc="Diagnóstico estratégico y plan de captación 2027" data-price="$2.022.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Diagnóstico estratégico y plan de captación 2027</span><small>Auditoría digital, competencia y mercado, públicos, plan de captación y retención, rediseño del circuito de admisión y tablero de indicadores.</small></span></div>
+            <div class="pv">$2.022.000<small>+ IVA</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-amount="1353000" data-svc="Sistema de identidad visual" data-price="$1.353.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Sistema de identidad visual</span><small>Normativa sobre el logo existente: paleta, tipografías, grilla, fotografía, plantillas y aplicaciones. Manual operativo para el diseñador del colegio.</small></span></div>
+            <div class="pv">$1.353.000<small>+ IVA</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-amount="1616000" data-svc="Landing de captación de matrícula" data-price="$1.616.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Landing de captación de matrícula</span><small>Formulario corto, WhatsApp integrado y medición completa. Incluye maquetado.</small></span></div>
+            <div class="pv">$1.616.000<small>+ IVA</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-amount="1350000" data-svc="Puesta en marcha de pauta digital" data-price="$1.350.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Puesta en marcha de pauta digital</span><small>Cuentas de Meta y Google, medición y conversiones, arquitectura de campañas y primer set de creatividades.</small></span></div>
+            <div class="pv">$1.350.000<small>+ IVA</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="once" data-amount="987000" data-svc="Relanzamiento de Instagram, Facebook y LinkedIn" data-price="$987.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Relanzamiento de Instagram, Facebook y LinkedIn</span><small>Línea gráfica, destacadas, biografía, enlaces y pilares de contenido. Incluye la apertura del perfil de LinkedIn.</small></span></div>
+            <div class="pv">$987.000<small>+ IVA</small></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>El servicio de todos los meses — igual en los dos modelos</span><span class="inv-sub" id="subC">—</span></div>
+          <div class="price-row svc-pick" data-type="month" data-amount="1897000" data-svc="Gestión de Instagram, Facebook y LinkedIn" data-price="$1.897.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Gestión de Instagram, Facebook y LinkedIn</span><small>12 posteos, 5 videos cortos y stories por mes. Diseño de las piezas, edición de los videos, redacción, publicación y moderación de comentarios y mensajes. Reporte mensual.</small></span></div>
+            <div class="pv">$1.897.000<small>+ IVA · por mes</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="1513000" data-svc="Gestión de pauta digital (Meta + Google)" data-price="$1.513.000 + IVA / mes + 15% sobre inversión neta en plataformas">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Gestión de pauta · Meta + Google</span><small>Las dos plataformas. Optimización dos veces por semana, creatividades por formato, testeo de mensajes y reporte mensual.</small><small class="varfee">+ 15% variable sobre la inversión neta ejecutada en plataformas</small></span></div>
+            <div class="pv">$1.513.000<small>+ IVA · por mes</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="14000" data-svc="Hosting y SSL de la landing" data-price="$14.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Hosting y certificado SSL de la landing</span><small>Alojamiento y seguridad de la página de captación.</small></span></div>
+            <div class="pv">$14.000<small>+ IVA · por mes</small></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Modelo A · lo que suma — por mes</span><span class="inv-sub" id="subA">—</span></div>
+          <div class="price-row svc-pick" data-type="month" data-amount="1144000" data-svc="Dos jornadas de captura por mes (Modelo A)" data-price="$1.144.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Dos jornadas de captura en el colegio</span><small>Popcorn va al colegio. 4 horas cada jornada, con coordinación audiovisual: 40 a 50 fotos y 8 a 10 videos por vez.</small></span></div>
+            <div class="pv">$1.144.000<small>+ IVA · por mes</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="1736000" data-svc="Acompañamiento estratégico con reunión semanal (Modelo A)" data-price="$1.736.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Acompañamiento estratégico · reunión semanal</span><small>Una reunión por semana con la dirección, seguimiento de los indicadores de admisión y reporte ejecutivo mensual.</small></span></div>
+            <div class="pv">$1.736.000<small>+ IVA · por mes</small></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Modelo B · lo que suma</span><span class="inv-sub" id="subB">—</span></div>
+          <div class="price-row svc-pick" data-type="once" data-amount="1529000" data-svc="Programa de capacitación en captura (Modelo B)" data-price="$1.529.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Programa de capacitación en captura</span><small>Pago único. 4 encuentros de 2 horas para el personal del colegio: cómo filmar y fotografiar con celular, qué capturar, encuadre, luz y sonido. Con manual y guía.</small></span></div>
+            <div class="pv">$1.529.000<small>+ IVA · pago único</small></div>
+          </div>
+          <div class="price-row svc-pick" data-type="month" data-amount="670000" data-svc="Acompañamiento estratégico con reunión mensual (Modelo B)" data-price="$670.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Acompañamiento estratégico · reunión mensual</span><small>Una reunión por mes con la dirección, seguimiento de los indicadores de admisión y reporte ejecutivo.</small></span></div>
+            <div class="pv">$670.000<small>+ IVA · por mes</small></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>Etapa 3 · Verano 2027 — opcional</span><span class="inv-sub" id="subE3">—</span></div>
+          <div class="price-row svc-pick" data-type="once" data-amount="3049000" data-svc="Rediseño del sitio institucional" data-price="$3.049.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Rediseño del sitio institucional</span><small>5 o más páginas a medida, arquitectura nueva, redacción y migración de contenidos. Incluye maquetado. Se hace en verano, cuando baja la demanda de admisión.</small></span></div>
+            <div class="pv">$3.049.000<small>+ IVA</small></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="inv-side">
+        <div class="inv-tot">
+          <div class="tl-k">Pago único</div>
+          <div class="tl-v" id="totOnce">$0<small>Etapa 1 y trabajos por única vez</small></div>
+          <hr>
+          <div class="tl-k">Por mes</div>
+          <div class="tl-v" id="totMonth">$0<small>Servicio recurrente</small></div>
+          <div id="varNote" class="varnote" hidden>+ 15% variable sobre la inversión neta ejecutada en plataformas</div>
+          <hr>
+          <div class="tl-k">Formas de pago · trabajos por única vez</div>
+          <div class="pay">
+            <div class="opt best">
+              <div class="ot"><span>Pago 100% anticipado</span><span class="badge">−3%</span></div>
+              <p><b id="payAnt">$0</b> + IVA. Es más barato porque el colegio no nos traslada el costo financiero.</p>
+            </div>
+            <div class="opt">
+              <div class="ot"><span>50% al inicio y 50% a 30 días</span></div>
+              <p><b id="paySplit">$0</b> + IVA en total, en dos pagos iguales.</p>
+            </div>
+          </div>
+          <p class="fineprint">El <b>servicio mensual se factura 100% por mes adelantado</b> al valor de lista: el descuento del 3% aplica solo a los trabajos por única vez. Los contratos de más de tres meses se ajustan por índice de precios al consumidor. Valores sin IVA, en pesos, válidos hasta el 28 de septiembre de 2026.</p>
+          <p class="fineprint" id="usdNote"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Tarifario Popcorn septiembre-octubre 2026 · valores sin IVA</span><span class="num">13 — Inversión</span></div>
+</section>
+
+<!-- ============ 14 · ESCENARIOS DE MEDIOS ============ -->
+<section id="medios" data-label="Medios" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en medios · se factura aparte</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Cuánto cuesta traer una consulta: <span class="uline">nuestros números</span>, no una estimación.</h2>
+    <p class="lead r d2" style="margin-top:22px">No inventamos proyecciones. Lo que sigue sale de las cuentas publicitarias de dos colegios que gestionamos, durante los últimos doce meses.</p>
+
+    <div class="grid g4 r d3" style="margin-top:38px">
+      <div class="card"><div class="fact">$49,9M</div><h3>Invertidos</h3><p>En Meta y Google, entre septiembre de 2025 y septiembre de 2026.</p></div>
+      <div class="card"><div class="fact">1.946</div><h3>Consultas generadas</h3><p>Conversiones registradas en las cuentas de esos colegios.</p></div>
+      <div class="card"><div class="fact">$20.350</div><h3>Costo por consulta en Meta</h3><p>El canal más eficiente de los dos para este público.</p></div>
+      <div class="card"><div class="fact">$32.900</div><h3>Costo por consulta en Google</h3><p>Más caro, pero capta a quien ya está buscando colegio.</p></div>
+    </div>
+    <p class="note-pill r d4" style="margin-top:16px">Datos propios de Popcorn · 2 colegios gestionados · 01/09/2025 al 17/09/2026. Se presentan agregados por confidencialidad de esas cuentas.</p>
+
+    <h3 class="h-md r d5" style="margin-top:52px">Tres escenarios para CIMDIP</h3>
+    <p class="lead r d5" style="margin-top:12px">Mezcla de 60% en Meta y 40% en Google. Elegí uno y viaja en el correo junto con los servicios.</p>
+    <div class="callout r d5" style="margin-top:22px">
+      <p><b>Cómo se cobra la pauta.</b> Los montos de abajo son <b>netos</b> y los abona el colegio directamente a las plataformas: a eso hay que sumarle <b>impuestos y percepciones</b>, que según la forma de pago van del 40% al 52% adicional y también los paga el colegio. Del lado de Popcorn, la gestión tiene un <b>fee fijo mensual</b> —el de la sección anterior— <b>más un 15% sobre la inversión neta efectivamente ejecutada en plataformas</b>. No lo expresamos en pesos a propósito: depende del escenario que elijan y del consumo real de cada mes. La base de ese 15% es únicamente la inversión en medios; no incluye producción, cachés ni canjes.</p>
+    </div>
+
+    <div class="scen r d6 scen-pick" data-scen="1">
+      <div class="scen-head">
+        <div class="st"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Escenario 1 · Inicial<small>Para empezar a medir con riesgo bajo</small></span></div>
+        <div class="si">$1.500.000 / mes<small>neto, + impuestos</small></div>
+      </div>
+      <div class="scen-note">Alcanza para validar qué mensaje y qué público responden, y para llegar a la primera camada de consultas del ciclo 2027. Es el piso por debajo del cual las campañas no juntan datos suficientes para optimizarse.</div>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta</th><th class="num">Costo por consulta</th><th class="num">Consultas/mes</th></tr></thead><tbody>
+        <tr><td class="plat">Meta Ads</td><td class="obj">Generar demanda en el radio del colegio y retomar a quien ya visitó</td><td class="num">$900.000</td><td class="num">$20.350</td><td class="num">44</td></tr>
+        <tr><td class="plat">Google Ads</td><td class="obj">Captar a quien busca «colegio en Quilmes» ahora mismo</td><td class="num">$600.000</td><td class="num">$32.900</td><td class="num">18</td></tr>
+        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$1.500.000</td><td class="num">$24.194</td><td class="num">62</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="scen r d7 scen-pick" data-scen="2">
+      <div class="scen-head">
+        <div class="st"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Escenario 2 · Recomendado<small>El que proponemos para el cierre del ciclo 2027</small></span></div>
+        <div class="si">$2.500.000 / mes<small>neto, + impuestos</small></div>
+      </div>
+      <div class="scen-note">Volumen suficiente para sostener presencia continua durante los meses de decisión y, al mismo tiempo, abrir una campaña dirigida a las familias que hoy pagan el doble en Quilmes centro. Es el escenario sobre el que hicimos la cuenta de la sección siguiente.</div>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta</th><th class="num">Costo por consulta</th><th class="num">Consultas/mes</th></tr></thead><tbody>
+        <tr><td class="plat">Meta Ads</td><td class="obj">Demanda, reposicionamiento de precio y retargeting</td><td class="num">$1.500.000</td><td class="num">$20.350</td><td class="num">74</td></tr>
+        <tr><td class="plat">Google Ads</td><td class="obj">Búsquedas de alta intención en Quilmes y partidos vecinos</td><td class="num">$1.000.000</td><td class="num">$32.900</td><td class="num">30</td></tr>
+        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$2.500.000</td><td class="num">$24.038</td><td class="num">104</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="scen r d8 scen-pick" data-scen="3">
+      <div class="scen-head">
+        <div class="st"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Escenario 3 · Sostenido<small>Para ocupar el espacio vacío antes que otro</small></span></div>
+        <div class="si">$4.000.000 / mes<small>neto, + impuestos</small></div>
+      </div>
+      <div class="scen-note">Tiene sentido sabiendo que hoy ningún colegio de la zona pauta: el costo de cada consulta va a subir apenas aparezca el segundo anunciante. Este escenario apunta a construir una ventaja difícil de alcanzar en los próximos dos ciclos.</div>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta</th><th class="num">Costo por consulta</th><th class="num">Consultas/mes</th></tr></thead><tbody>
+        <tr><td class="plat">Meta Ads</td><td class="obj">Cobertura de toda la zona sur, por nivel y por interés</td><td class="num">$2.400.000</td><td class="num">$20.350</td><td class="num">118</td></tr>
+        <tr><td class="plat">Google Ads</td><td class="obj">Búsqueda, más presencia en YouTube y Display</td><td class="num">$1.600.000</td><td class="num">$32.900</td><td class="num">49</td></tr>
+        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$4.000.000</td><td class="num">$23.952</td><td class="num">167</td></tr>
+      </tbody></table></div>
+    </div>
+
+    <div class="callout r d8" style="margin-top:32px">
+      <p><b>Dos honestidades sobre estos números.</b> La primera: durante los dos primeros meses conviene prever un costo por consulta hasta 25% mayor, porque la cuenta arranca sin historial de aprendizaje. La segunda, más importante: <b>una consulta no es una matrícula</b>. Es un contacto que entra al circuito de admisión del colegio. Cuántas de esas consultas terminan en matrícula lo define el proceso de ustedes, y por eso no lo proyectamos: lo vamos a medir desde el primer mes, que es algo que hoy todavía no se puede hacer.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Montos netos · el colegio abona a las plataformas + impuestos y percepciones</span><span class="num">14 — Medios</span></div>
+</section>
+
+<!-- ============ 15 · CUÁNTO TIENE QUE RENDIR ============ -->
+<section id="retorno" data-label="Retorno" class="s-violet">
+  <div class="wrap">
+    <div class="eyebrow r">La cuenta que importa</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Con <span class="mark">quince alumnos</span> se paga todo.</h2>
+    <p class="lead r d2" style="margin-top:24px">Una cuota de jornada simple está en torno a los $350.000 y son diez cuotas por ciclo: cada alumno nuevo representa cerca de $3.500.000 de facturación anual. Con eso se puede hacer la cuenta completa de esta propuesta.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:40px">
+      <table class="tbl">
+        <thead><tr><th>Escenario de 6 meses</th><th class="num">Honorarios</th><th class="num">Medios</th><th class="num">15% variable</th><th class="num">Inversión total</th><th class="num">Alumnos para cubrirla</th><th class="num">Sobre 1.700</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Modelo B · capturan ustedes</td><td class="num">$33.421.000</td><td class="num">$15.000.000</td><td class="num">$2.250.000</td><td class="num">$50.671.000</td><td class="num">15</td><td class="num">0,9%</td></tr>
+          <tr><td class="plat">Modelo A · capturamos nosotros</td><td class="num">$45.152.000</td><td class="num">$15.000.000</td><td class="num">$2.250.000</td><td class="num">$62.402.000</td><td class="num">18</td><td class="num">1,1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note-pill r d4" style="margin-top:16px;background:rgba(255,255,255,.08);border-color:var(--line);color:var(--w-65)">Incluye la Etapa 1 completa y seis meses del modelo, con el escenario de medios recomendado y su 15% variable. Valores sin IVA.</p>
+
+    <div class="grid g3 r d5" style="margin-top:46px">
+      <div class="card">
+        <div class="fact">~1%</div>
+        <h3>Es lo que hay que mover</h3>
+        <p>Entre quince y dieciocho alumnos sobre una matrícula de 1.700. Alrededor del uno por ciento del alumnado paga el programa completo, medios incluidos, durante medio año.</p>
+      </div>
+      <div class="card">
+        <div class="fact">×2</div>
+        <h3>El mismo número cuenta dos veces</h3>
+        <p>Quince familias que no se van valen exactamente lo mismo que quince familias nuevas. Y retenerlas es más barato que conseguirlas. Por eso el primer frente del plan mira hacia adentro.</p>
+      </div>
+      <div class="card">
+        <div class="fact">10+</div>
+        <div><h3>Años, no un ciclo</h3>
+        <p>Un alumno que entra en maternal puede quedarse hasta el último año del secundario. La cuenta de arriba es conservadora: mide solo el primer ciclo lectivo.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cuenta hecha con la cuota que nos informaron en la reunión</span><span class="num">15 — Retorno</span></div>
+</section>
+
+<!-- ============ 16 · CRONOGRAMA ============ -->
+<section id="cronograma" data-label="Cronograma" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Qué pasa <span class="uline">desde la firma</span>.</h2>
+    <div class="tl r d2" style="margin-top:44px">
+      <div class="it">
+        <div class="per">Semana 1</div>
+        <h4>Arranque y correcciones urgentes</h4>
+        <p>Firma de confidencialidad y contrato. Reunión de inicio y pedido de los cuatro datos del colegio. Corregimos el pie de página de 2013, la página con el texto de plantilla, el enlace al canal de demostración, el idioma del sitio y la imagen de vista previa. Abrimos el WhatsApp de admisión y reclamamos la ficha con 180 valoraciones.</p>
+        <ul><li>Accesos</li><li>WhatsApp activo</li><li>Sitio sin errores visibles</li></ul>
+      </div>
+      <div class="it">
+        <div class="per">Semanas 2 a 4</div>
+        <h4>Diagnóstico e identidad</h4>
+        <p>Auditoría completa con los datos propios ya incorporados, definición de públicos y plan de captación. En paralelo, el sistema de identidad visual y la entrega del manual operativo al diseñador del colegio.</p>
+        <ul><li>Documento de estrategia</li><li>Manual de marca</li><li>Reunión de presentación</li></ul>
+      </div>
+      <div class="it">
+        <div class="per">Semanas 4 a 6</div>
+        <h4>Landing, medición y relanzamiento de redes</h4>
+        <p>Publicación de la landing de captación con formulario propio y medición completa. Configuración de las cuentas de Meta y Google. Reordenamiento de Instagram y Facebook. Desde acá, por primera vez, se puede saber de dónde viene cada consulta.</p>
+        <ul><li>Landing en línea</li><li>Medición activa</li><li>Perfiles ordenados</li></ul>
+      </div>
+      <div class="it">
+        <div class="per">Octubre a febrero</div>
+        <h4>Sprint de cierre del ciclo 2027</h4>
+        <p>Campañas activas, contenido semanal, captura del día a día del colegio y comunicación hacia la comunidad interna. Reuniones de gestión con la dirección —semanales en el Modelo A— y reporte de admisión. Es la ventana en la que se define la matrícula del año que viene.</p>
+        <ul><li>Campañas activas</li><li>Reporte mensual</li><li>Seguimiento de consultas</li></ul>
+      </div>
+      <div class="it">
+        <div class="per">Enero y febrero · opcional</div>
+        <h4>Rediseño del sitio institucional</h4>
+        <p>Se construye durante el verano, cuando la demanda de admisión baja y el colegio tiene margen para revisar contenidos sin apuro. Es la Etapa 3 y se decide más adelante, con los primeros resultados sobre la mesa.</p>
+        <ul><li>Arquitectura nueva</li><li>Migración de contenidos</li></ul>
+      </div>
+      <div class="it">
+        <div class="per">Marzo</div>
+        <h4>Balance y decisión de modelo</h4>
+        <p>Con el ciclo 2027 cerrado y los números a la vista, revisamos qué funcionó y decidimos juntos si conviene seguir con gestión integral o pasar al modelo de capacitación con el equipo del colegio ya formado.</p>
+        <ul><li>Balance de la temporada</li><li>Plan del ciclo siguiente</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Plazos contados desde la firma del contrato</span><span class="num">16 — Cronograma</span></div>
+</section>
+
+<!-- ============ 17 · KPIs ============ -->
+<section id="kpis" data-label="Qué medimos" class="s-paper">
+  <div class="wrap">
+    <div class="eyebrow r">Qué medimos</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Ninguna de estas métricas es <span class="uline">cuántos «me gusta»</span> tuvo un posteo.</h2>
+    <p class="lead r d2" style="margin-top:22px">Estos son los números del reporte mensual. Los cinco primeros hoy no se pueden medir; a partir de la sexta semana, sí.</p>
+
+    <div class="grid g3 r d3" style="margin-top:42px">
+      <div class="card"><span class="num-tag">01</span><h3>Consultas de admisión por origen</h3><p>Cuántas llegaron de campañas, cuántas de búsqueda, cuántas de Instagram y cuántas del boca a boca. Es el dato que hoy se pierde por completo.</p></div>
+      <div class="card"><span class="num-tag">02</span><h3>Costo por consulta</h3><p>Cuánto costó cada contacto, por plataforma. Es lo que permite decidir dónde poner el peso siguiente.</p></div>
+      <div class="card"><span class="num-tag">03</span><h3>De consulta a entrevista</h3><p>Qué porcentaje de las familias que consultan llega a la visita guiada. Mide si el circuito de admisión acompaña.</p></div>
+      <div class="card"><span class="num-tag">04</span><h3>De entrevista a matrícula</h3><p>El número que define el negocio. Con él se sabe cuánto vale realmente una consulta y cuánto conviene invertir.</p></div>
+      <div class="card"><span class="num-tag">05</span><h3>Tiempo de primera respuesta</h3><p>Cuánto tarda el colegio en contestar una consulta. En categorías de decisión familiar, es el factor que más mueve la conversión.</p></div>
+      <div class="card"><span class="num-tag">06</span><h3>Matrículas nuevas por nivel</h3><p>Separadas por nivel, para ver dónde está funcionando y dónde hay que reforzar. Maternal y sala de un año tienen seguimiento propio.</p></div>
+      <div class="card"><span class="num-tag">07</span><h3>Reinscripción por nivel</h3><p>El indicador de retención. Con el paso de sexto y séptimo grado marcado aparte, que es donde aparece la fuga hacia los bilingües del centro.</p></div>
+      <div class="card"><span class="num-tag">08</span><h3>Morosidad</h3><p>Lo seguimos aunque no sea una métrica de marketing, porque es una de las dos palancas de rentabilidad que quedan y la comunicación de valor le pega directo.</p></div>
+      <div class="card"><span class="num-tag">09</span><h3>Reputación pública</h3><p>Valoraciones y reseñas en Google y en los portales de búsqueda de colegios, con las respuestas al día.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Reporte mensual con estos indicadores</span><span class="num">17 — Qué medimos</span></div>
+</section>
+
+<!-- ============ 18 · EQUIPO ============ -->
+<section id="equipo" data-label="Equipo" class="s-white">
+  <div class="wrap">
+    <div class="split wide">
+      <div>
+        <div class="eyebrow r">Quién trabaja en la cuenta</div>
+        <h2 class="h-lg r d1">Un equipo asignado, no una <span class="uline">casilla genérica</span>.</h2>
+        <p class="lead r d2" style="margin-top:22px">La cuenta la conducen las dos personas que estuvieron en la reunión. Detrás trabaja un equipo con roles definidos y dedicación asignada, no un grupo que rota según la semana.</p>
+        <div class="grid g2 r d3" style="margin-top:32px">
+          <div class="card"><h3>Sol Ferrari</h3><p>General Manager · Paid Media. Conduce la estrategia de la cuenta y la inversión en medios. Es quien hizo la auditoría en vivo durante la reunión.</p></div>
+          <div class="card"><h3>Florencia Grigolatto</h3><p>Operations Manager. Responsable de que lo prometido se entregue en tiempo y forma, y de la relación con el equipo del colegio.</p></div>
+        </div>
+        <div class="stats r d4">
+          <div class="stat"><div class="v">11</div><div class="l">perfiles distintos intervienen en la cuenta</div></div>
+          <div class="stat"><div class="v">1</div><div class="l">reunión por semana en el Modelo A</div></div>
+          <div class="stat"><div class="v">2</div><div class="l">responsables directas, con nombre</div></div>
+        </div>
+      </div>
+      <div class="ph tall r d3">
+        <img src="img/secundaria-tech.jpg" alt="Alumnos de secundaria trabajando con tecnología">
+        <span class="float a">Ya existe</span>
+        <div class="cap">Secundaria · certificaciones Digital House</div>
+      </div>
+    </div>
+    <div class="r d5" style="margin-top:44px">
+      <p class="lead" style="max-width:none">Los perfiles que intervienen según el trabajo: <b>Project Manager Senior y Semi Senior, Supervisión de Gerencias, Analista de Marketing, Coordinación y Análisis de Paid Media, Dirección Creativa, Dirección de Arte, Diseño Senior, Coordinación Audiovisual, Content Creator, Community Manager, Edición y Asistencia de Cuentas.</b> Cada valor de esta propuesta se armó sobre la dedicación real de cada uno de estos roles, no sobre un precio de lista cerrado.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Las horas están detrás de cada número</span><span class="num">18 — Equipo</span></div>
+</section>
+
+<!-- ============ 19 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos" class="s-paper">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Cuatro pasos y arrancamos.</h2>
+    <div class="grid g4 r d2" style="margin-top:44px">
+      <div class="card"><span class="num-tag">PASO 01</span><h3>Revisar esta propuesta</h3><p>Léanla con tiempo y anoten todo lo que no cierre. Desde la selección de inversión pueden mandarnos directamente qué les interesa.</p></div>
+      <div class="card"><span class="num-tag">PASO 02</span><h3>Reunión presencial</h3><p>Nos vemos en el colegio un lunes, o en nuestras oficinas de Chacarita. Repasamos el diagnóstico punto por punto y ajustamos el alcance.</p></div>
+      <div class="card"><span class="num-tag">PASO 03</span><h3>Confidencialidad y contrato</h3><p>Firmamos el acuerdo de confidencialidad y el contrato de locación de servicios. Protege la información de las dos instituciones.</p></div>
+      <div class="card"><span class="num-tag">PASO 04</span><h3>Semana uno</h3><p>Accesos, los cuatro datos del colegio y las correcciones urgentes del sitio. En siete días ya hay cosas arregladas.</p></div>
+    </div>
+    <div class="callout r d3" style="margin-top:38px">
+      <p><b>Una última cosa, y es la que más nos importa.</b> Si de esta propuesta no sale nada, igual llévense el diagnóstico: el pie de página de 2013, la página en inglés, el enlace al canal de demostración, el WhatsApp que no existe y la ficha con 180 valoraciones sin reclamar se arreglan con o sin nosotros. Ya sea que trabajen con Popcorn o con otra agencia, esas correcciones valen la pena.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Sin compromiso hasta la firma</span><span class="num">19 — Próximos pasos</span></div>
+</section>
+
+<!-- ============ 20 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre" class="s-violet">
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center;display:flex">Para cerrar</div>
+    <h2 class="close-title r d1">No les proponemos publicaciones.<br>Les proponemos que <span class="mark">45 años de escuela</span><br>empiecen a verse donde las familias eligen.</h2>
+    <p class="lead r d2" style="margin:28px auto 0;text-align:center">El producto ya está construido. Lo que falta es que se note, y que cuando una familia levante la mano, alguien le conteste rápido.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:sol@somospopcorn.com,florencia@somospopcorn.com?subject=CIMDIP%20%C2%B7%20Avancemos%20con%20la%20propuesta&body=Hola%2C%20vimos%20la%20propuesta%20y%20queremos%20avanzar.">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/logo-popcorn-blanco.png" alt="Popcorn">
+      <span class="close-tag">Escuela CIMDIP &amp; Miguel Cané × Popcorn · Propuesta válida hasta el 28 de septiembre de 2026<br>sol@somospopcorn.com · florencia@somospopcorn.com</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/Math.max(h,1)*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.4});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Inversión + escenarios ===== */
+const scenData={
+  '1':{label:'Escenario 1 · Inicial',inv:'$1.500.000 / mes',consultas:'62',cpc:'$24.194'},
+  '2':{label:'Escenario 2 · Recomendado',inv:'$2.500.000 / mes',consultas:'104',cpc:'$24.038'},
+  '3':{label:'Escenario 3 · Sostenido',inv:'$4.000.000 / mes',consultas:'167',cpc:'$23.952'}
+};
+const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const picks=[...document.querySelectorAll('.scen-pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+let selScen=null;
+
+function sumGroup(el){
+  let o=0,m=0;
+  [...el.querySelectorAll('.svc-pick.on')].forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    if(s.dataset.type==='once'){o+=a;}else{m+=a;}
+  });
+  return [o,m];
+}
+function labelGroup(o,m){
+  const p=[];
+  if(o)p.push(fmt(o));
+  if(m)p.push(fmt(m)+'/mes');
+  return p.length?p.join(' + '):'—';
+}
+function buildMail(){
+  const groups=[...document.querySelectorAll('.inv-group')];
+  const ids=['subE1','subC','subA','subB','subE3'];
+  groups.forEach((g,i)=>{
+    const el=document.getElementById(ids[i]);
+    if(el){const[o,m]=sumGroup(g);el.textContent=labelGroup(o,m);}
+  });
+  const sel=svcPicks.filter(s=>s.classList.contains('on'));
+  let onceT=0,monthT=0,hayPauta=false;
+  sel.forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    if(s.dataset.type==='once'){onceT+=a;}else{monthT+=a;}
+    if(s.querySelector('.varfee')){hayPauta=true;}
+  });
+  document.getElementById('totOnce').innerHTML=fmt(onceT)+'<small>Etapa 1 y trabajos por única vez</small>';
+  document.getElementById('totMonth').innerHTML=fmt(monthT)+'<small>Servicio recurrente</small>';
+  document.getElementById('varNote').hidden=!hayPauta;
+  document.getElementById('payAnt').textContent=fmt(Math.round(onceT*0.97));
+  document.getElementById('paySplit').textContent=fmt(onceT);
+  /* equivalencia informativa en USD, sobre el valor de lista, a $1.500 de referencia */
+  const usdN=document.getElementById('usdNote');
+  if(onceT||monthT){
+    const p=[];
+    if(onceT){p.push('USD '+Math.round(onceT/1500).toLocaleString('es-AR')+' por única vez');}
+    if(monthT){p.push('USD '+Math.round(monthT/1500).toLocaleString('es-AR')+' por mes');}
+    usdN.innerHTML='Equivalencia informativa: <b>'+p.join('</b> y <b>')+'</b>, calculada a $1.500 por dólar. La facturación es en pesos.';
+  }else{usdN.innerHTML='';}
+
+  let subject='CIMDIP · Avancemos con la propuesta';
+  let body='Hola Sol y Florencia, vimos la propuesta para la Escuela CIMDIP & Miguel Cané y queremos avanzar.';
+  if(sel.length){
+    body+='\n\nServicios con los que queremos avanzar:';
+    sel.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+    body+='\n\nResumen:';
+    if(onceT){body+='\n• Pago único: '+fmt(onceT)+' + IVA (anticipado: '+fmt(Math.round(onceT*0.97))+' + IVA)';}
+    if(monthT){body+='\n• Mensual: '+fmt(monthT)+' + IVA por mes';}
+    if(hayPauta){body+='\n• Más el 15% variable sobre la inversión neta ejecutada en plataformas';}
+  }
+  if(selScen&&scenData[selScen]){
+    const s=scenData[selScen];
+    subject='CIMDIP · Avancemos · '+s.label;
+    body+='\n\nInversión en medios elegida:\n• '+s.label+'\n• Inversión: '+s.inv+'\n• Consultas proyectadas: '+s.consultas+' por mes\n• Costo por consulta: '+s.cpc;
+  }
+  const parts=[];
+  if(sel.length)parts.push(sel.length+' servicio'+(sel.length>1?'s':''));
+  if(selScen)parts.push(scenData[selScen].label);
+  ctaPick.innerHTML=parts.length?'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b>':'<span class="none">Elegí servicios e inversión más arriba para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:sol@somospopcorn.com,florencia@somospopcorn.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+svcPicks.forEach(s=>s.addEventListener('click',()=>{s.classList.toggle('on');buildMail();}));
+picks.forEach(p=>p.addEventListener('click',()=>{
+  const was=p.classList.contains('selected');
+  picks.forEach(x=>x.classList.remove('selected'));
+  if(was){selScen=null;}else{p.classList.add('selected');selScen=p.dataset.scen;}
+  buildMail();
+}));
+buildMail();
+</script>
+</body>
+</html>
