@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fe Seguros × Popcorn · Fácil de vender — Lanzamiento de marca en Perú</title>
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fe Seguros × Popcorn · Propuesta de lanzamiento de marca">
+<meta property="og:description" content="Tu marca no necesita ser famosa. Necesita ser fácil de vender. Propuesta de acompañamiento estratégico, publicidad digital y gestión de redes para Fe Seguros.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · SISTEMA DE MARCA — propuesta comercial
+   Paleta canónica: violeta #580D9F + aqua #74FAE3
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(26,3,47,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk','DM Sans', system-ui, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violeta);
+  color:var(--white);
+  font-family:var(--font-text);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(162,98,229,.42), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(116,250,227,.10), transparent 55%),
+    linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 42%,var(--violeta-900) 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:var(--font-display);font-style:normal}
+em,i{font-style:normal}
+a{color:inherit}
+
+/* ============ HEADER FIJO ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:58px}
+
+/* ============ PROGRESO + NAV LATERAL ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);
+  white-space:nowrap;font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);background:rgba(26,3,47,.94);padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft);
+}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+section.auto{min-height:0}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+
+/* modos de sección */
+.sec-papel{background:var(--papel);color:var(--tinta)}
+.sec-papel .lead,.sec-papel .muted{color:rgba(18,18,18,.72)}
+.sec-papel .eyebrow{color:var(--violeta)}
+.sec-papel .eyebrow::before{background:var(--violeta);box-shadow:0 0 12px rgba(88,13,159,.5)}
+.sec-papel .cy{color:var(--violeta)}
+.sec-papel b,.sec-papel strong{color:var(--tinta)}
+.sec-papel .card{background:#fff;border-color:rgba(18,18,18,.10)}
+.sec-papel .card p{color:rgba(18,18,18,.68)}
+.sec-papel .card:hover{border-color:var(--violeta);background:#fff}
+.sec-papel .card .ico{background:rgba(88,13,159,.08);border-color:rgba(88,13,159,.22);color:var(--violeta)}
+.sec-papel .sfoot{color:rgba(18,18,18,.38)}
+.sec-papel .sfoot .num{color:var(--violeta)}
+.sec-negro{background:var(--negro)}
+/* Overrides del modo papel: estos componentes nacieron para fondo oscuro y
+   sobre #F2F4EF quedaban ilegibles (detectado en QA, 17/09/2026). */
+.sec-papel .note-pill{background:rgba(88,13,159,.06);border-color:rgba(88,13,159,.22);color:rgba(18,18,18,.78)}
+.sec-papel .note-pill b{color:var(--violeta)}
+.sec-papel .card.hi{background:linear-gradient(160deg,rgba(11,182,162,.12),#fff);border-color:rgba(11,182,162,.45)}
+.sec-papel .card .num-tag{color:var(--violeta)}
+.sec-papel .media .cap{color:#fff}
+.sec-papel .quote{color:var(--tinta)}
+.sec-papel .bigstatement{color:var(--tinta)}
+
+/* ── Modo papel: componentes que nacieron para fondo oscuro ───────────── */
+.sec-papel .lead{color:rgba(18,18,18,.74)}
+.sec-papel .muted{color:rgba(18,18,18,.58)}
+.sec-papel b,.sec-papel strong{color:var(--tinta)}
+.sec-papel .kicker{color:var(--violeta)}
+.sec-papel .tag{color:rgba(18,18,18,.74);border-color:rgba(18,18,18,.16);background:#fff}
+
+/* timeline del roadmap */
+.sec-papel .tl::before{background:linear-gradient(180deg,rgba(88,13,159,.38),rgba(88,13,159,.05))}
+.sec-papel .tl-item .dot{background:#fff;border-color:var(--violeta)}
+.sec-papel .tl-item .dot::after{background:var(--violeta);box-shadow:0 0 10px rgba(88,13,159,.45)}
+.sec-papel .tl-item .ph{color:var(--violeta)}
+.sec-papel .tl-item p{color:rgba(18,18,18,.66)}
+.sec-papel .tl-item .tl-tags span{border-color:rgba(18,18,18,.16);color:rgba(18,18,18,.62);background:#fff}
+
+/* tarjetas de plan */
+.sec-papel .plan{background:#fff;border-color:rgba(18,18,18,.12)}
+.sec-papel .plan:hover{border-color:var(--violeta)}
+.sec-papel .plan.sel{border-color:var(--violeta);background:linear-gradient(165deg,rgba(116,250,227,.16),#fff);box-shadow:0 0 0 1px var(--violeta) inset,0 16px 44px rgba(88,13,159,.14)}
+.sec-papel .plan .pprice{color:var(--violeta)}
+.sec-papel .plan .pfor,.sec-papel .plan .pper{color:rgba(18,18,18,.5)}
+.sec-papel .plan .phrs{color:rgba(18,18,18,.66);border-top-color:rgba(18,18,18,.10)}
+.sec-papel .plan ul li{color:rgba(18,18,18,.76)}
+.sec-papel .plan ul li svg{color:var(--aqua-deep)}
+.sec-papel .plan ul li.off{color:rgba(18,18,18,.42)}
+.sec-papel .plan ul li.off svg{color:rgba(18,18,18,.42)}
+.sec-papel .plan .pick{color:rgba(18,18,18,.5);border-top-color:rgba(18,18,18,.10)}
+.sec-papel .plan .pick .radio{border-color:rgba(18,18,18,.35)}
+.sec-papel .plan .pick .radio::after{background:var(--violeta)}
+.sec-papel .plan.sel .pick{color:var(--violeta)}
+.sec-papel .plan.sel .pick .radio{border-color:var(--violeta)}
+.sec-papel .plan .rec{background:var(--violeta);color:#fff}
+
+/* filas de precio y grupos */
+.sec-papel .inv-ghead{color:var(--violeta);border-bottom-color:rgba(88,13,159,.3)}
+.sec-papel .inv-ghead .inv-sub{color:var(--tinta)}
+.sec-papel .price-row{border-bottom-color:rgba(18,18,18,.10)}
+.sec-papel .price-row.pick:hover{background:rgba(88,13,159,.04)}
+.sec-papel .price-row .pl{color:var(--tinta)}
+.sec-papel .price-row .pl small{color:rgba(18,18,18,.55)}
+.sec-papel .price-row .pv{color:var(--violeta)}
+.sec-papel .price-row .pv small{color:rgba(18,18,18,.5)}
+.sec-papel .price-row .chk{border-color:rgba(18,18,18,.35)}
+.sec-papel .price-row.pick.on .chk{background:var(--violeta);border-color:var(--violeta)}
+.sec-papel .price-row.pick.on .chk svg{color:#fff}
+.sec-papel .price-row.yainc .pv::after{color:var(--aqua-deep)}
+
+/* formas de pago */
+.sec-papel .paycard{background:#fff;border-color:rgba(18,18,18,.12)}
+.sec-papel .paycard.best{background:rgba(116,250,227,.14);border-color:rgba(11,182,162,.5)}
+.sec-papel .paycard .pd{color:rgba(18,18,18,.62)}
+.sec-papel .paycard .pq{color:var(--violeta)}
+.sec-papel .paycard .bestbadge{background:var(--violeta);color:#fff}
+
+/* caja de totales */
+.sec-papel .totalbox{background:linear-gradient(160deg,rgba(116,250,227,.16),#fff);border-color:rgba(11,182,162,.45)}
+.sec-papel .totalbox .trow{border-bottom-color:rgba(18,18,18,.10)}
+.sec-papel .totalbox .trow .tl-k{color:rgba(18,18,18,.78)}
+.sec-papel .totalbox .trow .tl-k small{color:rgba(18,18,18,.55)}
+.sec-papel .totalbox .trow .tl-v{color:var(--violeta)}
+.sec-papel .note{color:rgba(18,18,18,.7)}
+.sec-papel .note b{color:var(--violeta)}
+.sec-papel #ctaPick{color:var(--violeta)}
+.sec-papel #ctaPick .none{color:rgba(18,18,18,.5)}
+.sec-papel .cta-go{box-shadow:0 12px 30px rgba(11,182,162,.28)}
+
+/* logowall sobre papel: las celdas blancas necesitan borde */
+.sec-papel .logocell{border:1px solid rgba(18,18,18,.10)}
+
+/* Separadores de bloque en la seccion de inversion: que se vea de un vistazo
+   que se paga una vez y que se paga todos los meses. */
+.bloque{margin-top:54px}
+.bloque-tit{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--aqua);margin-bottom:6px}
+.bloque-tit .n{font-family:var(--font-display);font-weight:700;font-size:1.9rem;color:var(--aqua);line-height:1}
+.bloque-tit .t{font-family:var(--font-display);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.7rem);letter-spacing:-.01em}
+.bloque-tit .s{font-family:var(--font-text);font-size:.92rem;color:var(--w-65);flex:1;min-width:210px}
+.sec-papel .bloque-tit{border-bottom-color:var(--violeta)}
+.sec-papel .bloque-tit .n{color:var(--violeta)}
+.sec-papel .bloque-tit .s{color:rgba(18,18,18,.6)}
+
+
+
+.sec-negro::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 600px at 50% 0%,rgba(88,13,159,.34),transparent 65%);z-index:0}
+
+/* eyebrow */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+
+/* títulos */
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.04;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--aqua)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.28rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.lead+.lead{margin-top:18px}
+.muted{color:var(--w-65)}
+.kicker{font-family:var(--font-display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--aqua)}
+b,strong{color:#fff;font-weight:600}
+.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}.mt46{margin-top:46px}
+
+/* firma de marca: resaltador aqua */
+.hl{background:var(--aqua);color:var(--tinta);padding:.02em .22em;border-radius:.1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl-pill{background:var(--aqua);color:var(--tinta);padding:.08em .38em;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* wordmark fantasma */
+.ghost{position:absolute;top:-2vw;left:-1vw;z-index:0;font-family:var(--font-display);font-weight:800;font-size:clamp(6rem,17vw,15rem);line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.10);pointer-events:none;user-select:none;white-space:nowrap}
+.sec-papel .ghost{-webkit-text-stroke-color:rgba(88,13,159,.13)}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-title{font-weight:700;font-size:clamp(2.5rem,6.6vw,5.4rem);line-height:1.0;letter-spacing:-.03em;max-width:17ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--w-80);max-width:680px;line-height:1.62}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:var(--font-display);font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:var(--font-display);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+.badge-logo{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:#fff;border-radius:0 0 22px 22px;padding:24px 22px 20px;display:flex;align-items:center;justify-content:center}
+.badge-logo img{height:62px;width:auto;display:block}
+
+/* ============ META BAND ============ */
+.metaband{background:rgba(26,3,47,.55);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:30px 38px}
+.metaband .inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.metaband .mi .k{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--aqua);margin-bottom:7px}
+.metaband .mi .v{font-family:var(--font-display);font-weight:600;font-size:.97rem;line-height:1.35}
+.metaband .mi .v small{display:block;font-family:var(--font-text);font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.card .num-tag{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--aqua);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card.hi{background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(26,3,47,.35));border-color:var(--aqua-line)}
+
+/* dato con fuente */
+.src{display:block;font-family:var(--font-text);font-size:.74rem;color:var(--w-45);margin-top:12px;line-height:1.45;border-top:1px solid var(--line-soft);padding-top:10px}
+.sec-papel .src{color:rgba(18,18,18,.55);border-top-color:rgba(18,18,18,.10)}
+
+/* stats */
+.stats{display:flex;flex-wrap:wrap;gap:14px 52px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:44px}
+.sec-papel .stats{border-top-color:rgba(18,18,18,.12)}
+.stat .v{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,3.8vw,2.9rem);color:var(--aqua);line-height:1}
+.sec-papel .stat .v{color:var(--violeta)}
+.stat .l{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.sec-papel .stat .l{color:rgba(18,18,18,.64)}
+
+/* quote / statement */
+.quote{border-left:2px solid var(--aqua);padding-left:24px;color:var(--white);font-family:var(--font-display);font-weight:500;font-size:clamp(1.1rem,1.8vw,1.55rem);line-height:1.38}
+.sec-papel .quote{color:var(--tinta);border-left-color:var(--violeta)}
+.bigstatement{font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.8rem);line-height:1.14;letter-spacing:-.015em;max-width:20ch}
+
+/* pill stack */
+.pills{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.pills span{display:inline-block;border-radius:999px;padding:.3em .85em;font-family:var(--font-display);font-weight:700;font-size:clamp(1.3rem,3.2vw,2.6rem);line-height:1.15}
+.pills span:nth-child(1){background:var(--violeta-900);color:#fff;margin-left:0}
+.pills span:nth-child(2){background:var(--aqua);color:var(--violeta-900);margin-left:2.2vw}
+.pills span:nth-child(3){background:var(--violeta-claro);color:#fff;margin-left:1vw}
+.pills span:nth-child(4){background:#fff;color:var(--violeta);margin-left:3.4vw}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:16px}
+.chip{font-family:var(--font-display);font-weight:500;font-size:.95rem;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
+.chip:hover{border-color:var(--aqua-line);color:var(--aqua);transform:translateY(-3px)}
+.sec-papel .chip{background:#fff;border-color:rgba(18,18,18,.10);color:var(--tinta)}
+.sec-papel .chip:hover{border-color:var(--violeta);color:var(--violeta)}
+
+/* ============ PIPE ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 18px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--aqua-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:var(--font-display);font-weight:700;font-size:12px;color:var(--aqua);letter-spacing:.1em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:var(--font-display);font-weight:600;font-size:1rem}
+.pipe .node p{font-size:.8rem;color:var(--w-45);margin-top:6px;line-height:1.45}
+.pipe .arrow{display:flex;align-items:center;color:var(--aqua);opacity:.6}
+.sec-papel .pipe .node{background:#fff;border-color:rgba(18,18,18,.10)}
+.sec-papel .pipe .node .k{color:var(--violeta)}
+.sec-papel .pipe .node p{color:rgba(18,18,18,.60)}
+.sec-papel .pipe .arrow{color:var(--violeta)}
+
+/* ============ TABLAS ============ */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line-soft);border-radius:18px;background:var(--card)}
+.sec-papel .tbl-wrap{border-color:rgba(18,18,18,.10);background:#fff}
+table.tbl{width:100%;border-collapse:collapse;min-width:740px}
+.tbl-hint{display:none;font-family:var(--font-display);font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-top:12px}
+.sec-papel .tbl-hint{color:var(--violeta)}
+.tbl th{font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.sec-papel .tbl th{color:var(--violeta);border-bottom-color:rgba(18,18,18,.12)}
+.tbl th.num,.tbl td.num{text-align:right}
+.tbl td{padding:14px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.5}
+.sec-papel .tbl td{color:rgba(18,18,18,.78);border-bottom-color:rgba(18,18,18,.08)}
+.tbl td.num{font-family:var(--font-display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:var(--font-display);font-weight:600;color:#fff;white-space:nowrap}
+.sec-papel .tbl .plat{color:var(--tinta)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.hi td{background:rgba(116,250,227,.07)}
+.sec-papel .tbl tr.hi td{background:rgba(88,13,159,.05)}
+.tag-ok{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:rgba(116,250,227,.16);color:var(--aqua);border:1px solid var(--aqua-line);white-space:nowrap}
+.tag-no{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--w-45);border:1px solid var(--line);white-space:nowrap}
+.sec-papel .tag-ok{background:rgba(11,182,162,.12);color:#0BB6A2;border-color:rgba(11,182,162,.4)}
+.sec-papel .tag-no{background:rgba(18,18,18,.05);color:rgba(18,18,18,.48);border-color:rgba(18,18,18,.14)}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(26,3,47,.35)}
+.sec-papel .scope-col{background:#fff;border-color:rgba(18,18,18,.10)}
+.sec-papel .scope-col.no{background:rgba(18,18,18,.035)}
+.scope-col h3{font-family:var(--font-display);font-weight:600;font-size:1.18rem;margin-bottom:6px}
+.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:22px}
+.sec-papel .scope-col .sub{color:rgba(18,18,18,.55)}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--w-80);line-height:1.5}
+.sec-papel .scope-col li{color:rgba(18,18,18,.78)}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--aqua)}
+.scope-col.no li svg{color:var(--w-45)}
+.sec-papel .scope-col.yes li svg{color:var(--aqua-deep)}
+.sec-papel .scope-col.no li svg{color:rgba(18,18,18,.40)}
+
+/* bullets numerados */
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+.sec-papel .bullets li .bi{background:rgba(88,13,159,.09);border-color:rgba(88,13,159,.25);color:var(--violeta)}
+.sec-papel .bullets li p{color:rgba(18,18,18,.78)}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--aqua-line),rgba(116,250,227,.05))}
+.tl-item{position:relative;padding:0 0 38px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violeta-900);border:2px solid var(--aqua);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 10px var(--aqua)}
+.tl-item .ph{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);margin-bottom:5px}
+.tl-item h3{font-family:var(--font-display);font-weight:600;font-size:1.22rem;margin-bottom:9px}
+.tl-item p{color:var(--w-65);font-size:.95rem;line-height:1.62;max-width:64ch}
+.tl-item .tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tl-item .tl-tags span{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.05em;padding:6px 13px;border-radius:999px;border:1px solid var(--line);color:var(--w-65)}
+
+/* ============ FOTOGRAFÍA ============ */
+.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft);aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.84) contrast(1.05) brightness(.95)}
+.media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(88,13,159,.42),rgba(26,3,47,.24) 55%,rgba(116,250,227,.10))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px;font-family:var(--font-display);font-weight:600;font-size:.95rem;background:linear-gradient(to top,rgba(26,3,47,.88),transparent)}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.58) contrast(1.05)}
+.bg-photo.hero img{object-position:58% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(71,0,130,.97) 24%,rgba(88,13,159,.72) 58%,rgba(116,250,227,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(88,13,159,.80),rgba(26,3,47,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* ============ LOGOWALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px}
+.logocell{background:#fff;border-radius:16px;height:92px;display:flex;align-items:center;justify-content:center;padding:16px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,3,47,.35)}
+.logocell img{max-height:52px;max-width:86%;width:auto;object-fit:contain;display:block}
+.logocell .ln{display:none;font-family:var(--font-display);font-weight:700;font-size:.95rem;color:var(--violeta);text-align:center;line-height:1.2}
+.logocell.noimg img{display:none}
+.logocell.noimg .ln{display:block}
+
+/* ============ INVERSIÓN ============ */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:12px}
+.plan{position:relative;border:1.5px solid var(--line-soft);border-radius:22px;padding:32px 28px 28px;background:var(--card);cursor:pointer;user-select:none;transition:all .35s var(--ease);display:flex;flex-direction:column}
+.plan:hover{border-color:var(--aqua-line);transform:translateY(-4px)}
+.plan.sel{border-color:var(--aqua);background:linear-gradient(165deg,rgba(116,250,227,.15),rgba(26,3,47,.42));box-shadow:0 0 0 1px var(--aqua) inset,0 16px 44px rgba(116,250,227,.16)}
+.plan .rec{position:absolute;top:-11px;left:28px;font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--aqua);color:var(--tinta);padding:5px 12px;border-radius:999px}
+.plan .pname{font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+.plan .pfor{font-size:.84rem;color:var(--w-45);margin-top:5px;min-height:2.4em;line-height:1.4}
+.plan .pprice{font-family:var(--font-display);font-weight:700;font-size:2.35rem;color:var(--aqua);line-height:1;margin:22px 0 3px}
+.plan .pper{font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45)}
+.plan .phrs{font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--w-65);margin-top:10px;padding-top:12px;border-top:1px solid var(--line-soft)}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:16px;flex:1}
+.plan ul li{display:block;position:relative;padding-left:25px;font-size:.88rem;color:var(--w-80);line-height:1.45}
+.plan ul li svg{position:absolute;left:0;top:3px;width:15px;height:15px;color:var(--aqua)}
+.plan ul li.off{color:var(--w-45)}
+.plan ul li.off svg{color:var(--w-45);opacity:.5}
+.plan .pick{display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:var(--font-display);font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
+.plan .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.plan .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);transform:scale(0);transition:transform .25s var(--ease)}
+.plan.sel .pick{color:var(--aqua)}
+.plan.sel .pick .radio{border-color:var(--aqua)}
+.plan.sel .pick .radio::after{transform:scale(1)}
+.plan .pick .lbl-on{display:none}
+.plan.sel .pick .lbl-off{display:none}
+.plan.sel .pick .lbl-on{display:inline}
+
+.inv-group{margin-top:44px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);padding-bottom:9px;border-bottom:1px solid var(--aqua-line);margin-bottom:4px}
+.inv-ghead .inv-sub{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:17px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row.pick{cursor:pointer}
+.price-row.pick:hover{background:rgba(255,255,255,.045)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:var(--font-display);font-weight:600;font-size:1rem}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--w-45);margin-top:4px;font-family:var(--font-text);max-width:48ch;line-height:1.45}
+.price-row .pv{font-family:var(--font-display);font-weight:700;font-size:1.22rem;color:var(--aqua);white-space:nowrap;text-align:right}
+.price-row .pv small{display:block;font-family:var(--font-text);font-weight:400;font-size:.7rem;color:var(--w-45);margin-top:3px}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--tinta);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.pick.on .chk{background:var(--aqua);border-color:var(--aqua)}
+.price-row.pick.on .chk svg{opacity:1;transform:scale(1)}
+
+.totalbox{margin-top:44px;background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(26,3,47,.45));border:1.5px solid var(--aqua-line);border-radius:24px;padding:34px 38px}
+.totalbox .trow{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.totalbox .trow:last-of-type{border-bottom:none}
+.totalbox .trow .tl-k{font-family:var(--font-display);font-weight:600;font-size:.96rem;color:var(--w-80)}
+.totalbox .trow .tl-k small{display:block;font-family:var(--font-text);font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:3px}
+.totalbox .trow .tl-v{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--aqua);white-space:nowrap}
+.totalbox .trow.big .tl-v{font-size:2rem}
+.note{margin-top:18px;font-size:.84rem;color:var(--w-65);line-height:1.6}
+.note b{color:var(--aqua);font-weight:600}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65);margin-top:16px}
+.note-pill b{color:var(--aqua);font-family:var(--font-display);font-weight:600}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.paycard{border:1.5px solid var(--line-soft);border-radius:16px;padding:22px;background:rgba(255,255,255,.035);position:relative}
+.paycard.best{border-color:var(--aqua-line);background:rgba(116,250,227,.08)}
+.paycard .pt{font-family:var(--font-display);font-weight:700;font-size:.95rem;margin-bottom:6px}
+.paycard .pd{font-size:.83rem;color:var(--w-65);line-height:1.5}
+.paycard .pq{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--aqua);margin-top:12px}
+.paycard .bestbadge{position:absolute;top:-10px;right:18px;font-family:var(--font-display);font-weight:700;font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:var(--aqua);color:var(--tinta);padding:4px 11px;border-radius:999px}
+
+.price-row.yainc{opacity:.42;pointer-events:none}
+.price-row.yainc .pv::after{content:"Ya incluido en el plan";display:block;font-family:var(--font-text);font-weight:400;font-size:.68rem;color:var(--aqua);margin-top:4px}
+#ctaPick{font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--aqua);margin-top:24px;min-height:1.2em;line-height:1.5}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:18px 44px;border-radius:100px;font-family:var(--font-display);font-weight:700;font-size:1.03rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.30);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(116,250,227,.44)}
+.cta-go svg{width:20px;height:20px}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.02em;max-width:20ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.close-tag{font-family:var(--font-display);font-weight:500;color:var(--aqua);font-size:1.02rem;margin-top:4px}
+.footer{border-top:1px solid var(--line-soft);margin-top:60px;padding-top:26px;width:100%;max-width:var(--maxw);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:.82rem;color:var(--w-45)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr}
+  .pay{grid-template-columns:1fr}
+  .metaband{padding:26px 22px}
+  .metaband .inner{grid-template-columns:1fr 1fr;gap:20px}
+  .logowall{grid-template-columns:repeat(3,1fr)}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .badge-logo{padding:15px 14px 12px}
+  .badge-logo img{height:40px}
+  .pipe .arrow{transform:rotate(90deg)}
+  .totalbox{padding:26px 22px}
+  .pills span{margin-left:0 !important}
+  .tbl-hint{display:block}
+  .tbl td,.tbl th{padding:12px 14px}
+  /* tablas densas -> tarjetas apiladas en mobile */
+  .tbl-cards{overflow:visible}
+  .tbl-cards+.tbl-hint{display:none}
+  .tbl-cards table.tbl{min-width:0;display:block}
+  .tbl-cards .tbl thead{display:none}
+  .tbl-cards .tbl tbody,.tbl-cards .tbl tr,.tbl-cards .tbl td{display:block;width:100%}
+  .tbl-cards .tbl tr{border-bottom:1px solid var(--line-soft);padding:16px 2px}
+  .sec-papel .tbl-cards .tbl tr{border-bottom-color:rgba(18,18,18,.10)}
+  .tbl-cards .tbl tr:last-child{border-bottom:none}
+  .tbl-cards .tbl td{border:none;padding:5px 16px;text-align:left}
+  .tbl-cards .tbl td.num{text-align:left}
+  .tbl-cards .tbl td::before{content:attr(data-l);display:block;font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--aqua);margin-bottom:2px}
+  .sec-papel .tbl-cards .tbl td::before{color:var(--violeta)}
+  .tbl-cards .tbl td[data-l=""]::before,.tbl-cards .tbl td:first-child::before{display:none}
+  .tbl-cards .tbl td:first-child{font-family:var(--font-display);font-weight:700;font-size:1.02rem;margin-bottom:4px}
+  .eyebrow{align-items:flex-start;font-size:11px;letter-spacing:.16em}
+  .eyebrow::before{margin-top:4px}
+}
+@media(max-width:560px){
+  .stats{gap:20px 30px}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .metaband .inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Fe Seguros · Confidencial</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Obreros con casco y chaleco a contraluz en una obra en construcción en Lima" loading="eager"></div>
+  <div class="badge-logo"><img src="img/logo-vertical-negro.png" alt="Popcorn"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Fe Seguros × Popcorn · Lanzamiento de marca · Perú 2026–2027</div>
+    <h1 class="hero-title r d1">Tu marca no necesita ser famosa.<br>Necesita ser <span class="hl">fácil de vender</span>.</h1>
+    <p class="hero-sub r d3">Fe Seguros no le vende a la pyme: le vende al corredor que le vende a la pyme. Eso cambia todo. El trabajo no es que 249.000 empresas conozcan la marca —es que 300 corredores no tengan que explicarla.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Acompañamiento estratégico</span>
+      <span class="tag">Publicidad digital</span>
+      <span class="tag">Gestión de redes</span>
+      <span class="tag">Contenido producido en Lima</span>
+      <span class="tag">SCTR &amp; Vida Ley</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliza para comenzar</div>
+</section>
+
+<!-- ============ META BAND ============ -->
+<div class="metaband">
+  <div class="inner">
+    <div class="mi"><div class="k">Preparada para</div><div class="v">Fe Seguros<small>Grupo Fe · Lima, Perú</small></div></div>
+    <div class="mi"><div class="k">Preparada por</div><div class="v">Popcorn<small>Marketing, comunicación y creatividad</small></div></div>
+    <div class="mi"><div class="k">Fecha</div><div class="v">16 de septiembre de 2026<small>Reunión del 16/09</small></div></div>
+    <div class="mi"><div class="k">Válida hasta</div><div class="v">26 de septiembre de 2026<small>Se sostiene al 10/10 si avanzamos el 23</small></div></div>
+    <div class="mi"><div class="k">Contacto</div><div class="v">Florencia Grigolatto<small>florencia@somospopcorn.com</small></div></div>
+  </div>
+</div>
+
+<!-- ============ 2 · PUNTO DE PARTIDA ============ -->
+<section id="partida" data-label="Punto de partida" class="auto sec-papel">
+  <div class="wrap">
+    <div class="ghost">HOY</div>
+    <div class="eyebrow r">Dónde está Fe Seguros hoy</div>
+    <h2 class="h-lg r d1">Una compañía que todavía<br>no puede hablar, con una<br>ventana que <span class="cy">ya empezó</span>.</h2>
+    <div class="split mt24">
+      <div>
+        <p class="lead r d2">Escuchamos la reunión y después fuimos a verificar todo lo que se dijo. Esto es lo que encontramos, antes de proponer una sola acción.</p>
+        <p class="lead r d3">El cliente final de Fe Seguros tiene entre 2 y 50 trabajadores, está en transporte, construcción y actividades de riesgo, y contrata todos los meses. Cada mes decide de nuevo con quién sigue.</p>
+      </div>
+      <div class="col-img r d3">
+        <div class="media wide"><img src="img/pyme-transporte.jpg" alt="Dueño de una pyme de transporte revisando su celular junto a un camión"><div class="cap">Empresas de 2 a 50 trabajadores. La decisión se renueva cada mes.</div></div>
+      </div>
+    </div>
+
+    <div class="grid g4 mt46">
+      <div class="card r d1">
+        <span class="num-tag">01</span>
+        <h3>Licencia en curso</h3>
+        <p>La SBS autorizó la <b>organización</b> de la compañía en noviembre de 2025 (Resolución 04017-2025). Según nos contaron, el trámite de <b>funcionamiento</b> está al 90% y se espera en los próximos 60 a 90 días. Hasta que lo otorgue, Fe Seguros no puede comunicar como aseguradora. Eso no es una traba: es el calendario.</p>
+      </div>
+      <div class="card r d2">
+        <span class="num-tag">02</span>
+        <h3>Conocimiento nulo</h3>
+        <p>En palabras del propio equipo: los corredores conocen la marca en un 1 o 2%, y entre los clientes finales el conocimiento es nulo. Se arranca de cero, que es la única vez que se puede elegir qué significar.</p>
+      </div>
+      <div class="card r d3">
+        <span class="num-tag">03</span>
+        <h3>El canal decide</h3>
+        <p>300 corredores priorizados sobre el universo total del mercado. Ellos tienen la relación con la pyme. La venta no la hace Fe Seguros: la hace el corredor, todos los meses, uno por uno.</p>
+      </div>
+      <div class="card r d4">
+        <span class="num-tag">04</span>
+        <h3>Diciembre</h3>
+        <p>La campaña tiene que estar diseñada para diciembre y el plan listo en 60 días. Son dos fechas distintas: una es la salida, la otra es estar preparados para salir cuando llegue el permiso.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">01</span></div>
+</section>
+
+<!-- ============ 3 · DIAGNÓSTICO ============ -->
+<section id="diagnostico" data-label="Diagnóstico" class="sec-papel auto">
+  <div class="wrap">
+    <div class="ghost">DATOS</div>
+    <div class="eyebrow r">Lo que encontramos</div>
+    <h2 class="h-lg r d1">Seis datos que cambian<br>la conversación.</h2>
+    <p class="lead mt24 r d2">Nos dijeron que nuestra debilidad era no conocer Perú. Así que antes de escribir esta propuesta, fuimos a estudiarlo. Todo lo que sigue tiene fuente y fecha.</p>
+
+    <div class="grid g3 mt46">
+      <div class="card r d1">
+        <h3>Ya no serían la compañía 18, sino la 19</h3>
+        <p>A diciembre de 2025 operaban <b>17 compañías</b> —no 20—. En mayo de 2026 la SBS autorizó el funcionamiento de Nacional de Seguros, que <b>tomó el lugar 18</b>. Y las cuatro grandes concentran <b>76,3%</b>, no 80%: Rímac 28,4 · Pacífico 22,6 · Mapfre 13,0 · La Positiva 12,3.</p>
+        <span class="src">SBS vía informes de clasificación PCR (EEFF a diciembre 2025) · Gestión, 6 de mayo de 2026.</span>
+      </div>
+      <div class="card r d2">
+        <h3>Hay un jugador que no está en el mapa</h3>
+        <p><b>Interseguro tiene 9,4%</b> del mercado y <b>15,2% del Ramo Vida</b> —por encima de Mapfre en Vida—, lo que lo vuelve un jugador pesado en SCTR Pensión. No es una compañía de nicho del 1%. Protecta tampoco: tiene 3,5%.</p>
+        <span class="src">SBS / elaboración PCR, ranking de primas netas a diciembre 2025.</span>
+      </div>
+      <div class="card r d3">
+        <h3>El líder de SCTR está soltando el producto</h3>
+        <p>La Positiva, líder histórico del ramo, cerró 2025 con crecimiento atenuado <b>"por la menor suscripción de pólizas de SCTR"</b>. Protecta bajó Vida Ley Trabajadores de 2,1% a 1,7%. Hay cartera moviéndose <b>ahora</b>.</p>
+        <span class="src">Moody's Local, marzo 2026 · PCR sobre EEFF a diciembre 2025.</span>
+      </div>
+      <div class="card r d4">
+        <h3>Vida Ley no es mercado virgen</h3>
+        <p>La SBS declaró en marzo de 2026 que ya hay <b>3,7 millones de trabajadores</b> con Vida Ley, sobre 4,28 millones de asalariados formales privados. Es una cobertura <b>del orden del 86%</b>. No se trata de convencer a quien no cumple: se trata de ganarle la cartera a otro.</p>
+        <span class="src">Intendente de Supervisión de Seguros de la SBS, 13 de marzo de 2026 · base de asalariados formales: MTPE / planilla electrónica.</span>
+      </div>
+      <div class="card r d5">
+        <h3>En el momento de comprar, la aseguradora es invisible</h3>
+        <p>Cuando una pyme busca contratar SCTR, quienes aparecen son <b>corredores y comparadores</b>, no compañías. Y lo que se compara es precio y velocidad: "constancia en 15 minutos", "desde S/ 80 mensuales". La marca de la aseguradora no entra en esa conversación.</p>
+        <span class="src">Relevamiento propio del canal digital peruano, 16 de septiembre de 2026.</span>
+      </div>
+      <div class="card r d6">
+        <h3>Nadie le habla al corredor todos los días</h3>
+        <p>La Positiva le da <b>eventos</b> (Cumbre del Canal Corredor, encuentros regionales). Rímac le da un evento al año. Crecer le da capacitación técnica. Pacífico, nada visible. Nadie le da lo que necesita el martes a la mañana para cerrar una venta.</p>
+        <span class="src">Relevamiento de LinkedIn e Instagram de seis de las siete compañías, 16 de septiembre de 2026.</span>
+      </div>
+    </div>
+
+    <div class="stats r d7">
+      <div class="stat"><div class="v">76,3%</div><div class="l">Concentración real de las 4 grandes</div></div>
+      <div class="stat"><div class="v">~86%</div><div class="l">De los asalariados formales ya tiene Vida Ley</div></div>
+      <div class="stat"><div class="v">1,2%</div><div class="l">Share de Crecer Seguros tras 10 años y un banco propio</div></div>
+      <div class="stat"><div class="v">~249.000</div><div class="l">Empleadores formales de 2 a 50 trabajadores</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">02</span></div>
+</section>
+
+<!-- ============ 4 · LA MARCA ============ -->
+<section id="marca" data-label="La marca" class="auto sec-papel">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">La conversación que hay que tener primero</div>
+        <h2 class="h-lg r d1">"Fe Seguros" no es<br>un nombre nuevo.<br><span class="cy">Ya vende seguros.</span></h2>
+        <p class="lead mt24 r d2">En la reunión se planteó la pregunta de qué significa "Fe" para alguien que no conoce al grupo. Fuimos a mirar y encontramos algo más importante que eso.</p>
+        <p class="lead r d3">Dentro del Grupo Fe, <b>Fe Seguros ya existe como marca</b> y ya tiene más de 3.000 asegurados. Hoy significa <b>seguro de sepelio, de pago único anual</b>, para el cliente de Campo Fe. Ahí está la pregunta real.</p>
+        <div class="quote mt32 r d4">¿Puede una marca que hoy significa “seguro de sepelio para el cliente del camposanto” pasar a significar “aseguradora de riesgos laborales vendida por corredores profesionales”?</div>
+        <p class="lead mt32 r d5">Es una decisión de arquitectura de marca, y es <b>anterior y superior</b> a cualquier decisión de comunicación. Si el nombre cambia después de seis meses de pauta, se tira a la basura la inversión de esos seis meses.</p>
+        <p class="lead r d6">Un dato más, práctico: existe además una <b>FE Seguros española</b>, aseguradora de decesos fundada en 1924, que hoy domina los resultados de búsqueda del nombre. Es un problema de posicionamiento orgánico que conviene tener en cuenta antes de definir dominio y presencia digital.</p>
+      </div>
+      <div class="col-img r d3">
+        <div class="media"><img src="img/planilla.jpg" alt="Escritorio con planilla de trabajadores y casco de seguridad"><div class="cap">SCTR y Vida Ley cubren fallecimiento e invalidez del trabajador.</div></div>
+      </div>
+    </div>
+
+    <div class="grid g3 mt46">
+      <div class="card r d1">
+        <span class="num-tag">RIESGO</span>
+        <h3>Adyacencia no deseada</h3>
+        <p>Una aseguradora cuyo grupo es dueño de camposantos, vendiendo cobertura de muerte e invalidez a empleadores. No es un riesgo difuso de percepción: es un comentario esperando a ocurrir en la primera reunión con un corredor.</p>
+      </div>
+      <div class="card r d2">
+        <span class="num-tag">RIESGO</span>
+        <h3>Fricción para quien vende</h3>
+        <p>El corredor pone su reputación en juego cada vez que coloca una póliza. Si la compañía que recomienda arrastra una objeción extra que Crecer (Banco Pichincha) o Protecta (Grupo BICE) no tienen, esa objeción se la come él.</p>
+      </div>
+      <div class="card hi r d3">
+        <span class="num-tag">ACTIVO</span>
+        <h3>Fe Salud ya opera</h3>
+        <p><b>9.000 afiliados y una red de 95 clínicas.</b> El SCTR tiene un componente Salud. El grupo ya tiene red de prestadores —que es exactamente lo que ese producto necesita— y responde por adelantado la objeción más obvia: "son nuevos, no tienen red".</p>
+      </div>
+    </div>
+    <div class="note-pill r d4"><b>No proponemos decidir el nombre en esta propuesta.</b>&nbsp;Proponemos resolverlo antes de invertir, y más abajo explicamos cómo hacerlo sin pagarnos a nosotros.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">03</span></div>
+</section>
+
+<!-- ============ 5 · TESIS ============ -->
+<section id="tesis" data-label="La tesis" class="sec-negro">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <div class="pills mt24 r d1">
+      <span>No famosa.</span>
+      <span>Fácil</span>
+      <span>de vender.</span>
+    </div>
+    <p class="lead mt46 r d3">El pedido que llegó fue "necesitamos que nos manejen las redes". El diagnóstico dice otra cosa: en un modelo donde la venta la hace el corredor, la marca no compite por notoriedad. <b>Compite por ser la que el corredor elige recomendar.</b></p>
+    <p class="lead r d4">Eso reordena todo. Un posteo que gana likes no sirve si el corredor sigue teniendo que explicar quién es Fe Seguros. Una pieza que el corredor reenvía por WhatsApp y le cierra la venta, sí.</p>
+
+    <div class="grid g2 mt46">
+      <div class="card r d5">
+        <h3>Lo que la comunicación tiene que lograr</h3>
+        <p>Que cuando el corredor diga "te propongo Fe Seguros", el dueño de la pyme <b>no pregunte nada</b>. Ese es el trabajo. Se mide en fricción eliminada, no en alcance.</p>
+      </div>
+      <div class="card r d6">
+        <h3>Lo que la comunicación no puede lograr sola</h3>
+        <p>Que el corredor venda. Eso depende de comisión, de velocidad de emisión y de que alguien le resuelva el problema cuando aparece. <b>Nosotros lo habilitamos; no lo reemplazamos.</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">04</span></div>
+</section>
+
+<!-- ============ 6 · PÚBLICOS ============ -->
+<section id="publicos" data-label="Públicos" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">A quién le hablamos</div>
+    <h2 class="h-lg r d1">Tres personas deciden.<br>Solo una firma.</h2>
+    <p class="lead mt24 r d2">En la reunión aparecieron dos públicos. La investigación encontró un tercero que en empresas de 2 a 50 trabajadores suele ser el que realmente decide.</p>
+
+    <div class="grid g3 mt46">
+      <div class="card hi r d1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <span class="num-tag">PÚBLICO PRINCIPAL</span>
+        <h3>El corredor de seguros</h3>
+        <p>Es el cliente real. Se mueve por relación, por comisión y por quién le resuelve el problema cuando aparece. No necesita otro webinar: necesita cerrar la venta del martes. <b>Está en LinkedIn y en WhatsApp.</b></p>
+      </div>
+      <div class="card r d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+        <span class="num-tag">PÚBLICO FINAL</span>
+        <h3>El dueño de pyme</h3>
+        <p>De 2 a 50 trabajadores, en transporte, construcción y actividades de riesgo. <b>No está comprando un seguro: está comprando un certificado</b> y la tranquilidad de no ser multado. Está en Facebook, TikTok y WhatsApp.</p>
+      </div>
+      <div class="card r d3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <span class="num-tag">EL QUE NO ESTABA EN EL BRIEF</span>
+        <h3>El contador externo</h3>
+        <p>En una empresa de 2 a 50 trabajadores no hay área de RR.HH. <b>El que arma la planilla es el contador</b>, y es quien dice "hay que sacar el SCTR". Es un público chico, nominal y hoy nadie le habla.</p>
+      </div>
+    </div>
+
+    <div class="split mt46">
+      <div class="col-img r d4">
+        <div class="media wide"><img src="img/whatsapp.jpg" alt="Manos con celular y planilla sobre mostrador de un negocio"><div class="cap">Planilla por WhatsApp, pago por Yape, póliza de vuelta. Cinco minutos.</div></div>
+      </div>
+      <div class="r d5">
+        <h3 class="h-md">El insight que ordena toda la campaña</h3>
+        <p class="lead mt16">El dueño de pyme no compra protección. Compra <b>no tener un problema</b>. Toda la categoría comunica en clave de "tranquilidad" y "respaldo" —un idioma que no es el suyo—. Nadie le habla de lo que le pasa si no cumple: fiscalización, multa, contingencia laboral.</p>
+        <p class="lead mt16">Ese territorio está vacío y es el más cercano a la decisión real de compra de un producto obligatorio.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">05</span></div>
+</section>
+
+<!-- ============ 7 · CANALES ============ -->
+<section id="canales" data-label="Canales" class="sec-papel auto">
+  <div class="wrap">
+    <div class="eyebrow r">Dónde invertir y dónde no</div>
+    <h2 class="h-lg r d1">Instagram no es<br>el canal de este negocio.</h2>
+    <p class="lead mt24 r d2">Se da por sentado que una marca nueva arranca por Instagram. En Perú, y para este público, los números dicen otra cosa.</p>
+
+    <div class="tbl-wrap tbl-cards mt46 r d3">
+      <table class="tbl">
+        <thead><tr><th>Canal</th><th class="num">Usuarios en Perú</th><th class="num">Penetración / alcance</th><th>Para qué lo usamos</th><th>Prioridad</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td class="plat">LinkedIn</td><td class="num">12,0 M</td><td class="num">34,6%</td><td>El canal del corredor y del contador. Universo finito: permite segmentación nominal. Hoy lo domina La Positiva con contenido de evento, no de herramienta.</td><td><span class="tag-ok">Alta</span></td></tr>
+          <tr class="hi"><td class="plat">Facebook</td><td class="num">24,7 M</td><td class="num">71,3%</td><td>El canal masivo real del dueño de pyme peruano de 35 a 55 años. El de mayor alcance efectivo sobre el público final.</td><td><span class="tag-ok">Alta</span></td></tr>
+          <tr><td class="plat" data-l="Canal">WhatsApp</td><td class="num" data-l="Usuarios en Perú">no comparable</td><td class="num" data-l="Penetración / alcance">69% de las mypes</td><td data-l="Para qué lo usamos">Donde la pyme peruana efectivamente cierra. No es un canal de campaña: es donde tienen que aterrizar las piezas.</td><td data-l="Prioridad"><span class="tag-ok">Alta</span></td></tr>
+          <tr><td class="plat" data-l="Canal">TikTok</td><td class="num" data-l="Usuarios en Perú">28,3 M</td><td class="num" data-l="Penetración / alcance">no comparable</td><td data-l="Para qué lo usamos">Ninguna compañía de nicho está (ni Crecer ni Protecta). Nadie le habla ahí al corredor ni al dueño de pyme sobre su obligación legal.</td><td data-l="Prioridad"><span class="tag-ok">Media-alta</span></td></tr>
+          <tr><td class="plat" data-l="Canal">YouTube</td><td class="num" data-l="Usuarios en Perú">21,7 M</td><td class="num" data-l="Penetración / alcance">62,6%</td><td data-l="Para qué lo usamos">Formato explicativo y búsqueda: "qué es el SCTR y quién está obligado". Sostiene el territorio de cumplimiento.</td><td data-l="Prioridad"><span class="tag-no">Media</span></td></tr>
+          <tr><td class="plat" data-l="Canal">Instagram</td><td class="num" data-l="Usuarios en Perú">11,3 M</td><td class="num" data-l="Penetración / alcance">32,6%</td><td data-l="Para qué lo usamos">Más chico de lo que se supone y con el público equivocado para B2B. Se mantiene por consistencia de marca, no por inversión.</td><td data-l="Prioridad"><span class="tag-no">Baja</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-hint">&rarr; Desliza la tabla para verla completa</div>
+    <p class="lead mt24 r d4"><b>Fuente:</b> DataReportal / We Are Social, Digital 2026 Perú (datos de octubre–noviembre 2025) · eBIZ sobre uso de herramientas digitales en mypes peruanas.</p>
+
+    <div class="note-pill r d5"><b>Sobre TikTok:</b>&nbsp;tienen razón en que el ángulo de "disfrazarse de transportista" está gastado. El formato está gastado; el canal está libre.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">06</span></div>
+</section>
+
+<!-- ============ PAUTA DE LA CATEGORIA ============ -->
+<section id="pauta" data-label="La pauta hoy" class="auto sec-papel">
+  <div class="wrap">
+    <div class="ghost">VACÍO</div>
+    <div class="eyebrow r">Lo que está pautando la competencia hoy</div>
+    <h2 class="h-lg r d1">Nadie está pautando<br>tus dos productos.</h2>
+    <p class="lead mt24 r d2">El 16 de septiembre entramos a la biblioteca de anuncios de Meta y al Centro de Transparencia de Google, en Perú, y contamos <b>uno por uno</b> los anuncios activos de las siete compañías. Esto es lo que había en Meta.</p>
+
+    <div class="tbl-wrap tbl-cards mt46 r d3">
+      <table class="tbl">
+        <thead><tr><th>Compañía</th><th class="num">Anuncios propios en Meta</th><th class="num">SCTR</th><th class="num">Vida Ley</th><th class="num">Antigüedad mediana</th></tr></thead>
+        <tbody>
+          <tr><td class="plat" data-l="Compañía">Rímac</td><td class="num" data-l="Anuncios propios activos">107</td><td class="num" data-l="SCTR">0</td><td class="num" data-l="Vida Ley">0</td><td class="num" data-l="Antigüedad mediana">1,2 meses</td></tr>
+          <tr><td class="plat" data-l="Compañía">Mapfre Perú</td><td class="num" data-l="Anuncios propios activos">92</td><td class="num" data-l="SCTR">1</td><td class="num" data-l="Vida Ley">0</td><td class="num" data-l="Antigüedad mediana">0,4 meses</td></tr>
+          <tr><td class="plat" data-l="Compañía">Pacífico</td><td class="num" data-l="Anuncios propios activos">90</td><td class="num" data-l="SCTR">0</td><td class="num" data-l="Vida Ley">0</td><td class="num" data-l="Antigüedad mediana">0,8 meses</td></tr>
+          <tr><td class="plat" data-l="Compañía">La Positiva</td><td class="num" data-l="Anuncios propios activos">86</td><td class="num" data-l="SCTR">3</td><td class="num" data-l="Vida Ley">0</td><td class="num" data-l="Antigüedad mediana">2,7 meses</td></tr>
+          <tr><td class="plat" data-l="Compañía">Interseguro</td><td class="num" data-l="Anuncios propios activos">67</td><td class="num" data-l="SCTR">0</td><td class="num" data-l="Vida Ley">0</td><td class="num" data-l="Antigüedad mediana">6,5 meses</td></tr>
+          <tr><td class="plat" data-l="Compañía">Crecer Seguros</td><td class="num" data-l="Anuncios propios activos">12</td><td class="num" data-l="SCTR">0</td><td class="num" data-l="Vida Ley">2</td><td class="num" data-l="Antigüedad mediana">0,3 meses</td></tr>
+          <tr><td class="plat" data-l="Compañía">Protecta Security</td><td class="num" data-l="Anuncios propios activos">10</td><td class="num" data-l="SCTR">1</td><td class="num" data-l="Vida Ley">1</td><td class="num" data-l="Antigüedad mediana">0,9 meses</td></tr>
+          <tr class="hi"><td class="plat" data-l="Compañía">Total de la categoría</td><td class="num" data-l="Anuncios propios activos">464</td><td class="num" data-l="SCTR">5</td><td class="num" data-l="Vida Ley">3</td><td class="num" data-l="Antigüedad mediana">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stats r d4">
+      <div class="stat"><div class="v">1,7%</div><div class="l">De la pauta de la categoría habla de SCTR o Vida Ley</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">Anuncios de sus productos en Rímac, Pacífico e Interseguro</div></div>
+      <div class="stat"><div class="v">12 y 10</div><div class="l">Anuncios activos de Crecer y Protecta, sus competidores directos</div></div>
+    </div>
+
+    <div class="grid g3 mt46">
+      <div class="card hi r d1">
+        <h3>El territorio está vacío, no disputado</h3>
+        <p>Rímac, Pacífico e Interseguro suman <b>264 anuncios propios activos y ninguno habla de SCTR ni de Vida Ley</b>. En el total de las siete compañías, la pauta va a vida y ahorro (181 anuncios), vehicular (62) y salud (56). Para ocupar este territorio no hay que desplazar a nadie.</p>
+      </div>
+      <div class="card r d2">
+        <h3>El benchmark real es alcanzable</h3>
+        <p>Crecer sostiene 12 anuncios propios activos y Protecta 10, contra 107 de Rímac. <b>La escala de pauta de un competidor de nicho en este mercado es baja</b>, y se supera sin un presupuesto extraordinario.</p>
+      </div>
+      <div class="card r d3">
+        <h3>Quien sí pauta SCTR es el canal</h3>
+        <p>De 111 tarjetas relevadas por la palabra SCTR, <b>31 son del rubro asegurador</b>, y la mayoría las firman corredores e insurtechs: Zyra, LBrokers, corredores individuales. <b>Cinco mandan directo a WhatsApp.</b> Las compañías aparecen poco: Mapfre, Crecer, La Positiva y Protecta suman 9 entre las cuatro.</p>
+      </div>
+    </div>
+
+    <div class="split mt46">
+      <div class="col-img r d4">
+        <div class="media wide"><img src="img/whatsapp.jpg" alt="Manos con celular sobre el mostrador de un negocio"><div class="cap">En este producto la conversión no pasa por una landing: pasa por una conversación.</div></div>
+      </div>
+      <div class="r d5">
+        <h3 class="h-md">Qué significa para la inversión</h3>
+        <p class="lead mt16">Que el territorio esté libre <b>no significa que el inventario esté barato</b>: se compite por el mismo público con las campañas de vehicular, salud y ahorro de las cuatro grandes. Pero sí significa que, en el mensaje, no hay ruido.</p>
+        <p class="lead mt16">Y marca dos decisiones de armado: <b>WhatsApp es el destino</b>, no la landing; y <b>Google merece prueba temprana</b>, porque ahí la intención de compra ya existe —quien busca "SCTR" lo necesita— y los competidores directos casi no están.</p>
+        <p class="lead mt16">En el Centro de Transparencia de Google el cuadro cambia: <b>La Positiva e Interseguro sí sostienen volumen</b> (200 creatividades relevadas cada una), mientras <b>Crecer tiene 6 y Protecta 11</b>. La oportunidad no es que Google esté vacío: es que está vacío del lado del nicho.</p>
+      </div>
+    </div>
+
+    <div class="note-pill r d6"><b>Cómo leerlo:</b>&nbsp;son anuncios activos contados tarjeta por tarjeta, no totales de plataforma. Contar anuncios no es medir inversión: ninguna biblioteca publica el gasto de pauta comercial.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">07</span></div>
+</section>
+
+<!-- ============ 8 · TERRITORIOS ============ -->
+<section id="territorios" data-label="Territorios" class="auto">
+  <div class="wrap">
+    <div class="ghost">ESPACIO</div>
+    <div class="eyebrow r">Dónde hay lugar de verdad</div>
+    <h2 class="h-lg r d1">Dos territorios vacíos<br>y uno que <span class="cy">no hay que tocar</span>.</h2>
+    <p class="lead mt24 r d2">Mapeamos qué dice cada competidor y a quién. Quedaron dos espacios sin dueño y uno con tres dueños que tienen más presupuesto que Fe Seguros.</p>
+
+    <div class="grid g3 mt46">
+      <div class="card hi r d1">
+        <span class="num-tag">TERRITORIO 1 · LIBRE</span>
+        <h3>Equipar al corredor</h3>
+        <p>No capacitarlo (Crecer ya lo hace con Campus Crecer) ni agasajarlo (La Positiva ya lo hace con su Cumbre). <b>Equiparlo</b> con lo que necesita el martes a la mañana para cerrar una venta. Eso es el <b>kit comercial del corredor</b>: se construye una sola vez, en la Etapa 0, y después se usa todos los meses.</p>
+        <span class="src">Se mide en corredores activos colocando y pólizas por corredor, no en seguidores.</span>
+      </div>
+      <div class="card hi r d2">
+        <span class="num-tag">TERRITORIO 2 · LIBRE</span>
+        <h3>El cumplimiento, y lo que cuesta no tenerlo</h3>
+        <p>Son dos conversaciones distintas y hoy nadie da ninguna. En <b>SCTR</b>, donde la obligación depende de la actividad y la fiscalización de SUNAFIL es real, el ángulo es qué pasa si no se cumple. En <b>Vida Ley</b>, donde el 86% ya está cubierto, el ángulo no es cumplir: es <b>por qué cambiar</b> — velocidad de emisión, servicio cuando aparece el problema y respaldo al corredor.</p>
+        <span class="src">Además ordena una categoría donde circula desinformación: encontramos un portal afirmando que solo 5 aseguradoras pueden vender SCTR. Es falso.</span>
+      </div>
+      <div class="card r d3">
+        <span class="num-tag">TERRITORIO 3 · OCUPADO</span>
+        <h3>Prevención y seguridad ocupacional</h3>
+        <p>Rímac con Ruta RADAR, Pacífico con Campus Protege365 y Crecer con sus webinars técnicos ya lo ocupan, con más años y más presupuesto. <b>Entrar cuarto a una conversación con tres dueños es gastar para ser invisible.</b> Recomendamos no ir.</p>
+        <span class="src">Relevamiento de LinkedIn de las tres compañías, 16 de septiembre de 2026.</span>
+      </div>
+    </div>
+
+    <div class="split mt46">
+      <div class="col-img r d4">
+        <div class="media wide"><img src="img/corredor.jpg" alt="Escritorio de un corredor de seguros con carpetas y pólizas"><div class="cap">El corredor no necesita otro webinar. Necesita cerrar la venta del martes.</div></div>
+      </div>
+      <div class="r d5">
+        <h3 class="h-md">Y una ventana que se cierra</h3>
+        <p class="lead mt16">La Positiva —líder histórico de SCTR— redujo suscripción en 2025. Protecta perdió participación en Vida Ley Trabajadores. <b>Hay cartera en movimiento y corredores con clientes a reubicar.</b></p>
+        <p class="lead mt16">Es el dato más concreto del informe y también el más perecedero: una ventana de cartera desatendida no espera a que se resuelva un trámite.</p>
+      </div>
+    </div>
+    <div class="grid g3 mt46">
+      <div class="card r d1">
+        <span class="num-tag">EL KIT · QUÉ ES</span>
+        <h3>Piezas para reenviar</h3>
+        <p>Placas de producto listas para WhatsApp: qué cubre el SCTR, a quién obliga, qué pasa si falta. El corredor las reenvía a su cliente sin tener que explicar nada. <b>Es el corazón del kit.</b></p>
+      </div>
+      <div class="card r d2">
+        <span class="num-tag">EL KIT · QUÉ ES</span>
+        <h3>Argumentario y comparativos</h3>
+        <p>Una página con las objeciones que más escucha —"está caro", "ya tengo", "lo veo el mes que viene"— y cómo responderlas. Más el comparativo de qué cubre Fe Seguros frente al mínimo legal.</p>
+      </div>
+      <div class="card r d3">
+        <span class="num-tag">EL KIT · QUÉ ES</span>
+        <h3>Alertas y recordatorios</h3>
+        <p>Las plantillas de aviso normativo y la pieza de cierre de mes, listas para que el corredor active su cartera. En un producto que se renueva todos los meses, esto es lo que sostiene la recompra.</p>
+      </div>
+    </div>
+
+    <div class="note-pill r d6"><b>Una señal más:</b>&nbsp;en los premios Effie Perú 2026 la categoría Seguros entregó un solo premio —un bronce—. Banca se llevó diez. La categoría está vacía de competencia creativa.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">08</span></div>
+</section>
+
+<!-- ============ 9 · LA META ============ -->
+<section id="meta" data-label="La meta de 50.000" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">La conversación incómoda</div>
+    <h2 class="h-lg r d1">50.000 clientes en 12 meses:<br>el número está bien.<br>La <span class="cy">unidad</span>, no.</h2>
+    <p class="lead mt24 r d2">Preferimos discutir esto ahora y no en el reporte del mes 12. Hicimos el cálculo con los datos públicos disponibles.</p>
+
+    <div class="grid g2 mt46">
+      <div class="card r d1">
+        <h3>Como está formulada, la unidad no cierra</h3>
+        <p>50.000 empresas cliente equivale a <b>una de cada cinco empresas formales de 2 a 50 trabajadores del país</b> (universo estimado en ~249.000, rango 220.000–280.000). Y si el foco son las actividades obligadas a SCTR, ese universo se ubica <b>entre 50.000 y 90.000 empresas</b>: la meta sería prácticamente todo el mercado direccionable del producto, en el primer año.</p>
+        <span class="src">Derivado de 383.000 empleadores formales privados y su distribución por tamaño (MTPE / planilla electrónica, 2026). Estimación de Popcorn; los supuestos del cálculo los repasamos juntos.</span>
+      </div>
+      <div class="card hi r d2">
+        <h3>Como vidas aseguradas, cierra perfecto</h3>
+        <p>50.000 <b>vidas aseguradas</b> sobre 4,28 millones de asalariados formales privados es <b>1,17%</b> — exactamente el share esperable para un entrante serio. Es la misma ambición, expresada en la unidad correcta, y deja de ser una meta que se incumple por definición desde el mes uno.</p>
+        <span class="src">MTPE / planilla electrónica. Para calibrar la meta necesitamos ver cómo está expresada en el plan de negocio presentado a la SBS: si allí está en vidas, la conversación se resuelve sola.</span>
+      </div>
+    </div>
+
+    <div class="split mt46">
+      <div class="col-img r d3">
+        <div class="media wide"><img src="img/taller.jpg" alt="Interior de un taller mecánico en Lima"><div class="cap">Una empresa de 12 empleados no compra tranquilidad. Compra no tener un problema.</div></div>
+      </div>
+      <div class="r d4">
+        <div class="quote">Proponemos dos metas: <b>50.000 vidas aseguradas</b> y, como meta de empresas cliente, un orden de <b>5.000 a 10.000</b> en 12 meses. Antes de firmar KPIs, necesitamos ver el plan de negocio presentado a la SBS.</div>
+      </div>
+    </div>
+
+    <div class="grid g3 mt46">
+      <div class="card r d4"><span class="num-tag">POR QUÉ IMPORTA</span><h3>Define el presupuesto</h3><p>Una meta 10 veces mayor a la alcanzable justifica una inversión que el negocio no puede sostener, o condena al equipo a parecer ineficiente haciendo bien su trabajo.</p></div>
+      <div class="card r d5"><span class="num-tag">POR QUÉ IMPORTA</span><h3>Define cómo nos evalúan</h3><p>En la reunión se planteó la diferencia entre objetivos de recordación y objetivos comerciales. Son dos estrategias distintas y se miden distinto. Acordarlo por escrito protege a las dos partes.</p></div>
+      <div class="card r d6"><span class="num-tag">POR QUÉ IMPORTA</span><h3>Define el canal</h3><p>190 altas por día hábil no las produce una campaña: las produce una red de corredores colocando. Como referencia de ritmo: Crecer, tras 10 años, representa el 1,2% de las primas del sistema.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">09</span></div>
+</section>
+
+<!-- ============ 10 · RIESGOS ============ -->
+<section id="riesgos" data-label="Riesgos" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que puede salir mal</div>
+    <h2 class="h-lg r d1">Cinco riesgos y<br>qué hacemos con cada uno.</h2>
+    <p class="lead mt24 r d2">Ninguna propuesta seria lista solo lo que va a funcionar.</p>
+
+    <div class="tbl-wrap tbl-cards mt46 r d3">
+      <table class="tbl">
+        <thead><tr><th style="width:26%">Riesgo</th><th style="width:37%">Por qué existe</th><th style="width:37%">Cómo lo manejamos</th></tr></thead>
+        <tbody>
+          <tr><td class="plat" data-l="Riesgo">La licencia se demora</td><td data-l="Por qué existe">La autorización de funcionamiento depende de la SBS y no tiene fecha garantizada. Lanzar captación masiva sin poder emitir genera demanda no atendible y quema la marca con el canal.</td><td data-l="Cómo lo manejamos">Separamos el plan en fases. Diciembre trabaja <b>canal</b> (corredores y contadores, público finito, no requiere licencia para conversar). La captación de pymes arranca con la compañía ya habilitada.</td></tr>
+          <tr><td class="plat" data-l="Riesgo">La decisión de marca llega tarde</td><td data-l="Por qué existe">Si el nombre o la arquitectura cambian a los seis meses, la inversión de esos seis meses se pierde entera.</td><td data-l="Cómo lo manejamos">La resolvemos en la Etapa 0, antes de pautar. Y proponemos validarla con corredores reales, no con opinión interna.</td></tr>
+          <tr><td class="plat" data-l="Riesgo">Confundir marca con ventas</td><td data-l="Por qué existe">La comunicación genera contexto; la venta la cierra el corredor. Si se evalúa a la agencia por pólizas colocadas sin mirar el canal, el diagnóstico va a ser siempre equivocado.</td><td data-l="Cómo lo manejamos">Dos tableros separados desde el mes 1: indicadores de marca y de canal, con responsables distintos. Lo acordamos por escrito antes de arrancar.</td></tr>
+          <tr><td class="plat" data-l="Riesgo">Competir por precio</td><td data-l="Por qué existe">El terreno de los comparadores es precio y velocidad, y ahí una compañía nueva sin escala compra la peor cartera del mercado.</td><td data-l="Cómo lo manejamos">Ningún mensaje de precio <b>como argumento principal</b>: la sustitución se pelea por servicio y velocidad de emisión, no por prima. Crecer creció fuerte en esas dos líneas bajando precio, y su siniestralidad es el dato a mirar antes de repetir la jugada.</td></tr>
+          <tr><td class="plat" data-l="Riesgo">La distancia Buenos Aires–Lima</td><td data-l="Por qué existe">Es la objeción que ya les plantearon sobre nosotros y es legítima: no vivimos en Perú.</td><td data-l="Cómo lo manejamos">Célula de contenido local dirigida por nosotros (sección siguiente), radar mensual de competencia peruana, y esta investigación como prueba: lo que no sabíamos, lo averiguamos antes de cobrarles.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-hint">&rarr; Desliza la tabla para verla completa</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">10</span></div>
+</section>
+
+<!-- ============ 11 · CÉLULA DE CONTENIDO ============ -->
+<section id="celula" data-label="Contenido en Lima" class="sec-negro">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="col-img r d1">
+        <div class="media"><img src="img/contenido.jpg" alt="Producción de contenido con celular en un negocio peruano"><div class="cap">Producción sencilla, constante y local. No un rodaje al año.</div></div>
+      </div>
+      <div>
+        <div class="eyebrow r">Lo que necesitamos de ustedes</div>
+        <h2 class="h-lg r d1">Una cámara<br>en Lima.</h2>
+        <p class="lead mt24 r d2">Este es el punto donde la mayoría de las cuentas a distancia se caen, así que lo decimos de frente: <b>el contenido de redes se muere sin material fresco y local</b>. Fotos de corredores reales, de pymes reales, del equipo, del evento, de la oficina. Eso no se puede resolver desde Buenos Aires con stock.</p>
+        <p class="lead r d3">Proponemos que Fe Seguros <b>incorpore o contrate un generador de contenido en Lima</b> —un perfil junior de foto y video, propio o freelance— y que <b>Popcorn lo dirija</b>.</p>
+      </div>
+    </div>
+
+    <div class="grid g2 mt46">
+      <div class="card r d1">
+        <h3>Lo que pone Popcorn</h3>
+        <ul class="bullets mt16">
+          <li><span class="bi">1</span><p>El <b>perfil del puesto</b> y la ayuda para seleccionarlo.</p></li>
+          <li><span class="bi">2</span><p>La <b>guía de producción</b>: qué se filma, cómo se encuadra, con qué luz, qué se dice y qué nunca se dice en una pieza de seguros.</p></li>
+          <li><span class="bi">3</span><p>La <b>capacitación inicial</b> del recurso, en la Etapa 0.</p></li>
+          <li><span class="bi">4</span><p>El <b>brief mensual</b>: la lista concreta de tomas que hacen falta ese mes.</p></li>
+          <li><span class="bi">5</span><p>La <b>edición, el diseño y el control de calidad</b> de todo lo que vuelve.</p></li>
+        </ul>
+      </div>
+      <div class="card hi r d2">
+        <h3>Lo que pone Fe Seguros</h3>
+        <ul class="bullets mt16">
+          <li><span class="bi">1</span><p>La <b>persona</b> y su equipo básico: un celular moderno, un trípode y una luz led. No hace falta más.</p></li>
+          <li><span class="bi">2</span><p>El <b>acceso</b>: que pueda entrar a las reuniones con corredores, al evento, a la operación.</p></li>
+          <li><span class="bi">3</span><p>Un <b>referente interno</b> que apruebe y desbloquee.</p></li>
+          <li><span class="bi">4</span><p><b>Quién responde.</b> Las consultas que llegan por redes las contesta Fe Seguros: hablan de coberturas, precios y pólizas, y eso tiene responsabilidad regulatoria. Nosotros monitoreamos, derivamos y avisamos; la respuesta sale de ustedes.</p></li>
+        </ul>
+        <p class="mt24" style="font-size:.9rem;color:var(--w-65);line-height:1.6">El costo de ese recurso es de Fe Seguros y no está incluido en esta propuesta: es más barato y más ágil resuelto localmente que facturado por nosotros. La dirección del trabajo sí está incluida, en los tres planes.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">11</span></div>
+</section>
+
+<!-- ============ 12 · ROADMAP ============ -->
+<section id="roadmap" data-label="Plan de trabajo" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo lo hacemos</div>
+    <h2 class="h-lg r d1">Tres fases atadas<br>al permiso, no al calendario.</h2>
+    <div class="split mt24">
+      <div>
+        <p class="lead r d2">El plan no arranca cuando llega la licencia: arranca ahora, para que el día que llegue no haya nada que improvisar.</p>
+        <p class="lead r d3">El evento de corredores es el hito que abre la Fase 1. Como se planteó en la reunión, va a ser clásico y formal —y ahí la disrupción no aporta—. La disrupción va después, con la pyme.</p>
+      </div>
+      <div class="col-img r d3">
+        <div class="media wide"><img src="img/evento.jpg" alt="Salón de evento corporativo formal de noche en Lima"><div class="cap">El lanzamiento con corredores abre la Fase 1, en diciembre.</div></div>
+      </div>
+    </div>
+
+    <div class="tl mt46">
+      <div class="tl-item r d1">
+        <div class="dot"></div>
+        <div class="ph">Etapa 0 · Semanas 1 a 6 · antes de la licencia</div>
+        <h3>Construir en silencio</h3>
+        <p>Todo lo que se puede hacer sin comunicar como aseguradora. Definimos la <b>estrategia y el plan de acción de los primeros 6 meses</b>, resolvemos la plataforma de marca y el territorio, dejamos las cuentas creadas y la pauta configurada, desarrollamos el concepto de lanzamiento, construimos el <b>kit comercial del corredor</b> y armamos la guía de contenido con la capacitación del recurso en Lima. Al final de esta etapa, Fe Seguros tiene el plan completo listo para ejecutar el día que la SBS diga que sí.</p>
+        <div class="tl-tags"><span>Estrategia a 6 meses</span><span>Plataforma de marca</span><span>Territorio</span><span>Concepto de campaña</span><span>Start-up de canales</span><span>Kit comercial</span><span>Guía de contenido</span></div>
+      </div>
+      <div class="tl-item r d2">
+        <div class="dot"></div>
+        <div class="ph">Fase 1 · Diciembre 2026 · con o sin licencia</div>
+        <h3>El canal primero</h3>
+        <p>Corredores y contadores. Es un público finito y nominal: se trabaja con LinkedIn, email y contacto uno a uno, no con pauta masiva. Presentación de la compañía, condiciones comerciales, alta en sistemas y el kit comercial ya en manos del corredor. El evento de corredores vive acá. <b>No requiere la licencia para conversar</b>, y es lo que permite que el día 1 de operación haya red lista para colocar.</p>
+        <div class="tl-tags"><span>LinkedIn</span><span>Email a corredores</span><span>Kit comercial en la calle</span><span>Evento (opcional)</span><span>Vocería</span></div>
+      </div>
+      <div class="tl-item r d3">
+        <div class="dot"></div>
+        <div class="ph">Fase 2 · Enero a marzo 2027 · con licencia</div>
+        <h3>Abrir la demanda</h3>
+        <p>Recién acá entra la pyme, con la compañía ya habilitada para emitir. Facebook y TikTok con el territorio de cumplimiento, pauta en Meta y Google, contenido local produciendo todas las semanas. Coincide además con el pico de contratación de verano.</p>
+        <div class="tl-tags"><span>Facebook + TikTok</span><span>Meta Ads + Google Ads</span><span>Contenido de cumplimiento</span><span>Landing (opcional)</span></div>
+      </div>
+      <div class="tl-item r d4">
+        <div class="dot"></div>
+        <div class="ph">Fase 3 · Abril 2027 en adelante</div>
+        <h3>Escalar sobre datos reales</h3>
+        <p>Optimización con datos propios de conversión por canal, por rubro y por corredor. Acá se decide dónde se duplica la inversión y qué se apaga. Es también el momento de evaluar la sinergia con el Grupo Fe, que en la reunión quedó planteada como una posibilidad real.</p>
+        <div class="tl-tags"><span>Optimización</span><span>Escala de pauta</span><span>Sinergia Grupo Fe</span><span>Club de corredores (opcional)</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">12</span></div>
+</section>
+
+<!-- ============ 13 · LO QUE NO FACTURAMOS ============ -->
+<section id="honestidad" data-label="Lo que no cobramos" class="sec-papel auto">
+  <div class="wrap">
+    <div class="eyebrow r">Conflicto de interés</div>
+    <h2 class="h-lg r d1">Tres cosas que recomendamos<br>y <span class="cy">no nos pagan</span>.</h2>
+    <p class="lead mt24 r d2">Somos la agencia que después ejecuta lo que recomienda. Para que esta propuesta valga algo, tiene que incluir lo que nos conviene callar.</p>
+
+    <div class="grid g3 mt46">
+      <div class="card r d1">
+        <span class="num-tag">NO LO COBRAMOS</span>
+        <h3>Validen el nombre con corredores</h3>
+        <p>La decisión de arquitectura de marca no se resuelve con opinión ni con un estudio caro: se resuelve preguntándole a <b>10 o 15 corredores</b> qué les pasa cuando escuchan "Fe Seguros". Lo puede hacer el propio equipo comercial en dos semanas. <b>Les damos la guía de pauta, de una página, sin cargo.</b></p>
+      </div>
+      <div class="card r d2">
+        <span class="num-tag">NO LO COBRAMOS</span>
+        <h3>La agilidad se juega en el sistema</h3>
+        <p>Los tres atributos que eligieron —ágil, cercana, competitiva— se prueban en el tiempo de cotización a emisión y en quién atiende el problema, no en un posteo. <b>La comunicación puede prometerlo; solo la operación puede sostenerlo.</b> Si el sistema no está listo, la campaña acelera la decepción.</p>
+      </div>
+      <div class="card r d3">
+        <span class="num-tag">DEJEN DE HACERLO</span>
+        <h3>No entren a prevención</h3>
+        <p>Es el territorio más obvio para una aseguradora y por eso ya lo ocupan Rímac, Pacífico y Crecer, con más años y más presupuesto. <b>Recomendamos no invertir un sol ahí</b>, aunque sea el contenido más fácil de producir —y el que más horas nos daría a nosotros—.</p>
+      </div>
+    </div>
+
+    <div class="note-pill r d4"><b>Y una más, gratis:</b>&nbsp;pidan al directorio de la SBS el universo real de corredores antes de dimensionar el canal. Es público, no cuesta nada, y ordena toda la proyección.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">13</span></div>
+</section>
+
+<!-- ============ 14 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1">Qué incluye y qué no.</h2>
+    <p class="lead mt24 r d2">Sin letra chica. Lo que no está acá, no está incluido.</p>
+
+    <div class="scope mt46">
+      <div class="scope-col yes r d1">
+        <h3>Incluido en el fee mensual</h3>
+        <div class="sub">Según el plan elegido</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Dirección estratégica y reuniones de seguimiento con reporte ejecutivo.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Plan editorial, redacción, diseño y publicación en los canales contratados, <b>en el volumen mensual que declara cada plan</b>.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Gestión, optimización y reporte de las campañas de pauta.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Dirección de la célula de contenido en Lima: brief mensual, guía, edición y control de calidad.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Monitoreo diario de comentarios y mensajes, con <b>derivación a Fe Seguros de todo lo que requiera respuesta</b> y alerta inmediata ante cualquier reclamo o crisis.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Hasta dos rondas de ajustes por pieza.</span></li>
+        </ul>
+      </div>
+      <div class="scope-col no r d2">
+        <h3>No incluido</h3>
+        <div class="sub">Se cotiza aparte o lo resuelve Fe Seguros</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>La inversión en medios.</b> Se paga directo a las plataformas y se factura aparte.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>El costo del generador de contenido en Lima</b> y su equipamiento.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Producción audiovisual con rodaje, animación y motion (ver opcionales).</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Producción física del evento de corredores: salón, catering, montaje, anfitrionas.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Desarrollo y mantenimiento de la plataforma de autogestión.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Cachés de influencers, licencias de banco de imágenes y música.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Los créditos de envío de email (Doppler).</b> Se contratan aparte y su costo depende de cuántos contactos tenga la base de corredores. Lo dimensionamos juntos cuando esté armada.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>La respuesta a consultas de clientes y corredores.</b> Toda pregunta sobre cobertura, precio, siniestro o estado de una póliza la contesta Fe Seguros: es información de la compañía y tiene responsabilidad regulatoria. Nosotros la detectamos y la derivamos.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Asesoría legal y revisión regulatoria de piezas ante la SBS.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Viajes y presencialidad en Lima.</b> Todo el trabajo se presta desde Buenos Aires, incluida la capacitación del equipo de contenido, que es remota. Si se requiere presencia, se cotiza aparte.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">14</span></div>
+</section>
+
+<!-- ============ 15 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Elige el plan.<br>Arma tu propuesta.</h2>
+    <p class="lead mt24 r d2">Tres niveles de acompañamiento mensual. Selecciona uno, suma lo que necesites y el botón del final arma el correo con tu selección.</p>
+
+    <div class="bloque r d3">
+      <div class="bloque-tit"><span class="n">1</span><span class="t">Se paga una vez</span><span class="s">La construcción: lo que hay que tener listo antes de salir al mercado.</span></div>
+    </div>
+    <div class="inv-group r d4">
+      <div class="inv-ghead"><span>Lo que se paga una vez · elegí qué incluir</span><span class="inv-sub" id="subE0">USD 5.470</span></div>
+      <div class="price-row pick on" data-type="once" data-amount="1420" data-svc="Estrategia y plan de acción a 6 meses" data-price="USD 1.420">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Estrategia y plan de acción a 6 meses</span><small>El plan completo de los primeros 6 meses: objetivos por etapa, qué se comunica en cada canal, a qué público, en qué orden y con qué se mide. Es el documento que ordena todo lo demás.</small></span></div>
+        <div class="pv">USD 1.420</div>
+      </div>
+            <div class="price-row pick on" data-type="once" data-amount="1490" data-svc="Campaña de lanzamiento: concepto y sistema de piezas" data-price="USD 1.490">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Campaña de lanzamiento: concepto y sistema de piezas</span><small>El concepto creativo de la salida al mercado y su bajada a piezas: qué se ve, qué se dice y cómo se declina en cada canal.</small></span></div>
+        <div class="pv">USD 1.490</div>
+      </div>
+      <div class="price-row pick on" data-type="once" data-amount="810" data-svc="Kit comercial del corredor" data-price="USD 810">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Kit comercial del corredor</span><small>El sistema completo: placas de producto para WhatsApp, argumentario de objeciones, comparativo de coberturas y plantillas de alerta y cierre de mes. Se construye una vez y se usa todos los meses.</small></span></div>
+        <div class="pv">USD 810</div>
+      </div>
+      <div class="price-row pick on" data-type="once" data-amount="640" data-svc="Guía de producción de contenido + capacitación del equipo en Lima" data-price="USD 640">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Guía de producción de contenido + capacitación del equipo en Lima</span><small>El manual de cómo se filma y se fotografía la marca, más la capacitación remota de la persona que va a producir el contenido localmente.</small></span></div>
+        <div class="pv">USD 640</div>
+      </div>
+      <div class="price-row pick on" data-type="once" data-amount="620" data-svc="Start-up de redes: 4 canales" data-price="USD 620">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Start-up de redes: 4 canales</span><small>Creación y puesta a punto de LinkedIn, Facebook, TikTok e Instagram: identidad aplicada, biografías y destacados.</small></span></div>
+        <div class="pv">USD 620</div>
+      </div>
+      <div class="price-row pick on" data-type="once" data-amount="490" data-svc="Start-up de pauta: Meta + Google" data-price="USD 490">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Start-up de pauta: Meta + Google</span><small>Configuración de cuentas publicitarias, píxel y medición, estructura de campañas, públicos y primeras creatividades listas para salir.</small></span></div>
+        <div class="pv">USD 490</div>
+      </div>
+      <p class="note" style="margin-top:20px">Los siete se pueden tomar juntos o por separado, pero <b>la estrategia y los dos start-up son la base</b>: sin eso, lo mensual arranca sin rumbo. La campaña de lanzamiento y el kit comercial pueden esperar a que esté la licencia.</p>
+      <div class="pay">
+        <div class="paycard best">
+          <div class="bestbadge">Valor preferencial</div>
+          <div class="pt">100% anticipado</div>
+          <div class="pd">Se abona al confirmar y arrancamos de inmediato. 3% de descuento sobre lo que elijas.</div>
+          <div class="pq" id="payAnt">USD 5.310</div>
+        </div>
+        <div class="paycard">
+          <div class="pt">50% + 50%</div>
+          <div class="pd">50% al confirmar y 50% a los 30 días o contra entrega, lo que ocurra primero.</div>
+          <div class="pq" id="payFull">USD 5.470</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloque r d3">
+      <div class="bloque-tit"><span class="n">2</span><span class="t">Se paga todos los meses</span><span class="s">El acompañamiento. Elegí un nivel: se puede cambiar entre niveles con 30 días de aviso.</span></div>
+    </div>
+    <div class="plan-grid mt46">
+      <div class="plan r d1" data-plan="esencial" data-amount="2270" data-name="Plan Esencial" data-price="USD 2.270 / mes">
+        <div class="pname">Esencial</div>
+        <div class="pfor">Para sostener la marca con lo mínimo que funciona.</div>
+        <div class="pprice">USD 2.270</div>
+        <div class="pper">por mes</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Acompañamiento estratégico: 1 reunión mensual + reporte</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>3 canales: LinkedIn, Facebook e Instagram</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>12 publicaciones + 5 videos + historias</b> al mes, con reporte quincenal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Pauta en Meta: optimización semanal y reporte mensual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Dirección de la célula de contenido en Lima</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg>Sin TikTok, sin Google Ads, sin vocería</li>
+        </ul>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este plan</span><span class="lbl-on">Plan elegido</span></div>
+      </div>
+
+      <div class="plan sel r d2" data-plan="crecimiento" data-amount="4230" data-name="Plan Crecimiento" data-price="USD 4.230 / mes">
+        <div class="rec">Recomendado</div>
+        <div class="pname">Crecimiento</div>
+        <div class="pfor">El alcance que pide el plan de negocio que nos contaron.</div>
+        <div class="pprice">USD 4.230</div>
+        <div class="pper">por mes</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Acompañamiento estratégico: 2 reuniones/mes + estrategia trimestral</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>4 canales trabajando <b>los dos públicos</b>: corredor y pyme</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>16 publicaciones + 8 videos + historias y reels</b> al mes, con reporte semanal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Pauta en Meta + Google: optimización dos veces por semana y reporte quincenal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>Vocería en LinkedIn</b> de hasta 3 ejecutivos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>Radar mensual de competencia</b> peruana</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>Email marketing</b> a la red de corredores: 3 envíos/mes <small style="display:block;font-weight:400;font-size:.8rem;color:rgba(18,18,18,.5);margin-top:2px">créditos de Doppler aparte, según el tamaño de la base</small></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Dirección de la célula de contenido en Lima</li>
+        </ul>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este plan</span><span class="lbl-on">Plan elegido</span></div>
+      </div>
+
+      <div class="plan r d3" data-plan="integral" data-amount="5270" data-name="Plan Integral" data-price="USD 5.270 / mes">
+        <div class="pname">Integral</div>
+        <div class="pfor">Todo el sistema funcionando, para los meses de mayor exigencia.</div>
+        <div class="pprice">USD 5.270</div>
+        <div class="pper">por mes</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Acompañamiento estratégico: reuniones semanales + estrategia anual</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>4 canales con <b>dos líneas editoriales separadas</b>: corredor y pyme</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>16 publicaciones + 10 videos + historias y reels</b> al mes, con reporte semanal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Pauta en Meta + Google + LinkedIn: optimización diaria y reporte semanal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Vocería en LinkedIn de hasta 3 ejecutivos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Radar de competencia e inteligencia de mercado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg><b>Email marketing</b> a la red de corredores: 3 envíos/mes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Dirección de la célula de contenido en Lima</li>
+        </ul>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este plan</span><span class="lbl-on">Plan elegido</span></div>
+      </div>
+    </div>
+
+    <!-- ETAPA 0 -->
+    <div class="inv-group r d5">
+      <div class="inv-ghead"><span>Opcionales · se suman cuando hagan falta</span><span class="inv-sub" id="subOpc">—</span></div>
+
+      <div class="price-row pick" data-type="once" data-amount="1500" data-svc="Evento de lanzamiento para corredores" data-price="USD 1.500">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Evento de lanzamiento para corredores</span><small>Concepto, identidad del evento, sistema de piezas, guion de escenario y plan de cobertura. No incluye producción física (salón, catering, montaje).</small></span></div>
+        <div class="pv">USD 1.500</div>
+      </div>
+
+      <div class="price-row pick" data-type="once" data-amount="1190" data-svc="Video institucional de lanzamiento (dirección + post)" data-price="USD 1.190">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Video institucional de lanzamiento — dirección y post</span><small>Guion, dirección creativa, supervisión del rodaje y post-producción completa. La jornada la ejecuta una productora local en Lima bajo nuestra dirección: su costo lo contrata Fe Seguros directamente y no está incluido acá.</small></span></div>
+        <div class="pv">USD 1.190</div>
+      </div>
+
+      <div class="price-row pick" data-type="once" data-amount="3770" data-svc="Motion video explicativo del producto" data-price="USD 3.770">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Motion video explicativo del producto — hasta 60 seg</span><small>Animación 2D completa: guion, storyboard, ilustración y animación. Explica qué es el SCTR y quién está obligado, sin depender de rodaje. La locución profesional se cotiza aparte según el perfil de voz.</small></span></div>
+        <div class="pv">USD 3.770</div>
+      </div>
+
+      <div class="price-row pick" data-type="once" data-amount="1060" data-svc="Diseño del programa Club de Corredores" data-price="USD 1.060">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Diseño del programa Club de Corredores</span><small>Arquitectura del programa de fidelización: segmentación por niveles, sistema de beneficios, calendario de contactos, identidad y medición de NPS.</small></span></div>
+        <div class="pv">USD 1.060</div>
+      </div>
+
+      <div class="price-row pick" data-type="once" data-amount="940" data-svc="Manual de marca" data-price="USD 940">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Manual de marca</span><small>Normativa completa de uso: paleta, tipografía, grilla, aplicaciones, tono de voz y fotografía. Sin rediseño de logo.</small></span></div>
+        <div class="pv">USD 940</div>
+      </div>
+
+      <div class="price-row pick" data-type="once" data-amount="580" data-svc="Landing de captación y derivación a corredores" data-price="USD 580">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Landing de captación y derivación a corredores</span><small>Página de destino de la pauta, con formulario, medición configurada y derivación del contacto al corredor que corresponda.</small></span></div>
+        <div class="pv">USD 580</div>
+      </div>
+
+      <div class="price-row pick" data-type="month" data-amount="640" data-inc="crecimiento integral" data-svc="Vocería en LinkedIn (hasta 3 ejecutivos)" data-price="USD 640 / mes">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Vocería en LinkedIn de hasta 3 ejecutivos</span><small>Mensual. Ya incluido en los planes Crecimiento e Integral: súmalo solo si eliges el plan Esencial.</small></span></div>
+        <div class="pv">USD 640<small>por mes</small></div>
+      </div>
+
+      <div class="price-row pick" data-type="month" data-amount="390" data-inc="crecimiento integral" data-svc="Email marketing a la red de corredores" data-price="USD 390 / mes">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span><span class="pl-t">Email marketing a la red de corredores — 3 envíos/mes</span><small>Mensual. Ya incluido en los planes Crecimiento e Integral. <b>Los créditos de envío de Doppler se contratan aparte</b>, según cuántos contactos tenga la base.</small></span></div>
+        <div class="pv">USD 390<small>por mes</small></div>
+      </div>
+    </div>
+
+    <!-- TOTALES -->
+    <div class="totalbox r d6">
+      <div class="trow big"><div class="tl-k">Inversión mensual<small>Se factura por adelantado, al inicio de cada mes</small></div><div class="tl-v" id="totMonth">USD 4.230</div></div>
+      <div class="trow"><div class="tl-k">Pago único<small>Etapa 0 y opcionales de una sola vez</small></div><div class="tl-v" id="totOnce">USD 5.470</div></div>
+      <div class="trow"><div class="tl-k">Fee variable sobre pauta<small>Sobre la inversión neta administrada en plataformas</small></div><div class="tl-v">15%</div></div>
+
+      <p class="note">
+        <b>Moneda.</b> Valores en dólares estadounidenses. Popcorn factura desde Estados Unidos. Los importes indicados son <b>netos</b>: los tributos y retenciones que correspondan en Perú quedan a cargo de Fe Seguros.<br><br><b>Formas de pago.</b> El fee mensual se abona 100% por adelantado, al valor de lista. La Etapa 0 y los trabajos de pago único se muestran con dos opciones: 100% anticipado (valor preferencial, 3% de descuento) o 50% al confirmar y 50% a los 30 días. <b>El descuento por pago anticipado aplica solo a los trabajos de pago único: no aplica al fee mensual recurrente.</b><br><br>
+        <b>Inversión en medios.</b> El presupuesto de pauta es adicional a estos honorarios, se paga directo a Meta y Google, y sobre él se aplica el fee variable del 15% por administración. A esa inversión las plataformas le suman el <b>IGV del 18%</b> que rige en Perú sobre servicios digitales de proveedores no domiciliados (D. Leg. 1623, vigente desde diciembre de 2024): conviene presupuestarla con ese recargo incluido. Recomendamos definir el monto en la primera reunión de trabajo, una vez acordadas las metas.<br><br>
+        <b>Contrato.</b> Acompañamiento propuesto a <b>24 meses</b>, como pidieron, con revisión semestral del alcance. El plan se puede cambiar entre niveles con 30 días de aviso: lo natural es Integral durante la salida y Crecimiento después. Cualquiera de las partes puede discontinuar con <b>60 días de preaviso por escrito</b>. Los honorarios se actualizan <b>una vez al año</b>, en la fecha aniversario, según la variación del <b>IPC de Lima Metropolitana</b> que publica el INEI y difunde SUNAT (<a href="https://www.sunat.gob.pe/indicestasas/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">sunat.gob.pe/indicestasas</a>), con aviso de 30 días. Elegimos su índice y no el nuestro porque es verificable por ustedes y previsible: viene corriendo en torno al 4% anual.<br><br><b>Revisión semestral.</b> Popcorn puede pedir una revisión de valores cada seis meses. El motivo es transparente: nuestra estructura de costos está en Argentina, donde la inflación corre a otra velocidad que la peruana, y en algún momento de un contrato de dos años esa brecha se puede volver difícil de sostener. Preferimos poder conversarlo con ustedes, con los números a la vista, antes que acumularlo en silencio o trasladarlo de golpe. Cualquier ajuste por esa vía se acuerda entre las partes. La propiedad intelectual de todas las piezas producidas se cede a Fe Seguros una vez abonadas.</p>
+
+      <div id="ctaPick"></div>
+      <a class="cta-go" id="ctaGo" href="mailto:florencia@somospopcorn.com">Avanzar con esta propuesta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">15</span></div>
+</section>
+
+<!-- ============ PLAN DE MEDIOS ============ -->
+<section id="medios" data-label="Inversión en medios" class="sec-papel auto">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en medios</div>
+    <h2 class="h-lg r d1">Tres escenarios<br>para empezar a hablar.</h2>
+    <p class="lead mt24 r d2">La inversión en pauta es adicional a los honorarios y se paga directo a Meta y Google. Estos tres escenarios son un <b>orden de magnitud para dimensionar la conversación</b>, construidos sobre lo que relevamos de la categoría en Perú.</p>
+    <p class="lead r d3">Para ser certeros necesitamos tres cosas que hoy no existen: <b>la meta comercial traducida a pólizas</b>, <b>el dato de conversión propio</b> —que aparece recién con el primer mes de campaña— y <b>el CRM donde se registra el contacto</b>. Con eso, en el mes 2 reemplazamos estos rangos por proyecciones reales.</p>
+
+    <div class="tbl-wrap tbl-cards mt46 r d4">
+      <table class="tbl">
+        <thead><tr><th>Escenario</th><th class="num">Inversión mensual</th><th>Qué permite</th><th>Cuándo tiene sentido</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="plat" data-l="Escenario">Arranque</td>
+            <td class="num" data-l="Inversión mensual">USD 1.000</td>
+            <td data-l="Qué permite">Un canal principal y un público. Alcanza para instalar la marca en el canal corredor con LinkedIn y sostener una campaña de reconocimiento acotada.</td>
+            <td data-l="Cuándo tiene sentido">Diciembre, mientras no haya licencia y el foco sea el corredor.</td>
+          </tr>
+          <tr class="hi">
+            <td class="plat" data-l="Escenario">Salida</td>
+            <td class="num" data-l="Inversión mensual">USD 2.500</td>
+            <td data-l="Qué permite">Dos plataformas en paralelo: Meta para el dueño de pyme y Google para capturar la búsqueda de SCTR, que es donde la intención ya existe. Permite testear ángulos y sostener frecuencia.</td>
+            <td data-l="Cuándo tiene sentido">El lanzamiento comercial, cuando la compañía ya puede emitir.</td>
+          </tr>
+          <tr>
+            <td class="plat" data-l="Escenario">Escala</td>
+            <td class="num" data-l="Inversión mensual">USD 5.000</td>
+            <td data-l="Qué permite">Tres plataformas, cobertura nacional y presupuesto para separar campañas por rubro —transporte, construcción, servicios— y por etapa del embudo.</td>
+            <td data-l="Cuándo tiene sentido">A partir del mes 4, sobre datos propios de conversión.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-hint">&rarr; Desliza la tabla para verla completa</div>
+
+    <div class="grid g3 mt46">
+      <div class="card r d1">
+        <h3>Sobre estos montos se suma el 15%</h3>
+        <p>El fee variable de administración de pauta es el <b>15% de la inversión neta</b> que gestionamos. En el escenario de salida, son <b>USD 375 al mes</b> además del fee fijo del plan.</p>
+      </div>
+      <div class="card r d2">
+        <h3>Y el IGV del 18%</h3>
+        <p>Meta y Google le suman a Fe Seguros el IGV peruano sobre servicios digitales de proveedores no domiciliados. Conviene presupuestar la pauta con ese recargo ya incluido.</p>
+      </div>
+      <div class="card r d3">
+        <h3>Por qué no prometemos un costo por lead</h3>
+        <p>No existe un benchmark público confiable de costo por lead del sector seguros en Perú. Cualquier número que circule es estimación de un tercero. <b>Preferimos medirlo con las campañas propias antes de comprometerlo.</b></p>
+      </div>
+    </div>
+
+    <div class="note-pill r d4"><b>Referencia del mercado:</b>&nbsp;las agencias peruanas cobran entre 15% y 18% de la inversión cuando la pauta está por debajo de S/ 30.000 mensuales. Nuestro 15% está en el piso de esa banda.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">16</span></div>
+</section>
+
+<!-- ============ 16 · KPIs ============ -->
+<section id="kpis" data-label="Cómo se mide" class="sec-papel auto">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo nos evalúan</div>
+    <h2 class="h-lg r d1">Dos tableros,<br>no uno.</h2>
+    <p class="lead mt24 r d2">En la reunión quedó planteada la diferencia entre objetivos de recordación y objetivos comerciales. Son dos cosas distintas, con responsables distintos. Así las medimos.</p>
+
+    <div class="tbl-wrap mt46 r d3">
+      <table class="tbl">
+        <thead><tr><th style="width:22%">Tablero</th><th style="width:30%">Indicador</th><th style="width:26%">Qué nos dice</th><th style="width:22%">Responsable</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td class="plat" rowspan="4">Marca y canal<br><span style="font-weight:400;font-size:.8rem;color:rgba(18,18,18,.55)">Lo que responde Popcorn</span></td><td>Audiencia calificada de corredores en LinkedIn</td><td>Si estamos construyendo la base correcta, no seguidores por volumen</td><td>Popcorn</td></tr>
+          <tr class="hi"><td>Piezas del kit efectivamente reenviadas por corredores</td><td>Si lo que producimos les sirve de verdad para vender</td><td>Popcorn</td></tr>
+          <tr class="hi"><td>Recordación asistida de marca en pymes del segmento</td><td>Si la marca dejó de necesitar explicación. Se mide con encuesta al mes 6 y al 12</td><td>Popcorn</td></tr>
+          <tr class="hi"><td>Costo por lead y por conversación iniciada, por canal y rubro</td><td>Dónde duplicar inversión y qué apagar</td><td>Popcorn</td></tr>
+          <tr><td class="plat" rowspan="3">Negocio<br><span style="font-weight:400;font-size:.8rem;color:rgba(18,18,18,.55)">Lo que responde Fe Seguros</span></td><td>Corredores activos colocando en el mes</td><td>Si el canal está vivo o solo dado de alta</td><td>Fe Seguros</td></tr>
+          <tr><td>Pólizas por corredor y tasa de recompra mensual</td><td>Si el producto retiene, en un negocio donde se decide todos los meses</td><td>Fe Seguros</td></tr>
+          <tr><td>Tiempo de cotización a emisión</td><td>Si "ágil" es un atributo real o una promesa de campaña</td><td>Fe Seguros</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-hint">&rarr; Desliza la tabla para verla completa</div>
+
+    <div class="note-pill r d4"><b>Línea de base:</b>&nbsp;los valores de partida se fijan en la primera reunión de trabajo. No prometemos números antes de tener acceso a las cuentas.</div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">17</span></div>
+</section>
+
+<!-- ============ 17 · POPCORN ============ -->
+<section id="popcorn" data-label="Quiénes somos" class="auto">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Quiénes somos</div>
+        <h2 class="h-lg r d1">No somos ejecutores.<br>Somos <span class="hl">socios estratégicos</span>.</h2>
+        <p class="lead mt24 r d2">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. No vendemos publicaciones: acompañamos crecimiento.</p>
+        <p class="lead r d3">Trabajamos con empresas medianas y grandes, con fuerte especialización en salud y en B2B técnico —dos mundos regulados, de ciclo largo y venta intermediada, que se parecen mucho a este—. Y trabajamos fuera de Argentina hace años: Uruguay, Paraguay, México, Estados Unidos y Suiza.</p>
+        <div class="stats r d4">
+          <div class="stat"><div class="v">15+</div><div class="l">Años de trayectoria</div></div>
+          <div class="stat"><div class="v">160+</div><div class="l">Marcas acompañadas</div></div>
+          <div class="stat"><div class="v">360°</div><div class="l">Estrategia, contenido, pauta, audiovisual y web</div></div>
+        </div>
+      </div>
+      <div class="col-img r d3">
+        <div class="media"><img src="img/nosotros-a-mesa.jpg" alt="Mesa de trabajo con documentos de análisis anotados a mano"><div class="cap">Antes de proponer, estudiamos el mercado peruano.</div></div>
+      </div>
+    </div>
+
+    <div class="logowall r d5">
+      <div class="logocell"><img src="img/logos/swiss.webp" alt="Swiss Medical" onerror="this.parentNode.classList.add('noimg')"><span class="ln">Swiss Medical</span></div>
+      <div class="logocell"><img src="img/logos/mercadocheque.png" alt="Mercado Cheque" onerror="this.parentNode.classList.add('noimg')"><span class="ln">Mercado Cheque</span></div>
+      <div class="logocell"><img src="img/logos/transpack.png" alt="Transpack" onerror="this.parentNode.classList.add('noimg')"><span class="ln">Transpack</span></div>
+      <div class="logocell"><img src="img/logos/mitmaq.png" alt="Mitmaq" onerror="this.parentNode.classList.add('noimg')"><span class="ln">Mitmaq</span></div>
+      <div class="logocell"><img src="img/logos/northfield.webp" alt="Northfield School" onerror="this.parentNode.classList.add('noimg')"><span class="ln">Northfield School</span></div>
+      <div class="logocell"><img src="img/logos/evel.webp" alt="Evel" onerror="this.parentNode.classList.add('noimg')"><span class="ln">Evel</span></div>
+    </div>
+
+    <div class="grid g3 mt46">
+      <div class="card r d1"><h3>Categorías reguladas</h3><p>Trabajamos hace años con salud, laboratorios y servicios financieros: comunicación con restricciones normativas, aprobaciones internas y públicos técnicos. No es un terreno nuevo para nosotros.</p></div>
+      <div class="card r d2"><h3>Venta intermediada</h3><p>Nuestros clientes de salud le venden al paciente a través del médico derivante, igual que Fe Seguros le vende a la pyme a través del corredor. Es el mismo problema con otro nombre.</p></div>
+      <div class="card r d3"><h3>Cuentas a distancia</h3><p>Operamos cuentas fuera de Argentina con el mismo estándar que las locales. La célula de contenido local y el radar mensual de competencia son parte de cómo lo resolvemos.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">18</span></div>
+</section>
+
+<!-- ============ 19 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cuatro pasos<br>y arrancamos.</h2>
+
+    <div class="pipe mt46">
+      <div class="node r d1"><span class="k">PASO 1</span><span class="t">Leen la propuesta</span><p>Con tiempo, y anotan todo lo que no cierre. Por WhatsApp respondemos cualquier duda antes de la reunión.</p></div>
+      <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node r d2"><span class="k">PASO 2</span><span class="t">Reunión del miércoles 23</span><p>Repasamos dudas, ajustamos alcance y cerramos la definición de metas y del plan que corresponde.</p></div>
+      <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node r d3"><span class="k">PASO 3</span><span class="t">Confirmación</span><p>Se confirma el plan y la Etapa 0. Firmamos el acuerdo de alcance y el de confidencialidad.</p></div>
+      <div class="arrow"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node r d4"><span class="k">PASO 4</span><span class="t">Kickoff en 5 días</span><p>Sesión de trabajo, pedido de accesos y arranque de la Etapa 0. Sin esperar la licencia.</p></div>
+    </div>
+
+    </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn</span><span class="num">19</span></div>
+</section>
+
+<!-- ============ 20 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/obra.jpg" alt="Cuadrilla de obreros en una obra en Lima"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Para cerrar</div>
+    <h2 class="close-title r d1">El día que llegue la licencia,<br>ya tiene que estar <span class="hl">todo listo</span>.</h2>
+    <p class="lead mt24 r d2" style="margin-left:auto;margin-right:auto;text-align:center">Según lo que nos contaron, faltan 60 a 90 días. Es exactamente el tiempo que lleva construir una marca que el corredor pueda vender sin explicar. Empezar ahora no es adelantarse: es llegar a tiempo.</p>
+
+    <div class="close-sign r d3">
+      <img class="logo-pic close" src="img/logo-blanco.png" alt="Popcorn">
+      <div class="close-tag">Marketing, comunicación y creatividad</div>
+    </div>
+
+    <a class="cta-go r d4" href="mailto:florencia@somospopcorn.com?cc=demianlinet@somospopcorn.com&amp;subject=Fe%20Seguros%20%C2%B7%20Consulta%20sobre%20la%20propuesta">Escribirnos
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+    <div class="footer r d5">
+      <span>Propuesta válida hasta el 26 de septiembre de 2026 · los valores se sostienen hasta el 10 de octubre si confirmamos el avance en la reunión del 23</span>
+      <span>Florencia Grigolatto · florencia@somospopcorn.com</span>
+      <span>Demián Linetzky · demianlinet@somospopcorn.com</span>
+      <span>somospopcorn.com</span>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.4});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Calculadora de inversión ===== */
+const planes=[...document.querySelectorAll('.plan')];
+const picks=[...document.querySelectorAll('.price-row.pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const fmt=n=>'USD '+Number(n).toLocaleString('es-AR');
+
+function build(){
+  const plan=planes.find(p=>p.classList.contains('sel'));
+  const planId=plan?plan.dataset.plan:'';
+  picks.forEach(p=>{
+    const inc=(p.dataset.inc||'').split(' ').indexOf(planId)>=0;
+    p.classList.toggle('yainc',inc);
+    if(inc){p.classList.remove('on');}
+  });
+  let once=0,month=0;
+  const elegidos=picks.filter(p=>p.classList.contains('on'));
+  elegidos.forEach(p=>{
+    const a=Number(p.dataset.amount)||0;
+    if(p.dataset.type==='once'){once+=a;}else{month+=a;}
+  });
+  const planAmt=plan?Number(plan.dataset.amount):0;
+  const totMonth=planAmt+month;
+
+  document.getElementById('totMonth').textContent=totMonth?fmt(totMonth):'—';
+  document.getElementById('totOnce').textContent=once?fmt(once):'—';
+
+  const grpE0=[...document.querySelectorAll('.inv-group')][0];
+  const e0Picks=[...grpE0.querySelectorAll('.price-row.pick')];
+  const e0T=e0Picks.filter(p=>p.classList.contains('on')).reduce((a,p)=>a+Number(p.dataset.amount),0);
+  document.getElementById('subE0').textContent=e0T?fmt(e0T):'—';
+  document.getElementById('payFull').textContent=e0T?fmt(e0T):'—';
+  document.getElementById('payAnt').textContent=e0T?fmt(Math.round(e0T*0.97/10)*10):'—';
+  const opcT=elegidos.filter(p=>!e0Picks.includes(p)).reduce((s,p)=>s+Number(p.dataset.amount),0);
+  document.getElementById('subOpc').textContent=opcT?fmt(opcT):'—';
+
+  /* Correo */
+  let subject='Fe Seguros · Avancemos con la propuesta';
+  let body='Hola Florencia, leímos la propuesta de Popcorn para Fe Seguros y queremos avanzar.';
+  if(plan){
+    subject='Fe Seguros · Avancemos · '+plan.dataset.name;
+    body+='\n\nPlan mensual elegido:\n• '+plan.dataset.name+' — '+plan.dataset.price;
+  }
+  if(elegidos.length){
+    body+='\n\nAdemás queremos incluir:';
+    elegidos.forEach(p=>{body+='\n• '+p.dataset.svc+' — '+p.dataset.price;});
+  }
+  body+='\n\nResumen:';
+  if(totMonth){body+='\n• Inversión mensual: '+fmt(totMonth)+' / mes';}
+  if(once){body+='\n• Pago único: '+fmt(once);}
+  body+='\n• Fee variable sobre pauta administrada: 15%';
+  body+='\n\nQuedamos a la espera para coordinar el kickoff.';
+
+  const partes=[];
+  if(plan){partes.push(plan.dataset.name);}
+  if(elegidos.length){partes.push(elegidos.length+' ítem'+(elegidos.length>1?'s':'')+' adicional'+(elegidos.length>1?'es':''));}
+  ctaPick.innerHTML=partes.length?'Avanzas con: <b>'+partes.join('</b> + <b>')+'</b>':'<span class="none">Elige un plan para incluirlo en el correo.</span>';
+
+  ctaGo.href='mailto:florencia@somospopcorn.com?cc=demianlinet@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+
+planes.forEach(p=>{
+  p.addEventListener('click',()=>{
+    const era=p.classList.contains('sel');
+    planes.forEach(x=>x.classList.remove('sel'));
+    if(!era){p.classList.add('sel');}
+    build();
+  });
+});
+picks.forEach(p=>{
+  p.addEventListener('click',()=>{p.classList.toggle('on');build();});
+});
+build();
+</script>
+</body>
+</html>
