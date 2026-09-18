@@ -189,7 +189,7 @@ section{
   content:'';position:absolute;inset:0;
   background:linear-gradient(172deg,rgba(71,0,130,.74) 0%,rgba(88,13,159,.80) 40%,rgba(26,3,47,.95) 100%);
 }
-.hero-title{font-weight:800;font-size:clamp(2.4rem,6.2vw,5.1rem);line-height:1.13;letter-spacing:-.032em;max-width:18ch}
+.hero-title{font-weight:800;font-size:clamp(2.4rem,6.2vw,5.1rem);line-height:1.05;letter-spacing:-.032em;max-width:18ch}
 .hero-sub{margin-top:26px;font-size:clamp(1.01rem,1.55vw,1.3rem);color:var(--w-80);max-width:700px;line-height:1.62}
 .pill{
   display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:700;font-size:11px;
@@ -307,10 +307,11 @@ section{
 .finding .fn{font-family:'Public Sans';font-weight:800;font-size:1.5rem;color:var(--violeta);line-height:1;letter-spacing:-.03em}
 .finding h4{font-family:'Public Sans';font-weight:700;font-size:1.06rem;margin-bottom:6px;letter-spacing:-.01em}
 .finding p{color:var(--t-70);font-size:.95rem;line-height:1.62;max-width:72ch}
-.finding .ev{display:inline-block;margin-top:10px;font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:#0B5B52;background:rgba(116,250,227,.28);padding:5px 11px;border-radius:999px}
+.finding .ev{display:inline-block;margin-top:10px;font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--violeta);background:rgba(116,250,227,.28);padding:5px 11px;border-radius:999px}
 
 /* ============ COMPARATIVA ============ */
-.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media (max-width:760px){.tbl-wrap::after{content:'Deslizá la tabla para verla completa';display:block;font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--violeta);padding:10px 2px 0;position:sticky;left:0}}
 table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .tbl th{font-family:'Public Sans';font-weight:800;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--violeta);text-align:left;padding:14px 16px;border-bottom:1.5px solid var(--line-d);white-space:nowrap}
 .tbl th.num{text-align:right}
@@ -322,7 +323,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .tbl tr.total td{border-top:1.5px solid var(--aqua-deep);background:rgba(116,250,227,.14);font-family:'Public Sans';font-weight:800;color:var(--tinta)}
 .tbl tr.total td.num{color:var(--violeta)}
 .tbl .yes{color:var(--aqua-deep);font-weight:700}
-.tbl .no{color:#C2410C;font-weight:700}
+.tbl .no{color:var(--tinta);font-weight:800}
 .s-violet .tbl th,.s-dark .tbl th{color:var(--aqua);border-color:var(--line)}
 .s-violet .tbl td,.s-dark .tbl td{color:var(--w-80);border-color:var(--line-soft)}
 .s-violet .tbl td.num,.s-dark .tbl td.num,.s-violet .tbl .plat,.s-dark .tbl .plat{color:var(--white)}
@@ -362,7 +363,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .panel.good{border-color:rgba(11,182,162,.4);background:rgba(116,250,227,.09)}
 .panel.warn{border-color:var(--line-d);background:var(--papel)}
 .panel h3{font-family:'Public Sans';font-weight:800;font-size:11px;letter-spacing:.17em;text-transform:uppercase;margin-bottom:18px}
-.panel.good h3{color:#0E6F63}
+.panel.good h3{color:var(--violeta)}
 .panel.warn h3{color:var(--t-50)}
 .panel ul{list-style:none;display:flex;flex-direction:column;gap:13px}
 .panel li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;line-height:1.55;color:var(--t-70)}
@@ -406,7 +407,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--t-50);margin-top:5px;font-family:'Space Grotesk';max-width:42ch;line-height:1.5}
 .price-row .pv{font-family:'Public Sans';font-weight:800;font-size:1.22rem;color:var(--violeta);white-space:nowrap;text-align:right}
 .price-row .pv small{display:block;font-size:.66rem;color:var(--t-38);font-weight:600;letter-spacing:.06em;margin-top:3px;font-family:'Public Sans'}
-.price-row .pl small.varfee{font-family:'Public Sans';font-weight:700;font-size:.78rem;color:#0E6F63;margin-top:7px}
+.price-row .pl small.varfee{font-family:'Public Sans';font-weight:700;font-size:.78rem;color:var(--violeta);margin-top:7px}
 .varnote{margin-top:12px;font-family:'Public Sans';font-weight:700;font-size:.8rem;color:var(--aqua);line-height:1.45}
 .fineprint{font-size:.79rem;color:var(--w-65);margin-top:18px;line-height:1.55}
 .fineprint b{color:var(--white)}
@@ -456,7 +457,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .cta-go svg{width:19px;height:19px}
 #ctaPick{font-size:.94rem;color:var(--w-80);margin-top:6px;min-height:1.5em}
 #ctaPick .none{color:var(--w-65)}
-.close-title{font-family:'Public Sans';font-weight:800;font-size:clamp(1.8rem,4vw,3.1rem);line-height:1.1;letter-spacing:-.022em;text-align:center}
+.close-title{font-family:'Public Sans';font-weight:800;font-size:clamp(1.8rem,4vw,3.1rem);line-height:1.05;letter-spacing:-.022em;text-align:center}
 .close-sign{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
 .close-tag{font-family:'Public Sans';font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);text-align:center}
 
@@ -508,6 +509,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
   .tl::before{left:7px}
   .tl .it::before{left:-30px;width:12px;height:12px}
   .stats{gap:20px 32px}
+  .scrollcue{display:none}
 }
 </style>
 </head>
@@ -540,7 +542,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       <span class="tag">Dos modelos de trabajo</span>
     </div>
   </div>
-  <div class="scrollcue"><span>Desplazá</span><div class="mouse"></div></div>
+  <div class="scrollcue"><span>Desplacen</span><div class="mouse"></div></div>
   <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Portada</span></div>
 </section>
 
@@ -729,12 +731,12 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       <div>
         <p class="lead">Contra lo que suele pasar, el problema de CIMDIP no es que le falte producto. Aula Maker desde inicial, sede de exámenes Cambridge, certificaciones de Digital House para secundaria, escuela modelo de las editoriales, sede oficial de exámenes de la American Academy of Ballet, tres salones de ballet con pisos especializados, gabinete psicopedagógico, comedor con nutricionista, y acceso a natatorio, estadio de hockey y polideportivo por convenio con instituciones de la zona.</p>
         <p class="lead" style="margin-top:20px"><b>Esa lista es de un colegio de otra categoría de precio.</b> Y sin embargo, la comunicación que la acompaña habla de contención, valores y familia: exactamente el mismo discurso que usa, a un cuarto del precio, el colegio que ustedes identifican como el que les copia los proyectos.</p>
-        <p class="lead" style="margin-top:20px">Ahí está la pelea perdida de antemano. <b>Si los dos decimos lo mismo, gana el más barato.</b> Un proyecto educativo se copia en un ciclo lectivo. Cuatro décadas de convenios, certificaciones internacionales y egresados, no.</p>
+        <p class="lead" style="margin-top:20px">Ahí está la pelea perdida de antemano. <b>Si los dos decimos lo mismo, gana el más barato.</b> Un proyecto educativo se copia en un ciclo lectivo. 45 años de convenios, certificaciones internacionales y egresados, no.</p>
       </div>
       <div class="ph tall r d4">
-        <img src="img/infra-pileta.jpg" alt="Alumnos del colegio en clase de natación">
+        <img src="img/egresados.jpg" alt="Acto de egresados del colegio">
         <span class="float v">No se copia</span>
-        <div class="cap">Natación · convenio con instituciones de la zona</div>
+        <div class="cap">45 años de egresados</div>
       </div>
     </div>
 
@@ -749,7 +751,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 <section id="competencia" data-label="Competencia" class="s-white">
   <div class="wrap">
     <div class="eyebrow r">Dónde está la pelea</div>
-    <h2 class="h-lg r d1" style="max-width:24ch">Un colegio nuevo tiene la misma audiencia que ustedes con <span class="uline">cuarenta años menos</span>.</h2>
+    <h2 class="h-lg r d1" style="max-width:24ch">Un colegio nuevo tiene la misma audiencia que ustedes con <span class="uline">45 años menos</span>.</h2>
     <p class="lead r d2" style="margin-top:22px">Relevamos los perfiles públicos de los colegios de la zona el 18 de septiembre. El dato que más nos llamó la atención no es cuántos seguidores tienen ustedes: es cómo los consiguieron.</p>
 
     <div class="tbl-wrap r d3" style="margin-top:36px">
@@ -829,7 +831,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <span class="num-tag">FRENTE 2 · EL PRECIO</span>
         <h3>Dejar de competir contra el más barato</h3>
-        <p>Construir el argumento de relación precio-prestación que hoy no tiene dueño en la zona: comedor, docentes y proyectos compartidos —según nos contaron— con colegios de cuota cuatro veces mayor, y una infraestructura que ningún competidor de su rango tiene. La comparación se elige, no se sufre.</p>
+        <p>Construir el argumento de relación precio-prestación que hoy no tiene dueño en la zona: comedor, docentes y proyectos compartidos —según nos contaron— con colegios de cuota cuatro veces mayor, y una propuesta deportiva y artística que ningún competidor de su rango reúne. La comparación se elige, no se sufre.</p>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.4 8.5 8.5 0 0 1-7.6-4.7L3 21l1.9-4.5A8.38 8.38 0 0 1 3.6 11 8.5 8.5 0 0 1 12 2.6a8.38 8.38 0 0 1 9 8.4z"/></svg></div>
@@ -856,9 +858,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       <div class="ph"><img src="img/aula-maker.jpg" alt="Aula Maker"><div class="cap">Aula Maker</div></div>
       <div class="ph"><img src="img/arte-ballet.jpg" alt="Escuela de ballet"><div class="cap">Ballet</div></div>
       <div class="ph"><img src="img/deportes.jpg" alt="Natación"><div class="cap">Natación</div></div>
-      <div class="ph"><img src="img/egresados.jpg" alt="Acto de egresados"><div class="cap">Egresados</div></div>
+      <div class="ph"><img src="img/infra-pileta.jpg" alt="Clase de natación"><div class="cap">Natación · por convenio</div></div>
     </div>
-    <p class="note-pill r d6" style="margin-top:16px">Todo esto ya existe en el colegio y ya está fotografiado. Hoy no se usa donde las familias deciden.</p>
+    <p class="note-pill r d6" style="margin-top:16px">Todo esto ya es parte de la propuesta educativa y ya está fotografiado. Hoy no se usa donde las familias deciden.</p>
   </div>
   <div class="sfoot"><span>El orden es la estrategia</span><span class="num">08 — Estrategia</span></div>
 </section>
@@ -929,7 +931,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <span class="src">Entregable · tres perfiles ordenados, grilla modelo y guía de publicación</span>
       </div>
       <div class="card" style="background:linear-gradient(155deg,var(--violeta-grad-1),var(--violeta) 60%,var(--violeta-900));border:none;color:var(--white)">
-        <span class="num-tag" style="color:var(--aqua)">LO QUE SE ARREGLA SIN COSTO</span>
+        <span class="num-tag" style="color:var(--aqua)">LO QUE SE ARREGLA SIN COSTO ADICIONAL</span>
         <h3 style="color:var(--white)">Lo que corregimos en la primera semana</h3>
         <p style="color:var(--w-80)">El pie de página de 2013, la página con el texto de plantilla en inglés, el enlace al canal de demostración de Wix, el idioma declarado del sitio, la imagen de vista previa para que el enlace viaje con foto por WhatsApp, los errores de ortografía de los titulares y el reclamo de la ficha con 180 valoraciones. Entra en la Etapa 1, no se cobra aparte.</p>
       </div>
@@ -1070,7 +1072,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 <section id="inversion" data-label="Inversión" class="s-paper">
   <div class="wrap">
     <div class="eyebrow r">Inversión</div>
-    <h2 class="h-lg r d1" style="max-width:22ch">Tildá lo que quieran y el total se arma <span class="uline">solo</span>.</h2>
+    <h2 class="h-lg r d1" style="max-width:22ch">Tilden lo que quieran y el total se arma <span class="uline">solo</span>.</h2>
     <p class="lead r d2" style="margin-top:22px">Todos los valores salen de nuestro tarifario de septiembre-octubre de 2026 y están calculados rol por rol según el equipo que interviene. Son <b>sin IVA</b>. La inversión en medios va aparte y tiene su propia sección.</p>
 
     <div class="inv-wrap r d3" style="margin-top:44px">
@@ -1195,7 +1197,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
     <p class="note-pill r d4" style="margin-top:16px">Datos propios de Popcorn · 2 colegios gestionados · 01/09/2025 al 17/09/2026. Se presentan agregados por confidencialidad de esas cuentas.</p>
 
     <h3 class="h-md r d5" style="margin-top:52px">Tres escenarios para CIMDIP</h3>
-    <p class="lead r d5" style="margin-top:12px">Mezcla de 60% en Meta y 40% en Google. Elegí uno y viaja en el correo junto con los servicios.</p>
+    <p class="lead r d5" style="margin-top:12px">Mezcla de 60% en Meta y 40% en Google. Elijan uno y viaja en el correo junto con los servicios.</p>
     <div class="callout r d5" style="margin-top:22px">
       <p><b>Cómo se cobra la pauta.</b> Los montos de abajo son <b>netos</b> y los abona el colegio directamente a las plataformas: a eso hay que sumarle <b>impuestos y percepciones</b>, que según la forma de pago van del 40% al 52% adicional y también los paga el colegio. Del lado de Popcorn, la gestión tiene un <b>fee fijo mensual</b> —el de la sección anterior— <b>más un 15% sobre la inversión neta efectivamente ejecutada en plataformas</b>. No lo expresamos en pesos a propósito: depende del escenario que elijan y del consumo real de cada mes. La base de ese 15% es únicamente la inversión en medios; no incluye producción, cachés ni canjes.</p>
     </div>
@@ -1374,8 +1376,8 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       </div>
       <div class="ph tall r d3">
         <img src="img/secundaria-tech.jpg" alt="Alumnos de secundaria trabajando con tecnología">
-        <span class="float a">Ya existe</span>
-        <div class="cap">Secundaria · certificaciones Digital House</div>
+        <span class="float a">Su cuenta</span>
+        <div class="cap">Sobre esto trabaja el equipo todos los meses</div>
       </div>
     </div>
     <div class="r d5" style="margin-top:44px">
@@ -1535,7 +1537,7 @@ function buildMail(){
   const parts=[];
   if(sel.length)parts.push(sel.length+' servicio'+(sel.length>1?'s':''));
   if(selScen)parts.push(scenData[selScen].label);
-  ctaPick.innerHTML=parts.length?'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b>':'<span class="none">Elegí servicios e inversión más arriba para incluirlos en el correo.</span>';
+  ctaPick.innerHTML=parts.length?'Avanzan con: <b>'+parts.join('</b> + <b>')+'</b>':'<span class="none">Elijan servicios e inversión más arriba para incluirlos en el correo.</span>';
   ctaGo.href='mailto:sol@somospopcorn.com,florencia@somospopcorn.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 }
 function toggleSvc(s){s.classList.toggle('on');s.setAttribute('aria-checked',s.classList.contains('on')?'true':'false');buildMail();}
