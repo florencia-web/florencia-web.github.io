@@ -406,6 +406,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .price-row .pl{display:flex;align-items:flex-start;gap:13px;font-family:'Public Sans';font-weight:700;font-size:1rem;letter-spacing:-.005em}
 .price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--t-50);margin-top:5px;font-family:'Space Grotesk';max-width:42ch;line-height:1.5}
 .price-row .pv{font-family:'Public Sans';font-weight:800;font-size:1.22rem;color:var(--violeta);white-space:nowrap;text-align:right}
+.price-row .pv .tachado{display:block;font-size:.8rem;color:var(--t-38);text-decoration:line-through;font-weight:600}
+.price-row .pv.bonif{color:var(--aqua-deep)}
+.price-row .pv .tachado{display:block;font-size:.78rem;color:var(--t-38);text-decoration:line-through;font-weight:600;letter-spacing:0}
+.price-row .pv.bonif{color:var(--aqua-deep)}
 .price-row .pv small{display:block;font-size:.66rem;color:var(--t-38);font-weight:600;letter-spacing:.06em;margin-top:3px;font-family:'Public Sans'}
 .price-row .pl small.varfee{font-family:'Public Sans';font-weight:700;font-size:.78rem;color:var(--violeta);margin-top:7px}
 .varnote{margin-top:12px;font-family:'Public Sans';font-weight:700;font-size:.8rem;color:var(--aqua);line-height:1.45}
@@ -462,15 +466,16 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .close-tag{font-family:'Public Sans';font-weight:600;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);text-align:center}
 
 /* ============ LOGOWALL ============ */
-.logowall{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.logowall{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:30px}
 .logowall div{
-  border:1px solid var(--line-d);border-radius:16px;padding:22px 20px;text-align:center;background:var(--white);
+  flex:0 1 calc(25% - 11px);min-width:0;
+  border:1px solid var(--line-d);border-radius:16px;padding:20px 16px;text-align:center;background:var(--white);
   font-family:'Public Sans';font-weight:700;font-size:.88rem;color:var(--t-70);letter-spacing:-.01em;
   display:flex;align-items:center;justify-content:center;min-height:116px;transition:all .35s var(--ease)
 }
 .logowall div:hover{border-color:var(--aqua-deep);color:var(--violeta);transform:translateY(-4px);box-shadow:0 12px 32px rgba(18,18,18,.07)}
-.logowall img{max-height:58px;width:auto;max-width:86%;object-fit:contain}
-.logowall img.tall{max-height:90px}
+.logowall img{max-height:50px;width:auto;max-width:88%;object-fit:contain}
+.logowall img.tall{max-height:78px}
 
 /* ============ CALLOUT ============ */
 .callout{padding:24px 28px;border-left:4px solid var(--aqua-deep);background:rgba(116,250,227,.12);border-radius:0 16px 16px 0}
@@ -497,7 +502,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
   .badge-top{right:22px;padding:18px 16px 14px}
   .badge-top img{height:40px}
   .ghost{font-size:clamp(3.4rem,17vw,5.6rem);left:0;top:6vh}
-  .logowall{grid-template-columns:repeat(2,1fr)}
+  .logowall div{flex:0 1 calc(50% - 7px)}
   .meta-band{grid-template-columns:1fr}
   .pillstack span{font-size:clamp(1.15rem,6.4vw,1.8rem)}
   .pillstack .p2{margin-left:.6em}.pillstack .p3{margin-left:.3em}.pillstack .p4{margin-left:.9em}
@@ -555,8 +560,8 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
     <div class="meta-band r d3" style="margin-top:44px">
       <div><div class="k">Preparada para</div><div class="v">Escuela CIMDIP &amp; Miguel Cané<small>Leticia Cimmino y María José Cimmino · Representantes legales</small></div></div>
       <div><div class="k">Preparada por</div><div class="v">Popcorn<small>Sol Ferrari · General Manager<br>Florencia Grigolatto · Operations Manager</small></div></div>
-      <div><div class="k">Fecha</div><div class="v">18 de septiembre de 2026<small>Reunión del mismo día</small></div></div>
-      <div><div class="k">Validez</div><div class="v">28 de septiembre de 2026<small>10 días desde la emisión</small></div></div>
+      <div><div class="k">Fecha</div><div class="v">21 de septiembre de 2026<small>Reunión del 18 de septiembre</small></div></div>
+      <div><div class="k">Validez</div><div class="v">1 de octubre de 2026<small>10 días desde la emisión</small></div></div>
     </div>
     <div class="callout r d4" style="margin-top:34px">
       <p><b>Una aclaración de método.</b> Todo lo que sigue está verificado: lo que sale de la reunión aparece como dicho por ustedes, lo que sale de nuestra auditoría dice de dónde lo medimos, y lo que sale de datos públicos lleva la fuente. Donde falta un dato, lo pedimos. No hay una sola cifra estimada presentada como si fuera un hecho.</p>
@@ -595,6 +600,11 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div><img src="img/logos/northfield.png" alt="Northfield School" onerror="this.outerHTML='Northfield School'"></div>
         <div><img src="img/logos/faro.png" alt="Colegio del Faro" onerror="this.outerHTML='Colegio del Faro'"></div>
         <div><img class="tall" src="img/logos/lighthouse.png" alt="Lighthouse School" onerror="this.outerHTML='Lighthouse School'"></div>
+        <div><img src="img/logos/transpack.png" alt="Transpack International" onerror="this.outerHTML='Transpack'"></div>
+        <div><img src="img/logos/evel.png" alt="Evel" onerror="this.outerHTML='Evel'"></div>
+        <div><img src="img/logos/transadvanced.png" alt="Trans Advanced Technologies" onerror="this.outerHTML='Trans Advanced Technologies'"></div>
+        <div><img src="img/logos/ventura.png" alt="Ventura Wynwood" onerror="this.outerHTML='Ventura Wynwood'"></div>
+        <div><img src="img/logos/frambuesa.png" alt="Frambuesa Design" onerror="this.outerHTML='Frambuesa Design'"></div>
       </div>
     </div>
   </div>
@@ -936,6 +946,12 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <span class="src">Entregable · manual de marca y plantillas editables</span>
       </div>
       <div class="card">
+        <span class="num-tag">E1 · 02 BIS · BONIFICADO</span>
+        <h3>Plantillas editables en Canva para el colegio</h3>
+        <p>Es la respuesta a un riesgo concreto: que el día a día del colegio —un aviso, una efeméride, una felicitación— se publique por fuera de lo planificado y rompa el feed. Les dejamos un set de plantillas en Canva con la paleta, las tipografías y la grilla ya cargadas, más una capacitación corta de uso. El equipo publica lo urgente cuando lo necesita, y sale parejo con todo lo demás.</p>
+        <span class="src">Valor $470.000 · bonificado si toman la Etapa 1 junto con uno de los dos modelos</span>
+      </div>
+      <div class="card">
         <span class="num-tag">E1 · 03</span>
         <h3>Landing de captación de matrícula</h3>
         <p>Una página enfocada solo en convertir: formulario corto de seis campos, propuesta académica resumida, prueba social, WhatsApp integrado y medición completa. Es la que usamos con Northfield y la que les mostramos en la reunión. No reemplaza al sitio institucional: lo descarga de una función que hoy no cumple.</p>
@@ -1049,7 +1065,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <h3>No incluido</h3>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span><b>La inversión en medios</b> de Meta y Google. Se abona directamente a las plataformas y se define aparte.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>El rediseño del sitio institucional completo. Va en la Etapa 3, cotizado aparte.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>El sitio institucional nuevo. Es un proyecto aparte, cotizado por separado, que recomendamos arrancar en paralelo.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Rediseño del logotipo. Trabajamos sobre la marca que ya tienen registrada.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Cobertura de eventos con menos de 72 horas de aviso. Planificamos con un mes de anticipación; lo urgente es la excepción, no la regla.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg><span>Producción audiovisual con rodaje profesional, animaciones y piezas institucionales. Se cotizan por proyecto.</span></li>
@@ -1062,8 +1078,8 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
       <div class="eyebrow">Condiciones</div>
       <div class="grid g3">
         <div class="card">
-          <h3>Plazo y baja</h3>
-          <p>Contrato mínimo de tres meses. Después, cualquiera de las dos partes puede darlo de baja avisando con <b>30 días</b>. El mes en curso se factura completo.</p>
+          <h3>Plazo y renovación</h3>
+          <p>Contrato por <b>12 meses con renovación automática</b>. Cualquiera de las dos partes puede no renovarlo avisando con <b>60 días</b> de anticipación. Es el plazo que necesita una estrategia de admisión para atravesar un ciclo lectivo completo y poder medirse.</p>
         </div>
         <div class="card">
           <h3>Qué queda del colegio</h3>
@@ -1079,7 +1095,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         </div>
         <div class="card">
           <h3>Ajuste de valores</h3>
-          <p>Los contratos de más de tres meses se ajustan por índice de precios al consumidor. El ajuste se avisa con un mes de anticipación y nunca se aplica de forma retroactiva.</p>
+          <p>Los valores se ajustan <b>trimestralmente por índice de precios al consumidor</b>. El detalle del mecanismo se define en el contrato de locación de servicios.</p>
         </div>
         <div class="card">
           <h3>Confidencialidad</h3>
@@ -1110,6 +1126,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
           <div class="price-row svc-pick" role="checkbox" tabindex="0" aria-checked="false" data-type="once" data-amount="1353000" data-svc="Sistema de identidad visual" data-price="$1.353.000 + IVA">
             <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Sistema de identidad visual</span><small>Normativa sobre el logo existente: paleta, tipografías, grilla, fotografía, plantillas y aplicaciones. Manual operativo para el diseñador del colegio.</small></span></div>
             <div class="pv">$1.353.000<small>+ IVA</small></div>
+          </div>
+          <div class="price-row svc-pick" role="checkbox" tabindex="0" aria-checked="false" data-type="once" data-amount="0" data-svc="Plantillas editables en Canva (bonificado)" data-price="bonificado">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Plantillas editables en Canva para el colegio</span><small>Set de plantillas con la paleta, las tipografías y la grilla del colegio, para que el equipo publique lo del día a día sin romper el feed. Incluye capacitación de uso.</small></span></div>
+            <div class="pv bonif"><span class="tachado">$470.000</span>Bonificado</div>
           </div>
           <div class="price-row svc-pick" role="checkbox" tabindex="0" aria-checked="false" data-type="once" data-amount="2327000" data-svc="Landing de captación de matrícula" data-price="$2.327.000 + IVA">
             <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Landing de captación de matrícula</span><small>Formulario corto, WhatsApp integrado y medición completa. Incluye maquetado.</small></span></div>
@@ -1166,9 +1186,9 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         </div>
 
         <div class="inv-group">
-          <div class="inv-ghead"><span>Etapa 3 · Verano 2027 — opcional</span><span class="inv-sub" id="subE3">—</span></div>
-          <div class="price-row svc-pick" role="checkbox" tabindex="0" aria-checked="false" data-type="once" data-amount="3827000" data-svc="Rediseño del sitio institucional" data-price="$3.827.000 + IVA">
-            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Rediseño del sitio institucional</span><small>5 o más páginas a medida, arquitectura nueva, redacción y migración de contenidos. Incluye maquetado. Se hace en verano, cuando baja la demanda de admisión.</small></span></div>
+          <div class="inv-ghead"><span>Sitio institucional · arranca en paralelo</span><span class="inv-sub" id="subE3">—</span></div>
+          <div class="price-row svc-pick" role="checkbox" tabindex="0" aria-checked="false" data-type="once" data-amount="3827000" data-svc="Sitio institucional nuevo" data-price="$3.827.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Sitio institucional nuevo</span><small>5 o más páginas a medida, arquitectura nueva, redacción y migración de contenidos. Incluye maquetado. Arranca en paralelo desde el mes 2 y se publica en verano: es un proyecto de 3 a 4 meses.</small></span></div>
             <div class="pv">$3.827.000<small>+ IVA</small></div>
           </div>
         </div>
@@ -1195,7 +1215,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
               <p><b id="paySplit">$0</b> + IVA en total, en dos pagos iguales.</p>
             </div>
           </div>
-          <p class="fineprint">El <b>servicio mensual se factura 100% por mes adelantado</b> al valor de lista: el descuento del 3% aplica solo a los trabajos por única vez. Los contratos de más de tres meses se ajustan por índice de precios al consumidor. Valores sin IVA, en pesos, válidos hasta el 28 de septiembre de 2026.</p>
+          <p class="fineprint">El <b>servicio mensual se factura 100% por mes adelantado</b> al valor de lista: el descuento del 3% aplica solo a los trabajos por única vez. Los valores se ajustan trimestralmente por índice de precios al consumidor. Valores sin IVA, en pesos, válidos hasta el 1 de octubre de 2026.</p>
           <p class="fineprint" id="usdNote"></p>
         </div>
       </div>
@@ -1208,19 +1228,15 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 <section id="medios" data-label="Medios" class="s-white">
   <div class="wrap">
     <div class="eyebrow r">Inversión en medios · se factura aparte</div>
-    <h2 class="h-lg r d1" style="max-width:24ch">Cuánto cuesta traer una consulta: <span class="uline">nuestros números</span>, no una estimación.</h2>
-    <p class="lead r d2" style="margin-top:22px">No inventamos proyecciones. Lo que sigue sale de las cuentas publicitarias de dos colegios que gestionamos, durante los últimos doce meses.</p>
+    <h2 class="h-lg r d1" style="max-width:24ch">Tres escenarios para <span class="uline">testear</span>, no una receta.</h2>
+    <p class="lead r d2" style="margin-top:22px">Acá es donde la mayoría de las propuestas pone un número y lo presenta como si fuera una verdad. Nosotros vamos a hacer lo contrario: proponemos tres escenarios de inversión para que elijan uno, y les explicamos por qué todavía <b>nadie puede decirles con honestidad cuánta pauta necesitan</b>.</p>
 
-    <div class="grid g4 r d3" style="margin-top:38px">
-      <div class="card"><div class="fact">$49,9M</div><h3>Invertidos</h3><p>En Meta y Google, entre septiembre de 2025 y septiembre de 2026.</p></div>
-      <div class="card"><div class="fact">1.946</div><h3>Consultas generadas</h3><p>Conversiones registradas en las cuentas de esos colegios.</p></div>
-      <div class="card"><div class="fact">$20.350</div><h3>Costo por consulta en Meta</h3><p>El canal más eficiente de los dos para este público.</p></div>
-      <div class="card"><div class="fact">$32.900</div><h3>Costo por consulta en Google</h3><p>Más caro, pero capta a quien ya está buscando colegio.</p></div>
+    <div class="callout r d3" style="margin-top:34px">
+      <p><b>Faltan dos datos, y los tienen ustedes.</b> El primero es el <b>objetivo de inscripción</b>: cuántos alumnos nuevos necesitan por nivel para el ciclo 2027. El segundo es la <b>tasa de conversión actual</b>: de las consultas de admisión que reciben hoy, cuántas terminan en matrícula. Sin esos dos números, decir «con tanto de pauta alcanza» es adivinar. Los pedimos en la primera semana, y desde el primer mes de campaña empezamos a medir la conversión real: recién ahí la inversión se puede dimensionar de verdad, en lugar de estimarse.</p>
     </div>
-    <p class="note-pill r d4" style="margin-top:16px">Datos propios de Popcorn · 2 colegios gestionados · 01/09/2025 al 17/09/2026. Se presentan agregados por confidencialidad de esas cuentas.</p>
 
-    <h3 class="h-md r d5" style="margin-top:52px">Tres escenarios para CIMDIP</h3>
-    <p class="lead r d5" style="margin-top:12px">Mezcla de 60% en Meta y 40% en Google. Elijan uno y viaja en el correo junto con los servicios.</p>
+    <h3 class="h-md r d5" style="margin-top:52px">Los tres escenarios</h3>
+    <p class="lead r d5" style="margin-top:12px">Mezcla de 60% en Meta y 40% en Google. Elijan uno y viaja en el correo junto con los servicios. El escenario se revisa cada mes con los datos en la mano: si la conversión acompaña, se sube; si no, se corrige antes de gastar de más.</p>
     <div class="callout r d5" style="margin-top:22px">
       <p><b>Cómo se cobra la pauta.</b> Los montos de abajo son <b>netos</b> y los abona el colegio directamente a las plataformas: a eso hay que sumarle <b>impuestos y percepciones</b>, que según la forma de pago van del 40% al 52% adicional y también los paga el colegio. Del lado de Popcorn, la gestión tiene un <b>fee fijo mensual</b> —el de la sección anterior— <b>más un 15% sobre la inversión neta efectivamente ejecutada en plataformas</b>. No lo expresamos en pesos a propósito: depende del escenario que elijan y del consumo real de cada mes. La base de ese 15% es únicamente la inversión en medios; no incluye producción, cachés ni canjes.</p>
     </div>
@@ -1230,11 +1246,11 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div class="st"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Escenario 1 · Inicial<small>Para empezar a medir con riesgo bajo</small></span></div>
         <div class="si">$1.500.000 / mes<small>neto, + impuestos</small></div>
       </div>
-      <div class="scen-note">Alcanza para validar qué mensaje y qué público responden, y para llegar a la primera camada de consultas del ciclo 2027. Es el piso por debajo del cual las campañas no juntan datos suficientes para optimizarse.</div>
-      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta</th><th class="num">Costo por consulta</th><th class="num">Consultas/mes</th></tr></thead><tbody>
-        <tr><td class="plat">Meta Ads</td><td class="obj">Generar demanda en el radio del colegio y retomar a quien ya visitó</td><td class="num">$900.000</td><td class="num">$20.350</td><td class="num">44</td></tr>
-        <tr><td class="plat">Google Ads</td><td class="obj">Captar a quien busca «colegio en Quilmes» ahora mismo</td><td class="num">$600.000</td><td class="num">$32.900</td><td class="num">18</td></tr>
-        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$1.500.000</td><td class="num">$24.194</td><td class="num">62</td></tr>
+      <div class="scen-note">Es el piso por debajo del cual las campañas no juntan datos suficientes para optimizarse. Sirve para validar qué mensaje y qué público responden, y para empezar a construir la tasa de conversión que hoy no existe.</div>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta mensual</th></tr></thead><tbody>
+        <tr><td class="plat">Meta Ads</td><td class="obj">Generar demanda en el radio del colegio y retomar a quien ya visitó</td><td class="num">$900.000</td></tr>
+        <tr><td class="plat">Google Ads</td><td class="obj">Captar a quien busca «colegio en Quilmes» ahora mismo</td><td class="num">$600.000</td></tr>
+        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$1.500.000</td></tr>
       </tbody></table></div>
     </div>
 
@@ -1244,10 +1260,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div class="si">$2.500.000 / mes<small>neto, + impuestos</small></div>
       </div>
       <div class="scen-note">Volumen suficiente para sostener presencia continua durante los meses de decisión y, al mismo tiempo, abrir una campaña dirigida a las familias que hoy pagan el doble en Quilmes centro. Es el escenario sobre el que hicimos la cuenta de la sección siguiente.</div>
-      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta</th><th class="num">Costo por consulta</th><th class="num">Consultas/mes</th></tr></thead><tbody>
-        <tr><td class="plat">Meta Ads</td><td class="obj">Demanda, reposicionamiento de precio y retargeting</td><td class="num">$1.500.000</td><td class="num">$20.350</td><td class="num">74</td></tr>
-        <tr><td class="plat">Google Ads</td><td class="obj">Búsquedas de alta intención en Quilmes y partidos vecinos</td><td class="num">$1.000.000</td><td class="num">$32.900</td><td class="num">30</td></tr>
-        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$2.500.000</td><td class="num">$24.038</td><td class="num">104</td></tr>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta mensual</th></tr></thead><tbody>
+        <tr><td class="plat">Meta Ads</td><td class="obj">Demanda, reposicionamiento de precio y retargeting</td><td class="num">$1.500.000</td></tr>
+        <tr><td class="plat">Google Ads</td><td class="obj">Búsquedas de alta intención en Quilmes y partidos vecinos</td><td class="num">$1.000.000</td></tr>
+        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$2.500.000</td></tr>
       </tbody></table></div>
     </div>
 
@@ -1257,15 +1273,42 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <div class="si">$4.000.000 / mes<small>neto, + impuestos</small></div>
       </div>
       <div class="scen-note">Tiene sentido sabiendo que en el segmento de ustedes hoy no hay ningún colegio pautando: el costo de cada consulta va a subir apenas aparezca el segundo anunciante. Este escenario apunta a construir una ventaja difícil de alcanzar en los próximos dos ciclos.</div>
-      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta</th><th class="num">Costo por consulta</th><th class="num">Consultas/mes</th></tr></thead><tbody>
-        <tr><td class="plat">Meta Ads</td><td class="obj">Cobertura de toda la zona sur, por nivel y por interés</td><td class="num">$2.400.000</td><td class="num">$20.350</td><td class="num">118</td></tr>
-        <tr><td class="plat">Google Ads</td><td class="obj">Búsqueda, más presencia en YouTube y Display</td><td class="num">$1.600.000</td><td class="num">$32.900</td><td class="num">49</td></tr>
-        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$4.000.000</td><td class="num">$23.952</td><td class="num">167</td></tr>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Plataforma</th><th>Para qué</th><th class="num">Inversión neta mensual</th></tr></thead><tbody>
+        <tr><td class="plat">Meta Ads</td><td class="obj">Cobertura de toda la zona sur, por nivel y por interés</td><td class="num">$2.400.000</td></tr>
+        <tr><td class="plat">Google Ads</td><td class="obj">Búsqueda, más presencia en YouTube y Display</td><td class="num">$1.600.000</td></tr>
+        <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$4.000.000</td></tr>
       </tbody></table></div>
     </div>
 
-    <div class="callout r d8" style="margin-top:32px">
-      <p><b>Dos honestidades sobre estos números.</b> La primera: durante los dos primeros meses conviene prever un costo por consulta hasta 25% mayor, porque la cuenta arranca sin historial de aprendizaje. La segunda, más importante: <b>una consulta no es una matrícula</b>. Es un contacto que entra al circuito de admisión del colegio. Cuántas de esas consultas terminan en matrícula lo define el proceso de ustedes, y por eso no lo proyectamos: lo vamos a medir desde el primer mes, que es algo que hoy todavía no se puede hacer.</p>
+    <div class="r d8" style="margin-top:44px">
+      <div class="eyebrow">Cómo se reparte en el tiempo</div>
+      <h3 class="h-md" style="max-width:30ch;margin-bottom:22px">El mismo presupuesto anual no rinde igual repartido en partes iguales.</h3>
+      <div class="grid g4">
+        <div class="card">
+          <span class="num-tag">OCTUBRE Y NOVIEMBRE</span>
+          <h3>Con todo</h3>
+          <p>Es la ventana en la que las familias comparan y deciden. Acá se concentra el grueso de la inversión: es cuando cada peso trabaja mejor.</p>
+        </div>
+        <div class="card">
+          <span class="num-tag">DICIEMBRE</span>
+          <h3>Baja progresiva</h3>
+          <p>Fin de ciclo, actos y vacaciones. La atención se corre a otro lado y el costo por consulta sube. Se reduce la inversión sin apagar del todo.</p>
+        </div>
+        <div class="card">
+          <span class="num-tag">PRIMERA MITAD DE ENERO</span>
+          <h3>Mínimo</h3>
+          <p>El mes más caro para hablarle a una familia. Se sostiene solo una presencia mínima para no perder el aprendizaje de las campañas.</p>
+        </div>
+        <div class="card" style="background:linear-gradient(155deg,var(--violeta-grad-1),var(--violeta) 60%,var(--violeta-900));border:none;color:var(--white)">
+          <span class="num-tag" style="color:var(--aqua)">MEDIADOS DE ENERO A MARZO</span>
+          <h3 style="color:var(--white)">Con todo otra vez</h3>
+          <p style="color:var(--w-80)">Vuelve la decisión: las familias que no cerraron en noviembre resuelven ahora, y aparecen las que se mudaron o cambiaron de colegio sobre la hora. Es el segundo pico del año.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout r d8" style="margin-top:34px">
+      <p><b>Una última honestidad sobre estos números.</b> Durante los dos primeros meses conviene prever un costo por consulta más alto: la cuenta arranca sin historial de aprendizaje y las plataformas necesitan volumen para optimizar. Y algo más importante: <b>una consulta no es una matrícula</b>. Es un contacto que entra al circuito de admisión del colegio. Cuántas terminan en inscripción lo define el proceso de ustedes —la velocidad de respuesta, la entrevista, el seguimiento—, y por eso no lo proyectamos: lo vamos a medir desde el primer mes, que es justamente lo que hoy no se puede hacer.</p>
     </div>
   </div>
   <div class="sfoot"><span>Montos netos · el colegio abona a las plataformas + impuestos y percepciones</span><span class="num">14 — Medios</span></div>
@@ -1353,10 +1396,10 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
         <ul><li>Campañas activas</li><li>Reporte mensual</li><li>Seguimiento de consultas</li></ul>
       </div>
       <div class="it">
-        <div class="per">Enero y febrero · opcional</div>
-        <h4>Rediseño del sitio institucional</h4>
-        <p>Se construye durante el verano, cuando la demanda de admisión baja y el colegio tiene margen para revisar contenidos sin apuro. Es la Etapa 3 y se decide más adelante, con los primeros resultados sobre la mesa.</p>
-        <ul><li>Arquitectura nueva</li><li>Migración de contenidos</li></ul>
+        <div class="per">Desde el mes 2 · en paralelo</div>
+        <h4>Sitio institucional nuevo</h4>
+        <p><b>Arranca ya, no en verano.</b> Con la cantidad de información que el colegio tiene para poner —niveles, departamentos, talleres, certificaciones, deportes, admisión— es un proyecto de tres a cuatro meses, no una tarea de enero. Si se empieza en enero se trabaja a las corridas y se llega justo. Empezando en paralelo, la arquitectura y los contenidos se construyen con calma durante la temporada y el sitio se publica en verano, listo para el ciclo 2028.</p>
+        <ul><li>Arquitectura nueva</li><li>Contenidos con tiempo</li><li>Publicado para 2028</li></ul>
       </div>
       <div class="it">
         <div class="per">Marzo</div>
@@ -1455,7 +1498,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
     </div>
     <div class="close-sign r d4">
       <img class="logo-pic close" src="img/logo-popcorn-blanco.png" alt="Popcorn">
-      <span class="close-tag">Escuela CIMDIP &amp; Miguel Cané × Popcorn · Propuesta válida hasta el 28 de septiembre de 2026<br>sol@somospopcorn.com · florencia@somospopcorn.com</span>
+      <span class="close-tag">Escuela CIMDIP &amp; Miguel Cané × Popcorn · Propuesta válida hasta el 1 de octubre de 2026<br>sol@somospopcorn.com · florencia@somospopcorn.com</span>
     </div>
   </div>
   <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
@@ -1501,9 +1544,9 @@ sections.forEach(s=>active.observe(s));
 
 /* ===== Inversión + escenarios ===== */
 const scenData={
-  '1':{label:'Escenario 1 · Inicial',inv:'$1.500.000 / mes',consultas:'62',cpc:'$24.194'},
-  '2':{label:'Escenario 2 · Recomendado',inv:'$2.500.000 / mes',consultas:'104',cpc:'$24.038'},
-  '3':{label:'Escenario 3 · Sostenido',inv:'$4.000.000 / mes',consultas:'167',cpc:'$23.952'}
+  '1':{label:'Escenario 1 · Inicial',inv:'$1.500.000 / mes (neto)'},
+  '2':{label:'Escenario 2 · Recomendado',inv:'$2.500.000 / mes (neto)'},
+  '3':{label:'Escenario 3 · Sostenido',inv:'$4.000.000 / mes (neto)'}
 };
 const fmt=n=>'$'+Number(n).toLocaleString('es-AR');
 const svcPicks=[...document.querySelectorAll('.svc-pick')];
@@ -1567,7 +1610,7 @@ function buildMail(){
   if(selScen&&scenData[selScen]){
     const s=scenData[selScen];
     subject='CIMDIP · Avancemos · '+s.label;
-    body+='\n\nInversión en medios elegida:\n• '+s.label+'\n• Inversión: '+s.inv+'\n• Consultas proyectadas: '+s.consultas+' por mes\n• Costo por consulta: '+s.cpc;
+    body+='\n\nEscenario de inversión en medios elegido:\n• '+s.label+'\n• Inversión: '+s.inv+'\n• Los medios se abonan a las plataformas, más impuestos y percepciones.';
   }
   const parts=[];
   if(sel.length)parts.push(sel.length+' servicio'+(sel.length>1?'s':''));
