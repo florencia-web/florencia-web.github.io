@@ -1191,7 +1191,7 @@ em{font-style:normal}
     <div class="section-header">
       <span class="eyebrow">05 · Inversión</span>
       <h2>Elegí el formato. <span class="serif-italic" style="color:var(--purple)">Los entregables no cambian.</span></h2>
-      <p>Dos maneras de organizar el rodaje, los adicionales que se suman solo si los quieren y dos modalidades de pago. El drone entra incluido en los dos formatos y la producción del día del evento va en una propuesta separada.</p>
+      <p>Dos maneras de organizar el rodaje, los adicionales que se suman solo si los quieren y un pago en tres etapas. El drone entra incluido en los dos formatos y la producción del día del evento va en una propuesta separada.</p>
     </div>
 
     <div class="inv-grid">
@@ -1255,39 +1255,36 @@ em{font-style:normal}
 
         <div class="inv-section-title"><span class="num">C</span> Forma de pago</div>
 
-        <div class="pay-opts">
-          <div class="pay-two">
-            <div class="pay-opt">
-              <div class="pay-opt-tag">Modalidad A</div>
-              <h4>50% anticipo + saldo a 30 días</h4>
-              <p>Anticipo al confirmar y saldo <b>dentro de los 30 días como máximo</b>. Pagando en ese plazo, el saldo no se ajusta.</p>
-              <div class="pay-opt-row" style="margin-top:14px">
-                <div class="pay-opt-sub" style="text-align:left;color:var(--gray-500)">Anticipo<br><span style="color:var(--cyan-deep)">Saldo ≤ 30 días</span></div>
-                <div>
-                  <div class="pay-opt-val" id="payHalfA">ARS 8.667.500</div>
-                  <div class="pay-opt-val" id="payRestA" style="color:var(--cyan-deep)">ARS 8.667.500</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="pay-opt">
-              <div class="pay-opt-tag">Modalidad B</div>
-              <h4>50% anticipo + saldo ajustado por IPC</h4>
-              <p>Anticipo al confirmar y saldo cuando lo necesiten, <b>actualizado por IPC</b> según la fecha efectiva de pago.</p>
-              <div class="pay-opt-row" style="margin-top:14px">
-                <div class="pay-opt-sub" style="text-align:left;color:var(--gray-500)">Anticipo<br><span style="color:var(--cyan-deep)">Saldo + IPC</span></div>
-                <div>
-                  <div class="pay-opt-val" id="payHalfB">ARS 8.667.500</div>
-                  <div class="pay-opt-val" id="payRestB" style="color:var(--cyan-deep)">ARS 8.667.500</div>
-                </div>
-              </div>
-            </div>
+        <div class="pay-row">
+          <div class="pay-pct">50%</div>
+          <div class="pay-info">
+            <h4>Al confirmar</h4>
+            <p>Anticipo. Con ese pago arrancamos guión, preproducción y agenda de rodaje.</p>
           </div>
+          <div class="pay-val" id="pay1">ARS 8.667.500</div>
+        </div>
+
+        <div class="pay-row">
+          <div class="pay-pct">30%</div>
+          <div class="pay-info">
+            <h4>Al mes</h4>
+            <p>A los 30 días de confirmada la propuesta, con el rodaje en marcha.</p>
+          </div>
+          <div class="pay-val" id="pay2">ARS 5.200.500</div>
+        </div>
+
+        <div class="pay-row">
+          <div class="pay-pct">20%</div>
+          <div class="pay-info">
+            <h4>Al finalizar el proyecto o al tercer mes</h4>
+            <p>Lo que ocurra primero. Si la entrega se completa antes, se factura con la entrega; si el proyecto se extiende, se factura igual al cumplirse el tercer mes.</p>
+          </div>
+          <div class="pay-val" id="pay3">ARS 3.467.000</div>
         </div>
 
         <div class="pay-note">
-          <strong>Actualización por IPC.</strong> Aplica únicamente a la Modalidad B: el saldo se actualiza por el IPC (INDEC) acumulado entre la confirmación de esta propuesta y la fecha efectiva de pago. En la Modalidad A el saldo no se ajusta, siempre que se abone dentro de los 30 días.<br><br>
-          <strong>Los importes se recalculan solos.</strong> El anticipo y el saldo de arriba corresponden al formato y los adicionales que estén seleccionados en este momento.
+          <strong>Por qué el tercer pago tiene dos fechas.</strong> El calendario no depende de cuánto se estire el proyecto: si la serie se entrega antes, el saldo se factura con la entrega; si los tiempos se alargan por disponibilidad de agendas o validaciones, el saldo se factura igual al cumplirse el tercer mes.<br><br>
+          <strong>Los importes se recalculan solos.</strong> Las tres cuotas de arriba corresponden al formato y los adicionales que estén seleccionados en este momento.
         </div>
 
       </div>
@@ -1299,7 +1296,7 @@ em{font-style:normal}
           <span class="inv-total-label">Total</span>
           <span class="inv-total-value"><span id="invTotal">ARS 17.335.000</span> <span style="font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0">+ IVA</span></span>
         </div>
-        <div class="inv-note">Valores en pesos argentinos, más IVA. Dos modalidades de pago: 50% de anticipo + saldo dentro de los 30 días, o 50% de anticipo + saldo ajustado por IPC a la fecha de pago.</div>
+        <div class="inv-note">Valores en pesos argentinos, más IVA. Pago en tres etapas: 50% al confirmar, 30% al mes y 20% al finalizar el proyecto o al tercer mes, lo que ocurra primero.</div>
         <a href="#" class="btn btn-cyan js-cta-advance">Quiero avanzar con la propuesta &rarr;</a>
       </aside>
     </div>
@@ -1453,7 +1450,7 @@ em{font-style:normal}
       <div class="paso">
         <div class="paso-num">01</div>
         <h4>Confirmación</h4>
-        <p>Confirmación del alcance, elección de la forma de pago y anticipo. Con eso reservamos equipo y la ventana de rodaje.</p>
+        <p>Confirmación del alcance y anticipo del 50%. Con eso reservamos equipo y la ventana de rodaje.</p>
       </div>
       <div class="paso">
         <div class="paso-num">02</div>
@@ -1469,7 +1466,7 @@ em{font-style:normal}
 
     <div class="section-cta">
       <a href="#" class="btn btn-primary js-cta-advance" style="font-size:16px;padding:16px 32px">Quiero avanzar con la propuesta &rarr;</a>
-      <p style="margin-top:18px;font-size:13px;color:var(--gray-500)">florencia@somospopcorn.com · Propuesta válida 10 días · cuotas 2 y 3 ajustadas por IPC</p>
+      <p style="margin-top:18px;font-size:13px;color:var(--gray-500)">florencia@somospopcorn.com · Propuesta válida 10 días</p>
     </div>
   </div>
 </section>
@@ -1557,8 +1554,9 @@ em{font-style:normal}
     lines.push('Total: ' + money(sel.total) + ' + IVA');
     lines.push('');
     lines.push('— Forma de pago —');
-    lines.push('• Modalidad A: 50% de anticipo (' + money(sel.total / 2) + ') + saldo dentro de los 30 días');
-    lines.push('• Modalidad B: 50% de anticipo (' + money(sel.total / 2) + ') + saldo ajustado por IPC a la fecha de pago');
+    lines.push('• 50% al confirmar: ' + money(sel.total * 0.50));
+    lines.push('• 30% al mes: ' + money(sel.total * 0.30));
+    lines.push('• 20% al finalizar el proyecto o al tercer mes, lo que ocurra primero: ' + money(sel.total * 0.20));
     lines.push('');
     lines.push('Quedo a la espera para coordinar los próximos pasos.');
     return 'mailto:'+TO+'?cc='+encodeURIComponent(CC)+'&subject='+encodeURIComponent(SUBJECT)+'&body='+encodeURIComponent(lines.join('\n'));
@@ -1577,10 +1575,9 @@ em{font-style:normal}
       summary.innerHTML = html;
     }
 
-    setText('payHalfA', money(sel.total / 2));
-    setText('payRestA', money(sel.total / 2));
-    setText('payHalfB', money(sel.total / 2));
-    setText('payRestB', money(sel.total / 2));
+    setText('pay1', money(sel.total * 0.50));
+    setText('pay2', money(sel.total * 0.30));
+    setText('pay3', money(sel.total * 0.20));
 
     if(qtyValEl) qtyValEl.textContent = qty;
     if(qtyRow){
