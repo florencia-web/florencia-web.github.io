@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andevo · Video animado 20" — Popcorn</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Paleta canónica Popcorn — brand.json (tokens del sitio) + piezas 2026 */
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  /* Colores de Andevo: SOLO dentro de los mockups del storyboard */
+  --and-blue:#2563EB; --and-ink:#0F172A; --and-soft:#EFF4FF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violeta);color:var(--white);font-family:var(--font-text);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(1200px 700px at 78% -8%,rgba(162,98,229,.45),transparent 60%),radial-gradient(1000px 800px at -10% 110%,rgba(0,253,226,.10),transparent 55%),linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 45%,var(--violeta-grad-2) 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:var(--font-display)}
+em,i{font-style:normal}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+/* topbar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:all .4s var(--ease)}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:12px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.topbar .logo img{height:26px;width:auto}
+.brand-tag{font-family:var(--font-text);font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:101;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+.dots.on-light a{background:rgba(18,18,18,.25)}
+.dots.on-light a.active{background:var(--violeta);box-shadow:none}
+
+/* secciones */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 100px;overflow:hidden}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);margin-bottom:24px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
+.h-xl{font-weight:800;font-size:clamp(2.7rem,7.4vw,6.2rem);line-height:.98;letter-spacing:-.03em}
+.h-lg{font-weight:800;font-size:clamp(2.1rem,4.8vw,3.8rem);line-height:1.02;letter-spacing:-.02em}
+.h-md{font-weight:700;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.15}
+.hl{background:var(--aqua);color:var(--tinta);padding:0 .14em;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.it{font-style:italic;color:var(--aqua);font-weight:700}
+.reg{font-weight:400}
+.lead{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--w-80);max-width:720px;line-height:1.65}
+.muted{color:var(--w-65)}
+.ghost{position:absolute;top:-2vw;left:-1vw;font-family:var(--font-display);font-weight:800;font-size:clamp(7rem,19vw,17rem);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.10);white-space:nowrap;pointer-events:none;z-index:0}
+.rombos{position:absolute;width:320px;height:320px;z-index:0;opacity:.18;pointer-events:none;background-image:linear-gradient(45deg,rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(-45deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(circle at center,#000 20%,transparent 70%);mask-image:radial-gradient(circle at center,#000 20%,transparent 70%)}
+.curve{position:absolute;z-index:1;pointer-events:none}
+
+/* reveal */
+.r{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}.d5{transition-delay:.45s}.d6{transition-delay:.54s}
+
+/* hero */
+#hero{padding-top:140px}
+.badge{position:absolute;top:0;left:38px;z-index:5;background:#fff;border-radius:0 0 22px 22px;padding:26px 18px 16px}
+.badge img{width:62px;height:auto}
+.pill-lab{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:999px;padding:8px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-80);margin-bottom:30px}
+.pill-lab b{color:var(--aqua);font-weight:500}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--w-80);max-width:640px}
+.meta{margin-top:46px;display:grid;grid-template-columns:repeat(4,auto);gap:16px 48px;justify-content:start;border-top:1px solid var(--line-soft);padding-top:26px}
+.meta .k{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.meta .v{font-family:var(--font-display);font-weight:700;font-size:1rem;margin-top:4px}
+.timer{position:absolute;right:6vw;top:50%;transform:translateY(-50%);width:clamp(220px,28vw,380px);aspect-ratio:1;z-index:1}
+.timer svg{width:100%;height:100%;transform:rotate(-90deg)}
+.timer .bg{stroke:rgba(255,255,255,.10)}
+.timer .fg{stroke:var(--aqua);stroke-dasharray:1000;stroke-dashoffset:1000;animation:tick 20s linear infinite;filter:drop-shadow(0 0 10px rgba(116,250,227,.5))}
+@keyframes tick{to{stroke-dashoffset:0}}
+.timer .lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--font-display)}
+.timer .lbl b{font-size:clamp(3.4rem,7vw,6rem);font-weight:800;line-height:1}
+.timer .lbl span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--w-65);font-family:var(--font-text);margin-top:6px}
+
+/* cards */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:22px;padding:28px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(0,253,226,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:18px}
+.ico svg{width:23px;height:23px}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.card p{color:var(--w-65);font-size:.95rem}
+.big{font-family:var(--font-display);font-weight:800;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--aqua-bright);line-height:1;margin-bottom:10px}
+.two{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+
+/* modo claro */
+.light{background:var(--papel);color:var(--tinta)}
+.light .eyebrow{color:var(--violeta)}
+.light .lead,.light .muted{color:#3d3d44}
+.light .sfoot{color:rgba(18,18,18,.45)}
+.light .sfoot .num{color:var(--violeta)}
+.light .card{background:#fff;border-color:rgba(18,18,18,.08)}
+.light .card:hover{border-color:var(--violeta-claro)}
+.light .card p{color:#4a4a52}
+.light .ico{background:rgba(88,13,159,.08);border-color:rgba(88,13,159,.25);color:var(--violeta)}
+.light .it{color:var(--violeta)}
+/* modo oscuro */
+.dark{background:var(--negro)}
+.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 500px at 70% 30%,rgba(116,250,227,.06),transparent 60%);z-index:0}
+
+/* pill stack */
+.pstack{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.pstack span{display:inline-block;border-radius:999px;padding:.28em .85em;font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,3.2vw,2.6rem);line-height:1.1}
+.pstack .p1{background:var(--violeta-900);color:#fff;margin-left:0}
+.pstack .p2{background:var(--aqua);color:var(--violeta);margin-left:1.4em}
+.pstack .p3{background:var(--violeta-claro);color:#fff;margin-left:.5em}
+.pstack .p4{background:#fff;color:var(--violeta);border:2px solid var(--violeta);margin-left:2em}
+
+/* storyboard */
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.frame{background:rgba(255,255,255,.04);border:1px solid var(--line-soft);border-radius:20px;padding:12px;transition:transform .4s var(--ease),border-color .4s}
+.frame:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.screen{aspect-ratio:16/9;border-radius:12px;overflow:hidden;position:relative;background:var(--and-soft);color:var(--and-ink);font-family:var(--font-text)}
+.tc{display:flex;justify-content:space-between;align-items:center;margin:14px 4px 6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.tc b{color:var(--aqua);font-weight:500}
+.frame h4{font-size:1rem;margin:0 4px 6px}
+.frame p{font-size:.86rem;color:var(--w-65);margin:0 4px 6px}
+.vo{margin:10px 4px 4px;padding:10px 12px;border-left:2px solid var(--aqua);background:rgba(116,250,227,.06);border-radius:0 10px 10px 0;font-size:.85rem;color:var(--w-80)}
+.vo small{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua);margin-bottom:3px}
+/* frame 1 */
+.s1{background:#1b2236;display:flex;align-items:center;justify-content:center}
+.s1 .note{position:absolute;background:#FFF3B0;color:#3a3200;font-size:8px;padding:5px 7px;border-radius:3px;box-shadow:0 3px 8px rgba(0,0,0,.3);font-family:var(--font-text)}
+.s1 .q{position:relative;z-index:2;background:#fff;color:var(--and-ink);font-family:var(--font-display);font-weight:800;font-size:clamp(.7rem,1.25vw,1rem);padding:6px 10px;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+/* frame 2 */
+.s2 .bar{height:14%;background:#fff;border-bottom:1px solid #dfe6f5;display:flex;align-items:center;gap:5px;padding:0 7%}
+.s2 .bar i{width:14px;height:5px;border-radius:3px;background:var(--and-blue)}
+.s2 .bar em{width:22%;height:4px;border-radius:3px;background:#d7def0}
+.s2 .cal{position:absolute;left:7%;right:7%;top:22%;bottom:10%;display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(4,1fr);gap:3px}
+.s2 .cal div{background:#fff;border-radius:3px}
+.s2 .res{position:absolute;height:15%;border-radius:4px;background:var(--and-blue);color:#fff;font-size:7px;display:flex;align-items:center;padding-left:5px}
+.s2 .res.a{left:14%;top:24%;width:36%}
+.s2 .res.b{left:38%;top:44%;width:28%;background:#60A5FA}
+.s2 .res.c{left:55%;top:64%;width:30%;animation:drag 3s var(--ease) infinite alternate}
+@keyframes drag{from{transform:translateX(-30%)}to{transform:none}}
+/* frame 3 */
+.s3{background:#fff;padding:8% 7%}
+.s3 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.s3 .kpi{background:var(--and-soft);border-radius:5px;padding:4px 5px}
+.s3 .kpi small{font-size:6px;color:#64748b;display:block;letter-spacing:.06em}
+.s3 .kpi b{font-size:clamp(.55rem,.95vw,.8rem);font-family:var(--font-display)}
+.s3 .bars{display:flex;align-items:flex-end;gap:4px;height:38%;margin-top:7%}
+.s3 .bars i{flex:1;background:#BFD3FB;border-radius:2px 2px 0 0}
+.s3 .bars i.hi{background:var(--and-blue)}
+.s3 .ai{position:absolute;right:5%;bottom:8%;width:52%;background:var(--and-ink);color:#fff;border-radius:7px;padding:5px 7px;font-size:6.5px;line-height:1.35;box-shadow:0 8px 18px rgba(15,23,42,.35)}
+.s3 .ai b{color:#93C5FD;display:block;font-size:6px;letter-spacing:.1em;text-transform:uppercase}
+/* frame 4 */
+.s4{background:linear-gradient(135deg,#1D4ED8,#2563EB);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.s4 .wm{font-family:var(--font-display);font-weight:800;font-size:clamp(1rem,2.1vw,1.7rem);letter-spacing:-.02em}
+.s4 .cta{margin-top:6px;background:#fff;color:#1D4ED8;border-radius:999px;font-size:7.5px;padding:4px 10px;font-weight:700}
+.s4 .tag{font-size:7px;opacity:.85;margin-top:4px}
+.note-draft{margin-top:26px;font-size:.88rem;color:var(--w-65);display:flex;gap:10px;align-items:flex-start;max-width:820px}
+.note-draft svg{flex:none;width:18px;height:18px;color:var(--aqua);margin-top:2px}
+
+/* referencias */
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.ref{border-radius:20px;overflow:hidden;background:var(--violeta-900);border:1px solid var(--line-soft);transition:transform .4s var(--ease),border-color .4s;cursor:pointer;text-decoration:none;display:block}
+.ref:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.ref .th{aspect-ratio:16/9;position:relative;background:linear-gradient(135deg,var(--violeta-900),var(--violeta));display:flex;align-items:center;justify-content:center}
+.ref .th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.ref .th::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(42,4,84,.75))}
+.play{position:relative;z-index:2;width:58px;height:58px;border-radius:50%;background:var(--aqua);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(116,250,227,.18)}
+.play svg{width:20px;height:20px;color:var(--violeta);margin-left:3px}
+.ref .tx{padding:18px 20px 20px}
+.ref .tx b{font-family:var(--font-display);display:block;margin-bottom:4px}
+.ref .tx span{font-size:.88rem;color:var(--w-65)}
+.traits{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.traits span{border:1px solid var(--aqua-line);background:rgba(116,250,227,.07);color:var(--aqua);border-radius:999px;padding:9px 16px;font-size:.9rem}
+
+/* proceso */
+.pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:46px;counter-reset:n}
+.node{background:var(--card);border:1px solid var(--line-soft);border-radius:18px;padding:20px 16px;position:relative;transition:all .4s var(--ease)}
+.node:hover{border-color:var(--aqua-line);transform:translateY(-5px)}
+.node::before{counter-increment:n;content:'0' counter(n);font-family:var(--font-display);font-weight:800;color:var(--aqua);font-size:1.4rem;display:block;margin-bottom:10px}
+.node:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:22px;color:var(--aqua);font-size:14px;z-index:2}
+.node h4{font-size:.98rem;margin-bottom:6px}
+.node p{font-size:.84rem;color:var(--w-65)}
+.node .ok{margin-top:10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua)}
+
+/* cronograma */
+.tl{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.tl::before{content:'';position:absolute;left:0;right:0;top:15px;height:2px;background:rgba(88,13,159,.18)}
+.tl .st{position:relative;padding-right:30px}
+.tl .st::before{content:'';width:32px;height:32px;border-radius:50%;background:var(--violeta);border:6px solid var(--papel);box-shadow:0 0 0 2px var(--violeta);display:block;margin-bottom:22px;position:relative}
+.tl .st:last-child::before{background:var(--aqua);box-shadow:0 0 0 2px var(--aqua-deep)}
+.tl .wk{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--violeta);font-weight:700}
+.tl h4{font-size:1.35rem;margin:6px 0 10px}
+.tl ul{list-style:none}
+.tl li{padding:7px 0;border-bottom:1px solid rgba(18,18,18,.08);font-size:.94rem;color:#3d3d44}
+.tl li b{color:var(--tinta);font-weight:500}
+
+/* alcance */
+.scope{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;margin-top:40px}
+.panel{border-radius:22px;padding:30px}
+.panel.good{background:#fff;border:1px solid rgba(88,13,159,.15)}
+.panel.warn{background:rgba(18,18,18,.04);border:1px dashed rgba(18,18,18,.2)}
+.panel h3{font-size:1.1rem;margin-bottom:16px;display:flex;gap:10px;align-items:center}
+.panel ul{list-style:none;display:grid;gap:10px}
+.panel li{display:flex;gap:10px;font-size:.95rem;color:#33333a}
+.panel li svg{flex:none;width:18px;height:18px;margin-top:2px}
+.panel.good li svg{color:var(--aqua-deep)}
+.panel.warn li svg{color:#8a8a93}
+
+/* inversión */
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px;max-width:900px}
+.plan{position:relative;background:#fff;color:var(--tinta);border:2px solid rgba(18,18,18,.08);border-radius:24px;padding:30px 26px;cursor:pointer;transition:all .35s var(--ease);display:flex;flex-direction:column}
+.plan:hover{transform:translateY(-6px);border-color:var(--violeta-claro)}
+.plan.sel{border-color:var(--violeta);box-shadow:0 18px 40px rgba(88,13,159,.18)}
+.plan .flag{position:absolute;top:-13px;left:24px;background:var(--aqua);color:var(--tinta);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.plan .nm{font-family:var(--font-display);font-weight:800;font-size:1.4rem}
+.plan .ds{font-size:.9rem;color:#55555e;margin:6px 0 18px;min-height:44px}
+.plan .pr{font-family:var(--font-display);font-weight:800;font-size:2.4rem;color:var(--violeta);line-height:1}
+.plan .pr small{font-size:.8rem;color:#6b6b74;font-weight:400;font-family:var(--font-text);margin-left:4px}
+.plan .adv{font-size:.8rem;color:var(--aqua-deep);margin-top:6px;font-weight:500}
+.plan ul{list-style:none;margin-top:20px;display:grid;gap:9px;flex:1;align-content:start}
+.plan li{font-size:.9rem;display:flex;gap:9px;color:#33333a}
+.plan li svg{flex:none;width:16px;height:16px;color:var(--violeta);margin-top:3px}
+.plan li.plus{font-weight:500}
+.radio{position:absolute;top:28px;right:24px;width:22px;height:22px;border-radius:50%;border:2px solid rgba(18,18,18,.25)}
+.plan.sel .radio{border-color:var(--violeta);background:radial-gradient(circle,var(--violeta) 45%,transparent 50%)}
+.extras{margin-top:28px;background:#fff;border-radius:22px;padding:26px 28px;border:1px solid rgba(18,18,18,.08)}
+.extras h4{font-size:1rem;margin-bottom:14px}
+.ex{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-top:1px solid rgba(18,18,18,.07);cursor:pointer}
+.ex label{display:flex;gap:12px;align-items:center;cursor:pointer;font-size:.95rem}
+.ex input{width:18px;height:18px;accent-color:var(--violeta)}
+.ex .p{font-family:var(--font-display);font-weight:700;color:var(--violeta);white-space:nowrap}
+.totalbar{margin-top:26px;background:var(--violeta);color:#fff;border-radius:24px;padding:26px 30px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.totalbar .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-65)}
+.totalbar .v{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4vw,2.8rem);line-height:1.05}
+.totalbar .v2{font-size:.92rem;color:var(--aqua);margin-top:4px}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--aqua);color:var(--tinta);border:none;border-radius:999px;padding:16px 26px;font-family:var(--font-text);font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(116,250,227,.35)}
+.btn .ar{width:30px;height:30px;border-radius:50%;background:var(--tinta);color:var(--aqua);display:flex;align-items:center;justify-content:center}
+.conds{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px;font-size:.88rem;color:#4a4a52}
+.conds div{padding:16px 18px;border-radius:16px;background:rgba(88,13,159,.05)}
+.conds b{display:block;color:var(--tinta);font-family:var(--font-display);margin-bottom:4px}
+
+/* credenciales */
+.photo{border-radius:26px;overflow:hidden;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.photos .photo:first-child{transform:translateY(34px)}
+.capsule{position:absolute;z-index:3;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.85rem}
+.capsule.a{background:var(--violeta-900);color:var(--aqua)}
+.capsule.b{background:var(--aqua);color:var(--violeta)}
+.stats{display:flex;flex-wrap:wrap;gap:14px 46px;border-top:1px solid var(--line-soft);padding-top:28px;margin-top:36px}
+.stat .v{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,3.6vw,2.8rem);color:var(--aqua-bright);line-height:1}
+.stat .l{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px}
+
+/* próximos pasos / cierre */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.step{border-top:2px solid var(--aqua);padding-top:18px}
+.step b{font-family:var(--font-display);font-size:2rem;color:var(--aqua);font-weight:800}
+.step h4{margin:6px 0 6px;font-size:1.05rem}
+.step p{color:var(--w-65);font-size:.9rem}
+.closing{margin-top:70px;display:flex;flex-wrap:wrap;gap:30px;align-items:flex-end;justify-content:space-between;border-top:1px solid var(--line-soft);padding-top:36px}
+.closing .who b{font-family:var(--font-display);font-size:1.2rem;display:block}
+.closing .who span{color:var(--w-65);font-size:.92rem}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center;margin-top:50px;font-size:.8rem;color:var(--w-45)}
+.foot img{height:22px;width:auto}
+
+/* responsive */
+@media(max-width:1020px){
+  .board{grid-template-columns:repeat(2,1fr)}
+  .pipe{grid-template-columns:repeat(3,1fr)}
+  .node:nth-child(3)::after{display:none}
+  .timer{opacity:.25;right:-60px}
+}
+@media(max-width:820px){
+  section{padding:110px 16px 90px}
+  .topbar,.topbar.scrolled{padding-left:16px;padding-right:16px}
+  .sfoot{left:16px;right:16px}.sfoot span:first-child{display:none}
+  .dots{display:none}
+  .badge{left:16px;padding:18px 12px 12px}.badge img{width:44px}
+  .two,.g2,.g3,.g4,.scope,.plans,.refs,.conds,.steps,.tl{grid-template-columns:1fr}
+  .two{gap:40px}
+  .meta{grid-template-columns:1fr 1fr}
+  .board{grid-template-columns:1fr}
+  .pipe{grid-template-columns:1fr 1fr}
+  .node::after{display:none}
+  .tl::before{display:none}.tl .st{padding:0 0 26px}
+  .timer{display:none}
+  .brand-tag{display:none}
+  .photos .photo:first-child{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<header class="topbar" id="topbar">
+  <a class="logo" href="#hero"><img src="img/logo-popcorn-blanco.png" alt="Popcorn"></a>
+  <div class="brand-tag"><span class="dot"></span>Propuesta para Andevo</div>
+</header>
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 00 HERO · modo A ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="badge"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+  <div class="ghost">20 seg</div>
+  <div class="rombos" style="right:4%;bottom:6%"></div>
+  <div class="timer" aria-hidden="true">
+    <svg viewBox="0 0 340 340"><circle class="bg" cx="170" cy="170" r="159" fill="none" stroke-width="3"/><circle class="fg" cx="170" cy="170" r="159" fill="none" stroke-width="6" stroke-linecap="round" pathLength="1000"/></svg>
+    <div class="lbl"><b>20"</b><span>de video</span></div>
+  </div>
+  <div class="wrap">
+    <div class="pill-lab r"><b>●</b> Propuesta comercial · Video animado</div>
+    <h1 class="h-xl r d1"><span class="reg">Andevo,</span><br>contado en <span class="hl">20&nbsp;segundos.</span><br><span class="it">Sin perder nada.</span></h1>
+    <p class="hero-sub r d2">Un video comercial animado que le explica a un hotelero, en lo que dura un scroll, por qué dejar de manejar su hotel de memoria y probar Andevo.</p>
+    <div class="meta r d3">
+      <div><div class="k">Preparada para</div><div class="v">Andevo</div></div>
+      <div><div class="k">Emitida</div><div class="v">23/09/2026</div></div>
+      <div><div class="k">Válida hasta</div><div class="v">03/10/2026</div></div>
+      <div><div class="k">Contacto</div><div class="v">Demián Linetzky</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicación</span><span class="num">00 — Inicio</span></div>
+</section>
+
+<!-- ============ 01 DESAFÍO · modo E ============ -->
+<section id="desafio" data-label="El desafío">
+  <svg class="curve" style="left:-80px;bottom:-60px;width:520px" viewBox="0 0 520 300" fill="none"><path d="M10 280 C 120 80, 260 320, 360 140 S 500 40, 520 10" stroke="#A262E5" stroke-opacity=".35" stroke-width="26" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="eyebrow r">01 · El desafío</div>
+        <h2 class="h-lg r d1">Andevo hace mucho.<br>El video tiene que decir <span class="hl">una cosa.</span></h2>
+        <p class="lead r d2" style="margin-top:24px">Andevo combina un PMS propio, consultoría estratégica y un copiloto de IA, con planes desde US$39 al mes. Es mucho producto. En 20 segundos entran unas 45 palabras de locución: si intentamos contar todo, el hotelero no se queda con nada.</p>
+        <p class="lead r d3" style="margin-top:16px">Nuestro trabajo es elegir. Una tensión que el dueño de un hotel chico reconozca en el primer segundo, una prueba visual de que Andevo la resuelve, y una sola acción al final: <b style="color:#fff">probarlo gratis 30 días.</b></p>
+      </div>
+      <div class="grid g2">
+        <div class="card r d1"><div class="big">7</div><h3>Funcionalidades</h3><p>Calendario, dashboard financiero, huéspedes, caja, empleados, OTAs e IA. En el video se ven 2, no 7.</p></div>
+        <div class="card r d2"><div class="big">55+</div><h3>OTAs conectadas</h3><p>Un dato potente de respaldo, que funciona mejor como texto en pantalla que como locución.</p></div>
+        <div class="card r d3"><div class="big">30</div><h3>Días de prueba</h3><p>Sin tarjeta de crédito. Es la barrera más baja para convertir: el video termina ahí.</p></div>
+        <div class="card r d4"><div class="big">~45</div><h3>Palabras</h3><p>Lo que cabe en 20" de locución a ritmo natural. Cada palabra tiene que ganarse el lugar.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Menos funciones, más claridad</span><span class="num">01 — Desafío</span></div>
+</section>
+
+<!-- ============ 02 IDEA + STORYBOARD · modo A ============ -->
+<section id="idea" data-label="La idea">
+  <div class="ghost" style="top:auto;bottom:-3vw">de memoria</div>
+  <div class="wrap">
+    <div class="eyebrow r">02 · La idea</div>
+    <h2 class="h-lg r d1">De manejar el hotel <span class="it">de memoria</span><br>a decidir <span class="hl">con datos.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Tomamos la promesa que Andevo ya usa en su sitio y la volvemos imagen: el caos de papelitos y planillas se ordena en una sola pantalla, y el copiloto de IA le dice al hotelero qué hacer hoy. Así se ve el recorrido en cuatro momentos:</p>
+
+    <div class="board">
+      <div class="frame r d1">
+        <div class="screen s1">
+          <span class="note" style="left:8%;top:14%;transform:rotate(-8deg)">Hab 4 · ¿pagó?</span>
+          <span class="note" style="right:9%;top:18%;transform:rotate(6deg)">Booking → llamar</span>
+          <span class="note" style="left:14%;bottom:14%;transform:rotate(4deg)">Caja: $??</span>
+          <span class="note" style="right:12%;bottom:16%;transform:rotate(-5deg)">Turno Juan</span>
+          <span class="q">¿Tu hotel se maneja de memoria?</span>
+        </div>
+        <div class="tc"><span>Escena 1</span><b>0" – 4"</b></div>
+        <h4>El caos conocido</h4>
+        <p>Papelitos y planillas que se acumulan. El hotelero se reconoce.</p>
+        <div class="vo"><small>Locución</small>"¿Tu hotel se maneja de memoria?"</div>
+      </div>
+      <div class="frame r d2">
+        <div class="screen s2">
+          <div class="bar"><i></i><em></em></div>
+          <div class="cal"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          <span class="res a">Reserva · Hab 2</span><span class="res b">Booking</span><span class="res c">Directa</span>
+        </div>
+        <div class="tc"><span>Escena 2</span><b>4" – 10"</b></div>
+        <h4>Todo en un lugar</h4>
+        <p>Los papelitos vuelan y se ordenan en el calendario de reservas. Texto: "+55 OTAs conectadas".</p>
+        <div class="vo"><small>Locución</small>"Con Andevo tenés reservas, caja y huéspedes en un solo lugar."</div>
+      </div>
+      <div class="frame r d3">
+        <div class="screen s3">
+          <div class="kpis"><div class="kpi"><small>OCUPACIÓN</small><b>78%</b></div><div class="kpi"><small>ADR</small><b>$$</b></div><div class="kpi"><small>RevPAR</small><b>$$</b></div></div>
+          <div class="bars"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i class="hi" style="height:88%"></i><i style="height:62%"></i></div>
+          <div class="ai"><b>Copiloto IA</b>Este finde viene con alta demanda: revisá tu tarifa.</div>
+        </div>
+        <div class="tc"><span>Escena 3</span><b>10" – 16"</b></div>
+        <h4>El copiloto habla</h4>
+        <p>El dashboard financiero se arma solo y aparece una alerta del copiloto con una recomendación concreta.</p>
+        <div class="vo"><small>Locución</small>"Y un copiloto con IA te dice qué hacer cada día, con tus números reales."</div>
+      </div>
+      <div class="frame r d4">
+        <div class="screen s4">
+          <div class="wm">andevo</div>
+          <div class="tag">Tu hotel, con datos.</div>
+          <div class="cta">Probalo gratis 30 días</div>
+        </div>
+        <div class="tc"><span>Escena 4</span><b>16" – 20"</b></div>
+        <h4>Marca y acción</h4>
+        <p>Logo, remate y una sola llamada a la acción, con la URL en pantalla.</p>
+        <div class="vo"><small>Locución</small>"Andevo. Tu hotel, con datos. Probalo gratis 30 días."</div>
+      </div>
+    </div>
+    <p class="note-draft r d5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>Esto es un borrador para mostrar el enfoque, no el guion final. Los mockups son esquemáticos y la paleta es orientativa: en la etapa de guion lo ajustamos con ustedes y en el video usamos las pantallas reales de la plataforma y la identidad de Andevo.</p>
+  </div>
+  <div class="sfoot"><span>4 escenas · 1 mensaje · 1 acción</span><span class="num">02 — Idea</span></div>
+</section>
+
+<!-- ============ 03 ESTILO · modo D ============ -->
+<section id="estilo" data-label="Estilo visual" class="dark">
+  <svg class="curve" style="right:-60px;bottom:-40px;width:460px" viewBox="0 0 460 260" fill="none"><path d="M0 250 C 120 120, 200 260, 300 120 S 430 60, 460 0" stroke="#580D9F" stroke-width="28" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="eyebrow r">03 · Estilo visual</div>
+    <h2 class="h-lg r d1">El lenguaje de las <span class="hl">referencias</span><br>que nos compartieron.</h2>
+    <p class="lead r d2" style="margin-top:22px">Motion graphics 2D de producto: la interfaz es la protagonista, se mueve con ritmo y se explica sola. Nada de personajes genéricos ni íconos de stock. Lo que se ve es Andevo funcionando.</p>
+    <div class="refs">
+      <a class="ref r d1" href="https://www.youtube.com/watch?v=mLdeKh9hj_Q" target="_blank" rel="noopener"><div class="th"><img src="https://i.ytimg.com/vi/mLdeKh9hj_Q/hqdefault.jpg" alt="" onerror="this.remove()"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span></div><div class="tx"><b>Referencia 1</b><span>Ritmo y transiciones de interfaz</span></div></a>
+      <a class="ref r d2" href="https://www.youtube.com/watch?v=GOGq-OUM2ao" target="_blank" rel="noopener"><div class="th"><img src="https://i.ytimg.com/vi/GOGq-OUM2ao/hqdefault.jpg" alt="" onerror="this.remove()"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span></div><div class="tx"><b>Referencia 2</b><span>Tipografía cinética y jerarquía</span></div></a>
+      <a class="ref r d3" href="https://www.youtube.com/watch?v=C9vpj1_Y214" target="_blank" rel="noopener"><div class="th"><img src="https://i.ytimg.com/vi/C9vpj1_Y214/hqdefault.jpg" alt="" onerror="this.remove()"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span></div><div class="tx"><b>Referencia 3</b><span>Cierre de marca y llamada a la acción</span></div></a>
+    </div>
+    <div class="traits r d4"><span>Pantallas reales animadas</span><span>Tipografía cinética</span><span>Transiciones que conectan</span><span>Identidad de Andevo</span><span>Música con pulso</span><span>Legible sin sonido</span></div>
+  </div>
+  <div class="sfoot"><span>Motion graphics 2D de producto</span><span class="num">03 — Estilo</span></div>
+</section>
+
+<!-- ============ 04 PROCESO · modo A ============ -->
+<section id="proceso" data-label="Cómo trabajamos">
+  <div class="rombos" style="left:-60px;top:12%"></div>
+  <div class="wrap">
+    <div class="eyebrow r">04 · Cómo trabajamos</div>
+    <h2 class="h-lg r d1">Seis pasos, y ustedes<br>aprueban <span class="hl">antes de animar.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Animar es la etapa más cara de cambiar. Por eso validamos guion, estilo y tiempos antes de mover un solo píxel: cuando llegamos a la animación, ya saben exactamente qué van a ver.</p>
+    <div class="pipe">
+      <div class="node r d1"><h4>Brief</h4><p>Reunión de 45 min: público, dónde se va a usar, qué pantallas mostrar.</p></div>
+      <div class="node r d2"><h4>Guion</h4><p>Texto final de locución y textos en pantalla, escena por escena.</p><div class="ok">✓ Aprueban</div></div>
+      <div class="node r d3"><h4>Styleframes</h4><p>Cuadros fijos con el look final: color, tipografía, composición.</p><div class="ok">✓ Aprueban</div></div>
+      <div class="node r d4"><h4>Animatic</h4><p>Boceto animado con tiempos reales y locución de prueba.</p><div class="ok">✓ Aprueban</div></div>
+      <div class="node r d5"><h4>Animación</h4><p>Motion final, locución (plan Completo), música y diseño sonoro.</p></div>
+      <div class="node r d6"><h4>Entrega</h4><p>Archivos finales en los formatos del plan elegido.</p><div class="ok">✓ Listo</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Validar antes de producir</span><span class="num">04 — Proceso</span></div>
+</section>
+
+<!-- ============ 05 CRONOGRAMA · modo C ============ -->
+<section id="cronograma" data-label="Cronograma" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">05 · Cronograma</div>
+    <h2 class="h-lg r d1">Tres semanas,<br>del brief al <span class="hl">video final.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Plazos corridos desde el pago del anticipo y la entrega de accesos o capturas de la plataforma. Cada aprobación del lado de Andevo en hasta 48 h hábiles mantiene el calendario.</p>
+    <div class="tl">
+      <div class="st r d1"><div class="wk">Semana 1</div><h4>Idea y guion</h4><ul><li><b>Brief</b> y acceso a la plataforma</li><li>Guion y textos en pantalla</li><li>2 styleframes de estilo</li></ul></div>
+      <div class="st r d2"><div class="wk">Semana 2</div><h4>Animatic y voz</h4><ul><li><b>Animatic</b> con tiempos reales</li><li>Locución con IA (plan Completo)</li><li>Ajustes sobre el animatic</li></ul></div>
+      <div class="st r d3"><div class="wk">Semana 3</div><h4>Animación y entrega</h4><ul><li><b>Animación final</b> y sonido</li><li>Microvideos para redes (plan Completo)</li><li>Ronda de ajustes finales</li><li>Entrega de formatos</li></ul></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>~15 días hábiles</span><span class="num">05 — Cronograma</span></div>
+</section>
+
+<!-- ============ 06 QUIÉNES SOMOS · modo B ============ -->
+<section id="nosotros" data-label="Quiénes somos">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="eyebrow r">06 · Quiénes somos</div>
+        <div class="pstack r d1"><span class="p1">No hacemos videos</span><span class="p2">lindos.</span><span class="p3">Hacemos videos</span><span class="p4">que venden.</span></div>
+        <p class="lead r d2" style="margin-top:28px">Popcorn es una agencia de marketing y comunicación orientada a estrategia y crecimiento. Producción audiovisual, diseño, contenido, medios y web bajo el mismo techo: por eso pensamos el video pensando también en dónde va a circular y qué tiene que lograr.</p>
+        <div class="stats r d3">
+          <div class="stat"><div class="v">15+</div><div class="l">Años</div></div>
+          <div class="stat"><div class="v">160+</div><div class="l">Marcas</div></div>
+          <div class="stat"><div class="v">360°</div><div class="l">Estrategia a producción</div></div>
+        </div>
+      </div>
+      <div class="photos r d2">
+        <div class="photo"><img src="img/popcorn-produccion.jpg" alt="Producción de contenidos de Popcorn"><span class="capsule a" style="left:14px;bottom:16px">Producción</span></div>
+        <div class="photo"><img src="img/popcorn-caso.jpg" alt="Caso de marca desarrollado por Popcorn"><span class="capsule b" style="right:14px;top:16px">Diseño</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Estrategia + creatividad + producción</span><span class="num">06 — Nosotros</span></div>
+</section>
+
+<!-- ============ 07 ALCANCE · modo C ============ -->
+<section id="alcance" data-label="Alcance" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">07 · Alcance</div>
+    <h2 class="h-lg r d1">Qué entra y qué no,<br><span class="hl">sin letra chica.</span></h2>
+    <div class="scope">
+      <div class="panel good r d1">
+        <h3>Incluido en todos los planes</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Reunión de brief y dirección creativa de Popcorn</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Guion y textos en pantalla, escena por escena</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Styleframes y animatic para aprobar antes de animar</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Animación 2D de 20" con las pantallas reales de Andevo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Música de librería con licencia comercial y diseño sonoro</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>2 rondas de ajustes por etapa (guion, animatic, animación)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Archivos finales MP4 en alta calidad, listos para publicar</li>
+        </ul>
+      </div>
+      <div class="panel warn r d2">
+        <h3>No incluido</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Inversión en pauta para difundir el video</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Rediseño de la marca o de la interfaz de la plataforma</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Animación 3D, personajes o rodaje con actores</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Música original compuesta a medida</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Locución grabada en estudio con locutor (se cotiza aparte)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Formato vertical 9:16 (se cotiza aparte)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Cambios de guion una vez aprobado el animatic (se cotizan aparte)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>Archivos editables de proyecto (After Effects)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Transparencia en el alcance</span><span class="num">07 — Alcance</span></div>
+</section>
+
+<!-- ============ 08 INVERSIÓN · modo C ============ -->
+<section id="inversion" data-label="Inversión" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">08 · Inversión</div>
+    <h2 class="h-lg r d1">Elegí el plan<br>que <span class="hl">te sirve hoy.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Dos opciones, la misma animación. La diferencia es la voz: el Esencial se apoya en textos en pantalla y música; el Completo suma una locución que guía al hotelero de principio a fin y 3 microvideos para redes, que reutilizan la animación del video principal para mostrar distintas situaciones del día a día con Andevo. Valores en pesos, sin IVA y sin facturar.</p>
+
+    <div class="plans" id="plans">
+      <div class="plan r d1" data-id="Esencial" data-price="1800000" role="radio" aria-checked="false" tabindex="0">
+        <span class="radio"></span>
+        <div class="nm">Esencial</div>
+        <div class="ds">El video para la web, redes y presentaciones comerciales.</div>
+        <div class="pr">$1.800.000<small>sin IVA</small></div>
+        <div class="adv">Pago adelantado: $1.710.000</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Video animado 2D de 20"</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Textos en pantalla + música licenciada</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Diseño sonoro</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>2 formatos: horizontal 16:9 y cuadrado 1:1 para redes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Sin locución</li>
+        </ul>
+      </div>
+      <div class="plan sel r d2" data-id="Completo" data-price="2625000" role="radio" aria-checked="true" tabindex="0">
+        <span class="flag">Recomendado</span><span class="radio"></span>
+        <div class="nm">Completo</div>
+        <div class="ds">El video con voz, más 3 piezas cortas para sostener la presencia en redes.</div>
+        <div class="pr">$2.625.000<small>sin IVA</small></div>
+        <div class="adv">Pago adelantado: $2.493.750</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Todo lo del Esencial</li>
+          <li class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>Locución profesional hecha con IA, incluida</li>
+          <li class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>Subtítulos para ver sin sonido</li>
+          <li class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg>3 microvideos de hasta 15" para redes, cada uno con una situación distinta de uso de la app</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="totalbar r d4">
+      <div>
+        <div class="k">Tu selección</div>
+        <div class="v" id="total">$2.625.000 sin IVA</div>
+        <div class="v2" id="total2">Con pago adelantado (−5%): $2.493.750 sin IVA</div>
+      </div>
+      <a class="btn" id="cta" href="#">Quiero avanzar con esta opción <span class="ar">→</span></a>
+    </div>
+
+    <div class="conds r d5">
+      <div><b>Forma de pago</b>50% de anticipo para arrancar y 50% a 30 días. Pago adelantado del total: 5% de descuento.</div>
+      <div><b>Valores</b>Expresados en pesos argentinos, sin IVA y sin facturar.</div>
+      <div><b>Validez</b>Propuesta válida por 10 días, hasta el 03/10/2026. Pauta en medios, si la hubiera, se factura aparte.</div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Valores sin IVA · sin facturar · ARS</span><span class="num">08 — Inversión</span></div>
+</section>
+
+<!-- ============ 09 CIERRE · modo D ============ -->
+<section id="cierre" data-label="Próximos pasos" class="dark">
+  <svg class="curve" style="left:-40px;bottom:-50px;width:600px" viewBox="0 0 600 260" fill="none"><path d="M0 240 C 140 60, 260 280, 400 110 S 560 40, 600 20" stroke="#580D9F" stroke-width="30" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="eyebrow r">09 · Próximos pasos</div>
+    <h2 class="h-lg r d1">En tres semanas,<br>Andevo se <span class="hl">explica solo.</span></h2>
+    <div class="steps">
+      <div class="step r d1"><b>01</b><h4>Elegís el plan</h4><p>Desde la sección de inversión, con el botón. Nos llega tu selección por mail.</p></div>
+      <div class="step r d2"><b>02</b><h4>Anticipo y brief</h4><p>Con el 50% coordinamos la reunión de brief esa misma semana.</p></div>
+      <div class="step r d3"><b>03</b><h4>Accesos</h4><p>Un usuario demo de Andevo o capturas de las pantallas clave, más logo y manual de marca.</p></div>
+      <div class="step r d4"><b>04</b><h4>Arrancamos</h4><p>En 5 días hábiles tenés el guion y los primeros styleframes para aprobar.</p></div>
+    </div>
+    <div class="closing r d5">
+      <div class="who"><b>Demián Linetzky</b><span>Executive Director · Popcorn<br>demianlinet@somospopcorn.com</span></div>
+      <a class="btn" id="cta2" href="mailto:demianlinet@somospopcorn.com?cc=florencia@somospopcorn.com&amp;subject=Andevo%20%C2%B7%20Video%20animado%2020%22">Escribinos <span class="ar">→</span></a>
+    </div>
+    <div class="foot"><img src="img/logo-popcorn-blanco.png" alt="Popcorn"><span>Propuesta confidencial para Andevo · Válida hasta el 03/10/2026 · somospopcorn.com</span></div>
+  </div>
+</section>
+
+<script>
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(scrollY/h*100)+'%';topbar.classList.toggle('scrolled',scrollY>40);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const sections=[...document.querySelectorAll('section')];const dots=document.getElementById('dots');
+sections.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';dots.appendChild(a);});
+const dotEls=[...dots.children];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+const act=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));dots.classList.toggle('on-light',e.target.classList.contains('light'));}})},{threshold:.5});
+sections.forEach(s=>act.observe(s));
+
+/* Inversión */
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-AR');
+const plans=[...document.querySelectorAll('.plan')],extras=[...document.querySelectorAll('.ex input')];
+function selPlan(p){plans.forEach(x=>{x.classList.toggle('sel',x===p);x.setAttribute('aria-checked',x===p)});calc();}
+plans.forEach(p=>{p.addEventListener('click',()=>selPlan(p));p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selPlan(p);}})});
+extras.forEach(x=>x.addEventListener('change',calc));
+function calc(){
+  const p=plans.find(x=>x.classList.contains('sel'));
+  let total=+p.dataset.price;const lines=['Plan '+p.dataset.id+': '+fmt(+p.dataset.price)];
+  extras.filter(x=>x.checked).forEach(x=>{total+=+x.dataset.price;lines.push(x.dataset.id+': '+fmt(+x.dataset.price));});
+  const adv=Math.round(total*0.95);
+  document.getElementById('total').textContent=fmt(total)+' sin IVA';
+  document.getElementById('total2').textContent='Con pago adelantado (−5%): '+fmt(adv)+' sin IVA';
+  const body='Hola Demián,\n\nQueremos avanzar con el video animado de Andevo con esta selección:\n\n- '+lines.join('\n- ')+'\n\nTotal: '+fmt(total)+' (sin IVA, sin facturar)\nCon pago adelantado (−5%): '+fmt(adv)+' (sin IVA, sin facturar)\n\nForma de pago preferida: [anticipo 50% + saldo a 30 días / pago adelantado]\n\n¡Gracias!';
+  document.getElementById('cta').href='mailto:demianlinet@somospopcorn.com?cc=florencia@somospopcorn.com&subject='+encodeURIComponent('Andevo · Video animado 20" · Plan '+p.dataset.id)+'&body='+encodeURIComponent(body);
+}
+calc();
+</script>
+</body>
+</html>
