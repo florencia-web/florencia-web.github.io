@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fe Seguros × Popcorn · Versión 2 — Primera etapa: presentación de la compañía</title>
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fe Seguros × Popcorn · Propuesta versión 2 — Primera etapa">
+<meta property="og:description" content="Cuatro meses para presentar la compañía y equipar a los 300 corredores. Dos escenarios de inversión: sin pauta y con pauta digital.">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · SISTEMA DE MARCA — propuesta comercial
+   Paleta canónica: violeta #580D9F + aqua #74FAE3
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(26,3,47,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk','DM Sans', system-ui, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violeta);
+  color:var(--white);
+  font-family:var(--font-text);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(162,98,229,.42), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(116,250,227,.10), transparent 55%),
+    linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 42%,var(--violeta-900) 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:var(--font-display);font-style:normal}
+em,i{font-style:normal}
+a{color:inherit}
+
+/* ============ HEADER FIJO ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:58px}
+
+/* ============ PROGRESO + NAV LATERAL ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);
+  white-space:nowrap;font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);background:rgba(26,3,47,.94);padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft);
+}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+section.auto{min-height:0}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+
+/* modos de sección */
+.sec-papel{background:var(--papel);color:var(--tinta)}
+.sec-papel .lead,.sec-papel .muted{color:rgba(18,18,18,.72)}
+.sec-papel .eyebrow{color:var(--violeta)}
+.sec-papel .eyebrow::before{background:var(--violeta);box-shadow:0 0 12px rgba(88,13,159,.5)}
+.sec-papel .cy{color:var(--violeta)}
+.sec-papel b,.sec-papel strong{color:var(--tinta)}
+.sec-papel .card{background:#fff;border-color:rgba(18,18,18,.10)}
+.sec-papel .card p{color:rgba(18,18,18,.68)}
+.sec-papel .card:hover{border-color:var(--violeta);background:#fff}
+.sec-papel .card .ico{background:rgba(88,13,159,.08);border-color:rgba(88,13,159,.22);color:var(--violeta)}
+.sec-papel .sfoot{color:rgba(18,18,18,.38)}
+.sec-papel .sfoot .num{color:var(--violeta)}
+.sec-negro{background:var(--negro)}
+/* Overrides del modo papel: estos componentes nacieron para fondo oscuro y
+   sobre #F2F4EF quedaban ilegibles (detectado en QA, 17/09/2026). */
+.sec-papel .note-pill{background:rgba(88,13,159,.06);border-color:rgba(88,13,159,.22);color:rgba(18,18,18,.78)}
+.sec-papel .note-pill b{color:var(--violeta)}
+.sec-papel .card.hi{background:linear-gradient(160deg,rgba(11,182,162,.12),#fff);border-color:rgba(11,182,162,.45)}
+.sec-papel .card .num-tag{color:var(--violeta)}
+.sec-papel .media .cap{color:#fff}
+.sec-papel .quote{color:var(--tinta)}
+.sec-papel .bigstatement{color:var(--tinta)}
+
+/* ── Modo papel: componentes que nacieron para fondo oscuro ───────────── */
+.sec-papel .lead{color:rgba(18,18,18,.74)}
+.sec-papel .muted{color:rgba(18,18,18,.58)}
+.sec-papel b,.sec-papel strong{color:var(--tinta)}
+.sec-papel .kicker{color:var(--violeta)}
+.sec-papel .tag{color:rgba(18,18,18,.74);border-color:rgba(18,18,18,.16);background:#fff}
+
+/* timeline del roadmap */
+.sec-papel .tl::before{background:linear-gradient(180deg,rgba(88,13,159,.38),rgba(88,13,159,.05))}
+.sec-papel .tl-item .dot{background:#fff;border-color:var(--violeta)}
+.sec-papel .tl-item .dot::after{background:var(--violeta);box-shadow:0 0 10px rgba(88,13,159,.45)}
+.sec-papel .tl-item .ph{color:var(--violeta)}
+.sec-papel .tl-item p{color:rgba(18,18,18,.66)}
+.sec-papel .tl-item .tl-tags span{border-color:rgba(18,18,18,.16);color:rgba(18,18,18,.62);background:#fff}
+
+/* tarjetas de plan */
+.sec-papel .plan{background:#fff;border-color:rgba(18,18,18,.12)}
+.sec-papel .plan:hover{border-color:var(--violeta)}
+.sec-papel .plan.sel{border-color:var(--violeta);background:linear-gradient(165deg,rgba(116,250,227,.16),#fff);box-shadow:0 0 0 1px var(--violeta) inset,0 16px 44px rgba(88,13,159,.14)}
+.sec-papel .plan .pprice{color:var(--violeta)}
+.sec-papel .plan .pfor,.sec-papel .plan .pper{color:rgba(18,18,18,.5)}
+.sec-papel .plan .phrs{color:rgba(18,18,18,.66);border-top-color:rgba(18,18,18,.10)}
+.sec-papel .plan ul li{color:rgba(18,18,18,.76)}
+.sec-papel .plan ul li svg{color:var(--aqua-deep)}
+.sec-papel .plan ul li.off{color:rgba(18,18,18,.42)}
+.sec-papel .plan ul li.off svg{color:rgba(18,18,18,.42)}
+.sec-papel .plan .pick{color:rgba(18,18,18,.5);border-top-color:rgba(18,18,18,.10)}
+.sec-papel .plan .pick .radio{border-color:rgba(18,18,18,.35)}
+.sec-papel .plan .pick .radio::after{background:var(--violeta)}
+.sec-papel .plan.sel .pick{color:var(--violeta)}
+.sec-papel .plan.sel .pick .radio{border-color:var(--violeta)}
+.sec-papel .plan .rec{background:var(--violeta);color:#fff}
+
+/* filas de precio y grupos */
+.sec-papel .inv-ghead{color:var(--violeta);border-bottom-color:rgba(88,13,159,.3)}
+.sec-papel .inv-ghead .inv-sub{color:var(--tinta)}
+.sec-papel .price-row{border-bottom-color:rgba(18,18,18,.10)}
+.sec-papel .price-row.pick:hover{background:rgba(88,13,159,.04)}
+.sec-papel .price-row .pl{color:var(--tinta)}
+.sec-papel .price-row .pl small{color:rgba(18,18,18,.55)}
+.sec-papel .price-row .pv{color:var(--violeta)}
+.sec-papel .price-row .pv small{color:rgba(18,18,18,.5)}
+.sec-papel .price-row .chk{border-color:rgba(18,18,18,.35)}
+.sec-papel .price-row.pick.on .chk{background:var(--violeta);border-color:var(--violeta)}
+.sec-papel .price-row.pick.on .chk svg{color:#fff}
+.sec-papel .price-row.yainc .pv::after{color:var(--aqua-deep)}
+
+/* formas de pago */
+.sec-papel .paycard{background:#fff;border-color:rgba(18,18,18,.12)}
+.sec-papel .paycard.best{background:rgba(116,250,227,.14);border-color:rgba(11,182,162,.5)}
+.sec-papel .paycard .pd{color:rgba(18,18,18,.62)}
+.sec-papel .paycard .pq{color:var(--violeta)}
+.sec-papel .paycard .bestbadge{background:var(--violeta);color:#fff}
+
+/* caja de totales */
+.sec-papel .totalbox{background:linear-gradient(160deg,rgba(116,250,227,.16),#fff);border-color:rgba(11,182,162,.45)}
+.sec-papel .totalbox .trow{border-bottom-color:rgba(18,18,18,.10)}
+.sec-papel .totalbox .trow .tl-k{color:rgba(18,18,18,.78)}
+.sec-papel .totalbox .trow .tl-k small{color:rgba(18,18,18,.55)}
+.sec-papel .totalbox .trow .tl-v{color:var(--violeta)}
+.sec-papel .note{color:rgba(18,18,18,.7)}
+.sec-papel .note b{color:var(--violeta)}
+.sec-papel #ctaPick{color:var(--violeta)}
+.sec-papel #ctaPick .none{color:rgba(18,18,18,.5)}
+.sec-papel .cta-go{box-shadow:0 12px 30px rgba(11,182,162,.28)}
+
+/* logowall sobre papel: las celdas blancas necesitan borde */
+.sec-papel .logocell{border:1px solid rgba(18,18,18,.10)}
+
+/* Separadores de bloque en la seccion de inversion: que se vea de un vistazo
+   que se paga una vez y que se paga todos los meses. */
+.bloque{margin-top:54px}
+.bloque-tit{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--aqua);margin-bottom:6px}
+.bloque-tit .n{font-family:var(--font-display);font-weight:700;font-size:1.9rem;color:var(--aqua);line-height:1}
+.bloque-tit .t{font-family:var(--font-display);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.7rem);letter-spacing:-.01em}
+.bloque-tit .s{font-family:var(--font-text);font-size:.92rem;color:var(--w-65);flex:1;min-width:210px}
+.sec-papel .bloque-tit{border-bottom-color:var(--violeta)}
+.sec-papel .bloque-tit .n{color:var(--violeta)}
+.sec-papel .bloque-tit .s{color:rgba(18,18,18,.6)}
+
+
+
+.sec-negro::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 600px at 50% 0%,rgba(88,13,159,.34),transparent 65%);z-index:0}
+
+/* eyebrow */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+
+/* títulos */
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.04;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--aqua)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.28rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.lead+.lead{margin-top:18px}
+.muted{color:var(--w-65)}
+.kicker{font-family:var(--font-display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--aqua)}
+b,strong{color:#fff;font-weight:600}
+.mt16{margin-top:16px}.mt24{margin-top:24px}.mt32{margin-top:32px}.mt46{margin-top:46px}
+
+/* firma de marca: resaltador aqua */
+.hl{background:var(--aqua);color:var(--tinta);padding:.02em .22em;border-radius:.1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl-pill{background:var(--aqua);color:var(--tinta);padding:.08em .38em;border-radius:999px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* wordmark fantasma */
+.ghost{position:absolute;top:-2vw;left:-1vw;z-index:0;font-family:var(--font-display);font-weight:800;font-size:clamp(6rem,17vw,15rem);line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.10);pointer-events:none;user-select:none;white-space:nowrap}
+.sec-papel .ghost{-webkit-text-stroke-color:rgba(88,13,159,.13)}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-title{font-weight:700;font-size:clamp(2.5rem,6.6vw,5.4rem);line-height:1.0;letter-spacing:-.03em;max-width:17ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--w-80);max-width:680px;line-height:1.62}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:var(--font-display);font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:var(--font-display);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+.badge-logo{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:#fff;border-radius:0 0 22px 22px;padding:24px 22px 20px;display:flex;align-items:center;justify-content:center}
+.badge-logo img{height:62px;width:auto;display:block}
+
+/* ============ META BAND ============ */
+.metaband{background:rgba(26,3,47,.55);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:30px 38px}
+.metaband .inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.metaband .mi .k{font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--aqua);margin-bottom:7px}
+.metaband .mi .v{font-family:var(--font-display);font-weight:600;font-size:.97rem;line-height:1.35}
+.metaband .mi .v small{display:block;font-family:var(--font-text);font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.card .num-tag{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--aqua);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card.hi{background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(26,3,47,.35));border-color:var(--aqua-line)}
+
+/* dato con fuente */
+.src{display:block;font-family:var(--font-text);font-size:.74rem;color:var(--w-45);margin-top:12px;line-height:1.45;border-top:1px solid var(--line-soft);padding-top:10px}
+.sec-papel .src{color:rgba(18,18,18,.55);border-top-color:rgba(18,18,18,.10)}
+
+/* stats */
+.stats{display:flex;flex-wrap:wrap;gap:14px 52px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:44px}
+.sec-papel .stats{border-top-color:rgba(18,18,18,.12)}
+.stat .v{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,3.8vw,2.9rem);color:var(--aqua);line-height:1}
+.sec-papel .stat .v{color:var(--violeta)}
+.stat .l{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+.sec-papel .stat .l{color:rgba(18,18,18,.64)}
+
+/* quote / statement */
+.quote{border-left:2px solid var(--aqua);padding-left:24px;color:var(--white);font-family:var(--font-display);font-weight:500;font-size:clamp(1.1rem,1.8vw,1.55rem);line-height:1.38}
+.sec-papel .quote{color:var(--tinta);border-left-color:var(--violeta)}
+.bigstatement{font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.8rem);line-height:1.14;letter-spacing:-.015em;max-width:20ch}
+
+/* pill stack */
+.pills{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.pills span{display:inline-block;border-radius:999px;padding:.3em .85em;font-family:var(--font-display);font-weight:700;font-size:clamp(1.3rem,3.2vw,2.6rem);line-height:1.15}
+.pills span:nth-child(1){background:var(--violeta-900);color:#fff;margin-left:0}
+.pills span:nth-child(2){background:var(--aqua);color:var(--violeta-900);margin-left:2.2vw}
+.pills span:nth-child(3){background:var(--violeta-claro);color:#fff;margin-left:1vw}
+.pills span:nth-child(4){background:#fff;color:var(--violeta);margin-left:3.4vw}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:11px;margin-top:16px}
+.chip{font-family:var(--font-display);font-weight:500;font-size:.95rem;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);transition:all .35s var(--ease)}
+.chip:hover{border-color:var(--aqua-line);color:var(--aqua);transform:translateY(-3px)}
+.sec-papel .chip{background:#fff;border-color:rgba(18,18,18,.10);color:var(--tinta)}
+.sec-papel .chip:hover{border-color:var(--violeta);color:var(--violeta)}
+
+/* ============ PIPE ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 18px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--aqua-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:var(--font-display);font-weight:700;font-size:12px;color:var(--aqua);letter-spacing:.1em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:var(--font-display);font-weight:600;font-size:1rem}
+.pipe .node p{font-size:.8rem;color:var(--w-45);margin-top:6px;line-height:1.45}
+.pipe .arrow{display:flex;align-items:center;color:var(--aqua);opacity:.6}
+.sec-papel .pipe .node{background:#fff;border-color:rgba(18,18,18,.10)}
+.sec-papel .pipe .node .k{color:var(--violeta)}
+.sec-papel .pipe .node p{color:rgba(18,18,18,.60)}
+.sec-papel .pipe .arrow{color:var(--violeta)}
+
+/* ============ TABLAS ============ */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line-soft);border-radius:18px;background:var(--card)}
+.sec-papel .tbl-wrap{border-color:rgba(18,18,18,.10);background:#fff}
+table.tbl{width:100%;border-collapse:collapse;min-width:740px}
+.tbl-hint{display:none;font-family:var(--font-display);font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);margin-top:12px}
+.sec-papel .tbl-hint{color:var(--violeta)}
+.tbl th{font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.sec-papel .tbl th{color:var(--violeta);border-bottom-color:rgba(18,18,18,.12)}
+.tbl th.num,.tbl td.num{text-align:right}
+.tbl td{padding:14px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.5}
+.sec-papel .tbl td{color:rgba(18,18,18,.78);border-bottom-color:rgba(18,18,18,.08)}
+.tbl td.num{font-family:var(--font-display);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:var(--font-display);font-weight:600;color:#fff;white-space:nowrap}
+.sec-papel .tbl .plat{color:var(--tinta)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.hi td{background:rgba(116,250,227,.07)}
+.sec-papel .tbl tr.hi td{background:rgba(88,13,159,.05)}
+.tag-ok{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:rgba(116,250,227,.16);color:var(--aqua);border:1px solid var(--aqua-line);white-space:nowrap}
+.tag-no{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--w-45);border:1px solid var(--line);white-space:nowrap}
+.sec-papel .tag-ok{background:rgba(11,182,162,.12);color:#0BB6A2;border-color:rgba(11,182,162,.4)}
+.sec-papel .tag-no{background:rgba(18,18,18,.05);color:rgba(18,18,18,.48);border-color:rgba(18,18,18,.14)}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(26,3,47,.35)}
+.sec-papel .scope-col{background:#fff;border-color:rgba(18,18,18,.10)}
+.sec-papel .scope-col.no{background:rgba(18,18,18,.035)}
+.scope-col h3{font-family:var(--font-display);font-weight:600;font-size:1.18rem;margin-bottom:6px}
+.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:22px}
+.sec-papel .scope-col .sub{color:rgba(18,18,18,.55)}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--w-80);line-height:1.5}
+.sec-papel .scope-col li{color:rgba(18,18,18,.78)}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--aqua)}
+.scope-col.no li svg{color:var(--w-45)}
+.sec-papel .scope-col.yes li svg{color:var(--aqua-deep)}
+.sec-papel .scope-col.no li svg{color:rgba(18,18,18,.40)}
+
+/* bullets numerados */
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:13px;margin-top:2px}
+.bullets li p{color:var(--w-80);font-size:1rem;line-height:1.55}
+.sec-papel .bullets li .bi{background:rgba(88,13,159,.09);border-color:rgba(88,13,159,.25);color:var(--violeta)}
+.sec-papel .bullets li p{color:rgba(18,18,18,.78)}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--aqua-line),rgba(116,250,227,.05))}
+.tl-item{position:relative;padding:0 0 38px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violeta-900);border:2px solid var(--aqua);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 10px var(--aqua)}
+.tl-item .ph{font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);margin-bottom:5px}
+.tl-item h3{font-family:var(--font-display);font-weight:600;font-size:1.22rem;margin-bottom:9px}
+.tl-item p{color:var(--w-65);font-size:.95rem;line-height:1.62;max-width:64ch}
+.tl-item .tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tl-item .tl-tags span{font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.05em;padding:6px 13px;border-radius:999px;border:1px solid var(--line);color:var(--w-65)}
+
+/* ============ FOTOGRAFÍA ============ */
+.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft);aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.84) contrast(1.05) brightness(.95)}
+.media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(88,13,159,.42),rgba(26,3,47,.24) 55%,rgba(116,250,227,.10))}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px;font-family:var(--font-display);font-weight:600;font-size:.95rem;background:linear-gradient(to top,rgba(26,3,47,.88),transparent)}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.58) contrast(1.05)}
+.bg-photo.hero img{object-position:58% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(71,0,130,.97) 24%,rgba(88,13,159,.72) 58%,rgba(116,250,227,.10))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(88,13,159,.80),rgba(26,3,47,.95))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* ============ LOGOWALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:34px}
+.logocell{background:#fff;border-radius:16px;height:92px;display:flex;align-items:center;justify-content:center;padding:16px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,3,47,.35)}
+.logocell img{max-height:52px;max-width:86%;width:auto;object-fit:contain;display:block}
+.logocell .ln{display:none;font-family:var(--font-display);font-weight:700;font-size:.95rem;color:var(--violeta);text-align:center;line-height:1.2}
+.logocell.noimg img{display:none}
+.logocell.noimg .ln{display:block}
+
+/* ============ INVERSIÓN ============ */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:12px}
+.plan{position:relative;border:1.5px solid var(--line-soft);border-radius:22px;padding:32px 28px 28px;background:var(--card);cursor:pointer;user-select:none;transition:all .35s var(--ease);display:flex;flex-direction:column}
+.plan:hover{border-color:var(--aqua-line);transform:translateY(-4px)}
+.plan.sel{border-color:var(--aqua);background:linear-gradient(165deg,rgba(116,250,227,.15),rgba(26,3,47,.42));box-shadow:0 0 0 1px var(--aqua) inset,0 16px 44px rgba(116,250,227,.16)}
+.plan .rec{position:absolute;top:-11px;left:28px;font-family:var(--font-display);font-weight:700;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;background:var(--aqua);color:var(--tinta);padding:5px 12px;border-radius:999px}
+.plan .pname{font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+.plan .pfor{font-size:.84rem;color:var(--w-45);margin-top:5px;min-height:2.4em;line-height:1.4}
+.plan .pprice{font-family:var(--font-display);font-weight:700;font-size:2.35rem;color:var(--aqua);line-height:1;margin:22px 0 3px}
+.plan .pper{font-family:var(--font-display);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45)}
+.plan .phrs{font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--w-65);margin-top:10px;padding-top:12px;border-top:1px solid var(--line-soft)}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:16px;flex:1}
+.plan ul li{display:block;position:relative;padding-left:25px;font-size:.88rem;color:var(--w-80);line-height:1.45}
+.plan ul li svg{position:absolute;left:0;top:3px;width:15px;height:15px;color:var(--aqua)}
+.plan ul li.off{color:var(--w-45)}
+.plan ul li.off svg{color:var(--w-45);opacity:.5}
+.plan .pick{display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line-soft);font-family:var(--font-display);font-weight:600;font-size:.82rem;color:var(--w-45);transition:color .3s var(--ease)}
+.plan .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.plan .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);transform:scale(0);transition:transform .25s var(--ease)}
+.plan.sel .pick{color:var(--aqua)}
+.plan.sel .pick .radio{border-color:var(--aqua)}
+.plan.sel .pick .radio::after{transform:scale(1)}
+.plan .pick .lbl-on{display:none}
+.plan.sel .pick .lbl-off{display:none}
+.plan.sel .pick .lbl-on{display:inline}
+
+.inv-group{margin-top:44px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--font-display);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);padding-bottom:9px;border-bottom:1px solid var(--aqua-line);margin-bottom:4px}
+.inv-ghead .inv-sub{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:17px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row.pick{cursor:pointer}
+.price-row.pick:hover{background:rgba(255,255,255,.045)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:var(--font-display);font-weight:600;font-size:1rem}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:var(--w-45);margin-top:4px;font-family:var(--font-text);max-width:48ch;line-height:1.45}
+.price-row .pv{font-family:var(--font-display);font-weight:700;font-size:1.22rem;color:var(--aqua);white-space:nowrap;text-align:right}
+.price-row .pv small{display:block;font-family:var(--font-text);font-weight:400;font-size:.7rem;color:var(--w-45);margin-top:3px}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--tinta);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.pick.on .chk{background:var(--aqua);border-color:var(--aqua)}
+.price-row.pick.on .chk svg{opacity:1;transform:scale(1)}
+
+.totalbox{margin-top:44px;background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(26,3,47,.45));border:1.5px solid var(--aqua-line);border-radius:24px;padding:34px 38px}
+.totalbox .trow{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.totalbox .trow:last-of-type{border-bottom:none}
+.totalbox .trow .tl-k{font-family:var(--font-display);font-weight:600;font-size:.96rem;color:var(--w-80)}
+.totalbox .trow .tl-k small{display:block;font-family:var(--font-text);font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:3px}
+.totalbox .trow .tl-v{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--aqua);white-space:nowrap}
+.totalbox .trow.big .tl-v{font-size:2rem}
+.note{margin-top:18px;font-size:.84rem;color:var(--w-65);line-height:1.6}
+.note b{color:var(--aqua);font-weight:600}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65);margin-top:16px}
+.note-pill b{color:var(--aqua);font-family:var(--font-display);font-weight:600}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+.paycard{border:1.5px solid var(--line-soft);border-radius:16px;padding:22px;background:rgba(255,255,255,.035);position:relative}
+.paycard.best{border-color:var(--aqua-line);background:rgba(116,250,227,.08)}
+.paycard .pt{font-family:var(--font-display);font-weight:700;font-size:.95rem;margin-bottom:6px}
+.paycard .pd{font-size:.83rem;color:var(--w-65);line-height:1.5}
+.paycard .pq{font-family:var(--font-display);font-weight:700;font-size:1.5rem;color:var(--aqua);margin-top:12px}
+.paycard .bestbadge{position:absolute;top:-10px;right:18px;font-family:var(--font-display);font-weight:700;font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:var(--aqua);color:var(--tinta);padding:4px 11px;border-radius:999px}
+
+.price-row.yainc{opacity:.42;pointer-events:none}
+.price-row.yainc .pv::after{content:"Ya incluido en el plan";display:block;font-family:var(--font-text);font-weight:400;font-size:.68rem;color:var(--aqua);margin-top:4px}
+#ctaPick{font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--aqua);margin-top:24px;min-height:1.2em;line-height:1.5}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:18px 44px;border-radius:100px;font-family:var(--font-display);font-weight:700;font-size:1.03rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.30);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(116,250,227,.44)}
+.cta-go svg{width:20px;height:20px}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.02em;max-width:20ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.close-tag{font-family:var(--font-display);font-weight:500;color:var(--aqua);font-size:1.02rem;margin-top:4px}
+.footer{border-top:1px solid var(--line-soft);margin-top:60px;padding-top:26px;width:100%;max-width:var(--maxw);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:.82rem;color:var(--w-45)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 84px}
+  .sfoot{left:22px;right:22px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr}
+  .pay{grid-template-columns:1fr}
+  .metaband{padding:26px 22px}
+  .metaband .inner{grid-template-columns:1fr 1fr;gap:20px}
+  .logowall{grid-template-columns:repeat(3,1fr)}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .badge-logo{padding:15px 14px 12px}
+  .badge-logo img{height:40px}
+  .pipe .arrow{transform:rotate(90deg)}
+  .totalbox{padding:26px 22px}
+  .pills span{margin-left:0 !important}
+  .tbl-hint{display:block}
+  .tbl td,.tbl th{padding:12px 14px}
+  /* tablas densas -> tarjetas apiladas en mobile */
+  .tbl-cards{overflow:visible}
+  .tbl-cards+.tbl-hint{display:none}
+  .tbl-cards table.tbl{min-width:0;display:block}
+  .tbl-cards .tbl thead{display:none}
+  .tbl-cards .tbl tbody,.tbl-cards .tbl tr,.tbl-cards .tbl td{display:block;width:100%}
+  .tbl-cards .tbl tr{border-bottom:1px solid var(--line-soft);padding:16px 2px}
+  .sec-papel .tbl-cards .tbl tr{border-bottom-color:rgba(18,18,18,.10)}
+  .tbl-cards .tbl tr:last-child{border-bottom:none}
+  .tbl-cards .tbl td{border:none;padding:5px 16px;text-align:left}
+  .tbl-cards .tbl td.num{text-align:left}
+  .tbl-cards .tbl td::before{content:attr(data-l);display:block;font-family:var(--font-display);font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--aqua);margin-bottom:2px}
+  .sec-papel .tbl-cards .tbl td::before{color:var(--violeta)}
+  .tbl-cards .tbl td[data-l=""]::before,.tbl-cards .tbl td:first-child::before{display:none}
+  .tbl-cards .tbl td:first-child{font-family:var(--font-display);font-weight:700;font-size:1.02rem;margin-bottom:4px}
+  .eyebrow{align-items:flex-start;font-size:11px;letter-spacing:.16em}
+  .eyebrow::before{margin-top:4px}
+}
+@media(max-width:560px){
+  .stats{gap:20px 30px}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .metaband .inner{grid-template-columns:1fr}
+}
+
+/* v2: la flecha rotada del pipe desbordaba a lo ancho en mobile: rota el icono, no la caja */
+@media(max-width:900px){
+  .pipe .arrow{width:100%;justify-content:center;transform:none}
+  .pipe .arrow svg{transform:rotate(90deg)}
+}
+/* v2: subtitulo dentro de la primera columna de una tabla */
+.tbl td.plat small{display:block;font-family:var(--font-text);font-weight:400;font-size:.76rem;color:rgba(18,18,18,.55);margin-top:3px;white-space:normal}
+/* v2: grilla de dos escenarios (una sola columna en mobile) */
+.plan-grid.dos{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.plan-grid.dos{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<nav class="dots" id="dots"></nav>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Fe Seguros · Versión 2 · Confidencial</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-blanco.png" alt="Popcorn"></div>
+</header>
+
+<!-- ============================ 01 · HERO ============================ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt=""></div>
+  <div class="wrap">
+    <div class="eyebrow r">Fe Seguros × Popcorn · Primera etapa · 4 meses</div>
+    <h1 class="hero-title r d1">Que la pyme pregunte por Fe&nbsp;Seguros <span class="cy">antes</span> de que el corredor la nombre.</h1>
+    <p class="hero-sub r d2">Segunda versión, reescrita sobre lo que pidieron en la reunión: una sola etapa, los servicios que esa etapa necesita y nada más. Con dos escenarios de inversión —<b>sin pauta</b> y <b>con pauta digital</b>— y la diferencia concreta entre uno y otro.</p>
+    <div class="hero-tags r d3">
+      <span class="tag">Presentación de la compañía</span>
+      <span class="tag">Herramientas para 300 corredores</span>
+      <span class="tag">Vida Ley &amp; SCTR</span>
+      <span class="tag">Contenido producido en Lima</span>
+      <span class="tag">Sin pauta / con pauta</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div><span>Desliza para comenzar</span></div>
+</section>
+
+<div class="metaband">
+  <div class="inner">
+    <div class="mi"><div class="k">Preparada para</div><div class="v">Fe Seguros<small>Grupo Fe · Lima, Perú</small></div></div>
+    <div class="mi"><div class="k">Preparada por</div><div class="v">Popcorn<small>Marketing, comunicación y creatividad</small></div></div>
+    <div class="mi"><div class="k">Versión</div><div class="v">2 · Etapa 1<small>Reemplaza la del 16/09</small></div></div>
+    <div class="mi"><div class="k">Válida hasta</div><div class="v">3 de octubre de 2026<small>Reunión del 23/09</small></div></div>
+    <div class="mi"><div class="k">Contacto</div><div class="v">Florencia Grigolatto<small>florencia@somospopcorn.com</small></div></div>
+  </div>
+</div>
+
+<!-- ============================ 02 · QUÉ CAMBIÓ ============================ -->
+<section id="cambio" data-label="Qué cambió" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Versión 2</div>
+    <h2 class="h-lg r d1">Esta versión no agrega nada. <span class="cy">Saca.</span></h2>
+    <p class="lead mt24 r d2">La devolución de la reunión fue precisa: la propuesta era completa, pero tenía demasiadas ideas sueltas. Así que la reordenamos alrededor de una sola pregunta —<b>qué necesita la primera etapa</b>— y sacamos todo lo demás. Nada se descarta: se ordena en el tiempo.</p>
+
+    <div class="scope mt46">
+      <div class="scope-col yes r d3">
+        <h3>Queda en la etapa 1</h3>
+        <div class="sub">Porque sin esto, la etapa no sucede.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span><b>La presentación de la compañía al mercado.</b> El objetivo declarado: que la pyme sepa que existe una compañía nueva y qué dos productos trae.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span><b>Las piezas que el corredor reenvía por WhatsApp.</b> Salen de la propia campaña de presentación y del contenido de cada mes, no de un desarrollo aparte.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span><b>La gestión de los canales</b> donde está cada público: LinkedIn para el corredor, Facebook y TikTok para la pyme.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span><b>La dirección del contenido producido en Lima,</b> con la persona que Fe Seguros ya está buscando.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span><b>La pauta digital,</b> como una decisión separada y explícita. Es el bloque central de esta propuesta.</span></li>
+        </ul>
+      </div>
+      <div class="scope-col no r d4">
+        <h3>Sale de la etapa 1</h3>
+        <div class="sub">Se conversa después, con datos propios sobre la mesa.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Generación de leads y landing de captación.</b> La venta la hace el corredor: no le vamos a pedir al marketing un lead que el modelo todavía no necesita.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Publicidad de prevención.</b> Como se acordó: se cumple donde la norma lo exige, no se pauta.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>El kit comercial del corredor como producto aparte.</b> Argumentario de objeciones, comparativos de cobertura y plantillas de cierre de mes: se construye cuando haya corredores colocando y sepamos qué objeciones escuchan de verdad. El material para reenviar, en cambio, sale igual de la campaña.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Club de corredores</b> y programa de fidelización. Se diseña cuando haya corredores colocando, no antes.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>Email marketing, vocería de ejecutivos, manual de marca, motion explicativo y radar mensual.</b> Todos útiles; ninguno decisivo en estos cuatro meses.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>La discusión sobre la meta de 50.000.</b> Queda planteada en la versión 1 y la retomamos cuando veamos el plan de negocio presentado a la SBS.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note-pill r d5"><span>La versión 1 ofrecía <b>14 ítems cotizables y 3 planes</b>. Esta ofrece <b>3 ítems y 2 escenarios</b>. El resto no desapareció: está esperando su momento.</span></div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">01</span></div>
+</section>
+
+<!-- ============================ 03 · EL OBJETIVO ============================ -->
+<section id="objetivo" data-label="El objetivo" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">La primera etapa</div>
+    <h2 class="h-lg r d1">Qué tiene que ser verdad <span class="cy">el último día del cuarto mes.</span></h2>
+    <p class="lead mt24 r d2">Antes de hablar de servicios y de plata, esto es lo que entendimos que hay que lograr. Si no coincide con lo que ustedes esperan, es la conversación que hay que tener primero: todo lo demás se acomoda solo.</p>
+
+    <div class="grid g3 mt46">
+      <div class="card r d3">
+        <span class="num-tag">01</span>
+        <h3>La compañía existe para el mercado</h3>
+        <p>Las pymes de los rubros obligados saben que hay una compañía nueva y saben qué dos cosas hace: <b>Vida Ley</b> y <b>SCTR</b>. No hace falta que sepan más. Hace falta que lo sepan.</p>
+      </div>
+      <div class="card r d4">
+        <span class="num-tag">02</span>
+        <h3>El corredor no explica: muestra</h3>
+        <p>Los 300 corredores tienen en el teléfono la pieza que responde "¿y quiénes son ustedes?" sin que tengan que armarla ellos ni que ponerle palabras propias. La marca deja de ser trabajo para el corredor.</p>
+      </div>
+      <div class="card r d5">
+        <span class="num-tag">03</span>
+        <h3>El corredor ve el esfuerzo</h3>
+        <p>Una compañía que se ve moviéndose es una compañía que da confianza para recomendar. Es la lección que ya dejó la experiencia anterior: <b>el canal registra el esfuerzo</b>, incluso cuando la marca todavía no es conocida.</p>
+      </div>
+    </div>
+
+    <div class="mt46 r d6">
+      <p class="quote">No se genera el lead: se genera el ambiente. La primera etapa es generar ese ambiente y darles herramientas a los corredores.</p>
+      <p class="muted mt16" style="font-size:.86rem">Síntesis de lo planteado en la reunión del 23 de septiembre de 2026. Es la definición de éxito que adoptamos para esta propuesta.</p>
+    </div>
+
+    <div class="grid g2 mt46">
+      <div class="card hi r d7">
+        <h3>Lo que esto no es</h3>
+        <p>No son leads, no son cotizaciones y no son pólizas colocadas. La comunicación crea el contexto; la venta la cierra el corredor, con su comisión, su relación y la velocidad de emisión de la compañía.</p>
+      </div>
+      <div class="card hi r d8">
+        <h3>Y lo que eso implica para nosotros</h3>
+        <p>Si el objetivo no son las pólizas, <b>tampoco se nos puede evaluar por pólizas</b>. Proponemos acordarlo por escrito antes de arrancar: protege a las dos partes de una discusión que, si no se resuelve ahora, aparece en el mes cuatro.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">02</span></div>
+</section>
+
+<!-- ============================ 04 · LA MARCA ============================ -->
+<section id="marca" data-label="La marca" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">La marca que se presenta</div>
+    <h2 class="h-lg r d1">El storytelling ya tiene la idea. <span class="cy">Falta bajarla a piezas.</span></h2>
+    <p class="lead mt24 r d2">Leímos el documento de marca que nos compartieron. El eje está resuelto y no lo vamos a tocar: <b>accesibilidad</b>, bajar la barrera, traducir lo complejo en claro. Nuestro trabajo no es reinventar eso. Es hacerlo visible en piezas de quince segundos.</p>
+
+    <div class="split mt46">
+      <div class="col-txt r d3">
+        <p class="bigstatement">"Traducimos lo complejo en claro. Lo técnico en comprensible. Lo distante en cercano."</p>
+        <p class="muted mt16" style="font-size:.86rem">Documento de marca de Fe Seguros. Es, además, una definición operativa de lo que tiene que hacer cada pieza.</p>
+        <div class="chips mt32">
+          <span class="chip">Clara, firme y confiable</span>
+          <span class="chip">Sobria y cercana</span>
+          <span class="chip">Orientada a resolver</span>
+          <span class="chip">Hacemos posible proteger</span>
+        </div>
+      </div>
+      <div class="col-img r d4">
+        <div class="media"><img src="img/taller.jpg" alt="Pyme de rubro de riesgo"><div class="cap">El público de la etapa: empresas de 2 a 50 trabajadores en rubros obligados.</div></div>
+      </div>
+    </div>
+
+    <div class="mt46 r d5">
+      <div class="eyebrow">Una contradicción que resolvimos antes de escribir</div>
+      <div class="grid g3">
+        <div class="card">
+          <h3>El documento pide bajar el miedo</h3>
+          <p>La marca nace para acercarse a quien "no ha tenido acceso o tiene miedo al acceso". Todo el relato empuja en esa dirección.</p>
+        </div>
+        <div class="card">
+          <h3>Pero el producto es una obligación</h3>
+          <p>El SCTR y la Vida Ley no se compran por deseo: se compran porque la ley los exige y hay fiscalización. El ángulo más eficaz de la categoría es, justamente, el del cumplimiento.</p>
+        </div>
+        <div class="card hi">
+          <h3>La salida no es elegir uno</h3>
+          <p><b>El miedo viene de no entender.</b> Explicar con claridad qué es obligatorio, qué cubre, cuánto cuesta y cómo se saca <i>es</i> bajar el miedo. No hay que asustar a nadie para vender un producto que ya es obligatorio.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt46 r d6">
+      <div class="eyebrow">El territorio de la etapa</div>
+      <div class="pills">
+        <span>Lo obligatorio,</span>
+        <span>explicado.</span>
+      </div>
+      <p class="lead mt24">Toda la categoría comunica en clave de <i>tranquilidad</i> y <i>respaldo</i>. Nadie explica. Fe Seguros se presenta diciendo con todas las letras qué hay que tener, por qué, qué cubre y en cuánto se resuelve. Es el territorio más cercano a la decisión real de compra —y es coherente con la marca que ya escribieron.</p>
+      <div class="note-pill"><span>Y una decisión que ya tomamos juntos: <b>nada de prevención en pauta.</b> Ese terreno ya lo ocupan tres compañías con más años y más presupuesto.</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">03</span></div>
+</section>
+
+<!-- ============================ 05 · EL PLAN ============================ -->
+<section id="plan" data-label="Los 4 meses" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo lo hacemos</div>
+    <h2 class="h-lg r d1">Cuatro meses, <span class="cy">tres movimientos.</span></h2>
+    <p class="lead mt24 r d2">El calendario se ancla a la licencia, no al almanaque: la comunicación masiva como aseguradora arranca cuando la SBS autorice el funcionamiento. Todo lo que está antes se puede construir igual, y es exactamente lo que evita improvisar el día que llegue el permiso.</p>
+
+    <div class="tl mt46">
+      <div class="tl-item r d3">
+        <div class="dot"></div>
+        <div class="ph">Mes 0 · 4 a 6 semanas · antes de salir</div>
+        <h3>Construir en silencio</h3>
+        <p>Estrategia y plan de la etapa mes a mes. Bajada del storytelling a un sistema de comunicación operable. Concepto de presentación de la compañía y sus piezas, incluidas las que el corredor reenvía. Canales creados y puestos a punto. Al final del mes 0, no queda nada que decidir: queda ejecutar. La puesta en marcha de la persona que produce el contenido en Lima —cómo se filma, qué se filma y con qué criterio— la resolvemos dentro de la dirección mensual de esa célula, sin un desarrollo aparte.</p>
+        <div class="tl-tags"><span>Estrategia</span><span>Territorio y sistema de piezas</span><span>Piezas para reenviar</span><span>Start-up de canales</span><span>Puesta en marcha del contenido local</span></div>
+      </div>
+      <div class="tl-item r d4">
+        <div class="dot"></div>
+        <div class="ph">Mes 1 · El canal primero</div>
+        <h3>El material, en el teléfono del corredor</h3>
+        <p>Los 300 corredores reciben las piezas antes que el mercado. LinkedIn empieza a trabajar el canal —público finito y nominal, donde la conversación no requiere licencia— y las piezas de WhatsApp quedan en el teléfono del corredor. En paralelo, las piezas del evento de enero.</p>
+        <div class="tl-tags"><span>LinkedIn</span><span>Piezas en manos del corredor</span><span>Material del evento</span></div>
+      </div>
+      <div class="tl-item r d5">
+        <div class="dot"></div>
+        <div class="ph">Mes 2 · Enero · la presentación</div>
+        <h3>La compañía se presenta</h3>
+        <p>El evento con corredores es de ustedes y va a ser clásico y formal, como corresponde al canal: ahí la disrupción no aporta. Nosotros ponemos el concepto, las piezas y el mensaje. Y al mismo tiempo se enciende la comunicación hacia la pyme, que es la parte que el evento no alcanza: en el salón entran cien corredores de Lima; los otros doscientos están en provincias.</p>
+        <div class="tl-tags"><span>Evento de corredores</span><span>Salida a la pyme</span><span>Facebook + TikTok</span><span>Contenido local semanal</span></div>
+      </div>
+      <div class="tl-item r d6">
+        <div class="dot"></div>
+        <div class="ph">Meses 3 y 4 · sostener</div>
+        <h3>Repetir hasta que quede</h3>
+        <p>Ninguna marca nueva se instala con un pico. Lo que instala es la frecuencia: la misma idea, dicha muchas veces, a la misma gente. Acá también aparece la primera lectura de datos propios —qué rubro responde, qué mensaje funciona, en qué ciudad— y con eso se decide qué se sostiene y qué se apaga en la etapa 2.</p>
+        <div class="tl-tags"><span>Frecuencia</span><span>Contenido local</span><span>Primera lectura de datos</span><span>Decisión de etapa 2</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">04</span></div>
+</section>
+
+<!-- ============================ 06 · ESCENARIOS ============================ -->
+<section id="escenarios" data-label="Sin pauta / con pauta" class="sec-negro auto">
+  <div class="wrap">
+    <div class="eyebrow r">La decisión de la etapa</div>
+    <h2 class="h-lg r d1">Sin pauta y con pauta no son dos presupuestos. <span class="cy">Son dos alcances distintos.</span></h2>
+    <p class="lead mt24 r d2">En la reunión quedó planteado así: <i>la inversión va a depender del impacto</i>. Es la pregunta correcta, y merece una respuesta mecánica, no una promesa. Esto es lo que cada escenario puede y no puede hacer.</p>
+
+    <div class="mt46 r d3">
+      <p class="quote">"Lo voy a usar, pero por ahí no va a salir el impacto. El impacto va a salir porque esto llegue directamente a quien tenga que llegar."</p>
+      <p class="muted mt16" style="font-size:.86rem">Reunión del 23/09, hablando del material que los corredores reenvían por WhatsApp. Coincidimos: esa es exactamente la línea que separa los dos escenarios.</p>
+    </div>
+
+    <div class="tbl-wrap tbl-cards mt46 r d4">
+      <table class="tbl">
+        <thead><tr><th>La pregunta</th><th>Escenario A · sin pauta</th><th>Escenario B · con pauta digital</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">¿A quién le llega el mensaje?</td><td data-l="Sin pauta">A la cartera que el corredor ya tiene y a quien siga las cuentas.</td><td data-l="Con pauta">A esa misma cartera <b>más</b> las pymes que hoy no son cliente de ningún corredor de Fe Seguros.</td></tr>
+          <tr class="hi"><td class="plat">¿Llega a provincias?</td><td data-l="Sin pauta">Solo donde haya un corredor activo reenviando.</td><td data-l="Con pauta">Sí. La segmentación geográfica es la forma más barata de cubrir a los 200 corredores que no van al evento y a sus mercados.</td></tr>
+          <tr><td class="plat">¿Aparece cuando una pyme busca "SCTR"?</td><td data-l="Sin pauta">No. Un dominio nuevo no compite por posicionamiento orgánico en cuatro meses.</td><td data-l="Con pauta">Sí, desde el primer día. Es el único lugar donde la intención de compra ya existe.</td></tr>
+          <tr class="hi"><td class="plat">¿Se puede elegir a qué rubro hablarle?</td><td data-l="Sin pauta">No. Llega quien llega.</td><td data-l="Con pauta">Sí: transporte, construcción y actividades de riesgo, por separado y con mensajes distintos.</td></tr>
+          <tr><td class="plat">¿Qué sabemos a los cuatro meses?</td><td data-l="Sin pauta">Si el corredor reenvió el material y qué contenido gustó. Poco más.</td><td data-l="Con pauta">Qué rubro responde, qué mensaje funciona, en qué ciudad y a qué costo. Un mapa propio para decidir la etapa 2.</td></tr>
+          <tr class="hi"><td class="plat">¿Qué ve el corredor?</td><td data-l="Sin pauta">Una compañía que publica.</td><td data-l="Con pauta">Una compañía que <b>invierte</b> en que a él le sea más fácil vender. Es una señal distinta, y el canal la lee.</td></tr>
+          <tr><td class="plat">¿Cuál es el techo?</td><td data-l="Sin pauta">El alcance orgánico de una cuenta nueva: las plataformas distribuyen el contenido de una página sin seguidores casi exclusivamente entre sus seguidores. Al principio, eso es cerca de cero.</td><td data-l="Con pauta">El presupuesto. Se decide, se mide y se ajusta mes a mes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-hint">&rarr; Desliza la tabla para verla completa</div>
+
+    <div class="mt46 r d5">
+      <div class="eyebrow">Lo concreto</div>
+      <h3 class="h-md">Las tres cosas que solo pasan con pauta.</h3>
+    </div>
+    <div class="grid g3 mt24">
+      <div class="card r d6">
+        <span class="num-tag">01</span>
+        <h3>La marca llega antes que el corredor</h3>
+        <p>Sin pauta, la marca llega exactamente hasta donde llega el corredor: no suma un solo contacto nuevo, solo mejora la conversación que igual iba a existir. Con pauta, cuando el corredor dice "te propongo Fe Seguros", del otro lado ya escucharon el nombre. Ese es el objetivo declarado de la etapa, y es el único mecanismo que lo produce.</p>
+      </div>
+      <div class="card r d7">
+        <span class="num-tag">02</span>
+        <h3>Estar donde ya hay intención</h3>
+        <p>Cuando una pyme busca contratar SCTR en internet, los que aparecen son corredores e insurtechs, no compañías. De las tarjetas de anuncios que relevamos por esa palabra, las siete aseguradoras juntas casi no están. Es inventario disponible, con demanda existente y sin competencia de marca.</p>
+        <span class="src">Relevamiento propio del canal digital peruano y del Centro de Transparencia de Google, 16 de septiembre de 2026.</span>
+      </div>
+      <div class="card r d8">
+        <span class="num-tag">03</span>
+        <h3>Salir del universo de los 300</h3>
+        <p>El plan de la etapa apoya a 300 corredores. La pauta es lo único que le habla a las pymes que <b>no</b> están en la cartera de esos 300 —que son la enorme mayoría del mercado— y las devuelve al canal preguntando por la compañía.</p>
+      </div>
+    </div>
+
+    <div class="mt46 r d8">
+      <div class="eyebrow">La cuenta, con los supuestos a la vista</div>
+      <p class="lead">Para que 50.000 o 60.000 pymes reconozcan una marca no alcanza con verla una vez: hace falta repetición sostenida durante la ventana. Esa es la aritmética que gobierna el presupuesto, y la vamos a resolver con ustedes en la primera reunión de trabajo.</p>
+      <p class="lead mt16">Lo que hoy <b>no</b> tenemos es el costo por mil impresiones que paga esta categoría en Perú, y no lo vamos a inventar: lo sabemos a los quince días de encender la primera campaña. Lo que sí sabemos hoy es la otra mitad de la cuenta: <b>sin pauta, ese número no es más chico. Es cero</b>, porque no existe un mecanismo orgánico que le muestre la marca a una pyme que no sigue las cuentas ni es cliente de un corredor que reenvía.</p>
+      <div class="note-pill"><span>Compromiso: en el <b>mes 1</b> reemplazamos este razonamiento por la cuenta real. Si el costo no permite llegar al orden de magnitud que ustedes necesitan, se los decimos y ajustamos la meta o el presupuesto. No sostenemos un número que no se cumple.</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">05</span></div>
+</section>
+
+<!-- ============================ 07 · INVERSIÓN ============================ -->
+<section id="inversion" data-label="Inversión" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Dos escenarios. <span class="cy">Menos ítems y más ajustados.</span></h2>
+    <!-- BLOQUE 1: PAGO ÚNICO -->
+    <div class="bloque r d3">
+      <div class="bloque-tit"><span class="n">1</span><span class="t">Se paga una vez</span><span class="s">La construcción: lo que hay que tener listo antes de salir al mercado.</span></div>
+    </div>
+
+    <div class="inv-group r d3">
+      <div class="inv-ghead"><span>Mes 0 · construcción — elige qué incluir</span><span class="inv-sub" id="subE0">—</span></div>
+
+      <div class="price-row pick on" data-type="once" data-amount="2700" data-svc="Estrategia y campaña de presentación" data-price="USD 2.700">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Estrategia y campaña de presentación<small>Un solo trabajo, de la decisión a la pieza: el plan de los cuatro meses —qué se comunica, a quién, en qué canal y con qué se mide— y el concepto con el que la compañía se presenta, bajado a sistema de piezas para cada canal, para el evento y para que el corredor reenvíe por WhatsApp.</small></span></div>
+        <div class="pv">USD 2.700</div>
+      </div>
+
+      <div class="price-row pick on" data-type="once" data-amount="620" data-svc="Start-up de canales (4 redes)" data-price="USD 620">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Start-up de canales: LinkedIn, Facebook, TikTok e Instagram<small>Creación y puesta a punto: identidad aplicada, biografías y destacados.</small></span></div>
+        <div class="pv">USD 620</div>
+      </div>
+
+      <div class="price-row pick" data-type="once" data-amount="490" data-svc="Start-up de pauta digital (Meta + Google)" data-price="USD 490" data-only="B">
+        <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span>Start-up de pauta digital: Meta + Google <b class="cy">· solo escenario B</b><small>Configuración de cuentas publicitarias, medición, estructura de campañas, públicos y primeras creatividades listas para salir.</small></span></div>
+        <div class="pv">USD 490</div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 2: MENSUAL -->
+    <div class="bloque r d4">
+      <div class="bloque-tit"><span class="n">2</span><span class="t">Se paga todos los meses</span><span class="s">La única diferencia entre los dos escenarios es la pauta.</span></div>
+    </div>
+
+    <div class="plan-grid dos r d4">
+      <div class="plan" data-plan="A" data-amount="2940" data-name="Escenario A · sin pauta" data-price="USD 2.940/mes">
+        <div class="pname">Escenario A · sin pauta</div>
+        <div class="pfor">Construir la marca y equipar al canal, sin inversión en medios.</div>
+        <div class="pprice">USD 2.940</div>
+        <div class="pper">por mes</div>
+        <div class="phrs">Acompañamiento, contenido y dirección de la célula de Lima</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Acompañamiento estratégico: 2 reuniones por mes + reporte</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>4 canales trabajando los dos públicos: corredor y pyme</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>20 publicaciones + 10 videos + historias y reels al mes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Piezas reenviables por WhatsApp para el corredor, dentro del volumen mensual</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Dirección de la célula de contenido en Lima</span></li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M18 6 6 18M6 6l12 12"/></svg>Sin pauta digital, sin alcance más allá del orgánico</li>
+        </ul>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+      </div>
+
+      <div class="plan" data-plan="B" data-amount="3790" data-name="Escenario B · con pauta digital" data-price="USD 3.790/mes">
+        <div class="rec">Recomendado</div>
+        <div class="pname">Escenario B · con pauta</div>
+        <div class="pfor">Lo mismo que A, más la máquina que lleva el mensaje a quien tiene que llegar.</div>
+        <div class="pprice">USD 3.790</div>
+        <div class="pper">por mes + inversión en medios</div>
+        <div class="phrs">Todo lo del escenario A, más gestión de pauta en Meta y Google</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span><b>Todo lo del escenario A</b>, sin recortes</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Gestión de pauta en <b>Meta + Google</b>: armado, optimización dos veces por semana y reporte quincenal. Google suma mantenimiento semanal de búsquedas y negativos, que es trabajo propio y no compartido con Meta</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Segmentación por rubro y por geografía, incluidas provincias</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Campañas <b>separadas por rubro y por público</b>, con creatividades propias de cada una, producidas y testeadas todos los meses</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span>Datos propios de respuesta por rubro, mensaje y ciudad</span></li>
+        </ul>
+        <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+      </div>
+    </div>
+
+    <p class="note r d5" style="margin-top:22px">La diferencia mensual entre un escenario y otro son <b>USD 850</b> de gestión: son 34 horas de equipo al mes contra ninguna —dos plataformas, campañas separadas por rubro y creatividades nuevas cada mes—, no un recargo por administrar. A eso se suma, solo en el escenario B, la <b>inversión en medios</b>, que se paga directo a Meta y Google y sobre la que se aplica un fee variable del 15% por administración.</p>
+
+    <!-- TOTALES -->
+    <div class="totalbox r d6">
+      <div class="trow big"><div class="tl-k">Inversión mensual<small>Se factura por adelantado, al inicio de cada mes</small></div><div class="tl-v" id="totMonth">—</div></div>
+      <div class="trow"><div class="tl-k">Pago único<small>Mes 0 · construcción</small></div><div class="tl-v" id="totOnce">—</div></div>
+      <div class="trow"><div class="tl-k">Fee variable sobre pauta<small>Sobre la inversión neta administrada en plataformas. Solo escenario B</small></div><div class="tl-v">15%</div></div>
+
+      <div class="pay">
+        <div class="paycard best"><span class="bestbadge">Valor preferencial</span>
+          <div class="pt">100% anticipado</div>
+          <div class="pd">Se abona al confirmar y arrancamos de inmediato. 3% de descuento sobre el pago único.</div>
+          <div class="pq" id="payAnt">—</div>
+        </div>
+        <div class="paycard">
+          <div class="pt">50% + 50%</div>
+          <div class="pd">50% al confirmar y 50% a los 30 días o contra entrega, lo que ocurra primero.</div>
+          <div class="pq" id="payFull">—</div>
+        </div>
+      </div>
+
+      <div id="ctaPick"><span class="none">Elige un escenario para incluirlo en el correo.</span></div>
+      <a class="cta-go" id="ctaGo" href="mailto:florencia@somospopcorn.com">Avanzar con esta propuesta
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <!-- LOS 4 MESES SUMADOS -->
+    <div class="mt46 r d7">
+      <div class="eyebrow">Para comparar</div>
+      <h3 class="h-md">Los dos escenarios, lado a lado.</h3>
+      <div class="tbl-wrap tbl-cards mt24">
+        <table class="tbl">
+          <thead><tr><th>Concepto</th><th class="num">Escenario A · sin pauta</th><th class="num">Escenario B · con pauta</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Mes 0 · construcción<small>Se paga una vez</small></td><td class="num" data-l="Sin pauta">USD 3.320</td><td class="num" data-l="Con pauta">USD 3.810</td></tr>
+            <tr><td class="plat">Acompañamiento</td><td class="num" data-l="Sin pauta">USD 2.940<br><small>por mes</small></td><td class="num" data-l="Con pauta">USD 3.790<br><small>por mes</small></td></tr>
+            <tr><td class="plat">Inversión en medios sugerida</td><td class="num" data-l="Sin pauta">—</td><td class="num" data-l="Con pauta">USD 2.500<br><small>por mes</small></td></tr>
+            <tr><td class="plat">Fee de administración de pauta · 15%</td><td class="num" data-l="Sin pauta">—</td><td class="num" data-l="Con pauta">USD 375<br><small>por mes</small></td></tr>
+            <tr class="hi"><td class="plat">Costo mensual del escenario</td><td class="num" data-l="Sin pauta"><b>USD 2.940</b><br><small>por mes</small></td><td class="num" data-l="Con pauta"><b>USD 6.665</b><br><small>por mes</small></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-hint">&rarr; Desliza la tabla para verla completa</div>
+      <div class="note-pill"><span>La diferencia entre los dos escenarios es de <b>USD 3.725 por mes</b>, más USD 490 de configuración inicial. Lo que compra está detallado más arriba: alcance sobre pymes que hoy no conocen la compañía, presencia donde ya hay intención de compra, cobertura de provincias y datos propios para decidir la etapa 2.</span></div>
+      <p class="note">La inversión en medios de USD 2.500 mensuales es <b>una sugerencia de arranque para dimensionar la conversación</b>, no una recomendación cerrada: el monto definitivo se acuerda en la primera reunión de trabajo, una vez definida la meta. A esa inversión, Meta y Google le suman el IGV del 18% que rige en Perú sobre servicios digitales de proveedores no domiciliados (D. Leg. 1623): conviene presupuestarla con ese recargo ya incluido.</p>
+    </div>
+
+    <!-- ALCANCE -->
+    <div class="mt46 r d8">
+      <div class="eyebrow">Sin letra chica</div>
+      <div class="scope">
+        <div class="scope-col yes">
+          <h3>Incluido en el fee mensual</h3>
+          <div class="sub">En los dos escenarios, salvo donde se aclara.</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span>Dirección estratégica y reuniones de seguimiento con reporte ejecutivo.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span>Plan editorial, redacción, diseño y publicación en los cuatro canales, en el volumen mensual declarado.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span>Gestión, optimización y reporte de la pauta <b>(solo escenario B)</b>.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span>Dirección de la célula de contenido en Lima: brief mensual, guía, edición y control de calidad.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span>Moderación y respuesta de los <b>comentarios públicos</b> en los cuatro canales, con alerta inmediata ante cualquier reclamo. Los mensajes privados los monitoreamos y derivamos, pero no los respondemos.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg><span>Hasta dos rondas de ajustes por pieza.</span></li>
+          </ul>
+        </div>
+        <div class="scope-col no">
+          <h3>No incluido</h3>
+          <div class="sub">Se cotiza aparte o lo resuelve Fe Seguros.</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>La inversión en medios: se paga directo a las plataformas.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>El costo de la persona que produce contenido en Lima y su equipamiento.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Rodajes, animación y motion. Si para el evento hace falta un video institucional, lo cotizamos aparte cuando lo definan.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Producción física del evento: salón, catering, montaje, anfitrionas.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Cachés de influencers, licencias de banco de imágenes y música.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span><b>La respuesta a los mensajes privados y a las consultas de clientes y corredores.</b> Los mensajes directos de las redes y de WhatsApp los contesta Fe Seguros, y también toda pregunta sobre cobertura, precio, siniestro o estado de una póliza, venga por donde venga: es información de la compañía y tiene responsabilidad regulatoria. Nosotros la detectamos, la derivamos y avisamos.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Asesoría legal y revisión regulatoria de piezas ante la SBS.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Viajes y presencialidad en Lima. Todo el trabajo se presta desde Buenos Aires, incluida la capacitación del equipo de contenido, que es remota.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="note r d8" style="margin-top:34px"><b>Condiciones.</b> Valores en dólares estadounidenses; Popcorn factura desde Estados Unidos. Los importes son netos: los tributos y retenciones que correspondan en Perú quedan a cargo de Fe Seguros. El fee mensual se abona 100% por adelantado, al valor de lista; el descuento del 3% por pago anticipado aplica solo a los trabajos de pago único. Esta propuesta cubre <b>la primera etapa, de cuatro meses</b>: al cierre se evalúan resultados y se define la etapa 2. Cualquiera de las partes puede discontinuar antes con 30 días de preaviso por escrito. La propiedad intelectual de todas las piezas producidas se cede a Fe Seguros una vez abonadas.</p>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">06</span></div>
+</section>
+
+<!-- ============================ 08 · LO QUE NECESITAMOS ============================ -->
+<section id="ustedes" data-label="Qué necesitamos" class="auto">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que necesitamos de ustedes</div>
+    <h2 class="h-lg r d1">Tres cosas. <span class="cy">Ninguna es plata.</span></h2>
+
+    <div class="split mt46">
+      <div class="col-txt">
+        <ul class="bullets r d2">
+          <li><span class="bi">1</span><p><b>La persona que filma en Lima.</b> Quedó en que la buscan internamente, y coincidimos en el perfil: alguien curioso, dinámico, que maneje el celular y esté en las tendencias. No hace falta un especialista ni equipamiento: un celular moderno, un trípode y una luz. Nosotros la dirigimos todos los meses: qué se filma, cómo se encuadra, el brief mensual y toda la edición. Va dentro del fee, sin desarrollo aparte.</p></li>
+          <li><span class="bi">2</span><p><b>Quién responde las consultas.</b> Todo lo que llegue por redes sobre coberturas, precios o pólizas lo contesta Fe Seguros: es información de la compañía y tiene responsabilidad regulatoria. Necesitamos saber quién es esa persona y en cuánto responde. Nosotros monitoreamos, derivamos y avisamos.</p></li>
+          <li><span class="bi">3</span><p><b>El plan de negocio presentado a la SBS.</b> Es el dato que más nos ordena: si la meta comercial ya está expresada ahí, calibramos todo contra ese número en lugar de estimarlo. También nos sirve la fecha estimada de la autorización de funcionamiento, para anclar el calendario.</p></li>
+        </ul>
+      </div>
+      <div class="col-img r d3">
+        <div class="media"><img src="img/contenido.jpg" alt="Producción de contenido local"><div class="cap">Producción sencilla, constante y local. No un rodaje al año.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">07</span></div>
+</section>
+
+<!-- ============================ 09 · MEDICIÓN ============================ -->
+<section id="medicion" data-label="Cómo se mide" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo se mide</div>
+    <h2 class="h-lg r d1">Dos tableros. <span class="cy">Uno es nuestro.</span></h2>
+    <p class="lead mt24 r d2">Si el objetivo de la etapa no son las pólizas, medir pólizas para evaluar la comunicación garantiza un diagnóstico equivocado. Proponemos separarlo desde el mes 1, con responsables distintos y a la vista de todos.</p>
+
+    <div class="grid g2 mt46">
+      <div class="card hi r d3">
+        <h3>Tablero de marca · responde Popcorn</h3>
+        <p><b>Alcance y frecuencia</b> sobre el público objetivo, por rubro y ciudad · <b>Reconocimiento asistido</b>, medido con una consulta corta a corredores al mes 1 y al mes 4 · <b>Uso real del material</b>: cuántos corredores descargan y reenvían las piezas · <b>Costo por persona alcanzada</b> con frecuencia efectiva, desde el mes 1 con dato propio.</p>
+      </div>
+      <div class="card r d4">
+        <h3>Tablero de canal · responde Fe Seguros</h3>
+        <p><b>Corredores dados de alta</b> y corredores activos colocando · <b>Pólizas y vidas aseguradas</b> por corredor · <b>Tiempo de cotización a emisión</b>, que es donde se prueba la promesa de agilidad · <b>Consultas recibidas</b> y tiempo de respuesta.</p>
+      </div>
+    </div>
+
+    <div class="mt46 r d5">
+      <p class="quote">Los tres atributos elegidos —ágil, cercana, competitiva— se prueban en el tiempo de cotización a emisión y en quién atiende el problema, no en un posteo. La comunicación puede prometerlo; solo la operación puede sostenerlo.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">08</span></div>
+</section>
+
+<!-- ============================ 10 · PRÓXIMOS PASOS ============================ -->
+<section id="pasos" data-label="Próximos pasos" class="auto sec-papel">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cuatro pasos <span class="cy">y arrancamos.</span></h2>
+    <div class="pipe mt46">
+      <div class="node r d2"><span class="k">01</span><span class="t">Elegir el escenario</span><p>Con o sin pauta. Es la decisión que define todo lo demás.</p></div>
+      <div class="arrow r d2"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node r d3"><span class="k">02</span><span class="t">Reunión de calibración</span><p>Una hora: metas, plan de negocio de la SBS y monto de pauta.</p></div>
+      <div class="arrow r d3"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node r d4"><span class="k">03</span><span class="t">Kickoff</span><p>Arranca el mes 0. Estrategia, territorio y kit del corredor.</p></div>
+      <div class="arrow r d4"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node r d5"><span class="k">04</span><span class="t">Enero</span><p>El evento, la presentación de la compañía y la salida a la pyme.</p></div>
+    </div>
+    <p class="note mt32 r d6">Esta propuesta reemplaza a la del 16 de septiembre y es válida hasta el <b>3 de octubre de 2026</b>.</p>
+  </div>
+  <div class="sfoot"><span>Fe Seguros × Popcorn · v2</span><span class="num">09</span></div>
+</section>
+
+<!-- ============================ 11 · CIERRE ============================ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/corredor.jpg" alt=""></div>
+  <div class="badge-logo"><img src="img/logo-vertical-negro.png" alt="Popcorn"></div>
+  <div class="wrap">
+    <h2 class="close-title r">El día que llegue la licencia, no debería haber nada que <span class="cy">improvisar</span>.</h2>
+    <p class="lead mt32 r d2" style="margin-left:auto;margin-right:auto;text-align:center">Cuatro meses para que la compañía se presente, para que el corredor tenga con qué vender y para que la pyme ya haya escuchado el nombre. Eso es todo lo que hay en esta propuesta. Es a propósito.</p>
+    <div class="close-sign r d3">
+      <div class="close-tag">Florencia Grigolatto · florencia@somospopcorn.com</div>
+      <div class="close-tag">Demián Linetzky · demianlinet@somospopcorn.com</div>
+    </div>
+    <div class="footer r d4">
+      <span>Popcorn · Marketing, comunicación y creatividad</span>
+      <span>Propuesta versión 2 · 23 de septiembre de 2026 · Confidencial</span>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.4});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Calculadora de inversión ===== */
+const planes=[...document.querySelectorAll('.plan')];
+const picks=[...document.querySelectorAll('.price-row.pick')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const fmt=n=>'USD '+Number(n).toLocaleString('es-AR');
+
+function build(){
+  const plan=planes.find(p=>p.classList.contains('sel'));
+  const planId=plan?plan.dataset.plan:'';
+
+  /* El start-up de pauta solo existe en el escenario B */
+  picks.forEach(p=>{
+    if(p.dataset.only){
+      const habilitado=(p.dataset.only===planId);
+      p.style.display=habilitado?'':'none';
+      if(habilitado&&planId==='B'){p.classList.add('on');}
+      if(!habilitado){p.classList.remove('on');}
+    }
+  });
+
+  let once=0,month=0;
+  const elegidos=picks.filter(p=>p.classList.contains('on')&&p.style.display!=='none');
+  elegidos.forEach(p=>{
+    const a=Number(p.dataset.amount)||0;
+    if(p.dataset.type==='once'){once+=a;}else{month+=a;}
+  });
+  const planAmt=plan?Number(plan.dataset.amount):0;
+  const totMonth=planAmt+month;
+
+  document.getElementById('totMonth').textContent=totMonth?fmt(totMonth):'—';
+  document.getElementById('totOnce').textContent=once?fmt(once):'—';
+
+  const grpE0=[...document.querySelectorAll('.inv-group')][0];
+  const e0Picks=[...grpE0.querySelectorAll('.price-row.pick')];
+  const e0T=e0Picks.filter(p=>p.classList.contains('on')&&p.style.display!=='none').reduce((a,p)=>a+Number(p.dataset.amount),0);
+  document.getElementById('subE0').textContent=e0T?fmt(e0T):'—';
+  document.getElementById('payFull').textContent=once?fmt(once):'—';
+  document.getElementById('payAnt').textContent=once?fmt(Math.round(once*0.97/10)*10):'—';
+
+  /* Correo */
+  let subject='Fe Seguros — Avancemos con la propuesta (v2)';
+  let body='Hola Florencia, leímos la versión 2 de la propuesta de Popcorn para Fe Seguros y queremos avanzar.';
+  if(plan){
+    subject='Fe Seguros — Avancemos — '+plan.dataset.name;
+    body+='\n\nEscenario elegido:\n· '+plan.dataset.name+' — '+plan.dataset.price;
+  }
+  if(elegidos.length){
+    body+='\n\nItems incluidos:';
+    elegidos.forEach(p=>{body+='\n· '+p.dataset.svc+' — '+p.dataset.price;});
+  }
+  body+='\n\nResumen:';
+  if(totMonth){body+='\n· Inversión mensual: '+fmt(totMonth)+' / mes';}
+  if(once){body+='\n· Pago único: '+fmt(once);}
+  if(planId==='B'){body+='\n· Fee variable sobre pauta administrada: 15%';}
+  body+='\n\nQuedamos a la espera para coordinar la reunión de calibración.';
+
+  const partes=[];
+  if(plan){partes.push(plan.dataset.name);}
+  if(elegidos.length){partes.push(elegidos.length+' ítem'+(elegidos.length>1?'s':''));}
+  ctaPick.innerHTML=partes.length?'Avanzas con: <b>'+partes.join('</b> + <b>')+'</b>':'<span class="none">Elige un escenario para incluirlo en el correo.</span>';
+
+  ctaGo.href='mailto:florencia@somospopcorn.com?cc=demianlinet@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+
+planes.forEach(p=>{
+  p.addEventListener('click',()=>{
+    const era=p.classList.contains('sel');
+    planes.forEach(x=>x.classList.remove('sel'));
+    if(!era){p.classList.add('sel');}
+    build();
+  });
+});
+picks.forEach(p=>{
+  p.addEventListener('click',()=>{p.classList.toggle('on');build();});
+});
+/* Arranca con el escenario recomendado marcado */
+document.querySelector('.plan[data-plan="B"]').classList.add('sel');
+build();
+</script>
+</body>
+</html>
