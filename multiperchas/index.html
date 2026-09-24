@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiperchas × Popcorn · Conectar antes de sumar — Estructura digital y performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · SISTEMA DE MARCA — paleta canónica (identidad-popcorn.md)
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --violeta-700:#3B0670;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(13,4,40,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --alerta:#F5A524;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violeta);
+  color:var(--white);
+  font-family:'Space Grotesk',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(162,98,229,.42), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(116,250,227,.10), transparent 55%),
+    linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 42%,var(--violeta-700) 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+
+h1,h2,h3,h4,.display{font-family:'Public Sans',sans-serif;font-style:normal}
+em,i{font-style:normal}
+.it{font-style:italic;color:var(--aqua);font-weight:700}
+
+/* ============ HEADER FIJO ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{
+  background:rgba(42,4,84,.78);
+  backdrop-filter:blur(14px);
+  padding:13px 38px;
+  box-shadow:0 1px 0 rgba(255,255,255,.07);
+}
+.brand-tag{
+  font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--w-65);
+  display:flex;align-items:center;gap:9px;
+}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:54px}
+
+/* ============ PROGRESO + NAV LATERAL ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{
+  position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);
+  white-space:nowrap;font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;
+  opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft);
+}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{
+  position:relative;
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 38px 96px;
+}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+
+/* modo claro (papel) */
+section.light{background:var(--papel);color:var(--tinta)}
+section.light .lead,section.light .muted{color:rgba(18,18,18,.68)}
+section.light b,section.light strong{color:var(--tinta)}
+section.light .eyebrow{color:var(--violeta)}
+section.light .eyebrow::before{background:var(--violeta);box-shadow:0 0 12px rgba(88,13,159,.5)}
+section.light .card{background:rgba(255,255,255,.9);border-color:rgba(18,18,18,.1)}
+section.light .card:hover{background:#fff;border-color:var(--violeta)}
+section.light .card p{color:rgba(18,18,18,.66)}
+section.light .sfoot{color:rgba(18,18,18,.42)}
+section.light .sfoot .num{color:var(--violeta)}
+section.light .cy{color:var(--violeta)}
+section.light .it{color:var(--violeta)}
+
+/* modo oscuro casi negro */
+section.dark{background:var(--negro)}
+section.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 600px at 20% 30%,rgba(88,13,159,.35),transparent 65%);z-index:0}
+
+/* footer micro por sección */
+.sfoot{
+  position:absolute;left:38px;right:38px;bottom:30px;z-index:3;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  font-family:'Public Sans';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);
+}
+.sfoot .num{color:var(--aqua)}
+
+/* eyebrow */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Public Sans';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--aqua);margin-bottom:26px;
+}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+
+/* títulos */
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--aqua)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.3rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+b,strong{color:#fff;font-weight:600}
+
+/* FIRMA DE MARCA · resaltador aqua */
+.hl{background:var(--aqua);color:var(--tinta);padding:.04em .28em;border-radius:.16em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* pill stack */
+.pillstack{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.pillstack span{display:inline-block;border-radius:999px;padding:.3em .85em;font-family:'Public Sans';font-weight:700;line-height:1.16;font-size:clamp(1.5rem,3.6vw,2.7rem);letter-spacing:-.015em}
+.pillstack span:nth-child(1){background:var(--violeta-900);color:#fff}
+.pillstack span:nth-child(2){background:var(--aqua);color:var(--violeta-900);margin-left:clamp(8px,3vw,44px)}
+.pillstack span:nth-child(3){background:var(--violeta-claro);color:#fff;margin-left:clamp(4px,1.5vw,20px)}
+.pillstack span:nth-child(4){background:#fff;color:var(--violeta);border:1px solid rgba(88,13,159,.25);margin-left:clamp(10px,4vw,58px)}
+
+/* wordmark fantasma */
+.ghost{
+  position:absolute;top:-2%;left:-1%;z-index:0;pointer-events:none;
+  font-family:'Public Sans';font-weight:800;font-size:clamp(5rem,17vw,15rem);line-height:.8;
+  letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.1);
+}
+section.light .ghost{-webkit-text-stroke-color:rgba(88,13,159,.13)}
+
+/* ============ ANIMACIONES ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* ============ HERO ============ */
+#hero{justify-content:center}
+.hero-title{font-weight:700;font-size:clamp(2.5rem,7vw,5.6rem);line-height:1.0;letter-spacing:-.03em;max-width:17ch}
+.hero-sub{margin-top:32px;font-size:clamp(1.05rem,1.7vw,1.35rem);color:var(--w-80);max-width:680px;line-height:1.62}
+.hero-tags{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Public Sans';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Public Sans';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* badge blanco colgante */
+.badge-top{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:#fff;border-radius:0 0 22px 22px;padding:16px 22px 14px;box-shadow:0 12px 34px rgba(26,3,47,.3)}
+.badge-top img{height:46px;width:auto;display:block}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;
+  transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);
+  position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.card .ico{
+  width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:20px;
+}
+section.light .card .ico{background:rgba(88,13,159,.08);border-color:rgba(88,13,159,.25);color:var(--violeta)}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px}
+.card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.card .num-tag{font-family:'Public Sans';font-weight:700;font-size:13px;color:var(--aqua);letter-spacing:.1em;margin-bottom:14px;display:block}
+section.light .card .num-tag{color:var(--violeta)}
+
+/* hallazgo con dato grande */
+.find .val{font-family:'Public Sans';font-weight:700;font-size:clamp(2.1rem,4.4vw,3.1rem);color:var(--aqua);line-height:1;margin-bottom:12px;display:block}
+section.light .find .val{color:var(--violeta)}
+.find .val small{display:block;font-family:'Public Sans';font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);margin-top:9px}
+section.light .find .val small{color:rgba(18,18,18,.45)}
+.find.warn .val{color:var(--alerta)}
+
+/* stat row */
+.stats{display:flex;flex-wrap:wrap;gap:14px 56px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:46px}
+section.light .stats{border-top-color:rgba(18,18,18,.12)}
+.stat .v{font-family:'Public Sans';font-weight:700;font-size:clamp(2rem,4vw,3rem);color:var(--aqua);line-height:1}
+section.light .stat .v{color:var(--violeta)}
+.stat .l{font-family:'Public Sans';font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+section.light .stat .l{color:rgba(18,18,18,.55)}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{font-family:'Public Sans';font-weight:500;font-size:.94rem;padding:11px 20px;border-radius:100px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft)}
+section.light .chip{background:rgba(88,13,159,.06);border-color:rgba(88,13,159,.18);color:var(--tinta)}
+
+/* ============ PIPE ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:10px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 18px;text-align:center;transition:all .4s var(--ease)}
+section.light .pipe .node{background:rgba(255,255,255,.85);border-color:rgba(18,18,18,.1)}
+.pipe .node:hover{border-color:var(--aqua-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Public Sans';font-weight:700;font-size:12px;color:var(--aqua);letter-spacing:.1em;display:block;margin-bottom:9px}
+section.light .pipe .node .k{color:var(--violeta)}
+.pipe .node .t{font-family:'Public Sans';font-weight:600;font-size:1rem}
+.pipe .node p{font-size:.82rem;color:var(--w-45);margin-top:6px;line-height:1.45}
+section.light .pipe .node p{color:rgba(18,18,18,.55)}
+.pipe .arrow{display:flex;align-items:center;color:var(--aqua);opacity:.65}
+section.light .pipe .arrow{color:var(--violeta)}
+
+/* ============ TABLA ============ */
+.tbl-wrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line-soft)}
+section.light .tbl-wrap{border-color:rgba(18,18,18,.12)}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px;background:var(--card)}
+section.light table.tbl{background:rgba(255,255,255,.75)}
+.tbl th{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--aqua);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+section.light .tbl th{color:var(--violeta);border-bottom-color:rgba(18,18,18,.12)}
+.tbl td{padding:15px 18px;font-size:.9rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.5}
+section.light .tbl td{color:rgba(18,18,18,.78);border-bottom-color:rgba(18,18,18,.08)}
+.tbl td.k{font-family:'Public Sans';font-weight:600;color:#fff;min-width:210px}
+section.light .tbl td.k{color:var(--tinta)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .ok{color:var(--aqua);font-family:'Public Sans';font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.tbl .rev{color:var(--alerta);font-family:'Public Sans';font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+
+/* ============ ANUNCIOS RELEVADOS ============ */
+.ads{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:10px}
+.ad{background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:22px 24px}
+.ad .meta{display:flex;gap:10px;align-items:center;font-family:'Public Sans';font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--aqua);margin-bottom:12px}
+.ad .meta .fmt{color:var(--w-45)}
+.ad p{font-size:.92rem;color:var(--w-80);line-height:1.55}
+.ad .dest{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-soft);font-family:'Public Sans';font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--w-45)}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+section.light .scope-col{background:rgba(255,255,255,.85);border-color:rgba(18,18,18,.1)}
+.scope-col.no{background:rgba(26,3,47,.35)}
+section.light .scope-col.no{background:rgba(18,18,18,.04)}
+.scope-col h3{font-family:'Public Sans';font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:22px}
+section.light .scope-col .sub{color:rgba(18,18,18,.5)}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem;color:var(--w-80);line-height:1.5}
+section.light .scope-col li{color:rgba(18,18,18,.78)}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--aqua)}
+section.light .scope-col.yes li svg{color:var(--violeta)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+section.light .scope-col.no li{color:rgba(18,18,18,.6)}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:40px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--aqua-line),rgba(116,250,227,.05))}
+.tl-item{position:relative;padding:0 0 36px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violeta-700);border:2px solid var(--aqua);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 10px var(--aqua)}
+.tl-item .ph{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);margin-bottom:4px}
+.tl-item h3{font-family:'Public Sans';font-weight:600;font-size:1.18rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.94rem;line-height:1.6;max-width:64ch}
+
+/* ============ INVERSIÓN ============ */
+.invest{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(116,250,227,.14),rgba(26,3,47,.4));border:1.5px solid var(--aqua-line);border-radius:24px;padding:38px}
+section.light .invest-card{background:linear-gradient(160deg,rgba(116,250,227,.3),rgba(255,255,255,.9));border-color:rgba(88,13,159,.25)}
+.inv-group+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);padding-bottom:8px;border-bottom:1px solid var(--aqua-line);margin-bottom:2px}
+section.light .inv-ghead{color:var(--violeta);border-bottom-color:rgba(88,13,159,.3)}
+.inv-ghead .inv-sub{font-family:'Public Sans';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:var(--tinta);white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(18,18,18,.1)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer;padding:16px 14px;margin:0 -14px;border-radius:10px;transition:background .25s var(--ease)}
+.price-row.svc-pick:hover{background:rgba(88,13,159,.06)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Public Sans';font-weight:600;font-size:1rem}
+.price-row .pl .pl-t{display:block}
+.price-row .pl small{display:block;font-weight:400;font-size:.81rem;color:rgba(18,18,18,.55);margin-top:4px;font-family:'Space Grotesk';max-width:40ch;line-height:1.45}
+.price-row .pv{font-family:'Public Sans';font-weight:700;font-size:1.22rem;color:var(--violeta);white-space:nowrap}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid rgba(18,18,18,.35);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:#fff;opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--violeta);border-color:var(--violeta)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+.pv .ivatag{font-size:.66rem;color:rgba(18,18,18,.45);font-weight:500;letter-spacing:.04em}
+
+/* formas de pago */
+.pays{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.pay{background:rgba(255,255,255,.88);border:1.5px solid rgba(18,18,18,.12);border-radius:18px;padding:24px;cursor:pointer;transition:all .3s var(--ease);position:relative}
+.pay:hover{border-color:var(--violeta)}
+.pay.on{border-color:var(--violeta);background:#fff;box-shadow:0 0 0 1px var(--violeta) inset,0 14px 34px rgba(88,13,159,.15)}
+.pay .pt{font-family:'Public Sans';font-weight:700;font-size:.95rem;color:var(--tinta);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.pay .pd{font-size:.82rem;color:rgba(18,18,18,.6);line-height:1.5}
+.pay .pnum{font-family:'Public Sans';font-weight:700;font-size:1.5rem;color:var(--violeta);margin-top:14px;line-height:1}
+.pay .radio{width:17px;height:17px;border-radius:50%;border:1.5px solid rgba(18,18,18,.35);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.pay .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--violeta);transform:scale(0);transition:transform .25s var(--ease)}
+.pay.on .radio{border-color:var(--violeta)}
+.pay.on .radio::after{transform:scale(1)}
+.pay .badge-off{position:absolute;top:-10px;right:16px;background:var(--aqua);color:var(--violeta-900);font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+
+.bullets{list-style:none;display:flex;flex-direction:column;gap:18px}
+.bullets li{display:flex;gap:14px;align-items:flex-start}
+.bullets li .bi{flex:none;width:26px;height:26px;border-radius:8px;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:700;font-size:13px;margin-top:2px}
+section.light .bullets li .bi{background:rgba(88,13,159,.08);border-color:rgba(88,13,159,.25);color:var(--violeta)}
+.bullets li p{color:var(--w-80);font-size:.98rem;line-height:1.55}
+section.light .bullets li p{color:rgba(18,18,18,.75)}
+
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.85rem;color:var(--w-65)}
+section.light .note-pill{background:rgba(88,13,159,.05);border-color:rgba(88,13,159,.2);color:rgba(18,18,18,.65)}
+.note-pill b{color:var(--aqua);font-family:'Public Sans';font-weight:600}
+section.light .note-pill b{color:var(--violeta)}
+
+.callout{margin-top:30px;padding:24px 28px;border-left:3px solid var(--aqua);background:rgba(116,250,227,.07);border-radius:0 14px 14px 0}
+section.light .callout{border-left-color:var(--violeta);background:rgba(88,13,159,.05)}
+.callout p{color:var(--w-80);font-size:.97rem;line-height:1.65}
+section.light .callout p{color:rgba(18,18,18,.75)}
+
+/* ============ FOTOGRAFÍA ============ */
+.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft);aspect-ratio:4/3}
+.media.wide{aspect-ratio:16/9}
+.media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.84) contrast(1.05) brightness(.94)}
+.media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(71,0,130,.5),rgba(26,3,47,.24) 55%,rgba(116,250,227,.12))}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.58) contrast(1.05)}
+.bg-photo.hero img{object-position:58% center}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(71,0,130,.96) 24%,rgba(88,13,159,.66) 62%,rgba(116,250,227,.1))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(71,0,130,.76),rgba(26,3,47,.96))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+
+/* grilla de productos del cliente */
+.prods{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:34px}
+.prod{aspect-ratio:1;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.4);position:relative}
+.prod img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+.prod::after{content:attr(data-t);position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(26,3,47,.88));color:#fff;font-family:'Public Sans';font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;padding:18px 8px 7px;text-align:center}
+
+/* logowall */
+.logowall{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.logocell{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:112px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,3,47,.35)}
+.logocell .brandlogo{max-height:54px;max-width:86%;width:auto;object-fit:contain;display:block}
+.logocell .ln{display:none;font-family:'Public Sans';font-weight:700;font-size:1rem;color:var(--violeta-700)}
+.logocell.noimg .ln{display:block}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Public Sans';font-weight:700;font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.1;letter-spacing:-.02em;max-width:24ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Public Sans';font-weight:500;color:var(--aqua);letter-spacing:.04em;font-size:1.02rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:36px;padding:18px 44px;border-radius:100px;font-family:'Public Sans';font-weight:700;font-size:1.05rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.3);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(116,250,227,.44)}
+.cta-go svg{width:20px;height:20px}
+#ctaPick{font-family:'Public Sans';font-weight:600;font-size:.95rem;color:var(--aqua);margin-top:22px;min-height:1.2em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+
+/* meta band */
+.metaband{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px;padding-top:30px;border-top:1px solid var(--line-soft)}
+.metaband .mb .k{font-family:'Public Sans';font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--w-45);display:block;margin-bottom:7px}
+.metaband .mb .v{font-family:'Public Sans';font-weight:600;font-size:.96rem;color:#fff}
+.metaband .mb .v a{color:var(--aqua);text-decoration:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .dots{display:none}
+  section{padding:104px 22px 86px}
+  .sfoot{left:22px;right:22px;font-size:9px;letter-spacing:.12em}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .invest{grid-template-columns:1fr;gap:30px}
+  .scope{grid-template-columns:1fr}
+  .ads{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .prods{grid-template-columns:repeat(3,1fr)}
+  .metaband{grid-template-columns:1fr 1fr;gap:18px}
+  .pays{grid-template-columns:1fr}
+  .pipe{flex-direction:column;align-items:stretch}
+  .pipe .node{min-width:0;width:100%}
+  .pipe .arrow{transform:rotate(90deg);align-self:center;flex:none;width:26px;height:26px}
+  .ghost{font-size:clamp(3.4rem,15vw,7rem);left:0}
+  .topbar{padding:16px 22px}
+  .topbar .brand-tag{display:none}
+  .badge-top{display:none}
+}
+@media(max-width:560px){
+  .prods{grid-template-columns:repeat(2,1fr)}
+  .stats{gap:20px 32px}
+  .invest-card{padding:26px 22px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Multiperchas · Confidencial</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-popcorn-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+<!-- ============ 1 · PORTADA ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/rack-perchas.jpg" alt="Perchas exhibiendo prendas en un local de indumentaria" loading="eager"></div>
+  <div class="badge-top"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Multiperchas × Popcorn · Estructura digital y performance · 2026</div>
+    <h1 class="hero-title r d1">Ya tienen el motor.<br>Falta <span class="hl">conectarlo.</span></h1>
+    <p class="hero-sub r d3">Multiperchas pauta en Meta, mide con Google y publica 419 productos. Las tres cosas funcionan por separado y ninguna alimenta a la otra. Esta propuesta no agrega canales: ordena la estructura para que cada peso invertido se pueda rastrear hasta un cliente.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Auditoría web y digital</span>
+      <span class="tag">Estructura y medición</span>
+      <span class="tag">Google Ads · Meta Ads · Email</span>
+      <span class="tag">Asistencia digital</span>
+      <span class="tag">Acompañamiento estratégico</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para comenzar</div>
+</section>
+
+<!-- ============ 2 · QUIÉNES SOMOS ============ -->
+<section id="popcorn" data-label="Quiénes somos">
+  <div class="ghost">POPCORN</div>
+  <div class="wrap">
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No vendemos publicaciones.<br>Vendemos <span class="hl">crecimiento</span>.</h2>
+    <p class="lead r d2" style="margin-top:26px">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Para Multiperchas no proponemos administrar anuncios: proponemos ordenar la estructura digital que hoy sostiene —a medias— la captación de clientes mayoristas.</p>
+
+    <div class="grid g3 r d3" style="margin-top:48px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Primero el negocio</h3>
+        <p>Empezamos por el objetivo comercial —clientes mayoristas nuevos, recompra, ticket— y desde ahí definimos las acciones. Nunca al revés.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></div>
+        <h3>Experiencia en B2B e industria</h3>
+        <p>Trabajamos con fabricantes, importadores y distribuidores. Entendemos ciclos de venta largos, compras por volumen y decisiones que no se cierran en un clic.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Medir para decidir</h3>
+        <p>Optimización continua sobre datos propios. Si un canal no rinde, lo decimos y lo cambiamos —aunque sea un canal que nosotros mismos propusimos.</p>
+      </div>
+    </div>
+
+    <div class="stats r d4">
+      <div class="stat"><div class="v">15+</div><div class="l">Años de trayectoria</div></div>
+      <div class="stat"><div class="v">160+</div><div class="l">Marcas acompañadas</div></div>
+      <div class="stat"><div class="v">360°</div><div class="l">Estrategia, medios, contenido y desarrollo</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Popcorn</span></div>
+</section>
+
+<!-- ============ 3 · CLIENTES ============ -->
+<section id="clientes" data-label="Clientes">
+  <div class="wrap">
+    <div class="eyebrow r">Algunos clientes</div>
+    <h2 class="h-lg r d1">Empresas que venden <span class="hl">a otras empresas</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Seleccionamos las referencias por parecido de modelo de negocio, no por tamaño: importadores, distribuidores, servicios B2B y marcas con canal mayorista.</p>
+    <div class="logowall r d3">
+      <div class="logocell"><img class="brandlogo" src="img/logos/transpack.png" alt="Transpack" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Transpack</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/evel.png" alt="Evel" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Evel</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/mercadocheque.png" alt="Mercado Cheque" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Mercado Cheque</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/frambuesa.png" alt="Frambuesa Design" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Frambuesa Design</span></div>
+      <div class="logocell"><img class="brandlogo" src="img/logos/northfield.png" alt="Northfield School" onerror="this.remove();this.parentNode.classList.add('noimg')"><span class="ln">Northfield School</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Referencias seleccionadas por modelo de negocio</span><span class="num">02 — Clientes</span></div>
+</section>
+
+<!-- ============ 4 · MÉTODO DEL DIAGNÓSTICO ============ -->
+<section id="metodo" data-label="Cómo lo miramos" class="light">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Cómo armamos este diagnóstico</div>
+        <h2 class="h-lg r d1">Sin reunión previa<br>y sin <span class="hl">un solo acceso</span>.</h2>
+        <p class="lead r d2" style="margin-top:24px">No pudimos reunirnos todavía, así que trabajamos con lo que cualquiera puede ver desde afuera: el sitio, su código, los sitemaps, el contenedor de etiquetas público, la Biblioteca de Anuncios de Meta y el Centro de Transparencia de Google.</p>
+        <p class="lead r d3" style="margin-top:18px">Todo lo que sigue está medido el <b>24 de septiembre de 2026</b>. Nada está estimado. Y si esto es lo que se ve desde afuera, conviene imaginar qué aparece cuando entramos a las cuentas.</p>
+        <div class="chips r d4" style="margin-top:28px">
+          <span class="chip">419 productos publicados</span>
+          <span class="chip">63 categorías</span>
+          <span class="chip">8 anuncios activos en Meta</span>
+          <span class="chip">~170 anuncios de la categoría revisados</span>
+        </div>
+      </div>
+      <div class="col-img r d3">
+        <div class="media"><img src="img/tienda-boston.jpg" alt="Local de indumentaria con prendas exhibidas en perchas"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Relevamiento público · 24 de septiembre de 2026</span><span class="num">03 — Método</span></div>
+</section>
+
+<!-- ============ 5 · HALLAZGOS ============ -->
+<section id="hallazgos" data-label="Hallazgos">
+  <div class="wrap">
+    <div class="eyebrow r">Qué encontramos</div>
+    <h2 class="h-lg r d1">Seis hallazgos, todos <span class="hl">verificables hoy</span>.</h2>
+    <div class="grid g3 r d2" style="margin-top:46px">
+      <div class="card find warn">
+        <span class="val">63 / 63<small>Categorías con el título roto</small></span>
+        <h3>El catálogo se presenta mal en Google</h3>
+        <p>Las 63 categorías de producto llevan el título automático de WordPress: “Adultos archivos”, “Carrefour archivos”, “Calzado archivos”. La palabra <b>percha</b> no aparece en ninguna. Y hay cuatro categorías distintas compartiendo exactamente el mismo título.</p>
+      </div>
+      <div class="card find warn">
+        <span class="val">0 / 63<small>Con descripción propia</small></span>
+        <h3>Ninguna categoría tiene meta descripción</h3>
+        <p>Google arma solo el texto que se lee debajo del título en los resultados. En una categoría B2B eso es el aviso de venta, y hoy está librado al azar en las 63.</p>
+      </div>
+      <div class="card find warn">
+        <span class="val">0<small>Encabezados H1 en el home</small></span>
+        <h3>La portada no declara de qué se trata</h3>
+        <p>El home no tiene ningún H1 y su título es “Multiperchas – Multiperchas”, repetido y sin una sola palabra de producto. La etiqueta de idioma dice <b>es_ES</b> (España) en un sitio que vende en Argentina.</p>
+      </div>
+      <div class="card find">
+        <span class="val">8<small>Anuncios activos en Meta</small></span>
+        <h3>Ya están invirtiendo en pauta</h3>
+        <p>Ocho anuncios en circulación desde el 10 y 11 de septiembre, con buen copy de producto y foco mayorista. <b>Los ocho terminan en WhatsApp.</b> Ninguno lleva al sitio, así que la inversión no deja rastro medible.</p>
+      </div>
+      <div class="card find warn">
+        <span class="val">~1,25 MB<small>Y 200 pedidos por página</small></span>
+        <h3>El sitio carga de más</h3>
+        <p>Cada página mueve unos 1,25 MB, de los cuales <b>700 KB son JavaScript</b>, repartidos en más de 110 scripts y 67 hojas de estilo. Conviven Elementor, Divi y Astra a la vez. La página <i>Landing Bolsas</i> —la que recibiría pauta— tarda 1,45 s solo en empezar a responder.</p>
+      </div>
+      <div class="card find warn">
+        <span class="val">3<small>Competidores pautando al canal mayorista</small></span>
+        <h3>Uno de ellos va por sus clientes</h3>
+        <p>Revisamos los ~170 anuncios activos en Argentina bajo la palabra “perchas”. La mayoría le habla al consumidor final, pero tres apuntan al mismo canal que Multiperchas. Uno, <b>Perchas Mayorista</b>, corre desde el 7 de septiembre una campaña que dice textual: <i>“Buscamos 5 nuevos distribuidores… negocios que vendan perchas, exhibidores o equipamiento a otros locales comerciales”</i>.</p>
+      </div>
+    </div>
+    <div class="callout r d4">
+      <p><b>La lectura de conjunto.</b> No es un problema de presencia: es un problema de conexión. El catálogo no llega a Google, la pauta no llega al catálogo y la medición no llega a la pauta. Cada pieza está bien hecha por separado y ninguna le pasa información a la siguiente.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuentes: código del sitio, sitemaps, GTM público, Meta Ad Library, Google Ads Transparency</span><span class="num">04 — Hallazgos</span></div>
+</section>
+
+<!-- ============ 6 · EL CATÁLOGO INVISIBLE ============ -->
+<section id="catalogo" data-label="El catálogo">
+  <div class="wrap">
+    <div class="eyebrow r">El activo dormido</div>
+    <h2 class="h-lg r d1">419 productos cargados.<br>Ninguno <span class="hl">buscable</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Alguien hizo el trabajo pesado: fotografiar, codificar y publicar 419 artículos con sus variantes, más 63 categorías que incluyen líneas propias para Carrefour, Coto, Jumbo, Changomas, Libertad y Coppel. Es un catálogo industrial serio y es, hoy, el activo digital más valioso de la empresa.</p>
+    <p class="lead r d3" style="margin-top:18px">Pero un mayorista que busca <i>“perchas para corsetería por mayor”</i> no lo encuentra, porque ninguna página del catálogo está escrita para ser encontrada. Y quien ve un anuncio tampoco llega: los ocho van a WhatsApp.</p>
+
+    <div class="prods r d4">
+      <div class="prod" data-t="M-601"><img src="img/prod-M-601-BLANCO.jpg" alt="Percha plástica M-601 blanca"></div>
+      <div class="prod" data-t="M-603"><img src="img/prod-M-603-NEG.jpg" alt="Percha M-603 negra"></div>
+      <div class="prod" data-t="M-604"><img src="img/prod-M-604-NAT-CON-BROCHE.jpg" alt="Percha M-604 natural con broche"></div>
+      <div class="prod" data-t="M-301"><img src="img/prod-M-301-2.jpg" alt="Percha M-301"></div>
+      <div class="prod" data-t="M-310"><img src="img/prod-M-310.jpg" alt="Percha M-310"></div>
+      <div class="prod" data-t="M-004"><img src="img/prod-M-004.jpg" alt="Percha M-004"></div>
+      <div class="prod" data-t="Con logo"><img src="img/prod-601-LOGO-JOTI.jpg" alt="Percha con logo impreso"></div>
+      <div class="prod" data-t="Forrada"><img src="img/prod-601-H-AGUADA-2.jpg" alt="Percha forrada"></div>
+      <div class="prod" data-t="Funda PEVA"><img src="img/prod-FUNDA-PEVA-60X100-NEG.jpg" alt="Funda PEVA 60x100"></div>
+      <div class="prod" data-t="Bolsa blister"><img src="img/prod-BOLSA-BLISTER-PP-2.jpg" alt="Bolsa blister de polipropileno"></div>
+    </div>
+
+    <div class="stats r d5">
+      <div class="stat"><div class="v">419</div><div class="l">Productos en el sitemap</div></div>
+      <div class="stat"><div class="v">63</div><div class="l">Categorías de producto</div></div>
+      <div class="stat"><div class="v">21</div><div class="l">Catálogos PDF descargables</div></div>
+      <div class="stat"><div class="v">1</div><div class="l">Nota de blog publicada</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Relevado sobre product-sitemap.xml y product_cat-sitemap.xml</span><span class="num">05 — Catálogo</span></div>
+</section>
+
+<!-- ============ 7 · LA PAUTA QUE YA CORRE ============ -->
+<section id="pauta" data-label="La pauta de hoy">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que ya está corriendo</div>
+    <h2 class="h-lg r d1">La pauta está bien escrita.<br>No está <span class="hl">medida</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Estos son cuatro de los ocho anuncios activos, tal como los devuelve la Biblioteca de Anuncios de Meta. El trabajo de copy es correcto: hablan de producto concreto, con código de artículo, y le hablan a quien compra por volumen. El problema está en el destino.</p>
+
+    <div class="ads r d3">
+      <div class="ad">
+        <div class="meta">En circulación desde el 10 sep <span class="fmt">· Video</span></div>
+        <p>“Así de prolijo puede verse el sector de corbatas y pañuelos en tu local. Percha para corbatas (Art. M655): madera natural, gancho metálico y múltiples posiciones para exhibir sin enredos. Venta mayorista.”</p>
+        <div class="dest">Destino: WhatsApp</div>
+      </div>
+      <div class="ad">
+        <div class="meta">En circulación desde el 11 sep <span class="fmt">· Imagen</span></div>
+        <p>“Avíos para cada etapa de terminación de tus camisas. Ideal para fábricas, talleres y marcas de indumentaria. Venta mayorista. Consultanos por disponibilidad y cantidades.”</p>
+        <div class="dest">Destino: WhatsApp</div>
+      </div>
+      <div class="ad">
+        <div class="meta">En circulación desde el 10 sep <span class="fmt">· Imagen</span></div>
+        <p>“¿Sabías que una buena exhibición vende más que un buen precio? Nuestra percha organizadora de cinturones ayuda a tus clientes a ver mejor el producto y a vos a aprovechar cada centímetro.”</p>
+        <div class="dest">Destino: WhatsApp</div>
+      </div>
+      <div class="ad">
+        <div class="meta">En circulación desde el 11 sep <span class="fmt">· Imagen</span></div>
+        <p>“¿Fabricás o comercializás remeras? Completá la presentación de tus prendas con cartones y bolsas protectoras pensados para terminación, almacenamiento y entrega.”</p>
+        <div class="dest">Destino: WhatsApp</div>
+      </div>
+    </div>
+
+    <div class="callout r d5">
+      <p><b>Qué significa que los ocho vayan a WhatsApp.</b> Meta informa cuántas conversaciones se iniciaron, pero no qué pasó después. Como el tráfico nunca toca el sitio, el píxel de Meta y Google Analytics quedan fuera del circuito: no hay forma de saber qué anuncio trajo a un cliente que después compró, ni de enseñarle al algoritmo a buscar más clientes parecidos. Se compran conversaciones, no clientes. <b>La propuesta no es sacar WhatsApp</b> —es el canal natural del mayorista argentino— sino instrumentarlo para que cada conversación tenga origen conocido.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Meta Ad Library · relevamiento del 24/09/2026 · 8 anuncios activos</span><span class="num">06 — Pauta</span></div>
+</section>
+
+<!-- ============ 8 · COMPETENCIA ============ -->
+<section id="competencia" data-label="Competencia" class="light">
+  <div class="ghost">MERCADO</div>
+  <div class="wrap">
+    <div class="eyebrow r">Qué está haciendo el resto</div>
+    <h2 class="h-lg r d1">Mientras tanto, alguien está<br><span class="hl">reclutando a sus clientes</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Barrimos los ~170 anuncios activos en Argentina bajo la palabra “perchas”. La enorme mayoría es consumo masivo —Mercado Libre, Colombraro, marcas de organización del hogar— y no compite con Multiperchas. Pero tres anunciantes le hablan exactamente al mismo comprador.</p>
+
+    <div class="ads r d3" style="margin-top:36px">
+      <div class="ad" style="background:rgba(88,13,159,.06);border-color:rgba(88,13,159,.25)">
+        <div class="meta" style="color:var(--violeta)">Perchas Mayorista · desde el 7 sep <span class="fmt" style="color:rgba(18,18,18,.45)">· Video</span></div>
+        <p style="color:rgba(18,18,18,.78)">“BUSCAMOS 5 NUEVOS DISTRIBUIDORES. Estamos buscando negocios que actualmente vendan perchas, exhibidores o equipamiento a otros locales comerciales y quieran sumar un nuevo proveedor. La propuesta es exclusivamente para reventa.”</p>
+        <div class="dest" style="color:rgba(18,18,18,.5);border-top-color:rgba(18,18,18,.12)">Destino: Instagram · 5 anuncios activos</div>
+      </div>
+      <div class="ad" style="background:rgba(88,13,159,.06);border-color:rgba(88,13,159,.25)">
+        <div class="meta" style="color:var(--violeta)">Perchas Mayorista · desde el 25 ago <span class="fmt" style="color:rgba(18,18,18,.45)">· Imagen</span></div>
+        <p style="color:rgba(18,18,18,.78)">“¿Vendés exhibidores o equipamiento para locales comerciales? Tenemos portalentes para incorporar a tu catálogo. De 5 a 9 unidades: $26.900 c/u. De 10 a 49: $18.000 c/u. Desde 50 o más: $16.000 c/u.”</p>
+        <div class="dest" style="color:rgba(18,18,18,.5);border-top-color:rgba(18,18,18,.12)">Publica precio y escala por volumen en el propio anuncio</div>
+      </div>
+      <div class="ad" style="background:rgba(255,255,255,.75);border-color:rgba(18,18,18,.12)">
+        <div class="meta" style="color:var(--violeta)">JK Instalaciones Comerciales · desde el 1 sep <span class="fmt" style="color:rgba(18,18,18,.45)">· Video</span></div>
+        <p style="color:rgba(18,18,18,.78)">“MAYORISTAS, ESTO ES PARA VOS. ¿Necesitás maniquíes para equipar tu local o reponer stock? Colgantes y maniquíes de fibra completos en diferentes modelos. Compras mayoristas.”</p>
+        <div class="dest" style="color:rgba(18,18,18,.5);border-top-color:rgba(18,18,18,.12)">Categoría adyacente: equipamiento de local</div>
+      </div>
+      <div class="ad" style="background:rgba(255,255,255,.75);border-color:rgba(18,18,18,.12)">
+        <div class="meta" style="color:var(--violeta)">Percheros Comerciales (Lanús) · desde el 31 ago <span class="fmt" style="color:rgba(18,18,18,.45)">· Video</span></div>
+        <p style="color:rgba(18,18,18,.78)">“En un perchero súper de 1,80 × 1,50 entran hasta 100 perchas en cada barral…” Contenido de producto con dato útil, en video, con salida a WhatsApp.</p>
+        <div class="dest" style="color:rgba(18,18,18,.5);border-top-color:rgba(18,18,18,.12)">3 anuncios activos · todos en video</div>
+      </div>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>Tres conclusiones.</b> Primera: el argumento de “buena exhibición” que usa Multiperchas en sus anuncios es <i>el mismo</i> que usa Perchas Mayorista. No hay diferenciación en el mensaje. Segunda: el competidor publica precios escalonados por volumen dentro del anuncio, mientras Multiperchas no muestra precio en ninguna parte —es una decisión legítima, pero hay que saber que del otro lado la están tomando al revés. Tercera, la más urgente: <b>hay una campaña activa reclutando distribuidores del mismo perfil que la cartera de Multiperchas.</b> Eso no se defiende con más anuncios: se defiende sabiendo quién es cada cliente y qué lo retiene.</p>
+    </div>
+    <p class="r d5" style="margin-top:20px"><span class="note-pill"><b>Alcance del relevamiento.</b> Meta bloqueó las consultas directas de Perchalandia y Jolues, así que sobre esas dos no podemos afirmar nada. Lo de arriba sale de la búsqueda por categoría, que sí respondió completa.</span></p>
+  </div>
+  <div class="sfoot"><span>Meta Ad Library · ~170 anuncios activos revisados bajo “perchas” · 24/09/2026</span><span class="num">07 — Competencia</span></div>
+</section>
+
+<!-- ============ 8 · LA MEDICIÓN QUE YA EXISTE ============ -->
+<section id="medicion" data-label="Medición">
+  <div class="wrap">
+    <div class="split rev">
+      <div>
+        <div class="eyebrow r">Lo que ya está instalado</div>
+        <h2 class="h-lg r d1">La medición existe.<br>Está <span class="hl">desenchufada</span>.</h2>
+        <p class="lead r d2" style="margin-top:24px">Dentro del contenedor de Google Tag Manager encontramos, ya configurados, eventos de WhatsApp (uno para Pablo y otro para Maru), clic a teléfono, clic a mail y envío de formulario. Alguien hizo un trabajo prolijo. Junto a eso conviven Google Analytics 4, una cuenta de Google Ads con una conversión definida y el píxel de Meta.</p>
+        <p class="lead r d3" style="margin-top:18px">Es infraestructura de calidad. Y está midiendo el tráfico que llega al sitio por su cuenta, mientras la pauta —que es la que cuesta plata— pasa de largo por afuera.</p>
+        <div class="callout r d4">
+          <p><b>Un detalle a corregir el primer día.</b> El contenedor todavía carga una etiqueta de Universal Analytics. Esa plataforma dejó de procesar datos en julio de 2024: hoy solo suma peso a cada visita y no devuelve nada. Sale en cinco minutos.</p>
+        </div>
+      </div>
+      <div class="col-img r d2">
+        <div class="media"><img src="img/textil-industrial.jpg" alt="Producción textil industrial"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Contenedor GTM público · GA4, Google Ads y píxel de Meta detectados</span><span class="num">08 — Medición</span></div>
+</section>
+
+<!-- ============ 9 · TESIS ============ -->
+<section id="tesis" data-label="La tesis" class="dark">
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra tesis</div>
+    <div class="pillstack r d1" style="margin:10px 0 34px">
+      <span>Conectar</span>
+      <span>antes</span>
+      <span>de sumar.</span>
+    </div>
+    <p class="lead r d2">Cuando una empresa quiere crecer en digital, el reflejo es agregar: otra red, otra campaña, otra plataforma. En Multiperchas eso sería un error caro, porque los activos ya están. Lo que falta es el cableado entre ellos.</p>
+
+    <div class="pipe r d3" style="margin-top:46px">
+      <div class="node"><span class="k">HOY</span><span class="t">Catálogo</span><p>419 productos que Google no sabe describir</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">HOY</span><span class="t">Pauta</span><p>8 anuncios que no pasan por el catálogo</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">HOY</span><span class="t">Medición</span><p>Eventos que nunca ven a la pauta</p></div>
+      <div class="arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></div>
+      <div class="node" style="border-color:var(--aqua-line);background:rgba(116,250,227,.09)"><span class="k">OBJETIVO</span><span class="t">Un circuito</span><p>Cada consulta con origen conocido</p></div>
+    </div>
+
+    <p class="lead r d4" style="margin-top:44px">Con el circuito cerrado pasan tres cosas que hoy no pueden pasar: el algoritmo de Meta aprende a buscar clientes parecidos a los que compran de verdad; Google Ads puede pujar más fuerte donde hay retorno; y la reunión mensual deja de discutir impresiones para discutir clientes.</p>
+  </div>
+  <div class="sfoot"><span>Primero el cableado. Después la escala.</span><span class="num">09 — Tesis</span></div>
+</section>
+
+<!-- ============ 10 · RESPUESTA AL PEDIDO ============ -->
+<section id="respuesta" data-label="Su pedido" class="light">
+  <div class="ghost">ALCANCE</div>
+  <div class="wrap">
+    <div class="eyebrow r">Punto por punto</div>
+    <h2 class="h-lg r d1">Su listado, respondido<br>uno <span class="hl">por uno</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Recibimos el detalle de servicios que Multiperchas quiere contratar. Está todo contemplado. En tres puntos proponemos una corrección, porque el relevamiento mostró que la realidad no es la que el pedido supone.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:40px">
+      <table class="tbl">
+        <thead><tr><th>Lo que pidieron</th><th>Cómo lo resolvemos</th><th style="width:130px">Estado</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Auditoría web</td><td>Auditoría técnica, SEO, performance y conversión sobre las 419 fichas y 63 categorías, con plan de corrección priorizado por impacto.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Auditoría digital</td><td>Canales, redes, ficha de Google, medición instalada y comparación con los cuatro competidores que ya relevamos.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Armado y reordenamiento de identidad digital</td><td>Unificación de mensaje, nomenclatura y datos en los cinco puntos de contacto (sitio, Instagram, Facebook, TikTok y ficha de Google), más plantillas de perfil y textos.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Alta de universo Google<br><small style="font-weight:400;opacity:.65">Search Console, Tag Manager, My Business, Analytics</small></td><td><b>Corrección:</b> Analytics 4, Tag Manager, Google Ads y el píxel de Meta ya están instalados y funcionando. No cobramos un alta que ya existe. Lo que sí hace falta es auditarlo, corregirlo y dar de alta lo que falte.</td><td><span class="rev">Reformulado</span></td></tr>
+          <tr><td class="k">Propuesta de valor para armado de campañas</td><td>Documento de estrategia: a quién le hablamos, con qué argumento, en qué plataforma y contra qué objetivo. Es el paso previo a abrir una sola campaña.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Campañas en Google Ads</td><td>Armado, administración y optimización. <b>Corrección:</b> existe una cuenta con una conversión ya configurada, así que arrancamos revisando el histórico antes de crear nada nuevo.</td><td><span class="rev">Reformulado</span></td></tr>
+          <tr><td class="k">Campañas en Facebook e Instagram</td><td>Armado, administración y optimización. <b>Corrección:</b> ya hay ocho anuncios activos. No empezamos de cero: auditamos lo que corre, lo instrumentamos y recién ahí lo reestructuramos.</td><td><span class="rev">Reformulado</span></td></tr>
+          <tr><td class="k">Campañas en Mailing</td><td>Puesta en marcha de la plataforma (alta, validación del dominio, depuración y carga de la base) más un envío mensual con diseño, copy y segmentación.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Carga de contenido en Google My Business por mes</td><td>Publicaciones mensuales en la ficha, tomadas del contenido que ya produce Multiperchas para sus redes, más gestión de reseñas y actualización de datos.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Asistencia Digital · 4 hs por semana</td><td>16 horas mensuales de un analista asignado. Es la bolsa de horas que absorbe la carga de la ficha de Google, la relación con proveedores, el monitoreo de la estructura y el asesoramiento en desarrollo.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Reuniones de estrategia mensual</td><td>Una reunión por mes con el informe de evolución sobre la mesa. Cada reunión cierra con al menos una decisión tomada, no con un repaso de actividad.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Asesoramiento en desarrollo</td><td>Definición de requerimientos, criterio técnico y control de calidad sobre el trabajo del desarrollador. Se imputa a las horas de asistencia digital.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Vinculación y gestión con proveedores digitales</td><td>Interlocución con Google, Meta, hosting, diseñadores y desarrolladores. Multiperchas deja de ser el intermediario entre proveedores que no se hablan entre sí.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Informes mensuales de evolución</td><td>Un informe por mes con lo que pasó, qué aprendimos, qué proponemos y qué decisión necesitamos. Con la comparación contra el mes anterior.</td><td><span class="ok">Incluido</span></td></tr>
+          <tr><td class="k">Monitoreo de estructura digital</td><td>Control continuo de caídas, errores, velocidad, vencimientos de dominio y certificado, y rotura de etiquetas de medición. Se imputa a las horas de asistencia digital.</td><td><span class="ok">Incluido</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sfoot"><span>15 ítems solicitados · 15 contemplados · 3 reformulados con fundamento</span><span class="num">10 — Su pedido</span></div>
+</section>
+
+<!-- ============ 11 · LO QUE NO COBRAMOS ============ -->
+<section id="nofacturamos" data-label="Lo que no cobramos">
+  <div class="wrap">
+    <div class="eyebrow r">Transparencia</div>
+    <h2 class="h-lg r d1">Cuatro cosas que<br><span class="hl">no les vamos a cobrar</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Popcorn vende la ejecución de lo que recomienda. Por eso, en toda propuesta nuestra hay al menos una recomendación que no facturamos: es la forma de demostrar que el diagnóstico no está escrito para agrandar el presupuesto.</p>
+
+    <div class="grid g2 r d3" style="margin-top:44px">
+      <div class="card">
+        <span class="num-tag">01</span>
+        <h3>El alta del universo Google</h3>
+        <p>Ya tienen Analytics 4, Tag Manager con eventos de contacto bien armados, cuenta de Google Ads y píxel de Meta. Pagar por darlo de alta sería pagar dos veces. Cobramos auditarlo y corregirlo, que es otra cosa y cuesta menos.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">02</span>
+        <h3>La corrección de los 63 títulos</h3>
+        <p>Es el hallazgo más grave y también el más barato de resolver: se configura una plantilla de título en el plugin de SEO que ya tienen instalado y se arreglan las 63 de una vez. Les dejamos la plantilla escrita y lo aplica su desarrollador en una tarde. No es una línea de esta propuesta.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">03</span>
+        <h3>No proponemos rehacer el sitio</h3>
+        <p>Con 419 productos ya cargados, rehacer el sitio es tirar trabajo hecho y perder el posicionamiento que exista. Primero se arregla y se mide lo que hay. Si dentro de un año los datos dicen que el sitio es el techo, lo discutimos con evidencia.</p>
+      </div>
+      <div class="card" style="border-color:var(--aqua-line);background:rgba(116,250,227,.07)">
+        <span class="num-tag">04 · PARA DEJAR DE HACER</span>
+        <h3>Sacar Universal Analytics del contenedor</h3>
+        <p>Sigue cargando en cada visita y no procesa datos desde julio de 2024. Junto con eso, el archivo <i>robots.txt</i> le pide a los buscadores esperar 60 segundos entre página y rastrear solo de madrugada —y arrastra reglas de Joomla en un sitio WordPress. Son dos frenos de mano puestos sin querer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Control de conflicto de interés · método Popcorn</span><span class="num">11 — Transparencia</span></div>
+</section>
+
+<!-- ============ 12 · ROADMAP ============ -->
+<section id="roadmap" data-label="Roadmap" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo lo ejecutamos</div>
+    <h2 class="h-lg r d1">Los primeros <span class="hl">90 días</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">El orden no es caprichoso: cada etapa habilita la siguiente. Si se empieza por escalar la pauta antes de instrumentar la medición, se gasta más y se aprende lo mismo que hoy.</p>
+    <div class="tl r d3" style="--aqua-line:rgba(88,13,159,.3)">
+      <div class="tl-item">
+        <div class="dot" style="background:var(--papel);border-color:var(--violeta)"></div>
+        <div class="ph" style="color:var(--violeta)">Semanas 1 y 2</div>
+        <h3 style="color:var(--tinta)">Accesos, auditorías y línea de base</h3>
+        <p style="color:rgba(18,18,18,.66)">Tomamos accesos a las cuentas, cerramos las dos auditorías con acceso real —no solo con lo público— y congelamos la foto del punto de partida. Sin línea de base no hay forma de demostrar mejora después.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot" style="background:var(--papel);border-color:var(--violeta)"></div>
+        <div class="ph" style="color:var(--violeta)">Semanas 3 y 4</div>
+        <h3 style="color:var(--tinta)">Saneamiento de la estructura</h3>
+        <p style="color:rgba(18,18,18,.66)">Corrección de la medición, limpieza del contenedor de etiquetas, orden de la identidad digital en los cinco canales y entrega al desarrollador del plan de corrección del catálogo. Acá es donde el sitio empieza a poder ser encontrado.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot" style="background:var(--papel);border-color:var(--violeta)"></div>
+        <div class="ph" style="color:var(--violeta)">Semanas 5 y 6</div>
+        <h3 style="color:var(--tinta)">Estrategia y armado de campañas</h3>
+        <p style="color:rgba(18,18,18,.66)">Documento de propuesta de valor por segmento, estructura de campañas en Google y Meta con destinos medibles, y puesta en marcha de la plataforma de mailing sobre la base de clientes existente.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot" style="background:var(--papel);border-color:var(--violeta)"></div>
+        <div class="ph" style="color:var(--violeta)">Mes 2</div>
+        <h3 style="color:var(--tinta)">Operación y primer informe con datos propios</h3>
+        <p style="color:rgba(18,18,18,.66)">Primer mes completo de gestión con todo instrumentado. Primera reunión de estrategia con números que antes no existían: origen de cada consulta y costo por consulta, por plataforma.</p>
+      </div>
+      <div class="tl-item">
+        <div class="dot" style="background:var(--papel);border-color:var(--violeta)"></div>
+        <div class="ph" style="color:var(--violeta)">Mes 3</div>
+        <h3 style="color:var(--tinta)">Primeras decisiones sobre evidencia</h3>
+        <p style="color:rgba(18,18,18,.66)">Con dos meses de datos comparables se toman las primeras decisiones de reasignación: qué plataforma recibe más, qué línea de producto tracciona y qué segmento conviene atacar. Acá el acompañamiento deja de ser asesoramiento y pasa a ser dirección.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Etapa de puesta a punto: 4 a 6 semanas · luego operación mensual</span><span class="num">12 — Roadmap</span></div>
+</section>
+
+<!-- ============ 13 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Qué incluye y qué no</div>
+    <h2 class="h-lg r d1">Los límites, <span class="hl">por escrito</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Preferimos discutir el alcance ahora y no en el mes cuatro. Lo de la derecha no está excluido para siempre: está fuera de este acuerdo y se cotiza aparte cuando haga falta.</p>
+    <div class="scope r d3" style="margin-top:42px">
+      <div class="scope-col yes">
+        <h3>Incluido en este acuerdo</h3>
+        <div class="sub">Etapa de puesta a punto + fee mensual</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Auditoría web y auditoría digital completas, con plan de corrección priorizado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Ordenamiento de la identidad digital en sitio, Instagram, Facebook, TikTok y ficha de Google</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Auditoría, corrección y alta de lo que falte del ecosistema Google y del píxel de Meta</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Estrategia de campañas y armado inicial en Google Ads y Meta Ads</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Gestión y optimización mensual de las campañas, con adaptación de piezas a formatos de anuncio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Un envío de email marketing por mes: diseño, redacción, segmentación y reporte</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>16 horas mensuales de asistencia digital con analista asignado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Publicaciones mensuales en la ficha de Google y gestión de reseñas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Interlocución con proveedores digitales y monitoreo de la estructura</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Reunión mensual de estrategia e informe de evolución</li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>Fuera de este acuerdo</h3>
+        <div class="sub">Se cotiza por separado si se decide sumarlo</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg><b>La inversión en medios</b>: la define y la paga Multiperchas directamente a cada plataforma</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg><b>Producción de contenido para redes</b>: piezas nuevas, fotografía, video y community management</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>Desarrollo y programación sobre el sitio: damos el criterio y el requerimiento, no ejecutamos el código</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>Créditos de la plataforma de email: se facturan según consumo real</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>Rediseño de marca, manual de identidad y rediseño integral del sitio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>Hosting, dominio, certificado y licencias de plugins</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>Campañas en TikTok, LinkedIn y marketplaces</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout r d4">
+      <p><b>Un riesgo que preferimos decir ahora.</b> Este alcance no incluye producción de contenido, tal como fue pedido: la pauta se apoya en las piezas que Multiperchas ya produce. Es una decisión válida y abarata el acuerdo. Lo que va a pasar, y conviene saberlo de antemano, es que en una audiencia B2B chica los mismos anuncios se ven muchas veces y el costo por consulta empieza a subir —típicamente entre el tercer y el cuarto mes. Cuando el informe muestre esa curva lo vamos a señalar, y ahí Multiperchas decide si produce las piezas por su cuenta o nos pide cotizarlas. <b>No lo estamos cotizando hoy.</b></p>
+    </div>
+  </div>
+  <div class="sfoot"><span>Alcance cerrado · todo lo demás se cotiza aparte</span><span class="num">13 — Alcance</span></div>
+</section>
+
+<!-- ============ 14 · KPIs ============ -->
+<section id="kpis" data-label="Cómo lo medimos" class="dark">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo se mide el trabajo</div>
+    <h2 class="h-lg r d1">Contra qué nos pueden<br><span class="hl">pedir cuentas</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Hoy no existen datos propios de Multiperchas que nos permitan prometer un resultado de negocio sin inventarlo. Así que no lo hacemos. Lo que sí podemos comprometer con precisión es el trabajo de estructura, que es medible desde el día uno y es la condición para que después haya resultado.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:40px">
+      <table class="tbl">
+        <thead><tr><th>Indicador</th><th>Hoy (medido el 24/09/2026)</th><th>Compromiso</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Categorías con título y descripción propios</td><td>0 de 63</td><td>63 de 63 · mes 2</td></tr>
+          <tr><td class="k">Consultas con origen identificable</td><td>0% de la pauta (todo va a WhatsApp sin parámetros)</td><td>Más del 80% · mes 2</td></tr>
+          <tr><td class="k">Conversiones válidas cargadas en Google Ads y Meta</td><td>Configuradas pero sin recibir el tráfico de pauta</td><td>Activas y recibiendo datos · mes 1</td></tr>
+          <tr><td class="k">Costo por consulta, abierto por plataforma</td><td>No calculable</td><td>Reportado todos los meses desde el mes 2</td></tr>
+          <tr><td class="k">Etiquetas de medición sin errores</td><td>Universal Analytics muerto todavía activo</td><td>Contenedor limpio y auditado · mes 1</td></tr>
+          <tr><td class="k">Informe y reunión de estrategia</td><td>—</td><td>1 por mes, con decisión tomada</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="r d4" style="margin-top:24px"><span class="note-pill"><b>Sin metas inventadas.</b> A partir del mes 3, con datos propios comparables, fijamos juntos los objetivos de negocio —volumen de consultas y costo por cliente nuevo— sobre la base real y no sobre un promedio de industria.</span></p>
+  </div>
+  <div class="sfoot"><span>Compromisos de proceso, verificables mes a mes</span><span class="num">14 — KPIs</span></div>
+</section>
+
+<!-- ============ 15 · INVERSIÓN ============ -->
+<section id="inversion" data-label="Inversión" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Elegí los módulos<br>y armá <span class="hl">tu presupuesto</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px">Tocá cada ítem para incluirlo o sacarlo. El total se actualiza solo y viaja en el correo cuando aprietes “Quiero avanzar”.</p>
+
+    <div class="invest" style="margin-top:44px">
+      <div class="invest-card r d3">
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>A · Puesta a punto · pago único</span><span class="inv-sub" id="subOnce">—</span></div>
+
+          <div class="price-row svc-pick on" data-type="once" data-amount="919000" data-svc="Auditoría web" data-price="$919.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Auditoría web</span><small>Técnica, SEO, performance y conversión sobre 419 productos y 63 categorías. Con plan de corrección priorizado.</small></span></div>
+            <div class="pv">$919.000<br><span class="ivatag">+ IVA</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="once" data-amount="656000" data-svc="Auditoría digital" data-price="$656.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Auditoría digital</span><small>Canales, redes, ficha de Google, medición instalada y comparación competitiva.</small></span></div>
+            <div class="pv">$656.000<br><span class="ivatag">+ IVA</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="once" data-amount="780000" data-svc="Armado y reordenamiento de identidad digital" data-price="$780.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Armado y reordenamiento de identidad digital</span><small>Mensaje, nomenclatura, datos y plantillas de perfil unificados en los cinco canales.</small></span></div>
+            <div class="pv">$780.000<br><span class="ivatag">+ IVA</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="once" data-amount="481000" data-svc="Saneamiento del universo Google y medición" data-price="$481.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Saneamiento del universo Google y medición</span><small>Search Console, Tag Manager, Analytics 4, ficha de Google y píxel de Meta: auditar, corregir y dar de alta lo que falte. No incluye cobrar lo ya instalado.</small></span></div>
+            <div class="pv">$481.000<br><span class="ivatag">+ IVA</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="once" data-amount="808000" data-svc="Estrategia y armado de campañas (Google + Meta)" data-price="$808.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Estrategia y armado de campañas</span><small>Propuesta de valor por segmento, estructura de campañas en Google Ads y Meta Ads, destinos medibles y piezas de arranque.</small></span></div>
+            <div class="pv">$808.000<br><span class="ivatag">+ IVA</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="once" data-amount="260000" data-svc="Puesta en marcha de Email Marketing" data-price="$260.000 + IVA">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Puesta en marcha de Email Marketing</span><small>Alta de la plataforma, validación del dominio, depuración y carga de la base, y plantilla de envío.</small></span></div>
+            <div class="pv">$260.000<br><span class="ivatag">+ IVA</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>B · Fee mensual · gestión digital</span><span class="inv-sub" id="subMonth">—</span></div>
+
+          <div class="price-row svc-pick on" data-type="month" data-amount="799000" data-svc="Gestión de pauta Google Ads + Meta Ads" data-price="$799.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Gestión de pauta · Google + Meta</span><small>Administración y optimización de ambas plataformas, adaptación de piezas a formatos de anuncio y reporte.</small></span></div>
+            <div class="pv">$799.000<br><span class="ivatag">+ IVA / mes</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="month" data-amount="946000" data-svc="Asistencia digital 4 hs/semana" data-price="$946.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Asistencia digital · 4 hs por semana</span><small>16 horas mensuales: ficha de Google, proveedores digitales, monitoreo de estructura y asesoramiento en desarrollo.</small></span></div>
+            <div class="pv">$946.000<br><span class="ivatag">+ IVA / mes</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="month" data-amount="800000" data-svc="Reunión mensual de estrategia + informe" data-price="$800.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Reunión de estrategia + informe de evolución</span><small>Dirección estratégica mensual con supervisión gerencial. Cada reunión cierra con una decisión.</small></span></div>
+            <div class="pv">$800.000<br><span class="ivatag">+ IVA / mes</span></div>
+          </div>
+
+          <div class="price-row svc-pick on" data-type="month" data-amount="325000" data-svc="Gestión de Email Marketing (1 envío/mes)" data-price="$325.000 + IVA / mes">
+            <div class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Gestión de Email Marketing</span><small>Un envío mensual: diseño, redacción, segmentación y reporte de resultados. No incluye los créditos de la plataforma.</small></span></div>
+            <div class="pv">$325.000<br><span class="ivatag">+ IVA / mes</span></div>
+          </div>
+        </div>
+
+        <div class="inv-group">
+          <div class="inv-ghead"><span>C · Fuera del fee</span><span class="inv-sub">Variable</span></div>
+          <div class="price-row">
+            <div class="pl"><span style="width:20px;flex:none"></span><span><span class="pl-t">Fee variable sobre la pauta</span><small>15% sobre la inversión neta en medios efectivamente administrada. Se factura a mes cerrado, sobre lo realmente ejecutado.</small></span></div>
+            <div class="pv" style="font-size:1.05rem">15%</div>
+          </div>
+          <div class="price-row">
+            <div class="pl"><span style="width:20px;flex:none"></span><span><span class="pl-t">Inversión en medios</span><small>La define Multiperchas y la abona directamente a Google y Meta. Se le suman entre 40% y 52% de impuestos y percepciones, en su mayor parte crédito fiscal computable.</small></span></div>
+            <div class="pv" style="font-size:1.05rem">A definir</div>
+          </div>
+          <div class="price-row">
+            <div class="pl"><span style="width:20px;flex:none"></span><span><span class="pl-t">Créditos de email</span><small>Se facturan según consumo real de envíos.</small></span></div>
+            <div class="pv" style="font-size:1.05rem">$6.646<br><span class="ivatag">+ IVA / 1.000 envíos</span></div>
+          </div>
+        </div>
+
+        <div class="pays">
+          <div class="pay on" id="payAnt" data-mode="ant">
+            <div class="pt"><span class="radio"></span>Puesta a punto · 100% anticipado</div>
+            <div class="pd">Valor preferencial. Se abona al confirmar y arrancamos dentro de las 48 horas.</div>
+            <div class="pnum">$3.786.880 <span style="font-size:.7rem;color:rgba(18,18,18,.5);font-weight:500">+ IVA</span></div>
+            <span class="badge-off">−3%</span>
+          </div>
+          <div class="pay" id="paySplit" data-mode="split">
+            <div class="pt"><span class="radio"></span>Puesta a punto · 50% y 50%</div>
+            <div class="pd">50% al confirmar y 50% al finalizar la etapa o a los 30 días de iniciada, lo que ocurra primero.</div>
+            <div class="pnum">$3.904.000 <span style="font-size:.7rem;color:rgba(18,18,18,.5);font-weight:500">+ IVA</span></div>
+          </div>
+        </div>
+        <p style="margin-top:18px;font-size:.84rem;color:rgba(18,18,18,.6);line-height:1.55"><b style="color:var(--tinta)">Fee mensual:</b> se abona 100% por adelantado dentro de los primeros cinco días de cada mes. El descuento por pago anticipado aplica solo a la etapa de puesta a punto, no al servicio recurrente.</p>
+      </div>
+
+      <div class="r d4">
+        <h3 class="h-md" style="color:var(--tinta);margin-bottom:22px">Cómo leer estos números</h3>
+        <ul class="bullets">
+          <li><span class="bi">1</span><p><b>Todos los valores son en pesos argentinos y no incluyen IVA.</b> Como referencia informativa, la puesta a punto equivale a unos USD 2.603 y el fee mensual a unos USD 1.913. Se factura en pesos.</p></li>
+          <li><span class="bi">2</span><p><b>El 15% variable no reemplaza al fee fijo: se suma.</b> El fijo paga el trabajo de gestión y el variable acompaña el volumen administrado. No lo expresamos en pesos porque depende de cuánto decida invertir Multiperchas cada mes.</p></li>
+          <li><span class="bi">3</span><p><b>La inversión en medios es de Multiperchas.</b> Popcorn no la factura ni la marca. Recomendamos el monto, ustedes lo aprueban y le pagan directo a la plataforma.</p></li>
+          <li><span class="bi">4</span><p><b>Los módulos de la etapa A se pueden contratar por separado</b>, pero el orden importa: armar campañas sin haber saneado la medición es repetir lo que ya está pasando hoy.</p></li>
+          <li><span class="bi">5</span><p><b>Revisión cada seis meses.</b> El fee mensual se actualiza semestralmente por inflación acumulada (IPC del INDEC), con aviso previo y revisión del alcance en la misma conversación.</p></li>
+        </ul>
+        <p style="margin-top:28px"><span class="note-pill"><b>Validez: 10 días</b> · hasta el 4 de octubre de 2026</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Valores en pesos argentinos, sin IVA · la inversión en medios se factura aparte</span><span class="num">15 — Inversión</span></div>
+</section>
+
+<!-- ============ 16 · PRÓXIMOS PASOS ============ -->
+<section id="pasos" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cuatro pasos y <span class="hl">arrancamos</span>.</h2>
+    <div class="grid g4 r d2" style="margin-top:46px">
+      <div class="card"><span class="num-tag">PASO 01</span><h3>Confirmación</h3><p>Nos avisan qué módulos quieren y con qué forma de pago. Desde el botón de abajo sale el correo ya armado con la selección.</p></div>
+      <div class="card"><span class="num-tag">PASO 02</span><h3>Reunión de arranque</h3><p>Una hora, presencial o remota. Ahí entendemos el negocio de verdad: quién compra, con qué frecuencia y cuál es el cliente que más les conviene.</p></div>
+      <div class="card"><span class="num-tag">PASO 03</span><h3>Accesos</h3><p>Nos dan acceso a Analytics, Tag Manager, Google Ads, Business Manager, la ficha de Google y el sitio. Les mandamos la lista exacta con el paso a paso.</p></div>
+      <div class="card"><span class="num-tag">PASO 04</span><h3>Semana 1</h3><p>Arrancan las auditorías con acceso real y congelamos la línea de base. A las dos semanas tienen el primer informe sobre la mesa.</p></div>
+    </div>
+    <div class="callout r d3">
+      <p><b>Una cosa que pueden hacer hoy, contraten o no.</b> Sacar la etiqueta de Universal Analytics del contenedor de Tag Manager y revisar el archivo <i>robots.txt</i>. Son diez minutos de su desarrollador y no dependen de esta propuesta.</p>
+    </div>
+  </div>
+  <div class="sfoot"><span>De la confirmación al primer informe: dos semanas</span><span class="num">16 — Próximos pasos</span></div>
+</section>
+
+<!-- ============ 17 · CIERRE ============ -->
+<section id="cierre" data-label="Cierre">
+  <div class="bg-photo center"><img src="img/local-ropa.jpg" alt="Prendas exhibidas en perchas dentro de un local"></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Multiperchas × Popcorn</div>
+    <h2 class="close-title r d1">No proponemos sumar canales.<br>Proponemos que lo que ya hacen<br><span class="hl">se pueda medir</span>.</h2>
+    <p class="lead r d2" style="margin:26px auto 0;text-align:center">Mientras un competidor sale a reclutar distribuidores con precio en la mano, Multiperchas invierte todos los meses sin poder demostrar qué le devuelve. La diferencia entre las dos posiciones no es el presupuesto: es saber qué funciona.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:florencia@somospopcorn.com?subject=Multiperchas%20%C2%B7%20Avancemos%20con%20la%20propuesta">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="metaband r d4" style="max-width:940px">
+      <div class="mb"><span class="k">Preparada para</span><span class="v">Multiperchas</span></div>
+      <div class="mb"><span class="k">Por</span><span class="v">Florencia Grigolatto<br><span style="font-weight:400;color:var(--w-65);font-size:.85rem">Operations Manager · Popcorn</span></span></div>
+      <div class="mb"><span class="k">Fecha</span><span class="v">24 de septiembre de 2026</span></div>
+      <div class="mb"><span class="k">Válida hasta</span><span class="v">4 de octubre de 2026</span></div>
+    </div>
+
+    <div class="close-sign r d5">
+      <img class="logo-pic close" src="img/logo-popcorn-blanco.png" alt="Popcorn">
+      <span class="close-tag">florencia@somospopcorn.com · somospopcorn.com</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+const sections=[...document.querySelectorAll('section')];
+const dots=document.getElementById('dots');
+sections.forEach(s=>{
+  const a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+const dotEls=[...dots.children];
+
+/* ===== Scroll reveal ===== */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* ===== Sección activa ===== */
+const active=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=sections.indexOf(e.target);
+      dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));
+    }
+  });
+},{threshold:.5});
+sections.forEach(s=>active.observe(s));
+
+/* ===== Calculadora de inversión ===== */
+const svcPicks=[...document.querySelectorAll('.svc-pick')];
+const pays=[...document.querySelectorAll('.pay')];
+const ctaGo=document.getElementById('ctaGo');
+const ctaPick=document.getElementById('ctaPick');
+const subO=document.getElementById('subOnce'),subM=document.getElementById('subMonth');
+const DESC=0.03; /* -3% por pago anticipado, solo etapa A */
+const ars=n=>'$'+Number(Math.round(n)).toLocaleString('es-AR');
+let payMode='ant';
+
+function buildMail(){
+  const on=svcPicks.filter(s=>s.classList.contains('on'));
+  let onceT=0,monthT=0;
+  on.forEach(s=>{
+    const a=Number(s.dataset.amount)||0;
+    if(s.dataset.type==='once'){onceT+=a;}else{monthT+=a;}
+  });
+  const onceAnt=Math.round(onceT*(1-DESC));
+  if(subO) subO.textContent = onceT ? ars(payMode==='ant'?onceAnt:onceT)+' + IVA' : '—';
+  if(subM) subM.textContent = monthT ? ars(monthT)+' + IVA / mes' : '—';
+
+  const pa=document.getElementById('payAnt'),ps=document.getElementById('paySplit');
+  if(pa) pa.querySelector('.pnum').innerHTML = (onceT?ars(onceAnt):'—')+' <span style="font-size:.7rem;color:rgba(18,18,18,.5);font-weight:500">+ IVA</span>';
+  if(ps) ps.querySelector('.pnum').innerHTML = (onceT?ars(onceT):'—')+' <span style="font-size:.7rem;color:rgba(18,18,18,.5);font-weight:500">+ IVA</span>';
+
+  let subject='Multiperchas · Avancemos con la propuesta';
+  let body='Hola Florencia, vimos la propuesta de estructura digital y performance para Multiperchas y queremos avanzar.';
+  if(on.length){
+    const once=on.filter(s=>s.dataset.type==='once'), mon=on.filter(s=>s.dataset.type==='month');
+    if(once.length){
+      body+='\n\nPUESTA A PUNTO (pago único):';
+      once.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+      body+='\n  Subtotal: '+ars(payMode==='ant'?onceAnt:onceT)+' + IVA';
+      body+='\n  Forma de pago elegida: '+(payMode==='ant'?'100% anticipado (−3%)':'50% al confirmar y 50% a los 30 días');
+    }
+    if(mon.length){
+      body+='\n\nFEE MENSUAL:';
+      mon.forEach(s=>{body+='\n• '+s.dataset.svc+' — '+s.dataset.price;});
+      body+='\n  Subtotal: '+ars(monthT)+' + IVA por mes';
+    }
+    body+='\n\nEntendemos que a esto se suma el 15% sobre la inversión en medios administrada, y que la inversión en medios la definimos y abonamos nosotros directamente a cada plataforma.';
+  }
+  const parts=[];
+  if(onceT) parts.push('Puesta a punto '+ars(payMode==='ant'?onceAnt:onceT));
+  if(monthT) parts.push('Fee mensual '+ars(monthT));
+  ctaPick.innerHTML = parts.length ? 'Avanzás con: <b>'+parts.join('</b> + <b>')+'</b> + IVA' : '<span class="none">Elegí los módulos más arriba para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:florencia@somospopcorn.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+svcPicks.forEach(s=>s.addEventListener('click',()=>{s.classList.toggle('on');buildMail();}));
+pays.forEach(p=>p.addEventListener('click',()=>{
+  pays.forEach(x=>x.classList.remove('on'));
+  p.classList.add('on');
+  payMode=p.dataset.mode;
+  buildMail();
+}));
+buildMail();
+</script>
+</body>
+</html>
