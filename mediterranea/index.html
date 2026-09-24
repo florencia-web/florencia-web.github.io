@@ -463,8 +463,16 @@ html{overflow-x:hidden}
 /* ---- firma de marca: resaltador aqua macizo ---- */
 .hl{
   background:var(--cyan);color:var(--ink);
-  padding:.02em .28em .08em;border-radius:.12em;
+  padding:0em .3em .04em;border-radius:.12em;
   box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+/* El resaltador es una caja maciza: necesita mas aire vertical que un titular
+   pelado, o su fondo invade la linea de arriba. Solo se aplica donde hay .hl. */
+h1:has(.hl),h2:has(.hl),h3:has(.hl),.hero-title:has(.hl),.close-title:has(.hl){line-height:1.26}
+/* reparte las lineas del titular para que no quede una palabra sola colgando */
+h1,h2,.hero-title,.close-title{text-wrap:balance}
+@supports not selector(:has(*)){
+  .hero-title,.h-xl,.h-lg,.close-title{line-height:1.26}
 }
 .hl-r{
   background:var(--cyan);color:var(--ink);
@@ -666,6 +674,8 @@ html{overflow-x:hidden}
   .badge-logo{right:20px}
 }
 @media(max-width:680px){
+  /* los saltos pensados para desktop generan lineas huerfanas en pantalla angosta */
+  h1 br,h2 br{display:none}
   section{padding:104px 20px 92px}
   .topbar{padding:16px 20px}
   .topbar.scrolled{padding:12px 20px}
@@ -731,7 +741,7 @@ html{overflow-x:hidden}
     <div class="split-media">
       <div>
         <div class="eyebrow r">Quiénes somos</div>
-        <h2 class="h-lg r d1">No somos un proveedor de<br>publicaciones. Somos <span class="hl">socios<br>de tu negocio</span>.</h2>
+        <h2 class="h-lg r d1">No somos un proveedor.<br>Somos <span class="hl">socios de tu negocio</span>.</h2>
         <p class="lead r d2" style="margin-top:26px">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Antes de proponer una acción entendemos el negocio, los públicos, el mercado y el embudo. Recién después hablamos de canales.</p>
         <p class="lead r d3" style="margin-top:18px">Es lo que faltó hasta ahora: no un diseñador más rápido, sino alguien que primero pregunte <b>para qué</b> se está comunicando.</p>
         <div class="stats r d4">
