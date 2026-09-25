@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MicroHard Computación × Popcorn · Primero la tienda, después la pauta</title>
+<meta name="description" content="Propuesta comercial de Popcorn para MicroHard Computación: auditoría y optimización de Tienda Nube, medición, kit de marca y gestión de pauta digital en Google y Meta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · SISTEMA DE MARCA (paleta canónica identidad-popcorn.md)
+   Violeta #580D9F + Aqua #74FAE3 · Public Sans + Space Grotesk
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --card-2:rgba(26,3,47,.45);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --alerta:#F5A524;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--violeta);
+  color:var(--white);
+  font-family:'Space Grotesk',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(162,98,229,.48), transparent 60%),
+    radial-gradient(1000px 800px at -10% 110%, rgba(116,250,227,.10), transparent 55%),
+    linear-gradient(160deg,#470082 0%,#580D9F 42%,#2A0454 100%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+h1,h2,h3,h4,.display{font-family:'Public Sans',sans-serif;font-style:normal}
+em,i{font-style:normal}
+.it{font-style:italic;color:var(--aqua)}
+
+/* ============ TOPBAR ============ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 38px;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-pic{height:30px;width:auto;display:block}
+.logo-pic.close{height:56px}
+
+/* ============ PROGRESO + DOTS ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:12px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a:hover{background:var(--w-65);transform:scale(1.25)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease);border:1px solid var(--line-soft)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 96px}
+section.auto{min-height:0}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Public Sans';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua);white-space:nowrap}
+
+/* modo claro (papel) */
+section.light{background:var(--papel);color:var(--tinta)}
+section.light .lead,section.light .muted{color:#4a4a52}
+section.light .sfoot{color:#8b8b95}
+section.light .sfoot .num{color:var(--violeta)}
+section.light .eyebrow{color:var(--violeta)}
+section.light .eyebrow::before{background:var(--violeta);box-shadow:none}
+section.light .card{background:#fff;border-color:rgba(18,18,18,.10);box-shadow:0 2px 14px rgba(26,3,47,.05)}
+section.light .card:hover{border-color:var(--violeta);background:#fff;box-shadow:0 16px 40px rgba(26,3,47,.10)}
+section.light .card p{color:#55555f}
+section.light .card h3{color:var(--tinta)}
+section.light .card .ico{background:rgba(88,13,159,.07);border-color:rgba(88,13,159,.22);color:var(--violeta)}
+section.light .card .num-tag{color:var(--violeta)}
+section.light b,section.light strong{color:var(--tinta)}
+section.light .cy{color:var(--violeta)}
+section.light .it{color:var(--violeta)}
+
+/* modo casi negro */
+section.dark{background:var(--negro)}
+section.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 600px at 20% 0%,rgba(88,13,159,.45),transparent 62%);z-index:0}
+
+/* eyebrow y tipografía */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.h-xl{font-weight:700;font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:1.0;letter-spacing:-.02em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.04;letter-spacing:-.015em}
+.h-md{font-weight:600;font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.15}
+.cy{color:var(--aqua)}
+.lead{font-size:clamp(1.05rem,1.55vw,1.28rem);color:var(--w-80);max-width:760px;font-weight:400;line-height:1.65}
+.muted{color:var(--w-65)}
+b,strong{color:#fff;font-weight:600}
+
+/* FIRMA DE MARCA · resaltador aqua */
+.hl{background:var(--aqua);color:var(--tinta);padding:.02em .22em .1em;border-radius:.1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hl.pill{border-radius:999px;padding:.06em .38em .14em}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.r.d1{transition-delay:.09s}.r.d2{transition-delay:.18s}.r.d3{transition-delay:.27s}
+.r.d4{transition-delay:.36s}.r.d5{transition-delay:.45s}.r.d6{transition-delay:.54s}.r.d7{transition-delay:.63s}.r.d8{transition-delay:.72s}
+
+/* ============ HERO ============ */
+#hero{justify-content:center;overflow:hidden}
+.ghost{position:absolute;top:-2%;left:-1%;z-index:1;font-family:'Public Sans';font-weight:800;font-size:clamp(7rem,17vw,15rem);line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.13);pointer-events:none;user-select:none;white-space:nowrap}
+.rombos{position:absolute;right:0;top:0;width:340px;height:340px;z-index:1;opacity:.5;pointer-events:none;background-image:linear-gradient(45deg,rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(-45deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(circle at 100% 0,#000,transparent 72%);mask-image:radial-gradient(circle at 100% 0,#000,transparent 72%)}
+.badge-logo{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:6;background:#fff;border-radius:0 0 22px 22px;padding:16px 22px 18px;box-shadow:0 12px 40px rgba(26,3,47,.35)}
+.badge-logo img{height:52px;width:auto;display:block}
+.hero-title{font-weight:700;font-size:clamp(2.6rem,7.2vw,5.8rem);line-height:1.0;letter-spacing:-.03em;max-width:15ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.65vw,1.32rem);color:var(--w-80);max-width:640px;line-height:1.62}
+.hero-tags{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+.tag{font-family:'Public Sans';font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.04)}
+.scrollcue{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Public Sans';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ META BAND ============ */
+.metaband{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;margin-top:54px}
+.metaband div{background:rgba(26,3,47,.42);padding:20px 22px}
+.metaband .k{font-family:'Public Sans';font-weight:600;font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--aqua);display:block;margin-bottom:8px}
+.metaband .v{font-family:'Public Sans';font-weight:600;font-size:.95rem;color:#fff;line-height:1.35}
+.metaband .v small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.78rem;color:var(--w-45);margin-top:3px}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.card .ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:20px}
+.card .ico svg{width:24px;height:24px}
+.card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px;line-height:1.25}
+.card p{color:var(--w-65);font-size:.95rem;line-height:1.6}
+.card .num-tag{font-family:'Public Sans';font-weight:700;font-size:13px;color:var(--aqua);letter-spacing:.1em;margin-bottom:14px;display:block}
+.card .big{font-family:'Public Sans';font-weight:700;font-size:clamp(2rem,3.6vw,2.7rem);color:var(--aqua);line-height:1;margin-bottom:10px;letter-spacing:-.02em}
+.card.etapa-uno .tres{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:8px;padding-top:24px;border-top:1px solid var(--line-soft)}
+.card.etapa-uno .tres>div{min-width:0}
+@media(max-width:900px){.card.etapa-uno .tres{grid-template-columns:1fr;gap:26px}}
+section.light .card .big{color:var(--violeta)}
+
+/* stats */
+.stats{display:flex;flex-wrap:wrap;gap:16px 54px;border-top:1px solid var(--line-soft);padding-top:34px;margin-top:44px}
+section.light .stats{border-top-color:rgba(18,18,18,.12)}
+.stat .v{font-family:'Public Sans';font-weight:700;font-size:clamp(1.9rem,3.8vw,2.9rem);color:var(--aqua);line-height:1;letter-spacing:-.02em}
+section.light .stat .v{color:var(--violeta)}
+.stat .l{font-family:'Public Sans';font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--w-65);margin-top:8px;max-width:24ch}
+section.light .stat .l{color:#6b6b76}
+
+/* quote */
+.quote{border-left:2px solid var(--aqua);padding-left:22px;color:var(--white);font-family:'Public Sans';font-weight:500;font-size:clamp(1.05rem,1.6vw,1.4rem);line-height:1.42}
+
+/* pill stack */
+.pillstack{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.pillstack span{display:inline-block;border-radius:999px;padding:.3em .8em .38em;font-family:'Public Sans';font-weight:700;font-size:clamp(1.5rem,3.6vw,2.7rem);line-height:1.08;letter-spacing:-.02em}
+.pillstack .p1{background:var(--violeta-900);color:#fff}
+.pillstack .p2{background:var(--aqua);color:var(--violeta-900);margin-left:.7em}
+.pillstack .p3{background:var(--violeta-claro);color:#fff;margin-left:.25em}
+.pillstack .p4{background:#fff;color:var(--violeta);border:1px solid rgba(88,13,159,.25);margin-left:1.1em}
+
+/* ============ FOTOGRAFÍA ============ */
+.media{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--line-soft)}
+.media.wide{aspect-ratio:16/9}
+.media.tall{aspect-ratio:3/4}
+.media.sq{aspect-ratio:1/1}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+.media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(155deg,rgba(71,0,130,.42),rgba(26,3,47,.20) 55%,rgba(116,250,227,.10))}
+.media.plain::after{background:none}
+.media .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px;background:linear-gradient(to top,rgba(26,3,47,.92),transparent);font-size:.92rem;color:var(--w-80)}
+.media .cap b{display:block;font-family:'Public Sans';font-size:1rem;margin-bottom:5px}
+.shot{border-radius:20px;border:1px solid rgba(18,18,18,.12);overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(26,3,47,.16)}
+.shot img{width:100%;display:block}
+
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(71,0,130,.96) 24%,rgba(88,13,159,.78) 58%,rgba(42,4,84,.72))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(88,13,159,.82),rgba(26,3,47,.96))}
+
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.split.rev>.col-img{order:-1}
+.split.wide-img{grid-template-columns:.9fr 1.1fr}
+
+/* ============ LOGOWALL ============ */
+.logowall{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.logocell{display:flex;align-items:center;justify-content:center;min-height:112px;border:1px solid rgba(255,255,255,.55);border-radius:16px;background:#fff;padding:20px;transition:all .4s var(--ease)}
+.logocell:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,3,47,.35)}
+.logocell img{max-height:52px;max-width:88%;width:auto;object-fit:contain;display:block}
+.logocell .ln{display:none;font-family:'Public Sans';font-weight:700;font-size:1rem;color:var(--violeta)}
+.logocell.noimg .ln{display:block}
+
+/* ============ PIPE / METODOLOGÍA ============ */
+.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:14px}
+.pipe .node{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line-soft);border-radius:16px;padding:24px 18px;text-align:center;transition:all .4s var(--ease)}
+.pipe .node:hover{border-color:var(--aqua-line);transform:translateY(-5px)}
+.pipe .node .k{font-family:'Public Sans';font-weight:700;font-size:12px;color:var(--aqua);letter-spacing:.1em;display:block;margin-bottom:9px}
+.pipe .node .t{font-family:'Public Sans';font-weight:600;font-size:1rem;line-height:1.25}
+.pipe .node p{font-size:.8rem;color:var(--w-45);margin-top:7px;line-height:1.45}
+.pipe .arrow{display:flex;align-items:center;color:var(--aqua);opacity:.6}
+.pipe .arrow svg{width:22px;height:22px}
+
+/* ============ TABLAS ============ */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px}
+.tbl th{font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);text-align:left;padding:14px 16px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th.num{text-align:right}
+.tbl td{padding:13px 16px;font-size:.89rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl td.num{text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl .plat{font-family:'Public Sans';font-weight:600;color:#fff;white-space:nowrap}
+.tbl .obj{color:var(--w-45);font-size:.8rem;line-height:1.4;min-width:170px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.total td{border-top:1.5px solid var(--aqua-line);background:rgba(116,250,227,.07);font-family:'Public Sans';font-weight:700;color:#fff}
+.tbl tr.total td.num{color:var(--aqua)}
+/* tabla en modo claro */
+section.light .tbl th{color:var(--violeta);border-bottom-color:rgba(18,18,18,.14)}
+section.light .tbl td{color:#42424c;border-bottom-color:rgba(18,18,18,.09)}
+section.light .tbl .plat{color:var(--tinta)}
+section.light .tbl .obj{color:#7a7a85}
+section.light .tbl tr.total td{border-top-color:var(--violeta);background:rgba(88,13,159,.06);color:var(--tinta)}
+section.light .tbl tr.total td.num{color:var(--violeta)}
+.pos{color:var(--alerta);font-weight:600}
+.neg{color:var(--aqua-deep);font-weight:600}
+section.light .neg{color:#0a8a7a}
+
+/* ============ ESCENARIOS ============ */
+.scen{margin-top:22px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);overflow:hidden;transition:all .35s var(--ease)}
+.scen-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:24px 28px;border-bottom:1px solid var(--line-soft)}
+.scen-head .st{font-family:'Public Sans';font-weight:700;font-size:1.22rem}
+.scen-head .st small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:4px}
+.scen-head .si{font-family:'Public Sans';font-weight:700;color:var(--aqua);font-size:1.18rem;white-space:nowrap;text-align:right}
+.scen-head .si small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.74rem;color:var(--w-45);margin-top:3px}
+.scen-note{padding:18px 28px;color:var(--w-65);font-size:.9rem;line-height:1.62;border-bottom:1px solid var(--line-soft)}
+.scen-pick{cursor:pointer;user-select:none}
+.scen-pick .pick{display:flex;align-items:center;gap:10px;padding:18px 28px;border-top:1px solid var(--line-soft);font-family:'Public Sans';font-weight:600;font-size:.85rem;color:var(--w-45);transition:color .3s var(--ease)}
+.scen-pick .pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);flex:none;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.scen-pick .pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);transform:scale(0);transition:transform .25s var(--ease)}
+.scen-pick.selected{border-color:var(--aqua);background:rgba(116,250,227,.08);box-shadow:0 0 0 1px var(--aqua) inset,0 14px 40px rgba(116,250,227,.16)}
+.scen-pick.selected .pick{color:var(--aqua)}
+.scen-pick.selected .pick .radio{border-color:var(--aqua)}
+.scen-pick.selected .pick .radio::after{transform:scale(1)}
+.scen-pick .pick .lbl-on{display:none}
+.scen-pick.selected .pick .lbl-off{display:none}
+.scen-pick.selected .pick .lbl-on{display:inline}
+.reco{display:inline-flex;align-items:center;gap:7px;font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta);background:var(--aqua);padding:5px 12px;border-radius:100px;margin-bottom:10px}
+
+/* ============ INVERSIÓN ============ */
+.inv-box{background:linear-gradient(160deg,rgba(116,250,227,.12),rgba(26,3,47,.42));border:1.5px solid var(--aqua-line);border-radius:24px;padding:clamp(24px,3.4vw,38px)}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);padding-bottom:9px;border-bottom:1px solid var(--aqua-line);margin-bottom:4px}
+.inv-ghead .inv-sub{font-family:'Public Sans';font-weight:700;font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.inv-group+.inv-group{margin-top:30px}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px 14px;margin:0 -14px;border-bottom:1px solid var(--line-soft);border-radius:10px;transition:background .25s var(--ease)}
+.price-row:last-child{border-bottom:none}
+.price-row.svc-pick{cursor:pointer}
+.price-row.svc-pick:hover{background:rgba(255,255,255,.05)}
+.price-row .pl{display:flex;align-items:flex-start;gap:14px;font-family:'Public Sans';font-weight:600;font-size:1.02rem;line-height:1.3}
+.price-row .pl small{display:block;font-weight:400;font-size:.83rem;color:var(--w-45);margin-top:6px;font-family:'Space Grotesk';max-width:46ch;line-height:1.5}
+.price-row .pv{font-family:'Public Sans';font-weight:700;font-size:1.28rem;color:var(--aqua);white-space:nowrap;text-align:right}
+.price-row .pv .ivatag{display:block;font-size:.66rem;color:var(--w-45);font-weight:500;letter-spacing:.04em;margin-top:3px}
+.price-row .chk{flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.price-row .chk svg{width:12px;height:12px;color:var(--tinta);opacity:0;transform:scale(.4);transition:all .2s var(--ease)}
+.price-row.svc-pick.on .chk{background:var(--aqua);border-color:var(--aqua)}
+.price-row.svc-pick.on .chk svg{opacity:1;transform:scale(1)}
+
+.pays{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.pay{border:1px solid var(--line-soft);border-radius:18px;padding:24px;background:rgba(26,3,47,.35);position:relative}
+.pay.best{border-color:var(--aqua);background:rgba(116,250,227,.09)}
+.pay .pk{font-family:'Public Sans';font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);display:block;margin-bottom:10px}
+.pay.best .pk{color:var(--aqua)}
+.pay .pn{font-family:'Public Sans';font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.pay .pval{font-family:'Public Sans';font-weight:700;font-size:1.6rem;color:var(--aqua);letter-spacing:-.02em;margin-top:12px}
+.pay .pd{font-size:.84rem;color:var(--w-65);line-height:1.5}
+.pay .flag{position:absolute;top:-11px;right:18px;background:var(--aqua);color:var(--tinta);font-family:'Public Sans';font-weight:700;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+
+.notes{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:12px}
+.notes li{display:flex;gap:11px;align-items:flex-start;font-size:.89rem;color:var(--w-65);line-height:1.55}
+.notes li::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--aqua);margin-top:8px}
+
+/* ============ ALCANCE ============ */
+.scope{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.scope-col{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:32px}
+.scope-col.no{background:rgba(26,3,47,.38)}
+.scope-col h3{font-family:'Public Sans';font-weight:600;font-size:1.18rem;margin-bottom:6px}
+.scope-col .sub{font-size:.85rem;color:var(--w-45);margin-bottom:22px}
+.scope-col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.scope-col li{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;color:var(--w-80);line-height:1.5}
+.scope-col li svg{width:19px;height:19px;flex:none;margin-top:3px}
+.scope-col.yes li svg{color:var(--aqua)}
+.scope-col.no li svg{color:var(--w-45)}
+.scope-col.no li{color:var(--w-65)}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;margin-top:38px;display:flex;flex-direction:column}
+.tl::before{content:'';position:absolute;left:19px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--aqua-line),rgba(116,250,227,.05))}
+.tl-item{position:relative;padding:0 0 34px 64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:var(--violeta-900);border:2px solid var(--aqua);display:flex;align-items:center;justify-content:center}
+.tl-item .dot::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 10px var(--aqua)}
+.tl-item .ph{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);margin-bottom:5px}
+.tl-item h3{font-family:'Public Sans';font-weight:600;font-size:1.15rem;margin-bottom:8px}
+.tl-item p{color:var(--w-65);font-size:.93rem;line-height:1.6;max-width:64ch}
+
+/* ============ RIESGOS ============ */
+.risk{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-soft);border-radius:18px;overflow:hidden;margin-top:12px}
+.risk>div{padding:22px 26px;border-bottom:1px solid var(--line-soft)}
+.risk>div:nth-child(2n){background:rgba(116,250,227,.05)}
+.risk>div:nth-child(2n+1){background:rgba(26,3,47,.32)}
+.risk .rt{font-family:'Public Sans';font-weight:600;font-size:.98rem;margin-bottom:6px;line-height:1.3}
+.risk .rd{font-size:.88rem;color:var(--w-65);line-height:1.55}
+.risk .rh{font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua)}
+.risk>div.hd{padding:14px 26px;background:rgba(26,3,47,.6)}
+.risk>div:nth-child(2n).hd{background:rgba(26,3,47,.6)}
+
+/* ============ CIERRE ============ */
+#cierre{text-align:center;align-items:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-family:'Public Sans';font-weight:700;font-size:clamp(1.9rem,4.6vw,3.6rem);line-height:1.08;letter-spacing:-.02em;max-width:22ch}
+.close-sign{margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.close-tag{font-family:'Public Sans';font-weight:500;color:var(--aqua);letter-spacing:.03em;font-size:1rem;margin-top:6px}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:34px;padding:18px 44px;border-radius:100px;font-family:'Public Sans';font-weight:700;font-size:1.05rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.30);transition:transform .25s ease,box-shadow .25s ease}
+.cta-go:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(116,250,227,.44)}
+.cta-go svg{width:20px;height:20px}
+#ctaPick{font-family:'Public Sans';font-weight:600;font-size:.95rem;color:var(--aqua);margin-top:6px;min-height:1.3em}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+.contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 34px;margin-top:30px;font-size:.92rem;color:var(--w-65)}
+.contacts b{display:block;font-family:'Public Sans';color:#fff;font-size:.98rem}
+.contacts a{color:var(--aqua);text-decoration:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:980px){
+  .metaband{grid-template-columns:repeat(2,1fr)}
+  .logowall{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .dots{display:none}
+  section{padding:104px 20px 82px}
+  .sfoot{left:20px;right:20px;font-size:9px;letter-spacing:.12em}
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev>.col-img{order:0}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .scope{grid-template-columns:1fr}
+  .pays{grid-template-columns:1fr}
+  .risk{grid-template-columns:1fr}
+  .risk>div:nth-child(2n+1){background:rgba(26,3,47,.32)}
+  .pipe{flex-direction:column}
+  .pipe .arrow{width:100%;height:26px;justify-content:center}
+  .pipe .arrow svg{transform:rotate(90deg)}
+  .topbar{padding:16px 20px}
+  .topbar .brand-tag{display:none}
+  .ghost{font-size:clamp(4.5rem,20vw,7rem)}
+  .badge-logo{padding:12px 16px 14px}
+  .badge-logo img{height:38px}
+}
+@media(max-width:560px){
+  .metaband{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .stats{gap:20px 30px}
+  .price-row{flex-direction:column;gap:10px}
+  .price-row .pv{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · MicroHard Computación · Confidencial</div>
+  <div class="logo"><img class="logo-pic" src="img/logo-popcorn-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots"></nav>
+
+
+<!-- ══════════ 01 · PORTADA ══════════ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/hero.jpg" alt="Notebooks en el mostrador de MicroHard Computación" loading="eager"></div>
+  <div class="ghost">E-COMMERCE</div>
+  <div class="rombos"></div>
+  <div class="badge-logo"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+  <div class="wrap">
+    <div class="eyebrow r">MicroHard Computación × Popcorn · Septiembre 2026</div>
+    <h1 class="hero-title r d1">65.000 personas entraron.<br>110 <span class="hl">compraron</span>.</h1>
+    <p class="hero-sub r d3">A MicroHard no le falta tráfico: le falta que ese tráfico termine en una venta. Esta propuesta ordena primero el camino entre la visita y el pago, y recién después pone plata en publicidad.</p>
+    <div class="hero-tags r d4">
+      <span class="tag">Auditoría de Tienda Nube</span>
+      <span class="tag">Rediseño y UX de la tienda</span>
+      <span class="tag">Optimización de PageSpeed</span>
+      <span class="tag">Medición y tracking</span>
+      <span class="tag">Google Ads + Meta Ads</span>
+      <span class="tag">Kit de marca</span>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Desliz&aacute; para leer</div>
+</section>
+
+
+<!-- ══════════ 02 · QUIÉNES SOMOS ══════════ -->
+<section id="popcorn" data-label="Quiénes somos">
+  <div class="wrap">
+    <div class="eyebrow r">Quiénes somos</div>
+    <h2 class="h-lg r d1">No vendemos publicaciones.<br>Vendemos <span class="hl">crecimiento</span>.</h2>
+    <p class="lead r d2" style="margin-top:24px">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja desde una mirada de negocio. Arrancamos hace 15 años como productora audiovisual y hoy somos un equipo de 27 personas que cubre estrategia, pauta, contenido, diseño, desarrollo y audiovisual. Para MicroHard no proponemos “manejar las redes”: proponemos hacer que la tienda online venda.</p>
+
+    <div class="grid g3 r d3" style="margin-top:48px">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Primero el negocio</h3>
+        <p>Empezamos por el resultado comercial —ventas, costo por venta, retorno— y desde ahí definimos las acciones. Nunca al revés.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <h3>Sabemos vender tecnología</h3>
+        <p>Trabajamos marcas de tecnología y electro. Entendemos el ticket alto, las cuotas, la comparación entre pestañas y la desconfianza del comprador.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Un equipo, no un freelance</h3>
+        <p>Un project manager dedicado y un equipo detrás: pauta, diseño, edición y contenido. Con método, plan mensual y reporte.</p>
+      </div>
+    </div>
+
+    <div class="metaband r d4">
+      <div><span class="k">Preparada para</span><span class="v">MicroHard Computación<small>Azul, Buenos Aires</small></span></div>
+      <div><span class="k">Preparada por</span><span class="v">Sol Ferrari<small>General Manager · Popcorn</small></span></div>
+      <div><span class="k">Fecha</span><span class="v">25 de septiembre de 2026</span></div>
+      <div><span class="k">Válida hasta</span><span class="v">5 de octubre de 2026<small>10 días corridos</small></span></div>
+      <div><span class="k">Contacto</span><span class="v">florencia@somospopcorn.com<small>sol@somospopcorn.com</small></span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">01 — Popcorn</span></div>
+</section>
+
+
+<!-- ══════════ 03 · CLIENTES ══════════ -->
+<section id="clientes" data-label="Clientes" class="auto" style="min-height:auto;padding-top:96px;padding-bottom:96px">
+  <div class="wrap">
+    <div class="eyebrow r">Algunas marcas que confían en nosotros</div>
+    <h2 class="h-md r d1" style="max-width:24ch">Retail, consumo, servicios y e-commerce.</h2>
+    <div class="logowall r d2">
+      <div class="logocell"><img src="img/logos/northfield.png" alt="Northfield School" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Northfield</span></div>
+      <div class="logocell"><img src="img/logos/frambuesa.png" alt="Frambuesa Design" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Frambuesa</span></div>
+      <div class="logocell"><img src="img/logos/mercadocheque.png" alt="Mercado Cheque" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Mercado Cheque</span></div>
+      <div class="logocell"><img src="img/logos/transpack.png" alt="Transpack" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Transpack</span></div>
+      <div class="logocell"><img src="img/logos/evel.png" alt="Evel" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Evel</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ 04 · EL ACTIVO ══════════ -->
+<section id="contexto" data-label="Dónde estamos parados">
+  <div class="wrap">
+    <div class="eyebrow r">El punto de partida</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">El negocio ya existe.<br>Lo que falta es <span class="hl">traducirlo</span><br>a la venta online.</h2>
+    <p class="lead r d2" style="margin-top:24px">MicroHard no arranca de cero. Hay un local a la calle en Azul, dos décadas de trayectoria, una comunidad de 9.457 seguidores en Instagram construida sin pauta, presencia en Mercado Libre y una tienda propia que recibe decenas de miles de visitas por año. Todo eso es capital.</p>
+    <p class="lead r d3" style="margin-top:18px">El problema es que ese capital no se está convirtiendo en ventas online. Y no porque falte gente mirando, sino porque el camino entre mirar y pagar está roto en varios puntos a la vez.</p>
+    <div class="r d4" style="margin-top:38px">
+      <div class="media" style="aspect-ratio:auto"><img src="img/local-cartel.jpg" alt="Cartel del local de MicroHard Computación en Azul: seguridad, garantía y confianza"></div>
+      <p class="muted" style="font-size:.86rem;margin-top:12px">El cartel del local ya dice lo importante: seguridad, garantía y confianza. La tienda online todavía no lo cuenta.</p>
+    </div>
+    <div class="stats r d5">
+      <div class="stat"><div class="v">20 años</div><div class="l">Vendiendo tecnología en Azul</div></div>
+      <div class="stat"><div class="v">9.457</div><div class="l">Seguidores en Instagram, 100% orgánicos</div></div>
+      <div class="stat"><div class="v">3 canales</div><div class="l">Local, tienda online y Mercado Libre</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Local físico · Tienda online · Mercado Libre</span><span class="num">02 — Contexto</span></div>
+</section>
+
+
+<!-- ══════════ 05 · DIAGNÓSTICO ══════════ -->
+<section id="diagnostico" data-label="Diagnóstico" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Los números que<br>abrieron esta conversación.</h2>
+    <p class="lead r d2" style="margin-top:22px;max-width:700px">Estos datos salen de la reunión del 25 de septiembre y del relevamiento que hicimos sobre la tienda, el Instagram y los precios publicados. No son estimaciones: son la foto de hoy.</p>
+
+    <div class="grid g3 r d3" style="margin-top:46px">
+      <div class="card">
+        <span class="big">0,17%</span>
+        <h3>Tasa de conversión 2025</h3>
+        <p>65.000 visitas en el año y 110 ventas. De cada 1.000 personas que entran a la tienda, menos de dos compran.</p>
+      </div>
+      <div class="card">
+        <span class="big">16</span>
+        <h3>Ventas web en 2026</h3>
+        <p>A septiembre, contra 110 en todo 2025. La caída no es estacional: es estructural.</p>
+      </div>
+      <div class="card">
+        <span class="big">11 seg</span>
+        <h3>Carga en celular</h3>
+        <p>Y un puntaje de rendimiento del 30%. Las fotos de catálogo llegan sin comprimir desde los proveedores.</p>
+      </div>
+      <div class="card">
+        <span class="big">9%</span>
+        <h3>Contracargos</h3>
+        <p>10 casos sobre 110 ventas, concentrados en notebooks pagadas en un solo pago. Es el producto de mayor ticket.</p>
+      </div>
+      <div class="card">
+        <span class="big">0</span>
+        <h3>Medición activa</h3>
+        <p>Los píxeles se eliminaron. Hoy no hay forma de saber qué campaña, qué producto ni qué anuncio genera una venta.</p>
+      </div>
+      <div class="card">
+        <span class="big">11.000</span>
+        <h3>Palabras clave mezcladas</h3>
+        <p>El intento anterior en Google se frenó ahí. No era un problema de presupuesto: era un problema de foco.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuente: datos de MicroHard + relevamiento Popcorn, 25/09/2026</span><span class="num">03 — Diagnóstico</span></div>
+</section>
+
+
+<!-- ══════════ 06 · LA WEB ══════════ -->
+<section id="web" data-label="La tienda hoy">
+  <div class="wrap">
+    <div class="split wide-img rev">
+      <div>
+        <div class="eyebrow r">Hallazgo 1 · La tienda</div>
+        <h2 class="h-lg r d1">8 de cada 10 llegan<br>desde el <span class="hl">celular</span>.</h2>
+        <p class="lead r d2" style="margin-top:22px">Y desde el celular la tienda tarda 11 segundos en cargar. En ese tiempo, la mayoría de la gente ya se fue. Poner pauta sobre esta web es pagarle a Google y a Meta para llevar gente a una puerta que tarda en abrirse.</p>
+        <p class="lead r d3" style="margin-top:16px">Hay además tres frenos silenciosos: las reglas antifraude que llegaron a bloquear compras de prueba hechas desde el propio local, el patrón de contracargos en notebooks en un pago, y la ausencia de señales de confianza —local físico, trayectoria, garantía, cómo se entregan los equipos— justo donde el comprador de ticket alto las necesita.</p>
+        <p class="r d4" style="margin-top:26px"><span class="quote">Antes de discutir cuánto invertir en publicidad, hay que arreglar lo que pasa después del clic.</span></p>
+      </div>
+      <div class="col-img r d2" style="display:flex;justify-content:center">
+        <div class="shot" style="max-width:330px"><img src="img/web-mobile.jpg" alt="La tienda de MicroHard vista desde un celular"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>microhardazul.com.ar · captura del 25/09/2026</span><span class="num">04 — La tienda</span></div>
+</section>
+
+
+<!-- ══════════ 07 · LA MARCA ══════════ -->
+<section id="marca" data-label="La marca" class="light">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Hallazgo 2 · La marca</div>
+        <h2 class="h-lg r d1">Seis publicaciones.<br>Seis marcas <span class="hl">distintas</span>.</h2>
+        <p class="lead r d2" style="margin-top:22px">En los últimos posteos del feed conviven por lo menos seis sistemas gráficos que no se parecen entre sí: paletas, tipografías y estilos que cambian de pieza en pieza. Para alguien que está decidiendo si le confía $2.000.000 a una tienda que no conoce, esa dispersión se lee como improvisación.</p>
+        <p class="lead r d3" style="margin-top:16px">Pasa lo mismo con el relato. La web habla de “más de 15 años de experiencia”, el Instagram de “20 años vendiendo tecnología” y una publicación del feed, de “18 años”. Las tres pueden ser ciertas en distintos momentos, pero ninguna construye sobre la anterior: la trayectoria es el activo más fuerte de MicroHard y se está contando de tres maneras distintas.</p>
+        <p class="lead r d4" style="margin-top:16px"><b>Esto no se resuelve con un rebranding.</b> El logo tiene dos décadas y no se toca. Lo que hace falta es una regla escrita —colores, tipografías, usos del logo— y un set de plantillas para que cada pieza que publica MicroHard sume a la misma marca.</p>
+      </div>
+      <div class="col-img r d2">
+        <div class="media sq plain" style="border-color:rgba(18,18,18,.12)"><img src="img/feed-actual.jpg" alt="Feed de Instagram de MicroHard: seis publicaciones con seis estilos gráficos distintos"></div>
+        <p style="font-size:.82rem;color:#7a7a85;margin-top:12px;line-height:1.5">Feed de @microhardazul al 25/09/2026. Cada pieza resuelve bien su mensaje; el problema es que ninguna se parece a la anterior.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>@microhardazul · 9.457 seguidores orgánicos</span><span class="num">05 — La marca</span></div>
+</section>
+
+
+<!-- ══════════ 08 · PRECIOS ══════════ -->
+<section id="precios" data-label="Precios vs mercado">
+  <div class="wrap">
+    <div class="eyebrow r">Hallazgo 3 · Competitividad</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">En Shopping, el precio<br>se compara <span class="hl">al lado</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px;max-width:760px">Relevamos los cinco productos de mayor ticket de la tienda contra lo que publican otros vendedores. El resultado define por dónde arranca la pauta: en Google Shopping el usuario ve los precios uno al lado del otro, y un producto caro consume presupuesto sin convertir.</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:34px;border:1px solid var(--line-soft);border-radius:18px;background:var(--card)">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>Producto</th><th class="num">Lista MicroHard<br>(12 cuotas)</th><th class="num">Transferencia<br>MicroHard</th><th class="num">Referencia<br>de mercado</th><th class="num">Dif. lista</th><th class="num">Dif. transf.</th><th>Lectura para la pauta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="plat">HP Victus Gaming i5<br><span style="font-weight:400;color:var(--w-45);font-size:.8rem">8GB / 512GB · RTX 2050</span></td><td class="num">$2.469.999</td><td class="num">$1.975.999</td><td class="num">$3.175.564</td><td class="num neg">−22,2%</td><td class="num neg">−37,8%</td><td class="obj">Competitivo frente a la tienda oficial. Producto estrella para Search y Shopping.</td></tr>
+          <tr><td class="plat">Bangho Max i7<br><span style="font-weight:400;color:var(--w-45);font-size:.8rem">16GB / 480GB</span></td><td class="num">$1.846.000</td><td class="num">$1.476.800</td><td class="num">$1.486.143</td><td class="num pos">+24,2%</td><td class="num neg">−0,6%</td><td class="obj">En transferencia empata al mercado y en 12 cuotas compite muy bien. Foco para Search y WhatsApp.</td></tr>
+          <tr><td class="plat">MSI Thin i5 12va<br><span style="font-weight:400;color:var(--w-45);font-size:.8rem">8GB / 512GB · RTX 2050</span></td><td class="num">$3.107.000</td><td class="num">$2.485.600</td><td class="num">$2.097.828</td><td class="num pos">+48,1%</td><td class="num pos">+18,5%</td><td class="obj">Por encima del mercado incluso en transferencia. No priorizar hasta revisar precio.</td></tr>
+          <tr><td class="plat">Lenovo IdeaPad Slim 3<br><span style="font-weight:400;color:var(--w-45);font-size:.8rem">i5 13va · 8GB / 512GB</span></td><td class="num">$2.548.000</td><td class="num">$2.038.400</td><td class="num">$1.517.670</td><td class="num pos">+67,9%</td><td class="num pos">+34,3%</td><td class="obj">La brecha más grande del relevamiento. Revisar costo y precio antes de invertir pauta.</td></tr>
+          <tr><td class="plat">Samsung Galaxy A55 5G<br><span style="font-weight:400;color:var(--w-45);font-size:.8rem">256GB</span></td><td class="num">$1.168.700</td><td class="num">$934.960</td><td class="num">$599.999</td><td class="num pos">+94,8%</td><td class="num pos">+55,8%</td><td class="obj">Para Meta conviene usar celulares con precio competitivo en lugar de este modelo.</td></tr>
+          <tr class="total"><td>Promedio de los 5</td><td class="num">$2.227.940</td><td class="num">$1.782.352</td><td class="num">$1.775.441</td><td class="num">+25,5%</td><td class="num">+0,4%</td><td class="obj"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g2 r d4" style="margin-top:26px">
+      <div class="card">
+        <span class="num-tag">LO BUENO</span>
+        <h3>En transferencia, MicroHard está en precio de mercado</h3>
+        <p>El promedio de los cinco productos queda a un 0,4% de la referencia. La estructura de precios no está rota: lo que falta es comunicar el precio correcto en el canal correcto.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">LO QUE HAY QUE CUIDAR</span>
+        <h3>El precio de lista pierde la comparación</h3>
+        <p>En lista, el promedio queda 25,5% por encima. Por eso la pauta arranca por HP Victus y Bangho Max, y los demás modelos entran cuando se revisa el precio.</p>
+      </div>
+    </div>
+    <p class="muted r d5" style="margin-top:20px;font-size:.84rem">Precios relevados el 25/09/2026 sobre publicaciones de ElectroPC, Fullh4rd, Frávega, Provincia Compras y la tienda oficial de HP Argentina. En tecnología los precios cambian semana a semana: el relevamiento se actualiza al inicio del trabajo.</p>
+  </div>
+  <div class="sfoot"><span>Benchmark de precios · 5 productos de mayor ticket</span><span class="num">06 — Precios</span></div>
+</section>
+
+
+<!-- ══════════ 09 · TESIS ══════════ -->
+<section id="tesis" data-label="Nuestro enfoque" class="dark">
+  <div class="wrap" style="text-align:center;display:flex;flex-direction:column;align-items:center">
+    <div class="eyebrow r" style="justify-content:center">Nuestro enfoque</div>
+    <div class="pillstack r d1" style="align-items:center;margin-bottom:30px">
+      <span class="p1">Primero</span>
+      <span class="p2">la tienda.</span>
+      <span class="p3">Después</span>
+      <span class="p4">la pauta.</span>
+    </div>
+    <p class="lead r d3" style="margin:0 auto;text-align:center;max-width:720px">Con 65.000 visitas y 110 ventas, el cuello de botella no está arriba del embudo: está adentro. Sumar tráfico pago a una tienda que convierte al 0,17% multiplica el gasto, no las ventas.</p>
+    <p class="lead r d4" style="margin:18px auto 0;text-align:center;max-width:720px">Por eso el orden de esta propuesta no es negociable: <b>ordenamos la tienda y la medición, después invertimos.</b> Cada peso de pauta que entre lo va a hacer sobre una web que carga rápido, un checkout que no rechaza compras legítimas, un píxel que registra lo que pasa y una marca que se ve como una sola marca.</p>
+    <div class="stats r d5" style="justify-content:center;border-top-color:rgba(255,255,255,.12)">
+      <div class="stat"><div class="v">Etapa 1</div><div class="l">Arreglar y medir<br>Pago único</div></div>
+      <div class="stat"><div class="v">Etapa 2</div><div class="l">Vender y escalar<br>Mensual</div></div>
+      <div class="stat"><div class="v">Mes 3</div><div class="l">Objetivo del escenario<br>elegido</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Una decisión por vez, con datos arriba de la mesa</span><span class="num">07 — Enfoque</span></div>
+</section>
+
+
+<!-- ══════════ 10 · METODOLOGÍA ══════════ -->
+<section id="metodologia" data-label="Cómo trabajamos" class="auto" style="min-height:auto">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo trabajamos</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">El orden de las cosas.</h2>
+    <div class="pipe r d2" style="margin-top:38px">
+      <div class="node"><span class="k">01</span><span class="t">Auditar</span><p>Embudo completo, pagos, antifraude, SEO técnico y rendimiento.</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">02</span><span class="t">Rediseñar</span><p>Home, categorías, fichas, navegación, banners y mobile. Más PageSpeed.</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">03</span><span class="t">Medir</span><p>Píxel, API de Conversiones, GA4, Merchant Center y catálogo Meta.</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">04</span><span class="t">Lanzar</span><p>Estructura de campañas y primeros creativos con la identidad ya definida.</p></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="node"><span class="k">05</span><span class="t">Escalar</span><p>Se apaga lo que no convierte, se refuerza lo que sí, y recién ahí se sube.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ 11 · ETAPA 1 ══════════ -->
+<section id="etapa1" data-label="Etapa 1">
+  <div class="wrap">
+    <div class="eyebrow r">Etapa 1 · Pago único</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Dejar la casa en <span class="hl">condiciones</span>.</h2>
+    <p class="lead r d2" style="margin-top:22px;max-width:760px">Tres trabajos de una sola vez que son la condición de entrada para que cualquier peso de pauta rinda. Se ejecutan en paralelo y, en conjunto, llevan entre cinco y seis semanas.</p>
+
+    <div class="grid r d3" style="margin-top:46px">
+      <div class="card etapa-uno">
+        <span class="num-tag">01 · OPTIMIZACIÓN, REDISEÑO Y AUDITORÍA</span>
+        <h3>Optimización, rediseño y auditoría integral de Tienda Nube</h3>
+        <p style="margin-bottom:16px">Mejorar integralmente la tienda trabajando sobre diseño, experiencia de compra, conversión y rendimiento técnico, con foco especial en mobile.</p>
+
+        <div class="tres">
+        <div><p style="color:var(--aqua);font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">1 · Auditoría integral</p>
+        <p style="margin-bottom:10px">Análisis completo del embudo: visita → producto → carrito → checkout → pago.</p>
+        <ul class="notes" style="margin-top:0;margin-bottom:20px">
+          <li>Puntos de fuga y fricción, medios de pago y rechazos por antifraude, incluidas las compras propias rechazadas.</li>
+          <li>Patrón de contracargos en notebooks pagadas en un solo pago.</li>
+          <li>Experiencia en fichas de producto y SEO técnico.</li>
+          <li>Implementación de Microsoft Clarity para analizar grabaciones de sesión y mapas de calor.</li>
+        </ul></div>
+
+        <div><p style="color:var(--aqua);font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">2 · Rediseño visual y UX</p>
+        <p style="margin-bottom:10px">Actualización general de la estética actual para conseguir una tienda más moderna, profesional y orientada a conversión.</p>
+        <ul class="notes" style="margin-top:0;margin-bottom:20px">
+          <li>Rediseño de Home.</li>
+          <li>Mejora de categorías.</li>
+          <li>Mejora de fichas de producto.</li>
+          <li>Optimización de navegación y llamados a la acción.</li>
+          <li>Rediseño y adaptación completa para mobile.</li>
+          <li>Rediseño de banners principales y piezas gráficas necesarias para la tienda, con una comunicación visual más clara y consistente.</li>
+        </ul></div>
+
+        <div><p style="color:var(--aqua);font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">3 · Optimización de PageSpeed</p>
+        <p style="margin-bottom:10px">Optimización técnica buscando el máximo rendimiento posible en Google PageSpeed, especialmente en dispositivos móviles.</p>
+        <ul class="notes" style="margin-top:0">
+          <li>Trabajo sobre imágenes, banners, multimedia, aplicaciones, scripts externos, CSS y JS, estructura del tema y cantidad de recursos cargados.</li>
+          <li>Pruebas y ajustes sucesivos hasta alcanzar el mejor resultado posible dentro de las posibilidades técnicas de Tienda Nube.</li>
+        </ul></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2 r d4" style="margin-top:20px">
+      <div class="card">
+        <span class="num-tag">02 · START UP DE PAUTA</span>
+        <h3>Medición, estructura de campañas y primeros creativos</h3>
+        <p style="margin-bottom:14px">Sin medición no hay optimización posible. Esta es la base sobre la que después corre la gestión mensual.</p>
+        <ul class="notes" style="margin-top:0">
+          <li>Revisión del estado de todas las etiquetas dentro de Tienda Nube.</li>
+          <li>Medición de conversiones: píxel de Meta, API de Conversiones y etiquetas de Google.</li>
+          <li>Revisión de GA4.</li>
+          <li>Revisión del catálogo en Google Merchant Center / Shopping y en Meta.</li>
+          <li>Estrategia y planificación de medios del primer trimestre, con definición de KPIs.</li>
+          <li>Implementación inicial de las campañas en Google y Meta.</li>
+          <li>Producción de los primeros creativos con la identidad ya aprobada.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="num-tag">03 · KIT DE MARCA</span>
+        <h3>Reglas visuales y plantillas para publicar siempre igual</h3>
+        <p style="margin-bottom:14px">No es un rebranding: el logo de MicroHard tiene 20 años y se conserva tal cual. Lo que se construye es coherencia.</p>
+        <ul class="notes" style="margin-top:0">
+          <li>Paleta de colores y tipografías definidas.</li>
+          <li>Usos del logo actual en sus versiones sobre fondo blanco y sobre fondo negro.</li>
+          <li>Pack de 10 plantillas editables en Canva: producto, promo o cuotas, envíos, testimonios, stories y portadas de destacadas.</li>
+          <li>Guía corta de uso para que el equipo de MicroHard publique sin depender de nosotros.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cinco a seis semanas · se ejecutan en paralelo</span><span class="num">08 — Etapa 1</span></div>
+</section>
+
+
+<!-- ══════════ 12 · ETAPA 2 ══════════ -->
+<section id="etapa2" data-label="Etapa 2">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Etapa 2 · Mensual</div>
+        <h2 class="h-lg r d1">Encender el motor<br>y no soltarlo.</h2>
+        <p class="lead r d2" style="margin-top:22px">Una vez que la tienda carga, mide y se ve como una sola marca, empieza el trabajo que mueve la aguja mes a mes. Acá es donde se gana o se pierde plata.</p>
+
+        <div class="grid r d3" style="margin-top:34px;gap:18px">
+          <div class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l3.5-4 3 2.5L18 8"/></svg></div>
+            <h3>Gestión mensual de pauta digital</h3>
+            <p>Gestión llave en mano de Google Ads y Meta Ads: Search, Performance Max con Shopping, Ventas Advantage+, remarketing de catálogo y campañas de mensajes a WhatsApp. Incluye optimización continua, producción de creativos del mes, control del presupuesto, revisión del catálogo y reporte mensual con lectura de negocio.</p>
+          </div>
+          <div class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+            <h3>Acompañamiento estratégico</h3>
+            <p>Un project manager senior dedicado a la cuenta y supervisión de gerencia. Reunión mensual de seguimiento, brief estratégico, priorización de qué se ataca cada mes y reporte ejecutivo para la toma de decisiones. Es el espacio donde se decide si se mantiene, se corrige o se escala.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-img r d2">
+        <div class="media tall"><img src="img/equipo.jpg" alt="Equipo de Popcorn revisando los resultados de una cuenta"><div class="cap"><b>Un equipo asignado</b>Project manager, coordinador y analista de paid media, diseño, edición y contenido.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Servicio recurrente · se contrata por mes</span><span class="num">09 — Etapa 2</span></div>
+</section>
+
+
+<!-- ══════════ 13 · ALCANCE ══════════ -->
+<section id="alcance" data-label="Alcance" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Qué incluye y qué no.</h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:720px">Lo escribimos completo para que no haya sorpresas en el mes 3 y para que se pueda revisar internamente servicio por servicio.</p>
+    <div class="scope r d3" style="margin-top:40px">
+      <div class="scope-col yes" style="background:#fff;border-color:rgba(18,18,18,.10)">
+        <h3 style="color:var(--tinta)">Incluye</h3>
+        <p class="sub" style="color:#8b8b95">Todo lo contratado en las etapas 1 y 2</p>
+        <ul>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Auditoría del embudo completo de Tienda Nube, con informe y plan de corrección priorizado.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Rediseño visual y de experiencia de la tienda: home, categorías, fichas de producto, navegación y llamados a la acción, con adaptación completa a mobile.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Rediseño de los banners principales y de las piezas gráficas necesarias para la tienda.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Optimización de PageSpeed sobre imágenes, multimedia, apps, scripts, CSS/JS y estructura del tema, con pruebas y ajustes sucesivos.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Implementación completa de medición: píxel, API de Conversiones, GA4, Merchant Center y catálogo de Meta.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Kit de marca con paleta, tipografías, usos del logo y 10 plantillas editables en Canva.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Creación, gestión y optimización de todas las campañas en Google Ads y Meta Ads.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Producción de los creativos de pauta del mes (piezas estáticas y edición de video con material existente).</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Reporte mensual de resultados con lectura de negocio y reunión de seguimiento.</li>
+          <li style="color:#42424c"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violeta)" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Un project manager dedicado como interlocutor único.</li>
+        </ul>
+      </div>
+      <div class="scope-col no" style="background:#eceee8;border-color:rgba(18,18,18,.10)">
+        <h3 style="color:var(--tinta)">No incluye</h3>
+        <p class="sub" style="color:#8b8b95">Se puede sumar más adelante, cotizado aparte</p>
+        <ul>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">Gestión de redes sociales.</b>&nbsp;El contenido orgánico y la comunidad siguen a cargo de MicroHard, con el kit de plantillas como apoyo.</li>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">La inversión en medios.</b>&nbsp;Se paga directamente a Google y Meta y es adicional a los honorarios.</li>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">Rebranding o rediseño del logo.</b>&nbsp;Se conserva la marca actual.</li>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">Desarrollo de una tienda nueva o migración de plataforma.</b>&nbsp;Trabajamos sobre la Tienda Nube actual.</li>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">Gestión de Mercado Libre y Mercado Ads.</b>&nbsp;Queda como siguiente etapa una vez estabilizada la tienda propia.</li>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">Producción audiovisual con rodaje.</b>&nbsp;Jornadas de fotos y video se cotizan por separado.</li>
+          <li style="color:#6b6b76"><svg viewBox="0 0 24 24" fill="none" stroke="#9a9aa4" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg><b style="color:#42424c">Costos de plataformas y aplicaciones.</b>&nbsp;Plan de Tienda Nube, apps y licencias corren por cuenta de MicroHard.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted r d4" style="margin-top:26px;font-size:.88rem">Para trabajar necesitamos acceso total a las plataformas y a las métricas: Tienda Nube, Meta Business, Google Ads, Google Analytics, Merchant Center e Instagram. Sin ese acceso no se puede medir ni optimizar.</p>
+  </div>
+  <div class="sfoot"><span>Transparencia de alcance · revisable servicio por servicio</span><span class="num">10 — Alcance</span></div>
+</section>
+
+
+<!-- ══════════ 14 · INVERSIÓN ══════════ -->
+<section id="inversion" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Elegí los servicios<br>y armá tu propuesta.</h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:720px">Tildá lo que quieras incluir: los totales se recalculan solos y el botón del final arma el correo con tu selección. Todos los valores están expresados en pesos argentinos.</p>
+
+    <div class="inv-box r d3" style="margin-top:38px">
+
+      <div class="inv-group">
+        <div class="inv-ghead"><span>Etapa 1 · Pago único</span><span class="inv-sub" id="subOnce">—</span></div>
+
+        <div class="price-row svc-pick on" data-type="once" data-amount="2150000" data-anti="2085500" data-svc="Optimización, rediseño y auditoría integral de Tienda Nube" data-price="$2.150.000 + IVA">
+          <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Optimización, rediseño y auditoría integral de Tienda Nube</span><small>Auditoría del embudo completo con medios de pago, antifraude, contracargos y SEO técnico; rediseño visual y de UX de home, categorías, fichas, navegación, banners y mobile; y optimización de PageSpeed. Incluye Microsoft Clarity.</small></span></span>
+          <span class="pv">$2.150.000<span class="ivatag">+ IVA · pago único</span></span>
+        </div>
+
+        <div class="price-row svc-pick on" data-type="once" data-amount="902840" data-anti="875755" data-svc="Start Up de Pauta Digital" data-price="$902.840 + IVA">
+          <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Start Up de Pauta Digital</span><small>Etiquetas de Tienda Nube, medición de conversiones, GA4, catálogo en Merchant Center y Meta, estrategia y planificación del trimestre, implementación de campañas y primeros creativos.</small></span></span>
+          <span class="pv">$902.840<span class="ivatag">+ IVA · pago único</span></span>
+        </div>
+
+        <div class="price-row svc-pick on" data-type="once" data-amount="1128110" data-anti="1094266" data-svc="Kit de marca" data-price="$1.128.110 + IVA">
+          <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Kit de marca</span><small>Paleta, tipografías y usos del logo actual, más 10 plantillas editables en Canva: producto, promo o cuotas, envíos, testimonios, stories y portadas de destacadas. No incluye rediseño de logo.</small></span></span>
+          <span class="pv">$1.128.110<span class="ivatag">+ IVA · pago único</span></span>
+        </div>
+
+        <div class="pays">
+          <div class="pay best">
+            <span class="flag">Valor preferencial</span>
+            <span class="pk">Opción A</span>
+            <div class="pn">100% anticipado</div>
+            <p class="pd">Se abona al confirmar la propuesta, antes del inicio.</p>
+            <div class="pval" id="payAnti">—</div>
+          </div>
+          <div class="pay">
+            <span class="pk">Opción B</span>
+            <div class="pn">50% al inicio + 50% a los 30 días</div>
+            <p class="pd">El saldo se factura a los 30 días del inicio o al finalizar la etapa, lo que ocurra primero.</p>
+            <div class="pval" id="paySplit">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inv-group">
+        <div class="inv-ghead"><span>Etapa 2 · Mensual</span><span class="inv-sub" id="subMonth">—</span></div>
+
+        <div class="price-row svc-pick on" data-type="month" data-amount="1434704" data-svc="Gestión mensual de pauta digital" data-price="$1.434.704 + IVA / mes">
+          <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Gestión mensual de pauta digital</span><small>Google Ads y Meta Ads llave en mano: optimización continua, creativos del mes, control de presupuesto, revisión de catálogo y reporte mensual.</small></span></span>
+          <span class="pv">$1.434.704<span class="ivatag">+ IVA · por mes</span></span>
+        </div>
+
+        <div class="price-row svc-pick on" data-type="month" data-amount="737699" data-svc="Acompañamiento estratégico" data-price="$737.699 + IVA / mes">
+          <span class="pl"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span><span><span class="pl-t">Acompañamiento estratégico</span><small>Project manager senior dedicado y supervisión de gerencia. Reunión mensual, brief estratégico, priorización y reporte ejecutivo.</small></span></span>
+          <span class="pv">$737.699<span class="ivatag">+ IVA · por mes</span></span>
+        </div>
+
+        <!-- ▼▼ FEE VARIABLE — política comercial Popcorn. Si no aplica, borrar este bloque completo ▼▼ -->
+        <div class="price-row" style="opacity:.92">
+          <span class="pl"><span style="flex:none;width:20px"></span><span><span class="pl-t">Fee variable sobre la inversión en medios</span><small>15% sobre la inversión neta efectivamente ejecutada en Google y Meta. Se factura a mes cerrado. No se aplica sobre impuestos ni percepciones de las plataformas.</small></span></span>
+          <span class="pv">15%<span class="ivatag">+ IVA · sobre la pauta del mes</span></span>
+        </div>
+        <!-- ▲▲ FIN FEE VARIABLE ▲▲ -->
+
+        <div class="pays" style="grid-template-columns:1fr">
+          <div class="pay">
+            <span class="pk">Forma de pago</span>
+            <div class="pn">100% por adelantado, del 1 al 5 de cada mes</div>
+            <p class="pd">Por tratarse de un servicio recurrente, no aplica el descuento por pago anticipado. El fee variable se factura a mes vencido junto con el reporte.</p>
+            <div class="pval" id="payMonth">—</div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="notes">
+        <li><b>Todos los valores están expresados sin IVA.</b> Se factura con IVA al 21%.</li>
+        <li><b>La inversión en pauta es adicional y se paga directamente a las plataformas.</b> Los montos de los escenarios son netos: Google y Meta suman entre un 40% y un 52% de impuestos y percepciones por encima de lo invertido. Para un responsable inscripto, la mayor parte es crédito fiscal computable.</li>
+        <li><b>Los honorarios mensuales se ajustan cada tres meses por el IPC del INDEC acumulado del período.</b> Los importes de esta propuesta son valores a la fecha de emisión.</li>
+        <li><b>Validez: 10 días corridos desde la fecha de emisión</b> (hasta el 5 de octubre de 2026). Pasado ese plazo los valores se revisan.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sfoot"><span>Valores en pesos argentinos, sin IVA · septiembre 2026</span><span class="num">11 — Inversión</span></div>
+</section>
+
+
+<!-- ══════════ 15 · ESCENARIOS ══════════ -->
+<section id="escenarios" data-label="Inversión en pauta">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión en medios</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Tres escenarios.<br>Una <span class="hl">decisión</span>.</h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:780px">Cada escenario es un objetivo de ventas mensuales y la inversión en pauta que hace falta para sostenerlo. Las proyecciones se construyeron simulando el costo por clic real de las palabras clave y audiencias que usaríamos, con la web ya optimizada. Son hipótesis de trabajo que se validan y se corrigen con los datos de la cuenta desde el primer mes.</p>
+
+    <!-- ESCENARIO 1 -->
+    <div class="scen scen-pick selected r d3" data-scen="1">
+      <div class="scen-head">
+        <div class="st"><span class="reco">Recomendado para empezar</span><br>Escenario 1 · Base<small>Objetivo: 25 ventas por mes al cierre del mes 3</small></div>
+        <div class="si">$5.450.000 / mes<small>Google 56% · Meta 44%</small></div>
+      </div>
+      <div class="scen-note">Es el nivel de entrada: subastas y audiencias sin saturar, foco en los productos donde MicroHard ya compite en precio. Sirve para validar el modelo antes de poner más plata. Facturación estimada: <b>$35.050.000 por mes</b> · costo por venta <b>$218.000</b> · retorno <b>6,4x</b>.</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Campaña</th><th>Productos foco</th><th class="num">Inversión</th><th class="num">CPC</th><th class="num">Conv.</th><th class="num">Ventas</th><th class="num">Costo/venta</th><th class="num">ROAS</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google · Search<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Marca + Azul y zona</span></td><td class="obj">Todo el catálogo</td><td class="num">$40.000</td><td class="num">$300</td><td class="num">2,50%</td><td class="num">3</td><td class="num">$13.333</td><td class="num">82,5x</td></tr>
+            <tr><td class="plat">Google · Search<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Notebooks alto ticket</span></td><td class="obj">HP Victus, Bangho Max i7, MSI Thin, Lenovo IdeaPad</td><td class="num">$2.000.000</td><td class="num">$2.000</td><td class="num">0,50%</td><td class="num">5</td><td class="num">$400.000</td><td class="num">5,0x</td></tr>
+            <tr><td class="plat">Google · Performance Max<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Shopping</span></td><td class="obj">Notebooks foco + PC de escritorio</td><td class="num">$1.020.000</td><td class="num">$850</td><td class="num">0,50%</td><td class="num">6</td><td class="num">$170.000</td><td class="num">10,0x</td></tr>
+            <tr><td class="plat">Meta · Ventas Advantage+<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Consumo</span></td><td class="obj">Celulares, cámaras de seguridad, freidoras</td><td class="num">$1.800.000</td><td class="num">$900</td><td class="num">0,25%</td><td class="num">5</td><td class="num">$360.000</td><td class="num">1,3x</td></tr>
+            <tr><td class="plat">Meta · Remarketing<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Catálogo dinámico</span></td><td class="obj">Productos vistos por el usuario</td><td class="num">$290.000</td><td class="num">$750</td><td class="num">0,80%</td><td class="num">3</td><td class="num">$96.667</td><td class="num">13,4x</td></tr>
+            <tr><td class="plat">Meta · Mensajes<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">WhatsApp asesoramiento</span></td><td class="obj">Notebooks y PC de escritorio</td><td class="num">$300.000</td><td class="num">$2.500</td><td class="num">2,50%</td><td class="num">3</td><td class="num">$100.000</td><td class="num">18,0x</td></tr>
+            <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$5.450.000</td><td class="num">—</td><td class="num">—</td><td class="num">25</td><td class="num">$218.000</td><td class="num">6,4x</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <!-- ESCENARIO 2 -->
+    <div class="scen scen-pick r d4" data-scen="2">
+      <div class="scen-head">
+        <div class="st">Escenario 2 · Crecimiento<small>Objetivo: 60 ventas por mes al cierre del mes 3</small></div>
+        <div class="si">$16.020.000 / mes<small>Google 54% · Meta 46%</small></div>
+      </div>
+      <div class="scen-note">Más volumen implica pujar por búsquedas más competitivas y audiencias menos calificadas: el costo por clic sube y la conversión baja. Facturación estimada: <b>$83.000.000 por mes</b> · costo por venta <b>$267.000</b> · retorno <b>5,2x</b>.</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Campaña</th><th>Productos foco</th><th class="num">Inversión</th><th class="num">CPC</th><th class="num">Conv.</th><th class="num">Ventas</th><th class="num">Costo/venta</th><th class="num">ROAS</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google · Search<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Marca + Azul y zona</span></td><td class="obj">Todo el catálogo</td><td class="num">$70.000</td><td class="num">$330</td><td class="num">2,38%</td><td class="num">5</td><td class="num">$14.000</td><td class="num">78,6x</td></tr>
+            <tr><td class="plat">Google · Search<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Notebooks alto ticket</span></td><td class="obj">HP Victus, Bangho Max i7, MSI Thin, Lenovo IdeaPad</td><td class="num">$5.560.000</td><td class="num">$2.200</td><td class="num">0,48%</td><td class="num">12</td><td class="num">$463.333</td><td class="num">4,3x</td></tr>
+            <tr><td class="plat">Google · Performance Max<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Shopping</span></td><td class="obj">Notebooks foco + PC de escritorio</td><td class="num">$2.960.000</td><td class="num">$935</td><td class="num">0,48%</td><td class="num">15</td><td class="num">$197.333</td><td class="num">8,6x</td></tr>
+            <tr><td class="plat">Meta · Ventas Advantage+<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Consumo</span></td><td class="obj">Celulares, cámaras de seguridad, freidoras</td><td class="num">$5.840.000</td><td class="num">$990</td><td class="num">0,24%</td><td class="num">14</td><td class="num">$417.143</td><td class="num">1,1x</td></tr>
+            <tr><td class="plat">Meta · Remarketing<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Catálogo dinámico</span></td><td class="obj">Productos vistos por el usuario</td><td class="num">$770.000</td><td class="num">$825</td><td class="num">0,76%</td><td class="num">7</td><td class="num">$110.000</td><td class="num">11,8x</td></tr>
+            <tr><td class="plat">Meta · Mensajes<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">WhatsApp asesoramiento</span></td><td class="obj">Notebooks y PC de escritorio</td><td class="num">$820.000</td><td class="num">$2.750</td><td class="num">2,38%</td><td class="num">7</td><td class="num">$117.143</td><td class="num">15,4x</td></tr>
+            <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$16.020.000</td><td class="num">—</td><td class="num">—</td><td class="num">60</td><td class="num">$267.000</td><td class="num">5,2x</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <!-- ESCENARIO 3 -->
+    <div class="scen scen-pick r d5" data-scen="3">
+      <div class="scen-head">
+        <div class="st">Escenario 3 · Escala<small>Objetivo: 150 ventas por mes al cierre del mes 3</small></div>
+        <div class="si">$50.280.000 / mes<small>Google 49% · Meta 51%</small></div>
+      </div>
+      <div class="scen-note">Rendimientos decrecientes: cada venta adicional cuesta más. Exige stock disponible y capacidad de atención para sostener el volumen. Facturación estimada: <b>$201.500.000 por mes</b> · costo por venta <b>$335.200</b> · retorno <b>4,0x</b>.</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Campaña</th><th>Productos foco</th><th class="num">Inversión</th><th class="num">CPC</th><th class="num">Conv.</th><th class="num">Ventas</th><th class="num">Costo/venta</th><th class="num">ROAS</th></tr></thead>
+          <tbody>
+            <tr><td class="plat">Google · Search<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Marca + Azul y zona</span></td><td class="obj">Todo el catálogo</td><td class="num">$140.000</td><td class="num">$375</td><td class="num">2,25%</td><td class="num">8</td><td class="num">$17.500</td><td class="num">62,9x</td></tr>
+            <tr><td class="plat">Google · Search<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Notebooks alto ticket</span></td><td class="obj">HP Victus, Bangho Max i7, MSI Thin, Lenovo IdeaPad</td><td class="num">$15.560.000</td><td class="num">$2.500</td><td class="num">0,45%</td><td class="num">28</td><td class="num">$555.714</td><td class="num">3,6x</td></tr>
+            <tr><td class="plat">Google · Performance Max<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Shopping</span></td><td class="obj">Notebooks foco + PC de escritorio</td><td class="num">$8.980.000</td><td class="num">$1.063</td><td class="num">0,45%</td><td class="num">38</td><td class="num">$236.316</td><td class="num">7,2x</td></tr>
+            <tr><td class="plat">Meta · Ventas Advantage+<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Consumo</span></td><td class="obj">Celulares, cámaras de seguridad, freidoras</td><td class="num">$21.010.000</td><td class="num">$1.125</td><td class="num">0,23%</td><td class="num">42</td><td class="num">$500.238</td><td class="num">0,9x</td></tr>
+            <tr><td class="plat">Meta · Remarketing<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">Catálogo dinámico</span></td><td class="obj">Productos vistos por el usuario</td><td class="num">$2.090.000</td><td class="num">$938</td><td class="num">0,72%</td><td class="num">16</td><td class="num">$130.625</td><td class="num">10,0x</td></tr>
+            <tr><td class="plat">Meta · Mensajes<br><span style="font-weight:400;color:var(--w-45);font-size:.78rem">WhatsApp asesoramiento</span></td><td class="obj">Notebooks y PC de escritorio</td><td class="num">$2.500.000</td><td class="num">$3.125</td><td class="num">2,25%</td><td class="num">18</td><td class="num">$138.889</td><td class="num">13,0x</td></tr>
+            <tr class="total"><td>Total</td><td class="obj"></td><td class="num">$50.280.000</td><td class="num">—</td><td class="num">—</td><td class="num">150</td><td class="num">$335.200</td><td class="num">4,0x</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pick"><span class="radio"></span><span class="lbl-off">Elegir este escenario</span><span class="lbl-on">Escenario elegido</span></div>
+    </div>
+
+    <ul class="notes r d6" style="margin-top:30px">
+      <li>El retorno (ROAS) mide facturación atribuida sobre inversión en pauta. No descuenta costo de mercadería, envíos ni comisiones de medios de pago.</li>
+      <li>Los montos son netos de impuestos: Google y Meta suman IVA y percepciones sobre la pauta.</li>
+      <li>Las tasas de conversión suponen la web ya optimizada. Sobre la web actual, que convierte al 0,17%, estos números no se sostienen.</li>
+    </ul>
+  </div>
+  <div class="sfoot"><span>Proyecciones a validar con datos reales desde el mes 1</span><span class="num">12 — Escenarios</span></div>
+</section>
+
+
+<!-- ══════════ 16 · RAMPA ══════════ -->
+<section id="rampa" data-label="Primer trimestre" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">El primer trimestre</div>
+    <h2 class="h-lg r d1" style="max-width:24ch">Esto no pasa<br>en el mes 1.</h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:760px">Preferimos decirlo antes y no después. El primer mes es de aprendizaje: los algoritmos necesitan datos de conversión para optimizar, y el costo por venta arranca más alto. El objetivo de cada escenario se alcanza al cierre del mes 3. Así se llega:</p>
+
+    <div class="tbl-wrap r d3" style="margin-top:34px;border:1px solid rgba(18,18,18,.12);border-radius:18px;background:#fff">
+      <table class="tbl">
+        <thead><tr><th>Mes</th><th class="num">Inversión en pauta</th><th class="num">Ventas</th><th class="num">Facturación estimada</th><th class="num">Costo por venta</th><th class="num">ROAS</th><th>Qué pasa ese mes</th></tr></thead>
+        <tbody>
+          <tr><td class="plat">Mes 1</td><td class="num">$3.270.000</td><td class="num">6</td><td class="num">$8.412.000</td><td class="num">$545.000</td><td class="num">2,6x</td><td class="obj">Lanzamiento sobre la web ya optimizada y la medición nueva. Fase de aprendizaje: el costo por venta es más alto.</td></tr>
+          <tr><td class="plat">Mes 2</td><td class="num">$4.640.000</td><td class="num">15</td><td class="num">$21.030.000</td><td class="num">$309.333</td><td class="num">4,5x</td><td class="obj">Optimización con datos reales: se pausan anuncios y búsquedas que no convierten y se refuerzan los ganadores.</td></tr>
+          <tr><td class="plat">Mes 3</td><td class="num">$5.450.000</td><td class="num">25</td><td class="num">$35.050.000</td><td class="num">$218.000</td><td class="num">6,4x</td><td class="obj">Objetivo alcanzado. Desde acá se decide si se mantiene o se escala al escenario siguiente.</td></tr>
+          <tr class="total"><td>Trimestre</td><td class="num">$13.360.000</td><td class="num">46</td><td class="num">$64.492.000</td><td class="num">$290.435</td><td class="num">4,8x</td><td class="obj">Escenario 1 · Base</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g2 r d4" style="margin-top:24px">
+      <div class="card">
+        <span class="num-tag">ESCENARIO 2 · CRECIMIENTO</span>
+        <h3>111 ventas en el trimestre</h3>
+        <p>Inversión acumulada de $39.260.000 en pauta, facturación estimada de $153.550.000 y un retorno promedio de 3,9x en el trimestre.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">ESCENARIO 3 · ESCALA</span>
+        <h3>278 ventas en el trimestre</h3>
+        <p>Inversión acumulada de $123.190.000 en pauta, facturación estimada de $373.446.667 y un retorno promedio de 3,0x en el trimestre.</p>
+      </div>
+    </div>
+    <p class="muted r d5" style="margin-top:22px;font-size:.88rem"><b>Antes del mes 1</b> se completan la auditoría, la optimización web y el reseteo de la medición. Lanzar pauta sobre la web actual quemaría presupuesto.</p>
+  </div>
+  <div class="sfoot"><span>Rampa de los tres primeros meses</span><span class="num">13 — Trimestre</span></div>
+</section>
+
+
+<!-- ══════════ 17 · KPIs ══════════ -->
+<section id="kpis" data-label="Qué medimos">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Qué medimos</div>
+        <h2 class="h-lg r d1">Números de negocio,<br>no de <span class="hl">vanidad</span>.</h2>
+        <p class="lead r d2" style="margin-top:22px">No vamos a reportar alcance ni seguidores. Vamos a reportar lo que le cambia la vida al negocio, mes a mes, con el punto de partida escrito para que se pueda comparar.</p>
+        <div class="grid g2 r d3" style="margin-top:34px">
+          <div class="card" style="padding:24px"><span class="big" style="font-size:1.6rem">0,17% → 1%</span><h3 style="font-size:1rem">Tasa de conversión de la tienda</h3><p style="font-size:.88rem">El indicador madre. Es lo que multiplica todo lo demás.</p></div>
+          <div class="card" style="padding:24px"><span class="big" style="font-size:1.6rem">11 seg ↓</span><h3 style="font-size:1rem">Velocidad de carga en celular</h3><p style="font-size:.88rem">Medida en Google PageSpeed, hasta el máximo rendimiento que permite Tienda Nube.</p></div>
+          <div class="card" style="padding:24px"><span class="big" style="font-size:1.6rem">Costo por venta</span><h3 style="font-size:1rem">Cuánto cuesta cada venta</h3><p style="font-size:.88rem">Por plataforma y por campaña. Es la métrica que decide dónde se pone el próximo peso.</p></div>
+          <div class="card" style="padding:24px"><span class="big" style="font-size:1.6rem">ROAS</span><h3 style="font-size:1rem">Retorno sobre la inversión en pauta</h3><p style="font-size:.88rem">Facturación atribuida sobre lo invertido, campaña por campaña.</p></div>
+          <div class="card" style="padding:24px"><span class="big" style="font-size:1.6rem">9% → &lt;2%</span><h3 style="font-size:1rem">Tasa de contracargos</h3><p style="font-size:.88rem">Un contracargo en una notebook se come el margen de varias ventas.</p></div>
+          <div class="card" style="padding:24px"><span class="big" style="font-size:1.6rem">Carritos</span><h3 style="font-size:1rem">Abandono y recuperación</h3><p style="font-size:.88rem">Cuántos se pierden y cuántos recupera el remarketing de catálogo.</p></div>
+        </div>
+        <p class="muted r d4" style="margin-top:20px;font-size:.86rem">Los valores de referencia son objetivos de trabajo, no resultados garantizados. Se fijan en el kickoff sobre el punto de partida real y se revisan en cada reunión mensual.</p>
+      </div>
+      <div class="col-img r d2">
+        <div class="media tall"><img src="img/reporte.jpg" alt="Tableros de resultados de campañas de pauta digital"><div class="cap"><b>Reporte mensual</b>Un documento por mes con los números, la lectura y las tres decisiones que proponemos.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Punto de partida escrito · comparación mes a mes</span><span class="num">14 — KPIs</span></div>
+</section>
+
+
+<!-- ══════════ 18 · CRONOGRAMA ══════════ -->
+<section id="cronograma" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">De la firma<br>a la primera venta.</h2>
+    <div class="tl r d2">
+      <div class="tl-item"><span class="dot"></span><div class="ph">Semana 0</div><h3>Contrato y kickoff</h3><p>Revisión y firma, y reunión de arranque para conocer al equipo asignado. Se entregan los accesos a Tienda Nube, Meta Business, Google Ads, Analytics, Merchant Center e Instagram.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Semanas 1 y 2</div><h3>Auditoría y diagnóstico técnico</h3><p>Recorrido del embudo completo, revisión de medios de pago y reglas antifraude, análisis de contracargos, SEO técnico y grabaciones de sesión con Clarity. Se entrega el informe con el plan de corrección priorizado.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Semanas 2 a 4</div><h3>Rediseño de la tienda y kit de marca</h3><p>Rediseño de home, categorías, fichas de producto, navegación y banners, con adaptación completa a mobile. En paralelo se define el kit de marca y se entregan las plantillas.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Semanas 4 y 5</div><h3>Optimización de PageSpeed y medición</h3><p>Imágenes, multimedia, apps, scripts, CSS/JS y estructura del tema, con pruebas sucesivas. Y el reseteo de la medición: píxel, API de Conversiones, GA4, Merchant Center y catálogo de Meta.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Semana 6</div><h3>Armado de campañas</h3><p>Estructura de campañas cargada en Google y Meta, y primeros creativos producidos con la identidad ya aprobada.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Mes 1 de pauta</div><h3>Lanzamiento y aprendizaje</h3><p>Se encienden las campañas. Los algoritmos necesitan datos de conversión: el costo por venta arranca más alto y se corrige rápido.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Mes 2</div><h3>Optimización con datos reales</h3><p>Se pausa lo que no convierte, se refuerzan los productos y las búsquedas ganadoras, y se ajusta el catálogo de Shopping.</p></div>
+      <div class="tl-item"><span class="dot"></span><div class="ph">Mes 3</div><h3>Objetivo y decisión</h3><p>Se alcanza el objetivo del escenario elegido y, con los números arriba de la mesa, se decide si se mantiene, se corrige o se escala.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Etapa 1 · 5 a 6 semanas · Etapa 2 · mes a mes</span><span class="num">15 — Cronograma</span></div>
+</section>
+
+
+<!-- ══════════ 19 · RIESGOS ══════════ -->
+<section id="riesgos" data-label="Riesgos" class="dark">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que puede salir mal</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Los riesgos, dichos<br>antes de empezar.</h2>
+    <p class="lead r d2" style="margin-top:20px;max-width:720px">Preferimos poner esto por escrito ahora y no explicarlo en el mes 2. Cada riesgo tiene su forma de manejarlo.</p>
+    <div class="risk r d3">
+      <div class="hd"><span class="rh">Riesgo</span></div>
+      <div class="hd"><span class="rh">Cómo lo manejamos</span></div>
+
+      <div><div class="rt">El precio de lista pierde la comparación en Shopping</div><div class="rd">En tres de los cinco productos relevados, el precio de lista queda muy por encima de la referencia de mercado.</div></div>
+      <div><div class="rd">La pauta arranca por los modelos donde MicroHard ya compite —HP Victus y Bangho Max i7— y el resto entra recién después de revisar costo y precio. Cada mes se actualiza el relevamiento.</div></div>
+
+      <div><div class="rt">Los contracargos se comen el margen</div><div class="rd">10 casos sobre 110 ventas, concentrados en notebooks pagadas en un solo pago. Más volumen de ventas, sin tocar nada, significa más contracargos.</div></div>
+      <div><div class="rd">La revisión de medios de pago y reglas antifraude es parte de la auditoría y se resuelve antes de encender las campañas, junto con una recomendación de política de cobro para el ticket alto.</div></div>
+
+      <div><div class="rt">Las proyecciones son hipótesis, no promesas</div><div class="rd">Se construyeron con simulaciones de costo por clic, sin historial de la cuenta: no hay datos propios de campañas anteriores porque la medición estaba desactivada.</div></div>
+      <div><div class="rd">Desde el mes 1 el modelo se recalcula con los datos reales de la cuenta y el escenario se ajusta en la reunión mensual. Por eso recomendamos empezar por el Escenario 1.</div></div>
+
+      <div><div class="rt">Escalar sin stock ni capacidad de atención</div><div class="rd">El Escenario 3 implica 150 ventas mensuales y un volumen de consultas por WhatsApp que hoy no está dimensionado.</div></div>
+      <div><div class="rd">El paso de un escenario al siguiente se decide con el negocio, no solo con el marketing: se revisa stock, logística y capacidad de respuesta antes de subir la inversión.</div></div>
+
+      <div><div class="rt">El contenido orgánico queda del lado de MicroHard</div><div class="rd">Si el feed sigue sin una línea visual, el trabajo de marca se diluye y la pauta llega a un perfil que no acompaña.</div></div>
+      <div><div class="rd">El kit de marca entrega plantillas listas para usar y una guía corta. En la reunión mensual revisamos cómo viene el orgánico y ajustamos lo que haga falta.</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Transparencia sobre los supuestos del modelo</span><span class="num">16 — Riesgos</span></div>
+</section>
+
+
+<!-- ══════════ 20 · PRÓXIMOS PASOS ══════════ -->
+<section id="pasos" data-label="Próximos pasos" class="light">
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Cómo seguimos.</h2>
+    <div class="grid g4 r d2" style="margin-top:46px">
+      <div class="card"><span class="num-tag">01</span><h3>Revisión interna</h3><p>La propuesta está desglosada servicio por servicio para que se pueda revisar y aprobar puertas adentro sin volver a preguntarnos nada.</p></div>
+      <div class="card"><span class="num-tag">02</span><h3>Reunión de dudas</h3><p>Si aparece cualquier pregunta sobre el alcance o los números, coordinamos una llamada. Sin compromiso.</p></div>
+      <div class="card"><span class="num-tag">03</span><h3>Contrato y accesos</h3><p>Revisión y firma, y entrega de accesos a las plataformas. Con eso ya podemos empezar a auditar.</p></div>
+      <div class="card"><span class="num-tag">04</span><h3>Kickoff</h3><p>Reunión de arranque con el equipo asignado y cronograma confirmado. La Etapa 1 empieza esa misma semana.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Propuesta válida hasta el 5 de octubre de 2026</span><span class="num">17 — Próximos pasos</span></div>
+</section>
+
+
+<!-- ══════════ 21 · CIERRE ══════════ -->
+<section id="cierre" data-label="Avancemos">
+  <div class="bg-photo center"><img src="img/producto-mano.jpg" alt="Producto de MicroHard en mano"></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">MicroHard Computación × Popcorn</div>
+    <h2 class="close-title r d1">Ya tenés el negocio,<br>la trayectoria y la gente.<br>Vamos a hacer que la tienda<br><span class="hl">venda</span> como el local.</h2>
+    <p class="lead r d2" style="margin:26px auto 0;text-align:center;max-width:620px">Primero ordenamos la tienda y la medición. Después ponemos la pauta. Y cada mes decidimos juntos, con los números a la vista.</p>
+    <div class="r d3" style="text-align:center">
+      <p id="ctaPick"></p>
+      <a class="cta-go" id="ctaGo" href="mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject=MicroHard%20%C2%B7%20Avancemos%20con%20la%20propuesta">
+        Quiero avanzar
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="contacts">
+        <div><b>Florencia Grigolatto</b>Operations Manager · <a href="mailto:florencia@somospopcorn.com">florencia@somospopcorn.com</a></div>
+        <div><b>Sol Ferrari</b>General Manager · <a href="mailto:sol@somospopcorn.com">sol@somospopcorn.com</a></div>
+      </div>
+    </div>
+    <div class="close-sign r d4">
+      <img class="logo-pic close" src="img/logo-popcorn-blanco.png" alt="Popcorn">
+      <span class="close-tag">Primero la tienda. Después la pauta.</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación &amp; Creatividad</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* ===== Progreso + topbar ===== */
+var prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){
+  var h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?scrollY/h*100:0)+'%';
+  topbar.classList.toggle('scrolled',scrollY>40);
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ===== Nav lateral ===== */
+var sections=[].slice.call(document.querySelectorAll('section'));
+var dots=document.getElementById('dots');
+sections.forEach(function(s){
+  var a=document.createElement('a');
+  a.href='#'+s.id;
+  a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';
+  dots.appendChild(a);
+});
+var dotEls=[].slice.call(dots.children);
+
+/* ===== Scroll reveal ===== */
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(function(el){io.observe(el)});
+
+/* ===== Sección activa ===== */
+var active=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      var i=sections.indexOf(e.target);
+      dotEls.forEach(function(d,k){d.classList.toggle('active',k===i)});
+    }
+  });
+},{threshold:.4});
+sections.forEach(function(s){active.observe(s)});
+
+/* ===== Selector de servicios + escenario ===== */
+var scenData={
+  '1':{label:'Escenario 1 · Base',inv:'$5.450.000 / mes',ventas:'25 ventas/mes al cierre del mes 3',fact:'$35.050.000 / mes',cv:'$218.000',roas:'6,4x'},
+  '2':{label:'Escenario 2 · Crecimiento',inv:'$16.020.000 / mes',ventas:'60 ventas/mes al cierre del mes 3',fact:'$83.000.000 / mes',cv:'$267.000',roas:'5,2x'},
+  '3':{label:'Escenario 3 · Escala',inv:'$50.280.000 / mes',ventas:'150 ventas/mes al cierre del mes 3',fact:'$201.500.000 / mes',cv:'$335.200',roas:'4,0x'}
+};
+var picks=[].slice.call(document.querySelectorAll('.scen-pick'));
+var svcPicks=[].slice.call(document.querySelectorAll('.svc-pick'));
+var ctaGo=document.getElementById('ctaGo'),ctaPick=document.getElementById('ctaPick');
+var selScen='1';
+function ars(n){return '$'+Number(n).toLocaleString('es-AR')}
+
+function build(){
+  var onceT=0,antiT=0,monthT=0,elegidos=[];
+  svcPicks.forEach(function(s){
+    if(!s.classList.contains('on'))return;
+    var a=Number(s.dataset.amount)||0;
+    if(s.dataset.type==='once'){onceT+=a;antiT+=Number(s.dataset.anti)||a;}else{monthT+=a;}
+    elegidos.push(s.dataset.svc+' — '+s.dataset.price);
+  });
+  document.getElementById('subOnce').textContent = onceT? ars(onceT)+' + IVA' : '—';
+  document.getElementById('subMonth').textContent = monthT? ars(monthT)+' + IVA / mes' : '—';
+  document.getElementById('payAnti').textContent = antiT? ars(antiT)+' + IVA' : '—';
+  document.getElementById('paySplit').textContent = onceT? ars(onceT)+' + IVA' : '—';
+  document.getElementById('payMonth').textContent = monthT? ars(monthT)+' + IVA / mes' : '—';
+
+  var subject='MicroHard · Avancemos con la propuesta';
+  var body='Hola, vimos la propuesta de Popcorn para MicroHard Computación y queremos avanzar.';
+  if(elegidos.length){
+    body+='\n\nServicios con los que queremos avanzar:';
+    elegidos.forEach(function(t){body+='\n• '+t;});
+    body+='\n\nResumen:';
+    if(onceT){body+='\n• Etapa 1 (pago único): '+ars(onceT)+' + IVA a 30 días · '+ars(antiT)+' + IVA con pago 100% anticipado';}
+    if(monthT){body+='\n• Etapa 2 (mensual): '+ars(monthT)+' + IVA por mes, más el 15% sobre la inversión en medios';}
+  }
+  if(selScen && scenData[selScen]){
+    var s=scenData[selScen];
+    subject='MicroHard · Avancemos · '+s.label;
+    body+='\n\nEscenario de inversión en pauta elegido:\n• '+s.label+'\n• Inversión en medios: '+s.inv+'\n• Objetivo: '+s.ventas+'\n• Facturación estimada: '+s.fact+'\n• Costo por venta: '+s.cv+'\n• ROAS estimado: '+s.roas;
+  }
+  var partes=[];
+  if(elegidos.length){partes.push(elegidos.length+' servicio'+(elegidos.length>1?'s':''));}
+  if(selScen){partes.push(scenData[selScen].label);}
+  ctaPick.innerHTML = partes.length ? 'Avanz&aacute;s con: <b>'+partes.join('</b> + <b>')+'</b>' : '<span class="none">Eleg&iacute; servicios y escenario m&aacute;s arriba para incluirlos en el correo.</span>';
+  ctaGo.href='mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
+picks.forEach(function(p){
+  p.addEventListener('click',function(){
+    var was=p.classList.contains('selected');
+    picks.forEach(function(x){x.classList.remove('selected')});
+    if(was){selScen=null;}else{p.classList.add('selected');selScen=p.dataset.scen;}
+    build();
+  });
+});
+svcPicks.forEach(function(s){
+  s.addEventListener('click',function(){s.classList.toggle('on');build();});
+});
+build();
+</script>
+</body>
+</html>
