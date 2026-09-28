@@ -1,0 +1,94 @@
+@font-face{font-family:'PublicSans';src:url('assets/fonts/PublicSans.ttf') format('truetype');font-weight:100 900;font-style:normal}
+@font-face{font-family:'SpaceGrotesk';src:url('assets/fonts/SpaceGrotesk.ttf') format('truetype');font-weight:300 700;font-style:normal}
+:root{
+  --violeta-deep:#31016E; --violeta:#6000A3; --violeta-claro:#AB5EEB;
+  --aqua:#00FCE1; --tinta:#333333; --papel:#F7F8FA; --blanco:#FFFFFF;
+  --gris:#8A8A93;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#555}
+body{font-family:'PublicSans',Inter,system-ui,sans-serif;color:var(--tinta);-webkit-font-smoothing:antialiased}
+.slide{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--blanco);page-break-after:always;break-after:page}
+.slide:last-child{page-break-after:auto}
+/* ---------- fondos ---------- */
+.bg-papel{background:var(--papel)}
+.bg-dark{background:linear-gradient(135deg,#26014F 0%,var(--violeta-deep) 42%,var(--violeta) 100%);color:#fff}
+.bg-white{background:#fff}
+.blob{position:absolute;border-radius:50%;filter:blur(0px);pointer-events:none}
+.grain{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:26px 26px}
+/* ---------- chrome ---------- */
+.mark{position:absolute;top:52px;right:64px;height:34px;opacity:.95}
+.mark.dark-slide{filter:none}
+.pageno{position:absolute;bottom:48px;right:66px;font-family:'SpaceGrotesk';font-size:19px;letter-spacing:.16em;color:var(--gris)}
+.bg-dark .pageno{color:rgba(255,255,255,.5)}
+.kicker{font-family:'SpaceGrotesk';font-weight:500;font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:var(--violeta)}
+.bg-dark .kicker{color:var(--aqua)}
+.pad{position:absolute;inset:0;padding:92px 118px}
+/* ---------- tipografía ---------- */
+h1{font-weight:800;font-size:112px;line-height:1.08;letter-spacing:-.035em}
+h2{font-weight:800;font-size:76px;line-height:1.03;letter-spacing:-.03em}
+h3{font-weight:800;font-size:40px;line-height:1.1;letter-spacing:-.02em}
+h4{font-weight:800;font-size:27px;line-height:1.2;letter-spacing:-.01em}
+p{font-family:'SpaceGrotesk';font-weight:300;font-size:25px;line-height:1.52;color:#4a4a52}
+.bg-dark p{color:rgba(255,255,255,.82)}
+p strong,.strong{font-weight:600;color:var(--tinta)}
+.bg-dark p strong{color:#fff}
+.lead{font-size:31px;line-height:1.46}
+.small{font-size:21px;line-height:1.5}
+.hl{background:linear-gradient(transparent 58%, var(--aqua) 58%, var(--aqua) 94%, transparent 94%);padding:0 .06em}
+.bg-dark .hl{background:var(--aqua);color:var(--violeta-deep);padding:.01em .14em;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.cap{font-family:'SpaceGrotesk';font-weight:500;font-size:17px;letter-spacing:.13em;text-transform:uppercase;color:var(--gris)}
+.bg-dark .cap{color:rgba(255,255,255,.55)}
+/* ---------- pills / tags ---------- */
+.pill{display:inline-block;font-family:'SpaceGrotesk';font-weight:500;font-size:19px;letter-spacing:.02em;padding:11px 24px;border-radius:999px;border:1.6px solid var(--violeta);color:var(--violeta)}
+.bg-dark .pill{border-color:rgba(255,255,255,.42);color:#fff}
+.pill.solid{background:var(--aqua);border-color:var(--aqua);color:var(--violeta-deep);font-weight:600}
+.tags{display:flex;gap:14px;flex-wrap:wrap}
+/* ---------- grillas ---------- */
+.row{display:flex;gap:38px}
+.col{flex:1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{background:#fff;border:1.4px solid #E4E4EA;border-radius:20px;padding:38px 36px}
+.bg-papel .card{background:#fff}
+.card .n{font-family:'SpaceGrotesk';font-weight:600;font-size:19px;letter-spacing:.14em;color:var(--violeta-claro);margin-bottom:20px}
+.card h4{margin-bottom:14px}
+.card p{font-size:21px;line-height:1.5}
+/* ---------- imágenes ---------- */
+.shot{width:100%;display:block;border-radius:14px;border:1px solid #E4E4EA;background:#fff}
+.shot.nb{border:none;border-radius:0}
+.shot.sh{box-shadow:0 18px 38px rgba(20,10,40,.11);border-color:#E1E1E8}
+.tile{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:10px}
+.tileF{width:100%;height:100%;min-height:0;object-fit:contain;display:block;border-radius:10px;background:#fff}
+.figc{font-family:'SpaceGrotesk';font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--gris);margin-top:12px}
+.bg-dark .figc{color:rgba(255,255,255,.5)}
+/* ---------- antes/después ---------- */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;overflow:hidden;border:1.4px solid #E4E4EA}
+.ba>div{padding:54px 52px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;min-height:330px}
+.ba .antes{background:#F0F0F3}
+.ba .desp{background:#fff;border-left:1.4px solid #E4E4EA}
+.badge{font-family:'SpaceGrotesk';font-weight:600;font-size:16px;letter-spacing:.2em;text-transform:uppercase;padding:8px 18px;border-radius:999px}
+.badge.a{background:#DEDEE4;color:#6E6E78}
+.badge.d{background:var(--aqua);color:var(--violeta-deep)}
+.logobox{height:150px;display:flex;align-items:center;justify-content:center;width:100%}
+.logobox img{max-height:100%;max-width:86%;object-fit:contain}
+.logocard{background:#fff;border-radius:16px;padding:30px 46px;display:flex;align-items:center;justify-content:center;width:100%;box-shadow:0 8px 22px rgba(20,10,40,.06)}
+.logocard img{max-height:100%;max-width:78%;object-fit:contain}
+/* feed antes/después */
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.feedwrap{padding:32px;border-radius:18px}
+.feedwrap.a{background:#EDEDF1}
+.feedwrap.d{background:linear-gradient(135deg,rgba(0,252,225,.16),rgba(171,94,235,.16))}
+/* divisores */
+.rule{height:1.4px;background:#E4E4EA;width:100%}
+.bg-dark .rule{background:rgba(255,255,255,.2)}
+.vrule{width:1.4px;background:#E4E4EA;align-self:stretch}
+/* caso opener */
+.opener .num{font-family:'SpaceGrotesk';font-weight:500;font-size:22px;letter-spacing:.28em;color:var(--aqua);text-transform:uppercase}
+.opener .clogo{height:96px;object-fit:contain;margin-bottom:56px;display:block;align-self:flex-start;width:auto}
+.swatch{height:96px;border-radius:12px}
+.sw-lab{font-family:'SpaceGrotesk';font-size:16px;letter-spacing:.08em;color:var(--gris);margin-top:10px}
+
+.hl-pill{background:var(--aqua);color:var(--violeta-deep);padding:.06em .3em;border-radius:5px;font-weight:500}

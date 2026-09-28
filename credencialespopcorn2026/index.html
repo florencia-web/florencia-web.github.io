@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Popcorn · Credenciales 2026</title>
+<link rel="stylesheet" href="deck.css">
+<style>
+/* ---- complementos del sistema Casos de Branding para las credenciales ---- */
+.pad.center{display:flex;flex-direction:column;justify-content:center}
+.hl{white-space:nowrap}
+.dark{background-size:cover;background-position:center}
+.logos{display:flex;flex-wrap:wrap;gap:14px}
+.lc{width:176px;height:84px;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:14px 20px;box-shadow:0 8px 22px rgba(20,10,40,.06)}
+.bg-white .lc{border:1.4px solid #E4E4EA;box-shadow:none}
+.lc img{max-width:100%;max-height:100%;object-fit:contain}
+.lc.s{width:150px;height:72px;padding:12px 16px}
+.bg-dark .logos .lc.s{width:152px;height:66px}
+.band{position:absolute;left:118px;right:118px;bottom:118px}
+.band .cap{margin-bottom:18px}
+/* listas de servicio */
+.blist{list-style:none;display:flex;flex-direction:column;gap:14px}
+.blist li{display:flex;gap:20px;align-items:center;background:#fff;border:1.4px solid #E4E4EA;border-radius:16px;padding:24px 30px;
+  font-family:'SpaceGrotesk';font-weight:400;font-size:24px;line-height:1.35;color:var(--tinta)}
+.bg-white .blist li{background:var(--papel)}
+.blist li::before{content:'→';font-family:'PublicSans';font-weight:800;font-size:24px;color:var(--violeta)}
+.bg-dark .blist li{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
+.bg-dark .blist li::before{color:var(--aqua)}
+.svcnum{font-family:'SpaceGrotesk';font-weight:600;font-size:19px;letter-spacing:.14em;color:var(--violeta-claro)}
+.closing{margin-top:34px;display:inline-block}
+/* método */
+.chain{display:grid;grid-template-columns:repeat(7,1fr) 1.3fr;align-items:start;position:relative;margin-top:84px}
+.chain::before{content:'';position:absolute;left:36px;right:8%;top:36px;height:2px;background:var(--violeta-claro);opacity:.5}
+.node i{display:flex;width:72px;height:72px;border-radius:50%;background:#fff;border:2px solid var(--violeta);color:var(--violeta);align-items:center;justify-content:center;
+  font-style:normal;font-family:'SpaceGrotesk';font-weight:600;font-size:22px;position:relative;z-index:2}
+.node b{display:block;margin-top:22px;font-size:25px;font-weight:800;line-height:1.15;letter-spacing:-.01em;padding-right:10px}
+.node.go i{width:auto;padding:0 34px;border-radius:999px;background:var(--aqua);border:none;color:var(--violeta-deep);font-weight:600}
+.node.go b{color:var(--violeta)}
+/* índice de servicios */
+.idx{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.idx .card{padding:32px 30px;min-height:236px}
+.idx .card h4{font-size:28px}
+.idx .card.hi{background:linear-gradient(135deg,#26014F,var(--violeta));border:none}
+.idx .card.hi h4{color:#fff}.idx .card.hi p{color:rgba(255,255,255,.82)}.idx .card.hi .n{color:var(--aqua)}
+/* audiovisual */
+.stat{font-family:'PublicSans';font-weight:800;font-size:150px;line-height:.9;letter-spacing:-.045em;color:var(--aqua)}
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.vid{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#000}
+.vid img{width:100%;height:100%;object-fit:cover}
+.vcap{margin-top:14px;display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.vcap b{display:flex;gap:12px;align-items:flex-start;font-weight:700;font-size:21px;line-height:1.2;color:#fff}
+.vcap span{font-family:'SpaceGrotesk';font-size:15px;letter-spacing:.12em;color:rgba(255,255,255,.55);white-space:nowrap}
+.pl{flex:0 0 26px;height:26px;border-radius:50%;background:var(--aqua);position:relative;margin-top:-1px}
+.pl::after{content:'';position:absolute;left:10px;top:7px;border-left:9px solid var(--violeta-deep);border-top:6px solid transparent;border-bottom:6px solid transparent}
+/* cartelería */
+.screens{position:relative;height:600px}
+.tv{position:absolute;background:#1b1b1f;border-radius:16px;padding:12px;box-shadow:0 30px 60px rgba(20,10,40,.22)}
+.tv img{width:100%;border-radius:6px;aspect-ratio:16/9;object-fit:cover}
+.tv.a{width:700px;left:40px;top:10px;z-index:2}.tv.b{width:430px;left:0;top:370px;z-index:3}.tv.c{width:430px;left:410px;top:390px;z-index:1}
+.linkcta{display:inline-flex;align-items:center;gap:16px;margin-top:40px;font-family:'SpaceGrotesk';font-weight:600;font-size:21px;background:var(--violeta);color:#fff;
+  padding:16px 16px 16px 30px;border-radius:999px;text-decoration:none}
+.linkcta i{width:38px;height:38px;border-radius:50%;background:var(--aqua);color:var(--violeta-deep);display:flex;align-items:center;justify-content:center;font-style:normal}
+/* web */
+.browser{background:#fff;border-radius:16px;box-shadow:0 18px 38px rgba(20,10,40,.11);overflow:hidden;border:1.4px solid #E1E1E8}
+.browser .bar{height:44px;display:flex;align-items:center;gap:8px;padding:0 18px;background:#F0F0F3;border-bottom:1px solid #E4E4EA}
+.browser .bar i{width:12px;height:12px;border-radius:50%;background:#D5D5DC}
+.browser .bar em{margin-left:16px;font-style:normal;font-family:'SpaceGrotesk';font-size:14px;color:var(--gris);background:#fff;border-radius:8px;padding:4px 14px}
+.browser img{width:100%;display:block}
+/* salud */
+.wall{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.wall .lc{width:auto;height:108px}
+/* casos */
+.case{display:grid;grid-template-columns:1.1fr .9fr;gap:90px;align-items:center;height:100%}
+.clogo{height:64px;margin-bottom:38px}.clogo img{height:100%;width:auto;max-width:330px;object-fit:contain}
+.metrics{display:flex;gap:60px;margin-top:52px;padding-top:34px;border-top:1.4px solid #D9D9E0}
+.metrics b{display:block;font-weight:800;font-size:70px;line-height:1;letter-spacing:-.035em;color:var(--violeta)}
+.metrics span{display:block;font-family:'SpaceGrotesk';font-size:20px;color:#4a4a52;margin-top:12px;max-width:270px;line-height:1.35}
+.cimg{display:flex;gap:22px;justify-content:center;align-items:center}
+.cimg img{border-radius:16px;box-shadow:0 18px 38px rgba(20,10,40,.14);object-fit:cover;display:block}
+/* marcas */
+.sector{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;padding:26px 0;border-top:1.4px solid #E4E4EA}
+.sector:last-child{border-bottom:1.4px solid #E4E4EA}
+.sector h4{font-size:26px}
+.sector .logos{flex-wrap:nowrap;gap:10px}
+.sector .lc{width:120px;height:66px;padding:10px 12px;flex-shrink:0}
+/* proceso */
+.ritmo{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:34px}
+.ritmo div{background:var(--papel);border-radius:18px;padding:30px 36px}
+.ritmo p{font-family:'PublicSans';font-weight:700;font-size:25px;line-height:1.38;color:var(--tinta);margin-top:10px}
+/* versión web */
+@media screen{.deck{transform-origin:top left}.deck.web .slide{margin:0 auto 24px}}
+@page{size:1920px 1080px;margin:0}
+</style>
+</head>
+<body>
+<div class="deck web" id="deck">
+
+<!-- 01 PORTADA -->
+<section class="slide bg-dark dark" style="background-image:url(img/bg/portada.jpg)">
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <img src="img/logos/popcorn-linea-blanco.png" style="height:40px;align-self:flex-start" alt="Popcorn">
+    <div style="max-width:1500px">
+      <div class="kicker" style="margin-bottom:34px">Credenciales · 2026</div>
+      <h1 style="font-size:150px">Crecimiento<br>con <span class="hl">criterio</span></h1>
+      <p class="lead" style="margin-top:46px;max-width:1120px">Agencia de marketing, comunicación y creatividad. Somos socios estratégicos de marcas que quieren crecer en serio.</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div class="cap">somospopcorn.com</div>
+      <div class="cap">Marketing · Comunicación · Creatividad</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 QUIÉNES SOMOS -->
+<section class="slide bg-papel">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:26px">Quiénes somos</div>
+    <h2 style="max-width:1500px;margin-bottom:24px">No vendemos publicaciones.<br>Vendemos <span class="hl">crecimiento</span>.</h2>
+    <p class="lead" style="max-width:1260px;margin-bottom:60px">Diseñamos estrategias digitales, producimos contenido de alto impacto y ejecutamos campañas medibles que convierten inversión en resultados.</p>
+    <div class="grid4">
+      <div class="card"><div class="n">01</div><h4>No damos consejos vacíos</h4><p>Ejecutamos estrategias que alcanzan tus objetivos.</p></div>
+      <div class="card"><div class="n">02</div><h4>No vendemos humo</h4><p>Mostramos resultados medibles.</p></div>
+      <div class="card"><div class="n">03</div><h4>No trabajamos con moldes</h4><p>Adaptamos cada acción a tu empresa.</p></div>
+      <div class="card"><div class="n">04</div><h4>No dejamos a nadie solo</h4><p>Acompañamos cada paso con datos y creatividad.</p></div>
+    </div>
+  </div>
+  <div class="pageno">02</div>
+</section>
+
+<!-- 03 CÓMO PENSAMOS -->
+<section class="slide bg-white">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:26px">Cómo pensamos</div>
+    <h2 style="max-width:1400px;margin-bottom:22px">Ejecutar sin entender <span class="hl">cuesta caro</span></h2>
+    <p class="lead" style="max-width:1150px">Antes de proponer una sola acción recorremos siete preguntas. Recién con las siete respondidas, ejecutamos.</p>
+    <div class="chain">
+      <div class="node"><i>01</i><b>Negocio</b></div>
+      <div class="node"><i>02</i><b>Objetivos</b></div>
+      <div class="node"><i>03</i><b>Públicos</b></div>
+      <div class="node"><i>04</i><b>Mercado</b></div>
+      <div class="node"><i>05</i><b>Competencia</b></div>
+      <div class="node"><i>06</i><b>Embudo y experiencia</b></div>
+      <div class="node"><i>07</i><b>Propuesta de valor</b></div>
+      <div class="node go"><i>Acciones →</i><b>Nunca al revés</b></div>
+    </div>
+  </div>
+  <div class="pageno">03</div>
+</section>
+
+<!-- 04 SERVICIOS -->
+<section class="slide bg-papel">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:26px">Nuestros servicios</div>
+    <h2 style="margin-bottom:56px">Siete servicios, <span class="hl">un solo equipo</span></h2>
+    <div class="idx">
+      <div class="card"><div class="n">01</div><h4>Acompañamiento estratégico</h4><p>Planes para escalar tu negocio, pensados y ejecutados con vos.</p></div>
+      <div class="card"><div class="n">02</div><h4>Auditoría y diagnóstico digital</h4><p>Claridad antes de invertir más.</p></div>
+      <div class="card"><div class="n">03</div><h4>Performance y lead gen marketing</h4><p>Campañas que convierten inversión en resultados.</p></div>
+      <div class="card"><div class="n">04</div><h4>Estrategia de contenido y diseño</h4><p>Una voz clara y una imagen consistente.</p></div>
+      <div class="card"><div class="n">05</div><h4>Producción audiovisual</h4><p>Historias que se transmiten con imagen y sonido.</p></div>
+      <div class="card"><div class="n">06</div><h4>Contenido para cartelería digital</h4><p>Tus pantallas, convertidas en un medio para comunicar.</p></div>
+      <div class="card"><div class="n">07</div><h4>Desarrollo web y ecosistemas digitales</h4><p>Donde la estrategia se convierte en experiencia.</p></div>
+      <div class="card hi"><div class="n">+</div><h4>Especialistas en comunicación crítica y técnica</h4><p>Salud e industria B2B: mensajes precisos para públicos que no admiten errores.</p></div>
+    </div>
+  </div>
+  <div class="pageno">04</div>
+</section>
+
+<!-- 05 ACOMPAÑAMIENTO ESTRATÉGICO -->
+<section class="slide bg-white">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad" style="padding-top:250px">
+    <div class="grid2" style="gap:90px;align-items:start">
+      <div>
+        <div class="svcnum" style="margin-bottom:22px">SERVICIO 01</div>
+        <h2>Acompañamiento <span class="hl">estratégico</span></h2>
+        <p class="lead" style="margin-top:28px">Pensamos y ejecutamos planes para escalar tu negocio.</p>
+        <span class="pill closing">Ideal para marcas que buscan un socio a largo plazo</span>
+      </div>
+      <ul class="blist">
+        <li>Diagnóstico de tu ecosistema digital</li>
+        <li>Definición de objetivos y roadmap de crecimiento</li>
+        <li>Co-creación de estrategias alineadas a tus metas</li>
+        <li>Optimización y evolución constante</li>
+      </ul>
+    </div>
+  </div>
+  <div class="band"><div class="cap">Algunas marcas que acompañamos</div>
+    <div class="logos">
+      <div class="lc"><img src="img/logos/sancamilo.png" alt="Clínica San Camilo"></div><div class="lc"><img src="img/logos/gerhardt.png" alt="Gerhardt"></div><div class="lc"><img src="img/logos/transadvanced.png" alt="Trans Advanced Technologies"></div><div class="lc"><img src="img/logos/polimetal.png" alt="Polimetal"></div><div class="lc"><img src="img/logos/accessone.png" alt="Access One"></div>
+    </div></div>
+  <div class="pageno">05</div>
+</section>
+
+<!-- 06 AUDITORÍA -->
+<section class="slide bg-papel">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad" style="padding-top:250px">
+    <div class="grid2" style="gap:90px;align-items:start">
+      <div>
+        <div class="svcnum" style="margin-bottom:22px">SERVICIO 02</div>
+        <h2>Auditoría y <span class="hl">diagnóstico</span> digital</h2>
+        <p class="lead" style="margin-top:28px">Analizamos, detectamos y potenciamos.</p>
+        <span class="pill closing">Para empresas que quieren claridad antes de invertir más</span>
+      </div>
+      <ul class="blist">
+        <li>Revisión completa de activos digitales</li>
+        <li>Análisis de mercado y competencia</li>
+        <li>Identificación de oportunidades de mejora</li>
+        <li>Entrega de insights claros y accionables</li>
+      </ul>
+    </div>
+  </div>
+  <div class="band"><div class="cap">Algunas marcas que acompañamos</div>
+    <div class="logos">
+      <div class="lc"><img src="img/logos/itinere.png" alt="Red Itínere"></div><div class="lc"><img src="img/logos/northfield.png" alt="Northfield School"></div>
+      <div class="lc"><img src="img/logos/faro.png" alt="Colegio del Faro"></div><div class="lc"><img src="img/logos/transpack.png" alt="Transpack"></div>
+      <div class="lc"><img src="img/logos/blessings.png" alt="Blessings"></div><div class="lc"><img src="img/logos/fitzroy.png" alt="Fitz Roy"></div>
+    </div></div>
+  <div class="pageno">06</div>
+</section>
+
+<!-- 07 PERFORMANCE -->
+<section class="slide bg-white">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad" style="padding-top:250px">
+    <div class="grid2" style="gap:90px;align-items:start">
+      <div>
+        <div class="svcnum" style="margin-bottom:22px">SERVICIO 03</div>
+        <h2>Performance y <span class="hl">lead gen</span> marketing</h2>
+        <p class="lead" style="margin-top:28px">Campañas que convierten inversión en resultados.</p>
+        <span class="pill closing">Tu presupuesto se invierte donde más rinde</span>
+      </div>
+      <ul class="blist">
+        <li>Planificación y ejecución de campañas multicanal</li>
+        <li>Google Ads, Meta Ads, Programmatic y más</li>
+        <li>Segmentación y predicción con IA</li>
+        <li>Optimización constante para maximizar el ROAS</li>
+      </ul>
+    </div>
+  </div>
+  <div class="band"><div class="cap">Algunas marcas que acompañamos</div>
+    <div class="logos">
+      <div class="lc"><img src="img/logos/northfield.png" alt="Northfield School"></div><div class="lc"><img src="img/logos/faro.png" alt="Colegio del Faro"></div><div class="lc"><img src="img/logos/gerhardt.png" alt="Gerhardt"></div><div class="lc"><img src="img/logos/accessone.png" alt="Access One"></div><div class="lc"><img src="img/logos/transadvanced.png" alt="Trans Advanced Technologies"></div><div class="lc"><img src="img/logos/transpack.png" alt="Transpack"></div>
+    </div></div>
+  <div class="pageno">07</div>
+</section>
+
+<!-- 08 CONTENIDO Y DISEÑO -->
+<section class="slide bg-papel">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="grid2" style="grid-template-columns:600px 1fr;gap:100px;align-items:center">
+      <div>
+        <div class="feed" style="gap:10px">
+          <img class="tile" src="img/feed/fitzroy-1.jpg" alt=""><img class="tile" src="img/feed/fitzroy-2.jpg" alt=""><img class="tile" src="img/feed/fitzroy-3.jpg" alt="">
+          <img class="tile" src="img/feed/fitzroy-4.jpg" alt=""><img class="tile" src="img/feed/fitzroy-5.jpg" alt=""><img class="tile" src="img/feed/fitzroy-6.jpg" alt="">
+        </div>
+        <div class="figc">Feed de Instagram · Centro Médico Integral Fitz Roy</div>
+      </div>
+      <div>
+        <div class="svcnum" style="margin-bottom:22px">SERVICIO 04</div>
+        <h2 style="font-size:68px">Estrategia de contenido y <span class="hl">diseño</span></h2>
+        <p class="lead" style="margin-top:22px;font-size:27px">Construimos la identidad y la presencia digital de tu marca.</p>
+        <ul class="blist" style="margin-top:30px;gap:10px">
+          <li style="padding:16px 26px;font-size:21px">Estrategias de contenidos para redes sociales</li>
+          <li style="padding:16px 26px;font-size:21px">Calendarios editoriales y gestión de comunidades</li>
+          <li style="padding:16px 26px;font-size:21px">Producción de contenidos creativos para plataformas digitales</li>
+          <li style="padding:16px 26px;font-size:21px">Diseño gráfico y piezas visuales adaptadas a cada formato</li>
+          <li style="padding:16px 26px;font-size:21px">Manuales de marca, identidad visual y lineamientos de comunicación</li>
+        </ul>
+        <div class="logos" style="margin-top:28px">
+      <div class="lc s"><img src="img/logos/transpack.png" alt="Transpack"></div><div class="lc s"><img src="img/logos/ventura.png" alt="Ventura Wynwood"></div><div class="lc s"><img src="img/logos/tesla.png" alt="Diagnóstico Tesla"></div><div class="lc s"><img src="img/logos/condelectric.png" alt="Condelectric"></div>
+    
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">08</div>
+</section>
+
+<!-- 09 AUDIOVISUAL -->
+<section class="slide bg-dark dark" style="background-image:url(img/bg/bgdark_05.jpg)">
+  <img class="mark" src="img/logos/popcorn-linea-blanco.png" alt="">
+  <div class="pad center">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:60px">
+      <div style="max-width:1080px">
+        <div class="svcnum" style="margin-bottom:22px;color:var(--aqua)">SERVICIO 05</div>
+        <h2>Producción <span class="hl">audiovisual</span></h2>
+        <p class="lead" style="margin-top:26px;font-size:27px">Cada marca tiene una historia para contar, y las mejores se transmiten con imagen y sonido. Combinamos creatividad, narrativa y calidad de producción.</p>
+      </div>
+      <div style="text-align:right;flex:0 0 auto">
+        <div class="stat">+3.000</div>
+        <div class="cap" style="margin-top:16px">piezas creadas para marcas líderes</div>
+      </div>
+    </div>
+    <div class="vids" style="margin-top:44px">
+      <div><a class="vid" href="https://www.youtube.com/watch?v=k_DQc9Jpurk" target="_blank"><img src="img/video/esab.jpg" alt=""></a><div class="vcap"><b><i class="pl"></i>ESAB</b><span>Lanzamiento</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=35_hqnlV3JM" target="_blank"><img src="img/video/cromosol.jpg" alt=""></a><div class="vcap"><b><i class="pl"></i>Cromosol</b><span>Institucional</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=e5PzUpTQTl8" target="_blank"><img src="img/video/bolsaflex.jpg" alt=""></a><div class="vcap"><b><i class="pl"></i>Bolsaflex</b><span>Institucional</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=ygXRXNBMte8" target="_blank"><img src="img/video/reel.jpg" alt=""></a><div class="vcap"><b><i class="pl"></i>Reel Popcorn</b><span>Rodajes</span></div></div>
+    </div>
+    <div style="margin-top:36px"><div class="cap" style="margin-bottom:16px">Producciones para</div>
+      <div class="logos" style="gap:12px">
+        <div class="lc s"><img src="img/logos/telecom.png" alt="Telecom"></div><div class="lc s"><img src="img/logos/personal.svg" alt="Personal"></div><div class="lc s"><img src="img/logos/samsung.png" alt="Samsung"></div><div class="lc s"><img src="img/logos/vw.png" alt="Volkswagen"></div><div class="lc s"><img src="img/logos/galicia.png" alt="Banco Galicia"></div><div class="lc s"><img src="img/logos/bind.jpg" alt="Banco Industrial"></div><div class="lc s"><img src="img/logos/farmacity.png" alt="Farmacity"></div><div class="lc s"><img src="img/logos/swisscom.svg" alt="Swisscom"></div><div class="lc s"><img src="img/logos/esab.png" alt="ESAB"></div><div class="lc s"><img src="img/logos/minseguridad.png" alt="Ministerio de Seguridad"></div><div class="lc s"><img src="img/logos/datawise.png" alt="Datawise"></div><div class="lc s"><img src="img/logos/intramed.png" alt="IntraMed"></div><div class="lc s"><img src="img/logos/mitmaq.png" alt="Mitmaq"></div><div class="lc s"><img src="img/logos/kanji.png" alt="Kanji"></div><div class="lc s"><img src="img/logos/independencia.png" alt="Maquinarias Independencia"></div><div class="lc s"><img src="img/logos/daewoo.png" alt="Daewoo Herramientas"></div><div class="lc s"><img src="img/logos/cromosol.png" alt="Cromosol"></div>
+      </div></div>
+  </div>
+  <div class="pageno">09</div>
+</section>
+
+<!-- 10 CARTELERÍA -->
+<section class="slide bg-white">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad" style="padding-top:140px">
+    <div class="grid2" style="grid-template-columns:.95fr 1.05fr;gap:70px;align-items:start">
+      <div>
+        <div class="svcnum" style="margin-bottom:22px">SERVICIO 06</div>
+        <h2 style="font-size:64px">Contenido para <span class="hl">cartelería digital</span></h2>
+        <p class="lead" style="margin-top:22px;font-size:27px">Transformamos tus pantallas en un canal de comunicación poderoso.</p>
+        <ul class="blist" style="margin-top:28px;gap:10px">
+          <li style="padding:12px 26px;font-size:21px">Contenidos pensados para impactar en pocos segundos</li>
+          <li style="padding:12px 26px;font-size:21px">Cápsulas animadas, motion graphics y videos cortos</li>
+          <li style="padding:12px 26px;font-size:21px">Mensajes institucionales, promociones y campañas</li>
+          <li style="padding:12px 26px;font-size:21px">Actualización mensual o en tiempo real</li>
+          <li style="padding:12px 26px;font-size:21px">Galería propia de entretenimiento lista para usar</li>
+        </ul>
+        <a class="linkcta" href="https://propuestas.somospopcorn.com/CarteleriaDigital/" target="_blank">Ver la presentación del servicio <i>→</i></a>
+      </div>
+      <div class="screens">
+        <div class="tv a"><img src="img/pantallas/hablemos.jpg" alt=""></div>
+        <div class="tv b"><img src="img/pantallas/austral-tips.jpg" alt=""></div>
+        <div class="tv c"><img src="img/pantallas/fleni-sinturno.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+  <div class="band" style="bottom:84px"><div class="logos">
+    <div class="lc s"><img src="img/logos/austral.png" alt="Hospital Universitario Austral"></div><div class="lc s"><img src="img/logos/fleni.png" alt="Fleni"></div>
+    <div class="lc s"><img src="img/logos/tesla.png" alt="Diagnóstico Tesla"></div>
+    <div class="lc s"><img src="img/logos/fitzroy.png" alt="Fitz Roy"></div><div class="lc s"><img src="img/logos/swiss.webp" alt="Swiss Medical"></div>
+    <div class="lc s"><img src="img/logos/benozzi.png" alt="Método Benozzi"></div>
+  </div></div>
+  <div class="pageno">10</div>
+</section>
+
+<!-- 11 WEB -->
+<section class="slide bg-papel">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="grid2" style="grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center">
+      <div>
+        <div class="svcnum" style="margin-bottom:22px">SERVICIO 07</div>
+        <h2 style="font-size:68px">Desarrollo web y <span class="hl">ecosistemas</span> digitales</h2>
+        <p class="lead" style="margin-top:22px;font-size:27px">Diseñamos experiencias digitales completas.</p>
+        <ul class="blist" style="margin-top:28px;gap:10px">
+          <li style="padding:16px 26px;font-size:21px">Websites y landings orientadas a conversión</li>
+          <li style="padding:16px 26px;font-size:21px">E-commerce y plataformas a medida</li>
+          <li style="padding:16px 26px;font-size:21px">UX/UI y performance tracking</li>
+          <li style="padding:16px 26px;font-size:21px">Integraciones con CRM y herramientas de automatización</li>
+        </ul>
+        <span class="pill closing">Donde la estrategia se convierte en experiencia de usuario</span>
+      </div>
+      <div>
+        <div class="browser"><div class="bar"><i></i><i></i><i></i><em>energizerpowerproducts.com</em></div><img src="img/web/energizer.jpg" alt="Sitio de Energizer Power Products"></div>
+        <div class="logos" style="margin-top:30px">
+      <div class="lc s"><img src="img/logos/energizer.png" alt="Energizer"></div><div class="lc s"><img src="img/logos/polimetal.png" alt="Polimetal"></div><div class="lc s"><img src="img/logos/condelectric.png" alt="Condelectric"></div><div class="lc s"><img src="img/logos/delpueblo.png" alt="Farmacia del Pueblo Tigre"></div>
+    
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">11</div>
+</section>
+
+<!-- 12 SALUD -->
+<section class="slide bg-white">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:26px">Especialización en salud</div>
+    <h2 style="margin-bottom:24px">Hablamos <span class="hl">el idioma de la salud</span></h2>
+    <p class="lead" style="max-width:1300px">Años de trabajo con hospitales, laboratorios, centros de diagnóstico, medicina laboral e instituciones académicas. Sabemos a quién le habla cada mensaje.</p>
+    <div class="tags" style="margin:36px 0 56px">
+      <span class="pill">Pacientes</span><span class="pill">Derivantes</span><span class="pill">Médicos</span><span class="pill">Bioquímicos</span><span class="pill">Empresas y RR.HH.</span><span class="pill">Instituciones</span>
+    </div>
+    <div class="wall">
+      <div class="lc"><img src="img/logos/austral.png" alt="Hospital Universitario Austral"></div><div class="lc"><img src="img/logos/swiss.webp" alt="Swiss Medical"></div>
+      <div class="lc"><img src="img/logos/fleni.png" alt="Fleni"></div><div class="lc"><img src="img/logos/manlab.png" alt="ManLab"></div>
+      <div class="lc"><img src="img/logos/benozzi.png" alt="Método Benozzi"></div><div class="lc"><img src="img/logos/tesla.png" alt="Diagnóstico Tesla"></div>
+      <div class="lc"><img src="img/logos/fitzroy.png" alt="Fitz Roy"></div><div class="lc"><img src="img/logos/cetac.jpg" alt="CETAC Juncal"></div>
+      <div class="lc"><img src="img/logos/rapela.jpg" alt="Laboratorio Dr. Rapela"></div><div class="lc"><img src="img/logos/sancamilo.png" alt="Clínica San Camilo"></div>
+      <div class="lc"><img src="img/logos/blife.png" alt="B-Life"></div><div class="lc"><img src="img/logos/accessone.png" alt="Access One"></div>
+    </div>
+  </div>
+  <div class="pageno">12</div>
+</section>
+
+<!-- 13 HABLEMOS CON POPCORN -->
+<section class="slide bg-dark dark" style="background-image:url(img/bg/bgdark_22.jpg)">
+  <img class="mark" src="img/logos/popcorn-linea-blanco.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:24px">Hablemos con Popcorn</div>
+    <h2 style="margin-bottom:18px">Nuestros clientes <span class="hl">lo cuentan</span></h2>
+    <p class="lead" style="max-width:1200px;font-size:26px">Conversaciones con los equipos con los que trabajamos: qué hicimos juntos, cómo trabajamos y por qué funcionó.</p>
+    <div class="vids" style="margin-top:42px;gap:30px 24px">
+      <div><a class="vid" href="https://www.youtube.com/watch?v=AN4Tn3pOzYM" target="_blank"><img src="img/hablemos/austral.jpg" alt="Hablemos con Popcorn · Hospital Universitario Austral"></a><div class="vcap"><b><i class="pl"></i>Hospital Universitario Austral</b><span>11:10</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=bj5tBeUhN9w" target="_blank"><img src="img/hablemos/centralab.jpg" alt="Hablemos con Popcorn · CentraLab: de 14 sedes a una marca nacional"></a><div class="vcap"><b><i class="pl"></i>CentraLab: de 14 sedes a una marca nacional</b><span>3:39</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=Dt1DuVVA3ls" target="_blank"><img src="img/hablemos/centralab-manlab.jpg" alt="Hablemos con Popcorn · CentraLab y ManLab"></a><div class="vcap"><b><i class="pl"></i>CentraLab y ManLab</b><span>16:51</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=cHQQTrozztI" target="_blank"><img src="img/hablemos/fitzroy.jpg" alt="Hablemos con Popcorn · Centro Médico Integral Fitz Roy"></a><div class="vcap"><b><i class="pl"></i>Centro Médico Integral Fitz Roy</b><span>15:27</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=jEUsyce9mtA" target="_blank"><img src="img/hablemos/bestdent.jpg" alt="Hablemos con Popcorn · BestDent"></a><div class="vcap"><b><i class="pl"></i>BestDent</b><span>9:16</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=R6D3RX3xdiE" target="_blank"><img src="img/hablemos/tap.jpg" alt="Hablemos con Popcorn · TAP Medicina"></a><div class="vcap"><b><i class="pl"></i>TAP Medicina</b><span>13:05</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=aB-cYk2z3p0" target="_blank"><img src="img/hablemos/kanji.jpg" alt="Hablemos con Popcorn · Kanji"></a><div class="vcap"><b><i class="pl"></i>Kanji</b><span>8:59</span></div></div>
+      <div><a class="vid" href="https://www.youtube.com/watch?v=cL9vfVpeoKo" target="_blank"><img src="img/hablemos/12ntes.jpg" alt="Hablemos con Popcorn · 12ntes"></a><div class="vcap"><b><i class="pl"></i>12ntes</b><span>12:38</span></div></div>
+    </div>
+  </div>
+  <div class="pageno">13</div>
+</section>
+
+<!-- 14 MARCAS -->
+<section class="slide bg-papel">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:26px">Clientes</div>
+    <h2 style="margin-bottom:50px">Marcas que ya <span class="hl">crecen con nosotros</span></h2>
+    <div class="sector"><h4>Salud</h4><div class="logos">
+      <div class="lc"><img src="img/logos/austral.png" alt="Hospital Universitario Austral"></div><div class="lc"><img src="img/logos/swiss.webp" alt="Swiss Medical"></div>
+      <div class="lc"><img src="img/logos/fleni.png" alt="Fleni"></div><div class="lc"><img src="img/logos/manlab.png" alt="ManLab"></div>
+      <div class="lc"><img src="img/logos/tesla.png" alt="Diagnóstico Tesla"></div><div class="lc"><img src="img/logos/fitzroy.png" alt="Fitz Roy"></div>
+      <div class="lc"><img src="img/logos/cetac.jpg" alt="CETAC Juncal"></div><div class="lc"><img src="img/logos/rapela.jpg" alt="Laboratorio Dr. Rapela"></div>
+      <div class="lc"><img src="img/logos/sancamilo.png" alt="Clínica San Camilo"></div><div class="lc"><img src="img/logos/blife.png" alt="B-Life"></div><div class="lc"><img src="img/logos/accessone.png" alt="Access One"></div>
+    </div></div>
+    <div class="sector"><h4>Industria y B2B</h4><div class="logos">
+      <div class="lc"><img src="img/logos/esab.png" alt="ESAB"></div><div class="lc"><img src="img/logos/energizer.png" alt="Energizer"></div>
+      <div class="lc"><img src="img/logos/polimetal.png" alt="Polimetal"></div><div class="lc"><img src="img/logos/condelectric.png" alt="Condelectric"></div>
+      <div class="lc"><img src="img/logos/gerhardt.png" alt="Gerhardt"></div><div class="lc"><img src="img/logos/bolsaflex.svg" alt="Bolsaflex"></div>
+      <div class="lc"><img src="img/logos/evel.png" alt="EVEL"></div><div class="lc"><img src="img/logos/transpack.png" alt="Transpack"></div>
+      <div class="lc"><img src="img/logos/transadvanced.png" alt="Trans Advanced Technologies"></div><div class="lc"><img src="img/logos/mitmaq.png" alt="Mitmaq"></div>
+    </div></div>
+    <div class="sector"><h4>Consumo, servicios y educación</h4><div class="logos">
+      <div class="lc"><img src="img/logos/delpueblo.png" alt="Farmacia del Pueblo Tigre"></div>
+      <div class="lc"><img src="img/logos/mercadocheque.png" alt="Mercado Cheque"></div><div class="lc"><img src="img/logos/northfield.png" alt="Northfield School"></div>
+      <div class="lc"><img src="img/logos/faro.png" alt="Colegio del Faro"></div><div class="lc"><img src="img/logos/itinere.png" alt="Red Itínere"></div>
+      <div class="lc"><img src="img/logos/blessings.png" alt="Blessings"></div><div class="lc"><img src="img/logos/frambuesa.png" alt="Frambuesa Design"></div>
+      <div class="lc"><img src="img/logos/ventura.png" alt="Ventura Wynwood"></div>
+    </div></div>
+  </div>
+  <div class="pageno">14</div>
+</section>
+
+<!-- 15 CÓMO TRABAJAMOS -->
+<section class="slide bg-white">
+  <img class="mark" src="img/logos/popcorn-linea-negro.png" alt="">
+  <div class="pad center">
+    <div class="kicker" style="margin-bottom:26px">Cómo trabajamos</div>
+    <h2 style="margin-bottom:56px">Un proceso claro, <span class="hl">de punta a punta</span></h2>
+    <div class="grid4">
+      <div class="card" style="border-top:5px solid #E9E4F2"><div class="n">01 · DIAGNÓSTICO</div><h4>Escuchamos y diagnosticamos</h4><p>Entendemos tu negocio antes de proponer.</p></div>
+      <div class="card" style="border-top:5px solid var(--violeta-claro)"><div class="n">02 · ESTRATEGIA</div><h4>Diseñamos la estrategia</h4><p>Clara, medible y accionable.</p></div>
+      <div class="card" style="border-top:5px solid var(--violeta)"><div class="n">03 · EJECUCIÓN</div><h4>Ejecutamos</h4><p>Producción, medios y tecnología en un mismo equipo.</p></div>
+      <div class="card" style="border-top:5px solid var(--aqua)"><div class="n">04 · OPTIMIZACIÓN</div><h4>Optimizamos y evolucionamos</h4><p>Con datos y análisis constante.</p></div>
+    </div>
+    <div class="ritmo">
+      <div><div class="cap" style="color:var(--violeta)">Desde el día uno</div><p>Alcance, responsables y tiempos de respuesta claros para los dos lados.</p></div>
+      <div><div class="cap" style="color:var(--violeta)">Cada mes</div><p>Una reunión de gestión que no es un reporte: termina en una decisión.</p></div>
+    </div>
+  </div>
+  <div class="pageno">15</div>
+</section>
+
+<!-- 16 CIERRE -->
+<section class="slide bg-dark dark" style="background-image:url(img/bg/bgdark_32.jpg)">
+  <div class="pad" style="display:flex;flex-direction:column;justify-content:space-between">
+    <img src="img/logos/popcorn-linea-blanco.png" style="height:40px;align-self:flex-start" alt="Popcorn">
+    <div>
+      <div class="kicker" style="margin-bottom:34px">Somos equipo, somos Popcorn</div>
+      <h1 style="font-size:150px">Hablemos,<br><span class="hl">en serio</span></h1>
+      <p class="lead" style="margin-top:44px;max-width:1080px">Nuestro lema refleja el compromiso de ser cercanos: la comunicación efectiva es la base para alinear metas y construir relaciones de confianza.</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div style="display:flex;gap:56px">
+        <a href="mailto:hola@somospopcorn.com" style="color:#fff;font-weight:700;font-size:32px;text-decoration:none;border-bottom:3px solid var(--aqua);padding-bottom:6px">hola@somospopcorn.com</a>
+        <a href="https://www.somospopcorn.com" style="color:#fff;font-weight:700;font-size:32px;text-decoration:none;border-bottom:3px solid var(--aqua);padding-bottom:6px">somospopcorn.com</a>
+      </div>
+      <div class="cap">Marketing · Comunicación · Creatividad</div>
+    </div>
+  </div>
+</section>
+
+</div>
+<script>
+(function(){var d=document.getElementById('deck');function fit(){d.style.zoom=Math.min(1,innerWidth/1920)}fit();addEventListener('resize',fit);addEventListener('beforeprint',function(){d.style.zoom=1})})();
+</script>
+</body>
+</html>
