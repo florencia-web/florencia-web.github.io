@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartelería Digital · Un nuevo medio de comunicación para instituciones de salud · Popcorn</title>
+<meta name="description" content="Transformá las pantallas de tu institución de salud en un canal propio de comunicación, experiencia del paciente y marca. Propuesta estratégica de Popcorn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0A0A0A;
+  --black-2:#111114;
+  --purple:#6B21D6;
+  --purple-deep:#2A0F5C;
+  --purple-soft:#3D1D7A;
+  --cyan:#5EEAD4;
+  --cyan-deep:#0FB39A;
+  --white:#FFFFFF;
+  --gray-100:#F5F5F7;
+  --gray-300:#C4C4CF;
+  --gray-500:#8E8E9C;
+  --gray-700:#3A3A44;
+  --gray-900:#1A1A20;
+  --amber:#FBBF24;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--black);color:var(--white);line-height:1.5;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.container-wide{max-width:1340px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:24px;display:inline-block}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-0.02em;line-height:1.05}
+h1{font-size:clamp(40px,6vw,80px)}
+h2{font-size:clamp(28px,4vw,52px);margin-bottom:18px}
+h3{font-size:18px;font-weight:700;letter-spacing:-0.01em;line-height:1.3}
+p{color:var(--gray-300);font-size:15px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--purple);color:var(--white)}
+.text-cyan{color:var(--cyan)}
+.text-purple{color:#a87af0}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;max-width:1400px;margin:0 auto}
+.logo{width:62px;height:48px;flex-shrink:0;display:block;background-size:contain;background-repeat:no-repeat;background-position:left center;background-image:url('assets/logos/popcorn_logo.png')}
+.nav-links{display:flex;gap:30px}
+.nav-links a{font-size:13px;color:var(--gray-300);font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--cyan)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;transition:transform 0.15s,background 0.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-cyan{background:var(--cyan);color:var(--black)}
+.btn-cyan:hover{background:#7df3df}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,0.2);color:var(--white)}
+.btn-ghost:hover{border-color:var(--white)}
+@media(max-width:960px){.nav-links{display:none}}
+
+/* SECTIONS */
+.section{padding:96px 0;position:relative}
+.section-dark{background:var(--black)}
+.section-darker{background-color:var(--black-2);background-image:radial-gradient(circle at 20% 10%,rgba(107,33,214,0.10) 0%,transparent 42%),linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);background-size:auto,56px 56px,56px 56px}
+.section-purple{background:linear-gradient(165deg,var(--purple) 0%,var(--purple-soft) 100%)}
+.section-purple-deep{background-color:var(--purple-deep);background-image:radial-gradient(circle at 80% 0%,rgba(94,234,212,0.10) 0%,transparent 45%),linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:auto,56px 56px,56px 56px}
+.section-light{background:var(--gray-100);color:var(--black)}
+.section-light p{color:var(--gray-700)}
+.section-light h2,.section-light h3,.section-light h4{color:var(--purple-deep)}
+.section-light .eyebrow{color:var(--purple)}
+.section-header{max-width:880px;margin-bottom:54px}
+.section-header.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-header h2{color:inherit}
+.section-header p{font-size:18px;margin-top:16px;line-height:1.55}
+.kicker-num{font-family:'General Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.2em;color:var(--gray-500);margin-bottom:18px;display:block}
+
+.lede{font-size:clamp(22px,2.8vw,32px);line-height:1.35;color:var(--white);font-weight:500;margin-bottom:28px;max-width:900px;letter-spacing:-0.01em}
+.lede em{font-style:normal;color:var(--cyan);font-weight:600}
+
+/* PILL */
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:999px;background:rgba(94,234,212,0.12);border:1px solid rgba(94,234,212,0.3);font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:34px}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.35}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 16%,rgba(94,234,212,0.14) 0%,transparent 52%),radial-gradient(ellipse at 10% 90%,rgba(107,33,214,0.30) 0%,transparent 55%),linear-gradient(180deg,#1A0F2E 0%,var(--purple-deep) 58%,#0F0820 100%);padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:54px;align-items:center}
+@media(max-width:1020px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+.hero h1{margin-bottom:24px;color:var(--white)}
+.hero h1 .strike{position:relative;color:var(--gray-500);white-space:nowrap}
+.hero h1 .strike::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:5px;background:var(--cyan);border-radius:3px;transform:rotate(-2deg)}
+.hero-bajada{font-size:19px;color:rgba(255,255,255,0.85);max-width:560px;margin-bottom:34px;line-height:1.6}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.hero-tags span{font-size:12px;font-weight:600;letter-spacing:0.04em;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.8)}
+
+/* HERO screen cluster */
+.hero-stage{position:relative;height:100%;min-height:380px;display:flex;align-items:center;justify-content:center}
+.hero-screens{position:relative;width:100%;max-width:520px}
+.hero-screens .tv{position:relative}
+.hero-screens .tv-2{position:absolute;width:46%;right:-6%;bottom:-12%;z-index:3;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+.hero-screens .tv-3{position:absolute;width:38%;left:-8%;top:-14%;z-index:2;opacity:0.92}
+
+/* META BAND */
+.meta{background:linear-gradient(180deg,rgba(107,33,214,0.0) 0%,rgba(107,33,214,0.25) 100%);border-top:1px solid rgba(255,255,255,0.08);padding:0}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,0.1)}
+@media(max-width:760px){.meta-grid{grid-template-columns:repeat(2,1fr)}}
+.meta-item{padding:30px 28px;border-right:1px solid rgba(255,255,255,0.08)}
+.meta-item:last-child{border-right:none}
+.meta-item .mv{font-size:30px;font-weight:800;color:var(--cyan);letter-spacing:-0.02em;line-height:1}
+.meta-item .ml{font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);margin-top:10px;line-height:1.4}
+
+/* TV / SCREEN MOCKUP */
+.tv{background:linear-gradient(145deg,#1c1c22,#070708);border-radius:16px;padding:12px;box-shadow:0 24px 64px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.07)}
+.tv.lg{padding:15px;border-radius:20px}
+.screen{position:relative;width:100%;aspect-ratio:16/9;border-radius:7px;overflow:hidden;background:#0c0c0c;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.25)}
+.screen img{width:100%;height:100%;object-fit:cover;display:block}
+.tv-foot{margin-top:9px;display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-500);font-weight:600}
+.tv-foot .live{display:flex;align-items:center;gap:7px}
+.tv-foot .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-deep);box-shadow:0 0 8px var(--cyan-deep);animation:blink 2s infinite}
+
+/* generic cards */
+.grid{display:grid;gap:22px}
+.g-2{grid-template-columns:repeat(2,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-4{grid-template-columns:repeat(4,1fr)}
+.g-6{grid-template-columns:repeat(6,1fr)}
+@media(max-width:980px){.g-3,.g-4{grid-template-columns:repeat(2,1fr)}.g-6{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.g-2,.g-3,.g-4{grid-template-columns:1fr}.g-6{grid-template-columns:repeat(2,1fr)}}
+
+.card{background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px;transition:transform 0.2s,border-color 0.2s,background 0.2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(94,234,212,0.35);background:rgba(255,255,255,0.05)}
+.card .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(107,33,214,0.18);border:1px solid rgba(107,33,214,0.35);margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--cyan);fill:none;stroke-width:1.8}
+.card h3{color:var(--white);margin-bottom:8px}
+.card p{font-size:14px}
+.section-light .card{background:var(--white);border-color:rgba(0,0,0,0.07);box-shadow:0 4px 18px rgba(0,0,0,0.04)}
+.section-light .card:hover{border-color:var(--purple)}
+.section-light .card h3{color:var(--purple-deep)}
+.section-light .card .ic{background:rgba(107,33,214,0.08);border-color:rgba(107,33,214,0.2)}
+.section-light .card .ic svg{stroke:var(--purple)}
+
+/* STAT blocks */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:10px}
+@media(max-width:820px){.stat-row{grid-template-columns:1fr}}
+.stat{background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.18);border-radius:18px;padding:32px 28px}
+.stat .num{font-size:clamp(44px,5vw,62px);font-weight:800;color:var(--cyan);letter-spacing:-0.03em;line-height:0.95}
+.stat .lbl{font-size:15px;color:var(--white);font-weight:600;margin-top:14px}
+.stat .src{font-size:11px;color:var(--gray-500);margin-top:10px;line-height:1.4}
+
+/* audience chips */
+.aud{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:30px 26px;border-radius:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)}
+.aud .ring{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(94,234,212,0.12);border:1px solid rgba(94,234,212,0.3)}
+.aud .ring svg{width:26px;height:26px;stroke:var(--cyan);fill:none;stroke-width:1.7}
+.aud h3{color:var(--white)}
+.aud p{font-size:13.5px}
+
+/* topic tags grid */
+.topics{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.topics span{font-size:14px;font-weight:600;padding:12px 20px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.9);display:inline-flex;align-items:center;gap:9px;transition:all 0.2s}
+.topics span:hover{border-color:var(--cyan);color:var(--cyan)}
+.topics span::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--cyan);flex-shrink:0}
+.section-light .topics span{background:var(--white);border-color:rgba(0,0,0,0.08);color:var(--gray-700)}
+.section-light .topics span::before{background:var(--purple)}
+
+/* formats (popcorn structures) */
+.fmt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:980px){.fmt-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.fmt-grid{grid-template-columns:1fr}}
+.fmt{padding:18px 18px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);font-weight:600;font-size:15px;display:flex;align-items:center;gap:12px}
+.fmt .em{font-size:20px;line-height:1}
+.fmt small{display:block;font-weight:400;font-size:12px;color:var(--gray-500);margin-top:2px}
+
+/* LOGOS */
+.logo-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(0,0,0,0.08);border-radius:18px;overflow:hidden;background:var(--white)}
+@media(max-width:760px){.logo-wall{grid-template-columns:repeat(2,1fr)}}
+.logo-cell{display:flex;align-items:center;justify-content:center;padding:40px 28px;border-right:1px solid rgba(0,0,0,0.07);border-bottom:1px solid rgba(0,0,0,0.07);min-height:130px}
+.logo-cell img{max-width:148px;max-height:62px;object-fit:contain;filter:grayscale(100%);opacity:0.62;transition:all 0.3s}
+.logo-cell:hover img{filter:grayscale(0);opacity:1}
+.logo-cell .wordmark{font-size:26px;font-weight:800;letter-spacing:-0.02em;color:#1a2a4a;opacity:0.55;transition:opacity 0.3s}
+.logo-cell:hover .wordmark{opacity:1}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gallery{grid-template-columns:1fr}}
+
+/* PROCESS */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+@media(max-width:980px){.proc{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.proc{grid-template-columns:1fr}}
+.step{position:relative;padding:26px 22px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09)}
+.step .n{font-family:'General Sans',sans-serif;font-size:13px;font-weight:700;color:var(--black);background:var(--cyan);width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.step h3{color:var(--white);font-size:16px;margin-bottom:6px}
+.step p{font-size:13px}
+
+/* SCHEDULE GRID */
+.sched{width:100%;border-collapse:separate;border-spacing:6px;margin-top:10px}
+.sched th{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500);font-weight:700;padding:8px;text-align:center}
+.sched td{border-radius:10px;padding:14px 10px;text-align:center;font-size:12.5px;font-weight:600;color:var(--white)}
+.sl-contenido{background:rgba(94,234,212,0.14);border:1px solid rgba(94,234,212,0.3);color:var(--cyan)}
+.sl-institucional{background:rgba(107,33,214,0.22);border:1px solid rgba(107,33,214,0.4);color:#c9b0f5}
+.sl-sponsor{background:rgba(251,191,36,0.14);border:1px solid rgba(251,191,36,0.34);color:var(--amber)}
+.sched-legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px;font-size:13px;font-weight:600}
+.sched-legend span{display:inline-flex;align-items:center;gap:8px;color:var(--gray-300)}
+.sched-legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+
+/* loop bar */
+.loopbar{display:flex;height:54px;border-radius:12px;overflow:hidden;margin-top:14px;border:1px solid rgba(255,255,255,0.12)}
+.loopbar div{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;text-align:center;padding:0 6px}
+
+/* TIERS */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+@media(max-width:900px){.tiers{grid-template-columns:1fr}}
+.tier{border-radius:20px;padding:34px 30px;background:var(--white);border:1px solid rgba(0,0,0,0.08);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.tier .badge{font-size:12px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px}
+.tier.bronce .badge{color:#B07A3E}
+.tier.plata .badge{color:#8A93A6}
+.tier.oro .badge{color:#C79A2E}
+.tier .tdesc{font-size:14px;color:var(--gray-700);margin-bottom:22px;min-height:42px}
+.tier ul{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:6px}
+.tier li{font-size:14px;color:var(--gray-700);display:flex;gap:11px;align-items:flex-start;line-height:1.4}
+.tier li svg{width:18px;height:18px;stroke:var(--purple);fill:none;stroke-width:2.4;flex-shrink:0;margin-top:1px}
+.tier.oro{background:linear-gradient(170deg,#1A0F2E,#2A0F5C);border:1px solid rgba(199,154,46,0.4);box-shadow:0 24px 60px rgba(0,0,0,0.35)}
+.tier.oro .tdesc{color:var(--gray-300)}
+.tier.oro li{color:rgba(255,255,255,0.88)}
+.tier.oro li svg{stroke:var(--amber)}
+.tier.oro h3,.tier.oro .price-note{color:#fff}
+.tier .feat-flag{position:absolute;top:18px;right:-34px;transform:rotate(45deg);background:var(--amber);color:#3a2a00;font-size:10px;font-weight:800;letter-spacing:0.12em;padding:5px 40px;text-transform:uppercase}
+.tier h3{font-size:22px;margin-bottom:4px}
+
+/* SIMULATOR */
+.sim{background:linear-gradient(165deg,#15101F,#0d0a14);border:1px solid rgba(94,234,212,0.2);border-radius:24px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+@media(max-width:880px){.sim{grid-template-columns:1fr;gap:32px;padding:30px}}
+.sim-controls .field{margin-bottom:24px}
+.sim-controls label{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:600;color:var(--white);margin-bottom:10px}
+.sim-controls label .val{font-size:18px;font-weight:800;color:var(--cyan);font-family:'General Sans',sans-serif}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:rgba(255,255,255,0.12);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--cyan);cursor:pointer;border:3px solid #0d0a14;box-shadow:0 0 0 1px var(--cyan)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--cyan);cursor:pointer;border:3px solid #0d0a14}
+.sim-out{text-align:center}
+.sim-out .big{font-size:clamp(48px,7vw,76px);font-weight:800;color:var(--cyan);letter-spacing:-0.03em;line-height:1}
+.sim-out .big-lbl{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-500);font-weight:600;margin-top:12px}
+.sim-out .divider{height:1px;background:rgba(255,255,255,0.1);margin:28px 0}
+.sim-out .sub{display:flex;justify-content:space-around;gap:14px}
+.sim-out .sub div .v{font-size:26px;font-weight:800;color:var(--white)}
+.sim-out .sub div .l{font-size:11px;color:var(--gray-500);margin-top:6px;letter-spacing:0.04em}
+.sim-disc{font-size:12px;color:var(--gray-500);margin-top:26px;line-height:1.55;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px}
+
+/* before/after */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:20px;overflow:hidden}
+@media(max-width:760px){.ba{grid-template-columns:1fr}}
+.ba-col{padding:44px 38px}
+.ba-before{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08)}
+.ba-after{background:linear-gradient(160deg,var(--purple),var(--purple-soft));border:1px solid var(--purple)}
+.ba-col .tag{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+.ba-before .tag{color:var(--gray-500)}
+.ba-after .tag{color:var(--cyan)}
+.ba-col h3{font-size:30px;color:var(--white);margin-bottom:22px}
+.ba-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ba-col li{font-size:15px;display:flex;gap:11px;align-items:flex-start;line-height:1.45}
+.ba-before li{color:var(--gray-500)}
+.ba-after li{color:rgba(255,255,255,0.95)}
+.ba-col li .mk{flex-shrink:0;font-weight:800}
+.ba-before li .mk{color:var(--gray-700)}
+.ba-after li .mk{color:var(--cyan)}
+
+/* insight pull */
+.insight{border-left:3px solid var(--cyan);padding:6px 0 6px 28px;margin:8px 0;max-width:880px}
+.insight .q{font-size:clamp(20px,2.4vw,28px);line-height:1.35;color:var(--white);font-weight:500;letter-spacing:-0.01em}
+.insight .a{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray-500);margin-top:16px;font-weight:600}
+
+/* video */
+.video-wrap{position:relative;border-radius:16px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,0.1);box-shadow:0 24px 64px rgba(0,0,0,0.5)}
+.video-wrap .ratio{position:relative;width:100%;aspect-ratio:16/9}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* CLOSING */
+.closing{background:radial-gradient(ellipse at 50% 0%,rgba(94,234,212,0.16) 0%,transparent 55%),linear-gradient(180deg,#1A0F2E,#0F0820);text-align:center;padding:130px 0}
+.closing h2{font-size:clamp(34px,5.5vw,68px);max-width:1000px;margin:0 auto 30px;color:#fff;line-height:1.08}
+.closing .lead-in{color:var(--cyan);font-size:15px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;margin-bottom:28px}
+
+/* FOOTER / sources */
+.footer{background:#070509;padding:60px 0 50px;border-top:1px solid rgba(255,255,255,0.07)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:32px}}
+.foot-cta h3{font-size:26px;color:#fff;margin-bottom:16px;max-width:420px}
+.foot-contact{font-size:14px;color:var(--gray-300);line-height:1.9}
+.foot-contact strong{color:#fff}
+.sources{font-size:11.5px;color:var(--gray-500);line-height:1.7}
+.sources h4{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-500);margin-bottom:14px;font-weight:700}
+.sources a{color:var(--gray-500);border-bottom:1px solid rgba(255,255,255,0.12)}
+.sources a:hover{color:var(--cyan)}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--gray-700)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* CSS CONTENT PLACAS (Austral / Fleni) */
+.scr2{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:8.5% 8.5%;font-family:'Inter',sans-serif}
+.scr2 .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.scr2 .top img{height:clamp(16px,2.6vw,26px);width:auto;max-width:46%;object-fit:contain}
+.scr2 .kick{font-size:clamp(7.5px,1.05vw,10.5px);font-weight:800;letter-spacing:0.16em;text-transform:uppercase}
+.scr2 .mid{display:flex;flex-direction:column;justify-content:center;flex:1;padding:6% 0}
+.scr2 .ttl{font-size:clamp(16px,2.9vw,29px);font-weight:800;line-height:1.04;letter-spacing:-0.02em}
+.scr2 .ttl .hl{display:inline}
+.scr2 .bar{width:38px;height:4px;border-radius:3px;margin-top:0.55em}
+.scr2 .sub{font-size:clamp(8.5px,1.35vw,13px);font-weight:500;line-height:1.35}
+/* Austral theme */
+.scr-austral{background:#fff;color:#16258F}
+.scr-austral .kick{color:#2BB673}
+.scr-austral .ttl .hl{color:#16258F}
+.scr-austral .bar{background:#2BB673}
+.scr-austral .sub{color:#5a6480}
+/* Austral alert */
+.scr-alert{background:#16258F;color:#fff}
+.scr-alert .kick{color:#FFC24B}
+.scr-alert .ttl{color:#fff}
+.scr-alert .bar{background:#FFC24B}
+.scr-alert .sub{color:rgba(255,255,255,0.78)}
+.scr-alert .top img{filter:brightness(0) invert(1)}
+/* Fleni theme */
+.scr-fleni{background:#fff;color:#2B3E6B}
+.scr-fleni .kick{color:#3D6BBF}
+.scr-fleni .ttl .hl{color:#3D6BBF}
+.scr-fleni .bar{background:#3D6BBF}
+.scr-fleni .sub{color:#5d6a8a}
+
+/* VIDEO POSTER (click to play) */
+.video-poster{position:absolute;inset:0;width:100%;height:100%;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:radial-gradient(ellipse at 50% 35%,rgba(94,234,212,0.16) 0%,transparent 55%),linear-gradient(160deg,#1A0F2E 0%,#2A0F5C 70%,#0F0820 100%);overflow:hidden}
+.video-poster::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:38px 38px;opacity:0.5}
+.video-poster.has-cover{background-size:cover!important;background-position:center!important}
+.video-poster.has-cover::before{display:none}
+.vp-play{position:relative;width:74px;height:74px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(94,234,212,0.16),0 14px 40px rgba(0,0,0,0.5);transition:transform 0.2s}
+.video-poster:hover .vp-play{transform:scale(1.07)}
+.vp-play svg{width:30px;height:30px;fill:#0A0A0A;margin-left:4px}
+.vp-label{position:relative;font-size:13px;font-weight:600;letter-spacing:0.04em;color:#fff}
+.vp-kicker{position:relative;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan)}
+
+/* small helpers */
+.mt-s{margin-top:38px}
+.muted{color:var(--gray-500);font-size:13px}
+.note-chip{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.04em;color:var(--gray-500);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:6px 12px;border-radius:999px;margin-top:18px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo" aria-label="Popcorn"></a>
+    <div class="nav-links">
+      <a href="#que-es">El concepto</a>
+      <a href="#oportunidad">La oportunidad</a>
+      <a href="#popcorn">Qué hacemos</a>
+      <a href="#ejemplos">Ejemplos</a>
+      <a href="#proceso">Cómo trabajamos</a>
+    </div>
+    <a href="#footer" class="btn btn-cyan">Conversemos</a>
+  </div>
+</nav>
+
+<!-- ============ SLIDE 1 · HERO ============ -->
+<header class="hero" id="hero">
+  <div class="container-wide">
+    <div class="hero-grid">
+      <div>
+        <span class="pill">Nuevo canal de comunicación · Instituciones de salud</span>
+        <h1>La pantalla ya no <span class="strike">informa</span>.<br>Hoy <span class="text-cyan">genera valor</span>.</h1>
+        <p class="hero-bajada">Convertí las pantallas de tu institución en un medio de comunicación propio: una herramienta que mejora la experiencia del paciente, fortalece tu marca y ordena lo que comunicás cada día.</p>
+        <div class="hero-cta">
+          <a href="#oportunidad" class="btn btn-cyan">Ver la oportunidad</a>
+          <a href="#popcorn" class="btn btn-ghost">Qué hacemos</a>
+        </div>
+        <div class="hero-tags">
+          <span>Comunicación</span><span>Branding</span><span>Experiencia del paciente</span><span>Educación</span><span>Contenido</span>
+        </div>
+      </div>
+      <div class="hero-stage">
+        <div class="hero-screens">
+          <div class="tv tv-3"><div class="screen"><img src="assets/frames/tips_hero.jpg" alt="Contenido de salud en pantalla"></div></div>
+          <div class="tv lg"><div class="screen"><img src="assets/frames/hablemos_hero.jpg" alt="Campaña institucional en pantalla"></div>
+            <div class="tv-foot"><span>Sala de espera · Piso 2</span><span class="live"><span class="dot"></span>En vivo</span></div>
+          </div>
+          <div class="tv tv-2"><div class="screen"><img src="assets/frames/jugar_hero.jpg" alt="Entretenimiento en pantalla"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- META BAND -->
+  <div class="meta mt-s">
+    <div class="container-wide">
+      <div class="meta-grid">
+        <div class="meta-item"><div class="mv">+13%</div><div class="ml">Crecimiento anual del digital signage en salud — el doble del mercado general</div></div>
+        <div class="meta-item"><div class="mv">99%</div><div class="ml">De los pacientes espera antes de ser atendido. Atención cautiva, todos los días</div></div>
+        <div class="meta-item"><div class="mv">74–89%</div><div class="ml">Recuerda un mensaje visto en cartelería digital (estudio Nielsen)</div></div>
+        <div class="meta-item"><div class="mv">4 de 10</div><div class="ml">Pacientes llega acompañado: la audiencia de tu sala se duplica</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SLIDE 2 · QUÉ ES ============ -->
+<section class="section section-darker" id="que-es">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">01 — EL CONCEPTO</span>
+      <h2>La cartelería digital ya no es <span class="text-purple">una pantalla</span>.<br>Es un medio.</h2>
+      <p>Dejó de ser un cartel que muestra horarios. Hoy es un canal vivo que comunica, educa, entretiene y construye marca en cada minuto de espera.</p>
+    </div>
+    <div class="grid g-3 reveal">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3>Comunicación</h3>
+        <p>Información institucional, novedades y mensajes clave que llegan en el momento justo, sin depender de papel ni de personal.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Branding</h3>
+        <p>Cada pantalla refuerza tu identidad, tu propósito y tus valores. Una marca consistente, presente en todos los espacios.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Educación</h3>
+        <p>Prevención, hábitos saludables y educación al paciente. Contenido que aporta valor real mientras se espera.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></svg></div>
+        <h3>Entretenimiento</h3>
+        <p>Trivias, curiosidades y contenido dinámico que hace más amena la espera y mantiene la atención puesta en la pantalla.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Experiencia del paciente</h3>
+        <p>Una espera percibida más corta, más calma y más cuidada. La pantalla acompaña y baja la ansiedad del momento.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Información en tiempo real</h3>
+        <p>Turnos, llamados, demoras y avisos operativos actualizados al instante. Menos consultas, más orden en el flujo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 3 · CANAL PROPIO ============ -->
+<section class="section section-dark" id="canal-propio">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">02 — POR QUÉ AHORA</span>
+      <h2>Toda institución de salud ya tiene <span class="text-cyan">una audiencia esperando</span>.</h2>
+      <p>Pacientes, acompañantes, profesionales y colaboradores pasan minutos —a veces muchos— frente a tus espacios cada día. Todos consumen contenido mientras esperan. La pregunta no es si te van a mirar, sino qué les vas a mostrar.</p>
+    </div>
+    <div class="grid g-4 reveal">
+      <div class="aud">
+        <div class="ring"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Pacientes</h3>
+        <p>Llegan con tiempo, esperan y prestan atención. Es el público con mayor predisposición a recibir mensajes de salud.</p>
+      </div>
+      <div class="aud">
+        <div class="ring"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Acompañantes</h3>
+        <p>Cuatro de cada diez pacientes vienen acompañados. Duplican tu audiencia sin que cambie el flujo de atención.</p>
+      </div>
+      <div class="aud">
+        <div class="ring"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Profesionales</h3>
+        <p>Médicos y equipos de salud circulan por los mismos espacios. Un canal interno para alinear y reconocer.</p>
+      </div>
+      <div class="aud">
+        <div class="ring"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div>
+        <h3>Colaboradores</h3>
+        <p>Comunicación interna, cultura y pertenencia. La cartelera también construye equipo puertas adentro.</p>
+      </div>
+    </div>
+    <div class="insight reveal mt-s">
+      <div class="q">Ese tiempo de espera ya existe. Hoy es tiempo perdido. <span class="text-cyan">Con un canal propio, pasa a trabajar para vos.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 4 · LA OPORTUNIDAD ============ -->
+<section class="section section-purple-deep" id="oportunidad">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num" style="color:rgba(255,255,255,0.5)">03 — LA OPORTUNIDAD</span>
+      <h2>Atención cautiva: el activo<br>que ya tenés y no estás usando.</h2>
+      <p style="color:rgba(255,255,255,0.85)">En una sala de espera nadie hace zapping. No se puede saltear el mensaje. Es el entorno con mayor permanencia y atención del paciente — y se repite, día tras día, miles de veces por mes.</p>
+    </div>
+    <div class="stat-row reveal">
+      <div class="stat">
+        <div class="num">~13 min</div>
+        <div class="lbl">de espera promedio en sala antes de la consulta</div>
+        <div class="src">PatientPoint, 2024 (encuesta a +11.000 pacientes)</div>
+      </div>
+      <div class="stat">
+        <div class="num">+17%</div>
+        <div class="lbl">de recordación cuando el contenido es relevante para quien lo ve</div>
+        <div class="src">Refuel Agency · estudios DOOH de contenido contextual</div>
+      </div>
+      <div class="stat">
+        <div class="num">45%</div>
+        <div class="lbl">del gasto en vía pública será digital hacia 2028 (era 22% en 2016)</div>
+        <div class="src">StackAdapt · evolución del mercado OOH → DOOH</div>
+      </div>
+    </div>
+    <div class="note-chip reveal">⚡ El digital signage en salud es uno de los segmentos de mayor crecimiento del rubro: ~13% anual, el doble del mercado general.</div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 5 · QUÉ COMUNICA ============ -->
+<section class="section section-light" id="que-comunica">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">04 — EL CONTENIDO</span>
+      <h2>Un canal que puede comunicarlo todo.</h2>
+      <p>Desde la prevención hasta la innovación, desde un turno online hasta una historia que emociona. Un mismo medio, infinitos mensajes — siempre alineados a tu institución.</p>
+    </div>
+    <div class="topics reveal">
+      <span>Campañas institucionales</span><span>Prevención</span><span>Servicios</span><span>Novedades</span>
+      <span>Médicos destacados</span><span>Innovación</span><span>Eventos</span><span>Campañas comerciales</span>
+      <span>Turnos online</span><span>Chequeos preventivos</span><span>Vacunación</span><span>Tecnología</span>
+      <span>Bienestar</span><span>Efemérides de salud</span><span>Historias de pacientes</span><span>Historias de médicos</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 6 · QUÉ HACEMOS EN POPCORN ============ -->
+<section class="section section-darker" id="popcorn">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">05 — QUÉ HACEMOS EN POPCORN</span>
+      <h2>No entregamos placas sueltas.<br>Construimos <span class="text-cyan">un canal vivo</span>.</h2>
+      <p>Diseñamos estructuras de contenido propias, animadas y reconocibles, que se renuevan mes a mes. Cada formato es una sección de tu medio — como los segmentos de un programa de TV.</p>
+    </div>
+    <div class="fmt-grid reveal">
+      <div class="fmt"><span class="em">💡</span><div>¿Sabías que…?<small>Curiosidades de salud</small></div></div>
+      <div class="fmt"><span class="em">❓</span><div>Trivia<small>Participación e interacción</small></div></div>
+      <div class="fmt"><span class="em">🩺</span><div>Hablemos de…<small>Educación al paciente</small></div></div>
+      <div class="fmt"><span class="em">✅</span><div>Tips de salud<small>Hábitos y prevención</small></div></div>
+      <div class="fmt"><span class="em">🥗</span><div>Recetas saludables<small>Bienestar cotidiano</small></div></div>
+      <div class="fmt"><span class="em">🌱</span><div>EcoSabios<small>Sustentabilidad</small></div></div>
+      <div class="fmt"><span class="em">📰</span><div>Novedades<small>Vida institucional</small></div></div>
+      <div class="fmt"><span class="em">🤝</span><div>[Marca] y Vos<small>Cercanía con el paciente</small></div></div>
+      <div class="fmt"><span class="em">🔬</span><div>Innovación<small>Avances y equipamiento</small></div></div>
+      <div class="fmt"><span class="em">📱</span><div>Tecnología<small>Nuevos servicios digitales</small></div></div>
+      <div class="fmt"><span class="em">🕐</span><div>Servicios y horarios<small>Información útil</small></div></div>
+      <div class="fmt"><span class="em">📅</span><div>Efemérides<small>Fechas de salud</small></div></div>
+      <div class="fmt"><span class="em">❤️</span><div>Historias de pacientes<small>Testimonios reales</small></div></div>
+      <div class="fmt"><span class="em">👩‍⚕️</span><div>Historias de médicos<small>El equipo humano</small></div></div>
+      <div class="fmt"><span class="em">🎬</span><div>Coberturas<small>Eventos y campañas</small></div></div>
+      <div class="fmt"><span class="em">＋</span><div>Formatos a medida<small>Según tu institución</small></div></div>
+    </div>
+    <div class="insight reveal mt-s">
+      <div class="q">Producimos contenido de forma <span class="text-cyan">continua y consistente</span>. La cartelera nunca se queda quieta — y por eso nunca pierde la atención.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 7 · MARCAS ============ -->
+<section class="section section-light" id="marcas">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="kicker-num">06 — EXPERIENCIA</span>
+      <h2>Algunas marcas de salud que ya confían en Popcorn.</h2>
+      <p>Producimos comunicación y contenido para instituciones líderes del sistema de salud argentino. Conocemos el lenguaje del paciente, del médico y de la institución.</p>
+    </div>
+    <div class="logo-wall reveal">
+      <div class="logo-cell"><img src="assets/logos/austral.png" alt="Hospital Universitario Austral"></div>
+      <div class="logo-cell"><img src="assets/logos/swiss.webp" alt="Swiss Medical"></div>
+      <div class="logo-cell"><img src="assets/logos/rapela.jpg" alt="Rapela"></div>
+      <div class="logo-cell"><img src="assets/logos/fitzroy.jpg" alt="Centro Médico Fitz Roy"></div>
+      <div class="logo-cell"><img src="assets/logos/cetac.jpg" alt="CETAC Juncal"></div>
+      <div class="logo-cell"><img src="assets/logos/fleni.webp" alt="Fleni"></div>
+      <div class="logo-cell"><img src="assets/logos/tesla.png" alt="Diagnóstico Tesla"></div>
+      <div class="logo-cell"><span class="wordmark" style="font-size:18px;letter-spacing:0.04em">+ tu institución</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 8 · EJEMPLOS VISUALES ============ -->
+<section class="section section-dark" id="ejemplos">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">07 — EJEMPLOS VISUALES</span>
+      <h2>Así se ve un canal Popcorn en pantalla.</h2>
+      <p>Diseño limpio, jerárquico y de alto impacto, pensado para leerse de un vistazo y verse impecable en cualquier pantalla. Frames reales de contenidos producidos por Popcorn para instituciones de salud.</p>
+    </div>
+    <div class="gallery reveal">
+      <div class="tv"><div class="screen"><img src="assets/frames/austral_tips.jpg" alt="Tips de cuidado de la piel"></div><div class="tv-foot"><span>Tips de cuidado</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/austral_fechas.jpg" alt="Fechas de salud"></div><div class="tv-foot"><span>Fechas de salud</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/austral_alerta.jpg" alt="Señales de alerta"></div><div class="tv-foot"><span>Señales de alerta</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/medicina_hero.jpg" alt="Contenido de bienestar"></div><div class="tv-foot"><span>Bienestar</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/jugar_hero.jpg" alt="Entretenimiento"></div><div class="tv-foot"><span>Momento de jugar</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/club_hero.jpg" alt="Club de beneficios"></div><div class="tv-foot"><span>Beneficios</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/fleni_innovacion.jpg" alt="Innovación tecnológica"></div><div class="tv-foot"><span>Innovación tecnológica</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+      <div class="tv"><div class="screen"><img src="assets/frames/fleni_sinturno.jpg" alt="Atención sin turno"></div><div class="tv-foot"><span>Atención sin turno</span><span class="live"><span class="dot"></span>Loop</span></div></div>
+    </div>
+    <!-- REEL RESUMEN POPCORN -->
+    <div class="section-header reveal" style="margin-top:66px;margin-bottom:22px">
+      <h3 style="font-size:15px;color:var(--gray-500);letter-spacing:0.06em;text-transform:uppercase">Todo lo que hacemos, en un minuto</h3>
+    </div>
+    <div class="video-wrap reveal" style="max-width:960px;margin:0 auto">
+      <div class="ratio" data-src="https://www.youtube.com/embed/4FCcKbrIRK4?autoplay=1&rel=0&playsinline=1">
+        <button class="video-poster has-cover" aria-label="Reproducir reel de Popcorn en cartelería digital" style="background-image:linear-gradient(rgba(10,8,20,0.32),rgba(10,8,20,0.52)),url('assets/frames/reel_cover.jpg')">
+          <span class="vp-kicker">Reel Popcorn</span>
+          <span class="vp-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vp-label">Nuestro trabajo en cartelería digital, en movimiento</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 08 · NUESTRO ROL ============ -->
+<section class="section section-dark" id="nuestro-rol">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">08 — NUESTRO ROL</span>
+      <h2>No entregamos placas sueltas.<br><span class="text-cyan">Construimos tu medio.</span></h2>
+      <p>La diferencia de Popcorn: pensamos la cartelería como un canal de comunicación completo. Desde la estrategia y la identidad hasta la producción mensual y la optimización — de punta a punta.</p>
+    </div>
+    <div class="reveal" style="max-width:880px">
+      <div class="ba-col ba-after" style="border-radius:20px">
+        <div class="tag">Popcorn — de punta a punta</div>
+        <h3>Construimos tu medio</h3>
+        <ul style="display:grid;grid-template-columns:1fr 1fr;gap:16px 28px">
+          <li><span class="mk">✓</span> Estrategia de canal y ejes de contenido</li>
+          <li><span class="mk">✓</span> Identidad visual y producción profesional</li>
+          <li><span class="mk">✓</span> Sistema de formatos escalable y reconocible</li>
+          <li><span class="mk">✓</span> Definición de la grilla y el equilibrio editorial</li>
+          <li><span class="mk">✓</span> Producción de contenido nuevo mes a mes</li>
+          <li><span class="mk">✓</span> Optimización continua según resultados</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 13 · ACOMPAÑAMIENTO (PROCESO) ============ -->
+<section class="section section-darker" id="proceso">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">09 — NUESTRO ACOMPAÑAMIENTO</span>
+      <h2>De la pantalla apagada al canal que comunica.</h2>
+      <p>Un proceso claro, por etapas, que entiende primero tu institución y recién después define las acciones. Te acompañamos de punta a punta.</p>
+    </div>
+    <div class="proc reveal">
+      <div class="step"><div class="n">1</div><h3>Análisis del flujo</h3><p>Mapeamos pacientes, espacios, tiempos de espera y puntos de mayor atención.</p></div>
+      <div class="step"><div class="n">2</div><h3>Objetivos</h3><p>Definimos qué tiene que lograr el canal: experiencia, comunicación y marca.</p></div>
+      <div class="step"><div class="n">3</div><h3>Diseño del canal</h3><p>Creamos la identidad visual, los ejes de contenido y el sistema escalable.</p></div>
+      <div class="step"><div class="n">4</div><h3>Programación</h3><p>Armamos la grilla: qué se muestra, cuándo y con qué frecuencia.</p></div>
+      <div class="step"><div class="n">5</div><h3>Producción mensual</h3><p>Generamos contenido nuevo de forma continua para mantenerlo vivo.</p></div>
+      <div class="step"><div class="n">6</div><h3>Implementación</h3><p>Ponemos el canal en marcha en tus pantallas, sin fricción operativa.</p></div>
+      <div class="step"><div class="n">7</div><h3>Optimización</h3><p>Medimos, ajustamos y mejoramos en base a resultados reales.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 14 · ARMADO DE LA GRILLA ============ -->
+<section class="section section-dark" id="grilla">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">10 — ARMADO DE LA GRILLA</span>
+      <h2>El ritmo justo de una semana de contenido.</h2>
+      <p>Definimos juntos frecuencia, duración y categorías: el balance entre contenido de valor y comunicación institucional. Una grilla que cuida la experiencia del paciente y mantiene la pantalla siempre viva. Ejemplo de una semana tipo:</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="sched">
+        <thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th></tr></thead>
+        <tbody>
+          <tr>
+            <th style="text-align:right">Mañana</th>
+            <td class="sl-institucional">Novedades</td>
+            <td class="sl-contenido">Tips de salud</td>
+            <td class="sl-institucional">Prevención</td>
+            <td class="sl-contenido">¿Sabías que…?</td>
+            <td class="sl-institucional">Servicios</td>
+            <td class="sl-contenido">Bienestar</td>
+          </tr>
+          <tr>
+            <th style="text-align:right">Mediodía</th>
+            <td class="sl-contenido">Recetas</td>
+            <td class="sl-contenido">¿Sabías que…?</td>
+            <td class="sl-institucional">Médicos</td>
+            <td class="sl-contenido">Trivia</td>
+            <td class="sl-institucional">Efemérides</td>
+            <td class="sl-contenido">Historias</td>
+          </tr>
+          <tr>
+            <th style="text-align:right">Tarde</th>
+            <td class="sl-contenido">Trivia</td>
+            <td class="sl-institucional">Médicos</td>
+            <td class="sl-contenido">Recetas</td>
+            <td class="sl-institucional">Prevención</td>
+            <td class="sl-contenido">Historias</td>
+            <td class="sl-institucional">Innovación</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sched-legend reveal">
+      <span><i style="background:#5EEAD4"></i> Contenido de valor</span>
+      <span><i style="background:#6B21D6"></i> Comunicación institucional</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE · RETORNO OPCIONAL (PUBLICIDAD) ============ -->
+<section class="section section-darker" id="retorno">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="kicker-num">11 — UN RETORNO EXTRA · OPCIONAL</span>
+      <h2>Y si querés, ese espacio también <span class="text-cyan">puede rendir</span>.</h2>
+      <p>Primero es tu canal de marca, comunicación y experiencia — eso no se negocia. Pero, si lo decidís, la misma pantalla puede alojar avisos de marcas afines a tu paciente y transformarse en una fuente de retorno que ayuda a financiar el propio canal. Siempre en minoría, siempre cuidando la experiencia.</p>
+    </div>
+    <div class="grid g-2 reveal" style="align-items:center;gap:40px">
+      <div>
+        <h3 style="font-size:20px;color:#fff;margin-bottom:16px">Cómo convive con el contenido</h3>
+        <p style="margin-bottom:22px">El aviso ocupa un espacio acotado dentro del loop, siempre por debajo del contenido de valor. La marca invitada suma sin interrumpir la espera del paciente ni opacar tu institución.</p>
+        <div class="loopbar">
+          <div class="sl-contenido" style="flex:2;background:rgba(94,234,212,0.18)">Tips de salud</div>
+          <div class="sl-institucional" style="flex:2;background:rgba(107,33,214,0.3)">Novedades</div>
+          <div class="sl-sponsor" style="flex:1;background:rgba(251,191,36,0.2)">Aviso</div>
+          <div class="sl-contenido" style="flex:2;background:rgba(94,234,212,0.18)">Trivia</div>
+        </div>
+        <p class="muted" style="margin-top:14px">Ejemplo de loop · el equilibrio lo definís vos. La publicidad nunca es protagonista.</p>
+      </div>
+      <div>
+        <h3 style="font-size:15px;color:var(--gray-500);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px">Categorías afines a tu paciente</h3>
+        <div class="topics">
+          <span>Laboratorios</span><span>Medicina prepaga</span><span>Farmacia</span><span>Diagnóstico</span>
+          <span>Bienestar &amp; wellness</span><span>Nutrición</span><span>Tecnología médica</span><span>Productos OTC</span>
+        </div>
+        <div class="note-chip">Un ingreso que ayuda a financiar el canal — sin resignar la experiencia ni tu marca.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 12 · EL CAMBIO DE MIRADA ============ -->
+<section class="section section-purple-deep" id="activo">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="kicker-num" style="color:rgba(255,255,255,0.5)">12 — EL CAMBIO DE MIRADA</span>
+      <h2>La pantalla deja de ser un cartel.<br>Pasa a ser <span class="text-cyan">un canal</span>.</h2>
+    </div>
+    <div class="grid g-3 reveal">
+      <div class="card" style="background:rgba(255,255,255,0.05)">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+        <h3 style="color:#fff">Comunica</h3>
+        <p>Tus mensajes llegan en el momento de mayor atención del paciente.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.05)">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/></svg></div>
+        <h3 style="color:#fff">Posiciona</h3>
+        <p>Refuerza tu marca como institución moderna e innovadora.</p>
+      </div>
+      <div class="card" style="background:rgba(94,234,212,0.1);border-color:rgba(94,234,212,0.35)">
+        <div class="ic" style="background:rgba(94,234,212,0.2)"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l8.84 8.84 8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3 style="color:var(--cyan)">Mejora la experiencia</h3>
+        <p style="color:rgba(255,255,255,0.85)">Acorta la espera percibida y cuida a cada paciente que llega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE FINAL · CIERRE ============ -->
+<section class="closing" id="cierre">
+  <div class="container">
+    <div class="reveal">
+      <div class="lead-in">El cambio de paradigma</div>
+      <h2>No vendemos pantallas.<br>Creamos un medio que <span class="text-cyan">informa, conecta y acompaña</span> a cada paciente.</h2>
+      <a href="#footer" class="btn btn-cyan" style="padding:16px 34px;font-size:16px">Diseñemos tu canal</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-cta">
+        <h3>¿Cómo todavía no estamos haciendo esto?</h3>
+        <p style="margin-bottom:30px;max-width:440px">Convirtamos las pantallas de tu institución en un canal propio que comunica, fortalece tu marca y mejora la experiencia del paciente.</p>
+        <a href="mailto:demianlinet@somospopcorn.com?subject=Quiero%20avanzar%20con%20la%20cartelería%20digital&amp;body=Hola%20Demian%2C%20vi%20la%20presentación%20de%20cartelería%20digital%20y%20quiero%20avanzar%20con%20esto." class="btn btn-cyan" style="padding:16px 32px;font-size:16px">Quiero avanzar con esto →</a>
+      </div>
+      <div class="sources">
+        <h4>Fuentes</h4>
+        <p>
+          Mercado digital signage en salud (CAGR ~13%): <a href="https://www.kbvresearch.com/healthcare-digital-signage-market/" target="_blank" rel="noopener">KBV Research</a>, <a href="https://www.polarismarketresearch.com/press-releases/healthcare-digital-signage-market" target="_blank" rel="noopener">Polaris</a>.<br>
+          Tiempo de espera y % de pacientes que esperan: <a href="https://patientpoint.com/blog/average-patient-wait-time-today/" target="_blank" rel="noopener">PatientPoint, 2024</a>.<br>
+          Recordación en cartelería digital (Nielsen): <a href="https://www.digitalsignagetoday.com/news/nielsen-study-highlights-efficacy-of-digital-billboards/" target="_blank" rel="noopener">Digital Signage Today</a>.<br>
+          Recall con contenido contextual / audiencia cautiva DOOH: <a href="https://www.refuelagency.com/blog/digital-out-of-home/" target="_blank" rel="noopener">Refuel Agency</a>.<br>
+          DOOH = 45% del OOH a 2028 (era 22% en 2016): <a href="https://www.stackadapt.com/resources/blog/ooh-advertising-statistics" target="_blank" rel="noopener">StackAdapt</a>.
+        </p>
+        <p style="margin-top:14px;color:var(--gray-700)">Datos internacionales de referencia (mayormente EE.UU.), a validar con el contexto local de cada institución.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Popcorn · Cartelería Digital como nuevo medio de comunicación · 2026</span>
+      <span>Documento confidencial — uso comercial interno y para presentación a clientes</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Video: click poster to load embedded player
+document.querySelectorAll('.video-poster').forEach(poster=>{
+  poster.addEventListener('click',()=>{
+    const wrap=poster.closest('.ratio');
+    if(!wrap||!wrap.dataset.src)return;
+    const f=document.createElement('iframe');
+    f.src=wrap.dataset.src;f.allow='autoplay; encrypted-media; fullscreen';f.allowFullscreen=true;
+    wrap.innerHTML='';wrap.appendChild(f);
+  });
+});
+</script>
+</body>
+</html>
