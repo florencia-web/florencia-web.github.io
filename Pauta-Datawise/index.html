@@ -422,35 +422,6 @@ table.tbl{width:100%;border-collapse:collapse;min-width:680px}
 .cta-go svg{width:20px;height:20px}
 .legal{margin-top:54px;padding-top:26px;border-top:1px solid var(--line-soft);font-size:.86rem;color:var(--w-65);line-height:1.75;max-width:78ch}
 
-/* ============ GATE DE ACCESO ============ */
-html.locked,html.locked body{overflow:hidden}
-.gate{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;
-  background:linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 46%,var(--violeta-800) 100%)}
-.gate::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
-.gate.hidden{display:none}
-.gate-card{position:relative;z-index:1;width:100%;max-width:420px;background:rgba(13,4,40,.55);
-  backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:24px;padding:44px 36px;
-  text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.4)}
-.gate-card img{height:34px;width:auto;margin:0 auto 22px;display:block}
-.gate-eyebrow{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--aqua);margin-bottom:12px}
-.gate-title{font-family:'Public Sans';font-weight:700;font-size:1.65rem;margin-bottom:10px;line-height:1.15}
-.gate-sub{color:var(--w-80);font-size:.98rem;margin-bottom:28px;line-height:1.55}
-.gate-label{display:block;text-align:left;font-family:'Public Sans';font-weight:600;font-size:11px;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--w-65);margin:0 0 7px}
-.gate-input{width:100%;padding:15px 16px;margin-bottom:20px;border-radius:12px;border:1px solid var(--line);
-  background:rgba(255,255,255,.05);color:#fff;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;
-  letter-spacing:.18em;text-align:center;outline:none;transition:border-color .3s}
-.gate-input:focus{border-color:var(--aqua-line)}
-.gate-btn{width:100%;padding:15px;border:none;border-radius:100px;cursor:pointer;font-family:'Public Sans';
-  font-weight:700;font-size:1rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));
-  box-shadow:0 12px 30px rgba(116,250,227,.3);transition:transform .2s}
-.gate-btn:hover{transform:translateY(-2px)}
-.gate-err{color:#FFB4C4;font-size:.92rem;margin-top:16px;min-height:20px;opacity:0;transition:opacity .2s}
-.gate-err.show{opacity:1}
-.gate-foot{margin-top:26px;padding-top:20px;border-top:1px solid var(--line-soft);font-size:.84rem;color:var(--w-65);line-height:1.5}
-
 /* ============ RESPONSIVE ============ */
 @media(max-width:980px){
   .split{grid-template-columns:1fr;gap:28px}
@@ -500,46 +471,6 @@ html.locked,html.locked body{overflow:hidden}
 </style>
 </head>
 <body>
-
-<!-- ══════════════ GATE DE ACCESO ══════════════ -->
-<div id="gate" class="gate">
-  <div class="gate-card">
-    <img src="img/logo-popcorn-trim.png" alt="Popcorn">
-    <div class="gate-eyebrow">Documento confidencial</div>
-    <h2 class="gate-title">Propuesta para Datawise</h2>
-    <p class="gate-sub">Ingresá el código de acceso que te compartimos por mail.</p>
-    <form id="gate-form" autocomplete="off">
-      <label class="gate-label" for="gate-pass">Código de acceso</label>
-      <input id="gate-pass" class="gate-input" type="password" inputmode="numeric" autocomplete="off" aria-describedby="gate-err">
-      <button class="gate-btn" type="submit">Ver la propuesta</button>
-      <div id="gate-err" class="gate-err" role="alert">El código no es correcto.</div>
-    </form>
-    <p class="gate-foot">¿No lo tenés a mano? Escribinos a <b>demianlinet@somospopcorn.com</b></p>
-  </div>
-</div>
-<script>
-(function(){
-  var PASS='2766', KEY='datawise_pauta_ok';
-  var gate=document.getElementById('gate');
-  document.documentElement.classList.add('locked');
-  function unlock(){gate.classList.add('hidden');document.documentElement.classList.remove('locked');}
-  try{ if(sessionStorage.getItem(KEY)==='1'){unlock();} }catch(e){}
-  document.getElementById('gate-form').addEventListener('submit',function(e){
-    e.preventDefault();
-    if(document.getElementById('gate-pass').value.trim()===PASS){
-      try{sessionStorage.setItem(KEY,'1');}catch(e){}
-      unlock();
-    }else{
-      document.getElementById('gate-err').classList.add('show');
-      document.getElementById('gate-pass').value='';
-      document.getElementById('gate-pass').focus();
-    }
-  });
-  document.getElementById('gate-pass').addEventListener('input',function(){
-    document.getElementById('gate-err').classList.remove('show');
-  });
-})();
-</script>
 
 <div class="progress" id="prog"></div>
 <div class="dots" id="dots"></div>
