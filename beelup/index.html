@@ -90,7 +90,6 @@ img{max-width:100%;display:block}
 
 /* ============ SECCIONES ============ */
 section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:118px 38px 92px}
-section.auto{min-height:0}
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
 .s-paper{background:var(--papel)}
 .s-white{background:var(--white)}
@@ -131,7 +130,6 @@ b,strong{font-weight:700}
 .r.in{opacity:1;transform:none}
 .r.d1{transition-delay:.08s}.r.d2{transition-delay:.16s}.r.d3{transition-delay:.24s}
 .r.d4{transition-delay:.32s}.r.d5{transition-delay:.40s}.r.d6{transition-delay:.48s}
-.r.d7{transition-delay:.56s}.r.d8{transition-delay:.64s}
 
 /* ============ HERO ============ */
 #hero{justify-content:flex-end;padding-bottom:110px}
@@ -143,14 +141,17 @@ b,strong{font-weight:700}
   line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.14);pointer-events:none;
 }
 .hero-title{font-weight:800;font-size:clamp(2.5rem,6.6vw,5.4rem);line-height:.99;letter-spacing:-.032em;max-width:19ch}
-.hero-sub{margin-top:26px;font-size:clamp(1.02rem,1.6vw,1.3rem);color:var(--w-80);max-width:640px;line-height:1.62}
+.hero-sub{margin-top:24px;font-size:clamp(1rem,1.5vw,1.2rem);color:var(--w-65);max-width:620px;line-height:1.6}
 .pill-top{
   display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:600;font-size:11px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--aqua);border:1px solid rgba(116,250,227,.4);
   padding:8px 16px;border-radius:100px;margin-bottom:28px;
 }
-.hero-tags{margin-top:34px;display:flex;flex-wrap:wrap;gap:9px}
-.tag{font-family:'Public Sans';font-weight:500;font-size:12.5px;color:var(--w-80);border:1px solid var(--line-w);padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.05)}
+.hero-claim{
+  margin-top:30px;border-left:3px solid var(--aqua);padding:4px 0 4px 22px;max-width:650px;
+  font-family:'Public Sans';font-weight:600;font-size:clamp(1.02rem,1.55vw,1.24rem);line-height:1.45;color:var(--white);
+}
+.hero-claim span{color:var(--aqua)}
 
 /* ============ META BAND ============ */
 .meta{background:var(--negro);color:var(--white);padding:26px 38px}
@@ -170,15 +171,12 @@ b,strong{font-weight:700}
 }
 .s-white .card{background:var(--papel)}
 .card:hover{transform:translateY(-6px);border-color:rgba(116,250,227,.75);box-shadow:0 1px 2px rgba(18,18,18,.05),0 18px 42px rgba(18,18,18,.09)}
-.card .ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.24);border:1px solid rgba(11,182,162,.32);color:var(--violeta);margin-bottom:18px}
-.card .ico svg{width:22px;height:22px}
 .card h3{font-size:1.12rem;font-weight:700;margin-bottom:8px;line-height:1.25}
 .card p{color:var(--t-62);font-size:.93rem;line-height:1.6}
 .card .num-tag{font-family:'Public Sans';font-weight:800;font-size:12px;color:var(--violeta);letter-spacing:.1em;margin-bottom:12px;display:block}
 .s-violet .card,.s-dark .card{background:rgba(255,255,255,.055);border-color:var(--line-w);box-shadow:none}
 .s-violet .card p,.s-dark .card p{color:var(--w-65)}
 .s-violet .card:hover,.s-dark .card:hover{background:rgba(255,255,255,.09);border-color:rgba(116,250,227,.45)}
-.s-violet .card .ico,.s-dark .card .ico{background:rgba(116,250,227,.14);border-color:rgba(116,250,227,.35);color:var(--aqua)}
 .s-violet .card .num-tag,.s-dark .card .num-tag{color:var(--aqua)}
 
 /* ============ STATS ============ */
@@ -195,17 +193,16 @@ b,strong{font-weight:700}
 .s-violet .quote,.s-dark .quote{color:var(--white)}
 .s-violet .quote small,.s-dark .quote small{color:var(--w-45)}
 
-/* ============ SPLIT ============ */
+/* ============ SPLIT / IMAGENES ============ */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
-.split.rev{grid-template-columns:.95fr 1.05fr}
 .shot{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 50px rgba(18,18,18,.12)}
 .shot img{width:100%;height:100%;object-fit:cover}
 .shots3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .shots3 figure{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--white);box-shadow:0 10px 30px rgba(18,18,18,.10)}
-.shots3 img{width:100%;aspect-ratio:9/16;max-height:44vh;object-fit:cover}
+.shots3 img{width:100%;aspect-ratio:9/16;max-height:38vh;object-fit:cover}
 .shots3 figcaption{font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t-45);padding:11px 12px;text-align:center}
 
-/* ============ PANELES SI/NO ============ */
+/* ============ PANELES ============ */
 .panels{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .panel{border-radius:18px;padding:28px;border:1px solid var(--line-soft);background:var(--white)}
 .panel.good{border-color:rgba(11,182,162,.45);background:rgba(116,250,227,.12)}
@@ -217,33 +214,53 @@ b,strong{font-weight:700}
 .panel li{display:flex;gap:11px;align-items:flex-start;font-size:.93rem;line-height:1.55;color:var(--t-80)}
 .panel li::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;margin-top:9px;background:var(--aqua-deep)}
 .panel.warn li::before{background:rgba(18,18,18,.28)}
+.panel.dk{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.16)}
+.panel.dk h4{color:var(--aqua)}
+.panel.dk li{color:var(--w-80)}
+.panel.dk li::before{background:var(--aqua)}
+.panel.dk b{color:#fff}
 
 /* ============ TIMELINE ============ */
-.tl{display:flex;flex-direction:column;gap:0;margin-top:8px}
-.tl .it{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:24px 0;border-top:1px solid var(--line)}
+.tl{display:flex;flex-direction:column;margin-top:8px}
+.tl .it{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:21px 0;border-top:1px solid var(--line)}
 .tl .it:last-child{border-bottom:1px solid var(--line)}
 .tl .per{font-family:'Public Sans';font-weight:800;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:var(--violeta);padding-top:3px}
-.tl h4{font-size:1.06rem;font-weight:700;margin-bottom:7px}
-.tl p{color:var(--t-62);font-size:.92rem;line-height:1.6}
-
-/* ============ PIPE ============ */
-.pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:8px}
-.pipe .node{flex:1;min-width:150px;background:var(--white);border:1px solid var(--line-soft);border-radius:15px;padding:20px 17px;box-shadow:0 8px 22px rgba(18,18,18,.05);transition:all .4s var(--ease)}
-.pipe .node:hover{border-color:rgba(116,250,227,.8);transform:translateY(-5px)}
-.pipe .node .k{font-family:'Public Sans';font-weight:800;font-size:11px;color:var(--violeta);letter-spacing:.1em;display:block;margin-bottom:8px}
-.pipe .node .t{font-family:'Public Sans';font-weight:700;font-size:.99rem;line-height:1.25}
-.pipe .node p{font-size:.81rem;color:var(--t-45);margin-top:6px;line-height:1.45}
+.tl h4{font-size:1.04rem;font-weight:700;margin-bottom:6px}
+.tl p{color:var(--t-62);font-size:.91rem;line-height:1.58}
 
 /* ============ TABLA ============ */
 .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--white)}
-table.tbl{width:100%;border-collapse:collapse;min-width:640px}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px}
 .tbl th{font-family:'Public Sans';font-weight:800;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--violeta);text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);white-space:nowrap}
-.tbl th.num{text-align:right}
-.tbl td{padding:15px 18px;font-size:.91rem;color:var(--t-80);border-bottom:1px solid var(--line-soft);vertical-align:top}
-.tbl td.num{text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
-.tbl td .m{font-family:'Public Sans';font-weight:700;color:var(--tinta)}
+.tbl td{padding:18px;font-size:.91rem;color:var(--t-80);border-bottom:1px solid var(--line-soft);vertical-align:top;line-height:1.6}
+.tbl td .m{font-family:'Public Sans';font-weight:800;color:var(--tinta);display:block;margin-bottom:5px;font-size:1.04rem;line-height:1.2}
+.tbl td .hs{font-size:.78rem;color:var(--t-45);font-family:'Public Sans';font-weight:600;letter-spacing:.06em}
+.tbl td.mueve{font-family:'Public Sans';font-weight:700;color:var(--violeta);font-size:.89rem;line-height:1.4}
 .tbl tr:last-child td{border-bottom:none}
-.tbl tr.total td{border-top:2px solid var(--aqua);background:rgba(116,250,227,.16);font-family:'Public Sans';font-weight:800;color:var(--tinta)}
+
+/* ============ CADENA ============ */
+.chain{display:flex;flex-wrap:wrap;gap:10px}
+.chain .lk{flex:1;min-width:132px;border-radius:14px;padding:18px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.chain .lk .k{font-family:'Public Sans';font-weight:800;font-size:10px;letter-spacing:.12em;display:block;margin-bottom:7px;text-transform:uppercase;color:var(--w-45)}
+.chain .lk .k.ok{color:var(--aqua)}
+.chain .lk .t{font-family:'Public Sans';font-weight:700;font-size:.94rem;line-height:1.25;color:#fff;display:block}
+.chain .lk p{font-size:.79rem;color:var(--w-65);margin-top:6px;line-height:1.45}
+.chain .lk.cut{background:var(--aqua);border-color:var(--aqua)}
+.chain .lk.cut .k{color:var(--violeta)}
+.chain .lk.cut .t{color:var(--tinta)}
+.chain .lk.cut p{color:rgba(18,18,18,.72)}
+
+/* ============ RECOMENDACION ============ */
+.reco{
+  background:linear-gradient(150deg,var(--violeta-grad-1),var(--violeta) 60%,var(--violeta-900));
+  color:var(--white);border-radius:24px;padding:40px 44px;box-shadow:0 22px 60px rgba(42,4,84,.26);
+}
+.reco .k{font-family:'Public Sans';font-weight:800;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);margin-bottom:16px}
+.reco .big{font-family:'Public Sans';font-weight:800;font-size:clamp(2rem,4.2vw,3rem);line-height:1.04;letter-spacing:-.02em}
+.reco .big small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.95rem;color:var(--w-65);margin-top:10px;letter-spacing:0;line-height:1.5}
+.reco .rows{margin-top:24px;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;display:flex;flex-direction:column;gap:9px}
+.reco .rr{display:flex;justify-content:space-between;gap:16px;font-size:.93rem;color:var(--w-80)}
+.reco .rr b{color:var(--white);font-family:'Public Sans';white-space:nowrap}
 
 /* ============ INVERSION ============ */
 .invest{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:start}
@@ -281,22 +298,23 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
 .paybox p{font-size:.9rem;color:var(--t-80);line-height:1.62;margin-bottom:10px}
 .paybox p:last-child{margin-bottom:0}
 .notelist{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:6px}
-.notelist li{display:flex;gap:12px;align-items:flex-start;font-size:.89rem;color:var(--t-62);line-height:1.55}
+.notelist li{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;color:var(--t-62);line-height:1.55}
 .notelist li .bi{flex:none;width:22px;height:22px;border-radius:7px;background:rgba(116,250,227,.28);color:var(--violeta);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:800;font-size:11px;margin-top:1px}
+.s-violet .notelist li .bi,.s-dark .notelist li .bi{background:var(--aqua);color:var(--violeta-900)}
 
 /* ============ LOGOWALL ============ */
 .logowall{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
-.logowall span{font-family:'Public Sans';font-weight:700;font-size:.92rem;letter-spacing:.01em;color:var(--t-62);border:1px solid var(--line);background:var(--white);padding:11px 20px;border-radius:100px}
+.logowall span{font-family:'Public Sans';font-weight:700;font-size:.92rem;color:var(--w-80);border:1px solid var(--line-w);background:rgba(255,255,255,.07);padding:11px 20px;border-radius:100px}
 
 /* ============ CIERRE ============ */
-.badge-close{width:96px;height:96px;border-radius:26px;background:var(--white);display:flex;align-items:center;justify-content:center;margin-bottom:32px;box-shadow:0 16px 44px rgba(0,0,0,.24)}
+.badge-close{width:96px;height:96px;border-radius:26px;background:var(--white);display:flex;align-items:center;justify-content:center;margin-bottom:28px;box-shadow:0 16px 44px rgba(0,0,0,.24)}
 .badge-close img{width:62px;height:auto}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:940px){
   .g4{grid-template-columns:repeat(2,1fr)}
   .g3{grid-template-columns:1fr}
-  .split,.split.rev,.invest{grid-template-columns:1fr;gap:34px}
+  .split,.invest{grid-template-columns:1fr;gap:34px}
   .meta .wrap{grid-template-columns:repeat(2,1fr)}
   .dots{display:none}
 }
@@ -310,11 +328,12 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
   .meta .wrap{grid-template-columns:1fr;gap:16px}
   .tl .it{grid-template-columns:1fr;gap:8px}
   .shots3{grid-template-columns:1fr}
-  .shots3 img{aspect-ratio:16/11}
-  .inv-box{padding:22px}
+  .shots3 img{aspect-ratio:16/11;max-height:none}
+  .inv-box,.reco{padding:24px}
   .hero-ghost{display:none}
   .stats{gap:18px 30px}
   .price-row .pv{font-size:1.05rem}
+  .reco .rr{flex-direction:column;gap:2px}
 }
 </style>
 </head>
@@ -332,22 +351,19 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
 
 <nav class="dots" id="dots"></nav>
 
-<!-- ============ 01 · HERO ============ -->
+<!-- ============ 01 · PORTADA ============ -->
 <section id="hero" class="s-violet" data-label="Portada">
   <div class="hero-bg"><img src="img/cancha.jpg" alt="Cancha iluminada de noche"></div>
   <div class="hero-ghost">AMATEUR</div>
   <div class="wrap">
     <div class="pill-top r">Propuesta comercial · Octubre 2026</div>
     <h1 class="hero-title r d1">Beelup no vende cámaras.<br>Es <span class="mark">el canal</span> del deporte amateur argentino.</h1>
-    <p class="hero-sub r d2">Un software se copia en tres meses. Una audiencia de 150.000 personas y
-      20.000 partidos por día, no. Esta propuesta convierte esa ventaja en algo que el predio pueda
-      ver, medir y no querer perder.</p>
-    <div class="hero-tags r d3">
-      <span class="tag">Estrategia</span>
-      <span class="tag">Concepto creativo</span>
-      <span class="tag">Producción de contenido</span>
-      <span class="tag">Fidelización de predios</span>
+    <div class="hero-claim r d2">
+      Les proponemos <span>un sistema de contenido y fidelización</span> que hace que el predio que ya
+      es cliente no quiera irse, y que el que todavía no lo tiene lo pida.
     </div>
+    <p class="hero-sub r d3">Un software se copia en tres meses. Una audiencia de 150.000 personas y
+      20.000 partidos por día, no.</p>
   </div>
   <div class="sfoot"><span class="num">01</span><span>Beelup × Popcorn</span></div>
 </section>
@@ -357,66 +373,65 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
   <div class="wrap">
     <div class="mi"><div class="k">Preparada para</div><div class="v">Mariano Coronas · Beelup</div></div>
     <div class="mi"><div class="k">Por</div><div class="v">Florencia Grigolatto · Popcorn</div></div>
-    <div class="mi"><div class="k">Fecha</div><div class="v">2 de octubre de 2026</div></div>
-    <div class="mi"><div class="k">Válida hasta</div><div class="v">12 de octubre de 2026</div></div>
+    <div class="mi"><div class="k">Fecha</div><div class="v">8 de octubre de 2026</div></div>
+    <div class="mi"><div class="k">Válida hasta</div><div class="v">18 de octubre de 2026</div></div>
   </div>
 </div>
 
-<!-- ============ 02 · DE DÓNDE PARTIMOS ============ -->
-<section id="contexto" class="s-paper" data-label="Contexto">
+<!-- ============ 02 · QUE ENTENDIMOS ============ -->
+<section id="entendimos" class="s-paper" data-label="Qué entendimos">
   <div class="wrap">
-    <div class="eyebrow r">De dónde partimos</div>
-    <h2 class="h-lg r d1">Ocho años construyendo algo que <span class="mark">nadie más tiene</span>.</h2>
-    <p class="lead r d2">Beelup creó una categoría que no existía y hoy la lidera. Estos son los números
-      que salieron de la reunión del 28 de septiembre, y son el punto de partida de todo lo que sigue.</p>
+    <div class="eyebrow r">Qué entendimos</div>
+    <h2 class="h-lg r d1">Para llegar a 1.500 no hace falta vender más.<br>Hace falta <span class="mark">perder menos</span>.</h2>
+    <p class="lead r d2">Hoy suman 50 predios por mes: unas 600 altas en un año. Para pasar de 1.000 a
+      1.500 necesitan 500 netos. Con ese ritmo de altas, el margen de pérdida tolerable es de unos 100
+      predios en todo el año — <b>ocho por mes</b>. Si se pierden más de ocho mensuales, la meta de 2027
+      no se alcanza aunque el equipo comercial venda exactamente igual que hoy.</p>
 
     <div class="stats r d3">
-      <div class="stat"><div class="v">~1.000</div><div class="l">Predios clientes al cierre de 2026</div></div>
-      <div class="stat"><div class="v">+50</div><div class="l">Predios nuevos por mes</div></div>
-      <div class="stat"><div class="v">20.000</div><div class="l">Partidos grabados por día</div></div>
-      <div class="stat"><div class="v">60.000</div><div class="l">Jugadas descargadas por día</div></div>
+      <div class="stat"><div class="v">~1.000</div><div class="l">Predios clientes hoy</div></div>
+      <div class="stat"><div class="v">1.500</div><div class="l">La meta para 2027</div></div>
+      <div class="stat"><div class="v">8</div><div class="l">Bajas por mes es el techo para llegar</div></div>
       <div class="stat"><div class="v">150.000</div><div class="l">Seguidores entre IG, TikTok y YouTube</div></div>
+      <div class="stat"><div class="v">20.000</div><div class="l">Partidos grabados por día</div></div>
       <div class="stat"><div class="v">45-50%</div><div class="l">De las personas usuarias son mujeres</div></div>
     </div>
 
-    <div class="grid g3 r d4" style="margin-top:44px">
-      <div class="card">
-        <span class="num-tag">EL OBJETIVO</span>
-        <h3>1.500 predios en 2027</h3>
-        <p>Un crecimiento del 50% sobre el cierre de este año. No es una meta de marketing: es la
-          meta comercial que define si esta propuesta sirve o no.</p>
+    <div class="panels r d4" style="margin-top:44px">
+      <div class="panel warn">
+        <h4>Lo que ya probaron y no funcionó</h4>
+        <ul>
+          <li>Servirle contenido listo al predio para que lo publique: se le entregó a 1.000 clientes y <b>lo subieron 10</b>.</li>
+          <li>Incentivarlo con premios: se sortearon seis meses de servicio sin cargo y tampoco alcanzó.</li>
+          <li>La conclusión es de ustedes y la compartimos: la mayoría de los dueños no está digitalizada y no tiene quién le mueva las redes.</li>
+        </ul>
       </div>
-      <div class="card">
-        <span class="num-tag">EL CONTEXTO</span>
-        <h3>La categoría se llenó</h3>
-        <p>Aparecieron alrededor de 30 competidores. Uno con unos 100 clientes; el resto con 15 o 20
-          predios. Con IA, cualquiera arma un software que grabe un partido.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">EL MOMENTO</span>
-        <h3>El salto a software puro</h3>
-        <p>Cuando deje de hacer falta enviar el kit, la barrera de entrada baja para Beelup y también
-          para todos los demás. La diferencia va a tener que estar en otro lado.</p>
+      <div class="panel good">
+        <h4>Lo que sí funcionó</h4>
+        <ul>
+          <li>Las entrevistas a dueños de predios: se filmaron, se recoparon, se publicaron y hasta se les puso pauta. Nunca se sistematizó.</li>
+          <li>El programa con invitados: daba clips a bajo costo. Dejó de existir y el formato se perdió con él.</li>
+          <li>Las dos cosas tienen algo en común: <b>ponían al predio en pantalla sin pedirle que hiciera nada</b>.</li>
+        </ul>
       </div>
     </div>
   </div>
-  <div class="sfoot"><span class="num">02</span><span>Contexto</span></div>
+  <div class="sfoot"><span class="num">02</span><span>Qué entendimos</span></div>
 </section>
 
-<!-- ============ 03 · DIAGNÓSTICO ============ -->
-<section id="diagnostico" class="s-white" data-label="Diagnóstico">
+<!-- ============ 03 · EL PROBLEMA ============ -->
+<section id="problema" class="s-white" data-label="El problema">
   <div class="wrap">
     <div class="split">
       <div>
-        <div class="eyebrow r">El diagnóstico</div>
+        <div class="eyebrow r">El problema</div>
         <h2 class="h-lg r d1">El problema no es el precio.<br>Es que <span class="mark">el diferencial no se ve</span>.</h2>
         <p class="lead r d2">Beelup tiene control de ocupación, buscador inteligente de jugadas, resumen
           automático con IA y un reproductor con edición por voz, zoom y cámara lenta. La competencia
           tiene una cámara que graba. Y aun así, la conversación con el predio termina en precio.</p>
         <p class="lead r d3">Pasa porque todo eso son funciones, y las funciones se enumeran igual en
-          cualquier presupuesto. El predio compara dos PDF y ve dos servicios que graban partidos:
-          uno a $85.000 y otro a la mitad, sin factura. Para defender, Beelup termina bonificando
-          entre 25% y 40%.</p>
+          cualquier presupuesto. El predio compara dos PDF y ve dos servicios que graban partidos: uno
+          a $85.000 y otro a la mitad, sin factura. Para defender, hay que bonificar entre 25% y 40%.</p>
         <div class="quote r d4" style="margin-top:30px">
           «Las competencias salieron con precios promocionales hasta del 50%. Nosotros facturamos el
           100% de todo. Si tenemos que bonificar el 40% del abono, lo hacemos.»
@@ -424,623 +439,284 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
         </div>
       </div>
       <div class="r d3">
-        <div class="shot"><img src="img/beelup-demo6.jpg" alt="Reproductor de Beelup: partido de fútbol 5 nocturno"></div>
-        <p class="muted" style="font-size:.82rem;margin-top:12px">El producto real de Beelup. Lo que se
-          ve acá es exactamente lo que ningún competidor de 15 predios puede igualar — y lo que hoy
-          no llega al dueño del predio en el momento en que decide.</p>
+        <div class="shots3">
+          <figure><img src="img/beelup-demo6.jpg" alt="Fútbol 5 de noche en el reproductor de Beelup"><figcaption>Fútbol 5</figcaption></figure>
+          <figure><img src="img/beelup-demo8.jpg" alt="Básquet en el reproductor de Beelup"><figcaption>Básquet</figcaption></figure>
+          <figure><img src="img/beelup-demo9.jpg" alt="Tenis en el reproductor de Beelup"><figcaption>Tenis</figcaption></figure>
+        </div>
+        <p class="muted" style="font-size:.82rem;margin-top:14px">Su propio reproductor. Esto es lo que
+          ningún competidor de quince predios puede igualar — y lo que hoy no le llega al dueño en el
+          momento en que decide.</p>
       </div>
     </div>
   </div>
-  <div class="sfoot"><span class="num">03</span><span>Diagnóstico</span></div>
+  <div class="sfoot"><span class="num">03</span><span>El problema</span></div>
 </section>
 
-<!-- ============ 04 · LO QUE YA SABEMOS ============ -->
-<section id="evidencia" class="s-paper" data-label="Evidencia">
+<!-- ============ 04 · QUE PROPONEMOS ============ -->
+<section id="propuesta" class="s-paper" data-label="Qué proponemos">
   <div class="wrap">
-    <div class="eyebrow r">Lo que ya está probado</div>
-    <h2 class="h-lg r d1">Ocho años de pruebas nos ahorran <span class="mark">seis meses</span> de errores.</h2>
-    <p class="lead r d2">Esta propuesta no arranca de cero: arranca de lo que Beelup ya intentó. Lo que
-      sigue no son supuestos nuestros, son resultados que nos contaron. Cada uno cierra una puerta
-      y abre otra.</p>
+    <div class="eyebrow r">Qué proponemos</div>
+    <h2 class="h-lg r d1">Tres piezas que funcionan <span class="mark">con el predio quieto</span>.</h2>
+    <p class="lead r d2">Beelup produce, Beelup publica, Beelup nombra. Al predio no se le pide que
+      trabaje: se le da un lugar donde aparecer. Esto es todo lo que proponemos y qué número mueve
+      cada parte.</p>
 
-    <div class="grid g2 r d3" style="margin-top:40px">
-      <div class="card">
-        <span class="num-tag">NO FUNCIONÓ</span>
-        <h3>Servirle el contenido al predio para que lo publique</h3>
-        <p>Se le entregó contenido listo a 1.000 clientes. <b>Lo subieron 10.</b> No es falta de
-          ganas: la mayoría de los dueños no está digitalizada y no tiene quién le mueva las redes.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">NO FUNCIONÓ</span>
-        <h3>Incentivar al predio con premios</h3>
-        <p>Se sortearon seis meses de servicio sin cargo entre los predios. Tampoco alcanzó. Ni
-          siquiera usan el control de ocupación, que les ahorra plata directa.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">SÍ FUNCIONÓ</span>
-        <h3>Las entrevistas a dueños de predios</h3>
-        <p>Se filmaron, se recoparon, se publicaron y hasta se les puso pauta. Es el formato que mejor
-          respuesta tuvo del lado del predio. Nunca se sistematizó.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">SÍ FUNCIONÓ</span>
-        <h3>El programa con invitados</h3>
-        <p>La acción con Doble Mérito —jugaban un partido y les mostraban sus jugadas— daba clips a
-          bajo costo. El programa dejó de existir y el formato se perdió con él.</p>
-      </div>
-    </div>
-
-    <div class="quote r d4" style="margin-top:44px;max-width:900px">
-      «Si nosotros vamos a depender de que ellos hagan, sonamos.»
-      <small>Mariano Coronas, sobre los dueños de predio · reunión del 28/09/2026</small>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">04</span><span>Evidencia</span></div>
-</section>
-
-<!-- ============ 05 · TESIS ============ -->
-<section id="tesis" class="s-violet" data-label="Tesis">
-  <div class="wrap">
-    <div class="eyebrow r">La tesis</div>
-    <h2 class="h-xl r d1">No hay que pedirle al predio que trabaje.<br>Hay que darle <span class="mark">un lugar</span> al que quiera entrar.</h2>
-    <p class="lead r d2" style="max-width:820px">Todo lo que falló tenía la misma forma: le pedía algo
-      al dueño del predio. Publicar, compartir, participar, activar. Todo lo que funcionó tenía la
-      forma contraria: lo ponía en pantalla sin que tuviera que hacer nada.</p>
-    <p class="lead r d3" style="max-width:820px">Entonces el sistema que proponemos corre <b>con el
-      predio quieto</b>. Beelup produce, Beelup publica, Beelup nombra. El predio recibe exposición,
-      y el único esfuerzo que se le pide es querer seguir apareciendo. Eso sí lo va a hacer: es lo
-      mismo que hace cuando pone el cartel de sus sponsors en la cancha.</p>
-    <div class="grid g3 r d4" style="margin-top:50px">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/></svg></div>
-        <h3>Uno solo produce</h3>
-        <p>Beelup. El predio no edita, no publica, no coordina. Recibe.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Tiene calendario</h3>
-        <p>Todas las semanas, siempre. Un ritual, no una activación que empieza y termina.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
-        <h3>Deja algo acumulado</h3>
-        <p>Cada mes suma historia, tabla y archivo. Salir del sistema empieza a tener costo.</p>
-      </div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">05</span><span>Tesis</span></div>
-</section>
-
-<!-- ============ 06 · LA ESTRATEGIA ============ -->
-<section id="estrategia" class="s-white" data-label="La estrategia">
-  <div class="wrap">
-    <div class="eyebrow r">La estrategia</div>
-    <h2 class="h-lg r d1">Para llegar a 1.500 no hace falta vender más.<br>Hace falta <span class="mark">perder menos</span>.</h2>
-    <p class="lead r d2">Hoy suman 50 predios por mes: unas 600 altas en un año. Para pasar de 1.000 a
-      1.500 necesitan 500 netos. Con el ritmo de altas actual, el margen de pérdida tolerable es de
-      unos 100 predios en todo el año — <b>ocho por mes</b>. Si se pierden más de ocho por mes, la meta
-      de 2027 no se alcanza aunque el equipo comercial venda exactamente igual que hoy.</p>
-    <p class="lead r d3">Por eso esta propuesta no arranca por captar. Arranca por retener, sigue por
-      cerrar mejor y termina por generar demanda. Ese orden no es una preferencia: es el que hace que
-      los números cierren.</p>
-
-    <div class="grid g3 r d4" style="margin-top:44px">
-      <div class="card">
-        <span class="num-tag">PALANCA 01 · RETENER</span>
-        <h3>Que el predio no se vaya</h3>
-        <p style="margin-bottom:12px">Es la más barata de las tres: un predio retenido no tiene costo
-          de adquisición, no lleva kit subsidiado y ya está facturando. Cada baja evitada vale más que
-          un alta nueva.</p>
-        <p><b>La activa:</b> el Club de Referentes.<br><b>Empieza a verse:</b> mes 2 a 3.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">PALANCA 02 · CERRAR MEJOR</span>
-        <h3>Que la consulta cierre sin resignar margen</h3>
-        <p style="margin-bottom:12px">No busca más consultas: busca que las que ya llegan cierren sin
-          bajar 40%. Cuando el dueño ve qué le pasó a un predio parecido al suyo, la conversación deja
-          de ser una comparación de precios.</p>
-        <p><b>La activa:</b> La Prueba.<br><b>Empieza a verse:</b> mes 4 a 5.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">PALANCA 03 · QUE LO PIDAN</span>
-        <h3>Que el jugador lo reclame donde no está</h3>
-        <p style="margin-bottom:12px">La más lenta y la única que ningún competidor puede copiar con
-          código, porque necesita ocho años de archivo y 150.000 personas mirando. Es la que convierte
-          la ventaja en permanente.</p>
-        <p><b>La activa:</b> La Fecha.<br><b>Empieza a verse:</b> mes 6 en adelante.</p>
-      </div>
-    </div>
-
-    <div class="panels r d5" style="margin-top:34px">
-      <div class="panel warn">
-        <h4>La palanca que no facturamos</h4>
-        <ul>
-          <li>Hay una cuarta: un embudo comercial dirigido al dueño de predio, que hoy no existe. La captación depende del boca a boca y de la pauta que ya manejan internamente.</li>
-          <li>No la vendemos nosotros. Pero si a los seis meses los números muestran que el cuello está en la cantidad de consultas y no en el cierre, la plata rinde más ahí que en más contenido — y se lo vamos a decir.</li>
-        </ul>
-      </div>
-      <div class="panel good">
-        <h4>Por qué ahora y no el año que viene</h4>
-        <ul>
-          <li>Cuando dejen de enviar el kit y pasen a software puro, la barrera de entrada baja para Beelup y también para los otros treinta.</li>
-          <li>La ventana para construir algo que no se copia con código está abierta <b>antes</b> de ese cambio, no después. Después se compite de nuevo por precio, pero con el piso más bajo.</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="muted r d6" style="font-size:.84rem;margin-top:26px;max-width:860px">Dos aclaraciones
-      honestas. Primera: no conocemos la tasa de baja de Beelup, así que la aritmética de arriba usa
-      el margen que surge del propio objetivo; con el dato real puede cambiar el orden de prioridades.
-      Segunda: lo que está acá es el razonamiento y la secuencia. La bajada operativa —formatos
-      definitivos, reglas del Club, criterios de curaduría, guiones y calendario— es exactamente el
-      trabajo del Arranque, y se define con ustedes adentro.</p>
-  </div>
-  <div class="sfoot"><span class="num">06</span><span>La estrategia</span></div>
-</section>
-
-<!-- ============ 07 · EL MECANISMO ============ -->
-<section id="mecanismo" class="s-paper" data-label="El mecanismo">
-  <div class="wrap">
-    <div class="eyebrow r">El mecanismo</div>
-    <h2 class="h-lg r d1">Cómo una jugada compartida termina en <span class="mark">un predio nuevo</span>.</h2>
-    <p class="lead r d2">Nadie contrata un servicio de cámaras porque vio un video lindo. La cadena es
-      más larga y tiene siete eslabones. Seis ya funcionan solos en Beelup. El sistema interviene en
-      el que está cortado.</p>
-
-    <div class="pipe r d3" style="margin-top:40px">
-      <div class="node"><span class="k">01 · OK</span><span class="t">Se juega y se graba</span><p>20.000 partidos por día. Resuelto.</p></div>
-      <div class="node"><span class="k">02 · OK</span><span class="t">El jugador descarga</span><p>60.000 jugadas por día. Resuelto.</p></div>
-      <div class="node"><span class="k">03 · OK</span><span class="t">La comparte</span><p>Es el motor que hizo crecer las redes. Resuelto.</p></div>
-    </div>
-    <div class="pipe r d4" style="margin-top:12px">
-      <div class="node" style="border-color:rgba(88,13,159,.55);background:rgba(116,250,227,.16);box-shadow:0 10px 30px rgba(88,13,159,.12)">
-        <span class="k" style="color:var(--violeta)">04 · CORTADO</span><span class="t">El predio aparece nombrado</span>
-        <p style="color:var(--t-80)">Pasa a veces, no siempre, y casi nunca de forma que el dueño se entere. <b>Acá interviene el sistema.</b></p>
-      </div>
-      <div class="node"><span class="k">05</span><span class="t">El dueño lo ve y lo usa</span><p>Depende del eslabón anterior. Hoy no tiene con qué.</p></div>
-      <div class="node"><span class="k">06</span><span class="t">Otro dueño lo ve</span><p>El predio referente es el canal de distribución. Sin el 04, no circula.</p></div>
-      <div class="node"><span class="k">07</span><span class="t">El vendedor cierra</span><p>Necesita prueba para no resignar 40% de margen.</p></div>
-    </div>
-
-    <div class="quote r d5" style="margin-top:44px;max-width:920px">
-      Beelup le vende al predio «toda la exposición que vas a tener». Esa exposición existe de verdad,
-      pero hoy no tiene forma: no se ve, no se mide y no le llega al dueño en un formato que pueda usar.
-      <small>Todo el sistema de esta propuesta es, en el fondo, reparar el eslabón 04 y darle al 07 con qué trabajar.</small>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">07</span><span>El mecanismo</span></div>
-</section>
-
-<!-- ============ 08 · LA MATERIA PRIMA ============ -->
-<section id="materia" class="s-white" data-label="Materia prima">
-  <div class="wrap">
-    <div class="eyebrow r">La materia prima</div>
-    <h2 class="h-lg r d1">Ya tienen la fábrica de contenido <span class="mark">más grande</span> del deporte amateur argentino.</h2>
-    <p class="lead r d2">20.000 partidos por día, 18 deportes, y un reproductor que la gente ya usa
-      sola. Ninguna marca compra eso: se construye en ocho años. Hoy se usa para publicar dos jugadas
-      por día. Puede sostener mucho más.</p>
-
-    <div class="shots3 r d3" style="margin-top:42px">
-      <figure><img src="img/beelup-demo6.jpg" alt="Fútbol 5 de noche en el reproductor de Beelup"><figcaption>Fútbol 5 · 21:46</figcaption></figure>
-      <figure><img src="img/beelup-demo8.jpg" alt="Básquet en el reproductor de Beelup"><figcaption>Básquet · 17:30</figcaption></figure>
-      <figure><img src="img/beelup-demo9.jpg" alt="Tenis en polvo de ladrillo en el reproductor de Beelup"><figcaption>Tenis · 18:01</figcaption></figure>
-    </div>
-    <p class="muted r d4" style="font-size:.84rem;margin-top:16px;max-width:760px">Capturas del propio
-      reproductor de Beelup. Tres deportes, tres horarios, un mismo sistema. Esta es la materia prima
-      con la que se construye todo lo que viene.</p>
-  </div>
-  <div class="sfoot"><span class="num">08</span><span>Materia prima</span></div>
-</section>
-
-<!-- ============ 09 · EL SISTEMA ============ -->
-<section id="sistema" class="s-paper" data-label="El sistema">
-  <div class="wrap">
-    <div class="eyebrow r">La propuesta</div>
-    <h2 class="h-lg r d1">Cuatro piezas que arman <span class="mark">un solo sistema</span>.</h2>
-    <p class="lead r d2">No son cuatro acciones sueltas. Una produce el contenido, otra lo convierte en
-      pertenencia, otra lo convierte en argumento de venta y la última lo convierte en noticia. Cada
-      una alimenta a la siguiente.</p>
-
-    <div class="pipe r d3" style="margin-top:40px">
-      <div class="node"><span class="k">01</span><span class="t">La Fecha</span><p>El programa semanal que pone a los predios en pantalla</p></div>
-      <div class="node"><span class="k">02</span><span class="t">El Club</span><p>Los predios referentes, adentro de algo que no quieren perder</p></div>
-      <div class="node"><span class="k">03</span><span class="t">La Prueba</span><p>Los casos filmados que usa el vendedor</p></div>
-      <div class="node"><span class="k">04</span><span class="t">El Ojeador</span><p>La acción anual que devuelve a Beelup a los medios</p></div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">09</span><span>El sistema</span></div>
-</section>
-
-<!-- ============ 10 · MOTOR 1 ============ -->
-<section id="lafecha" class="s-white" data-label="La Fecha">
-  <div class="wrap">
-    <div class="split rev">
-      <div class="r d2">
-        <div class="shot"><img src="img/beelup-demo7.jpg" alt="Pádel de noche en el reproductor de Beelup"></div>
-      </div>
-      <div>
-        <div class="eyebrow r">Pieza 01 · el motor</div>
-        <h2 class="h-lg r d1">«La Fecha»: el resumen semanal del <span class="mark">deporte amateur</span>.</h2>
-        <p class="lead r d2">Un programa de 8 a 12 minutos, todas las semanas, en el canal de YouTube que
-          Beelup ya tiene, con 16 a 20 cortes verticales para Instagram y TikTok. Lo produce Popcorn de
-          punta a punta con el material que la plataforma ya genera sola.</p>
-        <p class="lead r d3">Es la idea que puso Mariano sobre la mesa en la reunión. La tomamos, le
-          dimos formato, secciones fijas y un motivo para que cada predio quiera estar adentro.</p>
-        <ul class="notelist r d4" style="margin-top:26px">
-          <li><span class="bi">1</span><div><b>El Top 5.</b> Las cinco jugadas de la semana. Cada una nombra al jugador <em>y al predio</em>. Ese es el pago.</div></li>
-          <li><span class="bi">2</span><div><b>El Duelo.</b> Dos predios enfrentados con su mejor jugada; vota la gente en historias. El ganador abre el programa siguiente.</div></li>
-          <li><span class="bi">3</span><div><b>La Casa.</b> Nota corta al dueño o gerente de un predio referente. Es el formato que ya les funcionó, ahora todas las semanas.</div></li>
-          <li><span class="bi">4</span><div><b>Tiempo Extra.</b> Un invitado juega, y le mostramos sus jugadas. Es el formato de Doble Mérito, pero propio y sin depender de nadie.</div></li>
-          <li><span class="bi">5</span><div><b>La Fecha de Ellas.</b> Sección fija de deporte femenino. Con 45-50% de usuarias, no es un gesto: es la mitad de la audiencia.</div></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">10</span><span>La Fecha</span></div>
-</section>
-
-<!-- ============ 11 · COMO SE PRODUCE ============ -->
-<section id="produccion" class="s-paper" data-label="Cómo se produce">
-  <div class="wrap">
-    <div class="eyebrow r">Cómo se produce</div>
-    <h2 class="h-lg r d1">Una sola salida al mes.<br>El resto <span class="mark">se arma en post</span>.</h2>
-    <p class="lead r d2">Un programa con conducción no se sostiene grabando todas las semanas: son cuatro
-      jornadas al mes y el costo se vuelve inviable. El modelo que proponemos graba una vez y publica
-      cuatro veces.</p>
-
-    <div class="grid g3 r d3" style="margin-top:40px">
-      <div class="card">
-        <span class="num-tag">LA SEDE</span>
-        <h3>Se graba en un predio del Club</h3>
-        <p style="margin-bottom:12px">El programa no tiene estudio: tiene sede, y la sede rota cada mes
-          entre los predios del Club. Llevamos un kit móvil de luz y sonido.</p>
-        <p><b>Por qué así:</b> no hay costo de locación, ser sede se vuelve un beneficio que los predios
-          quieren, y un programa de deporte amateur grabado en una cancha se ve verdadero.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">LA JORNADA</span>
-        <h3>Media jornada, todo en bloque</h3>
-        <p style="margin-bottom:12px">En esa única salida se graba la conducción de todos los programas
-          del mes, la nota al dueño del predio (La Casa) y el invitado (Tiempo Extra).</p>
-        <p><b>Qué queda para post:</b> El Top 5 y El Duelo son material de archivo y se montan semana a
-          semana, así que el programa mantiene actualidad aunque la conducción esté grabada antes.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">LA CONDUCCIÓN</span>
-        <h3>Una dupla, contratada por temporada</h3>
-        <p style="margin-bottom:12px">Alguien con oficio frente a cámara y alguien del mundo del deporte
-          amateur. Una de las dos personas, mujer: entre 45 y 50% de los usuarios de Beelup lo son.</p>
-        <p><b>Se contrata por temporada</b>, no por programa, para que el costo quede fijo y previsible.</p>
-      </div>
-    </div>
-
-    <div class="split r d4" style="margin-top:48px;align-items:start">
-      <div>
-        <h3 class="h-md" style="margin-bottom:18px">Cómo se cierra la conducción</h3>
-        <ul class="notelist">
-          <li><span class="bi">1</span><div>Popcorn define el perfil y arma la lista corta.</div></li>
-          <li><span class="bi">2</span><div>Casting con prueba de cámara sobre guion real, no entrevista.</div></li>
-          <li><span class="bi">3</span><div>Popcorn negocia condiciones: jornadas al año, exclusividad en la categoría y plazo.</div></li>
-          <li><span class="bi">4</span><div>Popcorn redacta el acuerdo: cesión de imagen, ventana de uso y territorio.</div></li>
-          <li><span class="bi">5</span><div><b>Beelup elige entre los finalistas, firma y paga el caché directamente.</b> No está incluido en el fee de Popcorn.</div></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="h-md" style="margin-bottom:18px">El circuito de aprobación</h3>
-        <ul class="notelist">
-          <li><span class="bi">1</span><div>Popcorn entrega cada programa <b>72 horas antes</b> de la fecha de publicación.</div></li>
-          <li><span class="bi">2</span><div>Beelup devuelve cambios dentro de las <b>48 horas</b>.</div></li>
-          <li><span class="bi">3</span><div>Hay <b>una ronda de ajustes incluida</b>. Una segunda es posible, pero corre la fecha de publicación.</div></li>
-          <li><span class="bi">4</span><div>Beelup publica y modera. Popcorn no toca las cuentas.</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="panels r d5" style="margin-top:40px">
-      <div class="panel warn">
-        <h4>Condición previa · derechos de imagen</h4>
-        <ul>
-          <li>Las jugadas son de deportistas amateur y una parte son menores de edad. Antes de poner una jugada en un programa con marca y distribución, hay que confirmar que los términos y condiciones de Beelup habilitan ese uso.</li>
-          <li>Es muy probable que ya esté cubierto —publican dos jugadas por día desde hace años— pero el tratamiento de menores suele ser el punto flojo y hay que verlo escrito.</li>
-          <li><b>Lo resuelve el área legal de Beelup.</b> Popcorn lo marca como condición de arranque y no produce hasta tener el visto bueno.</li>
-        </ul>
-      </div>
-      <div class="panel good">
-        <h4>Qué paga Beelup aparte del fee</h4>
-        <ul>
-          <li>El caché de la conducción, contratado por temporada.</li>
-          <li>La suscripción a la librería de música con licencia.</li>
-          <li>Cachés de invitados, si alguno los pidiera.</li>
-          <li>Nada más: la sede, el equipo técnico y la producción están dentro del fee.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">11</span><span>Cómo se produce</span></div>
-</section>
-
-<!-- ============ 12 · MOTOR 2 ============ -->
-<section id="club" class="s-paper" data-label="El Club">
-  <div class="wrap">
-    <div class="eyebrow r">Pieza 02 · la fidelización</div>
-    <h2 class="h-lg r d1">El Club: no le hablamos a 1.000 predios.<br>Le hablamos a <span class="mark">los 40 que el resto mira</span>.</h2>
-    <p class="lead r d2">En la reunión coincidimos en esto: los predios que tienen gerente, community y
-      tres o cuatro sucursales se comportan como empresas, usan las herramientas y son referencia para
-      los demás. Ahí hay respuesta. En el resto, no.</p>
-
-    <div class="grid g4 r d3" style="margin-top:40px">
-      <div class="card">
-        <span class="num-tag">ACCESO</span>
-        <h3>Ser elegible</h3>
-        <p>Solo los predios del Club entran en las secciones del programa. Estar adentro es la única
-          forma de aparecer.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">MATERIAL</span>
-        <h3>El kit que llega solo</h3>
-        <p>Cada mes: su mejor jugada, su placa con nombre y su número, listo para reenviar por
-          WhatsApp. Cero producción de su lado.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">COMPARACIÓN</span>
-        <h3>La tabla</h3>
-        <p>Ranking de actividad por categoría de tamaño, con datos que Beelup ya tiene. Compiten
-          parejos y entre pares, que es lo que mueve a este perfil.</p>
-      </div>
-      <div class="card">
-        <span class="num-tag">VÍNCULO</span>
-        <h3>Enterarse primero</h3>
-        <p>Reunión trimestral donde Beelup les muestra el roadmap antes que a nadie y les pregunta.
-          Es el compromiso que Mariano pidió que se note.</p>
-      </div>
-    </div>
-
-    <div class="quote r d4" style="margin-top:44px;max-width:900px">
-      «Queremos que sientan de nuestra parte que vean un compromiso.»
-      <small>Mariano Coronas, sobre los predios referentes · reunión del 28/09/2026</small>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">12</span><span>El Club</span></div>
-</section>
-
-<!-- ============ 13 · MOTOR 3 y 4 ============ -->
-<section id="prueba" class="s-white" data-label="Prueba y Ojeador">
-  <div class="wrap">
-    <div class="eyebrow r">Piezas 03 y 04 · producciones</div>
-    <h2 class="h-lg r d1">Lo que convierte comunidad en <span class="mark">predios nuevos</span>.</h2>
-    <p class="lead r d2">Las dos primeras piezas construyen el activo. Estas dos lo cobran: una le da al
-      equipo comercial algo que mostrar, la otra devuelve a Beelup a los medios.</p>
-
-    <div class="grid g2 r d3" style="margin-top:40px">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
-        <span class="num-tag">PIEZA 03</span>
-        <h3>La Prueba: 6 predios referentes filmados</h3>
-        <p style="margin-bottom:12px">Seis casos reales en tres medias jornadas: el dueño contando qué
-          cambió, el predio funcionando, el servicio en uso. Entrega seis piezas largas, doce cortes
-          verticales y placas con los números que cada predio valide.</p>
-        <p><b>Para qué sirve:</b> es el material que hoy le falta al vendedor, el que alimenta la pauta
-          que ya están corriendo, y el que puede ir en el banner de marcas de la web —lo único del
-          rediseño que sí acordamos en la reunión.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <span class="num-tag">PIEZA 04</span>
-        <h3>El Ojeador: la acción anual</h3>
-        <p style="margin-bottom:12px">Durante un mes, las jugadas grabadas en predios Beelup entran a
-          selección con el módulo de scouting que ya está activo y que en Ecuador consiguió que un
-          jugador entrara a un club. Finalistas, instancia final filmada y plan de prensa.</p>
-        <p><b>Para qué sirve:</b> es la única pieza con potencia de titular nacional. Beelup no hace
-          prensa desde hace un año y medio y la historia —ocho amigos, una inversión inicial chica,
-          20 países— ya demostró que funciona en medios.</p>
-      </div>
-    </div>
-
-    <div class="panels r d4" style="margin-top:28px">
-      <div class="panel warn">
-        <h4>Una advertencia sobre El Ojeador</h4>
-        <ul>
-          <li>Involucra expectativas de chicos y adolescentes: las bases legales y el tono de la promesa hay que trabajarlos antes que la creatividad.</li>
-          <li>No se promete contratación. Se promete visibilidad ante formadores reales, y solo con formadores que hayan aceptado participar.</li>
-          <li>Si el módulo de scouting no está operativo en Argentina, esta pieza se pospone. Es lo primero que hay que confirmar.</li>
-        </ul>
-      </div>
-      <div class="panel good">
-        <h4>Por qué lo decimos nosotros</h4>
-        <ul>
-          <li>Porque es la pieza que más fácil se vende en una reunión y la que peor puede salir si se ejecuta sin cuidado.</li>
-          <li>Preferimos marcar el riesgo ahora que explicarlo después.</li>
-          <li>Es también la que más valor de marca genera si se hace bien: nadie más en la categoría puede hacerla.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">13</span><span>Producciones</span></div>
-</section>
-
-<!-- ============ 14 · ALCANCE ============ -->
-<section id="alcance" class="s-paper" data-label="Alcance">
-  <div class="wrap">
-    <div class="eyebrow r">El alcance</div>
-    <h2 class="h-lg r d1">Lo que hacemos y, sobre todo, <span class="mark">lo que no</span>.</h2>
-    <p class="lead r d2">Beelup ya tiene equipo de community, una persona que busca y edita jugadas,
-      otra que hace el contenido comercial y otra que lleva la pauta con 28 anuncios activos y 15
-      piezas por mes. Nada de eso entra en esta propuesta. Cobrarlo sería cobrar dos veces.</p>
-
-    <div class="panels r d3" style="margin-top:40px">
-      <div class="panel good">
-        <h4>Incluye</h4>
-        <ul>
-          <li>Estrategia, concepto y diseño del sistema completo.</li>
-          <li>Dirección creativa y editorial permanente, con reunión quincenal.</li>
-          <li>Consultoría de negocio: revisión trimestral de oportunidades fuera del contenido.</li>
-          <li>Producción íntegra del programa y sus piezas derivadas, cámara incluida.</li>
-          <li>Casting de conducción, negociación y redacción del acuerdo.</li>
-          <li>Gestión del Club de Referentes y su kit mensual.</li>
-          <li>Sistema gráfico, plantillas y placas reutilizables.</li>
-          <li>Reporte mensual contra el tablero de métricas acordado.</li>
-        </ul>
-      </div>
-      <div class="panel warn">
-        <h4>No incluye</h4>
-        <ul>
-          <li><b>El caché de la conducción:</b> lo contrata y lo paga Beelup directamente.</li>
-          <li><b>Los derechos de imagen de las jugadas:</b> los resuelve el área legal de Beelup. Es condición de arranque.</li>
-          <li>La suscripción a la librería de música con licencia.</li>
-          <li>Community management y publicación: lo hace el equipo de Beelup.</li>
-          <li>Búsqueda y edición diaria de jugadas: ya tienen una persona dedicada.</li>
-          <li>Gestión de pauta y contenido comercial: ya resuelto internamente.</li>
-          <li>Inversión en medios, cachés de invitados y premios.</li>
-          <li>Desarrollo de producto (perfil de jugador, plataforma) y rediseño del sitio.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">14</span><span>Alcance</span></div>
-</section>
-
-<!-- ============ 15 · CÓMO SE MIDE ============ -->
-<section id="metricas" class="s-dark" data-label="Cómo se mide">
-  <div class="wrap">
-    <div class="eyebrow r">Cómo se mide</div>
-    <h2 class="h-lg r d1">Si esto funciona, Beelup debería <span class="mark">bonificar menos</span>.</h2>
-    <p class="lead r d2">La métrica de vanidad sería el alcance del programa. La métrica real es otra:
-      cuánto descuento hace falta para cerrar un predio. Hoy, entre 25% y 40%. Cada punto que se
-      recupere es margen recurrente.</p>
-
-    <div class="tbl-wrap r d3" style="margin-top:38px;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.16)">
+    <div class="tbl-wrap r d3" style="margin-top:36px">
       <table class="tbl">
-        <thead>
+        <thead><tr><th style="width:26%">La pieza</th><th>Qué es y qué hacemos</th><th style="width:22%">Qué número mueve</th></tr></thead>
+        <tbody>
           <tr>
-            <th style="color:var(--aqua)">Indicador</th>
-            <th style="color:var(--aqua)">Por qué importa</th>
-            <th class="num" style="color:var(--aqua)">Frecuencia</th>
+            <td><span class="m">Dirección estratégica y creativa</span><span class="hs">MENSUAL · 27 H</span></td>
+            <td>La cabeza del sistema. Reunión quincenal, plan mensual con objetivo declarado por acción,
+              briefs, criterio editorial y curaduría de qué predio y qué jugador entran cada mes. Más una
+              <b>revisión trimestral de oportunidades</b>, donde traemos tres cosas que Beelup podría hacer
+              fuera del contenido: onboarding de predios nuevos, referidos entre predios, Premium,
+              sponsors, política de precios.</td>
+            <td class="mueve">Que todo lo demás tenga rumbo y no se vuelva una serie de videos</td>
           </tr>
-        </thead>
-        <tbody style="color:var(--w-80)">
-          <tr><td style="border-color:rgba(255,255,255,.1)"><span class="m" style="color:#fff">Bonificación promedio para cerrar</span></td><td style="border-color:rgba(255,255,255,.1);color:var(--w-65)">El indicador madre. Si el diferencial se percibe, el descuento baja.</td><td class="num" style="border-color:rgba(255,255,255,.1);color:var(--w-80)">Mensual</td></tr>
-          <tr><td style="border-color:rgba(255,255,255,.1)"><span class="m" style="color:#fff">Bajas de predios</span></td><td style="border-color:rgba(255,255,255,.1);color:var(--w-65)">Mide fidelización real. Hoy no tenemos el dato: es lo primero que necesitamos.</td><td class="num" style="border-color:rgba(255,255,255,.1);color:var(--w-80)">Mensual</td></tr>
-          <tr><td style="border-color:rgba(255,255,255,.1)"><span class="m" style="color:#fff">Predios del Club activos</span></td><td style="border-color:rgba(255,255,255,.1);color:var(--w-65)">Cuántos referentes están adentro y participando del sistema.</td><td class="num" style="border-color:rgba(255,255,255,.1);color:var(--w-80)">Mensual</td></tr>
-          <tr><td style="border-color:rgba(255,255,255,.1)"><span class="m" style="color:#fff">Altas que mencionan la comunidad</span></td><td style="border-color:rgba(255,255,255,.1);color:var(--w-65)">Se pregunta en el alta. Conecta el contenido con la venta, sin suponer.</td><td class="num" style="border-color:rgba(255,255,255,.1);color:var(--w-80)">Mensual</td></tr>
-          <tr><td style="border-color:rgba(255,255,255,.1)"><span class="m" style="color:#fff">Audiencia y retención del programa</span></td><td style="border-color:rgba(255,255,255,.1);color:var(--w-65)">Vistas, minutos vistos y crecimiento de seguidores por canal.</td><td class="num" style="border-color:rgba(255,255,255,.1);color:var(--w-80)">Semanal</td></tr>
-          <tr><td style="border-color:rgba(255,255,255,.1)"><span class="m" style="color:#fff">Suscripciones a Beelup Premium</span></td><td style="border-color:rgba(255,255,255,.1);color:var(--w-65)">El sistema empuja al jugador a querer guardar sus jugadas para siempre.</td><td class="num" style="border-color:rgba(255,255,255,.1);color:var(--w-80)">Mensual</td></tr>
+          <tr>
+            <td><span class="m">La Fecha</span><span class="hs">MENSUAL · 46 H</span></td>
+            <td>Un programa quincenal de 8 a 12 minutos más 16 a 20 cortes verticales que sostienen el
+              feed todas las semanas. Cinco secciones fijas y todas nombran al predio: El Top 5, El Duelo
+              entre predios, La Casa (nota al dueño), Tiempo Extra (invitado) y La Fecha de Ellas. Lo
+              producimos de punta a punta con el material que la plataforma ya genera sola.</td>
+            <td class="mueve">Demanda inducida: que el jugador lo pida donde todavía no está</td>
+          </tr>
+          <tr>
+            <td><span class="m">El Club de Referentes</span><span class="hs">MENSUAL · 36 H</span></td>
+            <td>No le hablamos a 1.000 predios: le hablamos a los 40 que el resto mira. Curaduría e
+              incorporación, kit mensual por predio listo para reenviar por WhatsApp, tabla de actividad
+              por categoría de tamaño, reunión trimestral donde ven el roadmap antes que nadie, y sello
+              físico para exhibir en el predio.</td>
+            <td class="mueve">La baja de predios — el número del que depende llegar a 1.500</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="grid g2 r d4" style="margin-top:34px">
-      <div class="card">
-        <span class="num-tag">EL TAMAÑO DEL PREMIO</span>
-        <h3>$510.000.000 al año</h3>
-        <p>Pasar de 1.000 a 1.500 predios son 500 abonos nuevos. Al abono publicado de $85.000, eso es
-          $510.000.000 de facturación anual incremental. La inversión del año 1 en el armado
-          recomendado representa cerca del 11% de esa cifra.</p>
+    <div class="panels r d4" style="margin-top:26px">
+      <div class="panel good">
+        <h4>Lo que viene después del mes 4</h4>
+        <ul>
+          <li><b>La Prueba.</b> Seis predios referentes filmados contando qué cambió, con los números que cada uno valide. Es el material que hoy le falta al vendedor para no bonificar 40%.</li>
+          <li><b>El Ojeador.</b> La acción anual apoyada en el módulo de scouting que ya está activo y que en Ecuador consiguió que un jugador entrara a un club. Es la única pieza con potencia de titular nacional.</li>
+          <li>Las dos se cotizan cuando se decidan, con el sistema ya rodando y datos sobre la mesa.</li>
+        </ul>
       </div>
-      <div class="card">
-        <span class="num-tag">EL EFECTO BONIFICACIÓN</span>
-        <h3>$6.630.000 en el primer año</h3>
-        <p>Si de los 50 predios que entran cada mes, 10 se cierran con 10 puntos menos de bonificación,
-          son $85.000 mensuales de margen que se suman cada mes. En doce meses, más de $6.600.000
-          acumulados — y siguen corriendo el año siguiente.</p>
+      <div class="panel warn">
+        <h4>Lo que no proponemos</h4>
+        <ul>
+          <li>No tocamos las redes ni la pauta: ya las resuelven internamente y cobrarlo sería cobrar dos veces.</li>
+          <li>No rediseñamos el sitio. Lo hablamos en la reunión y la decisión de ustedes es clara.</li>
+          <li>No prometemos que la comunidad traiga predios por sí sola: es una palanca real pero lenta, y lo explicamos en la sección de métricas.</li>
+        </ul>
       </div>
     </div>
-    <p class="muted r d5" style="font-size:.82rem;margin-top:20px;max-width:840px">Los dos cálculos son
-      ilustrativos y usan el abono publicado en beelup.com/ar/club ($85.000). Con los números reales de
-      Beelup —abono promedio efectivo y tasa de baja— se rehacen en la primera semana de trabajo.</p>
   </div>
-  <div class="sfoot"><span class="num">15</span><span>Métricas</span></div>
+  <div class="sfoot"><span class="num">04</span><span>Qué proponemos</span></div>
 </section>
 
-<!-- ============ 16 · ROADMAP ============ -->
-<section id="roadmap" class="s-white" data-label="Roadmap">
+<!-- ============ 05 · POR QUE FUNCIONA ============ -->
+<section id="porque" class="s-violet" data-label="Por qué funciona">
   <div class="wrap">
-    <div class="eyebrow r">Cómo se pone en marcha</div>
+    <div class="eyebrow r">Por qué creemos que funciona</div>
+    <h2 class="h-lg r d1">Hay una cadena de siete eslabones.<br>Seis ya funcionan solos. <span class="mark">Uno está cortado</span>.</h2>
+    <p class="lead r d2">Nadie contrata un servicio de cámaras porque vio un video lindo. El camino entre
+      una jugada compartida y un predio nuevo es más largo, y casi todo ese camino Beelup ya lo tiene
+      resuelto.</p>
+
+    <div class="chain r d3" style="margin-top:36px">
+      <div class="lk"><span class="k ok">01 · OK</span><span class="t">Se juega y se graba</span><p>20.000 partidos por día</p></div>
+      <div class="lk"><span class="k ok">02 · OK</span><span class="t">El jugador descarga</span><p>60.000 jugadas por día</p></div>
+      <div class="lk"><span class="k ok">03 · OK</span><span class="t">La comparte</span><p>Es el motor que hizo crecer las redes</p></div>
+      <div class="lk cut"><span class="k">04 · CORTADO</span><span class="t">El predio aparece nombrado</span><p>Pasa a veces, y casi nunca de forma que el dueño se entere</p></div>
+    </div>
+    <div class="chain r d4" style="margin-top:10px">
+      <div class="lk"><span class="k">05</span><span class="t">El dueño lo ve y lo usa</span><p>Depende del 04. Hoy no tiene con qué</p></div>
+      <div class="lk"><span class="k">06</span><span class="t">Otro dueño lo ve</span><p>El predio referente es el canal de distribución</p></div>
+      <div class="lk"><span class="k">07</span><span class="t">El vendedor cierra</span><p>Necesita prueba para no resignar 40%</p></div>
+    </div>
+
+    <div class="quote r d5" style="margin-top:42px;max-width:920px">
+      Beelup le vende al predio «toda la exposición que vas a tener». Esa exposición existe de verdad,
+      pero hoy no tiene forma: no se ve, no se mide y no le llega al dueño en un formato que pueda usar.
+      <small>Todo lo que proponemos es, en el fondo, reparar el eslabón 04 y darle al 07 con qué trabajar.</small>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">05</span><span>Por qué funciona</span></div>
+</section>
+
+<!-- ============ 06 · COMO SE HACE ============ -->
+<section id="comosehace" class="s-white" data-label="Cómo se hace">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo se hace</div>
+    <h2 class="h-lg r d1">Una sola salida al mes.<br>El resto <span class="mark">se arma en post</span>.</h2>
+    <p class="lead r d2">Un programa con conducción no se sostiene grabando todas las semanas: son cuatro
+      jornadas al mes y el costo se vuelve inviable. Nuestro modelo graba una vez y publica varias.</p>
+
+    <div class="grid g3 r d3" style="margin-top:38px">
+      <div class="card">
+        <span class="num-tag">LA SEDE</span>
+        <h3>Se graba en un predio del Club</h3>
+        <p>El programa no tiene estudio: tiene sede, y la sede rota cada mes entre los predios del Club.
+          No hay costo de locación, ser sede se vuelve un beneficio que los predios quieren, y un
+          programa de deporte amateur grabado en una cancha se ve verdadero.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">LA JORNADA</span>
+        <h3>Media jornada, todo en bloque</h3>
+        <p>En esa única salida se graba la conducción de todos los programas del mes, la nota al dueño
+          del predio y el invitado. El Top 5 y El Duelo son material de archivo y se montan después, así
+          que el programa mantiene actualidad.</p>
+      </div>
+      <div class="card">
+        <span class="num-tag">LA CONDUCCIÓN</span>
+        <h3>Una dupla, contratada por temporada</h3>
+        <p>Alguien con oficio frente a cámara y alguien del mundo del deporte amateur. Una de las dos
+          personas, mujer: entre 45 y 50% de sus usuarios lo son. Popcorn hace el casting y redacta el
+          acuerdo; <b>el caché lo contrata y lo paga Beelup</b>.</p>
+      </div>
+    </div>
+
+    <div class="panels r d4" style="margin-top:32px">
+      <div class="panel good">
+        <h4>Qué necesitamos de Beelup</h4>
+        <ul>
+          <li>El material de jugadas ya identificado, como el que hoy alimenta sus redes.</li>
+          <li>La tasa de baja de predios y el listado de predios referentes.</li>
+          <li>Una persona de contacto para la reunión quincenal.</li>
+          <li>Devolución de cada programa dentro de las 48 horas. Entregamos 72 horas antes de publicar, con una ronda de ajustes incluida.</li>
+        </ul>
+      </div>
+      <div class="panel warn">
+        <h4>Condición previa · derechos de imagen</h4>
+        <ul>
+          <li>Las jugadas son de deportistas amateur y una parte son menores de edad. Antes de poner una jugada en un programa con marca y distribución hay que confirmar que los términos y condiciones de Beelup habilitan ese uso.</li>
+          <li>Es muy probable que ya esté cubierto, pero el tratamiento de menores suele ser el punto flojo y conviene verlo escrito.</li>
+          <li><b>Lo resuelve el área legal de Beelup.</b> Popcorn no produce hasta tener el visto bueno.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">06</span><span>Cómo se hace</span></div>
+</section>
+
+<!-- ============ 07 · CUANDO ============ -->
+<section id="cuando" class="s-paper" data-label="Cuándo">
+  <div class="wrap">
+    <div class="eyebrow r">Cuándo</div>
     <h2 class="h-lg r d1">Dos meses de preparación<br>y <span class="mark">al aire en la semana 9</span>.</h2>
     <p class="lead r d2">Un formato con conducción no se improvisa en cuatro semanas: hay que cerrar el
       casting, resolver los derechos, probar el sonido en cancha y grabar un piloto. Preferimos decirlo
       ahora y cumplirlo, antes que prometer una fecha que después se corre.</p>
-    <div class="tl r d3" style="margin-top:36px">
-      <div class="it"><div class="per">Mes 1</div><div><h4>Arranque</h4><p>Inmersión, diagnóstico cuantificado, concepto y nombre de la propiedad, formato y secciones, diseño del Club, sistema gráfico y tablero de métricas. Se define el listado real de predios referentes. <b>En paralelo arrancan el casting de conducción y la revisión legal de derechos de imagen.</b></p></div></div>
-      <div class="it"><div class="per">Mes 2</div><div><h4>Preproducción y piloto</h4><p>Casting cerrado y firmado, sede definida, plantillas gráficas terminadas, banco de jugadas organizado y calendario editorial de tres meses. <b>Se graba y se aprueba el piloto</b>, que es la entrega de este mes.</p></div></div>
+    <div class="tl r d3" style="margin-top:32px">
+      <div class="it"><div class="per">Mes 1</div><div><h4>Arranque</h4><p>Inmersión, diagnóstico cuantificado, concepto y nombre de la propiedad, formato y secciones, diseño del Club, sistema gráfico y tablero de métricas. En paralelo arrancan el casting de conducción y la revisión legal de derechos.</p></div></div>
+      <div class="it"><div class="per">Mes 2</div><div><h4>Preproducción y piloto</h4><p>Casting cerrado y firmado, sede definida, plantillas terminadas, banco de jugadas organizado y calendario editorial de tres meses. <b>Se graba y se aprueba el piloto</b>, que es la entrega de este mes.</p></div></div>
       <div class="it"><div class="per">Semana 9</div><div><h4>Primer programa al aire</h4><p>Sale el primer episodio de La Fecha con sus cortes verticales. Se mide desde el día uno.</p></div></div>
       <div class="it"><div class="per">Mes 3</div><div><h4>Ritmo y apertura del Club</h4><p>Programas en calendario, primeros duelos entre predios, incorporación de los primeros referentes y primer kit mensual.</p></div></div>
-      <div class="it"><div class="per">Mes 4</div><div><h4>La Prueba · gate de decisión</h4><p>Rodaje de los seis casos. Y la primera revisión honesta: si los números no muestran tracción, <b>se recorta el programa y la inversión se mueve a donde esté rindiendo</b>. Queda escrito desde ahora.</p></div></div>
-      <div class="it"><div class="per">Meses 5-6</div><div><h4>Lectura de negocio</h4><p>Reporte contra el tablero: bonificación promedio, bajas, altas que mencionan la comunidad. Se decide con datos si va El Ojeador, y si corresponde pasar el programa a frecuencia semanal.</p></div></div>
+      <div class="it"><div class="per">Mes 4</div><div><h4>Gate de decisión</h4><p>La primera revisión honesta: si los números no muestran tracción, <b>se recorta y la inversión se mueve a donde esté rindiendo</b>. Queda escrito desde ahora. Acá también se decide si entran La Prueba y El Ojeador.</p></div></div>
+      <div class="it"><div class="per">Meses 5-6</div><div><h4>Lectura de negocio</h4><p>Reporte contra el tablero: bonificación promedio, bajas y altas que mencionan la comunidad. Y si corresponde, el paso del programa a frecuencia semanal.</p></div></div>
     </div>
   </div>
-  <div class="sfoot"><span class="num">16</span><span>Roadmap</span></div>
+  <div class="sfoot"><span class="num">07</span><span>Cuándo</span></div>
 </section>
 
-<!-- ============ 17 · INVERSIÓN ============ -->
+<!-- ============ 08 · COMO SE MIDE ============ -->
+<section id="medimos" class="s-dark" data-label="Cómo se mide">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo se mide</div>
+    <h2 class="h-lg r d1">Si esto funciona, Beelup debería <span class="mark">bonificar menos</span>.</h2>
+    <p class="lead r d2">La métrica de vanidad sería el alcance del programa. La métrica real es cuánto
+      descuento hace falta para cerrar un predio. Hoy, entre 25% y 40%. Cada punto que se recupere es
+      margen recurrente.</p>
+
+    <div class="grid g4 r d3" style="margin-top:36px">
+      <div class="card"><span class="num-tag">EL INDICADOR MADRE</span><h3>Bonificación promedio para cerrar</h3><p>Si el diferencial se percibe, el descuento baja. Es el único número que conecta el contenido con la plata.</p></div>
+      <div class="card"><span class="num-tag">EL QUE DEFINE LA META</span><h3>Bajas de predios</h3><p>Mide fidelización real. Hoy no tenemos el dato: es lo primero que necesitamos.</p></div>
+      <div class="card"><span class="num-tag">EL PUENTE</span><h3>Altas que mencionan la comunidad</h3><p>Se pregunta en el alta. Conecta el contenido con la venta sin suponer nada.</p></div>
+      <div class="card"><span class="num-tag">EL ACTIVO</span><h3>Audiencia y Club activo</h3><p>Vistas, minutos vistos, y cuántos referentes están adentro y participando.</p></div>
+    </div>
+
+    <div class="panels r d4" style="margin-top:28px">
+      <div class="panel dk">
+        <h4>El tamaño del premio</h4>
+        <ul>
+          <li>Pasar de 1.000 a 1.500 predios son 500 abonos nuevos. Al abono publicado de $85.000, eso es <b>$510.000.000 de facturación anual incremental</b>.</li>
+          <li>Si de los 50 predios que entran cada mes, 10 se cierran con 10 puntos menos de bonificación, son $85.000 mensuales de margen que se suman cada mes: <b>más de $6.600.000 acumulados en el primer año</b>, y siguen corriendo.</li>
+        </ul>
+      </div>
+      <div class="panel dk">
+        <h4>Lo que no les vamos a prometer</h4>
+        <ul>
+          <li>El Club y la prueba comercial mueven el objetivo de forma directa. <b>El programa es la pieza de retorno más largo</b>: construye el activo que nadie copia, pero la cadena hasta que un predio nuevo firma tiene varios eslabones.</li>
+          <li>Por eso existe el gate del mes 4, y por eso lo escribimos acá en vez de descubrirlo juntos en el mes 6.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted r d5" style="font-size:.82rem;margin-top:20px;max-width:840px">Los cálculos usan el
+      abono publicado en beelup.com/ar/club. Con el abono promedio efectivo y la tasa de baja reales se
+      rehacen en la primera semana de trabajo.</p>
+  </div>
+  <div class="sfoot"><span class="num">08</span><span>Cómo se mide</span></div>
+</section>
+
+<!-- ============ 09 · INVERSION ============ -->
 <section id="inversion" class="s-paper" data-label="Inversión">
   <div class="wrap">
     <div class="eyebrow r">Inversión</div>
-    <h2 class="h-lg r d1">Armá tu selección y <span class="mark">te la mandamos</span>.</h2>
-    <p class="lead r d2">Tildá lo que quieras incluir. El total se calcula solo y el botón arma el mail
-      con tu selección. Valores en pesos, sin IVA.</p>
 
-    <div class="invest r d3" style="margin-top:42px">
+    <div class="reco r d1">
+      <div class="k">Nuestra recomendación</div>
+      <div class="big">$5.425.221 por mes<small>más $5.052.154 por única vez de arranque · valores sin IVA</small></div>
+      <div class="rows">
+        <div class="rr"><span>Arranque: estrategia, concepto y sistema <b>(una sola vez)</b></span><b>$5.052.154</b></div>
+        <div class="rr"><span>Dirección estratégica y creativa</span><b>$1.412.335 / mes</b></div>
+        <div class="rr"><span>La Fecha · programa quincenal</span><b>$2.750.080 / mes</b></div>
+        <div class="rr"><span>El Club de Referentes</span><b>$1.262.806 / mes</b></div>
+      </div>
+    </div>
+
+    <p class="lead r d2">Esa es la propuesta: las tres piezas juntas. El Club retiene, el programa le da
+      contenido al Club y la dirección las conduce — separadas rinden bastante menos. Abajo podés armar
+      otra combinación si preferís, y el botón te manda tu selección por mail.</p>
+
+    <div class="invest r d3" style="margin-top:38px">
       <div class="inv-box">
         <div class="inv-ghead"><span>Etapa 0 · pago único</span></div>
-        <div class="price-row fixed on" data-amount="5052154" data-type="once" data-fixed="1" data-name="Arranque: inmersión, estrategia y sistema creativo">
+        <div class="price-row fixed on" data-amount="5052154" data-type="once" data-fixed="1" data-name="Arranque: estrategia, concepto y sistema">
           <div class="pl">
             <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
             <span><span class="pl-t">Arranque estratégico y creativo</span>
-              <small>Condición del sistema. Sin esto, lo demás es producción sin estrategia. 114 horas de equipo.</small></span>
+              <small>Condición del sistema: define qué se hace y contra qué se mide. 114 horas de equipo.</small></span>
           </div>
-          <div class="pv">$5.052.154<span class="u">único · obligatorio</span></div>
+          <div class="pv">$5.052.154<span class="u">único</span></div>
         </div>
 
         <div class="inv-ghead"><span>Servicio mensual</span><span style="font-family:'Space Grotesk';font-weight:400;font-size:.72rem;letter-spacing:0;text-transform:none;color:var(--t-45)">valores por mes</span></div>
-        <div class="price-row on" data-amount="1412335" data-type="month" data-name="Dirección estratégica y creativa + consultoría de negocio">
+        <div class="price-row fixed on" data-amount="1412335" data-type="month" data-fixed="1" data-name="Dirección estratégica y creativa">
           <div class="pl">
             <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
             <span><span class="pl-t">Dirección estratégica y creativa</span>
-              <small>Reunión quincenal, plan mensual, briefs, curaduría y reporte. Más la revisión trimestral de oportunidades fuera del contenido. 27 h/mes.</small></span>
+              <small>Reunión quincenal, plan mensual, briefs, curaduría, reporte y la revisión trimestral de oportunidades. 27 h/mes.</small></span>
           </div>
-          <div class="pv">$1.412.335<span class="u">por mes</span></div>
+          <div class="pv">$1.412.335<span class="u">base del servicio</span></div>
         </div>
-        <div class="price-row on" data-amount="2750080" data-type="month" data-group="lafecha" data-name="La Fecha quincenal: 2 programas/mes + derivados">
+        <div class="price-row on" data-amount="2750080" data-type="month" data-name="La Fecha: programa quincenal + derivados">
           <div class="pl">
             <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <span><span class="pl-t">La Fecha · quincenal <em style="font-family:'Space Grotesk';font-weight:600;font-size:.72rem;color:var(--aqua-deep);letter-spacing:.08em">RECOMENDADO PARA ARRANCAR</em></span>
+            <span><span class="pl-t">La Fecha · programa quincenal</span>
               <small>2 programas al mes + 16 a 20 cortes verticales. Una salida de media jornada, cámara y equipo incluidos. 46 h/mes.</small></span>
           </div>
           <div class="pv">$2.750.080<span class="u">por mes</span></div>
         </div>
-        <div class="price-row" data-amount="3799272" data-type="month" data-group="lafecha" data-name="La Fecha semanal: 4 programas/mes + derivados">
-          <div class="pl">
-            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <span><span class="pl-t">La Fecha · semanal</span>
-              <small>4 programas al mes, misma mecánica. Conviene pasar a esta frecuencia recién en el mes 4. Alternativa a la quincenal. 72 h/mes.</small></span>
-          </div>
-          <div class="pv">$3.799.272<span class="u">por mes</span></div>
-        </div>
         <div class="price-row on" data-amount="1262806" data-type="month" data-name="Club de Referentes">
           <div class="pl">
             <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <span><span class="pl-t">Club de Referentes</span>
+            <span><span class="pl-t">El Club de Referentes</span>
               <small>Curaduría, kit mensual por predio, tabla de actividad y reunión trimestral. 36 h/mes.</small></span>
           </div>
           <div class="pv">$1.262.806<span class="u">por mes</span></div>
-        </div>
-
-        <div class="inv-ghead"><span>Producciones · por demanda</span></div>
-        <div class="price-row" data-amount="4988723" data-type="once" data-name="La Prueba: 6 predios referentes en video">
-          <div class="pl">
-            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <span><span class="pl-t">La Prueba · 6 casos filmados</span>
-              <small>3 medias jornadas en AMBA, 6 piezas largas + 12 verticales + placas con números.</small></span>
-          </div>
-          <div class="pv">$4.988.723<span class="u">único</span></div>
-        </div>
-        <div class="price-row" data-amount="5048762" data-type="once" data-name="El Ojeador: acción anual de scouting + prensa">
-          <div class="pl">
-            <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4"><path d="M20 6L9 17l-5-5"/></svg></span>
-            <span><span class="pl-t">El Ojeador · acción anual</span>
-              <small>Concepto, bases, pieza de lanzamiento, cobertura de la final y plan de prensa.</small></span>
-          </div>
-          <div class="pv">$5.048.762<span class="u">único</span></div>
         </div>
 
         <div class="totbox">
@@ -1056,102 +732,111 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
       <div>
         <div class="paybox">
           <h4>Formas de pago</h4>
-          <p><b>Etapa 0 y producciones (pago único).</b> Dos opciones: 100% anticipado con 3% de
-            descuento —el Arranque queda en <b>$4.900.590</b>— o 50% al inicio y 50% a los 30 días al
-            valor de lista.</p>
+          <p><b>Arranque (pago único).</b> Dos opciones: 100% anticipado con 3% de descuento —queda en
+            <b>$4.900.590</b>— o 50% al inicio y 50% a los 30 días al valor de lista.</p>
           <p><b>Servicio mensual.</b> Se factura por mes adelantado al valor de lista. El descuento por
             pago anticipado no aplica a los servicios recurrentes.</p>
-          <p style="font-size:.84rem;color:var(--t-45)">A todos los valores se les agrega IVA. Los
-            importes están expresados a valores de septiembre de 2026.</p>
+          <p style="font-size:.84rem;color:var(--t-45)">A todos los valores se les agrega IVA. Importes
+            expresados a valores de octubre de 2026.</p>
         </div>
         <div class="paybox">
-          <h4>Tres formas de arrancar</h4>
-          <p><b>Núcleo.</b> Arranque + Dirección estratégica: Popcorn piensa, Beelup ejecuta con su
-            equipo. <b>$1.412.335</b> por mes.</p>
-          <p><b>Recomendado.</b> Arranque + Dirección + La Fecha quincenal: es el armado que responde a lo
-            que pediste —pensar <em>y</em> ejecutar— y el que construye el activo. <b>$4.162.415</b> por mes.
-            El Club se suma en el mes 3.</p>
-          <p><b>Completo.</b> El sistema entero desde el mes 1. <b>$5.425.221</b> por mes.</p>
+          <h4>Si hay que empezar más chico</h4>
+          <p>Se puede arrancar por <b>Dirección estratégica + El Club</b>, que son las dos piezas de
+            retorno más rápido, y sumar el programa en el mes 4: <b>$2.675.141</b> por mes.</p>
+          <p style="font-size:.84rem;color:var(--t-45)">Es un armado válido, pero construye el activo de
+            contenido más lento. Lo decimos por transparencia, no porque sea lo que recomendamos.</p>
         </div>
         <div class="paybox" style="background:rgba(116,250,227,.14);border-color:rgba(11,182,162,.4)">
-          <h4>Qué necesitamos de Beelup</h4>
-          <p style="font-size:.88rem">Acceso al material de jugadas ya identificado (como el que hoy
-            alimenta las redes), la tasa de baja de predios, el listado de predios referentes, y una
-            persona de contacto para la reunión quincenal. Nada más.</p>
+          <h4>Qué paga Beelup aparte del fee</h4>
+          <p style="font-size:.88rem">El caché de la conducción (contratado por temporada), la suscripción
+            a la librería de música con licencia y, si los hubiera, cachés de invitados. La sede, el
+            equipo técnico y la producción están dentro del fee.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="sfoot"><span class="num">17</span><span>Inversión</span></div>
+  <div class="sfoot"><span class="num">09</span><span>Inversión</span></div>
 </section>
 
-<!-- ============ 18 · POPCORN ============ -->
-<section id="popcorn" class="s-white" data-label="Popcorn">
+<!-- ============ 10 · ALCANCE ============ -->
+<section id="alcance" class="s-white" data-label="Alcance">
   <div class="wrap">
-    <div class="split">
+    <div class="eyebrow r">El alcance, en limpio</div>
+    <h2 class="h-lg r d1">Lo que hacemos y, sobre todo, <span class="mark">lo que no</span>.</h2>
+    <p class="lead r d2">Beelup ya tiene equipo de community, una persona que busca y edita jugadas, otra
+      que hace el contenido comercial y otra que lleva la pauta con 28 anuncios activos y 15 piezas por
+      mes. Nada de eso entra acá.</p>
+
+    <div class="panels r d3" style="margin-top:36px">
+      <div class="panel good">
+        <h4>Incluye</h4>
+        <ul>
+          <li>Estrategia, concepto y diseño del sistema completo.</li>
+          <li>Dirección creativa y editorial permanente, con reunión quincenal.</li>
+          <li>Consultoría de negocio: revisión trimestral de oportunidades fuera del contenido.</li>
+          <li>Producción íntegra del programa y sus piezas derivadas, cámara y equipo incluidos.</li>
+          <li>Casting de conducción, negociación y redacción del acuerdo.</li>
+          <li>Gestión del Club de Referentes y su kit mensual.</li>
+          <li>Sistema gráfico, plantillas y placas reutilizables.</li>
+          <li>Reporte mensual contra el tablero de métricas acordado.</li>
+        </ul>
+      </div>
+      <div class="panel warn">
+        <h4>No incluye</h4>
+        <ul>
+          <li><b>El caché de la conducción:</b> lo contrata y lo paga Beelup.</li>
+          <li><b>Los derechos de imagen de las jugadas:</b> los resuelve el área legal de Beelup. Es condición de arranque.</li>
+          <li>La suscripción a la librería de música con licencia.</li>
+          <li>Community management y publicación: lo hace el equipo de Beelup.</li>
+          <li>Búsqueda y edición diaria de jugadas: ya tienen una persona dedicada.</li>
+          <li>Gestión de pauta y contenido comercial: ya resuelto internamente.</li>
+          <li>Inversión en medios, cachés de invitados y premios.</li>
+          <li>Desarrollo de producto y rediseño del sitio.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span class="num">10</span><span>Alcance</span></div>
+</section>
+
+<!-- ============ 11 · POPCORN Y PROXIMOS PASOS ============ -->
+<section id="cierre" class="s-violet" data-label="Próximos pasos">
+  <div class="wrap">
+    <div class="split" style="align-items:center">
       <div>
         <div class="eyebrow r">Quiénes lo hacen</div>
         <h2 class="h-lg r d1">No somos un proveedor de piezas.<br>Somos <span class="mark">socios estratégicos</span>.</h2>
         <p class="lead r d2">Popcorn es una agencia de marketing, comunicación y creatividad que trabaja
           desde una mirada de negocio. No vendemos publicaciones: acompañamos crecimiento. Por eso esta
-          propuesta empieza por tu tasa de baja y no por una grilla de contenidos.</p>
-        <p class="lead r d3">Integramos estrategia, creatividad, contenido, producción audiovisual,
-          diseño, desarrollo y pauta. En este proyecto ponemos las primeras cuatro, porque las otras
-          ya las tenés resueltas.</p>
-        <div class="logowall r d4">
+          propuesta empieza por su tasa de baja y no por una grilla de contenidos.</p>
+        <div class="logowall r d3">
           <span>Northfield School</span><span>Frambuesa Design</span><span>Mercado Cheque</span>
           <span>Transpack</span><span>Evel</span>
         </div>
-      </div>
-      <div class="r d3">
-        <div class="shot"><img src="img/padel.jpg" alt="Jugadores de pádel en la cancha"></div>
-        <div class="grid g2" style="margin-top:18px;gap:14px">
-          <div class="card" style="padding:20px">
-            <h3 style="font-size:.98rem">Equipo asignado</h3>
-            <p style="font-size:.86rem">Dirección de cuenta y estrategia · Dirección creativa ·
-              Dirección de arte · Content creator · Editor · Diseño · Supervisión de gerencia.</p>
-          </div>
-          <div class="card" style="padding:20px">
-            <h3 style="font-size:.98rem">Cómo trabajamos</h3>
-            <p style="font-size:.86rem">Reunión quincenal fija, plan mensual por escrito, y un reporte
-              que habla de negocio antes que de alcance.</p>
-          </div>
+        <div style="margin-top:36px" class="r d4">
+          <h3 class="h-md" style="margin-bottom:16px">Próximos pasos</h3>
+          <ul class="notelist">
+            <li><span class="bi">1</span><div style="color:var(--w-80)">Leerla con tu socio y mandarnos las dudas por mail.</div></li>
+            <li><span class="bi">2</span><div style="color:var(--w-80)">Reunión de revisión: la recorremos y ajustamos el alcance.</div></li>
+            <li><span class="bi">3</span><div style="color:var(--w-80)">Nos pasan la tasa de baja, los predios referentes y el estado del scouting en Argentina.</div></li>
+            <li><span class="bi">4</span><div style="color:var(--w-80)">Arrancamos. En nueve semanas sale el primer programa.</div></li>
+          </ul>
         </div>
       </div>
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center" class="r d3">
+        <div class="badge-close"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+        <h3 class="h-md" style="max-width:15ch;margin-bottom:20px">Que no dé lo mismo tener Beelup.</h3>
+        <p class="muted" style="font-size:.9rem;max-width:32ch">Es lo que dijiste en la reunión, y es
+          exactamente el problema que resuelve este sistema.</p>
+        <a class="cta" id="ctaCierre" href="#" style="margin-top:26px">Conversemos la propuesta <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <p class="muted" style="margin-top:28px;font-size:.84rem">
+          Florencia Grigolatto · Gerente de Operaciones<br>florencia@somospopcorn.com<br>
+          Válida hasta el 18 de octubre de 2026
+        </p>
+      </div>
     </div>
   </div>
-  <div class="sfoot"><span class="num">18</span><span>Popcorn</span></div>
-</section>
-
-<!-- ============ 19 · PRÓXIMOS PASOS ============ -->
-<section id="pasos" class="s-paper" data-label="Próximos pasos">
-  <div class="wrap">
-    <div class="eyebrow r">Próximos pasos</div>
-    <h2 class="h-lg r d1">Cuatro pasos, <span class="mark">sin fricción</span>.</h2>
-    <div class="grid g4 r d2" style="margin-top:40px">
-      <div class="card"><span class="num-tag">01</span><h3>Leerla en equipo</h3><p>Compartila con tu socio. Si hay dudas o algo no cierra, mandámelas por mail antes de la reunión.</p></div>
-      <div class="card"><span class="num-tag">02</span><h3>Reunión de revisión</h3><p>Nos juntamos, la recorremos y ajustamos el alcance a lo que realmente quieran arrancar.</p></div>
-      <div class="card"><span class="num-tag">03</span><h3>Los datos que faltan</h3><p>Tasa de baja, predios referentes y estado del scouting en Argentina. Con eso afinamos el plan.</p></div>
-      <div class="card"><span class="num-tag">04</span><h3>Arranque</h3><p>Firmamos, y en cuatro semanas sale el primer programa al aire.</p></div>
-    </div>
-  </div>
-  <div class="sfoot"><span class="num">19</span><span>Próximos pasos</span></div>
-</section>
-
-<!-- ============ 20 · CIERRE ============ -->
-<section id="cierre" class="s-violet" data-label="Cierre">
-  <div class="wrap" style="text-align:center;display:flex;flex-direction:column;align-items:center">
-    <div class="badge-close r"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
-    <h2 class="h-xl r d1" style="max-width:17ch">Que no dé lo mismo <span class="mark">tener Beelup</span>.</h2>
-    <p class="lead r d2" style="margin-left:auto;margin-right:auto;text-align:center">Es lo que dijiste
-      en la reunión y es, exactamente, el problema que resuelve este sistema.</p>
-    <a class="cta r d3" id="ctaCierre" href="#" style="margin-top:34px">Conversemos la propuesta <span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-    <p class="muted r d4" style="margin-top:34px;font-size:.86rem">
-      Florencia Grigolatto · Gerente de Operaciones · florencia@somospopcorn.com<br>
-      Propuesta válida hasta el 12 de octubre de 2026 · somospopcorn.com
-    </p>
-  </div>
-  <div class="sfoot"><span class="num">20</span><span>Beelup × Popcorn</span></div>
+  <div class="sfoot"><span class="num">11</span><span>Beelup × Popcorn</span></div>
 </section>
 
 <script>
@@ -1212,14 +897,7 @@ table.tbl{width:100%;border-collapse:collapse;min-width:640px}
   }
   rows.forEach(function(r){
     if (r.getAttribute('data-fixed')) return;
-    r.addEventListener('click', function(){
-      var g = r.getAttribute('data-group');
-      if (g && !r.classList.contains('on')) {
-        rows.forEach(function(o){ if (o !== r && o.getAttribute('data-group') === g) o.classList.remove('on'); });
-      }
-      r.classList.toggle('on');
-      recalc();
-    });
+    r.addEventListener('click', function(){ r.classList.toggle('on'); recalc(); });
   });
   recalc();
 
