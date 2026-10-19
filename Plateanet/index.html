@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Plateanet · Coberturas de teatro — Popcorn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · Propuesta Plateanet — paleta canónica (identidad-popcorn.md)
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violeta);color:var(--white);font-family:var(--font-text);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(1200px 700px at 78% -8%,rgba(162,98,229,.45),transparent 60%),
+             radial-gradient(1000px 800px at -10% 110%,rgba(0,253,226,.08),transparent 55%),
+             linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 45%,var(--violeta-grad-2) 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:var(--font-display);font-style:normal}
+em,i{font-style:normal}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ===== TOPBAR / PROGRESO / DOTS ===== */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:all .4s var(--ease)}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:12px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:var(--font-text);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.topbar .logo img{height:26px;width:auto}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.32);transition:all .3s var(--ease);box-shadow:0 0 0 1px rgba(18,18,22,.15)}
+.dots.on-paper a{background:rgba(88,13,159,.28)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ===== SECCIONES ===== */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 100px;overflow:hidden}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:28px;z-index:3;display:flex;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);margin-bottom:24px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.h-xl{font-weight:800;font-size:clamp(2.8rem,7.4vw,6.2rem);line-height:.98;letter-spacing:-.03em}
+.h-lg{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.02;letter-spacing:-.02em}
+.h-md{font-weight:700;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.1}
+.lead{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--w-80);max-width:760px;line-height:1.65}
+.lead b,.card p b{color:#fff;font-weight:600}
+.hl{background:var(--aqua);color:var(--tinta);padding:0 .18em;border-radius:.16em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.it{font-style:italic;color:var(--aqua);font-weight:700}
+.cy{color:var(--aqua)}
+
+/* modos */
+.mode-dark{background:var(--negro)}
+.mode-dark::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 600px at 85% 10%,rgba(88,13,159,.35),transparent 60%);z-index:0}
+.mode-paper{background:var(--papel);color:var(--tinta)}
+.mode-paper .lead{color:#3a3a40}
+.mode-paper .lead b{color:var(--tinta)}
+.mode-paper .eyebrow{color:var(--violeta)}
+.mode-paper .eyebrow::before{background:var(--violeta);box-shadow:none}
+.mode-paper .sfoot{color:rgba(18,18,18,.45)}
+.mode-paper .sfoot .num{color:var(--violeta)}
+.mode-paper .it{color:var(--violeta)}
+
+/* animación */
+.r{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.08s!important}.d2{transition-delay:.16s!important}.d3{transition-delay:.24s!important}.d4{transition-delay:.32s!important}.d5{transition-delay:.4s!important}
+
+/* ===== HERO ===== */
+.bg-photo{position:absolute;inset:0;z-index:0}
+.bg-photo img{width:100%;height:100%;object-fit:cover}
+.bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(42,4,84,.96) 25%,rgba(71,0,130,.78) 58%,rgba(85,0,143,.45))}
+.hero-ghost{position:absolute;top:-0.12em;right:-0.06em;z-index:1;font-family:var(--font-display);font-weight:800;font-size:clamp(7rem,20vw,19rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.10);letter-spacing:-.04em;pointer-events:none;user-select:none}
+.curve{position:absolute;z-index:1;pointer-events:none}
+.hero-sub{margin-top:28px;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--w-80);max-width:620px;line-height:1.6}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.pill{font-weight:500;font-size:13px;color:var(--w-80);border:1px solid var(--line);padding:9px 18px;border-radius:100px;background:rgba(255,255,255,.05)}
+.meta-band{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);max-width:980px}
+.meta-band div{padding:18px 18px 0 0}
+.meta-band .k{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.meta-band .v{font-family:var(--font-display);font-weight:600;font-size:1rem;margin-top:5px}
+.meta-band .v a{text-decoration:none;color:var(--aqua)}
+
+/* ===== CARDS ===== */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:28px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;line-height:1.2}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(0,253,226,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:18px}
+.ico svg{width:23px;height:23px}
+.big-num{font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--aqua-bright);margin-bottom:12px;letter-spacing:-.02em}
+
+/* foto insertada (modo E) */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.photo-in{border-radius:26px;overflow:hidden;position:relative;aspect-ratio:4/3.3;box-shadow:0 30px 70px rgba(26,3,47,.45)}
+.photo-in img{width:100%;height:100%;object-fit:cover}
+.photo-in .cap{position:absolute;left:18px;bottom:18px;display:flex;flex-wrap:wrap;gap:8px}
+.cap span{font-size:12px;font-weight:600;padding:7px 14px;border-radius:100px}
+.cap .a{background:var(--aqua);color:var(--violeta-900)}
+.cap .v{background:var(--violeta-900);color:var(--aqua)}
+.find{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+.find:last-child{border-bottom:none}
+.find .n{flex:none;font-family:var(--font-display);font-weight:800;color:var(--aqua-bright);font-size:1.5rem;width:46px;line-height:1.1}
+.find h3{font-size:1.06rem;font-weight:700;margin-bottom:4px}
+.find p{color:var(--w-65);font-size:.95rem}
+
+/* tres públicos */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px;position:relative}
+.trio .card{text-align:left}
+.hub{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px;flex-wrap:wrap}
+.hub .node{font-family:var(--font-display);font-weight:700;padding:14px 22px;border-radius:100px;border:1.5px solid var(--aqua-line);color:#fff;background:rgba(116,250,227,.06)}
+.hub .node.main{background:var(--aqua);color:var(--tinta);border-color:var(--aqua)}
+.hub .arr{color:var(--aqua);font-size:1.4rem}
+
+/* pipeline (papel) */
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:50px;position:relative}
+.pipe::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--violeta),var(--violeta-claro));z-index:0}
+.step{position:relative;z-index:1;padding:0 12px;text-align:center}
+.step .dot{width:56px;height:56px;border-radius:50%;margin:0 auto 18px;background:var(--violeta);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:1.05rem;box-shadow:0 0 0 6px var(--papel)}
+.step:nth-child(3) .dot{background:var(--aqua);color:var(--violeta-900)}
+.step h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;color:var(--tinta)}
+.step p{font-size:.9rem;color:#4a4a52;line-height:1.5}
+.step .when{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violeta);background:rgba(88,13,159,.08);padding:5px 10px;border-radius:100px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+.rule{background:#fff;border-radius:20px;padding:24px 24px;border:1px solid rgba(18,18,18,.06);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.rule:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(88,13,159,.12)}
+.rule .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--aqua);color:var(--violeta-900);padding:5px 11px;border-radius:100px;margin-bottom:12px}
+.rule h3{font-size:1.08rem;color:var(--tinta);margin-bottom:6px}
+.rule p{font-size:.94rem;color:#4a4a52}
+
+/* formatos */
+.fmt{position:relative}
+.fmt .lbl{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--aqua);margin-bottom:12px}
+.qa-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.qa-list span{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;padding:10px 16px;border-radius:100px;background:rgba(42,4,84,.55);border:1px solid var(--aqua-line)}
+.qa-list svg{width:15px;height:15px;color:var(--aqua)}
+
+/* opciones */
+.opt{background:rgba(26,3,47,.55);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),border-color .4s var(--ease)}
+.opt:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.opt .ph{aspect-ratio:16/10;position:relative;overflow:hidden}
+.opt .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+.opt .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,4,84,.05),rgba(26,3,47,.75))}
+.opt .badge{position:absolute;top:14px;left:14px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:100px;background:var(--aqua);color:var(--violeta-900)}
+.opt .badge.alt{background:var(--violeta-900);color:var(--aqua);border:1px solid var(--aqua-line)}
+.opt .body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+.opt .kind{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45)}
+.opt h3{font-size:1.45rem;font-weight:800;margin:6px 0 10px}
+.opt .desc{color:var(--w-65);font-size:.95rem;margin-bottom:18px}
+.opt ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.opt li{display:flex;gap:10px;font-size:.93rem;color:var(--w-80);line-height:1.45}
+.opt li svg{flex:none;width:17px;height:17px;color:var(--aqua);margin-top:2px}
+.opt .price{margin-top:auto;padding-top:18px;border-top:1px solid var(--line-soft)}
+.opt .price .p{font-family:var(--font-display);font-weight:800;font-size:1.65rem;line-height:1.1}
+.opt .price .s{font-size:12px;color:var(--w-45);margin-top:4px}
+
+/* ===== INVERSIÓN (papel) ===== */
+.inv{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;margin-top:40px;align-items:start}
+.blk{background:#fff;border-radius:22px;padding:26px;border:1px solid rgba(18,18,18,.07);margin-bottom:18px}
+.blk h3{font-size:1.1rem;color:var(--tinta);margin-bottom:4px}
+.blk .hint{font-size:.88rem;color:#5a5a62;margin-bottom:16px}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ch{position:relative;border:1.5px solid rgba(18,18,18,.12);border-radius:16px;padding:18px;cursor:pointer;transition:all .25s var(--ease);background:var(--papel);text-align:left;font:inherit;color:var(--tinta)}
+.ch:hover{border-color:var(--violeta-claro)}
+.ch[aria-checked="true"]{border-color:var(--violeta);background:rgba(88,13,159,.06);box-shadow:0 0 0 3px rgba(88,13,159,.12)}
+.ch .t{font-family:var(--font-display);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;gap:10px}
+.ch .t .rd{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid rgba(18,18,18,.25);position:relative}
+.ch[aria-checked="true"] .rd{border-color:var(--violeta)}
+.ch[aria-checked="true"] .rd::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--violeta)}
+.ch .a{font-family:var(--font-display);font-weight:800;font-size:1.3rem;margin-top:8px;color:var(--violeta)}
+.ch .a small{font-family:var(--font-text);font-weight:500;font-size:.75rem;color:#5a5a62}
+.ch .x{font-size:.82rem;color:#5a5a62;margin-top:4px}
+.ch .pref{position:absolute;top:-10px;right:12px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--aqua);color:var(--violeta-900);padding:4px 9px;border-radius:100px}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:40px;height:40px;border-radius:12px;border:1.5px solid rgba(18,18,18,.15);background:var(--papel);font-size:1.3rem;font-weight:700;cursor:pointer;color:var(--violeta)}
+.stepper button:hover{border-color:var(--violeta)}
+.stepper .val{font-family:var(--font-display);font-weight:800;font-size:1.5rem;min-width:28px;text-align:center;color:var(--tinta)}
+.stepper .lbl{font-size:.9rem;color:#5a5a62}
+.toggle{display:flex;align-items:center;gap:12px;cursor:pointer;font-family:var(--font-display);font-weight:700;color:var(--tinta);margin-bottom:14px;background:none;border:none;font-size:1rem}
+.toggle .sw{width:46px;height:26px;border-radius:100px;background:rgba(18,18,18,.15);position:relative;transition:background .25s}
+.toggle .sw::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .25s var(--ease);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle[aria-checked="true"] .sw{background:var(--violeta)}
+.toggle[aria-checked="true"] .sw::after{left:23px}
+.inst-pay{display:none}
+.inst-pay.on{display:grid}
+.summary{position:sticky;top:90px;background:linear-gradient(160deg,var(--violeta-grad-1),var(--violeta) 60%,var(--violeta-grad-2));color:#fff;border-radius:24px;padding:30px;box-shadow:0 30px 60px rgba(88,13,159,.28)}
+.summary .k{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65)}
+.summary .line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:.93rem;color:var(--w-80)}
+.summary .line b{font-family:var(--font-display);color:#fff;white-space:nowrap}
+.summary .tot{margin-top:18px}
+.summary .tot .v{font-family:var(--font-display);font-weight:800;font-size:2.1rem;line-height:1.05;color:var(--aqua)}
+.summary .tot .s{font-size:12px;color:var(--w-65);margin-top:4px}
+.summary .empty{font-size:.92rem;color:var(--w-65);padding:12px 0}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:16px 22px;border-radius:100px;font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--tinta);background:var(--aqua);text-decoration:none;border:none;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,253,226,.35)}
+.cta svg{width:18px;height:18px}
+.cta[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.terms{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.term{font-size:.88rem;color:#3a3a40;background:#fff;border-radius:16px;padding:16px 18px;border:1px solid rgba(18,18,18,.06)}
+.term b{display:block;font-family:var(--font-display);color:var(--violeta);font-size:.95rem;margin-bottom:3px}
+
+/* alcance */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:38px}
+.panel{background:var(--card);border:1px solid var(--line-soft);border-radius:22px;padding:30px}
+.panel.good{border-color:var(--aqua-line);background:linear-gradient(165deg,rgba(0,253,226,.07),rgba(255,255,255,.03))}
+.panel h3{font-size:1.15rem;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.panel h3 .ic{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(0,253,226,.14);border:1px solid var(--aqua-line);color:var(--aqua)}
+.panel.warn h3 .ic{background:rgba(255,255,255,.08);border-color:var(--line);color:#fff}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.panel li{display:flex;gap:12px;color:var(--w-80);font-size:.96rem;line-height:1.5}
+.panel li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--aqua)}
+.panel.warn li svg{color:var(--w-45)}
+.panel li b{color:#fff;font-weight:600}
+
+/* experiencia */
+.reels{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:40px}
+.reel{position:relative;border-radius:22px;overflow:hidden;cursor:pointer;border:1px solid var(--line-soft);aspect-ratio:16/9;background:#000}
+.reel img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease),filter .4s}
+.reel:hover img{transform:scale(1.04);filter:brightness(.8)}
+.reel .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:var(--aqua);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 40px rgba(0,253,226,.4);transition:transform .3s}
+.reel:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.reel .play svg{width:28px;height:28px;color:var(--violeta-900);margin-left:4px}
+.reel-wrap .rl{display:block;margin-top:12px;font-family:var(--font-display);font-weight:700;font-size:1rem}
+.reel-wrap .rl small{display:block;font-family:var(--font-text);font-weight:500;font-size:.85rem;color:var(--w-65)}
+.logos{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;align-items:center}
+.logos .lg{background:#fff;border-radius:14px;height:62px;padding:12px 20px;display:flex;align-items:center;justify-content:center;min-width:120px}
+.logos .lg img{max-height:36px;width:auto;max-width:120px;object-fit:contain}
+.logos .lg.t{font-family:var(--font-display);font-weight:700;color:var(--tinta);font-size:.95rem}
+.stats{display:flex;flex-wrap:wrap;gap:16px 60px;margin-top:44px;border-top:1px solid var(--line-soft);padding-top:30px}
+.stat .v{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,4vw,3rem);color:var(--aqua-bright);line-height:1}
+.stat .l{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);margin-top:8px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(10,2,22,.92);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb .fr{width:min(1100px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden}
+.lb iframe{width:100%;height:100%;border:0}
+.lb .x{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--line);color:#fff;font-size:1.4rem;cursor:pointer}
+
+/* timeline */
+.tl{position:relative;margin-top:44px;padding-left:36px;max-width:860px}
+.tl::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--aqua),var(--violeta-claro))}
+.tl .it2{position:relative;padding:0 0 30px}
+.tl .it2::before{content:'';position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--violeta);border:3px solid var(--aqua)}
+.tl .when{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua)}
+.tl h3{font-size:1.15rem;margin:4px 0 4px}
+.tl p{color:var(--w-65);font-size:.96rem}
+
+/* próximos pasos + cierre */
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.steps4 .card .n{font-family:var(--font-display);font-weight:800;color:var(--aqua);font-size:13px;letter-spacing:.12em;margin-bottom:14px;display:block}
+.close-title{font-weight:800;font-size:clamp(2.4rem,6vw,4.8rem);line-height:1;letter-spacing:-.03em;max-width:16ch}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:38px;padding:18px 40px;border-radius:100px;font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--tinta);background:var(--aqua);text-decoration:none;box-shadow:0 12px 36px rgba(0,253,226,.3);transition:transform .25s}
+.cta-go:hover{transform:translateY(-3px)}
+.cta-go svg{width:20px;height:20px}
+.sign{margin-top:54px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.sign img{height:44px;width:auto}
+.sign .who{font-size:.95rem;color:var(--w-80);line-height:1.5;border-left:1px solid var(--line);padding-left:22px}
+.sign .who b{color:#fff;font-family:var(--font-display)}
+.sign .who a{color:var(--aqua);text-decoration:none}
+.credits{margin-top:40px;font-size:11px;color:var(--w-45);max-width:760px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:980px){
+  .dots{display:none}
+  section{padding:100px 18px 90px}
+  .sfoot{left:18px;right:18px;font-size:9px}
+  .topbar,.topbar.scrolled{padding:14px 18px}
+  .topbar .brand-tag{display:none}
+  .g2,.g3,.g4,.split,.trio,.twocol,.reels,.inv,.steps4{grid-template-columns:1fr}
+  .rules,.terms{grid-template-columns:1fr 1fr}
+  .pipe{grid-template-columns:1fr;gap:26px}
+  .pipe::before{display:none}
+  .step{text-align:left;display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:0}
+  .step .dot{margin:0;grid-row:span 3;box-shadow:none}
+  .meta-band{grid-template-columns:1fr 1fr}
+  .summary{position:relative;top:0}
+  .curve{display:none}
+}
+@media(max-width:560px){
+  .rules,.terms,.choice{grid-template-columns:1fr}
+  .meta-band{grid-template-columns:1fr}
+  .hub .arr{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta · Plateanet · Coberturas de teatro</div>
+  <div class="logo"><img src="img/logo-popcorn-blanco.png" alt="Popcorn"></div>
+</header>
+<nav class="dots" id="dots" aria-label="Secciones"></nav>
+
+<!-- ============ 1 · HERO ============ -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo"><img src="img/hero-sala.jpg" alt="Sala de teatro con público en sus butacas" loading="eager"></div>
+  <div class="hero-ghost" aria-hidden="true">Telón</div>
+  <svg class="curve" style="right:-120px;bottom:-160px;width:620px;height:620px" viewBox="0 0 600 600" fill="none" aria-hidden="true"><path d="M590 40C420 60 250 160 190 330S160 560 40 600" stroke="#74FAE3" stroke-width="26" stroke-linecap="round" opacity=".9"/></svg>
+  <div class="wrap">
+    <div class="eyebrow r">Propuesta comercial · Plateanet × Popcorn</div>
+    <h1 class="h-xl r d1">Cada función,<br>contada como un <span class="hl">estreno</span>.</h1>
+    <p class="hero-sub r d2">Coberturas de teatro para redes con agenda confirmada de antemano, cámara y edición profesional, y material que llega listo para publicar: sin que el equipo de Plateanet tenga que volver a editarlo.</p>
+    <div class="pills r d3">
+      <span class="pill">Coberturas de 4 horas</span>
+      <span class="pill">Reel en 4K</span>
+      <span class="pill">40 a 50 fotos por cobertura</span>
+      <span class="pill">Entrega en 5 días hábiles</span>
+      <span class="pill">Videos institucionales</span>
+    </div>
+    <div class="meta-band r d4">
+      <div><div class="k">Preparada para</div><div class="v">Marketing · Plateanet</div></div>
+      <div><div class="k">Fecha</div><div class="v">19 de octubre de 2026</div></div>
+      <div><div class="k">Válida hasta</div><div class="v">29 de octubre de 2026</div></div>
+      <div><div class="k">Contacto</div><div class="v"><a href="mailto:florencia@somospopcorn.com">florencia@somospopcorn.com</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · LO QUE NOS CONTARON ============ -->
+<section id="contexto" data-label="Lo que escuchamos">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow r">Lo que escuchamos</div>
+      <h2 class="h-lg r d1">El problema no es filmar.<br>Es <span class="hl">todo lo demás</span>.</h2>
+      <p class="lead r d2" style="margin-top:20px">En la reunión del 8 de octubre nos contaron cómo funcionan hoy las coberturas. Ninguno de los cuatro puntos es técnico: son de <b>organización y de criterio</b>. Por eso la propuesta empieza por ahí.</p>
+      <div class="r d3" style="margin-top:22px">
+        <div class="find"><span class="n">01</span><div><h3>La agenda se trababa</h3><p>Fechas pedidas con un mes de anticipación que igual quedaban sin disponibilidad, y producciones que piden contenido con una semana de aviso.</p></div></div>
+        <div class="find"><span class="n">02</span><div><h3>Seis fotos por obra</h3><p>Cuando esas fotos las necesitan después la producción, el teatro y el propio Plateanet.</p></div></div>
+        <div class="find"><span class="n">03</span><div><h3>Errores que nadie corregía</h3><p>Un logo de Plateanet invertido que no se cambió, y crudos que terminaban editándose adentro, aun pagando el servicio.</p></div></div>
+        <div class="find"><span class="n">04</span><div><h3>Un video que no se nota de agencia</h3><p>La búsqueda es otra: que se vea que hubo cámara, edición y una idea detrás, y que no sea siempre el mismo video.</p></div></div>
+      </div>
+    </div>
+    <div class="photo-in r d2">
+      <img src="img/corrientes.jpg" alt="Marquesina de teatro sobre Avenida Corrientes, con público en la vereda">
+      <div class="cap"><span class="a">Marquesina</span><span class="v">Sala</span><span class="a">Público</span><span class="v">Elenco</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Diagnóstico · reunión del 08/10</span><span class="num">01 — Contexto</span></div>
+</section>
+
+<!-- ============ 3 · TESIS ============ -->
+<section id="tesis" class="mode-dark" data-label="Nuestra mirada">
+  <svg class="curve" style="left:-140px;bottom:-200px;width:560px;height:560px" viewBox="0 0 600 600" fill="none" aria-hidden="true"><path d="M10 80C200 120 360 260 400 420S470 580 600 590" stroke="#580D9F" stroke-width="30" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="eyebrow r">Nuestra mirada</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Una cobertura no es un video.<br>Es material para <span class="it">tres partes.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Plateanet está en el medio entre la producción y el teatro. Cada cobertura tiene que dejar contento a los tres, y eso cambia qué hay que entregar: no alcanza con un reel bien editado si después no hay fotos para la producción o el material no se puede reutilizar.</p>
+    <div class="hub r d3">
+      <span class="node">La producción</span><span class="arr">←</span>
+      <span class="node main">La cobertura</span><span class="arr">→</span>
+      <span class="node">El teatro</span>
+    </div>
+    <div class="trio r d4">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3"/></svg></div><h3>Para Plateanet</h3><p>Un reel con gancho en los primeros segundos y ritmo hasta el final, pensado para que se vea completo en redes. Más los crudos ordenados, para sumar contenido propio.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg></div><h3>Para la producción</h3><p>Fotos de la obra y del elenco con calidad para que la producción las use en su propia comunicación. Es lo que hace que la próxima producción quiera trabajar con Plateanet.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div><h3>Para el teatro</h3><p>Marquesina, sala llena y gente entrando: el registro institucional que el teatro también pide, sin que el equipo tenga que interrumpir la función.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Una cobertura · tres usos</span><span class="num">02 — Mirada</span></div>
+</section>
+
+<!-- ============ 4 · CÓMO TRABAJAMOS ============ -->
+<section id="metodo" class="mode-paper" data-label="Cómo trabajamos">
+  <div class="wrap">
+    <div class="eyebrow r">Cómo trabajamos</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Que nadie tenga que <span class="hl">perseguir</span> una fecha.</h2>
+    <p class="lead r d2" style="margin-top:20px">Cada cobertura tiene un responsable de proyecto de Popcorn de punta a punta: confirma la fecha, prepara la cobertura con ustedes y entrega. Ustedes siguen ocupándose de lo que ya hacen bien, que es el permiso del teatro y la producción.</p>
+    <div class="pipe r d3">
+      <div class="step"><div class="dot">01</div><h3>Agenda del mes</h3><p>Les compartimos las fechas disponibles con un mes de anticipación y reservamos las coberturas del pack.</p><span class="when">Mes anterior</span></div>
+      <div class="step"><div class="dot">02</div><h3>Previa</h3><p>Revisamos la obra, el guion de preguntas y el enfoque del video. Definimos qué fotos necesita cada parte.</p><span class="when">Semana previa</span></div>
+      <div class="step"><div class="dot">03</div><h3>Cobertura</h3><p>Hasta 4 horas en sala: entrevistas previas, parte de la función, público y el después.</p><span class="when">Día de función</span></div>
+      <div class="step"><div class="dot">04</div><h3>Edición</h3><p>Reel de hasta 1 minuto, selección y tratamiento de fotos, y crudos organizados.</p><span class="when">Días 1 a 4</span></div>
+      <div class="step"><div class="dot">05</div><h3>Entrega</h3><p>Material completo en una carpeta compartida, con una ronda de ajustes incluida.</p><span class="when">Hasta 5 días hábiles</span></div>
+    </div>
+    <div class="rules r d4">
+      <div class="rule"><span class="tag">Agenda</span><h3>Fechas confirmadas, no pedidas</h3><p>Las coberturas del mes quedan reservadas en la agenda del equipo. Los pedidos con una semana de aviso se resuelven según disponibilidad, y les respondemos en el día.</p></div>
+      <div class="rule"><span class="tag">Calidad</span><h3>Los errores los corregimos nosotros</h3><p>Logo, placas, textos o un corte que no funciona se corrigen dentro de la ronda de ajustes. El material no vuelve a manos del equipo de Plateanet para arreglarlo.</p></div>
+      <div class="rule"><span class="tag">Marca</span><h3>Plateanet bien aplicado</h3><p>Antes de la primera cobertura armamos con ustedes las placas, el uso del logo y del micrófono con marca, para que todas las piezas salgan iguales.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Agenda · previa · cobertura · edición · entrega</span><span class="num">03 — Método</span></div>
+</section>
+
+<!-- ============ 5 · ENFOQUE CREATIVO ============ -->
+<section id="creatividad" data-label="Enfoque creativo">
+  <div class="hero-ghost" aria-hidden="true" style="font-size:clamp(6rem,16vw,15rem)">Hook</div>
+  <div class="wrap">
+    <div class="eyebrow r">Enfoque creativo</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Que no sea siempre <span class="hl">el mismo video</span>.</h2>
+    <p class="lead r d2" style="margin-top:20px">Proponemos rotar entre formatos según la obra y lo que la producción necesite mostrar. La estructura se mantiene, para que se reconozca a Plateanet; lo que cambia es la entrada al video. Estos son puntos de partida para definir juntos en el arranque.</p>
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <div class="card fmt"><span class="lbl">Formato 01</span><h3>La previa</h3><p>Camarines, maquillaje, el elenco antes de salir. El video arranca donde el público nunca entra.</p></div>
+      <div class="card fmt"><span class="lbl">Formato 02</span><h3>Una pregunta, todo el elenco</h3><p>La misma pregunta a cada actor, cortada a ritmo. Funciona para mostrar el elenco completo en menos de un minuto.</p></div>
+      <div class="card fmt"><span class="lbl">Formato 03</span><h3>A la salida</h3><p>El público responde con el micrófono de Plateanet apenas termina la función. Es la recomendación que más convence.</p></div>
+      <div class="card fmt"><span class="lbl">Formato 04</span><h3>Una escena que engancha</h3><p>Abrir con el momento más fuerte de la obra, sin contexto, y recién después contar qué es y dónde se ve.</p></div>
+      <div class="card fmt"><span class="lbl">Formato 05</span><h3>Detrás del telón</h3><p>Técnicos, luces, escenografía. El oficio del teatro como historia, ideal para fechas especiales de una sala.</p></div>
+      <div class="card fmt"><span class="lbl">Formato 06</span><h3>La voz de Plateanet</h3><p>Una conducción reconocible, con el micrófono de marca, que hile entrevistas y obra en todas las coberturas.</p></div>
+    </div>
+    <div class="qa-list r d4">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Gancho en los primeros segundos</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Subtítulos para ver sin sonido</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Formato vertical para reels</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Cierre con la obra, la sala y dónde comprar</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Formatos rotativos · misma estructura de marca</span><span class="num">04 — Creatividad</span></div>
+</section>
+
+<!-- ============ 6 · OPCIONES ============ -->
+<section id="opciones" class="mode-dark" data-label="Las opciones">
+  <div class="wrap">
+    <div class="eyebrow r">La propuesta</div>
+    <h2 class="h-lg r d1">Dos formas de cubrir una función.<br>Una para los <span class="it">grandes momentos.</span></h2>
+    <p class="lead r d2" style="margin-top:20px">Las dos coberturas entregan lo mismo y en el mismo plazo. La diferencia está en quién filma y con qué equipo. El video institucional es una producción aparte, con guion y jornada completa.</p>
+    <div class="grid g3 r d3" style="margin-top:44px">
+      <article class="opt">
+        <div class="ph"><img src="img/camara-esencial.jpg" alt="Content creator filmando con cámara y estabilizador"><span class="badge alt">Por cobertura</span></div>
+        <div class="body">
+          <span class="kind">Opción 1</span>
+          <h3>Cobertura Esencial</h3>
+          <p class="desc">Un content creator que filma en 4K y hace las fotos. Ágil, liviano y fácil de mover entre camarines, sala y vereda.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Hasta 4 horas en sala</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>1 reel de hasta 1 minuto en 4K</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>40 a 50 fotos de obra, sala y público</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Crudos organizados</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Coordinación de agenda y entrega en 5 días hábiles</li>
+          </ul>
+          <div class="price"><div class="p">$777.118 <small style="font-size:.9rem;font-weight:600">+ IVA</small></div><div class="s">por cobertura · pack de 2 por mes: $1.554.236 + IVA</div></div>
+        </div>
+      </article>
+      <article class="opt">
+        <div class="ph"><img src="img/camara-pro.jpg" alt="Camarógrafo profesional con cámara de cine en rodaje"><span class="badge">Recomendada</span></div>
+        <div class="body">
+          <span class="kind">Opción 2</span>
+          <h3>Cobertura Profesional</h3>
+          <p class="desc">Un camarógrafo profesional con equipo de cine, media jornada. Es la opción para que se note a primera vista que hay una agencia detrás.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Media jornada (4 horas) en sala</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>1 reel de hasta 1 minuto en 4K</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>40 a 50 fotos de obra, sala, marquesina y público</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Crudos organizados</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Coordinación de agenda y entrega en 5 días hábiles</li>
+          </ul>
+          <div class="price"><div class="p">$1.416.306 <small style="font-size:.9rem;font-weight:600">+ IVA</small></div><div class="s">por cobertura · pack de 2 por mes: $2.832.611 + IVA</div></div>
+        </div>
+      </article>
+      <article class="opt">
+        <div class="ph"><img src="img/institucional.jpg" alt="Sala de teatro iluminada durante una función"><span class="badge alt">Por pieza</span></div>
+        <div class="body">
+          <span class="kind">Producción especial</span>
+          <h3>Video Institucional</h3>
+          <p class="desc">Para aniversarios, premios o lanzamientos de temporada: una pieza con guion, pensada para durar más que una semana en redes.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Preproducción con guion y coordinación audiovisual</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Rodaje de jornada completa</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Pieza de 1 a 2 minutos con edición senior</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>Ideal para el aniversario de noviembre</li>
+          </ul>
+          <div class="price"><div class="p">$2.461.161 <small style="font-size:.9rem;font-weight:600">+ IVA</small></div><div class="s">100% anticipado · o $2.537.280 + IVA en 50% + 50%</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="sfoot"><span>Esencial · Profesional · Institucional</span><span class="num">05 — Opciones</span></div>
+</section>
+
+<!-- ============ 7 · INVERSIÓN ============ -->
+<section id="inversion" class="mode-paper" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Armá tu <span class="hl">pack</span>.</h2>
+    <p class="lead r d2" style="margin-top:18px">Elegí el tipo de cobertura, sumá las que necesites por encima de las dos del mes y, si querés, el video institucional. El resumen se arma solo y nos llega por mail con un clic. Todos los valores son <b>en pesos y más IVA</b>.</p>
+    <div class="inv">
+      <div class="r d3">
+        <div class="blk">
+          <h3>1 · Pack mensual de 2 coberturas</h3>
+          <p class="hint">Servicio recurrente: se abona por mes, 100% por adelantado.</p>
+          <div class="choice" role="radiogroup" aria-label="Tipo de cobertura">
+            <button type="button" class="ch" role="radio" aria-checked="false" data-plan="esencial"><div class="t">Esencial<span class="rd"></span></div><div class="a">$1.554.236 <small>+ IVA / mes</small></div><div class="x">2 coberturas con content creator 4K</div></button>
+            <button type="button" class="ch" role="radio" aria-checked="true" data-plan="pro"><span class="pref">Recomendada</span><div class="t">Profesional<span class="rd"></span></div><div class="a">$2.832.611 <small>+ IVA / mes</small></div><div class="x">2 coberturas con camarógrafo profesional</div></button>
+          </div>
+        </div>
+        <div class="blk">
+          <h3>2 · Coberturas adicionales en el mes</h3>
+          <p class="hint">Para estrenos o pedidos de producción por encima de las dos del pack. Cada una se cobra al valor de una cobertura del plan elegido: <span id="extraUnit">$1.416.306</span> + IVA.</p>
+          <div class="stepper">
+            <button type="button" id="exMinus" aria-label="Quitar una cobertura">−</button>
+            <span class="val" id="exVal">0</span>
+            <button type="button" id="exPlus" aria-label="Sumar una cobertura">+</button>
+            <span class="lbl">coberturas adicionales</span>
+          </div>
+        </div>
+        <div class="blk">
+          <button type="button" class="toggle" id="instToggle" role="switch" aria-checked="false"><span class="sw"></span>3 · Sumar un video institucional</button>
+          <p class="hint" style="margin-bottom:12px">Proyecto único: se factura por pieza, aparte del pack. Elegí la forma de pago.</p>
+          <div class="choice inst-pay" id="instPay" role="radiogroup" aria-label="Forma de pago del institucional">
+            <button type="button" class="ch" role="radio" aria-checked="true" data-pay="ant"><span class="pref">Valor preferencial</span><div class="t">100% anticipado<span class="rd"></span></div><div class="a">$2.461.161 <small>+ IVA</small></div><div class="x">Sin costo financiero</div></button>
+            <button type="button" class="ch" role="radio" aria-checked="false" data-pay="5050"><div class="t">50% + 50%<span class="rd"></span></div><div class="a">$2.537.280 <small>+ IVA</small></div><div class="x">50% al inicio y 50% al finalizar o a los 30 días, lo que ocurra primero</div></button>
+          </div>
+        </div>
+      </div>
+      <aside class="summary r d4" aria-live="polite">
+        <div class="k">Tu selección</div>
+        <div id="sumLines"></div>
+        <div class="tot"><div class="k">Total mensual</div><div class="v" id="sumMonth">$0</div><div class="s">+ IVA · 100% por adelantado</div></div>
+        <div class="tot" id="sumInstWrap" style="display:none"><div class="k">Institucional (única vez)</div><div class="v" id="sumInst" style="font-size:1.6rem">$0</div><div class="s" id="sumInstPay">+ IVA</div></div>
+        <a class="cta" id="cta" href="#">Enviar mi selección <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </aside>
+    </div>
+    <div class="terms r d4">
+      <div class="term"><b>Pack mensual</b>Valor completo, 100% por adelantado. El descuento por pago anticipado no aplica a servicios recurrentes.</div>
+      <div class="term"><b>Institucional</b>Dos formas de pago: 100% anticipado con valor preferencial, o 50% al inicio y 50% al finalizar.</div>
+      <div class="term"><b>Ajuste</b>El pack mensual se actualiza por IPC (INDEC) según la evolución de los costos.</div>
+      <div class="term"><b>Validez</b>Valores vigentes hasta el 29/10/2026. Todos los importes son más IVA.</div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Pack mensual · adicionales · institucional</span><span class="num">06 — Inversión</span></div>
+</section>
+
+<!-- ============ 8 · ALCANCE ============ -->
+<section id="alcance" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1">Qué incluye y qué <span class="hl">no</span>.</h2>
+    <p class="lead r d2" style="margin-top:18px">Para que no haya sorpresas en la factura ni en la sala.</p>
+    <div class="twocol r d3">
+      <div class="panel good">
+        <h3><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12l5 5L20 7"/></svg></span>Incluye</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span><b>Responsable de proyecto</b> que coordina agenda, previa y entrega de cada cobertura.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span><b>Propuesta de enfoque</b> para cada video, a partir del guion de preguntas que ya usan.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span><b>Equipo y traslado</b> del equipo técnico a la sala.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span><b>Reel, fotos y crudos</b> entregados en carpeta compartida.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span><b>Una ronda de ajustes</b> por pieza, más la corrección de cualquier error de marca.</span></li>
+        </ul>
+      </div>
+      <div class="panel warn">
+        <h3><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 6l12 12M18 6L6 18"/></svg></span>No incluye</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Permisos y accesos</b> con el teatro y la producción, que gestiona Plateanet.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Coberturas fuera de CABA</b> (por ejemplo, La Plata): se suman movilidad, $43.280 + IVA cada 50 km, y viáticos, $37.097 + IVA por persona por día.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Seguro de accidentes personales</b>, si alguna sala lo exige para ingresar.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Publicación y gestión de redes</b>, que sigue a cargo del equipo de Plateanet.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg><span><b>Conductor o locutor</b> frente a cámara y música con licencia paga.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Transparencia comercial</span><span class="num">07 — Alcance</span></div>
+</section>
+
+<!-- ============ 9 · EXPERIENCIA ============ -->
+<section id="experiencia" class="mode-dark" data-label="Experiencia">
+  <div class="wrap">
+    <div class="eyebrow r">Experiencia</div>
+    <h2 class="h-lg r d1">Filmamos eventos en vivo, <span class="it">donde no hay segunda toma.</span></h2>
+    <p class="lead r d2" style="margin-top:18px">Somos una agencia de marketing con producción audiovisual propia. Cubrimos eventos, ferias y rodajes institucionales para marcas que necesitan material profesional, a tiempo y con la marca bien aplicada.</p>
+    <div class="reels r d3">
+      <div class="reel-wrap"><div class="reel" data-yt="ygXRXNBMte8" role="button" tabindex="0" aria-label="Ver reel de producciones de Popcorn"><img src="img/reel-rodajes.jpg" alt="Reel de producciones audiovisuales de Popcorn" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><span class="rl">Reel de producciones<small>Rodajes y piezas para marcas</small></span></div>
+      <div class="reel-wrap"><div class="reel" data-yt="eVBsz5UPjpU" role="button" tabindex="0" aria-label="Ver cobertura de Expomecánica"><img src="img/reel-expomecanica.jpg" alt="Cobertura de evento Expomecánica" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div><span class="rl">Cobertura de evento<small>Expomecánica · registro en vivo</small></span></div>
+    </div>
+    <div class="logos r d4">
+      <div class="lg"><img src="img/logos/galicia.png" alt="Banco Galicia" onerror="this.parentNode.textContent='Banco Galicia';this.parentNode.classList.add('t')"></div>
+      <div class="lg"><img src="img/logos/bosch.webp" alt="Bosch" onerror="this.parentNode.textContent='Bosch';this.parentNode.classList.add('t')"></div>
+      <div class="lg"><img src="img/logos/esab.png" alt="ESAB" onerror="this.parentNode.textContent='ESAB';this.parentNode.classList.add('t')"></div>
+      <div class="lg"><img src="img/logos/libus.png" alt="Libus" onerror="this.parentNode.textContent='Libus';this.parentNode.classList.add('t')"></div>
+      <div class="lg"><img src="img/logos/cromosol.png" alt="Cromosol" onerror="this.parentNode.textContent='Cromosol';this.parentNode.classList.add('t')"></div>
+      <div class="lg"><img src="img/logos/bolsaflex.svg" alt="Bolsaflex" onerror="this.parentNode.textContent='Bolsaflex';this.parentNode.classList.add('t')"></div>
+      <div class="lg"><img src="img/logos/losarc.svg" alt="Losarc" onerror="this.parentNode.textContent='Losarc';this.parentNode.classList.add('t')"></div>
+    </div>
+    <div class="stats r d5">
+      <div class="stat"><div class="v">+15</div><div class="l">años de trayectoria</div></div>
+      <div class="stat"><div class="v">160+</div><div class="l">marcas acompañadas</div></div>
+      <div class="stat"><div class="v">360°</div><div class="l">estrategia, contenido y producción</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Producción audiovisual propia</span><span class="num">08 — Experiencia</span></div>
+</section>
+
+<!-- ============ 10 · ARRANQUE ============ -->
+<section id="arranque" data-label="Primer mes">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <div class="eyebrow r">Primer mes</div>
+      <h2 class="h-lg r d1">Del sí a la primera <span class="hl">función</span>.</h2>
+      <p class="lead r d2" style="margin-top:18px">Si confirman antes del 29 de octubre, llegamos con todo listo para las coberturas de noviembre, incluido el aniversario del teatro que ya tienen agendado.</p>
+      <div class="tl r d3">
+        <div class="it2"><span class="when">Semana 1</span><h3>Arranque</h3><p>Reunión de inicio, manual de marca, uso del logo y del micrófono, guion de preguntas actual y agenda de noviembre.</p></div>
+        <div class="it2"><span class="when">Semana 1</span><h3>Plantillas</h3><p>Placas de apertura y cierre, subtítulos y formato de entrega, aprobados antes de la primera cobertura.</p></div>
+        <div class="it2"><span class="when">Semana 2</span><h3>Primera cobertura</h3><p>Previa con el equipo de marketing, cobertura en sala y entrega en hasta 5 días hábiles.</p></div>
+        <div class="it2" style="padding-bottom:0"><span class="when">Fin de mes</span><h3>Revisión</h3><p>Qué funcionó, qué formato rotamos y fechas confirmadas para el mes siguiente.</p></div>
+      </div>
+    </div>
+    <div class="photo-in r d2" style="aspect-ratio:4/5">
+      <img src="img/escena.jpg" alt="Actor en escena bajo un haz de luz frente al público">
+      <div class="cap"><span class="a">Noviembre</span><span class="v">Aniversario</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Arranque en 2 semanas</span><span class="num">09 — Arranque</span></div>
+</section>
+
+<!-- ============ 11 · CIERRE ============ -->
+<section id="cierre" data-label="Próximos pasos">
+  <div class="bg-photo"><img src="img/butacas.jpg" alt="Butacas de teatro vacías antes de la función" loading="lazy"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="close-title r d1">Nos vemos en la <span class="hl">próxima función</span>.</h2>
+    <div class="steps4 r d2">
+      <div class="card"><span class="n">01</span><h3>Elegís el pack</h3><p>Esencial o Profesional, y si suman el institucional.</p></div>
+      <div class="card"><span class="n">02</span><h3>Nos mandás la selección</h3><p>Desde la sección de inversión, con un clic.</p></div>
+      <div class="card"><span class="n">03</span><h3>Reunión de arranque</h3><p>Marca, agenda y enfoque de las primeras coberturas.</p></div>
+      <div class="card"><span class="n">04</span><h3>Primera cobertura</h3><p>Fecha confirmada en noviembre y entrega en 5 días hábiles.</p></div>
+    </div>
+    <div class="r d3">
+      <a class="cta-go" href="mailto:florencia@somospopcorn.com?cc=demianlinet@somospopcorn.com&amp;subject=Plateanet%20%C2%B7%20Coberturas%20de%20teatro&amp;body=Hola%20Florencia%2C%20vimos%20la%20propuesta%20de%20coberturas%20y%20queremos%20avanzar.">Quiero avanzar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="sign r d4">
+      <img src="img/logo-popcorn-blanco.png" alt="Popcorn">
+      <div class="who"><b>Florencia Grigolatto</b> · Operations Manager<br><a href="mailto:florencia@somospopcorn.com">florencia@somospopcorn.com</a> · <a href="https://somospopcorn.com" target="_blank" rel="noopener">somospopcorn.com</a><br>Propuesta válida hasta el 29/10/2026 · Valores + IVA</div>
+    </div>
+    <p class="credits">Fotos de Avenida Corrientes (Roberto Fiadone) y de sala (hernanpba) bajo licencia CC BY-SA, vía Wikimedia Commons y Flickr. Resto de las imágenes: StockSnap y Rawpixel (CC0) y material propio de Popcorn.</p>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Video"><button class="x" id="lbx" aria-label="Cerrar">×</button><div class="fr" id="lbf"></div></div>
+
+<script>
+/* ===== scroll, progreso, dots, reveal ===== */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(scrollY/h*100)+'%';topbar.classList.toggle('scrolled',scrollY>40);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const sections=[...document.querySelectorAll('section')],dots=document.getElementById('dots');
+sections.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';dots.appendChild(a);});
+const dotEls=[...dots.children];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+const act=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));dots.classList.toggle('on-paper',e.target.classList.contains('mode-paper'));}}),{threshold:.45});
+sections.forEach(s=>act.observe(s));
+
+/* ===== videos ===== */
+const lb=document.getElementById('lb'),lbf=document.getElementById('lbf');
+function openYT(id){
+  if(location.protocol==='file:'){window.open('https://www.youtube.com/watch?v='+id,'_blank','noopener');return;}
+  lbf.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video"></iframe>';
+  lb.classList.add('on');
+}
+function closeLB(){lb.classList.remove('on');lbf.innerHTML='';}
+document.querySelectorAll('[data-yt]').forEach(el=>{
+  el.addEventListener('click',()=>openYT(el.dataset.yt));
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openYT(el.dataset.yt);}});
+});
+document.getElementById('lbx').addEventListener('click',closeLB);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
+
+/* ===== calculadora de inversión ===== */
+const PRICES={
+  pack:{esencial:1554236,pro:2832611},
+  extra:{esencial:777118,pro:1416306},
+  inst:{ant:2461161,'5050':2537280}
+};
+const NAMES={esencial:'Cobertura Esencial',pro:'Cobertura Profesional'};
+const PAYN={ant:'100% anticipado (valor preferencial)','5050':'50% al inicio + 50% al finalizar o a los 30 días'};
+const st={plan:'pro',extras:0,inst:false,pay:'ant'};
+const fmt=n=>'$'+n.toLocaleString('es-AR');
+function setRadio(group,attr,val){group.querySelectorAll('.ch').forEach(b=>b.setAttribute('aria-checked',b.dataset[attr]===val?'true':'false'));}
+const planGroup=document.querySelector('[aria-label="Tipo de cobertura"]'),payGroup=document.getElementById('instPay');
+planGroup.querySelectorAll('.ch').forEach(b=>b.addEventListener('click',()=>{st.plan=b.dataset.plan;setRadio(planGroup,'plan',st.plan);render();}));
+payGroup.querySelectorAll('.ch').forEach(b=>b.addEventListener('click',()=>{st.pay=b.dataset.pay;setRadio(payGroup,'pay',st.pay);render();}));
+document.getElementById('exMinus').addEventListener('click',()=>{st.extras=Math.max(0,st.extras-1);render();});
+document.getElementById('exPlus').addEventListener('click',()=>{st.extras=Math.min(6,st.extras+1);render();});
+const tg=document.getElementById('instToggle');
+tg.addEventListener('click',()=>{st.inst=!st.inst;tg.setAttribute('aria-checked',st.inst);payGroup.classList.toggle('on',st.inst);render();});
+function render(){
+  const pack=PRICES.pack[st.plan],ex=PRICES.extra[st.plan]*st.extras,month=pack+ex;
+  document.getElementById('extraUnit').textContent=fmt(PRICES.extra[st.plan]);
+  document.getElementById('exVal').textContent=st.extras;
+  let h='<div class="line"><span>Pack mensual · 2 × '+NAMES[st.plan]+'</span><b>'+fmt(pack)+'</b></div>';
+  if(st.extras)h+='<div class="line"><span>'+st.extras+' cobertura'+(st.extras>1?'s':'')+' adicional'+(st.extras>1?'es':'')+'</span><b>'+fmt(ex)+'</b></div>';
+  if(st.inst)h+='<div class="line"><span>Video institucional · '+(st.pay==='ant'?'100% anticipado':'50% + 50%')+'</span><b>'+fmt(PRICES.inst[st.pay])+'</b></div>';
+  document.getElementById('sumLines').innerHTML=h;
+  document.getElementById('sumMonth').textContent=fmt(month);
+  document.getElementById('sumInstWrap').style.display=st.inst?'block':'none';
+  document.getElementById('sumInst').textContent=fmt(PRICES.inst[st.pay]);
+  document.getElementById('sumInstPay').textContent='+ IVA · '+PAYN[st.pay];
+  const body=['Hola Florencia,','','Vimos la propuesta de coberturas de teatro y queremos avanzar con esta selección:','',
+    '- Pack mensual: 2 coberturas '+NAMES[st.plan]+' — '+fmt(pack)+' + IVA por mes',
+    st.extras?'- Coberturas adicionales: '+st.extras+' × '+fmt(PRICES.extra[st.plan])+' = '+fmt(ex)+' + IVA':null,
+    '- Total mensual: '+fmt(month)+' + IVA (100% por adelantado)',
+    st.inst?'- Video institucional: '+fmt(PRICES.inst[st.pay])+' + IVA · '+PAYN[st.pay]:null,
+    '','Quedamos atentos para coordinar la reunión de arranque.','','Gracias!'].filter(x=>x!==null).join('\n');
+  document.getElementById('cta').href='mailto:florencia@somospopcorn.com?cc=demianlinet@somospopcorn.com&subject='+encodeURIComponent('Plateanet · Selección de coberturas')+'&body='+encodeURIComponent(body);
+}
+render();
+</script>
+</body>
+</html>
