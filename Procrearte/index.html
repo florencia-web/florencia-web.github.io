@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Procrearte · Cartelería Digital</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: scroll editorial por modos Popcorn — A violeta (hero) · D casi negro (monetización) · C papel (credenciales, inversión) · B foto (casos) · E violeta con foto inserta (contenidos) */
+:root{
+  /* Paleta canónica Popcorn — marca/identidad-popcorn.md */
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --ink-60:rgba(18,18,18,.62);
+  --ink-line:rgba(18,18,18,.12);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--violeta-950);color:var(--white);font-family:var(--font-text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--violeta-950)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+em,i{font-style:normal}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--aqua);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+section{position:relative;overflow:hidden}
+.band{padding-block:clamp(72px,10vw,128px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-text);font-weight:700;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.h2{font-size:clamp(34px,5.2vw,62px);margin-top:18px}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--w-80);max-width:62ch;margin-top:20px}
+.hl{background:var(--aqua);color:var(--tinta);padding:0 .18em;border-radius:.16em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.it{font-style:italic;color:var(--aqua);font-weight:700}
+.num{font-variant-numeric:tabular-nums}
+
+/* topbar + progreso + dots */
+.topbar{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;background:rgba(26,3,47,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+.topbar img{height:22px;width:auto}
+.topbar .who{font-size:13px;color:var(--w-65);letter-spacing:.04em;display:none}
+@media (min-width:760px){.topbar .who{display:block}}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-text);font-weight:700;font-size:15px;border-radius:999px;padding:12px 22px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,color .25s}
+.btn-aqua{background:var(--aqua);color:var(--violeta-950)}
+.btn-aqua:hover{transform:translateY(-2px);background:var(--aqua-bright)}
+.btn-ghost{border-color:var(--aqua-line);color:var(--white);background:transparent}
+.btn-ghost:hover{border-color:var(--aqua)}
+.btn-sm{padding:8px 16px;font-size:13.5px}
+.arrow{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--violeta-950);color:var(--aqua);font-size:14px}
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:var(--aqua);z-index:55}
+.dots{position:fixed;right:max(18px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:12px}
+@media (min-width:1100px){.dots{display:flex}}
+.dots a{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--w-45);display:block;position:relative}
+.dots a.on{background:var(--aqua);border-color:var(--aqua)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;background:var(--violeta-950);padding:3px 10px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s}
+.dots a:hover span{opacity:1}
+.sfoot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:64px;padding-top:18px;border-top:1px solid var(--line-soft);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45)}
+
+/* HERO · modo A */
+.hero{padding-top:calc(62px + env(safe-area-inset-top,0px));background:linear-gradient(135deg,var(--violeta-grad-1),var(--violeta-grad-2))}
+
+.hero .shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(71,0,130,.97) 0%,rgba(85,0,143,.86) 46%,rgba(85,0,143,.35) 100%)}
+.ghost{position:absolute;font-family:var(--font-display);font-weight:800;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.11);pointer-events:none;white-space:nowrap;user-select:none}
+.hero .ghost{font-size:clamp(120px,22vw,300px);top:-.12em;right:-.06em}
+.rombos{position:absolute;width:220px;height:220px;pointer-events:none;opacity:.22;background-image:linear-gradient(45deg,transparent 46%,var(--violeta-claro) 47%,var(--violeta-claro) 53%,transparent 54%),linear-gradient(-45deg,transparent 46%,var(--violeta-claro) 47%,var(--violeta-claro) 53%,transparent 54%);background-size:22px 22px;-webkit-mask-image:radial-gradient(circle at 100% 100%,#000 10%,transparent 70%);mask-image:radial-gradient(circle at 100% 100%,#000 10%,transparent 70%)}
+.hero .rombos{left:0;bottom:0;transform:scaleX(-1)}
+.hero-in{position:relative;padding-block:clamp(56px,9vw,110px) clamp(48px,7vw,84px)}
+.badge{position:absolute;top:calc(62px + env(safe-area-inset-top,0px));right:max(16px,8vw);background:var(--white);border-radius:0 0 22px 22px;padding:26px 18px 16px;display:none}
+.badge img{width:78px;height:auto}
+@media (min-width:900px) and (max-width:999px){.badge{display:block}}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;border:1px solid var(--aqua-line);border-radius:999px;padding:7px 14px;color:var(--aqua)}
+.hero h1{font-size:clamp(40px,6vw,84px);margin-top:26px;max-width:12ch;font-weight:400}
+.hero h1 b{font-weight:800}
+.hero .lead{max-width:56ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.meta{position:relative;margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+@media (min-width:860px){.meta{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.meta div{background:rgba(26,3,47,.72);padding:16px 18px;min-width:0}
+.meta small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45)}
+.meta strong{display:block;font-size:15px;margin-top:4px;overflow-wrap:anywhere}
+.meta div:last-child{grid-column:1/-1}
+@media (min-width:860px){.meta div:last-child{grid-column:auto}}
+
+/* MONETIZACIÓN · modo D */
+.dark{background:radial-gradient(1200px 600px at 85% 0%,rgba(88,13,159,.35),transparent 60%),var(--negro)}
+.dark .curve{position:absolute;left:-10%;bottom:-160px;width:120%;height:320px;border-top:46px solid var(--violeta);border-radius:50% 50% 0 0;opacity:.55;pointer-events:none}
+.mon-grid{display:grid;gap:28px;margin-top:48px;position:relative}
+@media (min-width:980px){.mon-grid{grid-template-columns:1.05fr .95fr;gap:40px}}
+.steps{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:transform .3s var(--ease),border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.step .n{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--aqua);color:var(--violeta-950);font-weight:700;font-size:18px}
+.step h3{font-size:20px;line-height:1.15}
+.step p{color:var(--w-65);font-size:15.5px;margin-top:6px}
+.calc{border-radius:24px;background:var(--white);color:var(--tinta);padding:clamp(22px,3vw,32px);position:relative;min-width:0}
+.calc .tag{display:inline-block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;background:var(--violeta);color:var(--white);border-radius:999px;padding:5px 12px}
+.calc h3{font-size:24px;margin-top:14px;color:var(--violeta-900)}
+.field{margin-top:22px}
+.field label{display:flex;justify-content:space-between;gap:12px;font-size:14px;font-weight:500;color:var(--ink-60)}
+.field label b{color:var(--tinta);font-size:16px}
+input[type=range]{width:100%;margin-top:10px;accent-color:var(--violeta);height:28px}
+.result{margin-top:24px;border-radius:18px;background:var(--violeta-950);color:var(--white);padding:20px 22px}
+.result small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-65)}
+.result .big{font-family:var(--font-display);font-weight:800;font-size:clamp(36px,4.6vw,52px);color:var(--aqua);line-height:1.05;margin-top:4px}
+.result .cov{margin-top:10px;font-size:15px;color:var(--w-80)}
+.result .cov b{color:var(--aqua)}
+.meter{height:10px;border-radius:999px;background:rgba(255,255,255,.12);margin-top:12px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));border-radius:999px;transition:width .4s var(--ease)}
+.fine{font-size:12.5px;color:var(--ink-60);margin-top:14px;line-height:1.5}
+.season{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:5px;margin-top:10px}
+.season span{height:32px;border-radius:8px;display:grid;place-items:center;font-size:12.5px;font-weight:700;background:var(--violeta);color:var(--white)}
+.basis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}
+.basis div{background:var(--papel);border-radius:14px;padding:12px;min-width:0}
+.basis b{display:block;font-family:var(--font-display);font-weight:800;font-size:clamp(18px,2vw,24px);color:var(--violeta);line-height:1.1}
+.basis span{display:block;font-size:12.5px;color:var(--ink-60);margin-top:4px;line-height:1.3}
+@media (max-width:420px){.basis{grid-template-columns:1fr}}
+.season span.low{background:#E4E1EA;color:var(--ink-60)}
+.season-key{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink-60);margin-top:8px}
+.season-key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.cats span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--w-80)}
+.spots{display:grid;gap:16px;margin-top:40px;position:relative}
+@media (min-width:700px){.spots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.vid{position:relative;display:block;aspect-ratio:16/9;max-width:100%;border-radius:20px;overflow:hidden;text-decoration:none;border:1px solid var(--line);isolation:isolate}
+.vid .poster{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s var(--ease)}
+.vid:hover .poster{transform:scale(1.04)}
+.vid .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,3,47,.15),rgba(26,3,47,.88))}
+.vid .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:var(--aqua);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(116,250,227,.18);transition:transform .3s var(--ease)}
+.vid:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.vid .play::after{content:"";margin-left:5px;border-left:18px solid var(--violeta-950);border-top:11px solid transparent;border-bottom:11px solid transparent}
+.vid .cap{position:absolute;left:18px;right:18px;bottom:16px}
+.vid .cap small{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:700}
+.vid .cap strong{display:block;font-family:var(--font-display);font-size:20px;line-height:1.15;margin-top:2px}
+.poster-spot{background:radial-gradient(circle at 30% 30%,var(--violeta-claro),transparent 55%),linear-gradient(135deg,var(--violeta),var(--violeta-900))}
+.poster-spot::before{content:"SPOT";position:absolute;right:-6px;top:6px;font-family:var(--font-display);font-weight:800;font-size:110px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.14)}
+
+/* CREDENCIALES · modo C */
+.paper{background:var(--papel);color:var(--tinta)}
+.paper .eyebrow{color:var(--violeta)}
+.paper .lead{color:var(--ink-60)}
+.paper .sfoot{border-color:var(--ink-line);color:rgba(18,18,18,.42)}
+.paper .hl{background:var(--aqua)}
+.paper .it{color:var(--violeta)}
+.pillstack{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:22px}
+.pillstack span{display:inline-block;border-radius:999px;padding:.22em .8em;font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.6vw,56px);line-height:1.05;letter-spacing:-.02em}
+.pillstack span:nth-child(1){background:var(--violeta-900);color:var(--white)}
+.pillstack span:nth-child(2){background:var(--aqua);color:var(--violeta-900);margin-left:clamp(14px,4vw,56px)}
+.pillstack span:nth-child(3){background:var(--white);color:var(--violeta);border:2px solid var(--violeta);margin-left:clamp(4px,1.5vw,20px)}
+.cred{display:grid;gap:36px;margin-top:10px}
+@media (min-width:980px){.cred{grid-template-columns:1fr 1fr;gap:56px;align-items:end}}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:40px}
+@media (min-width:860px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{background:var(--white);border-radius:20px;padding:22px;border:1px solid var(--ink-line);min-width:0}
+.stat b{display:block;font-family:var(--font-display);font-size:clamp(32px,3.6vw,44px);color:var(--violeta);line-height:1}
+.stat span{display:block;font-size:14.5px;color:var(--ink-60);margin-top:10px;line-height:1.4}
+.logos{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.logos span{font-family:var(--font-display);font-weight:700;font-size:15px;padding:10px 18px;border-radius:999px;background:var(--white);border:1px solid var(--ink-line);color:var(--violeta-900)}
+.logos span.you{background:var(--violeta);color:var(--white);border-color:var(--violeta)}
+.src{font-size:12.5px;color:rgba(18,18,18,.5);margin-top:14px}
+
+/* CASOS · modo B */
+.photo-band{background:var(--violeta-900)}
+.cases{display:grid;gap:22px;margin-top:44px}
+@media (min-width:900px){.cases{grid-template-columns:1fr 1fr}}
+.case{position:relative;border-radius:26px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end;isolation:isolate;transition:transform .35s var(--ease)}
+.case:hover{transform:translateY(-6px)}
+.case img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.case::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(42,4,84,0) 25%,rgba(42,4,84,.92) 78%)}
+.case .chips{position:absolute;top:18px;left:18px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+.chip.a{background:var(--aqua);color:var(--violeta-900)}
+.chip.v{background:var(--violeta-900);color:var(--aqua)}
+.case .box{margin:16px;background:var(--white);color:var(--tinta);border-radius:20px;padding:20px 22px;max-width:520px}
+.case .box h3{font-size:24px;color:var(--violeta-900)}
+.case .box p{font-size:15.5px;color:var(--ink-60);margin-top:8px}
+.case .box mark{background:rgba(116,250,227,.55);color:var(--tinta);padding:0 .15em;border-radius:3px}
+.examples{display:grid;gap:16px;margin-top:22px}
+@media (min-width:700px){.examples{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* SETUP · modo A */
+.violet{background:linear-gradient(160deg,var(--violeta-grad-1),var(--violeta-grad-2))}
+.violet .ghost{font-size:clamp(110px,18vw,240px);bottom:-.2em;left:-.04em}
+.violet .rombos{right:0;top:0;transform:scaleY(-1)}
+.setup{display:grid;gap:28px;margin-top:48px;position:relative}
+@media (min-width:980px){.setup{grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}}
+.floors{display:grid;gap:16px}
+.floor{border:1px solid var(--line);border-radius:22px;padding:18px;background:rgba(26,3,47,.35)}
+.floor > small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65);font-weight:700}
+.tvs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}
+.tv{min-width:0}
+.screen{aspect-ratio:16/9;border-radius:10px;border:3px solid #0b0b10;background:#0b0b10;display:grid;gap:3px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.screen.split{grid-template-columns:1.5fr 1fr}
+.screen .game{background:linear-gradient(135deg,var(--aqua),var(--aqua-bright));display:grid;place-items:center;color:var(--violeta-950);font-weight:700;font-size:clamp(9px,1.1vw,13px);text-align:center;padding:4px;line-height:1.2}
+.screen .turns{background:var(--white);display:grid;align-content:center;gap:3px;padding:6px}
+.screen .turns i{display:block;height:7px;border-radius:3px;background:#D9D5E3}
+.screen .turns i:first-child{background:var(--violeta)}
+.screen .inst{background:linear-gradient(135deg,#3a3a46,#24242c);display:grid;place-items:center;color:var(--w-65);font-size:clamp(9px,1.1vw,13px);text-align:center;padding:4px}
+.tv p{font-size:13.5px;color:var(--w-80);margin-top:10px;line-height:1.4}
+.tv p b{color:var(--aqua)}
+.facts{display:grid;gap:12px}
+.fact{border-radius:20px;background:var(--white);color:var(--tinta);padding:20px 22px}
+.fact b{font-family:var(--font-display);font-size:34px;color:var(--violeta);display:block;line-height:1}
+.fact span{display:block;margin-top:8px;font-size:15px;color:var(--ink-60);line-height:1.45}
+.fact.acc{background:var(--aqua)}
+.fact.acc b{color:var(--violeta-900)}
+.fact.acc span{color:var(--violeta-900)}
+
+/* CONTENIDOS · modo E */
+.content-grid{display:grid;gap:26px;margin-top:46px}
+@media (min-width:980px){.content-grid{grid-template-columns:1fr 1fr;gap:36px}}
+.col{border-radius:26px;padding:clamp(22px,3vw,32px);min-width:0}
+.col.ent{background:rgba(26,3,47,.45);border:1px solid var(--line)}
+.col.ins{background:var(--white);color:var(--tinta)}
+.col h3{font-size:clamp(24px,2.6vw,32px)}
+.col.ins h3{color:var(--violeta-900)}
+.col > p{margin-top:10px;color:var(--w-65);font-size:15.5px}
+.col.ins > p{color:var(--ink-60)}
+.series{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.series span{border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500;background:var(--violeta);color:var(--white)}
+.series span:nth-child(3n+2){background:var(--aqua);color:var(--violeta-900)}
+.series span:nth-child(3n){background:transparent;border:1px solid var(--aqua-line);color:var(--aqua)}
+.col.ins .series span{background:var(--papel);color:var(--violeta-900);border:1px solid var(--ink-line)}
+.inset{margin-top:22px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.inset-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.inset-pair img{border-radius:14px;aspect-ratio:16/9.5;object-fit:cover;width:100%}
+.note{margin-top:18px;font-size:14.5px;border-left:3px solid var(--aqua);padding-left:14px;color:var(--w-80)}
+.col.ins .note{border-color:var(--violeta);color:var(--ink-60)}
+.care{margin-top:26px;border-radius:22px;border:1px dashed var(--aqua-line);padding:20px 22px;display:grid;gap:6px}
+.care strong{font-family:var(--font-display);font-size:19px}
+.care p{color:var(--w-80);font-size:15.5px}
+
+/* INVERSIÓN · modo C */
+.plans{display:grid;gap:16px;margin-top:44px}
+@media (min-width:980px){.plans{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.plan{position:relative;text-align:left;font:inherit;color:inherit;background:var(--white);border:2px solid var(--ink-line);border-radius:24px;padding:24px;cursor:pointer;display:flex;flex-direction:column;gap:14px;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;min-width:0}
+.plan:hover{transform:translateY(-6px);border-color:var(--violeta-claro)}
+.plan[aria-checked=true]{border-color:var(--violeta);box-shadow:0 18px 40px rgba(88,13,159,.18)}
+.plan .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan .lbl{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--violeta)}
+.plan .radio{width:24px;height:24px;border-radius:50%;border:2px solid var(--ink-line);display:grid;place-items:center;flex:none}
+.plan[aria-checked=true] .radio{border-color:var(--violeta)}
+.plan[aria-checked=true] .radio::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--violeta)}
+.plan h3{font-size:26px;color:var(--violeta-900)}
+.plan .price{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,3.4vw,42px);color:var(--tinta);line-height:1}
+.plan .price small{font-family:var(--font-text);font-weight:500;font-size:14px;color:var(--ink-60)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.plan li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;line-height:1.45;color:#2b2b2b}
+.plan li svg{margin-top:3px;color:var(--aqua-deep)}
+.plan .reco{position:absolute;top:-13px;right:22px;background:var(--aqua);color:var(--violeta-900);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
+.counts{display:flex;gap:8px;flex-wrap:wrap}
+.counts span{border-radius:12px;background:var(--papel);padding:8px 12px;font-size:13px;color:var(--ink-60);line-height:1.25}
+.counts span b{display:block;font-family:var(--font-display);font-size:22px;color:var(--violeta)}
+.builder{display:grid;gap:18px;margin-top:22px}
+@media (min-width:980px){.builder{grid-template-columns:1.1fr .9fr}}
+.panel{background:var(--white);border:1px solid var(--ink-line);border-radius:24px;padding:clamp(20px,3vw,30px);min-width:0}
+.panel h3{font-size:22px;color:var(--violeta-900)}
+.panel > p{font-size:15px;color:var(--ink-60);margin-top:8px}
+.stepper{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
+.stepper button{width:46px;height:46px;border-radius:50%;border:2px solid var(--violeta);background:var(--white);color:var(--violeta);font-size:22px;font-weight:700;cursor:pointer;display:grid;place-items:center}
+.stepper button:disabled{opacity:.3;cursor:not-allowed}
+.stepper output{font-family:var(--font-display);font-weight:800;font-size:40px;color:var(--violeta-900);min-width:2ch;text-align:center}
+.stepper .u{font-size:14.5px;color:var(--ink-60);line-height:1.35}
+.inst-sum{display:grid;gap:12px;margin-top:22px}
+@media (min-width:560px){.inst-sum{grid-template-columns:1fr 1fr}}
+.inst-big{border-radius:18px;background:var(--papel);padding:18px 20px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.inst-big small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-60)}
+.inst-big b{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1.05;color:var(--violeta);white-space:nowrap}
+.inst-big span{font-size:14.5px;color:var(--ink-60)}
+.inst-big.add{background:var(--aqua)}
+.inst-big.add small,.inst-big.add span{color:var(--violeta-900)}
+.inst-big.add b{color:var(--violeta-900)}
+.locked{margin-top:16px;border-radius:16px;background:var(--papel);padding:14px 16px;font-size:14.5px;color:var(--ink-60)}
+.locked button{font:inherit;font-weight:700;color:var(--violeta);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.total{background:var(--violeta-950);color:var(--white);border-radius:24px;padding:clamp(20px,3vw,30px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.total small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-65)}
+.lines{display:grid;gap:8px;font-size:15px}
+.lines div{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.lines div span:first-child{color:var(--w-80)}
+.total .sum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid var(--line);padding-top:14px;flex-wrap:wrap}
+.total .sum b{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4vw,46px);color:var(--aqua);font-variant-numeric:tabular-nums}
+.total .avg{font-size:13.5px;color:var(--w-65)}
+.offset{border-radius:16px;background:rgba(116,250,227,.1);border:1px solid var(--aqua-line);padding:14px 16px;font-size:14.5px;color:var(--w-80)}
+.offset b{color:var(--aqua)}
+.mailrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mailrow .addr{font-size:13.5px;color:var(--w-65);user-select:all}
+.copied{font-size:13px;color:var(--aqua)}
+.terms{margin-top:22px;display:grid;gap:10px;font-size:14px;color:var(--ink-60)}
+.terms p{padding-left:18px;position:relative}
+.terms p::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--violeta)}
+
+/* ALCANCE */
+.scope{display:grid;gap:16px;margin-top:44px}
+@media (min-width:860px){.scope{grid-template-columns:1fr 1fr}}
+.scope-col{border-radius:24px;padding:clamp(20px,3vw,30px)}
+.scope-col.yes{background:var(--aqua);color:var(--violeta-950)}
+.scope-col.no{border:1px solid var(--line);background:var(--card)}
+.scope-col h3{font-size:24px}
+.scope-col ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:11px}
+.scope-col li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:15.5px;line-height:1.45}
+.scope-col.no li{color:var(--w-80)}
+
+/* PRÓXIMOS PASOS + CIERRE */
+.next{display:grid;gap:14px;margin-top:44px;counter-reset:s}
+@media (min-width:860px){.next{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.next div{border-radius:22px;border:1px solid var(--line);background:var(--card);padding:22px;transition:transform .3s var(--ease),border-color .3s;min-width:0}
+.next div:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.next div::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--font-display);font-weight:800;font-size:38px;color:var(--aqua);display:block;line-height:1}
+.next h3{font-size:19px;margin-top:14px;line-height:1.2}
+.next p{font-size:14.5px;color:var(--w-65);margin-top:8px}
+.closing{margin-top:clamp(64px,9vw,110px);border-radius:30px;background:linear-gradient(135deg,var(--violeta-grad-1),var(--violeta-grad-2));padding:clamp(28px,5vw,56px);position:relative;overflow:hidden}
+.closing h2{font-size:clamp(32px,4.8vw,58px);font-weight:400;max-width:17ch}
+.closing h2 b{font-weight:800}
+.closing .ghost{font-size:clamp(90px,14vw,190px);right:-.05em;bottom:-.22em}
+.closing .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;position:relative}
+footer{background:var(--negro);border-top:1px solid var(--line-soft)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:34px calc(34px + env(safe-area-inset-bottom,0px))}
+footer img{height:24px;width:auto}
+footer p{font-size:13.5px;color:var(--w-65)}
+@media (max-width:600px){.sfoot span:first-child{display:none}}
+/* hero con foto de Procrearte */
+.hero-grid{display:grid;gap:36px;align-items:center}
+@media (min-width:1000px){.hero-grid{grid-template-columns:1fr 1fr;gap:52px}}
+.hero-photo{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px rgba(10,0,30,.45);aspect-ratio:4/4;max-width:100%}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:28% 55%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,4,84,0) 45%,rgba(42,4,84,.75) 100%)}
+.client-badge{position:absolute;left:16px;bottom:16px;right:16px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--white);border-radius:18px;padding:12px 16px;flex-wrap:wrap}
+.client-badge img{height:40px;width:auto}
+.client-badge span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--violeta)}
+.float-cap{position:absolute;top:16px;right:16px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.hero .lead b{color:var(--white)}
+/* medio: 6 pilares */
+.pillars{display:grid;gap:14px;margin-top:44px}
+@media (min-width:700px){.pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1000px){.pillars{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pillar{background:var(--white);border:1px solid var(--ink-line);border-radius:22px;padding:24px;transition:transform .3s var(--ease),border-color .3s;min-width:0}
+.pillar:hover{transform:translateY(-6px);border-color:var(--violeta-claro)}
+.pillar .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--violeta);color:var(--aqua)}
+.pillar:nth-child(even) .ic{background:var(--aqua);color:var(--violeta-900)}
+.pillar h3{font-size:22px;color:var(--violeta-900);margin-top:16px}
+.pillar p{font-size:15.5px;color:var(--ink-60);margin-top:8px}
+.big-q{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.1;letter-spacing:-.02em;margin-top:22px;max-width:22ch}
+/* audiencia */
+.aud{display:grid;gap:14px;margin-top:44px}
+@media (min-width:700px){.aud{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1050px){.aud{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.aud div{border:1px solid var(--line);background:var(--card);border-radius:22px;padding:22px;min-width:0;transition:transform .3s var(--ease),border-color .3s}
+.aud div:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.aud .ic{color:var(--aqua)}
+.aud h3{font-size:21px;margin-top:14px}
+.aud p{font-size:15px;color:var(--w-65);margin-top:8px}
+.punch{margin-top:40px;font-family:var(--font-display);font-size:clamp(24px,3.2vw,38px);line-height:1.15;font-weight:400;max-width:30ch}
+.punch b{font-weight:800}
+.captive{margin-top:clamp(64px,8vw,100px);display:grid;gap:30px}
+@media (min-width:1000px){.captive{grid-template-columns:.8fr 1.2fr;gap:44px;align-items:start}}
+.kpis{display:grid;gap:12px}
+@media (min-width:640px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.kpi{border-radius:22px;background:var(--white);color:var(--tinta);padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.kpi b{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,3.4vw,44px);line-height:1;color:var(--violeta);white-space:nowrap}
+.kpi span{font-size:15px;line-height:1.4}
+.kpi small{font-size:12px;color:var(--ink-60);margin-top:auto;line-height:1.4}
+.growth{grid-column:1/-1;display:flex;gap:14px;align-items:center;border-radius:20px;background:var(--aqua);color:var(--violeta-950);padding:18px 22px;font-size:16px;font-weight:500}
+.growth svg{flex:none}
+.growth b{font-weight:700}
+/* monetización sobre violeta */
+.mon-violet{background:linear-gradient(150deg,var(--violeta-grad-1),var(--violeta-grad-2))}
+.mon-violet .step{background:rgba(26,3,47,.4)}
+.mon-violet .curve{border-top-color:var(--violeta-claro);opacity:.35}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <img src="img/logo-popcorn-blanco.png" alt="Popcorn">
+    <span class="who">Propuesta para Procrearte · Cartelería digital</span>
+    <a class="btn btn-aqua btn-sm" href="#inversion">Ver planes</a>
+  </div>
+</header>
+
+<nav class="dots" aria-label="Secciones">
+  <a href="#inicio" data-label="Inicio"><span>Inicio</span></a>
+  <a href="#medio" data-label="El medio"><span>El medio</span></a>
+  <a href="#audiencia" data-label="Audiencia"><span>Audiencia</span></a>
+  <a href="#monetizacion" data-label="Monetización"><span>Monetización</span></a>
+  <a href="#popcorn" data-label="Quiénes somos"><span>Quiénes somos</span></a>
+  <a href="#casos" data-label="Casos"><span>Casos</span></a>
+  <a href="#procrearte" data-label="En Procrearte"><span>En Procrearte</span></a>
+  <a href="#contenidos" data-label="Contenidos"><span>Contenidos</span></a>
+  <a href="#inversion" data-label="Inversión"><span>Inversión</span></a>
+  <a href="#alcance" data-label="Alcance"><span>Alcance</span></a>
+  <a href="#pasos" data-label="Próximos pasos"><span>Próximos pasos</span></a>
+</nav>
+
+<!-- 01 · HERO -->
+<section class="hero" id="inicio">
+  <div class="shade" aria-hidden="true" style="background:radial-gradient(900px 500px at 85% 40%,rgba(162,98,229,.35),transparent 60%)"></div>
+  <div class="ghost" aria-hidden="true">VALOR</div>
+  <div class="rombos" aria-hidden="true"></div>
+  <div class="badge"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+  <div class="wrap hero-in">
+   <div class="hero-grid">
+    <div>
+    <span class="pill">Propuesta comercial · Cartelería digital · Confidencial</span>
+    <h1>La pantalla ya no informa. <b><span class="hl">Hoy genera valor.</span></b></h1>
+    <p class="lead">Convertí las pantallas de Procrearte en un medio de comunicación propio: una herramienta que mejora la experiencia del paciente, fortalece tu marca y <b>abre una nueva unidad de negocio.</b></p>
+    <p class="lead">Hoy una pantalla solo llama turnos y la otra repite dos videos institucionales. Quienes están en tratamiento vuelven unas siete veces cada dos meses y esperan entre 15 minutos y una hora. Ese tiempo puede trabajar para Procrearte.</p>
+    <div class="hero-cta">
+      <a class="btn btn-aqua" href="#monetizacion">Cómo se paga solo <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#inversion">Ver planes e inversión</a>
+    </div>
+    </div>
+    <figure class="hero-photo" style="margin:0">
+      <img src="img/procrearte-fachada.jpg" alt="Fachada del centro Procrearte">
+      <div class="float-cap"><span class="chip a">Pantallas que acompañan</span><span class="chip v">cada visita</span></div>
+      <div class="client-badge"><img src="img/procrearte-logo.jpg" alt="Procrearte, Red de Medicina Reproductiva y Molecular"><span>Preparada para Procrearte</span></div>
+    </figure>
+   </div>
+    <div class="meta">
+      <div><small>Preparada para</small><strong>Procrearte</strong></div>
+      <div><small>Por</small><strong>Popcorn</strong></div>
+      <div><small>Fecha</small><strong>19 de octubre de 2026</strong></div>
+      <div><small>Válida hasta</small><strong>29 de octubre de 2026</strong></div>
+      <div><small>Contacto</small><strong>Demián Linetzky · demianlinet@somospopcorn.com</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · EL MEDIO -->
+<section class="paper band" id="medio">
+  <div class="wrap">
+    <span class="eyebrow">El concepto</span>
+    <h2 class="h2">La cartelería digital ya no es una pantalla. <span class="hl">Es un medio.</span></h2>
+    <p class="lead">Dejó de ser un cartel que muestra horarios. Hoy es un canal vivo que comunica, educa, entretiene y construye marca en cada minuto de espera.</p>
+    <div class="pillars"><div class="pillar"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8v18L3 13z"/><path d="M7 12v6a2 2 0 0 0 4 0v-4"/></svg></span><h3>Comunicación</h3><p>Información institucional, novedades y mensajes clave que llegan en el momento justo, sin depender de papel ni de personal.</p></div><div class="pillar"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z"/></svg></span><h3>Branding</h3><p>Cada pantalla refuerza tu identidad, tu propósito y tus valores. Una marca consistente, presente en todos los espacios.</p></div><div class="pillar"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10.5V16c3 2.5 9 2.5 12 0v-5.5"/></svg></span><h3>Educación</h3><p>Prevención, hábitos saludables y educación al paciente. Contenido que aporta valor real mientras se espera.</p></div><div class="pillar"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M7 12h4M9 10v4"/><circle cx="16" cy="11" r="1"/><circle cx="18" cy="13" r="1"/></svg></span><h3>Entretenimiento</h3><p>Trivias, curiosidades y contenido dinámico que hace más amena la espera y mantiene la atención puesta en la pantalla.</p></div><div class="pillar"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span><h3>Experiencia del paciente</h3><p>Una espera percibida más corta, más calma y más cuidada. La pantalla acompaña y baja la ansiedad del momento.</p></div><div class="pillar"><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Información en tiempo real</h3><p>Turnos, llamados, demoras y avisos operativos actualizados al instante. Menos consultas, más orden en el flujo.</p></div></div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>02 · El medio</span></div>
+  </div>
+</section>
+
+<!-- 03 · AUDIENCIA -->
+<section class="dark band" id="audiencia">
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow">La audiencia</span>
+    <h2 class="h2">Toda institución de salud ya tiene una <span class="hl">audiencia esperando.</span></h2>
+    <p class="lead">Pacientes, acompañantes, profesionales y colaboradores pasan minutos, a veces muchos, frente a tus espacios cada día. Todos consumen contenido mientras esperan. La pregunta no es si te van a mirar, sino qué les vas a mostrar.</p>
+    <div class="aud"><div><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><h3>Pacientes</h3><p>Llegan con tiempo, esperan y prestan atención. Es el público con mayor predisposición a recibir mensajes de salud.</p></div><div><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2 21c0-3.5 3-5.5 7-5.5s7 2 7 5.5M16 15c3 0 6 1.5 6 5"/></svg></span><h3>Acompañantes</h3><p>Cuatro de cada diez pacientes vienen acompañados. Duplican tu audiencia sin que cambie el flujo de atención.</p></div><div><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M12 15v2a4 4 0 0 0 8 0v-2"/><circle cx="20" cy="13" r="2"/></svg></span><h3>Profesionales</h3><p>Médicos y equipos de salud circulan por los mismos espacios. Un canal interno para alinear y reconocer.</p></div><div><span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><h3>Colaboradores</h3><p>Comunicación interna, cultura y pertenencia. La cartelera también construye equipo puertas adentro.</p></div></div>
+    <p class="punch">Ese tiempo de espera ya existe. Hoy es tiempo perdido. <b>Con un canal propio, <span class="it">pasa a trabajar para vos.</span></b></p>
+
+    <div class="captive">
+      <div>
+        <span class="eyebrow">Atención cautiva</span>
+        <h2 class="h2" style="font-size:clamp(30px,4vw,48px)">El activo que ya tenés <span class="it">y no estás usando.</span></h2>
+        <p class="lead">En una sala de espera nadie hace zapping. No hay otra pantalla compitiendo y no se puede saltear el aviso. Es el entorno con mayor permanencia y atención del paciente, y se repite día tras día, miles de veces por mes.</p>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><b>~13 min</b><span>de espera promedio en sala antes de la consulta</span><small>PatientPoint, 2024 (encuesta a +11.000 pacientes)</small></div>
+        <div class="kpi"><b>+17%</b><span>de recordación cuando el contenido es relevante para quien lo ve</span><small>Refuel Agency · estudios DOOH de contenido contextual</small></div>
+        <div class="kpi"><b>45%</b><span>del gasto en vía pública será digital hacia 2028 (era 22% en 2016)</span><small>StackAdapt · evolución del mercado OOH → DOOH</small></div>
+        <div class="growth"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><span>El digital signage en salud es uno de los segmentos de mayor crecimiento del rubro: <b>~13% anual, el doble del mercado general.</b></span></div>
+      </div>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>03 · Audiencia</span></div>
+  </div>
+</section>
+
+<!-- 04 · MONETIZACIÓN -->
+<section class="mon-violet band" id="monetizacion">
+  <div class="curve" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow">Monetización con anunciantes</span>
+    <h2 class="h2">Las marcas pagan por llegar a <span class="hl">tu sala de espera.</span></h2>
+    <p class="lead">Popcorn presenta a Procrearte ante marcas que buscan llegar a pacientes en centros de salud. Cada marca le paga directamente a Procrearte por pautar en sus pantallas. Ese ingreso ayuda a cubrir el servicio de contenidos y, según la cantidad de marcas, lo supera.</p>
+
+    <div class="mon-grid">
+      <div>
+        <div class="steps">
+          <div class="step"><span class="n">1</span><div><h3>Reservamos un espacio acotado del loop</h3><p>Los spots de marca quedan siempre en minoría frente al contenido de entretenimiento e institucional. La espera sigue siendo de Procrearte.</p></div></div>
+          <div class="step"><span class="n">2</span><div><h3>Popcorn presenta a Procrearte ante las marcas</h3><p>Acercamos anunciantes afines al perfil de paciente. Procrearte aprueba cada marca y cada pieza antes de que salga al aire.</p></div></div>
+          <div class="step"><span class="n">3</span><div><h3>El ingreso es de Procrearte</h3><p>La marca le paga directamente a Procrearte. Como referencia, cada anunciante paga alrededor de $150.000 por mes. Proyectamos el ingreso por año, porque la cantidad de marcas varía mes a mes.</p></div></div>
+        </div>
+        <div class="cats" aria-label="Categorías de anunciantes afines">
+          <span>Laboratorios</span><span>Farmacia</span><span>Bienestar</span><span>Nutrición</span><span>Diagnóstico</span><span>Movilidad</span><span>Consumo masivo</span>
+        </div>
+      </div>
+
+      <div class="calc">
+        <span class="tag">Estimación anual 2027</span>
+        <h3>¿Cuánto podrían aportar las marcas en un año?</h3>
+        <div class="result" aria-live="polite">
+          <small>Ingreso anual estimado para Procrearte*</small>
+          <div class="big num">$7.500.000</div>
+          <p class="cov" id="covOut">Cubre el <b>149%</b> del costo anual del Plan Mixto elegido abajo.</p>
+          <div class="meter"><i id="covBar"></i></div>
+        </div>
+        <div class="basis">
+          <div><b class="num">~5</b><span>anunciantes en promedio</span></div>
+          <div><b class="num">$150.000</b><span>por anunciante, por mes</span></div>
+          <div><b class="num">10</b><span>meses con pauta: marzo a diciembre</span></div>
+        </div>
+        <div class="field">
+          <label>Calendario de pauta 2027</label>
+          <div class="season" aria-hidden="true">
+            <span class="low">Enero</span><span class="low">Febrero</span><span>Marzo</span><span>Abril</span><span>Mayo</span><span>Junio</span><span>Julio</span><span>Agosto</span><span>Septiembre</span><span>Octubre</span><span>Noviembre</span><span>Diciembre</span>
+          </div>
+          <div class="season-key"><span><i style="background:var(--violeta)"></i>Marzo a diciembre: meses con pauta</span><span><i style="background:#E4E1EA"></i>Enero y febrero: meses muy bajos para la publicidad</span></div>
+        </div>
+        <p class="fine">La estimación es anual y no se abre por mes porque la demanda de las marcas varía mucho de un mes a otro. En 2027 la pauta arrancaría en marzo.</p>
+        <p class="fine" style="margin-top:6px">* Estimación de referencia, no garantía de ingresos. La cantidad de anunciantes depende de cuántas marcas estén interesadas en pautar y se confirma cuando presentamos la propuesta de Procrearte a las marcas. Cada marca debe ser aprobada por Procrearte.</p>
+      </div>
+    </div>
+
+    <div class="spots">
+      <a class="vid" href="https://youtu.be/PzftPGNsvSM" target="_blank" rel="noopener">
+        <div class="poster" style="background-image:url(img/yt-PzftPGNsvSM.jpg)"></div><div class="veil"></div><span class="play" aria-hidden="true"></span>
+        <div class="cap"><small>Ejemplo de auspiciante · Uber Teens</small><strong>Así se ve un spot de marca en pantalla</strong></div>
+      </a>
+      <a class="vid" href="https://youtu.be/GOlpMkroAPA" target="_blank" rel="noopener">
+        <div class="poster" style="background-image:url(img/yt-GOlpMkroAPA.jpg)"></div><div class="veil"></div><span class="play" aria-hidden="true"></span>
+        <div class="cap"><small>Ejemplo de auspiciante · Haleon (Corega)</small><strong>Pieza de marca integrada a la grilla</strong></div>
+      </a>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>04 · Monetización</span></div>
+  </div>
+</section>
+
+<!-- 05 · QUIÉNES SOMOS -->
+<section class="paper band" id="popcorn">
+  <div class="wrap">
+    <div class="cred">
+      <div>
+        <span class="eyebrow">Quiénes somos</span>
+        <div class="pillstack" aria-label="Especialistas en cartelería digital para salud">
+          <span>Especialistas</span><span>en cartelería</span><span>para salud</span>
+        </div>
+      </div>
+      <div>
+        <p class="lead" style="margin-top:0">Producimos comunicación y contenido para instituciones líderes del sistema de salud argentino: hospitales, sanatorios, laboratorios y centros de diagnóstico. Conocemos el lenguaje del paciente, del médico y de la institución, y sabemos qué funciona en una sala de espera y qué no.</p>
+        <p class="lead">No vendemos pantallas. Convertimos las que ya existen en un medio que informa, acompaña y genera valor.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+10</b><span>años en comunicación estratégica y producción audiovisual</span></div>
+      <div class="stat"><b>+150</b><span>marcas acompañadas, con foco en salud</span></div>
+      <div class="stat"><b>+3.000</b><span>contenidos de entretenimiento en nuestra galería</span></div>
+      <div class="stat"><b>74-89%</b><span>de las personas recuerda un mensaje visto en cartelería digital*</span></div>
+    </div>
+    <p class="src" style="margin-top:34px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--violeta)">Algunas marcas de salud que ya confían en Popcorn</p>
+    <div class="logos" style="margin-top:12px" aria-label="Instituciones de salud que trabajan con Popcorn">
+      <span>Hospital Universitario Austral</span><span>Swiss Medical</span><span>Fleni</span><span>Instituto Alexander Fleming</span><span>CETAC Juncal</span><span>Centro Médico Fitz Roy</span><span>Diagnóstico Tesla</span><span>Laboratorio Rapela</span><span>CentraLab</span><span class="you">+ Procrearte</span>
+    </div>
+    <p class="src">* Datos internacionales de referencia, mayormente de EE.UU. Fuentes: PatientPoint 2024, Nielsen vía Digital Signage Today.</p>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>05 · Quiénes somos</span></div>
+  </div>
+</section>
+
+<!-- 04 · CASOS -->
+<section class="photo-band band" id="casos">
+  <div class="wrap">
+    <span class="eyebrow">Casos</span>
+    <h2 class="h2">Lo mismo que querés para Procrearte, <span class="it">ya funcionando.</span></h2>
+    <p class="lead">El esquema que conversamos, con el llamado de turnos y el entretenimiento en la misma pantalla, es el que hoy usan otras instituciones de salud con las que trabajamos.</p>
+    <div class="cases">
+      <article class="case">
+        <img src="img/caso-cetac.jpg" alt="Pantalla de CETAC Juncal: trivia sobre La Gioconda a la izquierda y llamado de turnos a la derecha">
+        <div class="chips"><span class="chip a">Pantalla partida</span><span class="chip v">Turnos + trivia</span></div>
+        <div class="box">
+          <h3>CETAC Juncal</h3>
+          <p>Optimizamos el flujo de pacientes con contenidos en pantalla y tótems de autogestión. El turnero comparte pantalla con <mark>trivias y curiosidades</mark> de nuestra galería.</p>
+        </div>
+      </article>
+      <article class="case">
+        <img src="img/caso-fleming.jpg" alt="Sala de espera del Instituto Alexander Fleming con pantallas de turnos y contenido">
+        <div class="chips"><span class="chip a">Flujo de pacientes</span><span class="chip v">Cartelería</span></div>
+        <div class="box">
+          <h3>Instituto Alexander Fleming</h3>
+          <p>Gestionamos la atención del flujo de pacientes y la cartelería de uno de los centros de referencia en oncología, con <mark>mensajes institucionales</mark> en cada sala.</p>
+        </div>
+      </article>
+    </div>
+    <div class="examples">
+      <a class="vid" href="https://www.youtube.com/watch?v=4FCcKbrIRK4" target="_blank" rel="noopener">
+        <div class="poster" style="background-image:url(img/yt-4FCcKbrIRK4.jpg)"></div><div class="veil"></div><span class="play" aria-hidden="true"></span>
+        <div class="cap"><small>Video · Institucional</small><strong>Ejemplos de contenido institucional a medida</strong></div>
+      </a>
+      <a class="vid" href="https://youtu.be/nZ-i0MaD0s0" target="_blank" rel="noopener">
+        <div class="poster" style="background-image:url(img/yt-nZ-i0MaD0s0.jpg)"></div><div class="veil"></div><span class="play" aria-hidden="true"></span>
+        <div class="cap"><small>Video · Entretenimiento</small><strong>Ejemplos de la galería de entretenimiento</strong></div>
+      </a>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>06 · Casos</span></div>
+  </div>
+</section>
+
+<!-- 05 · EN PROCREARTE -->
+<section class="violet band" id="procrearte">
+  <div class="ghost" aria-hidden="true">NUMIA</div>
+  <div class="rombos" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow">Cómo funciona en Procrearte</span>
+    <h2 class="h2">Sin pantallas nuevas <span class="hl">ni licencias extra.</span></h2>
+    <p class="lead">Trabajamos sobre lo que Procrearte ya tiene: dos televisores por piso, en dos pisos, y la plataforma Numia. Popcorn produce todo en formato horizontal 16:9, gestiona los contenidos y los sube a Numia. Procrearte solo aprueba.</p>
+    <div class="setup">
+      <div class="floors">
+        <div class="floor">
+          <small>Cada piso · 2 televisores</small>
+          <div class="tvs">
+            <div class="tv">
+              <div class="screen split" aria-label="Pantalla partida: entretenimiento y turnos">
+                <div class="game">¿Qué película es?</div>
+                <div class="turns"><i></i><i></i><i></i><i></i></div>
+              </div>
+              <p><b>Pantalla Numia partida.</b> Llamado de pacientes de un lado y contenido de Popcorn del otro. Usa la licencia que ya tienen.</p>
+            </div>
+            <div class="tv">
+              <div class="screen" aria-label="Pantalla institucional actual">
+                <div class="inst">Institucional Procrearte</div>
+              </div>
+              <p><b>Segunda pantalla.</b> Sigue con el contenido institucional actual. No requiere licencia adicional.</p>
+            </div>
+          </div>
+        </div>
+        <p class="note">Si más adelante quieren usar la segunda pantalla completa para contenido, solo hace falta sumar una licencia de Numia. Lo evaluamos juntos cuando lo necesiten.</p>
+      </div>
+      <div class="facts">
+        <div class="fact acc"><b>~7 visitas</b><span>cada dos meses por paciente en tratamiento. Por eso el recambio de contenidos es mensual.</span></div>
+        <div class="fact"><b>15 a 60 min</b><span>de espera según el piso. Una grilla de 10 a 20 videos cubre ese tiempo sin repetir.</span></div>
+        <div class="fact"><b>1 solo equipo</b><span>de la selección a la carga en Numia. Sin trabajo extra para el equipo de Procrearte.</span></div>
+      </div>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>07 · En Procrearte</span></div>
+  </div>
+</section>
+
+<!-- 06 · CONTENIDOS -->
+<section class="violet band" id="contenidos" style="background:linear-gradient(200deg,var(--violeta-900),var(--violeta-grad-1))">
+  <div class="wrap">
+    <span class="eyebrow">Qué se ve en pantalla</span>
+    <h2 class="h2">Una espera que <span class="hl">entretiene</span> <span class="it">y también informa.</span></h2>
+    <p class="lead">Dos tipos de contenido que se intercalan en el loop. El entretenimiento hace más liviana la espera; el institucional cuenta lo que Procrearte necesita que el paciente sepa.</p>
+    <div class="content-grid">
+      <div class="col ent">
+        <span class="eyebrow">Entretenimiento · Grilla Popcorn</span>
+        <h3 style="margin-top:12px">Juegos y curiosidades para mirar mientras se espera</h3>
+        <p>Videos cortos, sin sonido y en formato horizontal 16:9, de nuestra galería. Se renuevan cada mes.</p>
+        <div class="series">
+          <span>Adiviná la peli o serie</span><span>Zoom misterioso</span><span>¿Cuál es diferente?</span><span>¿En qué país está?</span><span>Cosas que hacemos todos</span><span>Inventos por accidente</span><span>Pausas guiadas</span><span>Verdadero o falso</span><span>Cómo hablamos los argentinos</span>
+        </div>
+        <div class="inset"><img src="img/caso-cetac.jpg" alt="Ejemplo de trivia de la galería Popcorn en una pantalla de sala de espera"></div>
+        <p class="note">Es contenido compartido con otros centros, sin identidad de marca. Los derechos de reproducción son exclusivos para las pantallas de Procrearte mientras dure el servicio.</p>
+      </div>
+      <div class="col ins">
+        <span class="eyebrow" style="color:var(--violeta)">Institucional · Planes Mixtos</span>
+        <h3 style="margin-top:12px">Lo que Procrearte necesita contar</h3>
+        <p>Piezas animadas en formato horizontal 16:9, sobre ejes fijos que se actualizan cada dos meses con la información nueva.</p>
+        <div class="series">
+          <span>Novedades</span><span>¿Sabías que…?</span><span>Servicios</span><span>Cómo prepararte para tu consulta</span><span>Canales de atención</span>
+        </div>
+        <div class="inset-pair">
+          <img src="img/tv-donar.jpg" alt="Ejemplo de pieza institucional Hablemos de: donar sangre">
+          <img src="img/tv-agenda.jpg" alt="Ejemplo de pieza institucional Agenda salud">
+        </div>
+        <p class="note">Ejemplos producidos por Popcorn para otras instituciones de salud. Para Procrearte, las piezas institucionales salen con su identidad visual. El entretenimiento no lleva identidad de marca.</p>
+      </div>
+    </div>
+    <div class="care">
+      <strong>Curaduría pensada para un centro de fertilidad</strong>
+      <p>Proponemos filtrar la grilla y las marcas con un criterio propio para Procrearte: evitar contenidos y anunciantes que puedan resultar sensibles para personas en tratamiento. El criterio lo definimos juntos en el arranque.</p>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>08 · Contenidos</span></div>
+  </div>
+</section>
+
+<!-- 07 · INVERSIÓN -->
+<section class="paper band" id="inversion">
+  <div class="wrap">
+    <span class="eyebrow">Planes e inversión</span>
+    <h2 class="h2">Elegí el plan y <span class="hl">armá tu grilla.</span></h2>
+    <p class="lead">Tres planes mensuales, con todo el contenido producido en formato horizontal 16:9. En los planes Mixtos podés sumar cambios institucionales extra: cuantos más sumás, menos cuesta cada uno.</p>
+
+    <div class="plans" role="radiogroup" aria-label="Planes">
+      <button class="plan" type="button" role="radio" aria-checked="false" data-plan="1" id="plan1">
+        <div class="top"><span class="lbl">Plan 1</span><span class="radio" aria-hidden="true"></span></div>
+        <h3>Entretenimiento</h3>
+        <div class="price num">$210.000 <small>+ IVA / mes</small></div>
+        <div class="counts"><span><b>10</b>cambios de entretenimiento por mes</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Videos de la grilla de entretenimiento de Popcorn</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Selección, armado de grilla y carga en Numia</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Formato horizontal 16:9</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Ideal para empezar solo con juegos</li>
+        </ul>
+      </button>
+      <button class="plan" type="button" role="radio" aria-checked="true" data-plan="2" id="plan2">
+        <span class="reco">Recomendado</span>
+        <div class="top"><span class="lbl">Plan 2</span><span class="radio" aria-hidden="true"></span></div>
+        <h3>Mixto</h3>
+        <div class="price num">$419.000 <small>+ IVA / mes</small></div>
+        <div class="counts"><span><b>15</b>cambios de entretenimiento por mes</span><span><b>4</b>cambios institucionales cada 2 meses</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Todo lo del Plan 1, con más variedad</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Novedades, ¿sabías que…?, servicios</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Piezas institucionales con la identidad de Procrearte</li>
+        </ul>
+      </button>
+      <button class="plan" type="button" role="radio" aria-checked="false" data-plan="3" id="plan3">
+        <div class="top"><span class="lbl">Plan 3</span><span class="radio" aria-hidden="true"></span></div>
+        <h3>Mixto Plus</h3>
+        <div class="price num">$760.000 <small>+ IVA / mes</small></div>
+        <div class="counts"><span><b>20</b>cambios de entretenimiento por mes</span><span><b>6</b>cambios institucionales cada 2 meses</span></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>La grilla más amplia, para esperas largas</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Más ejes institucionales en rotación</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Piezas institucionales con la identidad de Procrearte</li>
+        </ul>
+      </button>
+    </div>
+
+    <div class="builder">
+      <div class="panel">
+        <h3>Cambios institucionales extra</h3>
+        <p>Cada cambio extra es una pieza institucional nueva cada dos meses, con la identidad de Procrearte. Cuantos más sumás, menos cuesta cada uno.</p>
+        <div class="stepper">
+          <button type="button" id="minus" aria-label="Quitar un cambio extra">−</button>
+          <output id="extraOut" aria-live="polite">0</output>
+          <button type="button" id="plus" aria-label="Sumar un cambio extra">+</button>
+          <span class="u">cambios extra<br>cada 2 meses</span>
+        </div>
+        <div class="inst-sum" id="instSum">
+          <div class="inst-big"><small>Institucionales en tu plan</small><b id="instTotal" class="num">4</b><span>cambios cada 2 meses</span></div>
+          <div class="inst-big add"><small>Los extra suman por mes</small><b id="instAdd" class="num">+$0</b><span id="instBreak">4 incluidos en el plan + 0 extra</span></div>
+        </div>
+        <div class="locked" id="locked" hidden>El Plan Entretenimiento no incluye piezas institucionales. Para sumarlas, <button type="button" id="toMix">pasá al Plan Mixto</button>.</div>
+      </div>
+
+      <div class="total">
+        <small>Tu selección</small>
+        <div class="lines" id="lines"></div>
+        <div class="sum"><span>Total mensual</span><b id="totalOut">$419.000</b></div>
+        <p class="avg" id="avgOut">Valores + IVA.</p>
+        <div class="offset" id="offsetOut"></div>
+        <div class="mailrow">
+          <a class="btn btn-aqua" id="mailBtn" href="#">Enviar mi selección <span class="arrow">→</span></a>
+          <button class="btn btn-ghost btn-sm" type="button" id="copyBtn">Copiar resumen</button>
+          <span class="copied" id="copied" hidden>Resumen copiado</span>
+        </div>
+        <p class="mailrow"><span class="addr">demianlinet@somospopcorn.com</span></p>
+      </div>
+    </div>
+
+    <div class="terms">
+      <p>Valores mensuales en pesos argentinos, más IVA. Se abonan a mes adelantado y se actualizan trimestralmente (enero, abril, julio y octubre) por IPC del INDEC.</p>
+      <p>Todos los contenidos se producen en formato horizontal 16:9, los gestiona Popcorn y se suben a la plataforma Numia de Procrearte. No se entregan los archivos brutos ni los proyectos originales.</p>
+      <p>Los contenidos de entretenimiento son para uso exclusivo en las pantallas de Procrearte durante el plazo de contratación. No pueden usarse en otros medios ni fuera de ese período sin autorización escrita de Producciones Audiovisuales Integrales SRL.</p>
+      <p>El ingreso por anunciantes es independiente de estos valores: cada marca le paga directamente a Procrearte.</p>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>09 · Inversión</span></div>
+  </div>
+</section>
+
+<!-- 08 · ALCANCE -->
+<section class="dark band" id="alcance">
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow">Alcance</span>
+    <h2 class="h2">Qué incluye y <span class="it">qué no.</span></h2>
+    <div class="scope">
+      <div class="scope-col yes">
+        <h3>Incluye</h3>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Selección mensual de videos de entretenimiento según el plan</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Armado de la grilla y carga en Numia en cada recambio</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Contenidos producidos en formato horizontal 16:9, sin sonido</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Planes Mixtos: producción de las piezas institucionales con la identidad de Procrearte y aprobación previa</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Derechos de reproducción del entretenimiento en las pantallas de Procrearte</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Presentación de Procrearte ante marcas interesadas en pautar</li>
+        </ul>
+      </div>
+      <div class="scope-col no">
+        <h3>No incluye</h3>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Archivos brutos ni proyectos editables de las piezas</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Licencias adicionales de Numia, pantallas o equipamiento</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Entretenimiento con la identidad de Procrearte (es contenido compartido)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Uso de los contenidos fuera de las pantallas de Procrearte</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Garantía de ingresos por anunciantes: dependen de las marcas y la temporada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>10 · Alcance</span></div>
+  </div>
+</section>
+
+<!-- 09 · PRÓXIMOS PASOS + CIERRE -->
+<section class="dark band" id="pasos" style="padding-top:0">
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow">Próximos pasos</span>
+    <h2 class="h2">Cuatro pasos para tener la sala <span class="hl">en movimiento.</span></h2>
+    <div class="next">
+      <div><h3>Elegir plan</h3><p>Definen el plan y, si quieren, los cambios institucionales extra. Nos mandan la selección desde esta página.</p></div>
+      <div><h3>Reunión de arranque</h3><p>Definimos el nexo de Procrearte (experiencia del paciente o marketing), los ejes institucionales y el criterio de curaduría.</p></div>
+      <div><h3>Primera grilla en Numia</h3><p>Seleccionamos los contenidos, los cargamos en la pantalla partida y desde ahí renovamos todos los meses.</p></div>
+      <div><h3>Marcas</h3><p>Si deciden monetizar, les presentamos marcas para aprobar y reservamos sus espacios en el loop.</p></div>
+    </div>
+    <div class="closing">
+      <div class="ghost" aria-hidden="true">HABLEMOS</div>
+      <h2>La pantalla ya está colgada. <b>Hagamos que <span class="hl">trabaje</span></b> <span class="it">para Procrearte.</span></h2>
+      <div class="row">
+        <a class="btn btn-aqua" href="#inversion">Armar mi selección <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://somospopcorn.com/galeria/" target="_blank" rel="noopener">Ver galería Popcorn</a>
+      </div>
+    </div>
+    <div class="sfoot"><span>Procrearte · Cartelería digital</span><span>11 · Próximos pasos</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-popcorn-blanco.png" alt="Popcorn">
+    <p>Propuesta válida hasta el 29 de octubre de 2026 · Demián Linetzky · demianlinet@somospopcorn.com · somospopcorn.com</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var PLANS={
+    1:{name:'Plan 1 · Entretenimiento',price:210000,ent:10,inst:0},
+    2:{name:'Plan 2 · Mixto',price:419000,ent:15,inst:4},
+    3:{name:'Plan 3 · Mixto Plus',price:760000,ent:20,inst:6}
+  };
+  var TIERS=[95000,95000,80000,80000,65000,65000,55000,55000];
+  var MAX=TIERS.length;
+  var TO='demianlinet@somospopcorn.com';
+  var ANNUAL=7500000;
+  var state={plan:2,extra:0};
+  var $=function(id){return document.getElementById(id)};
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('es-AR')};
+
+  function extraCost(k){var s=0;for(var i=0;i<k;i++)s+=TIERS[i];return s}
+  function total(){return PLANS[state.plan].price+(state.plan>1?extraCost(state.extra):0)}
+
+  function summary(){
+    var p=PLANS[state.plan],ex=state.plan>1?state.extra:0;
+    var t='Hola Demián, elegimos esta opción de cartelería digital para Procrearte:\n\n';
+    t+='- '+p.name+': '+fmt(p.price)+' + IVA / mes ('+p.ent+' cambios de entretenimiento por mes';
+    t+=p.inst?', '+p.inst+' institucionales cada 2 meses)\n':')\n';
+    if(ex) t+='- Cambios institucionales extra: '+ex+' cada 2 meses: '+fmt(extraCost(ex))+' + IVA / mes\n';
+    t+='\nTotal: '+fmt(total())+' + IVA / mes\n';
+    t+='Institucionales totales: '+(p.inst+ex)+' cada 2 meses\n';
+    t+='\nMonetización: nos interesa conversar la presentación ante marcas (estimación de referencia: '+fmt(ANNUAL)+' al año, marzo a diciembre de 2027).\n';
+    return t;
+  }
+
+  function render(){
+    document.querySelectorAll('.plan').forEach(function(b){b.setAttribute('aria-checked',String(+b.dataset.plan===state.plan))});
+    var mixed=state.plan>1, p=PLANS[state.plan], ex=mixed?state.extra:0;
+    $('locked').hidden=mixed;
+    $('minus').disabled=!mixed||state.extra<=0;
+    $('plus').disabled=!mixed||state.extra>=MAX;
+    $('extraOut').textContent=ex;
+    $('instSum').hidden=!mixed;
+    $('instTotal').textContent=p.inst+ex;
+    $('instAdd').textContent='+'+fmt(mixed?extraCost(ex):0);
+    $('instBreak').textContent=p.inst+' incluidos en el plan + '+ex+' extra';
+    var lines='<div><span>'+p.name+'</span><span>'+fmt(p.price)+'</span></div>';
+    if(ex) lines+='<div><span>'+ex+' cambio'+(ex>1?'s':'')+' institucional'+(ex>1?'es':'')+' extra</span><span>'+fmt(extraCost(ex))+'</span></div>';
+    lines+='<div><span>Entretenimiento</span><span>'+p.ent+' cambios / mes</span></div>';
+    if(mixed) lines+='<div><span>Institucional</span><span>'+(p.inst+ex)+' cambios / 2 meses</span></div>';
+    $('lines').innerHTML=lines;
+    $('totalOut').textContent=fmt(total());
+    $('avgOut').textContent='Valores + IVA.';
+    var yearCost=total()*12, pct=Math.round(ANNUAL/yearCost*100);
+    $('offsetOut').innerHTML='Costo anual de este plan: <b>'+fmt(yearCost)+'</b> + IVA. La estimación de ingresos por anunciantes de <b>'+fmt(ANNUAL)+'</b> al año cubriría el <b>'+pct+'%</b>.*';
+    // simulador
+    $('covOut').innerHTML='Cubre el <b>'+pct+'%</b> del costo anual del '+p.name.replace(/^Plan \d · /,'Plan ')+' elegido abajo'+(ex?' (con extras)':'')+'.';
+    $('covBar').style.width=Math.min(pct,100)+'%';
+    $('mailBtn').href='mailto:'+TO+'?subject='+encodeURIComponent('Procrearte · Selección cartelería digital')+'&body='+encodeURIComponent(summary());
+  }
+
+  document.querySelectorAll('.plan').forEach(function(b){b.addEventListener('click',function(){state.plan=+b.dataset.plan;render()})});
+  $('minus').addEventListener('click',function(){if(state.extra>0){state.extra--;render()}});
+  $('plus').addEventListener('click',function(){if(state.extra<MAX){state.extra++;render()}});
+  $('toMix').addEventListener('click',function(){state.plan=2;render()});
+  $('copyBtn').addEventListener('click',function(){
+    var txt=summary(),ok=function(){$('copied').hidden=false;setTimeout(function(){$('copied').hidden=true},2200)};
+    try{navigator.clipboard.writeText(txt).then(ok,function(){fallback(txt);ok()})}catch(e){fallback(txt);ok()}
+  });
+  function fallback(t){var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
+
+  // progreso + dots
+  var bar=$('progress'),dots=[].slice.call(document.querySelectorAll('.dots a'));
+  var secs=dots.map(function(d){return document.querySelector(d.getAttribute('href'))});
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?h.scrollTop/max*100:0)+'%';
+    var mid=window.innerHeight*.4,cur=0;
+    secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<mid)cur=i});
+    dots.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  render();onScroll();
+})();
+</script>
+
+</body>
+</html>
