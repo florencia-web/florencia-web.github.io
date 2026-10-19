@@ -171,6 +171,9 @@ input[type=range]{width:100%;margin-top:10px;accent-color:var(--violeta);height:
 .paper .lead{color:var(--ink-60)}
 .paper .sfoot{border-color:var(--ink-line);color:rgba(18,18,18,.42)}
 .paper .hl{background:var(--aqua)}
+/* resaltado: aire entre lineas para que la caja aqua no pise la linea de arriba */
+h1:has(.hl),h2:has(.hl){line-height:1.24}
+h1 .hl,h2 .hl{padding:.02em .18em 0}
 .paper .it{color:var(--violeta)}
 .pillstack{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:22px}
 .pillstack span{display:inline-block;border-radius:999px;padding:.22em .8em;font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.6vw,56px);line-height:1.05;letter-spacing:-.02em}
