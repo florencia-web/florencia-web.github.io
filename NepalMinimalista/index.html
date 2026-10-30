@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nepal Minimalista × Popcorn · Que vengan a ver la obra</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --violeta:#580D9F; --violeta-1:#470082; --violeta-900:#2A0454;
+  --aqua:#74FAE3; --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF; --tinta:#121212; --blanco:#FFFFFF;
+  --t-70:rgba(18,18,18,.70); --t-50:rgba(18,18,18,.50);
+  --w-80:rgba(255,255,255,.82); --w-55:rgba(255,255,255,.55);
+  --line:rgba(18,18,18,.10);
+  --maxw:1120px; --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--papel);color:var(--tinta);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Public Sans',sans-serif}
+img{max-width:100%;display:block}
+
+/* topbar */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 32px;transition:background .3s,box-shadow .3s}
+.top.on{background:rgba(242,244,239,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.top img{height:24px}
+.top .w{display:block}.top .d{display:none}
+.top.on .w{display:none}.top.on .d{display:block}
+.top span{font-family:'Public Sans';font-weight:700;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--w-55)}
+.top.on span{color:var(--t-50)}
+
+/* secciones */
+section{padding:110px 32px}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.s-white{background:var(--blanco)}
+.s-violeta{background:linear-gradient(160deg,var(--violeta-1) 0%,var(--violeta) 55%,var(--violeta-900) 100%);color:var(--blanco)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:700;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--violeta);margin-bottom:20px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua-deep)}
+.s-violeta .eyebrow{color:var(--aqua)}.s-violeta .eyebrow::before{background:var(--aqua)}
+.h-xl{font-weight:800;font-size:clamp(2.5rem,6.4vw,5rem);line-height:1;letter-spacing:-.025em}
+.h-lg{font-weight:800;font-size:clamp(1.9rem,4vw,3rem);line-height:1.06;letter-spacing:-.02em}
+.h-md{font-weight:700;font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.2}
+.lead{font-size:clamp(1.02rem,1.5vw,1.18rem);color:var(--t-70);max-width:640px;margin-top:20px}
+.s-violeta .lead{color:var(--w-80)}
+.hl{background:linear-gradient(transparent 58%,var(--aqua) 58%,var(--aqua) 92%,transparent 92%);padding:0 .08em;margin-right:-.06em}
+.s-violeta .hl{background:none;color:var(--aqua)}
+.shift{display:block;padding-left:1.4em}
+
+/* portada */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:90px;position:relative;overflow:hidden;color:var(--blanco);background:var(--violeta-900)}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.42}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,4,84,.35) 0%,rgba(42,4,84,.92) 85%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero .lead{color:var(--w-80)}
+.hero .eyebrow{color:var(--aqua)}.hero .eyebrow::before{background:var(--aqua)}
+.hero .hl{background:none;color:var(--aqua)}
+.hero .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+.pill{font-family:'Space Grotesk';font-weight:600;font-size:13px;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:var(--w-80)}
+.pill.a{background:var(--aqua);color:var(--tinta);border-color:var(--aqua)}
+
+/* escuchamos */
+.grid{display:grid;gap:18px;margin-top:44px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--blanco);border-radius:18px;padding:26px 24px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.04)}
+.s-white .card{background:var(--papel);box-shadow:none}
+.card .k{font-family:'Public Sans';font-weight:800;font-size:2.1rem;color:var(--violeta);line-height:1;margin-bottom:12px}
+.card h3{font-size:1.02rem;font-weight:700;margin-bottom:8px}
+.card p{font-size:.95rem;color:var(--t-70)}
+
+/* tesis */
+.tesis{text-align:left}
+.tesis .h-lg{max-width:900px}
+
+/* pasos */
+.paso{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.paso.inv .foto{order:2}
+.foto{border-radius:22px;overflow:hidden;aspect-ratio:4/3.4;background:linear-gradient(135deg,var(--violeta),var(--violeta-900));position:relative}
+.foto img{width:100%;height:100%;object-fit:cover}
+.foto .tag{position:absolute;left:16px;top:16px;background:rgba(18,18,18,.62);color:#fff;font-size:11px;letter-spacing:.08em;padding:5px 10px;border-radius:999px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:var(--violeta);color:var(--aqua);font-family:'Public Sans';font-weight:800;font-size:1.4rem;margin-bottom:22px}
+.lista{list-style:none;margin-top:24px;display:grid;gap:10px}
+.lista li{display:flex;gap:12px;font-size:1rem}
+.lista li::before{content:'';flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--aqua) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+.porque{margin-top:24px;padding:16px 18px;border-left:3px solid var(--violeta);background:rgba(88,13,159,.05);border-radius:0 12px 12px 0;font-size:.95rem;color:var(--t-70)}
+.porque b{color:var(--tinta)}
+.tiempo{display:inline-block;margin-top:18px;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--t-50)}
+
+/* embudo */
+.embudo{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:46px;border-radius:20px;overflow:hidden}
+.embudo div{padding:30px 26px;background:rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.14)}
+.embudo div:last-child{border-right:0;background:rgba(116,250,227,.14)}
+.embudo b{display:block;font-family:'Public Sans';font-weight:800;font-size:2.4rem;color:var(--aqua);line-height:1}
+.embudo span{display:block;margin-top:10px;font-weight:600}
+.embudo p{margin-top:6px;font-size:.92rem;color:var(--w-80)}
+.nota-v{margin-top:26px;font-size:.92rem;color:var(--w-55);max-width:760px}
+
+/* ustedes */
+.card.stop{border:2px solid var(--violeta)}
+.badge{display:inline-block;font-family:'Public Sans';font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--aqua);color:var(--tinta);margin-bottom:14px}
+.badge.v{background:var(--violeta);color:#fff}
+
+/* cronograma */
+.crono{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+.crono div{background:var(--blanco);border-radius:16px;padding:22px 20px;border-top:4px solid var(--violeta)}
+.crono div:last-child{border-top-color:var(--aqua-deep)}
+.crono small{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--violeta)}
+.crono p{margin-top:8px;font-size:.95rem}
+
+/* inversion */
+.inv-tabla{margin-top:40px;background:var(--blanco);border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+.fila{display:grid;grid-template-columns:1fr 170px 170px;gap:16px;padding:18px 26px;border-bottom:1px solid var(--line);align-items:center}
+.fila.h{background:var(--violeta-900);color:#fff;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.fila.t{background:rgba(116,250,227,.22);font-weight:700}
+.fila .r{text-align:right;font-family:'Public Sans';font-weight:700}
+.fila small{display:block;color:var(--t-50);font-size:.85rem;font-weight:400}
+.fila.h .r{font-weight:700}
+.mensual{margin-top:22px;display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+.mensual .card .k{font-size:2.3rem}
+.legal{margin-top:26px;display:grid;gap:6px;font-size:.88rem;color:var(--t-50)}
+.honesto{margin-top:30px;padding:22px 24px;border-radius:16px;background:rgba(88,13,159,.06);font-size:1rem}
+.honesto b{color:var(--violeta)}
+
+/* cierre */
+.cierre .h-xl{max-width:900px}
+.cta{display:inline-flex;align-items:center;gap:12px;margin-top:34px;background:var(--aqua);color:var(--tinta);font-weight:700;padding:14px 22px;border-radius:999px;text-decoration:none}
+.firma{margin-top:56px;display:flex;gap:40px;flex-wrap:wrap;font-size:.95rem;color:var(--w-80)}
+.firma b{display:block;color:#fff;font-family:'Public Sans'}
+footer{background:var(--violeta-900);color:var(--w-55);padding:22px 32px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* reveal */
+.anim .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.anim .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:900px){
+  section{padding:84px 16px}
+  .top{padding:14px 16px}
+  .g4,.g3,.g2,.crono,.mensual{grid-template-columns:1fr 1fr}
+  .paso,.paso.inv{grid-template-columns:1fr;gap:30px}
+  .paso.inv .foto{order:0}
+  .embudo{grid-template-columns:1fr}
+  .embudo div{border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .fila{grid-template-columns:1fr 110px 110px;padding:16px;font-size:.92rem}
+}
+@media (max-width:560px){
+  .g4,.g3,.g2,.crono,.mensual{grid-template-columns:1fr}
+  .fila{grid-template-columns:1fr 92px 92px;gap:10px;padding:14px 12px;font-size:.85rem}
+  .shift{padding-left:.6em}
+}
+@media print{.rv{opacity:1;transform:none}.top{display:none}section{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <img class="w" src="img/logo-blanco.png" alt="Popcorn">
+  <img class="d" src="img/logo-oscuro.png" alt="Popcorn">
+  <span>Propuesta · Nepal Minimalista</span>
+</header>
+
+<!-- 01 PORTADA -->
+<section class="hero">
+  <div class="bg" style="background-image:url('img/hero.jpg')"></div>
+  <div class="wrap">
+    <div class="eyebrow">Propuesta de referencia · Octubre 2026</div>
+    <h1 class="h-xl">Que la gente venga<span class="shift">a ver la <span class="hl">obra.</span></span></h1>
+    <p class="lead">Un plan simple, en tres pasos, para que Nepal Minimalista transmita lo que ya es en la obra —una empresa real, con gente real— y convierta eso en más visitas a la oficina.</p>
+    <div class="meta">
+      <span class="pill a">3 pasos</span>
+      <span class="pill">Radio 100 km de San Justo</span>
+      <span class="pill">Objetivo: visitas</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 LO QUE ESCUCHAMOS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow rv">Lo que nos contaron</div>
+    <h2 class="h-lg rv">El objetivo no es publicar más.<br>Es que vengan <span class="hl">más personas.</span></h2>
+    <div class="grid g4">
+      <div class="card rv"><div class="k">1 de 10</div><h3>Quien visita, compra</h3><p>Según su experiencia, uno de cada diez visitantes termina comprando su casa. Cada visita vale mucho.</p></div>
+      <div class="card rv"><div class="k">Obra</div><h3>En vivo, sin showroom</h3><p>La venta se cierra mostrando construcciones reales o con un asesor que va a ver al cliente.</p></div>
+      <div class="card rv"><div class="k">Boca</div><h3>a boca, primero</h3><p>La mayoría llega por recomendación. Instagram, Facebook y WhatsApp completan el circuito.</p></div>
+      <div class="card rv"><div class="k">100 km</div><h3>Zona prioritaria</h3><p>Dentro de los 100 km de San Justo hay bonificación. Ahí está el cliente que puede venir.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DIAGNOSTICO -->
+<section class="s-white">
+  <div class="wrap">
+    <div class="eyebrow rv">Lo que vimos</div>
+    <h2 class="h-lg rv">El producto es de alto valor.<br>La marca todavía <span class="hl">no lo refleja.</span></h2>
+    <div class="grid g3">
+      <div class="card rv"><h3>Cada publicación se ve distinta</h3><p>Un día gris, otro rojo, otro con otra estética. Sin una línea clara, la marca no se reconoce ni se recuerda.</p></div>
+      <div class="card rv"><h3>Mucha imagen generada con IA</h3><p>En un rubro donde la gente teme no recibir lo que le prometieron, una imagen que no es real resta credibilidad justo donde más se necesita.</p></div>
+      <div class="card rv"><h3>No se ve a nadie</h3><p>No aparece el equipo, ni la fábrica, ni el proceso. Se ve el resultado, pero no quién lo hace ni cómo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TESIS -->
+<section class="s-violeta tesis">
+  <div class="wrap">
+    <div class="eyebrow rv">La idea</div>
+    <h2 class="h-lg rv">En un rubro donde muchos prometen y pocos cumplen, la confianza no se declara: <span class="hl">se muestra.</span></h2>
+    <p class="lead rv">Obra real, equipo real, clientes reales. Eso es lo que hoy cierra la venta cuando alguien visita. El plan lleva eso mismo a las pantallas, para que más gente quiera venir.</p>
+  </div>
+</section>
+
+<!-- 05 PASO 1 -->
+<section>
+  <div class="wrap paso">
+    <div class="foto rv"><img src="img/paso1.jpg" alt="Casa terminada de Nepal Minimalista" onerror="this.remove()"><span class="tag">Obra Nepal Minimalista</span></div>
+    <div class="rv">
+      <div class="num">1</div>
+      <div class="eyebrow">Ordenar la marca</div>
+      <h2 class="h-lg">Que se vea <span class="hl">igual</span> en todos lados.</h2>
+      <ul class="lista">
+        <li>Trabajamos con el logo actual: no incluye armado ni rediseño de logo.</li>
+        <li>Paleta y tipografías ordenadas a partir de ese logo.</li>
+        <li>Criterio de fotografía: imágenes reales, sin IA.</li>
+        <li>Tono de voz: cómo habla Nepal.</li>
+        <li>6 plantillas editables para publicaciones, historias y anuncios, para que el equipo las use sin depender de nadie.</li>
+      </ul>
+      <div class="porque"><b>Por qué primero:</b> todo lo que viene después —anuncios, redes, web— se apoya en esto. Ordenarlo una vez evita rehacer cada pieza.</div>
+      <span class="tiempo">Semanas 1 y 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- 06 PASO 2 -->
+<section class="s-white">
+  <div class="wrap paso inv">
+    <div class="foto rv"><img src="img/paso2.jpg" alt="Casa de Nepal Minimalista en etapa de terminación" onerror="this.remove()"><span class="tag">Obra Nepal Minimalista</span></div>
+    <div class="rv">
+      <div class="num">2</div>
+      <div class="eyebrow">Mostrar la obra y a las personas</div>
+      <h2 class="h-lg">Una jornada para <span class="hl">ponerle cara</span> a la marca.</h2>
+      <ul class="lista">
+        <li>4 horas de registro en dos lugares: la fábrica u oficina y una obra en vivo.</li>
+        <li>El equipo, el proceso constructivo y el testimonio de un cliente.</li>
+        <li>Entrega: 40 a 50 fotos y 8 a 10 videos cortos editados (hasta 40 segundos).</li>
+        <li>Material para varios meses de anuncios y publicaciones.</li>
+      </ul>
+      <div class="porque"><b>Por qué:</b> es lo que hoy convence en la visita, puesto antes de la visita. Y reemplaza a las imágenes con IA por imágenes que nadie puede copiar.</div>
+      <span class="tiempo">Semanas 2 y 3</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 PASO 3 -->
+<section>
+  <div class="wrap paso">
+    <div class="foto rv"><img src="img/paso3.jpg" alt="Casa de dos plantas de Nepal Minimalista" onerror="this.remove()"><span class="tag">Obra Nepal Minimalista</span></div>
+    <div class="rv">
+      <div class="num">3</div>
+      <div class="eyebrow">Traer gente a la obra</div>
+      <h2 class="h-lg">Anuncios con un solo objetivo: <span class="hl">agendar visita.</span></h2>
+      <ul class="lista">
+        <li>Anuncios en Instagram y Facebook, solo para quien vive dentro de los 100 km de San Justo.</li>
+        <li>El anuncio lleva a WhatsApp con un mensaje listo: “Quiero agendar una visita”.</li>
+        <li>Creatividades hechas con el material real de la jornada.</li>
+        <li>Una planilla simple para anotar cada contacto: de dónde vino, si visitó, si compró.</li>
+        <li>Optimización semanal y reporte mensual con el equipo comercial.</li>
+      </ul>
+      <div class="porque"><b>Por qué solo Meta:</b> es donde ya están y donde hoy llega la gente. Con un presupuesto acotado, concentrar rinde más que repartir.</div>
+      <span class="tiempo">Desde la semana 4, todos los meses</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07b OPCIONAL WEB -->
+<section class="s-white">
+  <div class="wrap">
+    <div class="eyebrow rv">Opcional · Una web que acompañe</div>
+    <h2 class="h-lg rv">Cuatro páginas, un solo botón:<br><span class="hl">agendá tu visita.</span></h2>
+    <p class="lead rv">Quien ve un anuncio casi siempre entra a la web antes de escribir. Hoy la web es muy básica y no transmite el valor del producto. Proponemos una versión simple, con la nueva identidad y las fotos reales de la jornada.</p>
+    <div class="grid g4">
+      <div class="card rv"><div class="k">01</div><h3>Inicio</h3><p>Qué hace Nepal, obras destacadas y el botón para agendar visita.</p></div>
+      <div class="card rv"><div class="k">02</div><h3>Obras</h3><p>Galería de construcciones reales, no renders.</p></div>
+      <div class="card rv"><div class="k">03</div><h3>Cómo construimos</h3><p>El proceso paso a paso y el equipo que está detrás.</p></div>
+      <div class="card rv"><div class="k">04</div><h3>Agendá tu visita</h3><p>Formulario y WhatsApp, ubicación en San Justo y zona de cobertura.</p></div>
+    </div>
+    <p class="lead rv" style="font-size:.95rem">Adaptada a celular y con la medición configurada para saber cuántos contactos llegan desde la web. Plazo: 3 a 4 semanas.</p>
+  </div>
+</section>
+
+<!-- 08 COMO MEDIMOS -->
+<section class="s-violeta">
+  <div class="wrap">
+    <div class="eyebrow rv">Cómo sabemos si funciona</div>
+    <h2 class="h-lg rv">No medimos “me gusta”.<br>Medimos <span class="hl">visitas.</span></h2>
+    <div class="embudo rv">
+      <div><b>Contactos</b><span>Mensajes por WhatsApp</span><p>Cuántas personas escriben desde los anuncios.</p></div>
+      <div><b>Visitas</b><span>Personas en la oficina u obra</span><p>Cuántas de ellas vienen. Es el número que mira el equipo.</p></div>
+      <div><b>Ventas</b><span>1 de cada 10 visitas</span><p>Con su dato actual: para cada casa vendida hacen falta unas diez visitas.</p></div>
+    </div>
+    <p class="nota-v rv">El dato que vamos a cuidar todos los meses es el <b style="color:#fff">costo por visita</b>: cuánto se invirtió en anuncios dividido por las personas que efectivamente vinieron. Por eso la planilla del paso 3 es tan importante como el anuncio.</p>
+  </div>
+</section>
+
+<!-- 09 LO QUE HACEN USTEDES -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow rv">Lo que queda de su lado</div>
+    <h2 class="h-lg rv">Tres cosas que no les cobramos<br>y <span class="hl">cambian el resultado.</span></h2>
+    <div class="grid g3">
+      <div class="card rv"><span class="badge">Seguir</span><h3>Las redes, en manos del equipo</h3><p>Con las plantillas y el material de la jornada, el equipo puede seguir publicando con una línea coherente. No hace falta tercerizarlo hoy.</p></div>
+      <div class="card rv"><span class="badge">Empezar</span><h3>Anotar cada contacto</h3><p>Nombre, zona, de dónde vino, si visitó, si compró. Sin este registro no hay forma de saber qué anuncio trae compradores.</p></div>
+      <div class="card stop rv"><span class="badge v">Dejar de hacer</span><h3>Publicar imágenes con IA</h3><p>Desde ahora, solo obras, equipo y clientes reales. Es el cambio más barato y el que más rápido se nota.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 CRONOGRAMA -->
+<section class="s-white">
+  <div class="wrap">
+    <div class="eyebrow rv">En el tiempo</div>
+    <h2 class="h-lg rv">En un mes, la marca ordenada<br>y los anuncios <span class="hl">funcionando.</span></h2>
+    <div class="crono">
+      <div class="rv"><small>Semanas 1–2</small><p><b>Paso 1.</b> Kit de marca y plantillas.</p></div>
+      <div class="rv"><small>Semanas 2–3</small><p><b>Paso 2.</b> Jornada en fábrica y obra. Edición.</p></div>
+      <div class="rv"><small>Semana 4</small><p><b>Paso 3.</b> Puesta en marcha de anuncios y planilla.</p></div>
+      <div class="rv"><small>Mes 2 en adelante</small><p>Gestión mensual, ajuste por costo por visita y reporte. Si suman la web, se hace en paralelo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 INVERSION -->
+<section id="inversion">
+  <div class="wrap">
+    <div class="eyebrow rv">Inversión</div>
+    <h2 class="h-lg rv">Lo que cuesta hacerlo <span class="hl">bien.</span></h2>
+
+    <div class="inv-tabla rv">
+      <div class="fila h"><div>Proyecto de única vez · valores + IVA</div><div class="r">100% anticipado</div><div class="r">50% + 50%</div></div>
+      <div class="fila"><div>Paso 1 · Kit de marca<small>Sobre el logo actual (no incluye logo nuevo) · paleta, tipografías, criterio de foto, tono y 6 plantillas</small></div><div class="r">$774.000</div><div class="r">$798.000</div></div>
+      <div class="fila"><div>Paso 2 · Jornada en fábrica y obra<small>4 hs · 2 locaciones · movilidad incluida · 40-50 fotos + 8-10 videos editados</small></div><div class="r">$775.000</div><div class="r">$799.000</div></div>
+      <div class="fila"><div>Paso 3 · Puesta en marcha de anuncios<small>Estrategia, segmentación, campaña, creatividades y planilla</small></div><div class="r">$664.000</div><div class="r">$685.000</div></div>
+      <div class="fila t"><div>Total pasos 1 a 3</div><div class="r">$2.213.000</div><div class="r">$2.282.000</div></div>
+      <div class="fila"><div>Opcional · Web de 4 páginas<small>Inicio, Obras, Cómo construimos y Agendá tu visita · adaptada a celular · medición configurada</small></div><div class="r">$1.340.000</div><div class="r">$1.381.000</div></div>
+      <div class="fila"><div>Opcional · Mantenimiento web<small>2 h de soporte por mes · hosting y certificado de seguridad quedan en su proveedor actual</small></div><div class="r" style="grid-column:2/4">$155.000 /mes</div></div>
+    </div>
+
+    <div class="mensual">
+      <div class="card rv"><span class="badge v">Mensual · desde el mes 2</span><h3>Gestión de anuncios en Meta</h3><div class="k" style="margin-top:12px">$856.000<span style="font-size:1rem;color:var(--t-50);font-weight:600"> /mes + IVA</span></div><p>Optimización semanal, renovación de creatividades, cruce de contactos y visitas con el equipo comercial y reporte mensual. Se abona 100% por adelantado; el descuento por pago anticipado no aplica a servicios mensuales.</p></div>
+      <div class="card rv"><span class="badge">Aparte</span><h3>La inversión en anuncios</h3><p>La paga Nepal directamente a Meta. Proponemos arrancar con lo que hoy ya destinan a anuncios y ajustarla con los datos del primer mes. Sobre esa inversión se suma un <b>fee variable del 15%</b> por administración, que se factura a mes cerrado sobre lo efectivamente invertido.</p></div>
+    </div>
+
+    <div class="honesto rv"><b>Para ser claros:</b> sabemos que esto supera los $600.000 mensuales que hoy destinan a marketing. Por eso cada paso se puede contratar por separado y en el orden que les sirva. Si hoy no es el momento, esta propuesta igual les sirve como referencia para comparar alcances con otras agencias.</div>
+
+    <div class="legal rv">
+      <span>Todos los valores en pesos argentinos + IVA. La inversión en anuncios es neta: Meta suma impuestos y percepciones, que en su mayor parte son crédito fiscal para un responsable inscripto.</span>
+      <span>Proyecto único: 100% anticipado (valor preferencial) o 50% al inicio + 50% al finalizar o a los 30 días de iniciado, lo que ocurra primero.</span>
+      <span>Propuesta válida por 10 días, hasta el 8 de noviembre de 2026.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 12 DESPUES -->
+<section class="s-white">
+  <div class="wrap">
+    <div class="eyebrow rv">Lo que viene después</div>
+    <h2 class="h-lg rv">Cuando la inversión vuelva,<br>el <span class="hl">siguiente paso.</span></h2>
+    <p class="lead rv">No hace falta ahora. Lo dejamos escrito para que sepan hacia dónde crece el plan.</p>
+    <div class="grid g2">
+      <div class="card rv"><h3>Historias de clientes</h3><p>Videos de familias que ya viven en su casa Nepal: la prueba más fuerte para un rubro de confianza.</p></div>
+      <div class="card rv"><h3>Seguimiento de contactos</h3><p>Pasar de la planilla a un registro que avise a quién volver a escribir y cuándo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 CIERRE -->
+<section class="s-violeta cierre">
+  <div class="wrap">
+    <div class="eyebrow rv">Próximo paso</div>
+    <h2 class="h-xl rv">Empecemos por lo que <span class="hl">más mueve.</span></h2>
+    <p class="lead rv">Si quieren avanzar, coordinamos una llamada corta para definir por qué paso arrancar. Y si hoy el presupuesto no da, junto con esta propuesta les compartimos contactos de confianza de equipos más chicos que pueden acompañarlos.</p>
+    <a class="cta rv" href="mailto:sol@somospopcorn.com?subject=Nepal%20Minimalista%20%C2%B7%20Propuesta">Escribirnos →</a>
+    <div class="firma rv">
+      <div><b>Sol Ferrari</b>General Manager · Paid Media<br>sol@somospopcorn.com</div>
+      <div><b>Florencia Grigolatto</b>Operations Manager<br>florencia@somospopcorn.com</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Popcorn · Marketing, comunicación y creatividad</span>
+  <span>Propuesta emitida el 29/10/2026 · válida hasta el 08/11/2026</span>
+</footer>
+
+<script>
+const top=document.getElementById('top');
+const onScroll=()=>top.classList.toggle('on',window.scrollY>window.innerHeight*.75);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+if('IntersectionObserver' in window){
+  const els=document.querySelectorAll('.rv');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in');io.observe(el)});
+  document.documentElement.classList.add('anim');
+  setTimeout(()=>els.forEach(el=>el.classList.add('in')),4000);
+}
+</script>
+</body>
+</html>
