@@ -122,6 +122,8 @@ section{padding:110px 32px}
 .fila.h .r{font-weight:700}
 .mensual{margin-top:22px;display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
 .mensual .card .k{font-size:2.3rem}
+.mensual .card .inv-k{white-space:nowrap;font-size:clamp(1.3rem,5.6vw,2.3rem)}
+@media(max-width:380px){.mensual .card .inv-k{white-space:normal}}
 .legal{margin-top:26px;display:grid;gap:6px;font-size:.88rem;color:var(--t-50)}
 .honesto{margin-top:30px;padding:22px 24px;border-radius:16px;background:rgba(88,13,159,.06);font-size:1rem}
 .honesto b{color:var(--violeta)}
@@ -150,6 +152,7 @@ footer{background:var(--violeta-900);color:var(--w-55);padding:22px 32px;font-si
 }
 @media (max-width:560px){
   .g4,.g3,.g2,.crono,.mensual{grid-template-columns:1fr}
+  .mensual{grid-template-columns:minmax(0,1fr)}
   .fila{grid-template-columns:1fr 92px 92px;gap:10px;padding:14px 12px;font-size:.85rem}
   .shift{padding-left:.6em}
 }
@@ -352,7 +355,7 @@ footer{background:var(--violeta-900);color:var(--w-55);padding:22px 32px;font-si
 
     <div class="mensual">
       <div class="card rv"><span class="badge v">Mensual · desde el mes 2</span><h3>Gestión de anuncios en Meta</h3><div class="k" style="margin-top:12px">$856.000<span style="font-size:1rem;color:var(--t-50);font-weight:600"> /mes + IVA</span></div><p>Optimización semanal, renovación de creatividades, cruce de contactos y visitas con el equipo comercial y reporte mensual. Se abona 100% por adelantado; el descuento por pago anticipado no aplica a servicios mensuales.</p></div>
-      <div class="card rv"><span class="badge">Aparte · se paga directo a Meta</span><h3>La inversión en anuncios</h3><div class="k" style="margin-top:12px">desde $1.000.000<span style="font-size:1rem;color:var(--t-50);font-weight:600"> /mes + impuestos</span></div><p>Es el mínimo que recomendamos para arrancar: Meta necesita unas 50 conversaciones por semana para aprender a quién mostrarle los anuncios, y en una compra de alto valor con una zona acotada (100 km) cada conversación cuesta más. Con menos inversión la campaña no sale de esa etapa. Lo ajustamos con los datos de las dos primeras semanas. Sobre lo efectivamente invertido se suma un <b>fee variable del 15%</b> por administración (con $1.000.000, $150.000 + IVA), facturado a mes cerrado.</p></div>
+      <div class="card rv"><span class="badge">Aparte · se paga directo a Meta</span><h3>La inversión en anuncios</h3><div class="k inv-k" style="margin-top:12px"><span style="font-size:1rem;color:var(--t-50);font-weight:600">desde </span>$1.000.000<span style="font-size:1rem;color:var(--t-50);font-weight:600;white-space:nowrap"> /mes + impuestos</span></div><p>Es el mínimo que recomendamos para arrancar: Meta necesita unas 50 conversaciones por semana para aprender a quién mostrarle los anuncios, y en una compra de alto valor cada conversación cuesta más. Con menos inversión la campaña no sale de esa etapa. Lo ajustamos con los datos de las dos primeras semanas. Sobre lo efectivamente invertido se suma un <b>fee variable del 15%</b> por administración, facturado a mes cerrado.</p></div>
     </div>
 
     <div class="honesto rv"><b>Para ser claros:</b> sabemos que esto supera los $600.000 mensuales que hoy destinan a marketing: para este tipo de producto, ese monto no alcanza ni siquiera para la inversión en anuncios que recomendamos. Por eso cada paso se puede contratar por separado y en el orden que les sirva. Si hoy no es el momento, esta propuesta igual les sirve como referencia para comparar alcances con otras agencias.</div>
@@ -385,10 +388,6 @@ footer{background:var(--violeta-900);color:var(--w-55);padding:22px 32px;font-si
     <h2 class="h-xl rv">Empecemos por lo que <span class="hl">más mueve.</span></h2>
     <p class="lead rv">Si quieren avanzar, coordinamos una llamada corta para definir por qué paso arrancar. Y si hoy el presupuesto no da, junto con esta propuesta les compartimos contactos de confianza de equipos más chicos que pueden acompañarlos.</p>
     <a class="cta rv" href="mailto:sol@somospopcorn.com?subject=Nepal%20Minimalista%20%C2%B7%20Propuesta">Escribirnos →</a>
-    <div class="firma rv">
-      <div><b>Sol Ferrari</b>General Manager · Paid Media<br>sol@somospopcorn.com</div>
-      <div><b>Florencia Grigolatto</b>Operations Manager<br>florencia@somospopcorn.com</div>
-    </div>
   </div>
 </section>
 
