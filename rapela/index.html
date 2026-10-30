@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorio Rapela · Propuesta de fee 2027 · Popcorn</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · Propuesta Laboratorio Rapela · paleta canónica (identidad-popcorn.md)
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violeta);color:var(--white);font-family:var(--font-text);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::after{content:'';position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:var(--font-display);font-style:normal}
+em,i{font-style:normal}
+b,strong{font-weight:700}
+
+/* ============ TOPBAR / PROGRESO / DOTS ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:all .4s var(--ease)}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:12px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:var(--font-text);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--w-80);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.topbar .logo img{height:26px;width:auto;display:block}
+.dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s var(--ease);box-shadow:0 0 0 1px rgba(18,18,22,.25)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:var(--font-text);font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* ============ SECCIONES Y MODOS ============ */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 38px 110px;overflow:hidden}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.m-violeta{background:radial-gradient(1100px 700px at 85% -10%,rgba(162,98,229,.45),transparent 60%),linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 45%,var(--violeta-grad-2) 100%)}
+.m-negro{background:radial-gradient(900px 600px at 20% 110%,rgba(88,13,159,.35),transparent 60%),var(--negro)}
+.m-papel{background:var(--papel);color:var(--tinta)}
+.m-profundo{background:linear-gradient(180deg,var(--violeta-900),var(--violeta-950))}
+
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-text);font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+.m-papel .sfoot{color:rgba(18,18,18,.5)}
+.m-papel .sfoot .num{color:var(--violeta)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-text);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);margin-bottom:26px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
+.m-papel .eyebrow{color:var(--violeta)}
+.m-papel .eyebrow::before{box-shadow:none}
+
+.h-xl{font-weight:800;font-size:clamp(2.7rem,7.4vw,6.2rem);line-height:.98;letter-spacing:-.03em}
+.h-lg{font-weight:700;font-size:clamp(2.1rem,4.8vw,3.9rem);line-height:1.02;letter-spacing:-.02em}
+.h-md{font-weight:700;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.12}
+.hl{background:var(--aqua);color:var(--tinta);padding:0 .14em;border-radius:.08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.rem{font-style:italic;color:var(--aqua);font-weight:700}
+.m-papel .rem{color:var(--violeta)}
+.lead{font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--w-80);max-width:720px;line-height:1.65}
+.m-papel .lead{color:rgba(18,18,18,.74)}
+
+/* recursos gráficos */
+.ghost{position:absolute;top:-.12em;left:-.04em;font-family:var(--font-display);font-weight:800;font-size:clamp(9rem,26vw,22rem);line-height:.85;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.1);pointer-events:none;z-index:0;white-space:nowrap}
+.rombos{position:absolute;right:0;top:12%;width:340px;height:340px;opacity:.16;pointer-events:none;z-index:0;
+  background-image:linear-gradient(45deg,transparent 48.5%,#fff 49%,#fff 51%,transparent 51.5%),linear-gradient(-45deg,transparent 48.5%,#fff 49%,#fff 51%,transparent 51.5%);background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(circle at 100% 30%,#000 10%,transparent 70%);mask-image:radial-gradient(circle at 100% 30%,#000 10%,transparent 70%)}
+.curva{position:absolute;pointer-events:none;z-index:0}
+.badge-logo{position:absolute;top:0;left:50%;transform:translateX(-50%);background:#fff;border-radius:0 0 44px 44px;padding:56px 26px 22px;z-index:3}
+.badge-logo img{width:76px;height:auto;display:block}
+
+/* ============ REVEAL ============ */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.09s!important}.d2{transition-delay:.18s!important}.d3{transition-delay:.27s!important}.d4{transition-delay:.36s!important}.d5{transition-delay:.45s!important}.d6{transition-delay:.54s!important}
+
+/* ============ HERO ============ */
+#hero{padding-top:200px}
+.hero-sub{margin-top:30px;font-size:clamp(1.08rem,1.7vw,1.4rem);color:var(--w-80);max-width:640px;line-height:1.6}
+.meta{margin-top:58px;display:grid;grid-template-columns:repeat(4,auto);gap:18px 48px;justify-content:start;border-top:1px solid var(--line);padding-top:26px}
+.meta .k{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);margin-bottom:5px}
+.meta .v{font-family:var(--font-display);font-weight:700;font-size:1rem}
+.meta .v a{color:var(--aqua);text-decoration:none}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--aqua-line);color:var(--aqua);border-radius:999px;padding:7px 14px;margin-bottom:28px}
+
+/* ============ PANTALLA (mockup cartelera) ============ */
+.screen{position:relative;background:#0c0c10;border-radius:22px;padding:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08)}
+.screen .panel{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden}
+.screen .stand{width:22%;height:16px;margin:0 auto;background:#0c0c10;border-radius:0 0 8px 8px}
+.screen .label{position:absolute;top:-14px;left:22px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;border-radius:999px;padding:6px 14px;font-weight:500;z-index:2}
+.screen .panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+/* antes */
+.old{background:#c9c6bd;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6%;filter:grayscale(.7) sepia(.15)}
+.old .bar{width:70%;height:9%;background:#9b978e;border-radius:3px}
+.old .bar.s{width:46%;background:#aeaaa1}
+.old .box{width:28%;height:26%;border:3px dashed #9b978e}
+.old .yr{position:absolute;right:5%;bottom:6%;font-family:var(--font-display);font-weight:800;font-size:clamp(1.4rem,3vw,2.4rem);color:#8a867c}
+/* hoy */
+.new{background:linear-gradient(135deg,#1b1530,#2a0454);display:flex;align-items:center;justify-content:center}
+.new .slot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;opacity:0;transform:scale(.96);transition:all .7s var(--ease)}
+.new .slot.on{opacity:1;transform:none}
+.new .slot .brand{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,4.4vw,3.4rem);letter-spacing:-.02em;color:#fff}
+.new .slot .tagline{font-size:clamp(.7rem,1.1vw,.9rem);letter-spacing:.2em;text-transform:uppercase;color:var(--aqua)}
+.new .ticker{position:absolute;left:0;right:0;bottom:0;height:12%;background:rgba(116,250,227,.12);display:flex;align-items:center;gap:6%;padding:0 5%;font-size:clamp(.6rem,1vw,.8rem);letter-spacing:.16em;text-transform:uppercase;color:var(--w-80)}
+.new .ticker i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--aqua);margin-right:8px}
+.new .progressbar{position:absolute;left:0;top:0;height:3px;background:var(--aqua);width:0;animation:fill 2.6s linear infinite}
+@keyframes fill{to{width:100%}}
+.ilus{margin-top:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(18,18,18,.45)}
+
+/* ============ LAYOUTS ============ */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:56px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border-top:2px solid var(--tinta)}
+.facts .f{padding:28px 30px 0 0}
+.facts .f + .f{padding-left:30px;border-left:1px solid rgba(18,18,18,.14)}
+.facts h3{font-size:1.15rem;margin-bottom:8px}
+.facts p{color:rgba(18,18,18,.72);font-size:.98rem}
+.cero{display:flex;align-items:baseline;gap:18px;margin-top:40px}
+.cero .n{font-family:var(--font-display);font-weight:800;font-size:clamp(4rem,9vw,7rem);line-height:.9;color:var(--violeta)}
+.cero .t{font-size:1.05rem;color:rgba(18,18,18,.74);max-width:300px}
+
+.bignum{font-family:var(--font-display);font-weight:800;font-size:clamp(4.4rem,15vw,13rem);line-height:.88;letter-spacing:-.045em;color:var(--aqua)}
+.caps{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;max-width:900px}
+.cap{font-family:var(--font-display);font-weight:700;font-size:clamp(1.05rem,1.7vw,1.4rem);border-radius:999px;padding:.5em 1.1em;transition:transform .35s var(--ease)}
+.cap:hover{transform:translateY(-4px)}
+.cap.a{background:var(--violeta-900);color:#fff}
+.cap.b{background:var(--aqua);color:var(--violeta-900)}
+.cap.c{background:var(--violeta-claro);color:#fff}
+.cap.d{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.note{margin-top:30px;font-size:.92rem;color:var(--w-65)}
+
+.fee-now{display:flex;flex-direction:column;gap:6px;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fee-now .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--w-65)}
+.fee-now .v{font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,6.4vw,5.2rem);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.fee-now .v small{font-size:.36em;font-weight:700;color:var(--w-65);letter-spacing:0}
+.quote{border-left:3px solid var(--aqua);padding-left:24px;font-family:var(--font-display);font-weight:700;font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.3}
+
+/* barras */
+.bars{margin-top:58px;display:flex;flex-direction:column;gap:30px}
+.bar-row .lbl{display:flex;justify-content:space-between;gap:20px;font-size:1rem;margin-bottom:10px;color:rgba(18,18,18,.78)}
+.bar-row .lbl b{font-family:var(--font-display);color:var(--tinta)}
+.bar-track{height:46px;border-radius:999px;background:rgba(18,18,18,.06);overflow:hidden}
+.bar-fill{height:100%;width:0;border-radius:999px;transition:width 1.4s var(--ease)}
+.in .bar-fill{width:var(--w)}
+.f1{background:#B9B7C2}.f2{background:var(--violeta)}.f3{background:linear-gradient(90deg,var(--aqua-deep),var(--aqua))}
+.src{margin-top:26px;font-size:.85rem;color:rgba(18,18,18,.55)}
+
+/* timeline 2027 */
+.quarters{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+.q{background:var(--card);border:1px solid var(--line-soft);border-radius:22px;padding:28px 24px 30px;transition:transform .4s var(--ease),border-color .4s var(--ease)}
+.q:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.q .when{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--violeta-900);background:var(--aqua);border-radius:999px;padding:5px 12px;margin-bottom:20px;font-weight:500}
+.q h3{font-size:1.3rem;line-height:1.15;margin-bottom:14px}
+.q p{color:var(--w-65);font-size:.95rem}
+.q .ico{width:40px;height:40px;color:var(--aqua);margin-bottom:18px}
+.retain{margin-top:34px;display:flex;align-items:center;gap:16px;font-size:1.05rem;color:var(--w-80)}
+.arrow-pill{flex:none;display:inline-flex;align-items:center;justify-content:center;width:58px;height:34px;border-radius:999px;border:1.5px solid var(--aqua);color:var(--aqua)}
+.arrow-pill svg{width:18px;height:18px}
+
+/* inversión */
+.inv{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;margin-top:50px;align-items:stretch}
+.fee-card{background:var(--violeta);color:#fff;border-radius:28px;padding:40px;position:relative;overflow:hidden}
+.fee-card .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua)}
+.fee-card .v{font-family:var(--font-display);font-weight:800;font-size:clamp(3rem,6.4vw,5rem);line-height:1;letter-spacing:-.03em;margin-top:14px}
+.fee-card .iva{margin-top:8px;color:var(--w-80)}
+.fee-card table{width:100%;border-collapse:collapse;margin-top:32px;font-size:.98rem}
+.fee-card td{padding:12px 0;border-top:1px solid var(--line)}
+.fee-card td:last-child{text-align:right;font-family:var(--font-display);font-weight:700}
+.fee-card tr.tot td{color:var(--aqua);font-size:1.08rem}
+.fee-card .start{position:absolute;top:28px;right:28px;background:var(--aqua);color:var(--violeta-900);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;padding:6px 13px;font-weight:500}
+.cond{background:#fff;border-radius:28px;padding:36px;border:1px solid rgba(18,18,18,.08);display:flex;flex-direction:column;gap:20px}
+.cond h3{font-size:1.2rem}
+.cond ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.cond li{display:flex;gap:12px;font-size:.97rem;color:rgba(18,18,18,.78)}
+.cond li svg{flex:none;width:20px;height:20px;color:var(--violeta);margin-top:2px}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:16px;border:1.5px solid rgba(18,18,18,.12);cursor:pointer;transition:all .25s var(--ease);font-size:.95rem;user-select:none}
+.opt .box{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid rgba(18,18,18,.35);display:flex;align-items:center;justify-content:center;transition:all .25s}
+.opt .box svg{width:14px;height:14px;opacity:0;color:var(--violeta-900)}
+.opt[aria-checked="true"]{border-color:var(--violeta);background:rgba(88,13,159,.05)}
+.opt[aria-checked="true"] .box{background:var(--aqua);border-color:var(--aqua)}
+.opt[aria-checked="true"] .box svg{opacity:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--font-text);font-weight:700;font-size:1rem;color:var(--violeta-900);background:var(--aqua);border-radius:999px;padding:16px 26px;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s var(--ease);border:0;cursor:pointer}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px -10px rgba(116,250,227,.7)}
+.btn svg{width:18px;height:18px}
+.valid{font-size:.85rem;color:rgba(18,18,18,.55)}
+
+/* cierre */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:54px;border-top:1px solid var(--line)}
+.step{padding:30px 30px 0 0}
+.step + .step{padding-left:30px;border-left:1px solid var(--line-soft)}
+.step .n{font-family:var(--font-display);font-weight:800;font-size:2.6rem;color:var(--aqua);line-height:1}
+.step h3{font-size:1.2rem;margin:16px 0 8px}
+.step p{color:var(--w-65);font-size:.96rem}
+.close-sign{margin-top:80px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid var(--line-soft);padding-top:34px}
+.close-sign img{height:40px;width:auto}
+.close-sign .c{font-size:.92rem;color:var(--w-65);line-height:1.7}
+.close-sign .c a{color:var(--aqua);text-decoration:none}
+
+/* ============ HERO FOTO ============ */
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s var(--ease);transform:scale(1.04)}
+.hero-bg img.on{opacity:1;animation:kb 9s linear forwards}
+@keyframes kb{to{transform:scale(1.12)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(71,0,130,.94) 0%,rgba(88,13,159,.84) 48%,rgba(85,0,143,.55) 100%)}
+
+/* ============ SLIDER LABORATORIO ============ */
+.slider{position:relative;margin-top:50px;border-radius:28px;overflow:hidden;aspect-ratio:16/8;background:var(--violeta-950);box-shadow:0 40px 90px -40px rgba(0,0,0,.7)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s var(--ease)}
+.slide.on{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(26,3,47,.75))}
+.slide .cap-txt{position:absolute;left:30px;bottom:28px;z-index:2;font-family:var(--font-display);font-weight:700;font-size:clamp(1rem,1.8vw,1.4rem);display:flex;align-items:center;gap:12px}
+.slide .cap-txt span{background:var(--aqua);color:var(--tinta);border-radius:999px;padding:.3em .9em;font-size:.75em;letter-spacing:.04em}
+.s-nav{position:absolute;right:24px;bottom:24px;z-index:3;display:flex;gap:10px}
+.s-nav button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--aqua);background:rgba(26,3,47,.55);color:var(--aqua);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s}
+.s-nav button:hover{background:var(--aqua);color:var(--violeta-900)}
+.s-nav svg{width:20px;height:20px}
+.s-dots{position:absolute;left:50%;top:22px;transform:translateX(-50%);z-index:3;display:flex;gap:8px}
+.s-dots i{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.4);transition:all .3s;cursor:pointer}
+.s-dots i.on{width:26px;background:var(--aqua)}
+.thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:14px}
+.thumbs img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;opacity:.45;cursor:pointer;transition:all .3s;border:2px solid transparent}
+.thumbs img.on{opacity:1;border-color:var(--aqua)}
+
+/* ============ VIDEOS ANUNCIANTES ============ */
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+.vid{border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(18,18,18,.08);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.vid:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(88,13,159,.5)}
+.vid .frame{position:relative;aspect-ratio:16/9;background:#0c0c10}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.vid .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(26,3,47,.05),rgba(26,3,47,.45));cursor:pointer;border:0;transition:opacity .3s}
+.vid .play span{width:68px;height:68px;border-radius:50%;background:var(--aqua);color:var(--violeta-900);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.5)}
+.vid .play svg{width:26px;height:26px;margin-left:4px}
+.vid.playing .play{opacity:0;pointer-events:none}
+.vid .meta-v{padding:20px 22px 24px}
+.vid .meta-v .b{font-family:var(--font-display);font-weight:800;font-size:1.35rem;color:var(--tinta)}
+.vid .meta-v .t{font-size:.92rem;color:rgba(18,18,18,.65);margin-top:4px}
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.work .w{padding:24px 24px 0 0}
+.work .w + .w{padding-left:24px;border-left:1px solid var(--line-soft)}
+.work .w .n{font-family:var(--font-display);font-weight:800;color:var(--aqua);font-size:1.6rem;line-height:1}
+.work .w h3{font-size:1.08rem;margin:12px 0 6px}
+.work .w p{font-size:.93rem;color:var(--w-65)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  section{padding:110px 22px 96px;min-height:auto}
+  #hero{min-height:100vh;padding-top:170px}
+  .topbar,.topbar.scrolled{padding:14px 20px}
+  .brand-tag{display:none}
+  .dots{display:none}
+  .split,.duo,.inv{grid-template-columns:1fr;gap:40px}
+  .facts,.steps{grid-template-columns:1fr}
+  .facts .f + .f,.step + .step{padding-left:0;border-left:0;border-top:1px solid rgba(18,18,18,.12);margin-top:24px}
+  .step + .step{border-top-color:var(--line-soft)}
+  .quarters{grid-template-columns:1fr 1fr}
+  .vids,.work{grid-template-columns:1fr}
+  .work .w + .w{padding-left:0;border-left:0;border-top:1px solid var(--line-soft);margin-top:20px}
+  .slider{aspect-ratio:4/3}
+  .thumbs{grid-template-columns:repeat(4,1fr)}
+  .s-nav button{width:40px;height:40px}
+  .s-nav{top:16px;bottom:auto;right:16px}
+  .s-dots{display:none}
+  .slide .cap-txt{left:18px;bottom:18px}
+  .meta{grid-template-columns:1fr 1fr}
+  .sfoot{left:22px;right:22px}
+  .sfoot span:first-child{display:none}
+  .fee-now .v{white-space:normal}
+  .badge-logo{padding:40px 18px 16px}
+  .badge-logo img{width:58px}
+  #hero .curva{display:none}
+  .meta{position:relative;z-index:3}
+}
+@media (max-width:520px){
+  .quarters{grid-template-columns:1fr}
+  .fee-card,.cond{padding:28px 22px}
+  .bar-row .lbl{flex-direction:column;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="prog"></div>
+
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta de fee · Laboratorio Rapela</div>
+  <div class="logo"><img src="img/logo-popcorn-blanco.png" alt="Popcorn"></div>
+</header>
+
+<nav class="dots" id="dots" aria-label="Secciones"></nav>
+
+<!-- ============ 1 · HERO (modo A · violeta pleno) ============ -->
+<section id="hero" class="m-violeta" data-label="Inicio">
+  <div class="hero-bg" id="hero-bg" aria-hidden="true">
+    <img class="on" src="img/rapela-1.jpg" alt=""><img src="img/rapela-2.jpg" alt=""><img src="img/rapela-6.jpg" alt=""><img src="img/rapela-4.jpg" alt="">
+  </div>
+  <div class="ghost" aria-hidden="true">Rapela</div>
+  <div class="rombos" aria-hidden="true"></div>
+  <svg class="curva" style="right:-120px;bottom:-140px;width:620px;height:520px" viewBox="0 0 620 520" fill="none" aria-hidden="true"><path d="M40 500 C 120 300, 330 360, 380 220 S 520 40, 640 60" stroke="#fff" stroke-width="44" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="pill r">Propuesta comercial · Confidencial</div>
+    <h1 class="h-xl r d1" style="max-width:16ch">La cartelera de Laboratorio Rapela <span class="hl">volvió a vender.</span> <span class="rem">Ahora hay que sostenerla.</span></h1>
+    <p class="hero-sub r d2">Lo que hicimos estos meses, lo que generó para el laboratorio y el fee que necesitamos para seguir sumando marcas en 2027.</p>
+    <div class="meta r d3">
+      <div><div class="k">Preparada para</div><div class="v">Laboratorio Rapela</div></div>
+      <div><div class="k">Fecha</div><div class="v">29 de octubre de 2026</div></div>
+      <div><div class="k">Válida hasta</div><div class="v">8 de noviembre de 2026</div></div>
+      <div><div class="k">Contacto</div><div class="v"><a href="mailto:demianlinet@somospopcorn.com">Demián Linetzky</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1b · LABORATORIO (modo profundo · slider) ============ -->
+<section id="laboratorio" class="m-profundo" data-label="Laboratorio Rapela">
+  <div class="wrap">
+    <div class="eyebrow r">Laboratorio Rapela</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Un espacio donde <span class="hl">las marcas</span> quieren estar.</h2>
+    <p class="lead r d2" style="margin-top:22px">Acompañando el cuidado de la salud desde 1979. Cada día pasan por el laboratorio pacientes reales, y eso es lo que hace valiosa su cartelera para las marcas de salud y consumo.</p>
+    <div class="slider r d3" id="slider">
+      <div class="slide on"><img src="img/rapela-1.jpg" alt="Laboratorio Rapela · Sede Laboratorio Rapela" loading="lazy"><div class="cap-txt"><span>01</span>Sede Laboratorio Rapela</div></div>
+      <div class="slide"><img src="img/rapela-2.jpg" alt="Laboratorio Rapela · Laboratorio" loading="lazy"><div class="cap-txt"><span>02</span>Laboratorio</div></div>
+      <div class="slide"><img src="img/rapela-3.jpg" alt="Laboratorio Rapela · Equipamiento" loading="lazy"><div class="cap-txt"><span>03</span>Equipamiento</div></div>
+      <div class="slide"><img src="img/rapela-4.jpg" alt="Laboratorio Rapela · Equipo de trabajo" loading="lazy"><div class="cap-txt"><span>04</span>Equipo de trabajo</div></div>
+      <div class="slide"><img src="img/rapela-5.jpg" alt="Laboratorio Rapela · Atención" loading="lazy"><div class="cap-txt"><span>05</span>Atención</div></div>
+      <div class="slide"><img src="img/rapela-6.jpg" alt="Laboratorio Rapela · Procesamiento" loading="lazy"><div class="cap-txt"><span>06</span>Procesamiento</div></div>
+      <div class="slide"><img src="img/rapela-7.jpg" alt="Laboratorio Rapela · Profesionales" loading="lazy"><div class="cap-txt"><span>07</span>Profesionales</div></div>
+      <div class="slide"><img src="img/rapela-8.jpg" alt="Laboratorio Rapela · Análisis" loading="lazy"><div class="cap-txt"><span>08</span>Análisis</div></div>
+      <div class="s-dots" id="s-dots"></div>
+      <div class="s-nav"><button type="button" id="s-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg></button><button type="button" id="s-next" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="thumbs r d4" id="thumbs"><img src="img/rapela-1.jpg" alt="" class="on" data-i="0" loading="lazy"><img src="img/rapela-2.jpg" alt="" class="" data-i="1" loading="lazy"><img src="img/rapela-3.jpg" alt="" class="" data-i="2" loading="lazy"><img src="img/rapela-4.jpg" alt="" class="" data-i="3" loading="lazy"><img src="img/rapela-5.jpg" alt="" class="" data-i="4" loading="lazy"><img src="img/rapela-6.jpg" alt="" class="" data-i="5" loading="lazy"><img src="img/rapela-7.jpg" alt="" class="" data-i="6" loading="lazy"><img src="img/rapela-8.jpg" alt="" class="" data-i="7" loading="lazy"></div>
+  </div>
+  <div class="sfoot"><span>Imágenes: video institucional Laboratorio Rapela</span><span class="num">01 — Laboratorio</span></div>
+</section>
+
+<!-- ============ 2 · PUNTO DE PARTIDA (modo D · casi negro) ============ -->
+<section id="partida" class="m-negro" data-label="Punto de partida">
+  <div class="ghost" aria-hidden="true" style="-webkit-text-stroke-color:rgba(116,250,227,.08)">2018</div>
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow r">El punto de partida</div>
+      <h2 class="h-lg r d1">Una cartelera que no se actualizaba <span class="hl">desde 2018.</span></h2>
+      <p class="lead r d2" style="margin-top:26px">Durante varios años, la renovación quedó pendiente. Con el tiempo, una pantalla que no se actualiza pierde atractivo para los anunciantes, y sostener su interés se vuelve más difícil.</p>
+      <p class="quote r d3" style="margin-top:36px">Renovarla era la mejor forma de cuidar a las marcas que pautan en ella.</p>
+    </div>
+    <div class="r d2">
+      <div class="screen">
+        <span class="label" style="background:#3a3a40;color:#d8d6d0">Antes</span>
+        <div class="panel old">
+          <img src="img/cartelera-antes.jpg" alt="Cartelera de Laboratorio Rapela antes del refresh" onerror="this.remove()">
+          <div class="bar"></div><div class="box"></div><div class="bar s"></div>
+          <div class="yr">2018</div>
+        </div>
+      </div>
+      <div class="stand"></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicación</span><span class="num">02 — Contexto</span></div>
+</section>
+
+<!-- ============ 3 · LO QUE HICIMOS (modo C · papel) ============ -->
+<section id="refresh" class="m-papel" data-label="Lo que hicimos">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow r">Lo que hicimos</div>
+      <h2 class="h-lg r d1">La renovamos igual. <span class="rem">Sin costo para Rapela.</span></h2>
+      <p class="lead r d2" style="margin-top:26px">Popcorn decidió hacer el refresh completo de la cartelera digital sin cobrarlo, para que los anunciantes actuales quisieran seguir apareciendo en una pantalla moderna, a la altura de sus marcas.</p>
+      <div class="cero r d3"><div class="n">$0</div><div class="t">fue lo que pagó Rapela por la renovación. La inversión la asumió Popcorn.</div></div>
+    </div>
+    <div class="r d2">
+      <div class="screen">
+        <span class="label" style="background:var(--aqua);color:var(--violeta-900)">Hoy</span>
+        <div class="panel new" id="screen-new">
+          <img src="img/cartelera-hoy.jpg" alt="Cartelera digital de Laboratorio Rapela renovada" onerror="this.remove()">
+          <div class="progressbar"></div>
+          <div class="slot on"><div class="brand">Aveno</div><div class="tagline">En cartelera</div></div>
+          <div class="ticker"><span><i></i>Laboratorio Rapela</span><span>Cartelera digital</span></div>
+        </div>
+      </div>
+      <div class="stand"></div>
+      <div class="ilus">Representación ilustrativa de la rotación de anunciantes</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="facts r d3">
+      <div class="f"><h3>Qué cambió</h3><p>Una cartelera digital moderna, con un diseño actual que les da a las marcas un espacio a su altura.</p></div>
+      <div class="f"><h3>Por qué lo hicimos</h3><p>Para que los anunciantes siguieran eligiendo pautar en Laboratorio Rapela.</p></div>
+      <div class="f"><h3>Quién lo pagó</h3><p>Popcorn. No se cargó como adicional ni se sumó al fee.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicación</span><span class="num">03 — Refresh</span></div>
+</section>
+
+<!-- ============ 4 · RESULTADO (modo A · violeta) ============ -->
+<section id="resultado" class="m-violeta" data-label="Resultado">
+  <div class="badge-logo" aria-hidden="true"><img src="img/logo-popcorn-vertical-negro.png" alt=""></div>
+  <div class="rombos" aria-hidden="true" style="left:0;right:auto;top:auto;bottom:6%"></div>
+  <div class="wrap">
+    <div class="eyebrow r">El resultado</div>
+    <div class="bignum r d1">$840.000</div>
+    <h2 class="h-md r d2" style="margin-top:22px;max-width:30ch">en ingresos por pauta para Rapela, <span class="rem">solo en octubre 2026.</span></h2>
+    <div class="caps r d3" aria-label="Marcas que pautan en la cartelera">
+      <span class="cap a">Aveno</span><span class="cap b">Mebutar</span><span class="cap c">Babysec</span><span class="cap d">Montalto</span>
+      <span class="cap b">Uber</span><span class="cap a">Corega</span><span class="cap d">Mastellone</span><span class="cap c">Glaciar</span>
+    </div>
+    <p class="note r d4">Ocho marcas de salud, consumo masivo y servicios eligieron la cartelera de Rapela.</p>
+  </div>
+  <div class="sfoot"><span>Fuente: ingresos por pauta, octubre 2026</span><span class="num">04 — Resultado</span></div>
+</section>
+
+<!-- ============ 4b · ANUNCIANTES EN PANTALLA (modo papel) ============ -->
+<section id="anunciantes" class="m-papel" data-label="Anunciantes en pantalla">
+  <div class="wrap">
+    <div class="eyebrow r">Anunciantes en pantalla</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Así se ven las marcas <span class="hl">en la cartelera.</span></h2>
+    <p class="lead r d2" style="margin-top:22px">Algunas de las piezas que hoy circulan en la cartelera de Laboratorio Rapela.</p>
+    <div class="vids">
+      <div class="vid r"><div class="frame"><video src="img/video-babysec.mp4" poster="img/poster-babysec.jpg" preload="none" playsinline muted loop></video><button class="play" type="button" aria-label="Reproducir pieza de Babysec"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="meta-v"><div class="b">Babysec</div><div class="t">Pañales · Juntos en cada etapa</div></div></div>
+      <div class="vid r"><div class="frame"><video src="img/video-aveno.mp4" poster="img/poster-aveno.jpg" preload="none" playsinline muted loop></video><button class="play" type="button" aria-label="Reproducir pieza de Aveno"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="meta-v"><div class="b">Aveno</div><div class="t">Dermocosmética · Andrómaco</div></div></div>
+      <div class="vid r"><div class="frame"><video src="img/video-mebutar.mp4" poster="img/poster-mebutar.jpg" preload="none" playsinline muted loop></video><button class="play" type="button" aria-label="Reproducir pieza de Mebutar"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="meta-v"><div class="b">Mebutar</div><div class="t">Campaña de prevención de la parasitosis intestinal</div></div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Piezas provistas por los anunciantes</span><span class="num">05 — Anunciantes</span></div>
+</section>
+
+<!-- ============ 5 · SITUACIÓN DEL FEE (modo profundo) ============ -->
+<section id="fee-actual" class="m-profundo" data-label="El fee hoy">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">La situación del fee</div>
+        <h2 class="h-lg r d1">El trabajo creció <span class="hl">más allá</span> del plan actual.</h2>
+        <p class="lead r d2" style="margin-top:26px">El fee vigente se pensó para otro alcance. Hoy, además de gestionar la cartelera, salimos a conseguir anunciantes, coordinamos con cada marca y administramos sus contenidos. El valor actualizado refleja ese trabajo.</p>
+      </div>
+      <div class="r d2">
+        <div class="fee-now">
+          <div class="k">Fee mensual actual</div>
+          <div class="v">$179.881,60 <small>+ IVA</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="work r d3">
+      <div class="w"><div class="n">01</div><h3>Gestión comercial</h3><p>Conseguir anunciantes y sumarlos a la cartelera, como Aveno, Babysec o Mebutar.</p></div>
+      <div class="w"><div class="n">02</div><h3>Administración</h3><p>Coordinación con cada marca, organización de la pauta y seguimiento administrativo.</p></div>
+      <div class="w"><div class="n">03</div><h3>Subida y baja de contenidos</h3><p>Carga, programación y retiro de las piezas de cada anunciante en la pantalla.</p></div>
+    </div>
+    <p class="r d4" style="margin-top:30px;color:var(--w-65);font-size:.95rem">Estas tareas hoy se hacen por fuera del plan actual.</p>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicación</span><span class="num">06 — El fee hoy</span></div>
+</section>
+
+<!-- ============ 6 · EN PERSPECTIVA (modo C · papel) ============ -->
+<section id="perspectiva" class="m-papel" data-label="En perspectiva">
+  <div class="wrap">
+    <div class="eyebrow r">En perspectiva</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">El nuevo fee equivale al <span class="hl">43%</span> de lo que la pauta generó en un solo mes.</h2>
+    <div class="bars r d2">
+      <div class="bar-row"><div class="lbl"><span>Fee actual</span><b>$179.881,60 + IVA</b></div><div class="bar-track"><div class="bar-fill f1" style="--w:21.4%"></div></div></div>
+      <div class="bar-row"><div class="lbl"><span>Fee propuesto desde noviembre 2026</span><b>$360.000 + IVA</b></div><div class="bar-track"><div class="bar-fill f2" style="--w:42.9%"></div></div></div>
+      <div class="bar-row"><div class="lbl"><span>Ingresos por pauta para Rapela · octubre 2026</span><b>$840.000</b></div><div class="bar-track"><div class="bar-fill f3" style="--w:100%"></div></div></div>
+    </div>
+    <p class="src r d3">Montos mensuales. La pauta corresponde a octubre 2026: es una referencia de un mes, no un promedio.</p>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicación</span><span class="num">07 — Perspectiva</span></div>
+</section>
+
+<!-- ============ 7 · PLAN 2027 (modo A · violeta) ============ -->
+<section id="plan" class="m-violeta" data-label="Plan 2027">
+  <div class="ghost" aria-hidden="true">2027</div>
+  <div class="wrap">
+    <div class="eyebrow r">Plan 2027</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Más marcas, <span class="hl">en el momento justo</span> del año.</h2>
+    <p class="lead r d2" style="margin-top:22px">Proponemos seguir en la misma línea: ofrecerle a cada categoría la temporada en la que más le conviene estar frente a los pacientes del laboratorio.</p>
+    <div class="quarters">
+      <div class="q r d2">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <span class="when">Ene – Mar</span><h3>Verano y vuelta a clases</h3><p>Protección solar, hidratación, chequeos escolares.</p>
+      </div>
+      <div class="q r d3">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6"/></svg>
+        <span class="when">Abr – Jun</span><h3>Otoño</h3><p>Vacunación antigripal, vías respiratorias, defensas.</p>
+      </div>
+      <div class="q r d4">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 7l14.2 10M19.1 7 4.9 17"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2"/></svg>
+        <span class="when">Jul – Sep</span><h3>Invierno y Día de las Infancias</h3><p>Pediatría, cuidado infantil, higiene.</p>
+      </div>
+      <div class="q r d5">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 7V3M12 17v4M9 10H5M19 10h-4M9.9 7.9 7.8 5.8M16.2 14.2l-2.1-2.1M14.1 7.9l2.1-2.1M7.8 14.2l2.1-2.1"/></svg>
+        <span class="when">Oct – Dic</span><h3>Primavera y fiestas</h3><p>Alergias, cuidado personal, alimentos y bebidas.</p>
+      </div>
+    </div>
+    <div class="retain r d5"><span class="arrow-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>Retener a las ocho marcas actuales y abrir categorías nuevas en cada temporada. El calendario lo validamos juntos.</div>
+  </div>
+  <div class="sfoot"><span>Categorías propuestas, a validar con Rapela</span><span class="num">08 — Plan 2027</span></div>
+</section>
+
+<!-- ============ 8 · INVERSIÓN (modo C · papel) ============ -->
+<section id="inversion" class="m-papel" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1" style="max-width:18ch">Un fee de <span class="hl">$360.000 + IVA</span> desde noviembre.</h2>
+    <div class="inv">
+      <div class="fee-card r d2">
+        <span class="start">Desde nov. 2026</span>
+        <div class="k">Fee mensual propuesto</div>
+        <div class="v">$360.000</div>
+        <div class="iva">+ IVA · valores en pesos argentinos</div>
+        <table>
+          <tr><td>Fee actual</td><td>$179.881,60 + IVA</td></tr>
+          <tr><td>Diferencia mensual</td><td>$180.118,40 + IVA</td></tr>
+          <tr class="tot"><td>Fee mensual con IVA (21%)</td><td>$435.600</td></tr>
+        </table>
+      </div>
+      <div class="cond r d3">
+        <h3>Cómo seguimos</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gestión comercial: conseguir y sumar anunciantes a la cartelera.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Administración de la pauta y subida y baja de los contenidos de cada marca.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Plan de incorporación de marcas 2027 por estacionalidad.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>El refresh de la cartelera ya está hecho y no se cobra.</li>
+        </ul>
+        <div class="opts" id="opts">
+          <div class="opt" role="checkbox" tabindex="0" aria-checked="true" data-msg="Aprobamos el nuevo fee de $360.000 + IVA a partir de noviembre 2026."><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Aprobamos el fee de $360.000 + IVA desde noviembre 2026.</div>
+          <div class="opt" role="checkbox" tabindex="0" aria-checked="true" data-msg="Queremos agendar una reunión para validar el calendario de estacionalidades 2027."><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Queremos agendar la planificación 2027.</div>
+        </div>
+        <a class="btn" id="cta-inv" href="#">Confirmar por mail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        <div class="valid">Propuesta válida hasta el 8 de noviembre de 2026.</div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Valores sin IVA salvo indicación</span><span class="num">09 — Inversión</span></div>
+</section>
+
+<!-- ============ 9 · PRÓXIMOS PASOS + CIERRE (modo D) ============ -->
+<section id="cierre" class="m-negro" data-label="Próximos pasos">
+  <svg class="curva" style="left:-80px;bottom:-160px;width:700px;height:420px" viewBox="0 0 700 420" fill="none" aria-hidden="true"><path d="M-20 120 C 160 420, 420 60, 720 340" stroke="#580D9F" stroke-width="56" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Lo que necesitamos de Rapela <span class="rem">para seguir creciendo.</span></h2>
+    <div class="steps">
+      <div class="step r d2"><div class="n">01</div><h3>Aprobar el nuevo fee</h3><p>$360.000 + IVA mensuales, a partir de noviembre 2026.</p></div>
+      <div class="step r d3"><div class="n">02</div><h3>Validar el calendario 2027</h3><p>Revisamos juntos las categorías propuestas para cada temporada.</p></div>
+      <div class="step r d4"><div class="n">03</div><h3>Priorizar el primer trimestre</h3><p>Definimos qué marcas salimos a buscar primero y arrancamos.</p></div>
+    </div>
+    <div class="r d5" style="margin-top:50px"><a class="btn" id="cta-close" href="#">Quiero avanzar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a></div>
+    <div class="close-sign r d6">
+      <img src="img/logo-popcorn-blanco.png" alt="Popcorn">
+      <div class="c">Demián Linetzky · Executive Director<br><a href="mailto:demianlinet@somospopcorn.com">demianlinet@somospopcorn.com</a> · somospopcorn.com</div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing &amp; Comunicación</span><span class="num">10 — Cierre</span></div>
+</section>
+
+<script>
+/* progreso + topbar */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%';topbar.classList.toggle('scrolled',scrollY>40);}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* dots */
+const sections=[...document.querySelectorAll('section')],dots=document.getElementById('dots');
+sections.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';dots.appendChild(a);});
+const dotEls=[...dots.children];
+const activeIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dotEls.forEach((d,k)=>d.classList.toggle('active',k===i));}}),{threshold:.5});
+sections.forEach(s=>activeIO.observe(s));
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* rotación de marcas en la pantalla ilustrativa */
+(function(){
+  const panel=document.getElementById('screen-new');if(!panel)return;
+  const brands=['Aveno','Mebutar','Babysec','Montalto','Uber','Corega','Mastellone','Glaciar'];
+  const slot=panel.querySelector('.slot'),name=slot.querySelector('.brand');let i=0;
+  setInterval(()=>{slot.classList.remove('on');setTimeout(()=>{i=(i+1)%brands.length;name.textContent=brands[i];slot.classList.add('on');},350);},2600);
+})();
+
+/* hero: fotos en fundido */
+(function(){const imgs=[...document.querySelectorAll('#hero-bg img')];let i=0;
+  setInterval(()=>{imgs[i].classList.remove('on');i=(i+1)%imgs.length;imgs[i].classList.add('on');},6000);})();
+
+/* slider del laboratorio */
+(function(){
+  const sl=document.getElementById('slider');if(!sl)return;
+  const slides=[...sl.querySelectorAll('.slide')],dotsW=document.getElementById('s-dots'),th=[...document.querySelectorAll('#thumbs img')];
+  slides.forEach((_,k)=>{const d=document.createElement('i');d.onclick=()=>go(k,true);dotsW.appendChild(d);});
+  const dts=[...dotsW.children];let i=0,t;
+  function go(k,user){i=(k+slides.length)%slides.length;slides.forEach((s,j)=>s.classList.toggle('on',j===i));dts.forEach((s,j)=>s.classList.toggle('on',j===i));th.forEach((s,j)=>s.classList.toggle('on',j===i));if(user)restart();}
+  function restart(){clearInterval(t);t=setInterval(()=>go(i+1),4500);}
+  document.getElementById('s-prev').onclick=()=>go(i-1,true);
+  document.getElementById('s-next').onclick=()=>go(i+1,true);
+  th.forEach((im,k)=>im.onclick=()=>go(k,true));
+  let x0=null;sl.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+  sl.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1),true);x0=null;});
+  go(0);restart();
+})();
+
+/* videos de anunciantes */
+document.querySelectorAll('.vid').forEach(v=>{
+  const video=v.querySelector('video'),btn=v.querySelector('.play');
+  btn.addEventListener('click',()=>{document.querySelectorAll('.vid video').forEach(o=>{if(o!==video){o.pause();o.closest('.vid').classList.remove('playing');}});
+    video.muted=false;video.controls=true;video.play();v.classList.add('playing');});
+  video.addEventListener('pause',()=>{if(video.ended)v.classList.remove('playing');});
+});
+
+/* inversión: selección + mailto */
+(function(){
+  const TO='demianlinet@somospopcorn.com';
+  const opts=[...document.querySelectorAll('#opts .opt')];
+  function toggle(o){o.setAttribute('aria-checked',o.getAttribute('aria-checked')==='true'?'false':'true');}
+  opts.forEach(o=>{o.addEventListener('click',()=>toggle(o));o.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(o);}});});
+  function mail(){
+    const sel=opts.filter(o=>o.getAttribute('aria-checked')==='true').map(o=>'• '+o.dataset.msg);
+    const subject='Laboratorio Rapela · Propuesta de fee 2027';
+    const body='Hola Demián,\n\nVimos la propuesta de fee de Popcorn para Laboratorio Rapela.\n\n'+(sel.length?sel.join('\n'):'Queremos conversar la propuesta.')+'\n\nFee mensual: $'+(360000).toLocaleString('es-AR')+' + IVA ($'+(435600).toLocaleString('es-AR')+' con IVA).\n\nSaludos.';
+    location.href='mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  }
+  document.getElementById('cta-inv').addEventListener('click',e=>{e.preventDefault();mail();});
+  document.getElementById('cta-close').addEventListener('click',e=>{e.preventDefault();mail();});
+})();
+</script>
+</body>
+</html>
