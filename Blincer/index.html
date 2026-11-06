@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blincer · T300 Touch LED — Propuesta Popcorn</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;0,800;1,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Paleta canónica Popcorn */
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --font-display:'Public Sans', Inter, system-ui, sans-serif;
+  --font-text:'Space Grotesk', 'DM Sans', system-ui, sans-serif;
+  --led:#3BFF6E; /* color del LED del producto: solo dentro de la ilustración del producto */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violeta);color:var(--white);font-family:var(--font-text);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(1200px 700px at 78% -8%, rgba(162,98,229,.45), transparent 60%),
+  radial-gradient(1000px 800px at -10% 110%, rgba(0,253,226,.08), transparent 55%),
+  linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 45%,var(--violeta-grad-2) 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:800;line-height:1;letter-spacing:-.02em}
+em,i{font-style:normal}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* topbar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:18px 38px;transition:all .4s var(--ease)}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:12px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.topbar .logo img{height:26px;width:auto}
+.brand-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:101;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:13px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28);transition:all .3s var(--ease)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .25s}
+.dots a:hover span{opacity:1}
+.on-light .dots a{background:rgba(18,18,18,.25)}
+
+/* secciones */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 100px;overflow:hidden}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.sfoot{position:absolute;left:38px;right:38px;bottom:28px;z-index:3;display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua);margin-bottom:22px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
+.h-xl{font-size:clamp(44px,7vw,96px);line-height:.98}
+.h-lg{font-size:clamp(34px,4.6vw,62px);line-height:1.02}
+.h-md{font-size:clamp(24px,2.6vw,34px);line-height:1.08}
+.hl{background:var(--aqua);color:var(--tinta);padding:0 .14em;border-radius:.08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.it{font-style:italic;color:var(--aqua);font-weight:700}
+.lead{font-size:clamp(17px,1.45vw,20px);color:var(--w-80);max-width:640px;margin-top:24px}
+.muted{color:var(--w-65)}
+.ghost{position:absolute;font-family:var(--font-display);font-weight:800;font-size:clamp(120px,19vw,280px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.10);white-space:nowrap;pointer-events:none;z-index:0;letter-spacing:-.03em}
+.diamonds{position:absolute;width:320px;height:320px;opacity:.16;z-index:0;pointer-events:none;background:
+ repeating-linear-gradient(45deg,transparent 0 38px,rgba(255,255,255,.9) 38px 39px),
+ repeating-linear-gradient(-45deg,transparent 0 38px,rgba(255,255,255,.9) 38px 39px);
+ -webkit-mask:radial-gradient(circle at 100% 50%,#000 30%,transparent 70%);mask:radial-gradient(circle at 100% 50%,#000 30%,transparent 70%)}
+.curve{position:absolute;pointer-events:none;z-index:1}
+
+/* reveal */
+.r{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--aqua-line);color:var(--aqua);background:rgba(116,250,227,.06)}
+.stack{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.stack span{display:inline-block;border-radius:999px;padding:.32em .95em;font-family:var(--font-display);font-weight:800;font-size:clamp(22px,2.6vw,34px);line-height:1.1}
+.s1{background:var(--violeta-900);color:var(--white)}
+.s2{background:var(--aqua);color:var(--violeta);margin-left:1.4em}
+.s3{background:var(--violeta-claro);color:var(--white);margin-left:.5em}
+.s4{background:var(--white);color:var(--violeta);border:2px solid var(--violeta)}
+
+/* HERO */
+#hero{padding-top:140px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.badge{position:absolute;top:0;left:50%;transform:translateX(-50%);width:110px;height:118px;background:var(--white);border-radius:0 0 34px 34px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:14px;z-index:4}
+.badge img{width:66px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:478/700;background:#111;box-shadow:0 40px 90px rgba(10,0,30,.55);border:1px solid var(--line)}
+.frame img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) contrast(1.05)}
+.smoke{position:absolute;inset:-20%;pointer-events:none}
+.smoke i{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(220,220,230,.55),rgba(220,220,230,0) 65%);filter:blur(18px);animation:drift 14s ease-in-out infinite}
+.smoke i:nth-child(1){width:70%;height:45%;left:-10%;top:55%}
+.smoke i:nth-child(2){width:60%;height:40%;left:35%;top:65%;animation-delay:-4s;animation-duration:17s}
+.smoke i:nth-child(3){width:55%;height:35%;left:10%;top:15%;animation-delay:-8s;opacity:.6}
+.smoke i:nth-child(4){width:50%;height:35%;left:50%;top:5%;animation-delay:-2s;animation-duration:19s;opacity:.5}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(12%,-8%) scale(1.15)}}
+.frame .cap{position:absolute;left:16px;right:16px;bottom:16px;display:flex;gap:8px;flex-wrap:wrap;z-index:2}
+.cap span{border-radius:999px;padding:6px 12px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.cap .a{background:var(--violeta-900);color:var(--aqua)}
+.cap .b{background:var(--aqua);color:var(--violeta)}
+.metaband{margin-top:56px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.metaband div{padding:18px 16px 18px 0}
+.metaband small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);font-weight:700;margin-bottom:6px}
+.metaband b{font-size:14.5px;font-weight:500}
+
+/* modo claro */
+.light{background:var(--papel);color:var(--tinta)}
+.light .lead,.light .muted{color:#3d3d48}
+.light .eyebrow{color:var(--violeta)}
+.light .sfoot{color:rgba(18,18,18,.45)}
+.light .sfoot .num{color:var(--violeta)}
+.dark{background:var(--negro)}
+.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(900px 600px at 80% 20%,rgba(116,250,227,.06),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(88,13,159,.35),transparent 60%);z-index:0}
+
+/* objetivo */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.fact{background:var(--white);border-radius:22px;padding:22px;border:1px solid rgba(88,13,159,.12);transition:transform .35s var(--ease),border-color .35s}
+.fact:hover{transform:translateY(-6px);border-color:var(--violeta-claro)}
+.fact .n{font-family:var(--font-display);font-weight:800;font-size:34px;color:var(--violeta);line-height:1}
+.fact p{font-size:14.5px;margin-top:8px;color:#3d3d48}
+.markets{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.markets span{border-radius:999px;padding:8px 16px;font-weight:700;font-size:13px;background:var(--violeta);color:var(--white)}
+.markets span:nth-child(2){background:var(--violeta-claro)}
+.markets span:nth-child(3){background:var(--aqua);color:var(--violeta)}
+.quote{margin-top:30px;border-left:3px solid var(--violeta);padding:6px 0 6px 18px;font-size:15.5px;color:#3d3d48}
+
+/* idea / escena */
+.scene{position:relative;border-radius:28px;overflow:hidden;background:#0c0a12;aspect-ratio:4/3.3;border:1px solid var(--line);box-shadow:0 40px 90px rgba(10,0,30,.5)}
+.scene svg{position:absolute;inset:0;width:100%;height:100%}
+.scene .smoke i{background:radial-gradient(circle,rgba(190,190,205,.5),rgba(190,190,205,0) 65%)}
+.glow{animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.75}50%{opacity:1}}
+.beats{margin-top:34px;display:grid;gap:12px}
+.beat{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:18px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);transition:transform .35s var(--ease),border-color .35s}
+.beat:hover{transform:translateY(-4px);border-color:var(--aqua-line)}
+.beat .t{font-weight:700;color:var(--aqua);font-size:13px;letter-spacing:.06em}
+.beat h4{font-size:18px;margin-bottom:4px;letter-spacing:-.01em}
+.beat p{font-size:14.5px;color:var(--w-65)}
+.timeline-bar{display:flex;height:12px;border-radius:999px;overflow:hidden;margin-top:26px}
+.timeline-bar i{display:block;height:100%}
+
+/* motion */
+.specgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.spec{position:relative;border-radius:22px;padding:26px 24px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);min-height:190px;transition:transform .35s var(--ease),border-color .35s;overflow:hidden}
+.spec:hover{transform:translateY(-6px);border-color:var(--aqua)}
+.spec svg{width:34px;height:34px;color:var(--aqua);margin-bottom:18px}
+.spec h4{font-size:19px;margin-bottom:6px;letter-spacing:-.01em}
+.spec p{font-size:14px;color:var(--w-65)}
+.spec .tag{position:absolute;top:18px;right:18px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--w-45);font-weight:700}
+
+/* lugares */
+.places{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.place{border-radius:24px;overflow:hidden;background:var(--white);border:1px solid rgba(88,13,159,.12);transition:transform .35s var(--ease),box-shadow .35s}
+.place:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(88,13,159,.18)}
+.place .ill{aspect-ratio:16/10;position:relative;background:linear-gradient(160deg,var(--violeta-900),var(--violeta))}
+.place .ill svg{position:absolute;inset:0;width:100%;height:100%}
+.place .tx{padding:18px 20px 22px}
+.place h4{font-size:19px;color:var(--violeta);letter-spacing:-.01em}
+.place p{font-size:14px;color:#3d3d48;margin-top:6px}
+.how{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.how .step{border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;background:var(--violeta);color:var(--white)}
+.how .step:nth-of-type(2){background:var(--violeta-claro)}
+.how .step:nth-of-type(3){background:var(--aqua);color:var(--violeta)}
+.how .arr{width:38px;height:38px;border-radius:50%;border:2px solid var(--aqua-deep);display:grid;place-items:center;color:var(--violeta)}
+
+/* rodaje */
+.rodaje{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.clock{display:flex;align-items:baseline;gap:14px}
+.clock .big{white-space:nowrap;font-family:var(--font-display);font-weight:800;font-size:clamp(90px,12vw,170px);line-height:.85;color:var(--aqua)}
+.list{list-style:none;margin-top:26px;display:grid;gap:12px}
+.list li{display:flex;gap:12px;font-size:15.5px;color:var(--w-80)}
+.list li svg{flex:0 0 20px;height:20px;color:var(--aqua);margin-top:2px}
+.panel{border-radius:24px;padding:28px;background:var(--card);border:1px solid var(--line)}
+.panel h4{font-size:20px;margin-bottom:6px}
+.panel+.panel{margin-top:16px}
+.panel.good{border-color:var(--aqua-line)}
+
+/* experiencia */
+.reels{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-auto-rows:220px;gap:16px;margin-top:44px}
+.reel{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:linear-gradient(150deg,var(--violeta-900),var(--violeta-950));transition:transform .35s var(--ease),border-color .35s;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;isolation:isolate}
+.reel:hover{transform:translateY(-6px);border-color:var(--aqua)}
+.reel.feat{grid-row:span 2;background:linear-gradient(160deg,var(--violeta),var(--violeta-900))}
+.reel img.poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.75}
+.reel::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(26,3,47,.9),rgba(26,3,47,.05) 60%)}
+.reel .wm{position:absolute;top:12px;left:14px;right:80px;overflow:hidden;font-family:var(--font-display);font-weight:800;font-size:46px;line-height:.9;color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.14);letter-spacing:-.03em;z-index:-1}
+.reel.feat .wm{font-size:130px}
+.reel small{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--aqua);font-weight:700}
+.reel h4{font-size:22px;margin-top:4px}
+.reel.feat h4{font-size:34px}
+.play{position:absolute;top:18px;right:18px;width:52px;height:52px;border-radius:50%;background:var(--aqua);display:grid;place-items:center;color:var(--violeta);box-shadow:0 0 0 8px rgba(116,250,227,.15);transition:transform .3s var(--ease)}
+.reel:hover .play{transform:scale(1.1)}
+.play svg{width:20px;height:20px;margin-left:3px}
+.reel.pending{cursor:default}
+.reel.pending .play{background:transparent;border:1.5px dashed var(--aqua-line);color:var(--aqua);box-shadow:none}
+.modal{position:fixed;inset:0;background:rgba(10,2,22,.9);z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.open{display:flex}
+.modal .mframe{width:min(1000px,100%);aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000}
+.modal iframe{width:100%;height:100%;border:0}
+.modal .x{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:#fff;font-size:22px;cursor:pointer}
+.creds{display:flex;gap:40px;flex-wrap:wrap;margin-top:40px}
+.creds div b{display:block;font-family:var(--font-display);font-size:44px;color:var(--aqua-bright);line-height:1}
+.creds div span{font-size:13px;color:var(--w-65);letter-spacing:.04em}
+
+/* alcance */
+.scope{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-top:44px}
+.scol{border-radius:24px;padding:30px;background:var(--white);border:1px solid rgba(88,13,159,.12)}
+.scol h4{font-size:20px;color:var(--violeta);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.scol ul{list-style:none;display:grid;gap:11px}
+.scol li{display:flex;gap:11px;font-size:15px;color:#2b2b35}
+.scol li svg{flex:0 0 18px;height:18px;margin-top:2px}
+.scol.yes li svg{color:var(--aqua-deep)}
+.scol.no{background:transparent;border:1.5px dashed rgba(18,18,18,.2)}
+.scol.no li svg{color:#8a8a96}
+.deliv{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.dv{border-radius:20px;padding:20px;background:var(--violeta);color:var(--white)}
+.dv:nth-child(2){background:var(--violeta-900)}
+.dv:nth-child(3){background:var(--violeta-claro)}
+.dv:nth-child(4){background:var(--aqua);color:var(--violeta)}
+.dv b{font-family:var(--font-display);font-size:38px;line-height:1;display:block}
+.dv span{font-size:13.5px;font-weight:500}
+
+/* cronograma */
+.tl{position:relative;margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.tl::before{content:'';position:absolute;left:0;right:0;top:15px;height:2px;background:linear-gradient(90deg,var(--aqua),rgba(116,250,227,.15))}
+.ms{position:relative;padding-top:44px}
+.ms::before{content:'';position:absolute;top:6px;left:0;width:20px;height:20px;border-radius:50%;background:var(--negro);border:3px solid var(--aqua);box-shadow:0 0 14px rgba(116,250,227,.5)}
+.ms small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);font-weight:700}
+.ms h4{font-size:19px;margin:6px 0;letter-spacing:-.01em}
+.ms p{font-size:14px;color:var(--w-65)}
+.ms.goal::before{background:var(--aqua)}
+
+/* inversion */
+.inv{display:grid;grid-template-columns:1.35fr 1fr;gap:26px;margin-top:40px;align-items:start}
+.items{display:grid;gap:12px}
+.item{display:grid;grid-template-columns:28px 1fr auto;gap:16px;align-items:start;padding:22px 24px;border-radius:22px;background:var(--white);border:1.5px solid rgba(88,13,159,.12);cursor:pointer;transition:all .3s var(--ease);user-select:none}
+.item:hover{transform:translateY(-4px);border-color:var(--violeta-claro)}
+.item.on{border-color:var(--violeta);box-shadow:0 14px 34px rgba(88,13,159,.14)}
+.item.locked{cursor:default;background:linear-gradient(160deg,#fff,#f6f0fd)}
+.box{width:26px;height:26px;border-radius:8px;border:2px solid rgba(88,13,159,.35);display:grid;place-items:center;transition:all .25s;margin-top:2px}
+.item.on .box{background:var(--violeta);border-color:var(--violeta)}
+.box svg{width:15px;height:15px;color:var(--aqua);opacity:0}
+.item.on .box svg{opacity:1}
+.item h4{font-size:18.5px;color:var(--tinta);letter-spacing:-.01em}
+.item p{font-size:14px;color:#4a4a55;margin-top:5px}
+.item .tagx{display:inline-block;margin-top:8px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--violeta);background:rgba(116,250,227,.45);padding:4px 10px;border-radius:999px}
+.price{font-family:var(--font-display);font-weight:800;font-size:22px;color:var(--violeta);white-space:nowrap}
+.price small{display:block;text-align:right;font-family:var(--font-text);font-size:11px;font-weight:500;color:#6b6b77;letter-spacing:.04em}
+.envbox{padding:22px 24px;border-radius:22px;background:var(--white);border:1.5px solid rgba(88,13,159,.12);transition:border-color .3s}
+.envbox.on{border-color:var(--violeta);box-shadow:0 14px 34px rgba(88,13,159,.14)}
+.envhead{display:grid;grid-template-columns:1fr auto;gap:16px}
+.envbox h4{font-size:18.5px;color:var(--tinta);letter-spacing:-.01em}
+.envbox p{font-size:14px;color:#4a4a55;margin-top:5px}
+.envs{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.item .env{cursor:default;font-size:12px;padding:6px 12px}
+.env{font-family:var(--font-text);font-size:13.5px;font-weight:700;padding:9px 15px;border-radius:999px;border:1.5px solid rgba(88,13,159,.3);background:transparent;color:var(--violeta);cursor:pointer;transition:all .25s var(--ease)}
+.env:hover{transform:translateY(-2px);border-color:var(--violeta)}
+.env.on{background:var(--violeta);border-color:var(--violeta);color:var(--white)}
+.env.on::before{content:'✓ ';color:var(--aqua)}
+.envall{margin-top:12px;font-family:var(--font-text);font-size:13px;font-weight:700;background:none;border:0;color:var(--violeta);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+@media (max-width:600px){.envhead{grid-template-columns:1fr}.envhead .price{text-align:left}}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.payopt{position:relative;padding:20px;border-radius:20px;border:1.5px solid rgba(88,13,159,.15);background:var(--white);cursor:pointer;transition:all .3s var(--ease)}
+.payopt:hover{transform:translateY(-4px)}
+.payopt.on{border-color:var(--violeta);box-shadow:0 14px 34px rgba(88,13,159,.14)}
+.payopt .rad{width:20px;height:20px;border-radius:50%;border:2px solid rgba(88,13,159,.35);margin-bottom:12px;display:grid;place-items:center}
+.payopt.on .rad::after{content:'';width:10px;height:10px;border-radius:50%;background:var(--violeta)}
+.payopt h4{font-size:17px;color:var(--tinta)}
+.payopt p{font-size:13.5px;color:#4a4a55;margin-top:4px}
+.payopt .bn{position:absolute;top:-11px;right:16px;background:var(--aqua);color:var(--violeta);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.total{position:sticky;top:90px;border-radius:26px;padding:30px;background:linear-gradient(160deg,var(--violeta-grad-1),var(--violeta));color:var(--white);box-shadow:0 30px 70px rgba(71,0,130,.35);overflow:hidden}
+.total .row{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;padding:9px 0;border-bottom:1px solid var(--line-soft);color:var(--w-80)}
+.total .row.disc{color:var(--aqua)}
+.total .big{font-family:var(--font-display);font-weight:800;font-size:clamp(38px,4vw,50px);line-height:1;margin-top:18px;color:var(--white)}
+.total .big .hl{font-size:.5em;vertical-align:middle;margin-left:6px}
+.total .note{font-size:12.5px;color:var(--w-65);margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;width:100%;padding:16px 22px;border-radius:999px;background:var(--aqua);color:var(--violeta);font-weight:700;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(116,250,227,.35)}
+.btn .ar{width:30px;height:30px;border-radius:50%;background:var(--violeta);color:var(--aqua);display:grid;place-items:center}
+.legal{font-size:12.5px;color:#55555f;margin-top:16px}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.stp{border-radius:22px;padding:26px 22px;background:var(--card);border:1px solid var(--line);transition:transform .35s var(--ease),border-color .35s}
+.stp:hover{transform:translateY(-6px);border-color:var(--aqua)}
+.stp b{font-family:var(--font-display);font-size:42px;color:var(--aqua);line-height:1}
+.stp h4{font-size:18px;margin:14px 0 6px;letter-spacing:-.01em}
+.stp p{font-size:14px;color:var(--w-65)}
+
+/* cierre */
+#cierre{text-align:center}
+#cierre .h-xl{max-width:900px;margin:0 auto}
+.contact{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin-top:40px}
+.contact b{font-size:19px}
+.contact a{color:var(--aqua);text-decoration:none;font-weight:500}
+.foot{margin-top:70px;display:flex;flex-direction:column;align-items:center;gap:14px;font-size:12px;color:var(--w-45);letter-spacing:.06em}
+.foot img{height:30px;width:auto}
+
+@media (max-width:980px){
+  section{padding:110px 22px 90px}
+  .topbar{padding:14px 18px}.topbar.scrolled{padding:10px 18px}
+  .dots{display:none}
+  .hero-grid,.two,.rodaje,.inv,.scope{grid-template-columns:1fr;gap:36px}
+  .frame{max-width:420px;margin:0 auto;aspect-ratio:4/5}
+  .metaband{grid-template-columns:1fr 1fr}
+  .specgrid,.places{grid-template-columns:1fr 1fr}
+  .reels{grid-template-columns:1fr 1fr;grid-auto-rows:190px}
+  .reel.feat{grid-column:span 2;grid-row:span 1}
+  .tl{grid-template-columns:1fr;gap:0}
+  .tl::before{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto;background:linear-gradient(180deg,var(--aqua),rgba(116,250,227,.15))}
+  .ms{padding:0 0 26px 40px}.ms::before{top:2px}
+  .deliv,.steps{grid-template-columns:1fr 1fr}
+  .total{position:relative;top:0}
+  .sfoot{left:22px;right:22px}
+  .brand-tag{display:none}
+}
+@media (max-width:600px){
+  section{padding:100px 16px 84px}
+  .specgrid,.places,.facts,.pay{grid-template-columns:1fr}
+  .reels{grid-template-columns:1fr}
+  .reel.feat{grid-column:span 1}
+  .deliv,.steps{grid-template-columns:1fr 1fr}
+  .item{grid-template-columns:26px 1fr;padding:18px}
+  .item .price{grid-column:2;text-align:left}
+  .price small{text-align:left}
+  .beat{grid-template-columns:1fr;gap:4px}
+  .sfoot span:first-child{display:none}
+  .s2{margin-left:.6em}
+  .curve{display:none}
+  .badge{width:86px;height:92px;border-radius:0 0 26px 26px}.badge img{width:52px}
+  .metaband{grid-template-columns:1fr}
+  .metaband div{padding:12px 0;border-bottom:1px solid var(--line-soft)}
+}
+@media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}.smoke i,.glow{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<header class="topbar" id="topbar">
+  <a class="logo" href="#hero" aria-label="Popcorn"><img src="img/logo-popcorn-blanco.png" alt="Popcorn"></a>
+  <div class="brand-tag"><span class="dot"></span>Propuesta para Blincer · Jaque</div>
+</header>
+<nav class="dots" id="dots" aria-label="Secciones"></nav>
+
+<!-- ========== 01 HERO (modo A) ========== -->
+<section id="hero" data-label="Inicio">
+  <div class="badge"><img src="img/logo-popcorn-vertical-negro.png" alt="Popcorn"></div>
+  <div class="ghost" style="top:70px;left:-30px">SALIDA</div>
+  <div class="diamonds" style="right:0;top:30%"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="pill r">Propuesta comercial · Confidencial</span>
+        <h1 class="h-xl r d1" style="margin-top:26px">Una salida que <span class="hl">se ve</span>, <span class="it">aun cuando no se ve nada.</span></h1>
+        <p class="lead r d2">Video de venta y lanzamiento del T300, el dispositivo antipánico touch con LED de Jaque. Está pensado para que un cliente de Argentina, LATAM o Estados Unidos entienda en menos de un minuto y medio qué es, cómo funciona y por qué no hay otro igual.</p>
+        <div class="hero-meta r d3">
+          <span class="pill">Español + Inglés</span>
+          <span class="pill">Voz en off con IA</span>
+          <span class="pill">Motion graphics</span>
+        </div>
+      </div>
+      <div class="frame r d2">
+        <img src="img/t300-salida.jpg" alt="Barra antipánico T300 de Jaque con la leyenda SALIDA iluminada en LED verde">
+        <div class="smoke"><i></i><i></i><i></i><i></i></div>
+        <div class="cap"><span class="a">T300 Touch LED</span><span class="b">Leyenda “SALIDA” iluminada</span></div>
+      </div>
+    </div>
+    <div class="metaband r d4">
+      <div><small>Preparada para</small><b>Blincer SRL · Jaque Cerraduras</b></div>
+      <div><small>Por</small><b>Popcorn</b></div>
+      <div><small>Fecha</small><b>6 de noviembre de 2026</b></div>
+      <div><small>Válida hasta</small><b>16 de noviembre de 2026</b></div>
+      <div><small>Contacto</small><b>Demián Linetzky</b></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn × Blincer</span><span class="num">01</span></div>
+</section>
+
+<!-- ========== 02 OBJETIVO (modo C) ========== -->
+<section id="objetivo" class="light" data-label="El objetivo">
+  <svg class="curve" style="left:-80px;bottom:-60px;width:360px" viewBox="0 0 300 400" fill="none"><path d="M40 0 C 160 120, -40 260, 120 400" stroke="#580D9F" stroke-width="46" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="eyebrow r">El objetivo</div>
+        <h2 class="h-lg r d1">Presentar el T300 <span class="hl">en sociedad</span> en febrero.</h2>
+        <p class="lead r d2">El producto ya se vende, pero todavía no tiene una pieza que lo explique sola. Lo que se necesita es un video comercial, no institucional: que el equipo de ventas pueda mandarlo cuando alguien pregunta “¿cómo es esa barra?” y que la respuesta llegue en menos de un minuto y medio, en el idioma de cada mercado.</p>
+        <div class="markets r d3"><span>Argentina</span><span>LATAM</span><span>Estados Unidos</span></div>
+        <p class="quote r d4">“La idea es que se vea la luz en el medio del humo y que la gente pueda encontrar la salida.” <br><small class="muted">— Blincer, reunión del 28/10</small></p>
+      </div>
+      <div>
+        <p class="muted r" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:14px">Lo que el video tiene que contar</p>
+        <div class="facts">
+          <div class="fact r d1"><div class="n">LED</div><p>2 módulos de 3 LEDs SMD2835 de alta luminosidad iluminan la leyenda “SALIDA” calada en la barra. Verde o rojo, a elección.</p></div>
+          <div class="fact r d2"><div class="n">200.000</div><p>ciclos de apertura. Apta para puertas de alto tránsito.</p></div>
+          <div class="fact r d3"><div class="n">Touch</div><p>Se abre con un toque, sin empuje. Es modular y reversible, para puertas simples o dobles.</p></div>
+          <div class="fact r d4"><div class="n">3</div><p>tipos de puerta: chapa, madera y perfil de aluminio. Normativa sin perder estética.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>El objetivo</span><span class="num">02</span></div>
+</section>
+
+<!-- ========== 03 LA IDEA (modo A) ========== -->
+<section id="idea" data-label="La idea">
+  <div class="ghost" style="bottom:20px;right:-40px">HUMO</div>
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <div class="eyebrow r">La idea</div>
+        <h2 class="h-lg r d1">No lo explicamos: <span class="hl">lo mostramos</span> <span class="it">funcionando.</span></h2>
+        <p class="lead r d2">Abrimos con la situación que el producto resuelve: un ambiente con humo, poca visibilidad y una línea de luz que marca la salida. Después nos acercamos a la barra y la explicamos con motion graphics. Nadie habla a cámara. Los extras actúan la escena y la voz en off generada con IA cuenta la historia en español y en inglés.</p>
+        <div class="timeline-bar r d3" aria-hidden="true"><i style="width:20%;background:var(--violeta-claro)"></i><i style="width:45%;background:var(--aqua)"></i><i style="width:25%;background:var(--white)"></i><i style="width:10%;background:var(--violeta-900)"></i></div>
+        <div class="beats">
+          <div class="beat r d3"><span class="t">0–15 s</span><div><h4>La situación</h4><p>Humo, alarma y oscuridad. Un grupo de personas busca la salida y la encuentra por la luz de la barra. Un toque y la puerta se abre.</p></div></div>
+          <div class="beat r d4"><span class="t">15–60 s</span><div><h4>El producto</h4><p>Planos macro de la barra, del LED y del mecanismo touch. Los motion graphics muestran cada característica sobre la imagen real.</p></div></div>
+          <div class="beat r d5"><span class="t">60–80 s</span><div><h4>Por qué Jaque</h4><p>Durabilidad, instalación versátil, respaldo de batería opcional para cortes de luz y certificaciones del fabricante, que validamos con Blincer en el guion.</p></div></div>
+          <div class="beat r d6"><span class="t">80–90 s</span><div><h4>Cierre de marca</h4><p>Logo, modelo y llamado a la acción para ventas. Un cierre por idioma y mercado.</p></div></div>
+        </div>
+      </div>
+      <div class="scene r d2" aria-label="Ilustración: puerta con barra LED encendida en medio del humo">
+        <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="lg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#3BFF6E" stop-opacity=".55"/><stop offset="1" stop-color="#3BFF6E" stop-opacity="0"/></radialGradient>
+            <linearGradient id="dr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a33"/><stop offset="1" stop-color="#17171d"/></linearGradient>
+          </defs>
+          <rect width="400" height="330" fill="#0c0a12"/>
+          <rect x="120" y="40" width="160" height="290" rx="3" fill="url(#dr)" stroke="#3a3a46" stroke-width="3"/>
+          <line x1="200" y1="40" x2="200" y2="330" stroke="#0c0a12" stroke-width="3"/>
+          <ellipse class="glow" cx="200" cy="196" rx="150" ry="70" fill="url(#lg)"/>
+          <rect x="132" y="188" width="136" height="16" rx="4" fill="#cfd2d6"/>
+          <rect class="glow" x="134" y="186" width="132" height="3" rx="1.5" fill="#3BFF6E"/>
+          <text class="glow" x="200" y="200.5" text-anchor="middle" font-family="Public Sans, sans-serif" font-weight="800" font-size="10.5" letter-spacing="3" fill="#3BFF6E">SALIDA</text>
+          <g fill="#1d1b26" opacity=".95">
+            <circle cx="62" cy="214" r="13"/><rect x="48" y="230" width="28" height="70" rx="12"/>
+            <circle cx="92" cy="226" r="11"/><rect x="80" y="240" width="24" height="64" rx="10"/>
+            <circle cx="330" cy="222" r="12"/><rect x="317" y="237" width="26" height="70" rx="11"/>
+          </g>
+        </svg>
+        <div class="smoke"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>La idea</span><span class="num">03</span></div>
+</section>
+
+<!-- ========== 04 MOTION (modo D) ========== -->
+<section id="motion" class="dark" data-label="Motion graphics">
+  <div class="wrap">
+    <div class="eyebrow r">Motion graphics</div>
+    <h2 class="h-lg r d1" style="max-width:860px">Cada característica, <span class="hl">dibujada</span> sobre la imagen real.</h2>
+    <p class="lead r d2">El rodaje muestra el producto y el motion graphics explica lo que la cámara no llega a mostrar. Datos, colores y configuraciones aparecen animados sobre el plano, con la identidad de Jaque, y se traducen junto con la locución.</p>
+    <div class="specgrid">
+      <div class="spec r d1"><span class="tag">LED</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg><h4>Leyenda iluminada</h4><p>Encendido de los módulos SMD2835 y la palabra “SALIDA” calada en el perfil. Opción verde o roja.</p></div>
+      <div class="spec r d2"><span class="tag">Touch</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 11V5a2 2 0 1 1 4 0v6m0-1a2 2 0 1 1 4 0v2m-8-1a2 2 0 1 0-4 0v3a7 7 0 0 0 7 7h1a6 6 0 0 0 6-6v-3"/></svg><h4>Apertura con un toque</h4><p>El recorrido del perfil móvil, animado en corte: por qué no hace falta empujar.</p></div>
+      <div class="spec r d3"><span class="tag">200K</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg><h4>200.000 ciclos</h4><p>Contador animado para mostrar resistencia en lugares de alto tránsito.</p></div>
+      <div class="spec r d4"><span class="tag">Modular</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 17.5h7M17.5 14v7"/></svg><h4>Modular y reversible</h4><p>Puertas simples o dobles, con apertura a izquierda o derecha. Explicado con un diagrama.</p></div>
+      <div class="spec r d5"><span class="tag">Puertas</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17M3 21h18M15 12h.01"/></svg><h4>Chapa, madera, aluminio</h4><p>Los tres materiales en pantalla dividida, con la misma barra instalada.</p></div>
+      <div class="spec r d6"><span class="tag">12 VDC</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 11v2M11 9l-2 3h4l-2 3"/></svg><h4>Encendida aunque se corte la luz</h4><p>Consume 1,4 W a 12 VDC. Con la fuente con batería de respaldo (opcional), la leyenda sigue iluminada durante el corte.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Motion graphics</span><span class="num">04</span></div>
+</section>
+
+<!-- ========== 05 LUGARES (modo C) ========== -->
+<section id="lugares" class="light" data-label="Versiones por entorno">
+  <div class="wrap">
+    <div class="eyebrow r">Versiones por entorno</div>
+    <h2 class="h-lg r d1" style="max-width:900px">Un mismo producto, <span class="hl">cualquier</span> lugar de alto tránsito.</h2>
+    <p class="lead r d2">Con el material del mismo rodaje hacemos una versión del video para cada lugar donde se instala la barra. El video es casi el mismo: cambiamos el ambiente, con IA o con video, y adaptamos un poco la locución para que le hable a quien compra para ese tipo de edificio. Lo que se ve de la barra es siempre real: lo que cambia es el contexto. No suma locaciones ni días de rodaje.</p>
+    <div class="places">
+      <div class="place r d1"><div class="ill"><svg viewBox="0 0 320 200"><rect x="40" y="70" width="240" height="130" fill="none" stroke="#A262E5" stroke-width="2"/><path d="M40 70 L160 22 L280 70" fill="none" stroke="#A262E5" stroke-width="2"/><rect x="70" y="100" width="40" height="30" fill="none" stroke="#74FAE3" stroke-width="2"/><rect x="210" y="100" width="40" height="30" fill="none" stroke="#74FAE3" stroke-width="2"/><rect x="138" y="130" width="44" height="70" fill="#2A0454" stroke="#fff" stroke-width="2"/><rect x="142" y="160" width="36" height="4" rx="2" fill="#74FAE3"/></svg></div><div class="tx"><h4>Shoppings</h4><p>Salidas de servicio y de evacuación con mucho tránsito y alta exigencia estética.</p></div></div>
+      <div class="place r d2"><div class="ill"><svg viewBox="0 0 320 200"><rect x="30" y="40" width="200" height="110" rx="4" fill="none" stroke="#A262E5" stroke-width="2"/><g fill="#74FAE3" opacity=".7"><circle cx="60" cy="175" r="7"/><circle cx="90" cy="175" r="7"/><circle cx="120" cy="175" r="7"/><circle cx="150" cy="175" r="7"/><circle cx="180" cy="175" r="7"/></g><rect x="252" y="80" width="44" height="100" fill="#2A0454" stroke="#fff" stroke-width="2"/><rect x="256" y="128" width="36" height="4" rx="2" fill="#74FAE3"/></svg></div><div class="tx"><h4>Cines y teatros</h4><p>Salas a oscuras, donde la señal luminosa es parte de la evacuación.</p></div></div>
+      <div class="place r d3"><div class="ill"><svg viewBox="0 0 320 200"><rect x="60" y="50" width="200" height="150" fill="none" stroke="#A262E5" stroke-width="2"/><path d="M160 72v40M140 92h40" stroke="#74FAE3" stroke-width="10" stroke-linecap="round"/><rect x="138" y="135" width="44" height="65" fill="#2A0454" stroke="#fff" stroke-width="2"/><rect x="142" y="162" width="36" height="4" rx="2" fill="#74FAE3"/></svg></div><div class="tx"><h4>Hospitales y clínicas</h4><p>Circulación constante de pacientes, personal y visitas.</p></div></div>
+      <div class="place r d4"><div class="ill"><svg viewBox="0 0 320 200"><path d="M50 200V90l110-50 110 50v110" fill="none" stroke="#A262E5" stroke-width="2"/><path d="M160 40V18l26 10-26 8" fill="#74FAE3"/><rect x="85" y="110" width="34" height="30" fill="none" stroke="#74FAE3" stroke-width="2"/><rect x="201" y="110" width="34" height="30" fill="none" stroke="#74FAE3" stroke-width="2"/><rect x="138" y="135" width="44" height="65" fill="#2A0454" stroke="#fff" stroke-width="2"/><rect x="142" y="162" width="36" height="4" rx="2" fill="#74FAE3"/></svg></div><div class="tx"><h4>Escuelas y universidades</h4><p>Edificios con evacuaciones masivas y simulacros periódicos.</p></div></div>
+      <div class="place r d5"><div class="ill"><svg viewBox="0 0 320 200"><rect x="90" y="20" width="140" height="180" fill="none" stroke="#A262E5" stroke-width="2"/><g stroke="#74FAE3" stroke-width="2" fill="none"><rect x="108" y="38" width="26" height="20"/><rect x="147" y="38" width="26" height="20"/><rect x="186" y="38" width="26" height="20"/><rect x="108" y="72" width="26" height="20"/><rect x="147" y="72" width="26" height="20"/><rect x="186" y="72" width="26" height="20"/></g><rect x="138" y="135" width="44" height="65" fill="#2A0454" stroke="#fff" stroke-width="2"/><rect x="142" y="162" width="36" height="4" rx="2" fill="#74FAE3"/></svg></div><div class="tx"><h4>Oficinas corporativas</h4><p>Puertas de vidrio y aluminio donde la estética importa tanto como la norma.</p></div></div>
+      <div class="place r d6"><div class="ill"><svg viewBox="0 0 320 200"><path d="M30 200V100l60-30v30l60-30v30l60-30v130z" fill="none" stroke="#A262E5" stroke-width="2"/><rect x="240" y="40" width="22" height="160" fill="none" stroke="#A262E5" stroke-width="2"/><rect x="128" y="135" width="44" height="65" fill="#2A0454" stroke="#fff" stroke-width="2"/><rect x="132" y="162" width="36" height="4" rx="2" fill="#74FAE3"/></svg></div><div class="tx"><h4>Industria y logística</h4><p>Plantas y depósitos de alto tránsito, como la propia planta de San Martín.</p></div></div>
+    </div>
+    <div class="how r d3">
+      <span class="step">Tomas reales del T300</span><span class="arr">→</span>
+      <span class="step">Ambiente con IA o video + locución adaptada</span><span class="arr">→</span>
+      <span class="step">1 video por entorno, en ES y EN</span>
+    </div>
+    <p class="muted r d4" style="font-size:13.5px;margin-top:16px">El paquete incluye 2 entornos a elección. Los 4 restantes se suman como adicional por $600.000 + IVA. Todos van en español y en inglés, de 1:30 como máximo.</p>
+  </div>
+  <div class="sfoot"><span>Versiones por entorno</span><span class="num">05</span></div>
+</section>
+
+<!-- ========== 06 RODAJE (modo A) ========== -->
+<section id="rodaje" data-label="Rodaje">
+  <div class="diamonds" style="left:0;bottom:10%;transform:scaleX(-1)"></div>
+  <div class="wrap">
+    <div class="rodaje">
+      <div>
+        <div class="eyebrow r">El rodaje</div>
+        <div class="clock r d1"><span class="big">4 h</span><span class="h-md">media jornada<br><span class="it">en la planta de San Martín</span></span></div>
+        <p class="lead r d2">Filmamos donde la barra ya está instalada y funcionando. Una sola locación nos da escena, producto en detalle y material de sobra para el video, sus dos idiomas y las versiones por entorno.</p>
+        <ul class="list r d3">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Simulación con humo, con extras sin parlamento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Planos macro del LED, del perfil y del mecanismo touch</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Tomas limpias del producto para las versiones por entorno</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Opcional: tomas aéreas con drone de la planta</li>
+        </ul>
+      </div>
+      <div>
+        <div class="panel good r d2"><h4>Lo que pone Popcorn</h4><p class="muted">Dirección, cámara, iluminación, máquina de humo, sonido de ambiente y equipo técnico para el rodaje. Pre-producción, plan de rodaje y coordinación del día.</p></div>
+        <div class="panel r d3"><h4>Lo que necesitamos de Blincer</h4><p class="muted">El acceso a la planta y a las puertas con el T300 instalado, las unidades en LED verde y rojo, y los extras de su personal, con las autorizaciones de imagen firmadas. También un referente técnico durante el rodaje.</p></div>
+        <div class="panel r d4"><h4>¿Más material el mismo día?</h4><p class="muted">Con el equipo ya en la planta, sumar el video corporativo de la empresa sale mucho más barato que hacerlo aparte. Está como opcional en la inversión.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Rodaje</span><span class="num">06</span></div>
+</section>
+
+<!-- ========== 07 EXPERIENCIA (modo D) ========== -->
+<section id="experiencia" class="dark" data-label="Experiencia">
+  <div class="wrap">
+    <div class="eyebrow r">Experiencia Popcorn en industria</div>
+    <h2 class="h-lg r d1" style="max-width:900px">Sabemos filmar <span class="hl">en planta</span>, <span class="it">sin frenar la producción.</span></h2>
+    <p class="lead r d2">Producimos videos para empresas industriales y de producto técnico, donde hay que mostrar un mecanismo con precisión y contarlo de forma simple. Tocá cada pieza para verla.</p>
+    <div class="reels">
+      <div class="reel feat r d1" data-key="reel"><span class="wm">REEL</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><small>Popcorn</small><h4>Reel de producción audiovisual</h4></div>
+      <div class="reel r d2" data-key="esab"><span class="wm">ESAB</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><small>Industria</small><h4>ESAB</h4></div>
+      <div class="reel r d3" data-key="bolsaflex"><span class="wm">BOLSAFLEX</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><small>Industria</small><h4>Bolsaflex</h4></div>
+      <div class="reel r d4" data-key="cromosol"><span class="wm">CROMOSOL</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><small>Industria</small><h4>Cromosol</h4></div>
+      <div class="reel r d5" data-key="libus"><span class="wm">LIBUS</span><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></span><small>Industria</small><h4>Libus</h4></div>
+    </div>
+    <div class="creds r d3">
+      <div><b>15+</b><span>años de trabajo</span></div>
+      <div><b>160+</b><span>marcas acompañadas</span></div>
+      <div><b>360°</b><span>de estrategia a producción</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Experiencia</span><span class="num">07</span></div>
+</section>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><button class="x" id="mx" aria-label="Cerrar">×</button><div class="mframe" id="mbox"></div></div>
+
+<!-- ========== 08 ALCANCE (modo C) ========== -->
+<section id="alcance" class="light" data-label="Alcance">
+  <div class="wrap">
+    <div class="eyebrow r">Alcance</div>
+    <h2 class="h-lg r d1">Qué <span class="hl">incluye</span> y qué no.</h2>
+    <div class="deliv">
+      <div class="dv r d1"><b>1</b><span>video de producto del T300, de 1:30 como máximo</span></div>
+      <div class="dv r d2"><b>+2</b><span>versiones por entorno, a elección (los 4 restantes, opcionales)</span></div>
+      <div class="dv r d3"><b>×2</b><span>idiomas en todos: español e inglés</span></div>
+      <div class="dv r d4"><b>6</b><span>archivos finales en horizontal 16:9, con media jornada de rodaje</span></div>
+    </div>
+    <div class="scope">
+      <div class="scol yes r d2">
+        <h4>Incluye</h4>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Idea creativa y guion, con validación técnica de Blincer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Pre-producción y plan de rodaje</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Media jornada de rodaje (4 h) en la planta de San Martín, con equipo técnico y humo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Edición, color y sonorización</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Motion graphics de características técnicas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>2 versiones por entorno a elección: ambiente adaptado con IA o video y locución ajustada</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Recortes del material para los 2 micro videos (con pago 50/50)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Traducción al inglés y voz en off con IA en los dos idiomas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Música de librería con licencia</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg>Duración máxima de 1:30 por video (los micro videos, 30 s)</li>
+        </ul>
+      </div>
+      <div class="scol no r d3">
+        <h4>No incluye</h4>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Presentador o persona hablando a cámara</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Casting ni actores profesionales: los extras son personal de Blincer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Locutor humano (se cotiza aparte si se prefiere)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Locaciones adicionales a la planta de San Martín</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Tomas aéreas con drone (opcional)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>4 entornos adicionales (opcional)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Rodaje en cada entorno: los ambientes se resuelven con IA o con video</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Pauta o difusión de los videos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Alcance</span><span class="num">08</span></div>
+</section>
+
+<!-- ========== 09 CRONOGRAMA (modo D) ========== -->
+<section id="cronograma" class="dark" data-label="Cronograma">
+  <div class="wrap">
+    <div class="eyebrow r">Cronograma</div>
+    <h2 class="h-lg r d1">Listo a fin de enero, <span class="hl">para lanzar</span> <span class="it">en febrero.</span></h2>
+    <p class="lead r d2">Las fechas parten de la aprobación de la propuesta. Si firmamos esta semana, hay margen para las fiestas y para las rondas de ajuste sin poner en riesgo el lanzamiento.</p>
+    <div class="tl">
+      <div class="ms r d1"><small>Semana 1</small><h4>Arranque</h4><p>Aprobación, anticipo y reunión de arranque con el equipo técnico de Blincer.</p></div>
+      <div class="ms r d2"><small>Semanas 2–3</small><h4>Guion</h4><p>Idea, guion y guion técnico, más la adaptación de la locución para cada entorno elegido.</p></div>
+      <div class="ms r d3"><small>Semana 4</small><h4>Rodaje</h4><p>Media jornada en San Martín, en la primera quincena de diciembre.</p></div>
+      <div class="ms r d4"><small>Diciembre – enero</small><h4>Postproducción</h4><p>Edición, motion graphics, IA, traducción y locución. Rondas de ajuste.</p></div>
+      <div class="ms goal r d5"><small>Fin de enero</small><h4>Entrega final</h4><p>Videos en español e inglés, listos para el lanzamiento de febrero.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Cronograma</span><span class="num">09</span></div>
+</section>
+
+<!-- ========== 10 INVERSION (modo C) ========== -->
+<section id="inversion" class="light" data-label="Inversión">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión</div>
+    <h2 class="h-lg r d1">Armá tu <span class="hl">propuesta</span>.</h2>
+    <p class="lead r d2">El paquete cubre el video de producto y 2 versiones por entorno, todo en español y en inglés. Sumá los opcionales que necesites, elegí la forma de pago y envianos la selección.</p>
+    <div class="inv">
+      <div>
+        <div class="items" id="items">
+          <div class="item on locked r d1" data-id="base" data-name="Video de producto T300 + 2 versiones por entorno, en español e inglés (6 archivos), con media jornada de rodaje" data-price="2900000">
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+            <div><h4>Video de producto + 2 entornos · español e inglés</h4><p>Idea, guion, media jornada de rodaje (4 h) en una locación, postproducción, motion graphics, traducción y voz en off con IA. Video de producto más 2 versiones por entorno, a elección, con el ambiente adaptado (IA o video) y la locución ajustada. Todos en español e inglés, de 1:30 como máximo: 6 archivos finales.</p><p style="margin-top:12px;font-weight:700;color:var(--violeta);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase">Elegí 2 entre:</p><div class="envs" style="margin-top:8px"><span class="env">Shoppings</span><span class="env">Cines y teatros</span><span class="env">Hospitales y clínicas</span><span class="env">Escuelas y universidades</span><span class="env">Oficinas corporativas</span><span class="env">Industria y logística</span></div><span class="tagx">Incluido</span></div>
+            <div class="price">$2.900.000<small>+ IVA</small></div>
+          </div>
+          <div class="item r d2" data-id="env4" data-name="4 entornos adicionales, en español e inglés (8 archivos)" data-price="600000" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+            <div><h4>4 entornos adicionales</h4><p>Los 4 entornos que no elegiste en el paquete, cada uno en español y en inglés y de 1:30 como máximo. Con esto completás los 6 lugares: 8 archivos más, 14 en total.</p><span class="tagx">Completa los 6 entornos</span></div>
+            <div class="price">$600.000<small>+ IVA</small></div>
+          </div>
+          <div class="item r d2" data-id="drone" data-name="Tomas aéreas con drone" data-price="200000" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+            <div><h4>Drone</h4><p>Tomas aéreas de la planta para la apertura o el cierre de los videos. Vuelo sujeto a clima y normativa vigente.</p></div>
+            <div class="price">$200.000<small>+ IVA</small></div>
+          </div>
+          <div class="item r d3" data-id="corpo" data-name="Video corporativo de la empresa" data-price="1200000" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>
+            <div><h4>Video corporativo de Blincer</h4><p>Guion y grabación de tomas adicionales de la empresa: planta, procesos y equipo. Si hace falta, sumamos 4 h más de rodaje y completamos la jornada. Duración máxima de 1:30.</p><span class="tagx">Aprovecha el mismo rodaje</span></div>
+            <div class="price">$1.200.000<small>+ IVA</small></div>
+          </div>
+        </div>
+        <p class="muted r d4" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-top:30px">Forma de pago</p>
+        <div class="pay" id="pay">
+          <div class="payopt on r d4" data-pay="adelantado" role="radio" aria-checked="true" tabindex="0"><span class="bn">−5%</span><span class="rad"></span><h4>Pago adelantado</h4><p>100% al aprobar, con 5% de descuento sobre el total.</p></div>
+          <div class="payopt r d5" data-pay="5050" role="radio" aria-checked="false" tabindex="0"><span class="bn">+2 micro videos</span><span class="rad"></span><h4>50% + 50% a 30 días</h4><p>Anticipo al aprobar y saldo a 30 días. Incluye 2 micro videos de 30 s bonificados.</p></div>
+        </div>
+      </div>
+      <aside class="total r d2" aria-live="polite">
+        <div class="eyebrow" style="margin-bottom:12px;color:var(--aqua)">Tu selección</div>
+        <div id="rows"></div>
+        <div class="big" id="tot">$0</div>
+        <div class="note" id="tnote">Valores en pesos argentinos, sin IVA.</div>
+        <a class="btn" id="cta" href="#">Enviar mi selección <span class="ar">→</span></a>
+        <p class="note" style="margin-top:14px">Te llega a Demián Linetzky, que te responde en el día.</p>
+      </aside>
+    </div>
+    <p class="legal r">Valores en pesos argentinos, más IVA. Propuesta válida hasta el 16 de noviembre de 2026. La pauta o difusión de los videos, si se suma más adelante, se factura aparte.</p>
+  </div>
+  <div class="sfoot"><span>Inversión</span><span class="num">10</span></div>
+</section>
+
+<!-- ========== 11 PASOS (modo A) ========== -->
+<section id="pasos" data-label="Próximos pasos">
+  <div class="ghost" style="top:60px;right:-40px">FEBRERO</div>
+  <div class="wrap">
+    <div class="eyebrow r">Próximos pasos</div>
+    <h2 class="h-lg r d1">Cuatro pasos <span class="hl">hasta el rodaje</span>.</h2>
+    <div class="steps">
+      <div class="stp r d1"><b>01</b><h4>Elegí y enviá</h4><p>Armá tu selección en la sección de inversión y mandala con un clic.</p></div>
+      <div class="stp r d2"><b>02</b><h4>Confirmamos</h4><p>Facturamos según la forma de pago elegida y agendamos el arranque.</p></div>
+      <div class="stp r d3"><b>03</b><h4>Guion</h4><p>Lo validamos con tu equipo técnico, junto con la locución de cada entorno elegido.</p></div>
+      <div class="stp r d4"><b>04</b><h4>Fecha de rodaje</h4><p>Fijamos el día en la planta y te pasamos el plan y las autorizaciones para los extras.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Próximos pasos</span><span class="num">11</span></div>
+</section>
+
+<!-- ========== 12 CIERRE (modo D) ========== -->
+<section id="cierre" class="dark" data-label="Cierre">
+  <svg class="curve" style="right:-60px;bottom:-80px;width:420px" viewBox="0 0 300 400" fill="none"><path d="M260 0 C 120 140, 340 250, 160 400" stroke="#580D9F" stroke-width="46" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Hablemos</div>
+    <h2 class="h-xl r d1">Que encontrar la salida <span class="hl">se vea</span> <span class="it">a primera vista.</span></h2>
+    <div class="contact r d2">
+      <b>Demián Linetzky</b>
+      <span class="muted">Executive Director · Audiovisual, Web y Signage</span>
+      <a href="mailto:demianlinet@somospopcorn.com">demianlinet@somospopcorn.com</a>
+    </div>
+    <div class="foot r d3">
+      <img src="img/logo-popcorn-blanco.png" alt="Popcorn">
+      <span>Propuesta confidencial para Blincer SRL · Válida hasta el 16/11/2026</span>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn × Blincer</span><span class="num">12</span></div>
+</section>
+
+<script>
+/* ===== Videos de experiencia: pegar el ID de YouTube de cada pieza ===== */
+const VIDEOS = { reel:'ygXRXNBMte8', esab:'k_DQc9Jpurk', bolsaflex:'e5PzUpTQTl8', cromosol:'35_hqnlV3JM', libus:'TPD8wFfdeSk' };
+
+const RESP = 'demianlinet@somospopcorn.com';
+const fmt = n => '$' + Math.round(n).toLocaleString('es-AR');
+
+/* topbar + progreso */
+const tb=document.getElementById('topbar'), pg=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;pg.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';tb.classList.toggle('scrolled',h.scrollTop>40)},{passive:true});
+
+/* dots */
+const secs=[...document.querySelectorAll('section[data-label]')], dots=document.getElementById('dots');
+secs.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;a.innerHTML='<span>'+s.dataset.label+'</span>';dots.appendChild(a)});
+(function(){
+  const secs=[...document.querySelectorAll('section[data-label]')], da=[...document.getElementById('dots').children];
+  const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);da.forEach((d,j)=>d.classList.toggle('active',i===j));document.body.classList.toggle('on-light',e.target.classList.contains('light'))}}),{threshold:.45});
+  secs.forEach(s=>o.observe(s));
+  /* reveal */
+  const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.r').forEach(el=>rv.observe(el));
+
+  /* reels */
+  const modal=document.getElementById('modal'), mbox=document.getElementById('mbox');
+  document.querySelectorAll('.reel').forEach(r=>{
+    const id=VIDEOS[r.dataset.key];
+    if(!id){r.classList.add('pending');return}
+    const p=new Image();p.className='poster';p.alt='';p.loading='lazy';p.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg';r.prepend(p);
+    r.addEventListener('click',()=>{mbox.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';modal.classList.add('open')});
+  });
+  const close=()=>{modal.classList.remove('open');mbox.innerHTML=''};
+  document.getElementById('mx').onclick=close;modal.addEventListener('click',e=>{if(e.target===modal)close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+
+  /* inversión */
+  const items=[...document.querySelectorAll('.item')], pays=[...document.querySelectorAll('.payopt')];
+  let pay='adelantado';
+  items.forEach(it=>{if(it.classList.contains('locked'))return;
+    const t=()=>{it.classList.toggle('on');it.setAttribute('aria-checked',it.classList.contains('on'));calc()};
+    it.addEventListener('click',t);it.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();t()}})});
+  pays.forEach(p=>{const s=()=>{pays.forEach(x=>{x.classList.remove('on');x.setAttribute('aria-checked','false')});p.classList.add('on');p.setAttribute('aria-checked','true');pay=p.dataset.pay;calc()};
+    p.addEventListener('click',s);p.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();s()}})});
+  function calc(){
+    const sel=items.filter(i=>i.classList.contains('on'));
+    const sub=sel.reduce((a,i)=>a+ +i.dataset.price,0);
+    const disc=pay==='adelantado'?sub*.05:0, tot=sub-disc;
+    let h=sel.map(i=>'<div class="row"><span>'+i.querySelector('h4').textContent+'</span><span>'+fmt(+i.dataset.price)+'</span></div>').join('');
+    if(disc) h+='<div class="row disc"><span>Descuento pago adelantado (5%)</span><span>−'+fmt(disc)+'</span></div>';
+    else h+='<div class="row disc"><span>2 micro videos de 30 s</span><span>Bonificados</span></div>';
+    document.getElementById('rows').innerHTML=h;
+    document.getElementById('tot').innerHTML=fmt(tot)+'<span class="hl">+ IVA</span>';
+    document.getElementById('tnote').textContent=pay==='adelantado'?'Pago 100% adelantado. Valores en pesos argentinos, sin IVA.':'Anticipo de '+fmt(tot/2)+' + saldo de '+fmt(tot/2)+' a 30 días. Valores sin IVA.';
+    const body='Hola Demián,\n\nQueremos avanzar con la propuesta de Popcorn para el T300 Touch LED. Esta es nuestra selección:\n\n'+
+      sel.map(i=>'• '+i.dataset.name+': '+fmt(+i.dataset.price)+' + IVA').join('\n')+
+      '\n\nForma de pago: '+(pay==='adelantado'?'pago adelantado con 5% de descuento (−'+fmt(disc)+')':'50% de anticipo y 50% a 30 días, con 2 micro videos de 30 s bonificados')+
+      '\nTotal: '+fmt(tot)+' + IVA\n\nQuedamos a la espera para coordinar el arranque.\n\nSaludos,';
+    document.getElementById('cta').href='mailto:'+RESP+'?subject='+encodeURIComponent('Blincer · Propuesta video T300 · Selección')+'&body='+encodeURIComponent(body);
+  }
+  calc();
+})();
+</script>
+</body>
+</html>
