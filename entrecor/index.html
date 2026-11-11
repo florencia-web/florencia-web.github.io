@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Entrecor × Popcorn · Plan de marketing 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   POPCORN · Propuesta Entrecor · chasis premium
+   Paleta canónica: marca/identidad-popcorn.md
+   ============================================================ */
+:root{
+  --violeta:#580D9F;
+  --violeta-grad-1:#470082;
+  --violeta-grad-2:#55008F;
+  --violeta-claro:#A262E5;
+  --violeta-900:#2A0454;
+  --violeta-950:#1A032F;
+  --aqua:#74FAE3;
+  --aqua-bright:#00FDE2;
+  --aqua-deep:#0BB6A2;
+  --papel:#F2F4EF;
+  --tinta:#121212;
+  --gris-tinta:#1F2124;
+  --negro:#121216;
+  --white:#FFFFFF;
+  --w-80:rgba(255,255,255,.80);
+  --w-65:rgba(255,255,255,.65);
+  --w-45:rgba(255,255,255,.45);
+  --card:rgba(255,255,255,.045);
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --aqua-line:rgba(116,250,227,.35);
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--violeta);color:var(--white);font-family:'Space Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:radial-gradient(1200px 700px at 78% -8%,rgba(162,98,229,.35),transparent 60%),radial-gradient(1000px 800px at -10% 110%,rgba(116,250,227,.08),transparent 55%),linear-gradient(160deg,var(--violeta-grad-1) 0%,var(--violeta) 42%,var(--violeta-grad-2) 100%)}
+body::after{content:'';position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+h1,h2,h3,h4{font-family:'Public Sans',system-ui,sans-serif;font-style:normal}
+em,i{font-style:normal}
+b,strong{font-weight:600;color:#fff}
+
+/* topbar + progreso + dots */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:20px 38px;transition:background .4s var(--ease),padding .4s var(--ease)}
+.topbar.scrolled{background:rgba(42,4,84,.78);backdrop-filter:blur(14px);padding:13px 38px;box-shadow:0 1px 0 rgba(255,255,255,.07)}
+.brand-tag{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--w-65);display:flex;align-items:center;gap:9px}
+.brand-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.logo-pic{height:30px;width:auto;display:block}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--aqua),var(--aqua-bright));z-index:100;box-shadow:0 0 14px var(--aqua)}
+.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:12px}
+.dots a{position:relative;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s var(--ease);box-shadow:0 0 0 1px rgba(18,18,18,.15)}
+.dots a.active{background:var(--aqua);box-shadow:0 0 12px var(--aqua);transform:scale(1.35)}
+.dots a span{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-family:'Public Sans';font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(26,3,47,.92);padding:5px 10px;border-radius:6px;opacity:0;pointer-events:none;transition:all .25s var(--ease)}
+.dots a:hover span{opacity:1;transform:translateY(-50%) translateX(0)}
+
+/* secciones y modos */
+section{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 38px 100px;overflow:hidden}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+.s-light{background:var(--papel);color:var(--tinta)}
+.s-white{background:#fff;color:var(--tinta)}
+.s-dark{background:var(--negro)}
+.s-deep{background:linear-gradient(135deg,var(--violeta-950),var(--violeta-900) 45%,var(--violeta-grad-1))}
+.sfoot{position:absolute;left:38px;right:38px;bottom:30px;z-index:3;display:flex;justify-content:space-between;gap:20px;font-family:'Public Sans';font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45)}
+.sfoot .num{color:var(--aqua);white-space:nowrap}
+.s-light .sfoot,.s-white .sfoot{color:#8a8a92}
+.s-light .sfoot .num,.s-white .sfoot .num{color:var(--violeta)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Public Sans';font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--aqua);margin-bottom:24px}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
+.s-light .eyebrow,.s-white .eyebrow{color:var(--violeta)}
+.s-light .eyebrow::before,.s-white .eyebrow::before{box-shadow:none}
+.h-xl{font-weight:800;font-size:clamp(2.6rem,6.6vw,5.6rem);line-height:1;letter-spacing:-.03em}
+.h-lg{font-weight:800;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.025em}
+.h-md{font-weight:700;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.18;letter-spacing:-.01em}
+.hl{background:var(--aqua);color:var(--tinta);padding:0 .14em;border-radius:.16em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.rem{color:var(--aqua);font-style:italic;font-weight:800}
+.s-light .rem,.s-white .rem{color:var(--violeta)}
+.lead{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--w-80);max-width:780px;line-height:1.65}
+.s-light .lead,.s-white .lead{color:#45454c}
+.s-light strong,.s-white strong{color:var(--tinta)}
+.muted{color:var(--w-65)}
+.s-light .muted,.s-white .muted{color:#5c5c64}
+.src{margin-top:26px;font-size:.8rem;color:var(--w-45)}
+.s-light .src,.s-white .src{color:#8a8a92}
+
+/* reveal */
+.r{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}.d5{transition-delay:.45s}.d6{transition-delay:.54s}
+
+/* hero */
+#hero{padding-top:150px}
+.bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.bg-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.75)}
+.bg-photo.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(26,3,47,.96) 22%,rgba(71,0,130,.72) 55%,rgba(88,13,159,.15))}
+.bg-photo.center::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 42%,rgba(88,13,159,.78),rgba(26,3,47,.96))}
+.hero-title{font-weight:800;font-size:clamp(2.8rem,7.4vw,6.2rem);line-height:.98;letter-spacing:-.035em;max-width:13ch}
+.hero-sub{margin-top:30px;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--w-80);max-width:640px;line-height:1.6}
+.meta{margin-top:48px;display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:18px;background:rgba(26,3,47,.45);backdrop-filter:blur(6px);max-width:900px}
+.meta div{flex:1;min-width:170px;padding:18px 22px;border-right:1px solid var(--line-soft)}
+.meta div:last-child{border-right:0}
+.meta span{display:block;font-family:'Public Sans';font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);margin-bottom:6px}
+.meta b{font-family:'Public Sans';font-weight:600;font-size:.98rem}
+.scrollcue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--w-45);font-family:'Public Sans';font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.scrollcue .mouse{width:22px;height:34px;border:1.5px solid var(--w-45);border-radius:12px;position:relative}
+.scrollcue .mouse::after{content:'';position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:3px;background:var(--aqua);transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* recursos gráficos */
+.ghost{position:absolute;font-family:'Public Sans';font-weight:800;font-size:clamp(9rem,22vw,20rem);line-height:.8;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.09);white-space:nowrap;pointer-events:none;z-index:0}
+.curve{position:absolute;border-radius:50%;border-style:solid;pointer-events:none;z-index:0}
+.rombos{position:absolute;width:420px;height:420px;opacity:.16;background-image:linear-gradient(45deg,rgba(255,255,255,.7) 1px,transparent 1px),linear-gradient(-45deg,rgba(255,255,255,.7) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(circle at 100% 0,#000 0,transparent 70%);mask-image:radial-gradient(circle at 100% 0,#000 0,transparent 70%);z-index:0}
+
+/* grillas y cards */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:30px;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--aqua-line);background:rgba(255,255,255,.07)}
+.s-light .card,.s-white .card{background:#fff;border-color:#E1E3DC;box-shadow:0 8px 24px rgba(18,18,18,.05)}
+.s-white .card{background:var(--papel);box-shadow:none}
+.s-light .card:hover,.s-white .card:hover{border-color:var(--violeta-claro)}
+.card h3{font-size:1.18rem;font-weight:700;margin-bottom:9px;letter-spacing:-.01em}
+.card p{color:var(--w-65);font-size:.96rem;line-height:1.6}
+.s-light .card p,.s-white .card p{color:#5c5c64}
+.card .num-tag{font-family:'Public Sans';font-weight:700;font-size:12px;color:var(--aqua);letter-spacing:.14em;margin-bottom:14px;display:block;text-transform:uppercase}
+.s-light .card .num-tag,.s-white .card .num-tag{color:var(--violeta-claro)}
+.card.vio{background:var(--violeta);border-color:var(--violeta);color:#fff}
+.card.vio p{color:var(--w-80)}
+.card.vio .num-tag{color:var(--aqua)}
+.ico{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:rgba(116,250,227,.12);border:1px solid var(--aqua-line);color:var(--aqua);margin-bottom:18px}
+.ico svg{width:23px;height:23px}
+.s-light .ico,.s-white .ico{background:rgba(88,13,159,.07);border-color:rgba(88,13,159,.2);color:var(--violeta)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 40px}
+.stat .v{font-family:'Public Sans';font-weight:800;font-size:clamp(2.6rem,5vw,4.2rem);line-height:.95;letter-spacing:-.04em;color:var(--aqua)}
+.s-light .stat .v,.s-white .stat .v{color:var(--violeta)}
+.stat .l{margin-top:10px;font-size:.95rem;line-height:1.45;color:var(--w-65);max-width:30ch}
+.s-light .stat .l,.s-white .stat .l{color:#5c5c64}
+
+/* barras competencia */
+.bars{display:flex;flex-direction:column;gap:14px}
+.bar{display:grid;grid-template-columns:170px 1fr 34px;align-items:center;gap:16px;font-size:.95rem}
+.bar i{display:block;height:22px;border-radius:999px;background:var(--violeta-claro);transform-origin:left;transform:scaleX(0);transition:transform 1.1s var(--ease)}
+.in .bar i{transform:scaleX(1)}
+.bar.me i{background:var(--aqua)}
+.bar.me{font-weight:600}
+.bar b{font-family:'Public Sans';font-weight:800;text-align:right;color:var(--tinta)}
+
+/* split con foto */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.media{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:4/5}
+.media.sq{aspect-ratio:1/1}.media.wide{aspect-ratio:16/10}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+.media .tag{position:absolute;left:16px;bottom:16px;font-family:'Public Sans';font-weight:600;font-size:12px;padding:7px 14px;border-radius:999px;background:var(--aqua);color:var(--violeta-900)}
+.media .tag.v{background:var(--violeta-900);color:var(--aqua)}
+.browser{background:#fff;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);overflow:hidden}
+.browser .b2{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#ECEDE8}
+.browser .b2 s{width:10px;height:10px;border-radius:50%;background:#D2D3CD}
+.browser img{width:100%;display:block}
+
+/* chips / pills */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:'Public Sans';font-weight:500;font-size:.92rem;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--w-80)}
+.s-light .chip{border-color:rgba(88,13,159,.25);color:var(--violeta);background:#fff}
+
+/* lista con flecha */
+.arw{list-style:none;display:flex;flex-direction:column;gap:12px}
+.arw li{display:flex;gap:12px;line-height:1.5;color:var(--w-80);font-size:.98rem}
+.arw li::before{content:'→';font-family:'Public Sans';font-weight:800;color:var(--aqua);flex:none}
+.s-light .arw li,.s-white .arw li{color:var(--tinta)}
+.s-light .arw li::before,.s-white .arw li::before{color:var(--violeta)}
+.arw.no li::before{content:'×';color:var(--w-45)}
+.s-light .arw.no li::before,.s-white .arw.no li::before{color:#9a9aa2}
+
+/* kv dos negocios */
+.kv{display:grid;grid-template-columns:120px 1fr;gap:12px 18px;margin-top:22px;font-size:.96rem;line-height:1.45}
+.kv dt{font-family:'Public Sans';font-weight:600;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--aqua);padding-top:4px}
+.kv dd{color:var(--w-80)}
+
+/* PageSpeed */
+.psi{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.rings{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:6px 0 24px}
+.ring{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.ring .rr{--c:var(--aqua-deep);--p:0;width:88px;height:88px;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),#E6E8E2 0);display:flex;align-items:center;justify-content:center;transition:--p 1.2s}
+.ring .rr::before{content:attr(data-v);width:72px;height:72px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:800;font-size:1.6rem;letter-spacing:-.03em;color:var(--tinta)}
+.ring .rr.mid{--c:#F5A524}
+.ring span{font-size:.78rem;letter-spacing:.04em;color:#5c5c64;line-height:1.3}
+.met{display:grid;grid-template-columns:1fr auto;gap:10px 16px;border-top:1px solid #E1E3DC;padding-top:18px;font-size:.95rem}
+.met b{font-family:'Public Sans';font-weight:800;color:var(--tinta);white-space:nowrap}
+.met b.bad{color:#C2410C}.met b.ok{color:var(--aqua-deep)}
+
+/* planes */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.plan{display:flex;flex-direction:column;border-radius:24px;padding:34px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;transition:all .35s var(--ease);user-select:none}
+.plan:hover{transform:translateY(-6px);border-color:var(--aqua-line)}
+.plan.selected{border-color:var(--aqua);background:rgba(116,250,227,.08);box-shadow:0 0 0 1px var(--aqua) inset,0 14px 40px rgba(116,250,227,.16)}
+.plan .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:20px}
+.plan .badge{font-family:'Public Sans';font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--aqua);color:var(--violeta-900);white-space:nowrap}
+.plan .badge.o{background:transparent;border:1px solid var(--line);color:var(--w-80)}
+.plan h3{font-size:1.55rem;font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.plan .who{margin-top:18px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);font-size:.92rem;color:var(--w-80)}
+.plan .fee{margin-top:auto;padding-top:22px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.plan .fee .p{font-family:'Public Sans';font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);letter-spacing:-.03em;color:var(--aqua);line-height:1}
+.plan .fee small{display:block;font-size:.82rem;color:var(--w-65);margin-top:6px;text-align:right}
+.pick{display:flex;align-items:center;gap:10px;margin-top:18px;font-family:'Public Sans';font-weight:600;font-size:.84rem;color:var(--w-45)}
+.pick .radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center}
+.pick .radio::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--aqua);transform:scale(0);transition:transform .25s var(--ease)}
+.selected .pick{color:var(--aqua)}
+.selected .pick .radio{border-color:var(--aqua)}
+.selected .pick .radio::after{transform:scale(1)}
+.pick .on{display:none}.selected .pick .on{display:inline}.selected .pick .off{display:none}
+.callout{margin-top:26px;padding:22px 26px;border-left:3px solid var(--aqua);background:rgba(116,250,227,.07);border-radius:0 14px 14px 0;color:var(--w-80);font-size:.98rem;line-height:1.6}
+.s-light .callout{border-color:var(--violeta);background:rgba(88,13,159,.06);color:var(--tinta)}
+
+/* escenarios */
+.scens{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.scen{cursor:pointer;user-select:none}
+.scen.selected{border-color:var(--aqua);background:rgba(116,250,227,.08);box-shadow:0 0 0 1px var(--aqua) inset,0 14px 40px rgba(116,250,227,.16)}
+.scen .amt{font-family:'Public Sans';font-weight:800;font-size:1.9rem;letter-spacing:-.03em;line-height:1}
+.scen .amt small{font-size:.85rem;font-weight:500;color:var(--w-45);letter-spacing:0}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.mini b{display:block;font-family:'Public Sans';font-weight:800;color:var(--aqua);font-size:1.12rem;line-height:1.1}
+.mini span{display:block;font-family:'Public Sans';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--w-45);margin-top:5px}
+.rec-tag{position:absolute;top:18px;right:18px;font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:var(--aqua);color:var(--violeta-900)}
+.tabs{display:inline-flex;gap:6px;padding:6px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line-soft);margin:44px 0 18px}
+.tabs button{font-family:'Public Sans';font-weight:600;font-size:.9rem;padding:10px 20px;border-radius:999px;border:0;background:transparent;color:var(--w-80);cursor:pointer;transition:all .25s var(--ease)}
+.tabs button.on{background:var(--aqua);color:var(--violeta-900)}
+.tblbox{border:1px solid var(--line-soft);border-radius:20px;background:rgba(26,3,47,.35);overflow:hidden}
+.tbl-wrap{overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;min-width:720px}
+.tbl th{font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--aqua);text-align:right;padding:16px 20px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th:first-child{text-align:left;color:var(--w-45)}
+.tbl td{padding:12px 20px;font-size:.92rem;color:var(--w-80);border-bottom:1px solid var(--line-soft);text-align:right;font-family:'Public Sans';font-variant-numeric:tabular-nums;white-space:nowrap;transition:background .3s var(--ease),color .3s var(--ease)}
+.tbl td:first-child{text-align:left;font-family:'Space Grotesk';white-space:normal;color:var(--w-65)}
+.tbl tr.sec td{font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--violeta-claro);padding-top:20px;text-align:left}
+.tbl tr.key td{font-weight:800;color:#fff}
+.tbl tr.key td:first-child{font-weight:600;color:#fff}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td.c-on,.tbl th.c-on{background:rgba(116,250,227,.12);color:#fff}
+.tbl th.c-on{color:var(--aqua)}
+.tbl-note{padding:16px 22px;font-size:.84rem;color:var(--w-45);border-top:1px solid var(--line-soft);line-height:1.55}
+.tblpane{display:none}.tblpane.on{display:block}
+
+/* ratio */
+.ratio{display:flex;height:34px;border-radius:999px;overflow:hidden;margin:8px 0 16px;background:rgba(255,255,255,.06)}
+.ratio span{display:flex;align-items:center;padding:0 12px;font-family:'Public Sans';font-size:12px;font-weight:700;white-space:nowrap;transform-origin:left;transition:width 1.2s var(--ease)}
+.ratio .f{background:var(--violeta);color:#fff}
+.ratio .m{background:var(--aqua);color:var(--violeta-900)}
+.rlabel{font-size:.9rem;color:var(--w-80)}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;margin-top:50px}
+.road::before{content:'';position:absolute;left:24px;right:24px;top:24px;height:2px;background:var(--violeta-claro);opacity:.4}
+.st .n{width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--violeta);color:var(--violeta);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:800;position:relative;z-index:1}
+.st.go .n{background:var(--aqua);border-color:var(--aqua);color:var(--violeta-900)}
+.st .when{margin-top:20px;font-family:'Public Sans';font-weight:600;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#8a8a92}
+.st h3{font-size:1.35rem;font-weight:800;margin:6px 0 10px}
+.st p{font-size:.93rem;color:#5c5c64;line-height:1.55}
+.st .hito{margin-top:16px;padding:14px 16px;border-radius:14px;background:#fff;border:1px solid #E1E3DC;font-size:.88rem;line-height:1.45}
+.st .hito b{display:block;font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--violeta);margin-bottom:5px}
+
+/* inversión */
+.invest{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
+.invest-card{background:linear-gradient(160deg,rgba(116,250,227,.12),rgba(26,3,47,.42));border:1.5px solid var(--aqua-line);border-radius:24px;padding:34px}
+.seg{display:inline-flex;gap:6px;padding:5px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line-soft)}
+.seg button{font-family:'Public Sans';font-weight:600;font-size:.84rem;padding:9px 16px;border-radius:999px;border:0;background:transparent;color:var(--w-80);cursor:pointer}
+.seg button.on{background:var(--aqua);color:var(--violeta-900)}
+.inv-group{margin-top:26px}
+.inv-ghead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);padding-bottom:8px;border-bottom:1px solid var(--aqua-line)}
+.inv-ghead .inv-sub{font-size:1rem;letter-spacing:0;text-transform:none;color:#fff;white-space:nowrap}
+.price-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+.price-row:last-child{border-bottom:0}
+.price-row.svc{cursor:pointer;padding:16px 12px;margin:0 -12px;border-radius:10px}
+.price-row.svc:hover{background:rgba(255,255,255,.04)}
+.pl{display:flex;gap:14px;font-family:'Public Sans';font-weight:600;font-size:1rem}
+.pl small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.82rem;color:var(--w-45);margin-top:4px;max-width:40ch}
+.pl small.var{font-family:'Public Sans';font-weight:600;color:var(--aqua)}
+.pv{font-family:'Public Sans';font-weight:800;font-size:1.2rem;color:var(--aqua);white-space:nowrap;text-align:right}
+.pv small{display:block;font-size:.72rem;color:var(--w-45);font-weight:500}
+.chk,.chk-sp{flex:none;width:20px;height:20px;margin-top:1px}
+.chk{border-radius:6px;border:1.5px solid var(--w-45);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease)}
+.chk svg{width:12px;height:12px;color:var(--tinta);opacity:0}
+.svc.on .chk{background:var(--aqua);border-color:var(--aqua)}
+.svc.on .chk svg{opacity:1}
+.mrow{display:none}.mrow.show{display:flex}
+.sumbox{position:sticky;top:96px;background:#fff;color:var(--tinta);border-radius:24px;padding:30px}
+.sumbox h3{font-size:1.15rem;font-weight:800;margin-bottom:4px}
+.sumbox .sub{font-size:.85rem;color:#5c5c64;margin-bottom:18px}
+.sumline{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #E1E3DC;font-size:.93rem}
+.sumline b{font-family:'Public Sans';font-weight:800;color:var(--tinta);white-space:nowrap}
+.sumline.tot{border-bottom:0;border-top:2px solid var(--tinta);margin-top:4px;padding-top:14px;font-weight:600}
+.sumline.tot b{color:var(--violeta);font-size:1.3rem}
+.sumbox .fine{font-size:.78rem;color:#7a7a82;line-height:1.5;margin-top:14px}
+.note-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:.85rem;color:var(--w-65)}
+.note-pill b{color:var(--aqua);font-family:'Public Sans'}
+
+/* logos */
+.logowall{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.logocell{display:flex;align-items:center;justify-content:center;min-height:104px;border-radius:16px;background:#fff;padding:18px 22px;transition:transform .35s var(--ease)}
+.logocell:hover{transform:translateY(-4px)}
+.logocell img{max-height:52px;max-width:88%;object-fit:contain}
+.logocell .ln{display:none;font-family:'Public Sans';font-weight:700;color:var(--violeta)}
+.logocell.noimg .ln{display:block}
+.logocap{font-family:'Public Sans';font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);margin:36px 0 14px}
+
+/* pasos + cierre */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;text-align:left}
+#cierre{text-align:center}
+#cierre .wrap{display:flex;flex-direction:column;align-items:center}
+.close-title{font-weight:800;font-size:clamp(2.2rem,5.4vw,4.4rem);line-height:1.04;letter-spacing:-.03em;max-width:18ch}
+#ctaPick{font-family:'Public Sans';font-weight:600;font-size:.95rem;color:var(--aqua);margin-top:30px;min-height:1.2em;max-width:760px}
+#ctaPick .none{color:var(--w-45);font-weight:500}
+.cta-go{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:18px 40px;border-radius:999px;font-family:'Public Sans';font-weight:700;font-size:1.05rem;color:var(--tinta);background:linear-gradient(95deg,var(--aqua),var(--aqua-bright));text-decoration:none;box-shadow:0 12px 36px rgba(116,250,227,.3);transition:transform .25s ease}
+.cta-go:hover{transform:translateY(-3px)}
+.cta-go svg{width:20px;height:20px}
+.contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 56px;margin-top:44px}
+.contacts span{display:block;font-family:'Public Sans';font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--w-45);margin-bottom:6px}
+.contacts a{color:#fff;text-decoration:none;font-weight:600}
+.badge-logo{position:absolute;top:0;right:80px;background:#fff;border-radius:0 0 22px 22px;padding:26px 24px 20px;z-index:3}
+.badge-logo img{height:64px;display:block}
+
+/* responsive */
+@media(max-width:980px){
+  .split,.invest,.psi,.plans{grid-template-columns:1fr;gap:28px}
+  .g3,.g4,.g5,.scens,.steps,.road{grid-template-columns:1fr 1fr}
+  .road::before{display:none}
+  .logowall{grid-template-columns:repeat(3,1fr)}
+  .sumbox{position:relative;top:0}
+}
+@media(max-width:640px){
+  section{padding:100px 16px 84px}
+  .topbar{padding:14px 16px}.topbar.scrolled{padding:10px 16px}
+  .brand-tag{display:none}
+  .dots{display:none}
+  .sfoot{left:16px;right:16px;bottom:24px;font-size:9px}
+  .sfoot span:first-child{display:none}
+  .g2,.g3,.g4,.g5,.scens,.steps,.road,.stats{grid-template-columns:1fr}
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .rings{grid-template-columns:repeat(2,1fr)}
+  .bar{grid-template-columns:120px 1fr 28px;font-size:.85rem}
+  .kv{grid-template-columns:1fr;gap:4px 0}.kv dd{margin-bottom:10px}
+  .meta div{min-width:50%;border-right:0;border-bottom:1px solid var(--line-soft)}
+  .badge-logo{right:16px;padding:18px 16px 14px}.badge-logo img{height:44px}
+  .plan,.invest-card,.sumbox{padding:24px}
+  .tabs{display:flex;flex-wrap:wrap;border-radius:18px}
+}
+/* tabla de lo cotizado */
+.qtbl{width:100%;border-collapse:collapse;min-width:640px}
+.qtbl th{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua);text-align:right;padding:14px 18px;border-bottom:1px solid var(--aqua-line)}
+.qtbl th:first-child{text-align:left;color:var(--w-45)}
+.qtbl td{padding:15px 18px;border-bottom:1px solid var(--line-soft);text-align:right;font-family:'Public Sans';font-weight:700;font-size:1.02rem;white-space:nowrap;vertical-align:top}
+.qtbl td:first-child{text-align:left;font-weight:600;white-space:normal}
+.qtbl td small{display:block;font-family:'Space Grotesk';font-weight:400;font-size:.8rem;color:var(--w-45);margin-top:3px;white-space:normal}
+.qtbl td.dim{color:var(--w-45);font-weight:500}
+.qtbl tr.tot td{border-top:1.5px solid var(--aqua);border-bottom:0;color:var(--aqua);font-size:1.15rem}
+.qtbl tr.tot td:first-child{color:#fff}
+.qtbl tr.media td{color:var(--w-80);font-weight:600}
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start;margin-top:30px}
+.ctl{display:flex;flex-direction:column;gap:18px}
+.ctl label{display:block;font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--w-45);margin-bottom:8px}
+.seg.full{display:flex;flex-wrap:wrap}
+.addrow{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:12px 14px;border:1px solid var(--line-soft);border-radius:12px;cursor:pointer;margin-top:8px}
+.addrow.on{border-color:var(--aqua);background:rgba(116,250,227,.06)}
+.addrow .pl{font-size:.95rem}
+.addrow .pv{font-size:1.02rem}
+.sumline small{display:block;font-size:.78rem;color:#7a7a82;font-weight:400}
+.sumline.sub2 b{color:var(--violeta)}
+@media(max-width:980px){.calc{grid-template-columns:1fr}}
+/* ===== Entrecor · módulos propios ===== */
+.hero-title{max-width:15ch}
+/* embudo de medición */
+.pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:46px;position:relative}
+.node{position:relative;padding:26px 22px 24px;border:1px solid var(--line-soft);background:var(--card);border-radius:0}
+.node:first-child{border-radius:20px 0 0 20px}.node:last-child{border-radius:0 20px 20px 0}
+.node+.node{border-left:0}
+.node .k{font-family:'Public Sans';font-weight:700;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua)}
+.node h3{font-size:1.12rem;font-weight:800;margin:10px 0 8px}
+.node p{font-size:.88rem;color:var(--w-65);line-height:1.5}
+.node .m{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--w-80)}
+.node .m b{display:block;font-family:'Public Sans';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--violeta-claro);margin-bottom:4px}
+.node::after{content:'→';position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--aqua);color:var(--violeta-900);display:flex;align-items:center;justify-content:center;font-family:'Public Sans';font-weight:800;font-size:13px;z-index:2}
+.node:last-child::after{display:none}
+.node.hot{background:rgba(116,250,227,.09);border-color:var(--aqua-line)}
+/* tablero mock */
+.wf{background:#fff;color:var(--tinta);border-radius:20px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.wf .wft{display:flex;justify-content:space-between;align-items:center;font-family:'Public Sans';font-weight:800;font-size:.95rem;margin-bottom:16px}
+.wf .wft span{font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8a8a92}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{background:var(--papel);border-radius:12px;padding:12px 14px}
+.kpi span{display:block;font-family:'Public Sans';font-weight:600;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#7a7a82}
+.kpi b{display:block;font-family:'Public Sans';font-weight:800;font-size:1.05rem;color:var(--violeta);margin-top:5px}
+.wfbars{display:flex;align-items:flex-end;gap:8px;height:96px;margin-top:18px;padding-top:6px;border-top:1px solid #E1E3DC}
+.wfbars i{flex:1;border-radius:6px 6px 0 0;background:var(--violeta-claro)}
+.wfbars i.a{background:var(--aqua)}
+.wf .lg{display:flex;gap:16px;margin-top:10px;font-size:.75rem;color:#7a7a82}
+.wf .lg s{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px;text-decoration:none}
+/* galería */
+.gal{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.gal .media{aspect-ratio:3/4}
+/* sitemap */
+.smap{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.smap span{font-family:'Public Sans';font-weight:600;font-size:.86rem;padding:9px 15px;border-radius:999px;background:#fff;border:1px solid rgba(88,13,159,.22);color:var(--violeta)}
+.smap span.k{background:var(--violeta);color:#fff;border-color:var(--violeta)}
+.smap span.a{background:var(--aqua);color:var(--violeta-900);border-color:var(--aqua)}
+/* tres tiempos */
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+/* matriz de escenarios */
+.mx{width:100%;border-collapse:collapse;min-width:760px}
+.mx th{font-family:'Public Sans';font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--aqua);padding:14px 16px;text-align:center;border-bottom:1px solid var(--aqua-line)}
+.mx th:first-child{text-align:left;color:var(--w-45)}
+.mx td{padding:12px 16px;border-bottom:1px solid var(--line-soft);text-align:center;font-size:.92rem;color:var(--w-80);transition:background .3s var(--ease)}
+.mx td:first-child{text-align:left;color:#fff}
+.mx td small{display:block;font-size:.76rem;color:var(--w-45)}
+.mx .y{color:var(--aqua);font-family:'Public Sans';font-weight:800}
+.mx .n{color:var(--w-45)}
+.mx tr.sec td{font-family:'Public Sans';font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--violeta-claro);padding-top:18px;text-align:left}
+.mx tr.tot td{font-family:'Public Sans';font-weight:800;color:#fff;font-size:1rem;border-top:1.5px solid var(--aqua);border-bottom:0}
+.mx td.c-on,.mx th.c-on{background:rgba(116,250,227,.1)}
+/* gráfico mes a mes */
+.chart{margin-top:22px;background:rgba(26,3,47,.4);border:1px solid var(--line-soft);border-radius:20px;padding:24px 24px 16px}
+.chart .ct{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:'Public Sans';font-weight:700;font-size:.95rem;margin-bottom:16px}
+.chart .ct span{font-weight:600;font-size:.8rem;color:var(--w-65)}
+.cols{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;align-items:end;height:230px}
+.col{display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative}
+.col .seg2{width:100%;transition:height .8s var(--ease)}
+.col .h{background:var(--violeta-claro);border-radius:0 0 4px 4px}
+.col .md{background:var(--aqua)}
+.col .vr{background:#C9B2EE;border-radius:5px 5px 0 0}
+.col .tt{position:absolute;left:50%;transform:translateX(-50%);font-family:'Public Sans';font-weight:700;font-size:10.5px;color:#fff;white-space:nowrap;bottom:calc(var(--hh) + 6px)}
+.mlab{display:grid;grid-template-columns:repeat(12,1fr);gap:8px;margin-top:8px;text-align:center;font-family:'Public Sans';font-weight:600;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--w-45)}
+.leg{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:.8rem;color:var(--w-65)}
+.leg s{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px;text-decoration:none}
+.scen .amt{font-size:2.1rem}
+.scen .who2{margin-top:12px;font-size:.9rem;color:var(--w-65);line-height:1.5}
+@media(max-width:980px){.pipe{grid-template-columns:1fr}.node,.node:first-child,.node:last-child{border-radius:16px;border-left:1px solid var(--line-soft)}.node+.node{margin-top:14px}.node::after{right:50%;top:auto;bottom:-20px;transform:translateX(50%) rotate(90deg)}.gal{grid-template-columns:repeat(3,1fr)}.tres{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.gal{grid-template-columns:repeat(2,1fr)}.cols{gap:4px;height:180px}.mlab{gap:4px;font-size:9px}.col .tt{display:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<header class="topbar" id="topbar">
+  <div class="brand-tag"><span class="dot"></span>Propuesta comercial · Entrecor 2027</div>
+  <img class="logo-pic" src="img/logos/logo-popcorn-blanco.png" alt="Popcorn">
+</header>
+<nav class="dots" id="dots"></nav>
+
+<!-- 1 · PORTADA -->
+<section id="hero" data-label="Inicio">
+  <div class="bg-photo hero"><img src="img/planta-deposito-bobinas.jpg" alt="Depósito de bobinas de papel en la planta de Entrecor, Concepción del Uruguay"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Entrecor × Popcorn · Plan de marketing 2027</div>
+    <h1 class="hero-title r d1">2027, el año en que la marca <span class="hl">se mide en contactos</span></h1>
+    <p class="hero-sub r d2">Un plan para que cada peso de marketing de Entrecor se pueda leer en pedidos de cotización, y para llegar a Envase 2027 con la agenda llena.</p>
+    <div class="meta r d3">
+      <div><span>Preparada para</span><b>Noel Losada · Entrecor S.A.</b></div>
+      <div><span>Fecha</span><b>11 de noviembre de 2026</b></div>
+      <div><span>Válida hasta</span><b>21 de noviembre de 2026</b></div>
+      <div><span>Por Popcorn</span><b>Florencia Grigolatto · Sol Ferrari · Demián Linetzky</b></div>
+    </div>
+  </div>
+  <div class="scrollcue"><div class="mouse"></div>Deslizá para comenzar</div>
+</section>
+
+<!-- 2 · LO QUE ENTENDIMOS -->
+<section id="entendimos" data-label="Lo que entendimos" class="s-light">
+  <div class="wrap">
+    <div class="eyebrow r">Lo que entendimos</div>
+    <h2 class="h-lg r d1" style="max-width:21ch">La marca ya trabaja. Ahora tiene que <span class="hl">demostrarlo en números</span>.</h2>
+    <div class="grid g4 r d2" style="margin-top:44px">
+      <div class="card"><span class="num-tag">01</span><h3>La marca está mejor posicionada</h3><p>Quien habla con los clientes lo percibe: Entrecor dejó de ser "una empresita" y hoy pisa más fuerte en el mercado.</p></div>
+      <div class="card"><span class="num-tag">02</span><h3>El directorio necesita verlo</h3><p>Sin contactos, costos y resultados medidos, la inversión en marketing se discute cada año desde cero.</p></div>
+      <div class="card"><span class="num-tag">03</span><h3>Envase 2027 es el momento</h3><p>Del 14 al 17 de septiembre en Buenos Aires Ferial. El stand ya está en marcha y necesita contenido para sus pantallas.</p></div>
+      <div class="card vio"><span class="num-tag">04</span><h3>Un presupuesto previsible</h3><p>Los costos de Entrecor siguen al papel, no a la inflación. Por eso el plan viene con tres escenarios y su distribución mes a mes, para aprobarlo una vez y sostenerlo todo el año.</p></div>
+    </div>
+    <p class="lead r d3" style="margin-top:34px">Por eso esta propuesta no arranca por las piezas. Arranca por <strong>medir</strong>: que cada campaña, cada visita al sitio y cada pedido de cotización quede registrado, y que el directorio lo vea todos los meses.</p>
+  </div>
+  <div class="sfoot"><span>Fuente: reunión con Entrecor del 6/11/2026</span><span class="num">01 — Contexto</span></div>
+</section>
+
+<!-- 3 · DIAGNÓSTICO WEB -->
+<section id="web-hoy" data-label="El sitio hoy" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico · El sitio hoy</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Se ve bien, pero <span class="hl">no puede medir</span> un solo contacto.</h2>
+    <div class="psi r d2" style="margin-top:40px;align-items:start">
+      <div>
+        <div class="browser"><div class="b2"><s></s><s></s><s></s></div><img src="img/web-entrecor-hoy.jpg" alt="Inicio del sitio actual de Entrecor"></div>
+        <ul class="arw" style="margin-top:26px">
+          <li><span><strong>El formulario no envía nada:</strong> abre el correo de quien consulta. En el celular, si no hay una cuenta de correo configurada, el contacto se pierde, y ningún pedido se puede atribuir a un anuncio.</span></li>
+          <li><span><strong>Una sola página</strong> para seis mercados distintos. Un comprador de un frigorífico no encuentra nada que le hable a él.</span></li>
+          <li><span><strong>Para Google, el sitio no dice qué hace:</strong> el título es "Entrecor S.A." y la descripción es la que trae la plantilla por defecto.</span></li>
+          <li><span><strong>Sin las etiquetas de Meta ni de LinkedIn</strong>, y sin WhatsApp ni enlace a LinkedIn.</span></li>
+        </ul>
+      </div>
+      <div class="card" style="padding:28px">
+        <span class="num-tag" style="color:var(--violeta)">Google PageSpeed · rendimiento</span>
+        <div class="rings" style="grid-template-columns:repeat(2,1fr);margin-bottom:18px">
+          <div class="ring"><div class="rr mid" data-p="47" data-v="47"></div><span>Celular</span></div>
+          <div class="ring"><div class="rr mid" data-p="51" data-v="51"></div><span>Computadora</span></div>
+        </div>
+        <div class="met"><span>Contenido principal visible en celular (prueba con 4G lenta)</span><b class="bad">12,9 s</b><span>Página completa visible en celular</span><b class="bad">14,9 s</b><span>Peso de la página</span><b class="bad">2,9 MB</b><span>Usuarios reales de Chrome, últimos 28 días</span><b class="ok">Aprueban</b></div>
+        <p class="muted" style="margin-top:14px;font-size:.86rem">Las visitas reales cargan bien. El problema aparece en el peor caso, que es justo el de un comprador que consulta desde la planta o en la ruta. Solo optimizando las imágenes se ahorra más de 1 MB.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuente: revisión con navegador y PageSpeed Insights, 6/11/2026</span><span class="num">02 — Sitio web</span></div>
+</section>
+
+<!-- 4 · DIAGNÓSTICO REDES -->
+<section id="redes-hoy" data-label="Redes hoy" class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow r">Diagnóstico · Redes</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Lo que más rinde es <span class="hl">la prueba</span>, no el saludo.</h2>
+    <div class="split r d2" style="margin-top:46px;align-items:start">
+      <div class="stats">
+        <div class="stat"><div class="v">3.055</div><div class="l">seguidores en Instagram, con unas 6 publicaciones por mes</div></div>
+        <div class="stat"><div class="v">437</div><div class="l">seguidores en LinkedIn, que publica lo mismo que Instagram</div></div>
+        <div class="stat"><div class="v">10</div><div class="l">"me gusta" en la publicación típica de 2026 (mediana de las últimas 60)</div></div>
+        <div class="stat"><div class="v">15–24×</div><div class="l">más rinden las publicaciones de planta en movimiento y de credenciales</div></div>
+      </div>
+      <div class="card" style="padding:30px;background:#fff;color:var(--tinta);border:0">
+        <span class="num-tag" style="color:var(--violeta)">"Me gusta" por publicación · Instagram 2026</span>
+        <div class="bars r">
+          <div class="bar"><span>Reel "Bobinas listas"</span><i style="width:100%"></i><b>238</b></div>
+          <div class="bar"><span>Instituto Argentino del Envase</span><i style="width:67%"></i><b>160</b></div>
+          <div class="bar"><span>Auditoría ISO 9001</span><i style="width:62%"></i><b>147</b></div>
+          <div class="bar me"><span>Publicación típica</span><i style="width:4.2%"></i><b>10</b></div>
+          <div class="bar me"><span>"¡Buen viernes!", "#Lunes"</span><i style="width:3%"></i><b>4–18</b></div>
+        </div>
+        <p style="margin-top:18px;font-size:.88rem;color:#5c5c64;line-height:1.5">Casi la mitad del calendario son saludos y frases genéricas. Coincide con lo que conversamos: en un negocio entre empresas, las redes dan presencia y respaldo, no hace falta publicar todos los días. Lo que sí hace falta es publicar lo que convence a un comprador.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuente: API de Meta (cuenta @entrecor.sa) y página pública de LinkedIn, 6/11/2026</span><span class="num">03 — Redes</span></div>
+</section>
+
+<!-- 5 · OPORTUNIDAD -->
+<section id="oportunidad" data-label="Oportunidad">
+  <div class="bg-photo center"><img src="img/planta-panoramica.jpg" alt="Nave de producción de Entrecor con planchas de cartón corrugado"></div>
+  <div class="wrap">
+    <div class="eyebrow r">Dónde está la oportunidad</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Nadie en la categoría <span class="hl">muestra la evidencia</span>.</h2>
+    <div class="grid g3 r d2" style="margin-top:44px">
+      <div class="card"><span class="num-tag">Prueba</span><h3>"Tu caja a tiempo" se puede demostrar</h3><p>Los grandes del corrugado hablan de escala; las pymes de la zona casi no comunican. Ninguno publica plazos cumplidos, ensayos de resistencia ni casos por industria. Entrecor tiene todo eso adentro de la planta.</p></div>
+      <div class="card"><span class="num-tag">Sostenibilidad</span><h3>Con certificado, no con slogan</h3><p>FSC, ISO 9001, huella de carbono y un reporte de sostenibilidad en preparación. La sostenibilidad es uno de los ejes de Envase 2027: llegar con la sección lista en la web es llegar con ventaja.</p></div>
+      <div class="card"><span class="num-tag">Compradores</span><h3>Donde deciden compras y logística</h3><p>Google capta a quien ya busca "cajas de cartón corrugado a medida". LinkedIn llega por cargo a compras, logística, calidad y packaging en empresas de todo el país.</p></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fuente: relevamiento de competidores y envase.org, 6/11/2026</span><span class="num">04 — Oportunidad</span></div>
+</section>
+
+<!-- 6 · ESTRATEGIA -->
+<section id="estrategia" data-label="Estrategia" class="s-deep">
+  <div class="rombos" style="right:-40px;top:-40px"></div>
+  <div class="wrap">
+    <div class="eyebrow r">La estrategia</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Primero medir. Después, <span class="hl">invertir donde rinde</span>.</h2>
+    <p class="lead r d2" style="margin-top:16px">Este es el recorrido de un comprador, de que ve un anuncio a que se convierte en cliente. Lo instrumentamos entero, para que el directorio vea en qué paso está cada peso.</p>
+    <div class="pipe r d3">
+      <div class="node"><span class="k">Paso 1</span><h3>Ve a Entrecor</h3><p>Google, LinkedIn, Meta y las redes de la marca.</p><div class="m"><b>Medimos</b>Alcance, clics y costo por clic</div></div>
+      <div class="node"><span class="k">Paso 2</span><h3>Entra al sitio</h3><p>Llega a la página de su industria o de sostenibilidad.</p><div class="m"><b>Medimos</b>Visitas, origen y páginas vistas</div></div>
+      <div class="node hot"><span class="k">Paso 3</span><h3>Pide cotización</h3><p>Formulario real o WhatsApp, desde cualquier página.</p><div class="m"><b>Medimos</b>Pedidos y costo por pedido</div></div>
+      <div class="node"><span class="k">Paso 4</span><h3>Entrecor responde</h3><p>El equipo comercial toma el contacto y cotiza.</p><div class="m"><b>Medimos</b>Tiempo de respuesta y cotizaciones enviadas</div></div>
+      <div class="node"><span class="k">Paso 5</span><h3>Nuevo cliente</h3><p>Primer pedido y relación recurrente.</p><div class="m"><b>Medimos</b>Clientes ganados por canal</div></div>
+    </div>
+    <div class="callout r d4">Los pasos 4 y 5 son de Entrecor, y sin ellos no hay retorno que mostrar. Por eso vamos a pedir, una vez por mes, cuántos contactos se cotizaron y cuántos se ganaron. No es para controlar al área comercial: es la forma de que el directorio vea el resultado completo.</div>
+  </div>
+  <div class="sfoot"><span>Estrategia</span><span class="num">05 — Medir</span></div>
+</section>
+
+<!-- 7 · SITIO WEB -->
+<section id="sitio" data-label="Sitio web nuevo" class="s-light">
+  <div class="wrap">
+    <div class="eyebrow r">Servicio · Sitio web nuevo</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">Una página para cada industria y <span class="hl">la sostenibilidad a la vista</span>.</h2>
+    <div class="split r d2" style="margin-top:40px">
+      <div>
+        <p class="lead">Un sitio de hasta 11 páginas pensado para vender: cada mercado tiene su página, y cada página pide cotización.</p>
+        <div class="smap">
+          <span class="k">Inicio</span><span>Empresa y planta</span><span>Productos</span>
+          <span>Industria 1</span><span>Industria 2</span><span>Industria 3</span><span>Industria 4</span>
+          <span class="k">Sostenibilidad</span><span>FSC</span><span>ISO 9001</span><span>Huella de carbono</span><span>Reporte descargable</span>
+          <span class="a">Pedí tu cotización</span><span class="a">Envase 2027</span>
+        </div>
+        <ul class="arw" style="margin-top:26px">
+          <li><span><strong>En enero sale primero la página de cotización</strong>, ya medida, para que las campañas no esperen al sitio completo.</span></li>
+          <li><span><strong>Las cuatro industrias se eligen juntos</strong>, según dónde quiere crecer Entrecor: por ejemplo, alimentos, frigoríficos, bebidas y farmacia.</span></li>
+          <li><span><strong>Fichas técnicas descargables</strong> a cambio de los datos de contacto, y WhatsApp con mensaje armado.</span></li>
+          <li><span><strong>Meta de entrega:</strong> 80 o más de rendimiento en celular, medido con la misma herramienta del diagnóstico.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="media"><img src="img/planta-planchas-corrugado.jpg" alt="Planchas de cartón corrugado en la planta de Entrecor"><span class="tag">Cada industria, su página</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Incluye mantenimiento mensual desde el lanzamiento</span><span class="num">06 — Sitio web</span></div>
+</section>
+
+<!-- 8 · CAMPAÑAS DE LEADS -->
+<section id="campanas" data-label="Campañas de leads" class="s-dark">
+  <div class="wrap">
+    <div class="eyebrow r">Servicio · Campañas para generar contactos</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Campañas que se optimizan <span class="hl">al pedido de cotización</span>.</h2>
+    <div class="split r d2" style="margin-top:44px;align-items:start">
+      <div class="grid" style="gap:16px">
+        <div class="card" style="padding:26px"><span class="num-tag">Google · Búsqueda</span><h3>Captar a quien ya está buscando</h3><p>Búsquedas como "fábrica de cajas de cartón" o "cajas corrugadas a medida", por industria y por zona. Display solo para volver a impactar a quien ya visitó el sitio.</p></div>
+        <div class="card" style="padding:26px"><span class="num-tag">LinkedIn</span><h3>Llegar por cargo</h3><p>Compras, logística, calidad y packaging en empresas medianas y grandes. Es también el canal de la campaña previa a Envase 2027.</p></div>
+        <div class="card" style="padding:26px"><span class="num-tag">Meta</span><h3>Volver a impactar y sumar marca</h3><p>Recordación para quien ya conoce a Entrecor y apoyo a la marca empleadora. No se lleva la mayor parte de la inversión.</p></div>
+      </div>
+      <div>
+        <div class="wf">
+          <div class="wft">Tablero mensual para el directorio <span>Ejemplo de diseño</span></div>
+          <div class="kpis">
+            <div class="kpi"><span>Pedidos de cotización</span><b>Por canal</b></div>
+            <div class="kpi"><span>Costo por pedido</span><b>Por campaña</b></div>
+            <div class="kpi"><span>Tiempo de respuesta</span><b>En horas</b></div>
+            <div class="kpi"><span>Cotizaciones enviadas</span><b>Del mes</b></div>
+            <div class="kpi"><span>Clientes ganados</span><b>Por origen</b></div>
+            <div class="kpi"><span>Inversión</span><b>Por plataforma</b></div>
+          </div>
+          <div class="wfbars"><i style="height:30%"></i><i style="height:42%"></i><i style="height:38%"></i><i class="a" style="height:55%"></i><i style="height:48%"></i><i class="a" style="height:66%"></i><i style="height:60%"></i><i class="a" style="height:78%"></i></div>
+          <div class="lg"><span><s style="background:var(--violeta-claro)"></s>Pedidos de cotización</span><span><s style="background:var(--aqua)"></s>Cotizaciones ganadas</span></div>
+        </div>
+        <p class="muted" style="margin-top:14px;font-size:.9rem">Reunión de seguimiento todas las semanas y reporte todos los meses, no cada dos: con campañas activas, dos meses es demasiado tiempo para corregir. El tablero se arma en la puesta en marcha, con los datos reales de Entrecor.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>La inversión en medios se paga directo a cada plataforma</span><span class="num">07 — Campañas</span></div>
+</section>
+
+<!-- 9 · REDES Y MARCA -->
+<section id="redes" data-label="Redes y marca" class="s-white">
+  <div class="wrap">
+    <div class="eyebrow r">Servicio · Redes de presencia y guía de marca</div>
+    <h2 class="h-lg r d1" style="max-width:22ch"><span class="hl">8 publicaciones y 4 historias</span> por mes, con lo que convence.</h2>
+    <p class="lead r d2" style="margin-top:16px">Instagram, Facebook y LinkedIn, con diseño y textos. LinkedIn con texto propio, pensado para compradores. Y una guía básica de marca para ordenar lo que ya existe: logo, colores, tipografías y plantillas.</p>
+    <div class="gal r d3" style="margin-top:34px">
+      <div class="media"><img src="img/ig-equipo-en-linea.jpg" alt="Equipo de Entrecor en la línea de producción"><span class="tag">El equipo</span></div>
+      <div class="media"><img src="img/ig-laboratorio-ensayo.jpg" alt="Ensayo en el laboratorio de calidad de Entrecor"><span class="tag v">La calidad</span></div>
+      <div class="media"><img src="img/ig-corrugadora.jpg" alt="Operario en la corrugadora"><span class="tag">La planta</span></div>
+      <div class="media"><img src="img/ig-autoelevador.jpg" alt="Autoelevador con cajas listas para despachar"><span class="tag v">La entrega a tiempo</span></div>
+      <div class="media"><img src="img/ig-bobinas.jpg" alt="Bobinas de papel en planta"><span class="tag">La materia prima</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Fotos: Instagram de Entrecor, 2026</span><span class="num">08 — Redes</span></div>
+</section>
+
+<!-- 10 · ENVASE 2027 -->
+<section id="envase" data-label="Envase 2027">
+  <div class="bg-photo center"><img src="img/planta-producto-terminado.jpg" alt="Depósito de producto terminado de Entrecor"></div>
+  <div class="ghost" style="left:-30px;bottom:-20px">envase 2027</div>
+  <div class="wrap">
+    <div class="eyebrow r">Servicio · Envase 2027 · 14 al 17 de septiembre</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">El stand empieza <span class="hl">meses antes</span> de la feria.</h2>
+    <div class="split r d2" style="margin-top:36px;align-items:start">
+      <div>
+        <p class="lead">Tres loops de 40 segundos para las pantallas del stand, hechos con material que ya existe (los videos de la troqueladora nueva y las fotos de planta) y animación. Sin rodaje: si la máquina no llega instalada, el contenido no depende de ella. Incluye una versión para reel.</p>
+      </div>
+      <div class="media wide"><img src="img/planta-troqueles.jpg" alt="Troqueles en la planta de Entrecor"><span class="tag">Material de la planta</span></div>
+    </div>
+    <div class="tres r d3">
+          <div class="card"><span class="num-tag">Antes · mayo a septiembre</span><h3>Agendar reuniones</h3><p>LinkedIn por cargo y una página para reservar una reunión en el stand.</p></div>
+          <div class="card"><span class="num-tag">Durante</span><h3>Contar y registrar</h3><p>Contenido en vivo y registro de cada contacto del stand.</p></div>
+          <div class="card"><span class="num-tag">Después · 30 a 60 días</span><h3>Seguir cada contacto</h3><p>Es donde se pierde la mayor parte del valor de una feria.</p></div>
+        </div>
+  </div>
+  <div class="sfoot"><span>Loops entregados en agosto, listos para la pauta previa</span><span class="num">09 — Envase 2027</span></div>
+</section>
+
+<!-- 11 · ESCENARIOS -->
+<section id="escenarios" data-label="Tres escenarios" class="s-deep">
+  <div class="wrap">
+    <div class="eyebrow r">Tres escenarios de inversión · 2027</div>
+    <h2 class="h-lg r d1" style="max-width:22ch">El año completo, <span class="hl">mes a mes</span>.</h2>
+    <p class="lead r d2" style="margin-top:16px">Cada escenario suma honorarios de Popcorn e inversión en medios, para comparar contra el presupuesto de marketing de 2026 ($30 millones, agencia y pauta incluidas). Elegí uno para verlo marcado.</p>
+    <div class="scens r d3">
+      <div class="card scen" data-scen="0"><span class="num-tag">Esencial</span><div class="amt" data-total="0">—</div><div class="who2">Ordenar y empezar a medir: sitio, medición, pauta en Google, Meta y LinkedIn, redes y loops para Envase.</div><div class="pick"><span class="radio"></span><span class="off">Elegir</span><span class="on">Elegido</span></div></div>
+      <div class="card scen selected" data-scen="1"><span class="rec-tag">Recomendado</span><span class="num-tag">Recomendado</span><div class="amt" data-total="1">—</div><div class="who2">Todo lo del Esencial, con más inversión en medios y piezas animadas desde marzo: contactos todo el año.</div><div class="pick"><span class="radio"></span><span class="off">Elegir</span><span class="on">Elegido</span></div></div>
+      <div class="card scen" data-scen="2"><span class="num-tag">Envase a fondo</span><div class="amt" data-total="2">—</div><div class="who2">Todo lo del Recomendado, con piezas animadas todo el año y el doble de inversión en medios: más pedidos de cotización y más LinkedIn antes de la feria.</div><div class="pick"><span class="radio"></span><span class="off">Elegir</span><span class="on">Elegido</span></div></div>
+    </div>
+    <div class="chart r d4">
+      <div class="ct">Distribución mes a mes · <em id="chartName" style="color:var(--aqua)">Recomendado</em><span id="chartAvg"></span></div>
+      <div class="cols" id="cols"></div>
+      <div class="mlab"><span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dic</span></div>
+      <div class="leg"><span><s style="background:var(--violeta-claro)"></s>Honorarios Popcorn</span><span><s style="background:var(--aqua)"></s>Inversión en medios</span><span><s style="background:#C9B2EE"></s>Fee variable de pauta</span></div>
+    </div>
+    <div class="tblbox r d4" style="margin-top:22px;background:rgba(26,3,47,.45)"><div class="tbl-wrap">
+      <table class="mx" id="mx">
+        <thead><tr><th>Qué incluye cada escenario</th><th>Esencial</th><th>Recomendado</th><th>Envase a fondo</th></tr></thead>
+        <tbody>
+          <tr class="sec"><td colspan="4">Por única vez</td></tr>
+          <tr><td>Puesta en marcha: medición y tablero</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Sitio web nuevo</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Guía básica de marca</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Loops para el stand de Envase 2027</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr class="sec"><td colspan="4">Todos los meses</td></tr>
+          <tr><td>Gestión de pauta en Google, Meta y LinkedIn</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Redes de presencia</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Mantenimiento del sitio <small>desde abril</small></td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Piezas animadas con IA <small>2 por mes</small></td><td class="n">—</td><td class="y">✓<small>desde marzo</small></td><td class="y">✓</td></tr>
+          <tr class="sec"><td colspan="4">Inversión en medios por mes · se paga a cada plataforma</td></tr>
+          <tr><td>Google</td><td>$300.000</td><td>$500.000</td><td>$1.200.000</td></tr>
+          <tr><td>Meta</td><td>$150.000</td><td>$200.000</td><td>$300.000</td></tr>
+          <tr><td>LinkedIn <small>el monto de hoy</small></td><td>$650.000</td><td>$650.000</td><td>$900.000<small>$1.300.000 de junio a septiembre</small></td></tr>
+          <tr class="tot"><td>Total 2027 · honorarios + medios + fee variable</td><td data-total="0">—</td><td data-total="1">—</td><td data-total="2">—</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <div class="tblbox r d4" style="margin-top:22px;background:rgba(26,3,47,.45)"><div class="tbl-wrap">
+      <table class="mx" id="mx2">
+        <thead><tr><th>Qué se puede lograr por mes con la inversión en plataformas</th><th>Esencial</th><th>Recomendado</th><th>Envase a fondo</th></tr></thead>
+        <tbody>
+          <tr class="sec"><td colspan="4">Google · personas que ya están buscando</td></tr>
+          <tr><td>Clics al sitio desde búsquedas de cajas y corrugado</td><td>250 – 270</td><td>410 – 450</td><td>980 – 1.080</td></tr>
+          <tr><td>Pedidos de cotización por mes</td><td class="y">2 – 3</td><td class="y">4 – 6</td><td class="y">9 – 14</td></tr>
+          <tr><td>Pedidos de cotización en el año</td><td>27 – 41</td><td>45 – 69</td><td>107 – 165</td></tr>
+          <tr class="sec"><td colspan="4">LinkedIn · compradores por cargo</td></tr>
+          <tr><td>Impresiones en compras, logística, calidad y packaging</td><td>740.000</td><td>740.000</td><td>1.020.000<small>1.480.000 de junio a septiembre</small></td></tr>
+          <tr class="sec"><td colspan="4">Meta · volver a impactar y marca</td></tr>
+          <tr><td>Visitas al sitio</td><td>4.700</td><td>6.300</td><td>9.400</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-note">Estimación de partida con datos reales de cuentas industriales B2B que gestiona Popcorn, de mayo a octubre de 2026: en Google, de $1.116 a $1.221 por clic y de $87.000 a $135.000 por pedido de cotización; en LinkedIn, $879 cada mil impresiones; en Meta, $32 por clic. No es un compromiso de resultado: el número propio de Entrecor sale de su cuenta de Google en la puesta en marcha y se ajusta con los primeros 60 días.</div></div>
+    <div class="callout r d5"><strong>Por qué el escenario 3 pone más en Google.</strong> Es el canal que trae pedidos de cotización de quien ya está buscando un proveedor: con $1.200.000 por mes, los pedidos pasan de 2 o 3 a entre 9 y 14 por mes. LinkedIn construye la lista de compradores que van a reconocer a Entrecor en Envase 2027, y Meta vuelve a impactar a quien ya visitó el sitio.</div>
+    <p class="muted r d5" style="margin-top:16px;font-size:.88rem">Proyectos por única vez al valor 50% + 50%; con pago 100% anticipado cuestan un 3% menos. La inversión en medios es nuestra recomendación de partida y se ajusta con los datos de los primeros 60 días. Honorarios + IVA; medios + impuestos.</p>
+  </div>
+  <div class="sfoot"><span>Valores de noviembre de 2026 · en pesos</span><span class="num">10 — Escenarios</span></div>
+</section>
+
+<!-- 12 · ROADMAP -->
+<section id="roadmap" data-label="Plan 2027" class="s-light">
+  <div class="wrap">
+    <div class="eyebrow r">Plan 2027</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Cada etapa termina con <span class="hl">algo medible</span>.</h2>
+    <div class="road r d2">
+      <div class="st go"><div class="n">1</div><div class="when">Diciembre y enero</div><h3>Medir</h3><p>Kickoff, auditoría de las cuentas actuales, medición instalada, guía de marca y página de cotización en línea.</p><div class="hito"><b>Hito</b>El primer pedido de cotización medido de punta a punta.</div></div>
+      <div class="st"><div class="n">2</div><div class="when">Febrero y marzo</div><h3>Captar</h3><p>Campañas optimizadas al pedido de cotización y el sitio nuevo con sus cuatro industrias y sostenibilidad.</p><div class="hito"><b>Hito</b>Primer tablero mensual para el directorio.</div></div>
+      <div class="st"><div class="n">3</div><div class="when">Abril a agosto</div><h3>Llegar a Envase</h3><p>Campañas sobre lo que funciona, loops del stand y campaña previa en LinkedIn.</p><div class="hito"><b>Hito</b>Reuniones agendadas para el stand.</div></div>
+      <div class="st"><div class="n">4</div><div class="when">Septiembre a diciembre</div><h3>Convertir</h3><p>La feria, el seguimiento de cada contacto y el balance del año.</p><div class="hito"><b>Hito</b>Informe anual: contactos, costo y clientes ganados.</div></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Envase 2027: 14 al 17 de septiembre, Buenos Aires Ferial</span><span class="num">11 — Roadmap</span></div>
+</section>
+
+<!-- 13 · INVERSIÓN -->
+<section id="inversion" data-label="Inversión" class="s-deep">
+  <div class="wrap">
+    <div class="eyebrow r">Inversión · el detalle</div>
+    <h2 class="h-lg r d1">Lo que cuesta cada servicio, <span class="hl">en un solo lugar</span>.</h2>
+    <div class="tblbox r d2" style="margin-top:34px;background:rgba(26,3,47,.45)"><div class="tbl-wrap">
+      <table class="qtbl">
+        <thead><tr><th>Honorarios Popcorn · + IVA</th><th>100% anticipado</th><th>50% + 50%</th></tr></thead>
+        <tbody>
+          <tr><td>Puesta en marcha: medición de contactos y tablero<small>Auditoría de las cuentas, Google Tag Manager, Analytics, etiquetas de Meta y LinkedIn, conversiones y tablero para el directorio</small></td><td>$1.044.000</td><td>$1.076.000</td></tr>
+          <tr><td>Sitio web nuevo<small>Hasta 11 páginas: cuatro industrias, sostenibilidad, cotización y Envase 2027</small></td><td>$2.583.000</td><td>$2.663.000</td></tr>
+          <tr><td>Guía básica de marca<small>Logo y versiones, colores, tipografías y plantillas</small></td><td>$563.000</td><td>$580.000</td></tr>
+          <tr><td>Loops para el stand de Envase 2027<small>3 loops de 40 segundos con material existente y animación, más una versión para reel</small></td><td>$2.445.000</td><td>$2.521.000</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <div class="tblbox r d2" style="margin-top:18px;background:rgba(26,3,47,.45)"><div class="tbl-wrap">
+      <table class="qtbl">
+        <thead><tr><th>Honorarios Popcorn por mes · + IVA</th><th>Por mes</th></tr></thead>
+        <tbody>
+          <tr><td>Gestión de pauta en Google, Meta y LinkedIn<small>Estrategia, anuncios, piezas y textos, optimización, tablero, reunión semanal y reporte mensual</small></td><td>$888.000<small>+ 15% variable</small></td></tr>
+          <tr><td>Redes de presencia<small>8 publicaciones y 4 historias por mes en Instagram, Facebook y LinkedIn</small></td><td>$807.000</td></tr>
+          <tr><td>Mantenimiento del sitio · desde el lanzamiento<small>Novedades, documentos, ajustes para las campañas, alojamiento y certificado de seguridad</small></td><td>$485.000</td></tr>
+          <tr><td>Piezas animadas con IA · escenarios 2 y 3<small>2 piezas animadas por mes para campañas y redes</small></td><td>$659.000</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <p class="r d3" style="margin-top:18px;max-width:80ch;font-size:.95rem;line-height:1.55;opacity:.9"><b style="color:var(--aqua)">Qué es el 15% variable.</b> La gestión de campañas tiene un fijo mensual y una parte variable equivalente al 15% de lo que Entrecor invierta cada mes en las plataformas. Así el honorario acompaña el volumen de trabajo, y en ningún escenario el honorario mensual de pauta (fijo más variable) supera lo que Entrecor invierte en las plataformas. Por ejemplo, con la inversión del escenario Recomendado ($1.350.000 por mes), el variable es de $202.500 + IVA.</p>
+
+    <div class="calc r d3">
+      <div class="invest-card ctl">
+        <div><label>Escenario</label><div class="seg full" id="segScen"><button data-v="0">Esencial</button><button data-v="1" class="on">Recomendado</button><button data-v="2">Envase a fondo</button></div></div>
+        <div><label>Forma de pago de los proyectos por única vez</label><div class="seg full" id="segPago"><button data-v="ant">100% anticipado</button><button data-v="5050" class="on">50% + 50%</button></div></div>
+        <p class="muted" style="font-size:.88rem;line-height:1.55">Lo mensual se abona 100% por adelantado, al valor completo: el descuento por pago anticipado aplica solo a los proyectos por única vez.</p>
+      </div>
+      <aside class="sumbox">
+        <h3>El año 2027, en números</h3>
+        <p class="sub" id="sumSub">—</p>
+        <div class="sumline"><span>Proyectos por única vez<small id="sOnceD">—</small></span><b id="sOnce">—</b></div>
+        <div class="sumline"><span>Honorarios mensuales del año<small>De enero a diciembre</small></span><b id="sRec">—</b></div>
+        <div class="sumline"><span>Fee variable de pauta<small>15% de la inversión en medios</small></span><b id="sVar">—</b></div>
+        <div class="sumline sub2"><span>Total honorarios Popcorn<small>+ IVA</small></span><b id="sHon">—</b></div>
+        <div class="sumline"><span>Inversión en medios<small>Se paga directo a cada plataforma · + impuestos</small></span><b id="sMed">—</b></div>
+        <div class="sumline tot"><span>Total 2027</span><b id="sTot">—</b></div>
+        <p class="fine">Referencia: presupuesto 2026 de $30.000.000. Valores en pesos de noviembre de 2026; referencia en dólares a $1.500 por dólar. Propuesta válida hasta el 21/11/2026.</p>
+      </aside>
+    </div>
+  </div>
+  <div class="sfoot"><span>Honorarios + IVA · medios + impuestos y percepciones</span><span class="num">12 — Inversión</span></div>
+</section>
+
+<!-- 14 · CÓMO TRABAJAMOS -->
+<section id="equipo" data-label="Cómo trabajamos" class="s-white">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow r">Cómo trabajamos</div>
+        <h2 class="h-lg r d1">Un equipo, <span class="hl">un interlocutor</span> y una reunión por semana.</h2>
+        <div class="grid r d2" style="margin-top:30px;gap:12px">
+          <div class="card" style="padding:20px 22px"><span class="num-tag">Estrategia y cuenta</span><p>Una persona responsable de la cuenta, que coordina al equipo y es el contacto directo de Entrecor.</p></div>
+          <div class="card" style="padding:20px 22px"><span class="num-tag">Campañas y medición</span><p>Especialistas en pauta y análisis: campañas, optimización, tablero y reporte mensual.</p></div>
+          <div class="card" style="padding:20px 22px"><span class="num-tag">Web, diseño y audiovisual</span><p>Diseño, redacción, desarrollo web y edición: el sitio, las redes y los loops para Envase 2027.</p></div>
+        </div>
+        <p class="muted r d3" style="margin-top:20px">Reunión semanal de seguimiento con Entrecor y reporte mensual con el tablero para el directorio.</p>
+        <div class="card r d3" style="margin-top:18px;padding:22px"><span class="num-tag">Lo que necesitamos de Entrecor</span><p>Accesos a las cuentas de Google, Meta, LinkedIn, el dominio y el sitio · fotos y videos de planta · aprobaciones en 48 horas · una vez por mes, cuántos contactos se cotizaron y cuántos se ganaron.</p></div>
+      </div>
+      <div class="media r d2"><img src="img/popcorn-equipo.jpg" alt="Equipo de Popcorn trabajando" style="object-position:60% center"><span class="tag">Equipo Popcorn</span></div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Equipo</span><span class="num">13 — Equipo</span></div>
+</section>
+
+<!-- 15 · POR QUÉ POPCORN -->
+<section id="popcorn" data-label="Por qué Popcorn">
+  <div class="ghost" style="right:-40px;bottom:-30px">industria</div>
+  <div class="wrap">
+    <div class="eyebrow r">Por qué Popcorn</div>
+    <h2 class="h-lg r d1" style="max-width:20ch">Ya conocemos la planta. Y <span class="hl">el idioma</span> de la industria.</h2>
+    <p class="lead r d2" style="margin-top:16px">En 2023 fotografiamos y filmamos la planta de Entrecor. Hoy trabajamos con fabricantes, metalúrgicas y proveedores de maquinaria e insumos industriales, con la misma lógica: lo que no se mide no se puede mejorar.</p>
+    <div class="r d3">
+      <div class="logocap">Industria, maquinaria y herramientas</div>
+      <div class="logowall">
+        <div class="logocell"><img src="img/logos/polimetal.png" alt="Polimetal" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Polimetal</span></div>
+        <div class="logocell"><img src="img/logos/esab.png" alt="ESAB" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">ESAB</span></div>
+        <div class="logocell"><img src="img/logos/mitmaq.png" alt="Mitmaq" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Mitmaq</span></div>
+        <div class="logocell"><img src="img/logos/independencia.png" alt="Maquinarias Independencia" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Independencia</span></div>
+        <div class="logocell"><img src="img/logos/daewoo.png" alt="Daewoo" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Daewoo</span></div>
+        <div class="logocell"><img src="img/logos/evel.png" alt="Evel" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Evel</span></div>
+        <div class="logocell"><img src="img/logos/gerhardt.png" alt="Gerhardt" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Gerhardt</span></div>
+        <div class="logocell"><img src="img/logos/condelectric.png" alt="Condelectric" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Condelectric</span></div>
+        <div class="logocell"><img src="img/logos/transadvanced.png" alt="Trans Advanced Technologies" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Trans Advanced</span></div>
+        <div class="logocell"><img src="img/logos/transpack.png" alt="Transpack" onerror="this.parentNode.classList.add('noimg');this.remove()"><span class="ln">Transpack</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="sfoot"><span>Popcorn · Marketing, Comunicación y Creatividad</span><span class="num">14 — Experiencia</span></div>
+</section>
+
+<!-- 16 · CIERRE -->
+<section id="cierre" data-label="Próximos pasos">
+  <div class="bg-photo center"><img src="img/planta-bobinas-de-papel.jpg" alt="Depósito de bobinas de papel de Entrecor"></div>
+  <div class="wrap">
+    <div class="eyebrow r" style="justify-content:center">Próximos pasos</div>
+    <h2 class="close-title r d1">Si arrancamos en diciembre, <span class="hl">llegamos a Envase</span> con números.</h2>
+    <div class="steps r d2">
+      <div class="card"><span class="num-tag">01 · 23 de noviembre</span><h3>Directorio</h3><p>Elegir el escenario. Si hace falta, lo ajustamos antes juntos.</p></div>
+      <div class="card"><span class="num-tag">02 · Diciembre</span><h3>Kickoff y accesos</h3><p>Cuentas, sitio, fotos y la información del proceso comercial.</p></div>
+      <div class="card"><span class="num-tag">03 · Enero</span><h3>Medición en línea</h3><p>Página de cotización, campañas activas y primer tablero.</p></div>
+      <div class="card"><span class="num-tag">04 · Septiembre</span><h3>Envase 2027</h3><p>Stand con contenido propio y la agenda armada de antemano.</p></div>
+    </div>
+    <p id="ctaPick" class="r d3"></p>
+    <a class="cta-go r d3" id="ctaGo" href="mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com,demianlinet@somospopcorn.com">Avanzamos con la propuesta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+    <img class="r d5" src="img/logos/logo-popcorn-vertical-blanco.png" alt="Popcorn" style="height:64px;margin-top:44px">
+  </div>
+  <div class="sfoot"><span>Entrecor × Popcorn · Válida hasta el 21/11/2026</span><span class="num">somospopcorn.com</span></div>
+</section>
+
+<script>
+/* progreso + topbar */
+const prog=document.getElementById('prog'),topbar=document.getElementById('topbar');
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?scrollY/h*100:0)+'%';topbar.classList.toggle('scrolled',scrollY>40)}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* dots + sección activa */
+const sections=[...document.querySelectorAll('section')],dots=document.getElementById('dots');
+sections.forEach(s=>{const a=document.createElement('a');a.href='#'+s.id;a.innerHTML='<span>'+(s.dataset.label||s.id)+'</span>';dots.appendChild(a)});
+const dotEls=[...dots.children];
+const activeIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=sections.indexOf(e.target);dotEls.forEach((d,k)=>d.classList.toggle('active',k===i))}}),{threshold:.45});
+sections.forEach(s=>activeIO.observe(s));
+
+/* reveal + anillos */
+function ringsIn(root){root.querySelectorAll('.rr').forEach(r=>r.style.setProperty('--p',r.dataset.p))}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ringsIn(e.target);io.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+
+/* montos en pesos, + IVA */
+const U={ /* únicos: valor 50/50 · cuotas por mes (0 = enero) */
+  arranque:{n:'Puesta en marcha: medición y tablero',v:1076296,m:[[0,.5],[1,.5]]},
+  web:{n:'Sitio web nuevo',v:2662819,m:[[0,.5],[2,.5]]},
+  guia:{n:'Guía básica de marca',v:580392,m:[[0,.5],[1,.5]]},
+  loops:{n:'Loops para el stand de Envase 2027',v:2520705,m:[[5,.5],[7,.5]]}
+};
+const M={ /* mensuales: valor · meses activos */
+  pauta:{n:'Gestión de pauta en Google, Meta y LinkedIn',v:888233,m:[0,1,2,3,4,5,6,7,8,9,10,11]},
+  redes:{n:'Redes de presencia',v:806839,m:[0,1,2,3,4,5,6,7,8,9,10,11]},
+  mant:{n:'Mantenimiento del sitio (desde abril)',v:485224,m:[3,4,5,6,7,8,9,10,11]},
+  anim:{n:'Piezas animadas con IA',v:658953,m:[0,1,2,3,4,5,6,7,8,9,10,11]},
+  animMar:{n:'Piezas animadas con IA (desde marzo)',v:658953,m:[2,3,4,5,6,7,8,9,10,11]}
+};
+const L=v=>Array(12).fill(v);
+const ESC=[
+  {n:'Esencial',u:['arranque','web','guia','loops'],r:['pauta','redes','mant'],med:{Google:L(300000),Meta:L(150000),LinkedIn:L(650000)}},
+  {n:'Recomendado',u:['arranque','web','guia','loops'],r:['pauta','redes','mant','animMar'],med:{Google:L(500000),Meta:L(200000),LinkedIn:L(650000)}},
+  {n:'Envase a fondo',u:['arranque','web','guia','loops'],r:['pauta','redes','mant','anim'],med:{Google:L(1200000),Meta:L(300000),LinkedIn:[900000,900000,900000,900000,900000,1300000,1300000,1300000,1300000,900000,900000,900000]}}
+];
+const DESC=.03,VAR=.15;
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-AR');
+const fmtK=n=>'$'+(Math.round(n/1000)*1000).toLocaleString('es-AR');
+const fmtM=n=>'$'+(n/1e6).toLocaleString('es-AR',{minimumFractionDigits:1,maximumFractionDigits:1})+' M';
+function calc(i,pago){
+  const e=ESC[i],k=pago==='ant'?1-DESC:1,hon=Array(12).fill(0),med=Array(12).fill(0);let once=0,rec=0;
+  e.u.forEach(id=>{const s=U[id];s.m.forEach(([mm,f])=>{hon[mm]+=s.v*k*f});once+=s.v*k});
+  e.r.forEach(id=>{const s=M[id];s.m.forEach(mm=>{hon[mm]+=s.v});rec+=s.v*s.m.length});
+  Object.values(e.med).forEach(a=>a.forEach((v,mm)=>{med[mm]+=v}));
+  const vr=med.map(x=>x*VAR),tot=hon.map((h,mm)=>h+med[mm]+vr[mm]);
+  const sum=a=>a.reduce((x,y)=>x+y,0);
+  return{e,hon,med,vr,tot,once,rec,varT:sum(vr),medT:sum(med),honT:once+rec+sum(vr),total:sum(tot)};
+}
+const st={scen:1,pago:'5050'};
+const $=id=>document.getElementById(id);
+document.querySelectorAll('[data-total]').forEach(el=>{el.textContent=fmtK(calc(+el.dataset.total,'5050').total)});
+
+function chart(c){
+  const max=Math.max(...calc(2,'5050').tot);const cols=$('cols');cols.innerHTML='';
+  c.tot.forEach((t,mm)=>{const H=c.hon[mm]/max*100,Md=c.med[mm]/max*100,V=c.vr[mm]/max*100,hh=(t/max*100);
+    const d=document.createElement('div');d.className='col';d.style.setProperty('--hh',hh+'%');
+    d.innerHTML='<span class="tt">'+(t/1e6).toLocaleString('es-AR',{maximumFractionDigits:1})+'</span><div class="seg2 vr" style="height:'+V+'%"></div><div class="seg2 md" style="height:'+Md+'%"></div><div class="seg2 h" style="height:'+H+'%"></div>';
+    cols.appendChild(d)});
+  $('chartName').textContent=c.e.n;$('chartAvg').textContent='Promedio '+fmtK(c.total/12)+' por mes';
+}
+function segOn(id,v){document.querySelectorAll('#'+id+' button').forEach(b=>b.classList.toggle('on',b.dataset.v===String(v)))}
+const scenCards=[...document.querySelectorAll('.scen')];
+function setScen(i){st.scen=i;scenCards.forEach(c=>c.classList.toggle('selected',+c.dataset.scen===i));segOn('segScen',i);
+  document.querySelectorAll('#mx tr, #mx2 tr').forEach(tr=>{const cells=[...tr.children];if(cells.length===4)cells.forEach((td,k)=>td.classList.toggle('c-on',k===i+1))});update()}
+scenCards.forEach(c=>c.addEventListener('click',()=>setScen(+c.dataset.scen)));
+document.querySelectorAll('#segScen button').forEach(b=>b.addEventListener('click',()=>setScen(+b.dataset.v)));
+document.querySelectorAll('#segPago button').forEach(b=>b.addEventListener('click',()=>{st.pago=b.dataset.v;segOn('segPago',st.pago);update()}));
+
+function update(){
+  const c=calc(st.scen,st.pago),pagoTxt=st.pago==='ant'?'100% anticipado':'50% + 50%';
+  chart(calc(st.scen,'5050'));
+  $('sumSub').textContent='Escenario '+c.e.n+' · proyectos '+pagoTxt;
+  $('sOnceD').textContent=c.e.u.length+' proyectos · '+pagoTxt;
+  $('sOnce').textContent=fmtK(c.once);$('sRec').textContent=fmtK(c.rec);$('sVar').textContent=fmtK(c.varT);
+  $('sHon').textContent=fmtK(c.honT);$('sMed').textContent=fmtK(c.medT);$('sTot').textContent=fmtK(c.total);
+  $('ctaPick').innerHTML='Avanzás con el escenario <b>'+c.e.n+'</b> · total 2027 de <b>'+fmtK(c.total)+'</b>';
+  let body='Hola Florencia, Sol y Demián: vimos la propuesta de Popcorn para Entrecor y queremos avanzar.\n\n';
+  body+='Escenario: '+c.e.n+'\n';
+  body+='• Proyectos por única vez ('+pagoTxt+'): '+fmtK(c.once)+' + IVA\n   '+c.e.u.map(id=>U[id].n).join(' · ')+'\n';
+  body+='• Servicios mensuales: '+c.e.r.map(id=>M[id].n).join(' · ')+'\n';
+  body+='• Honorarios mensuales del año: '+fmtK(c.rec)+' + IVA\n';
+  body+='• Fee variable de pauta (15% de la inversión en medios): '+fmtK(c.varT)+' + IVA en el año\n';
+  body+='• Inversión en medios del año (pagada a cada plataforma, + impuestos): '+fmtK(c.medT)+'\n';
+  body+='\nTotal 2027: '+fmtK(c.total)+'\n\nQuedamos atentos para coordinar el kickoff.';
+  $('ctaGo').href='mailto:florencia@somospopcorn.com?cc=sol@somospopcorn.com,demianlinet@somospopcorn.com&subject='+encodeURIComponent('Entrecor × Popcorn · Avanzamos · escenario '+c.e.n)+'&body='+encodeURIComponent(body);
+}
+setScen(1);
+</script>
+</body>
+</html>
